@@ -1149,33 +1149,6 @@ const D = {
    }
   }
  },
- "four": {
-  "W": {
-   "colors": "UBRG",
-   "commander": "Yidris, Maelstrom Wielder",
-   "deck": "Entropic Uprising"
-  },
-  "U": {
-   "colors": "WBRG",
-   "commander": "Saskia the Unyielding",
-   "deck": "Open Hostility"
-  },
-  "B": {
-   "colors": "WURG",
-   "commander": "Kynaios and Tiro of Meletis",
-   "deck": "Stalwart Unity"
-  },
-  "R": {
-   "colors": "WUBG",
-   "commander": "Atraxa, Praetors' Voice",
-   "deck": "Breed Lethality"
-  },
-  "G": {
-   "colors": "WUBR",
-   "commander": "Breya, Etherium Shaper",
-   "deck": "Invent Superiority"
-  }
- },
  "order": [
   "W",
   "U",
@@ -1194,7 +1167,6 @@ const D = {
 
 const SRC_PIE   = 'Rosewater, "Pie Fights," Nov 2016 — paraphrased';
 const SRC_FRIEND= 'Rosewater, "Thank You for Being a Friend," Mar 2017 — paraphrased';
-const SRC_C16   = 'Commander 2016 signature commanders';
 const SRC_REV   = 'Rosewater, the 2015 "revisited" color series — paraphrased';
 const SRC_SHARD = 'Rosewater, the 2008 shard interviews — paraphrased';
 /* Rosewater states in the pair articles that they examine the philosophy of two
@@ -1583,19 +1555,44 @@ function showEnemy(k, view, animate) {
   sel = { kind:'enemy', key:k, layer:'enemy' };
 }
 
+/* Explore and Combine describe the SAME five identities, so they now read the
+   same record. This used to pull commander and deck from D.four while Combine
+   pulled them from the registry — two copies of the same facts, which is the
+   drift this file has been removing everywhere else. D.four is gone; the four
+   included colours are derived from the excluded one.
+
+   What Explore keeps that Combine does not is the crossing itself: in Explore
+   you arrived by clicking a point on the pentagram, so the geometry is worth
+   explaining. Below that, the layers are identical to Combine's. */
 function showFour(excl) {
-  const o = D.four[excl];
-  const inc = o.colors.split('');
+  const inc   = D.order.filter(c => c !== excl);
+  const id    = idForCols(inc);
+  const m     = D.colors[excl];
+  const shown = id && id.display ? id.display.split('') : inc;
+
   panel.innerHTML = `
     <p class="panel-kicker">Four-Color · Crossing</p>
-    <h2 class="panel-title">${inc.map(dot).join('')}Non-${esc(nm(excl))}</h2>
-    <p class="panel-sub">${esc(o.commander)} · ${esc(o.deck)}</p>
+    <h2 class="panel-title">${shown.map(dot).join('')}${esc(id ? id.name : 'Non-' + nm(excl))}</h2>
+    <p class="panel-sub">${shown.join(' ')} · Four-color</p>
+
     <p class="panel-body">This point is where two conflict chords cross. A chord pair
       intersects only when their endpoints alternate around the wheel, so every crossing
-      touches four colors and leaves exactly one out — here, ${dot(excl)}<strong>${esc(nm(excl))}</strong>.</p>
-    <p class="panel-body">Five crossings, five excluded colors, five four-color identities.
-      The pentagram contains the whole tier and never labels it.</p>
-    <p class="panel-src">${esc(SRC_C16)} · geometry solved at build time</p>`;
+      touches four colors and leaves exactly one out. Five crossings, five excluded
+      colors, five four-color identities — the pentagram contains the whole tier and
+      never labels it.</p>
+
+    <p class="panel-body">Here the one left out is ${dot(excl)}<strong>${esc(nm(excl))}</strong>,
+      the colour that wants ${esc(m.goal.toLowerCase())}, pursued through
+      ${esc(m.key.charAt(0).toLowerCase() + m.key.slice(1))}.</p>
+
+    ${id && id.lens ? `<p class="panel-body"><strong>Commander 2016 deck lens: ${esc(id.lens)}.</strong>
+      A deck that ${esc(id.lensDeck)}.</p>` : ''}
+    ${id && id.commander ? `<p class="panel-body"><strong>Its commander:</strong>
+      ${esc(id.commander)} · ${esc(id.deck)}.</p>` : ''}
+    ${id && id.community ? `<p class="panel-body"><strong>Community typically reads it as</strong>
+      ${esc(id.community)}.</p>` : ''}
+
+    <p class="panel-src">${esc(SRC_SCOPE_FOUR)} Geometry solved at build time.</p>`;
 
   // Exactly two chords pass through a crossing, but "every chord that doesn't
   // contain the excluded colour" returns three — each colour sits in two of the
