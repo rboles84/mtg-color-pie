@@ -168,7 +168,21 @@ black `#aca29a`, red `#db8664`, green `#93b483`, colourless `#beb9b2`.
 
 ## Open items
 
-- [ ] Layer 4: mechanical overlay, needs Mechanical Color Pie 2021
+- [ ] Layer 4: mechanical overlay. **The 2021 data is found**, not missing:
+      `voxmana.io/docs/research/mono_upgrade/20_mechanical_color_pie_2021.md`
+      (the snapshot) and `21_..._changes.md` (the 2017→2021 change log). The
+      superseded 2017 version is at `canon/misc/mechanical-color-pie-2017.md`.
+      Both are already paraphrase digests, so they suit the copy policy.
+      What is NOT done is turning the snapshot into a dataset. It is prose
+      lists: 393 entries, 205 distinct labels once normalised, 53 of which
+      bundle several sections behind slashes ("friendly to
+      artifacts/enchantments/legendaries/low-MV/planeswalkers" is five
+      sections). Splitting and normalising those is where errors would enter,
+      and it needs checking against the article, not guessing.
+      One real defect found in the digest: Black lists bare "flash" in BOTH
+      secondary and tertiary. One of them is wrong. (Black's two "+N/+N"
+      entries are NOT a duplicate — "(creatures)" and "(spells/Auras)" are
+      different sections.)
 - [ ] `--g` and `--c` confirmation (Rob)
 - [ ] Crossing markers may crowd at hover scale — shrink, never move
 - [ ] Mono-colour tiles named plainly ("White", "Blue") — swap in Codex names if
