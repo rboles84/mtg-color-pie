@@ -1025,36 +1025,43 @@ const D = {
   "WU": {
    "value": "Restraint",
    "enemy": "R",
-   "blurb": "Both are undone by impulse. White needs the group to think several moves ahead; blue needs the individual to. Together: plan backwards from the ending.",
-   "split": "Free will versus destiny \u2014 blue grants people agency, white assigns them a role."
+   "blurb": "Both distrust impulse. White plans ahead for the welfare of society; blue studies, evaluates and predicts to develop individual potential. Together, they choose the ending first and plan backward from it.",
+   "split": "Free will versus destiny \u2014 blue believes people can choose and shape their path; white believes people must fulfil roles that serve the group.",
+   "cost": "Preparation becomes rigidity. Because it analyses and systematises in advance, white\u2013blue is slow to respond when a problem falls outside what it anticipated. Once prepared it can act decisively; what it struggles with is improvising."
   },
   "UB": {
    "value": "Choice",
    "enemy": "G",
-   "blurb": "Both refuse a life assigned at birth. Blue wants options in order to improve; black wants them in order to advance. Together: stay unreadable and keep every door open.",
-   "split": "Freedom versus security \u2014 black wants no limits, blue wants a floor under the chaos."
+   "blurb": "Both want a say in who they become and what purpose they pursue. Blue wants options in order to improve; black wants them in order to advance. Together: stay unreadable and keep as many doors open as possible.",
+   "split": "Freedom versus security \u2014 black resists limits on its freedom and opportunity; blue accepts safeguards against chaos so people have the security to develop.",
+   "cost": "Secrecy turns inward. Because blue\u2013black hides so much even from itself, one part often does not know what another is doing, and its biggest obstacle is frequently itself. Its strikes can still arrive unanticipated; what it loses is trust within its own ranks."
   },
   "BR": {
    "value": "Individualism",
    "enemy": "W",
-   "blurb": "Neither accepts being told to choose against itself. Black wants merit rewarded; red wants impulse followed. Together: strip the restrictions and move.",
-   "split": "Nature versus nurture \u2014 black says you build yourself, red says you were already built."
+   "blurb": "Both object to being forced to choose against their own interests or impulses. Black wants merit rewarded; red wants impulse followed. Together: strip away the restrictions and move.",
+   "split": "Nature versus nurture \u2014 black says people can shape who they become; red says their inner drives reveal who they already are.",
+   "cost": "Removing limits also removes discipline. Because black\u2013red imposes little self-control on itself, it often recognises a bad decision only afterwards, and the anger that follows can feed the next one. That same absence of self-imposed limits is what frees it to act."
   },
   "RG": {
    "value": "Intuition",
    "enemy": "U",
-   "blurb": "Both are insulted by the instruction to ignore what's inside them. Red calls it emotion, green calls it instinct. Together: act faster than deliberation allows.",
-   "split": "Group versus individual \u2014 green sees a web of obligation, red sees its own path."
+   "blurb": "Both are insulted by being told to ignore what is inside them. Red calls it emotion; green calls it instinct. Together: act faster than deliberation allows.",
+   "split": "Group versus individual \u2014 green sees a web of interdependence; red sees each individual's own path.",
+   "cost": "It commits to a first plan without preparing a second. Because red\u2013green relies on the direct approach, it has little to fall back on when that fails, and it struggles with problems force cannot solve. Its speed and raw power can still beat opponents who hold the answers."
   },
   "GW": {
    "value": "Responsibility",
    "enemy": "B",
    "blurb": "Both object to advancement bought at someone else's cost. Green protects the web; white protects the group. Together: many small things become one large thing.",
-   "split": "Head versus heart \u2014 white overrides instinct, green follows it."
+   "split": "Head versus heart \u2014 white overrides instinct, green follows it.",
+   "cost": "One shared goal narrows the range of thought. Because every member works toward the same end, green\u2013white has little diversity of thought or experience to draw on; it faces real barriers to change and evolves slowly. That same singleness of purpose is what gives it its resolve."
   }
  },
  "enemies": {
   "WB": {
+   "together": "By compromise. White\u2013black narrows \"the group\" down to a chosen subgroup, and can then offer that subgroup what it wants at the expense of everyone outside it.",
+   "cost": "The bargain is the weakness. Because its order rests on trust inside that subgroup, white\u2013black depends on something it cannot fully count on \u2014 it holds most of the time, and when it fails it can fail badly.",
    "title": "The Good of the Group vs. the Good of the Individual",
    "core": "At bottom: how a person ranks the claims on them.",
    "views": {
@@ -1063,6 +1070,8 @@ const D = {
    }
   },
   "UR": {
+   "together": "By taking parts of each. Red\u2013blue thinks, but reaches for the tools of emotion rather than only the tools of logic.",
+   "cost": "Curiosity outruns completion. Because red\u2013blue keeps jumping from one promising idea to the next, it is difficult to keep focused on the task at hand, which makes it unreliable \u2014 and because it does not censor where it looks, it can encounter dangerous forces.",
    "title": "Head vs. Heart",
    "core": "At bottom: how a life should be conducted.",
    "views": {
@@ -1071,6 +1080,8 @@ const D = {
    }
   },
   "BG": {
+   "together": "Its shared expression is life, death, and the cycle between them. Green promotes life, black harnesses death, and both turn to the same primal forces.",
+   "cost": "What cannot be stopped also cannot be steered. Because the forces black\u2013green unleashes can take on a life of their own, it lacks pinpoint control; it gets close to what it set out to do without the finesse to land exactly there. Destroying part of it rarely stops the larger advance.",
    "title": "Free Will vs. Destiny",
    "core": "At bottom: how much of your life is yours to decide.",
    "views": {
@@ -1079,6 +1090,8 @@ const D = {
    }
   },
   "RW": {
+   "together": "By splitting the job \u2014 one half picks the goal, the other picks the tools. A moral centre willing to use whatever it believes necessary.",
+   "cost": "Declaring the intent gives it away. Because red\u2013white announces what it means to do and then commits, opponents generally know exactly what is coming, which is often a real liability. When it does act, there is no hesitancy.",
    "title": "Freedom vs. Security",
    "core": "At bottom: what a society owes the people inside it.",
    "views": {
@@ -1087,6 +1100,8 @@ const D = {
    }
   },
   "GU": {
+   "together": "Green holds that potential is built in; blue holds that knowledge can change anything. Together they pursue improving on what nature already made.",
+   "cost": "Focus becomes an inability to stop. Because nothing moves green\u2013blue off a course its data supports, it is slow to halt even when something has gone wrong internally, and it tends to read outside objection as a failure to understand rather than as a warning.",
    "title": "Nature vs. Nurture",
    "core": "At bottom: what makes a person who they are.",
    "views": {
@@ -1143,6 +1158,11 @@ const SRC_FRIEND= 'Rosewater, "Thank You for Being a Friend," Mar 2017 — parap
 const SRC_C16   = 'Commander 2016 signature commanders';
 const SRC_REV   = 'Rosewater, the 2015 "revisited" color series — paraphrased';
 const SRC_SHARD = 'Rosewater, the 2008 shard interviews — paraphrased';
+/* Rosewater states in the pair articles that they examine the philosophy of two
+   COLOURS and use the guild name as familiar shorthand. Since "Azorius" names a
+   real Ravnican institution, a reader could otherwise take these for guild lore.
+   The note is shown, not left in the research notes. */
+const SRC_SCOPE = 'These describe the philosophy of each two-color combination; guild names are familiar shorthand, not full accounts of the Ravnican institutions.';
 const SRC_WEDGE = 'Rosewater, the 2014–15 wedge interviews — paraphrased';
 
 const wheel = document.getElementById('wheel');
@@ -1475,8 +1495,9 @@ function showAlly(k) {
     <p class="panel-body"><strong>Derived from their shared enemy.</strong>
       Both oppose ${dot(o.enemy)}${esc(nm(o.enemy))} — and what they agree on is
       what that opposition has in common.</p>
+    <p class="panel-body"><strong>What it costs.</strong> ${esc(o.cost)}</p>
     <p class="panel-body"><strong>Where they split:</strong> ${esc(o.split)}</p>
-    <p class="panel-src">${esc(SRC_FRIEND)}</p>`;
+    <p class="panel-src">${esc(SRC_FRIEND)} · ${esc(SRC_SCOPE)}</p>`;
   // the shared enemy is highlighted too — that's the whole derivation
   highlight([edgeEl(k), vtx(a), vtx(b), vtx(o.enemy),
              edgeEl(keyFor(a, o.enemy)), edgeEl(keyFor(b, o.enemy))]);
@@ -1504,8 +1525,11 @@ function showEnemy(k, view, animate) {
       ${btn(a, nm(a) + "'s view")}${btn('neutral','Neutral')}${btn(b, nm(b) + "'s view")}
     </div>
     <p class="panel-body">${esc(body)}</p>
+    <p class="panel-body"><strong>How they work together.</strong> ${esc(o.together)}</p>
+    <p class="panel-body"><strong>What it costs.</strong> ${esc(o.cost)}</p>
     <p class="panel-src">${esc(SRC_PIE)} · Each conflict reads differently depending on
-      which side states it — the neutral summary is a third framing, not the true one.</p>`;
+      which side states it — the neutral summary is a third framing, not the true one.
+      ${esc(SRC_SCOPE)}</p>`;
 
   panel.querySelectorAll('.view-btn').forEach(el =>
     el.addEventListener('click', () => showEnemy(k, el.dataset.view, false)));
@@ -1893,9 +1917,7 @@ const GROUP_LABEL = {
 function composition(cols) {
   const p = pairsOf(cols);
   if (cols.length > 3) {
-    return '<p class="panel-body">Inside it: ' + p.allied.length +
-      ' alliance' + (p.allied.length === 1 ? '' : 's') + ' and ' + p.enemy.length +
-      ' conflict' + (p.enemy.length === 1 ? '' : 's') + '.</p>';
+    return '';   // a count of alliances and conflicts is a number, not information
   }
   const row = (k, label) =>
     '<li>' + dot(k[0]) + dot(k[1]) + '<strong>' + esc(label) + '</strong></li>';
@@ -1916,9 +1938,17 @@ function comboBody(cols, id) {
 
   if (n === 2) {
     const k = p.allied[0] || p.enemy[0];
-    return p.allied.length
-      ? `<p class="panel-body">An <strong>allied</strong> pair — an edge of the pentagon. They share ${esc(D.allies[k].value.toLowerCase())}.</p>`
-      : `<p class="panel-body">An <strong>enemy</strong> pair — a chord across the star. Their conflict is ${esc(D.enemies[k].title)}.</p>`;
+    if (p.allied.length) {
+      const a = D.allies[k];
+      return `<p class="panel-body"><strong>Shared value: ${esc(a.value)}.</strong></p>
+        <p class="panel-body">${esc(a.blurb)}</p>
+        <p class="panel-body"><strong>What it costs.</strong> ${esc(a.cost)}</p>
+        <p class="panel-body"><strong>Where they split:</strong> ${esc(a.split)}</p>`;
+    }
+    const e = D.enemies[k];
+    return `<p class="panel-body"><strong>Conflict: ${esc(e.title)}.</strong></p>
+      <p class="panel-body"><strong>How they work together.</strong> ${esc(e.together)}</p>
+      <p class="panel-body"><strong>What it costs.</strong> ${esc(e.cost)}</p>`;
   }
 
   if (n === 3) {
@@ -1955,7 +1985,7 @@ function comboBody(cols, id) {
         The two conflict chords that cross inside this region meet at the crossing for this identity.</p>
       ${composition(cols)}
       ${id && id.commander ? `<p class="panel-body"><strong>Commander 2016 anchor:</strong>
-        ${esc(id.commander)} · ${esc(id.deck)}. A historical anchor, not another name for the combination.</p>` : ''}`;
+        ${esc(id.commander)} · ${esc(id.deck)}.</p>` : ''}`;
   }
 
   return `<p class="panel-body">All five. The complete pentagon — every alliance and every conflict at once.</p>`;
@@ -2009,7 +2039,7 @@ function showCombo() {
     <p class="panel-sub">${esc(code)}${group ? ' · ' + esc(group) : ''}</p>
     ${comboBody(cols, id)}
     ${neighbourChips(cols)}
-    <p class="panel-src">${cols.length > 1 ? esc(SRC_FRIEND) + ' · ' + esc(SRC_PIE) + ' · ' : ''}${
+    <p class="panel-src">${cols.length === 2 ? esc(SRC_SCOPE) + ' ' : ''}${cols.length > 1 ? esc(SRC_FRIEND) + ' · ' + esc(SRC_PIE) + ' · ' : ''}${
       cols.length === 3 ? esc(id && id.group === 'wedge' ? SRC_WEDGE : SRC_SHARD) + ' · ' : ''
     }resolved from the identity registry</p>`;
 
