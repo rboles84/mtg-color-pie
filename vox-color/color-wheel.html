@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <!--
 ==============================================================================
- THE COLOR WHEEL — interactive, layers 1-3
+ THE COLOR WHEEL + THE 32 IDENTITIES — one file, two views
 ==============================================================================
- Single static file. No build step, no framework. Companion to the 32-identity
- directory and sharing its tokens and type stack.
+ Single static file. No build step, no framework.
+
+ This absorbed color-identity-directory.html. They were two files duplicating
+ the same tokens, type stack, glass treatment and ambient mesh, and the atlas
+ owned the 32 identity records the wheel needs. Merging removed both
+ duplications at once. The atlas renders from the registry near the bottom of
+ the script; the wheel reads the same records.
 
  WHAT THIS IS
  ------------
@@ -65,6 +70,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Almendra:wght@400;700&family=Cormorant+SC:wght@400;500;600;700&family=Lora:wght@400;500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<!-- DEPENDENCY: mana-font, pinned. Needed for the atlas tile pips. -->
+<link href="https://cdn.jsdelivr.net/npm/mana-font@1.18.0/css/mana.min.css" rel="stylesheet">
 
 <style>
   /* ===================================================================
@@ -75,7 +82,12 @@
     --bone:#ede6d3; --bone-dim:rgba(237,230,211,.56); --bone-faint:rgba(237,230,211,.30);
     --gold:#d4af37;
     --w:#f5efc7; --u:#77b9e8; --b:#aca29a; --r:#d97858; --g:#7fb283;
-    --glass:rgba(237,230,211,.045); --hairline:rgba(237,230,211,.12);
+    --glass:rgba(237,230,211,.045); --glass-hover:rgba(237,230,211,.075);
+    --hairline:rgba(237,230,211,.12); --panel-edge:rgba(237,230,211,.09);
+    /* PROPOSED, still needs Rob's sign-off — carried over from the directory.
+       --c sits close to --b; check Esper and Grixis rings when it is retuned. */
+    --c:#b6b2a6;
+    --radius:14px;
     --ease:cubic-bezier(.2,.8,.2,1);
   }
   * { box-sizing:border-box; }
@@ -86,16 +98,23 @@
   }
 
   /* static ambient mesh, same approach as the directory */
+  /* Static ambient mesh. Six lobes: the five colours roughly where they sit on
+     the wheel, plus a warm centre. Merged from both files — the directory's
+     newer positions and the gold centre lobe, but with the third lobe restored
+     to the real --b (172,162,154). The directory had a violet there, left over
+     from before --b existed; CONTEXT lists it as an open item and the wheel had
+     already corrected it. Revert to rgba(157,139,191,.13) for the violet. */
   .mesh {
     position:fixed; inset:-10vmax; z-index:-1; pointer-events:none;
     background:
-      radial-gradient(38vmax 30vmax at 20% 14%, rgba(245,239,199,.09), transparent 62%),
-      radial-gradient(40vmax 32vmax at 82% 18%, rgba(119,185,232,.12), transparent 64%),
-      radial-gradient(40vmax 32vmax at 88% 76%, rgba(172,162,154,.10), transparent 64%),
-      radial-gradient(38vmax 30vmax at 50% 96%, rgba(217,120,88,.10), transparent 62%),
-      radial-gradient(40vmax 32vmax at 12% 72%, rgba(127,178,131,.10), transparent 64%),
+      radial-gradient(38vmax 30vmax at 18% 12%, rgba(245,239,199,.10), transparent 62%),
+      radial-gradient(40vmax 32vmax at 84% 16%, rgba(119,185,232,.13), transparent 64%),
+      radial-gradient(42vmax 34vmax at 90% 74%, rgba(172,162,154,.13), transparent 64%),
+      radial-gradient(38vmax 30vmax at 52% 96%, rgba(217,120,88,.11), transparent 62%),
+      radial-gradient(40vmax 32vmax at 10% 70%, rgba(127,178,131,.11), transparent 64%),
+      radial-gradient(60vmax 46vmax at 50% 42%, rgba(212,175,55,.045), transparent 70%),
       var(--obsidian);
-    filter:blur(30px);
+    filter:blur(28px) saturate(1.05);
   }
 
   .page { max-width:1280px; margin:0 auto; padding:clamp(28px,5vw,64px) clamp(16px,4vw,40px) 80px; }
@@ -103,16 +122,16 @@
   /* ===================================================================
      HEADER + LAYER CONTROLS
      =================================================================== */
-  .hero { text-align:center; margin-bottom:28px; }
+  .hero { text-align:center; margin-bottom:clamp(44px,7vw,76px); }
   .hero-kicker {
     font-family:'Outfit',system-ui,sans-serif; font-size:11px; letter-spacing:.26em;
-    text-transform:uppercase; color:var(--bone-faint); margin:0 0 12px;
+    text-transform:uppercase; color:var(--bone-faint); margin:0 0 14px;
   }
   .hero-title {
     font-family:'Almendra',Georgia,serif; font-weight:700;
-    font-size:clamp(28px,4.6vw,44px); margin:0 0 10px;
+    font-size:clamp(30px,5.2vw,50px); line-height:1.1; margin:0 0 16px; color:var(--bone);
   }
-  .hero-lede { max-width:54ch; margin:0 auto; font-size:14.5px; line-height:1.6; color:var(--bone-dim); }
+  .hero-lede { max-width:56ch; margin:0 auto; font-size:15px; line-height:1.65; color:var(--bone-dim); }
 
   .layers {
     display:flex; flex-wrap:wrap; justify-content:center; gap:8px;
@@ -328,8 +347,240 @@
 
   .swatch { display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:7px; vertical-align:middle; }
 
+
+  /* ===================================================================
+     ATLAS SECTION HEADER — the wheel's hero belongs to the page, so the
+     directory's own hero is demoted to a section heading here.
+     =================================================================== */
+  .atlas-head { text-align:center; margin:clamp(56px,8vw,96px) 0 clamp(28px,4vw,44px); }
+  .atlas-head h2 {
+    font-family:'Almendra',Georgia,serif; font-weight:700;
+    font-size:clamp(24px,3.4vw,34px); line-height:1.15; margin:0 0 12px; color:var(--bone);
+  }
+
+  /* ====================================================================
+     4. TIERS
+     ==================================================================== */
+  .tier { margin-bottom: clamp(44px, 6vw, 72px); }
+
+  .tier-head {
+    display: flex; align-items: baseline; gap: 14px;
+    padding-bottom: 12px; margin-bottom: 22px;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .tier-index {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 500;
+    letter-spacing: .2em; text-transform: uppercase;
+    color: var(--gold); opacity: .85;
+    margin: 0; flex: none;
+  }
+  .tier-title {
+    font-family: 'Almendra', Georgia, serif;
+    font-weight: 700; font-size: clamp(19px, 2.6vw, 25px);
+    margin: 0; flex: 1 1 auto; color: var(--bone);
+  }
+  .tier-count {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 11.5px; font-weight: 300;
+    color: var(--bone-faint); margin: 0; flex: none;
+  }
+
+  /* Sub-groups (allied/enemy, shards/wedges) sit inside a tier and are
+     visually subordinate to it — a label, not a second heading rule. */
+  .subgroup + .subgroup { margin-top: 26px; }
+  .subgroup-label {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 500;
+    letter-spacing: .2em; text-transform: uppercase;
+    color: var(--bone-faint);
+    margin: 0 0 12px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  /* trailing hairline so the label reads as a divider, not a heading */
+  .subgroup-label::after {
+    content: ""; flex: 1 1 auto; height: 1px;
+    background: var(--hairline);
+  }
+
+  /* ====================================================================
+     5. GRID
+     ==================================================================== */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(206px, 1fr));
+    gap: 14px;
+  }
+  /* Single-tile tiers (colourless, five-colour) shouldn't stretch one tile
+     across the full width — cap them and centre. */
+  .grid.solo {
+    grid-template-columns: minmax(206px, 268px);
+    justify-content: center;
+  }
+
+  /* ====================================================================
+     6. TILE — the glass surface
+     ==================================================================== */
+  .tile {
+    position: relative;
+    display: flex; flex-direction: column; align-items: center;
+    text-align: center;
+    padding: 22px 16px 18px;
+    border-radius: var(--radius);
+    background: var(--glass);
+    border: 1px solid var(--hairline);
+    -webkit-backdrop-filter: blur(14px) saturate(1.3);
+    backdrop-filter: blur(14px) saturate(1.3);
+    /* inner top highlight — reads as a light catching the top edge of glass */
+    box-shadow:
+      inset 0 1px 0 rgba(237,230,211,.06),
+      0 1px 2px rgba(0,0,0,.3);
+    transition:
+      background .3s var(--ease),
+      border-color .3s var(--ease),
+      box-shadow .3s var(--ease),
+      transform .25s var(--ease);
+    /* set by JS on hover; harmless defaults so the CSS is valid without it */
+    --rx: 0deg;
+    --ry: 0deg;
+    transform-style: preserve-3d;
+    cursor: default;
+  }
+
+  /* NOTE: the :focus-visible rules below are DORMANT. The tiles are display
+     only — no click handler, nothing to open — so they no longer carry
+     tabindex="0". A focusable element that does nothing when activated is a
+     false promise: it cost keyboard users 37 stops through the atlas and paid
+     out nothing. The rules are kept rather than deleted because they become
+     correct the moment a tile gains a real <a> or <button>, which is when the
+     tiles should regain focusability. */
+  .tile:hover,
+  .tile:focus-visible {
+    background: var(--glass-hover);
+    border-color: rgba(237,230,211,.24);
+    box-shadow:
+      inset 0 1px 0 rgba(237,230,211,.1),
+      0 8px 24px rgba(0,0,0,.4);
+  }
+  .tile:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+  }
+
+  /* Pointer tilt. The transform is applied on the .tile itself and driven by
+     two custom properties JS writes; the brief's plain scale() is folded in
+     here so hover still reads as "lift" even when the tilt is 0 (touch,
+     keyboard focus, reduced motion). Kept to 3° — see head comment. */
+  .tile:hover {
+    transform: perspective(760px) rotateX(var(--rx)) rotateY(var(--ry)) scale(1.035);
+  }
+  .tile:focus-visible { transform: scale(1.035); }
+
+  /* --- identity ring -------------------------------------------------
+     Static conic-gradient, masked to an annulus. One hard-stopped arc per
+     colour, generated per-tile into the inline --ring property. */
+  .tile-ring {
+    width: 46px; height: 46px; border-radius: 50%;
+    background: var(--ring);
+    /* mask carves the centre out, leaving a 3px band */
+    -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 3px));
+    mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 3px));
+    opacity: .58;
+    transition: opacity .3s var(--ease), filter .3s var(--ease);
+  }
+  /* the hover reward: the ring comes up to full, nothing moves */
+  .tile:hover .tile-ring,
+  .tile:focus-visible .tile-ring {
+    opacity: 1;
+    filter: drop-shadow(0 0 6px rgba(237,230,211,.22));
+  }
+
+  /* --- pips ----------------------------------------------------------
+     One mana icon per colour in the identity, sitting inside the ring. */
+  .tile-pips {
+    position: absolute;
+    top: 22px; height: 46px;
+    display: flex; align-items: center; justify-content: center;
+    gap: 3px;
+  }
+  .tile-pips .ms {
+    font-size: 11px;
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,.55));
+  }
+  /* Four- and five-colour identities need smaller pips to stay inside the
+     ring. :has() on the container so the whole row shrinks together — note
+     gap belongs on the container, not the icons. */
+  .tile-pips:has(.ms:nth-child(4)) { gap: 2px; }
+  .tile-pips:has(.ms:nth-child(4)) .ms { font-size: 9px; }
+  .tile-pips:has(.ms:nth-child(5)) { gap: 1.5px; }
+  .tile-pips:has(.ms:nth-child(5)) .ms { font-size: 8px; }
+
+  /* --- text ----------------------------------------------------------- */
+  .tile-name {
+    font-family: 'Cormorant SC', Georgia, serif;
+    font-weight: 600;
+    font-size: 19px;
+    letter-spacing: .04em;
+    margin: 14px 0 0;
+    color: var(--bone);
+  }
+  .tile-code {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 400;
+    letter-spacing: .28em;
+    color: var(--bone-faint);
+    margin: 5px 0 0;
+  }
+  .tile-sub {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 11px; font-weight: 300;
+    line-height: 1.45;
+    color: var(--bone-dim);
+    margin: 8px 0 0;
+  }
+  .tile-note {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 12px; line-height: 1.55;
+    color: var(--bone-faint);
+    margin: 10px 0 0;
+  }
+  /* Placeholder copy is marked in the markup AND visibly flagged here, so it
+     can't quietly ship. Remove the attribute and this rule together. */
+  .tile-note[data-placeholder="true"] {
+    font-style: italic;
+    text-decoration: underline dashed rgba(212,175,55,.35);
+    text-underline-offset: 3px;
+  }
+
+  /* ====================================================================
+     7. RESPONSIVE
+     ==================================================================== */
+  @media (max-width: 560px) {
+    .grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+    .tile { padding: 18px 12px 15px; }
+    .tile-name { font-size: 16px; }
+    .tier-head { flex-wrap: wrap; gap: 8px 12px; }
+  }
+
+
+  /* Five-colour hairline under the hero — the only place the full wheel
+     appears as a single continuous object. */
+  .hero-rule {
+    width: 148px; height: 2px; margin: 24px auto 0; border-radius: 2px;
+    background: linear-gradient(90deg, var(--w), var(--u), var(--b), var(--r), var(--g));
+    opacity: .75;
+  }
+
+  /* Graceful degradation: without backdrop-filter the tiles would be nearly
+     invisible over the mesh, so fall back to an opaque panel fill. */
+  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .tile { background: rgba(20,21,29,.82); }
+    .tile:hover, .tile:focus-visible { background: rgba(20,21,29,.92); }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation:none !important; transition:none !important; }
+    .tile:hover, .tile:focus-visible { transform:none; }
   }
   @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))) {
     .panel, .layer-btn { background:rgba(20,21,29,.85); }
@@ -612,6 +863,19 @@
       </p>
     </aside>
   </div>
+  <!-- ================================================================
+       ALL 32 — the atlas, rendered from the same registry the wheel
+       will read for Combine mode. Was a separate file until the merge.
+       ================================================================ -->
+  <section class="atlas-head" aria-labelledby="atlas-h">
+    <h2 id="atlas-h">The Thirty-Two Identities</h2>
+    <p class="hero-lede">
+      Every combination of the five colors, from none of them to all of them.
+      Six tiers, thirty-two identities.
+    </p>
+  </section>
+  <div id="atlas"></div>
+
 </main>
 
 <script>
@@ -1169,6 +1433,253 @@ clearBtn.addEventListener('click', () => { clearSelection(); panel.focus(); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') clearSelection(); });
 
 updateNote();
+
+
+/* ======================================================================
+   IDENTITY REGISTRY
+   ----------------------------------------------------------------------
+   One source of truth for the atlas. Replaces 37 hand-written <article>
+   elements, which had already drifted in wording and could only be kept
+   in step by hand.
+
+   TWO ARRAYS, DELIBERATELY. There are exactly 32 colour identities. The
+   five Strixhaven colleges are alternate NAMES for identities that
+   already exist — Silverquill IS Orzhov — so they live in ALIASES and are
+   never counted as identities. 32 identities, 37 tiles.
+
+   `display` is the authoritative field: the colours in the order the
+   faction is conventionally written. Jeskai is URW, not WUR. The
+   canonical WUBRG-sorted key is DERIVED from it, so membership and
+   ordering can never disagree. 11 of the 37 tiles have a display order
+   that differs from canonical, which is why this is a stored field and
+   not an afterthought.
+
+   Everything else a tile shows is derived: the ring is equal slices in
+   display order, the pips are one per colour, the code is the display
+   letters spaced, the tier is how many colours there are.
+
+   NOT STORED, ON PURPOSE: promise, game feel, actions, limitations,
+   tensions, mechanical signals. There is no copy for any of them yet,
+   and empty fields for absent content are only future confusion. They
+   arrive when the dossier lines do.
+   ====================================================================== */
+const ORDER = 'WUBRG';
+const canonical = d => ORDER.split('').filter(c => d.includes(c)).join('');
+
+const IDENTITIES = [
+  { display:'',      name:'Colorless',  group:'colorless' },
+
+  { display:'W',     name:'White',      group:'mono' },
+  { display:'U',     name:'Blue',       group:'mono' },
+  { display:'B',     name:'Black',      group:'mono' },
+  { display:'R',     name:'Red',        group:'mono' },
+  { display:'G',     name:'Green',      group:'mono' },
+
+  { display:'WU',    name:'Azorius',    group:'allied' },
+  { display:'UB',    name:'Dimir',      group:'allied' },
+  { display:'BR',    name:'Rakdos',     group:'allied' },
+  { display:'RG',    name:'Gruul',      group:'allied' },
+  { display:'GW',    name:'Selesnya',   group:'allied' },
+
+  { display:'WB',    name:'Orzhov',     group:'enemy' },
+  { display:'UR',    name:'Izzet',      group:'enemy' },
+  { display:'BG',    name:'Golgari',    group:'enemy' },
+  { display:'RW',    name:'Boros',      group:'enemy' },
+  { display:'GU',    name:'Simic',      group:'enemy' },
+
+  { display:'GWU',   name:'Bant',       group:'shard' },
+  { display:'WUB',   name:'Esper',      group:'shard' },
+  { display:'UBR',   name:'Grixis',     group:'shard' },
+  { display:'BRG',   name:'Jund',       group:'shard' },
+  { display:'RGW',   name:'Naya',       group:'shard' },
+
+  { display:'WBG',   name:'Abzan',      group:'wedge' },
+  { display:'URW',   name:'Jeskai',     group:'wedge' },
+  { display:'BGU',   name:'Sultai',     group:'wedge' },
+  { display:'RWB',   name:'Mardu',      group:'wedge' },
+  { display:'GUR',   name:'Temur',      group:'wedge' },
+
+  /* Commander 2016 face commanders. Historical anchors, NOT alternate
+     names for the colour combination — "Atraxa" is not the formal name
+     of every WUBG deck. Verified against the C16 decklists. */
+  { display:'UBRG',  name:'Non-White',  group:'four', commander:'Yidris, Maelstrom Wielder',   deck:'Entropic Uprising' },
+  { display:'WBRG',  name:'Non-Blue',   group:'four', commander:'Saskia the Unyielding',       deck:'Open Hostility' },
+  { display:'WURG',  name:'Non-Black',  group:'four', commander:'Kynaios and Tiro of Meletis', deck:'Stalwart Unity' },
+  { display:'WUBG',  name:'Non-Red',    group:'four', commander:"Atraxa, Praetors' Voice",     deck:'Breed Lethality' },
+  { display:'WUBR',  name:'Non-Green',  group:'four', commander:'Breya, Etherium Shaper',      deck:'Invent Superiority' },
+
+  { display:'WUBRG', name:'Five-Color', group:'five' },
+];
+
+/* Alternate names, not identities. `of` names the identity this is
+   another word for, so the tile can say so outright rather than implying
+   the college is a separate colour combination. */
+const ALIASES = [
+  { display:'WB', name:'Silverquill', group:'college', of:'Orzhov' },
+  { display:'UR', name:'Prismari',    group:'college', of:'Izzet' },
+  { display:'BG', name:'Witherbloom', group:'college', of:'Golgari' },
+  { display:'RW', name:'Lorehold',    group:'college', of:'Boros' },
+  { display:'GU', name:'Quandrix',    group:'college', of:'Simic' },
+];
+
+IDENTITIES.forEach(o => { o.key = canonical(o.display); o.tier = o.display.length; });
+ALIASES.forEach(o => { o.key = canonical(o.display); o.tier = o.display.length; });
+
+/* The six tiers, and which groups sit in each. Counts are computed from
+   IDENTITIES so a miscount is impossible; tier 3 overrides the label
+   because it holds 10 identities under 15 faction names. */
+const TIERS = [
+  { n:1, title:'Colorless',   solo:true, groups:[ { of:'colorless' } ] },
+  { n:2, title:'Mono-Color',             groups:[ { of:'mono' } ] },
+  { n:3, title:'Two-Color',   count:'10 identities · 15 factions',
+    groups:[ { label:'Guilds — Allied',    of:'allied' },
+             { label:'Guilds — Enemy',     of:'enemy' },
+             { label:'Strixhaven Colleges', of:'college' } ] },
+  { n:4, title:'Three-Color',
+    groups:[ { label:'Shards', of:'shard' }, { label:'Wedges', of:'wedge' } ] },
+  { n:5, title:'Four-Color',             groups:[ { of:'four' } ] },
+  { n:6, title:'Five-Color',  solo:true, groups:[ { of:'five' } ] },
+];
+
+/* ---------------------------------------------------------------- render */
+/* `esc` is defined once above, in the wheel's helpers. */
+
+/* Percentages round to 4 decimals and always keep at least one, matching
+   the strings the original generator produced: thirds land on 33.3333%,
+   halves on 50.0%. */
+const pct = v => { const r = Math.round(v * 1e4) / 1e4, s = String(r); return s.includes('.') ? s : s + '.0'; };
+
+function ring(display) {
+  const cols = display ? display.split('') : ['C'];
+  const step = 100 / cols.length;
+  const stops = cols.map((c, i) => 'var(--' + c.toLowerCase() + ') ' + pct(i * step) + '% ' + pct((i + 1) * step) + '%');
+  return 'conic-gradient(from -90deg, ' + stops.join(', ') + ')';
+}
+
+/* The line under the code. The group word is now the same on a guild and
+   on its college, so one relationship isn't described two ways. */
+function subLine(o) {
+  if (o.group === 'allied')  return 'Allied';
+  if (o.group === 'enemy')   return 'Enemy';
+  if (o.group === 'shard')   return 'Shard';
+  if (o.group === 'wedge')   return 'Wedge';
+  if (o.group === 'college') return 'Enemy · also called ' + o.of;
+  if (o.group === 'four')    return o.commander + ' · ' + o.deck;
+  return null;
+}
+
+function tile(o) {
+  const cols = o.display ? o.display.split('') : ['C'];
+  const pips = cols.map(c => '<i class="ms ms-' + c.toLowerCase() + ' ms-cost" aria-hidden="true"></i>').join('');
+  const sub  = subLine(o);
+  return '<article class="tile" style="--ring:' + ring(o.display) + ';">'
+       +   '<span class="tile-ring" aria-hidden="true"></span>'
+       +   '<span class="tile-pips" aria-hidden="true">' + pips + '</span>'
+       +   '<h3 class="tile-name">' + esc(o.name) + '</h3>'
+       +   '<p class="tile-code">' + cols.join(' ') + '</p>'
+       +   (sub ? '<p class="tile-sub">' + esc(sub) + '</p>' : '')
+       /* TODO(codex): one real dossier line per identity replaces this. */
+       +   '<p class="tile-note" data-placeholder="true">PLACEHOLDER — Codex dossier line goes here.</p>'
+       + '</article>';
+}
+
+function renderAtlas() {
+  const all = IDENTITIES.concat(ALIASES);
+  document.getElementById('atlas').innerHTML = TIERS.map(t => {
+    const own   = IDENTITIES.filter(o => t.groups.some(g => g.of === o.group));
+    const count = t.count || (own.length + ' ' + (own.length === 1 ? 'identity' : 'identities'));
+    const body  = t.groups.map(g => {
+      const grid = '<div class="grid' + (t.solo ? ' solo' : '') + '">'
+                 + all.filter(o => o.group === g.of).map(tile).join('')
+                 + '</div>';
+      return g.label
+        ? '<div class="subgroup"><h4 class="subgroup-label">' + esc(g.label) + '</h4>' + grid + '</div>'
+        : grid;
+    }).join('');
+    return '<section class="tier" aria-labelledby="tier-' + t.n + '-h">'
+         +   '<header class="tier-head">'
+         +     '<p class="tier-index">Tier ' + t.n + '</p>'
+         +     '<h2 class="tier-title" id="tier-' + t.n + '-h">' + esc(t.title) + '</h2>'
+         +     '<p class="tier-count">' + esc(count) + '</p>'
+         +   '</header>' + body
+         + '</section>';
+  }).join('');
+}
+renderAtlas();
+
+/* Cheap invariants. These are the counts the page is about, so a silent
+   regression here would quietly undermine the content. */
+console.assert(IDENTITIES.length === 32, 'expected 32 identities, got ' + IDENTITIES.length);
+console.assert(new Set(IDENTITIES.map(o => o.key)).size === 32, 'identity keys are not unique');
+console.assert(document.querySelectorAll('.tile').length === 37, 'expected 37 tiles');
+
+/* ======================================================================
+   Pointer tilt — the only JavaScript on the page.
+
+   Design notes, since the restraint here is deliberate:
+   - ONE delegated listener on <main>, not 32 listeners.
+   - No requestAnimationFrame loop and no per-tile timers. The annotated
+     Current Weave reference warns that its rAF pattern assumes a singleton
+     component; 32 copies of that would be 32 independent loops. This writes
+     two custom properties on pointermove and lets CSS do the rest.
+   - getBoundingClientRect() is read once per tile on enter and cached, so
+     moving the pointer never forces layout.
+   - Max 3° on each axis.
+   - Under prefers-reduced-motion the listeners are never attached at all.
+     Hover still works; it just doesn't tilt.
+   ====================================================================== */
+(function () {
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion) return;
+
+  // Skip on touch/coarse pointers — tilt on tap is jitter, not polish.
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+
+  var MAX_DEG = 3;
+  var root = document.querySelector('.page');
+  var active = null;   // the tile currently under the pointer
+  var rect = null;     // its cached bounding box
+
+  root.addEventListener('pointerover', function (e) {
+    var tile = e.target.closest('.tile');
+    if (!tile || tile === active) return;
+    if (active) reset(active);
+    active = tile;
+    rect = tile.getBoundingClientRect();
+  });
+
+  root.addEventListener('pointermove', function (e) {
+    if (!active || !rect) return;
+    // normalise cursor position within the tile to -0.5 … 0.5
+    var px = (e.clientX - rect.left) / rect.width - 0.5;
+    var py = (e.clientY - rect.top) / rect.height - 0.5;
+    // rotateX is inverted: pointer high on the tile should tip the top away
+    active.style.setProperty('--rx', (-py * 2 * MAX_DEG).toFixed(2) + 'deg');
+    active.style.setProperty('--ry', ( px * 2 * MAX_DEG).toFixed(2) + 'deg');
+  });
+
+  root.addEventListener('pointerout', function (e) {
+    if (!active) return;
+    // ignore moves between the tile's own children
+    if (e.relatedTarget && active.contains(e.relatedTarget)) return;
+    reset(active);
+    active = null;
+    rect = null;
+  });
+
+  // Recompute on scroll/resize rather than trusting a stale rect.
+  window.addEventListener('scroll', invalidate, { passive: true });
+  window.addEventListener('resize', invalidate);
+
+  function invalidate() {
+    if (active) rect = active.getBoundingClientRect();
+  }
+
+  function reset(tile) {
+    tile.style.setProperty('--rx', '0deg');
+    tile.style.setProperty('--ry', '0deg');
+  }
+})();
 </script>
 </body>
 </html>
