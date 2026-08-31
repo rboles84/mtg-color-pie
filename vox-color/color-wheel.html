@@ -419,7 +419,15 @@
   .views .nbr { display:inline-flex; align-items:center; gap:2px; }
   .views .nbr:hover { border-color:rgba(237,230,211,.3); }
 
-  .swatch { display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:7px; vertical-align:middle; }
+  /* Mana symbols, not colour dots. mana-font is already loaded for the atlas
+     tiles, so the panel and the tiles now show the same glyphs instead of two
+     different visual languages for "this colour".
+
+     Sized in em rather than px on purpose: the same helper is used in a 27px
+     panel title and in 14.5px body text, and 0.72em keeps the symbol in
+     proportion to whatever it sits in. `ms-cost` supplies the round background
+     that makes it read as a mana symbol rather than a bare glyph. */
+  .swatch { font-size:.72em; margin-right:5px; vertical-align:baseline; }
 
 
   /* ===================================================================
@@ -1206,7 +1214,9 @@ function updateNote() {
 
 /* ---------------------------------------------------------------- helpers */
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c]);
-const dot = c => `<span class="swatch" style="background:var(--${c.toLowerCase()})"></span>`;
+/* The colour name always follows in text, so the glyph is decorative and is
+   hidden from assistive tech rather than read out twice. */
+const dot = c => `<i class="ms ms-${c.toLowerCase()} ms-cost swatch" aria-hidden="true"></i>`;
 const nm  = c => D.names[c];
 
 function keyFor(a, b) {
