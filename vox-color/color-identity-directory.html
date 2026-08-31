@@ -274,6 +274,13 @@
     cursor: default;
   }
 
+  /* NOTE: the :focus-visible rules below are DORMANT. The tiles are display
+     only — no click handler, nothing to open — so they no longer carry
+     tabindex="0". A focusable element that does nothing when activated is a
+     false promise: it cost keyboard users 37 stops through the atlas and paid
+     out nothing. The rules are kept rather than deleted because they become
+     correct the moment a tile gains a real <a> or <button>, which is when the
+     tiles should regain focusability. */
   .tile:hover,
   .tile:focus-visible {
     background: var(--glass-hover);
@@ -429,7 +436,7 @@
         <p class="tier-count">1 identity</p>
       </header>
       <div class="grid solo">
-        <article class="tile" tabindex="0" style="--ring:conic-gradient(from -90deg, var(--c) 0.0% 100.0%);">
+        <article class="tile" style="--ring:conic-gradient(from -90deg, var(--c) 0.0% 100.0%);">
           <span class="tile-ring" aria-hidden="true"></span>
           <span class="tile-pips" aria-hidden="true">
             <i class="ms ms-c ms-cost" aria-hidden="true"></i>
@@ -449,7 +456,7 @@
         <p class="tier-count">5 identities</p>
       </header>
       <div class="grid">
-        <article class="tile" tabindex="0" style="--ring:conic-gradient(from -90deg, var(--w) 0.0% 100.0%);">
+        <article class="tile" style="--ring:conic-gradient(from -90deg, var(--w) 0.0% 100.0%);">
           <span class="tile-ring" aria-hidden="true"></span>
           <span class="tile-pips" aria-hidden="true">
             <i class="ms ms-w ms-cost" aria-hidden="true"></i>
@@ -459,7 +466,7 @@
           <!-- TODO(codex): replace with the real dossier one-liner for this identity. -->
           <p class="tile-note" data-placeholder="true">PLACEHOLDER — Codex dossier line goes here.</p>
         </article>
-        <article class="tile" tabindex="0" style="--ring:conic-gradient(from -90deg, var(--u) 0.0% 100.0%);">
+        <article class="tile" style="--ring:conic-gradient(from -90deg, var(--u) 0.0% 100.0%);">
           <span class="tile-ring" aria-hidden="true"></span>
           <span class="tile-pips" aria-hidden="true">
             <i class="ms ms-u ms-cost" aria-hidden="true"></i>
@@ -469,7 +476,7 @@
           <!-- TODO(codex): replace with the real dossier one-liner for this identity. -->
           <p class="tile-note" data-placeholder="true">PLACEHOLDER — Codex dossier line goes here.</p>
         </article>
-        <article class="tile" tabindex="0" style="--ring:conic-gradient(from -90deg, var(--b) 0.0% 100.0%);">
+        <article class="tile" style="--ring:conic-gradient(from -90deg, var(--b) 0.0% 100.0%);">
           <span class="tile-ring" aria-hidden="true"></span>
           <span class="tile-pips" aria-hidden="true">
             <i class="ms ms-b ms-cost" aria-hidden="true"></i>
@@ -479,7 +486,7 @@
           <!-- TODO(codex): replace with the real dossier one-liner for this identity. -->
           <p class="tile-note" data-placeholder="true">PLACEHOLDER — Codex dossier line goes here.</p>
         </article>
-        <article class="tile" tabindex="0" style="--ring:conic-gradient(from -90deg, var(--r) 0.0% 100.0%);">
+        <article class="tile" style="--ring:conic-gradient(from -90deg, var(--r) 0.0% 100.0%);">
           <span class="tile-ring" aria-hidden="true"></span>
           <span class="tile-pips" aria-hidden="true">
             <i class="ms ms-r ms-cost" aria-hidden="true"></i>
@@ -489,7 +496,7 @@
           <!-- TODO(codex): replace with the real dossier one-liner for this identity. -->
           <p class="tile-note" data-placeholder="true">PLACEHOLDER — Codex dossier line goes here.</p>
         </article>
-        <article class="tile" tabindex="0" style="--ring:conic-gradient(from -90deg, var(--g) 0.0% 100.0%);">
+        <article class="tile" style="--ring:conic-gradient(from -90deg, var(--g) 0.0% 100.0%);">
           <span class="tile-ring" aria-hidden="true"></span>
           <span class="tile-pips" aria-hidden="true">
             <i class="ms ms-g ms-cost" aria-hidden="true"></i>
@@ -511,7 +518,7 @@
       <div class="subgroup">
         <h4 class="subgroup-label">Guilds — Allied</h4>
         <div class="grid">
-        <article class="tile" tabindex="0" style="--ring:conic-gradient(from -90deg, var(--w) 0.0% 50.0%, var(--u) 50.0% 100.0%);">
+        <article class="tile" style="--ring:conic-gradient(from -90deg, var(--w) 0.0% 50.0%, var(--u) 50.0% 100.0%);">
           <span class="tile-ring" aria-hidden="true"></span>
           <span class="tile-pips" aria-hidden="true">
             <i class="ms ms-w ms-cost" aria-hidden="true"></i>
@@ -523,7 +530,7 @@
           <!-- TODO(codex): replace with the real dossier one-liner for this identity. -->
           <p class="tile-note" data-placeholder="true">PLACEHOLDER — Codex dossier line goes here.</p>
         </article>
-        <article class="tile" tabindex="0" style="--ring:conic-gradient(from -90deg, var(--u) 0.0% 50.0%, var(--b) 50.0% 100.0%);">
+        <article class="tile" style="--ring:conic-gradient(from -90deg, var(--u) 0.0% 50.0%, var(--b) 50.0% 100.0%);">
           <span class="tile-ring" aria-hidden="true"></span>
           <span class="tile-pips" aria-hidden="true">
             <i class="ms ms-u ms-cost" aria-hidden="true"></i>
@@ -535,7 +542,7 @@
           <!-- TODO(codex): replace with the real dossier one-liner for this identity. -->
           <p class="tile-note" data-placeholder="true">PLACEHOLDER — Codex dossier line goes here.</p>
         </article>
-        <article class="tile" tabindex="0" style="--ring:conic-gradient(from -90deg, var(--b) 0.0% 50.0%, var(--r) 50.0% 100.0%);">
+        <article class="tile" style="--ring:conic-gradient(from -90deg, var(--b) 0.0% 50.0%, var(--r) 50.0% 100.0%);">
           <span class="tile-ring" aria-hidden="true"></span>
           <span class="tile-pips" aria-hidden="true">
             <i class="ms ms-b ms-cost" aria-hidden="true"></i>
@@ -547,7 +554,7 @@
           <!-- TODO(codex): replace with the real dossier one-liner for this identity. -->
           <p class="tile-note" data-placeholder="true">PLACEHOLDER — Codex dossier line goes here.</p>
         </article>
-        <article class="tile" tabindex="0" style="--ring:conic-gradient(from -90deg, var(--r) 0.0% 50.0%, var(--g) 50.0% 100.0%);">
+        <article class="tile" style="--ring:conic-gradient(from -90deg, var(--r) 0.0% 50.0%, var(--g) 50.0% 100.0%);">
           <span class="tile-ring" aria-hidden="true"></span>
           <span class="tile-pips" aria-hidden="true">
             <i class="ms ms-r ms-cost" aria-hidden="true"></i>
@@ -559,7 +566,7 @@
           <!-- TODO(codex): replace with the real dossier one-liner for this identity. -->
           <p class="tile-note" data-placeholder="true">PLACEHOLDER — Codex dossier line goes here.</p>
         </article>
-        <article class="tile" tabindex="0" style="--ring:conic-gradient(from -90deg, var(--g) 0.0% 50.0%, var(--w) 50.0% 100.0%);">
+        <article class="tile" style="--ring:conic-gradient(from -90deg, var(--g) 0.0% 50.0%, var(--w) 50.0% 100.0%);">
           <span class="tile-ring" aria-hidden="true"></span>
           <span class="tile-pips" aria-hidden="true">
             <i class="ms ms-g ms-cost" aria-hidden="true"></i>
@@ -576,7 +583,7 @@
       <div class="subgroup">
         <h4 class="subgroup-label">Guilds — Enemy</h4>
         <div class="grid">
-        <article class="tile" tabindex="0" style="--ring:conic-gradient(from -90deg, var(--w) 0.0% 50.0%, var(--b) 50.0% 100.0%);">
+        <article class="tile" style="--ring:conic-gradient(from -90deg, var(--w) 0.0% 50.0%, var(--b) 50.0% 100.0%);">
           <span class="tile-ring" aria-hidden="true"></span>
           <span class="tile-pips" aria-hidden="true">
             <i class="ms ms-w ms-cost" aria-hidden="true"></i>
@@ -588,7 +595,7 @@
           <!-- TODO(codex): replace with the real dossier one-liner for this identity. -->
           <p class="tile-note" data-placeholder="true">PLACEHOLDER — Codex dossier line goes here.</p>
         </article>
-        <article class="tile" tabindex="0" style="--ring:conic-gradient(from -90deg, var(--u) 0.0% 50.0%, var(--r) 50.0% 100.0%);">
+        <article class="tile" style="--ring:conic-gradient(from -90deg, var(--u) 0.0% 50.0%, var(--r) 50.0% 100.0%);">
           <span class="tile-ring" aria-hidden="true"></span>
           <span class="tile-pips" aria-hidden="true">
             <i class="ms ms-u ms-cost" aria-hidden="true"></i>
@@ -600,7 +607,7 @@
           <!-- TODO(codex): replace with the real dossier one-liner for this identity. -->
           <p class="tile-note" data-placeholder="true">PLACEHOLDER — Codex dossier line goes here.</p>
         </article>
-        <article class="tile" tabindex="0" style="--ring:conic-gradient(from -90deg, var(--b) 0.0% 50.0%, var(--g) 50.0% 100.0%);">
+        <article class="tile" style="--ring:conic-gradient(from -90deg, var(--b) 0.0% 50.0%, var(--g) 50.0% 100.0%);">
           <span class="tile-ring" aria-hidden="true"></span>
           <span class="tile-pips" aria-hidden="true">
             <i class="ms ms-b ms-cost" aria-hidden="true"></i>
@@ -612,7 +619,7 @@
           <!-- TODO(codex): replace with the real dossier one-liner for this identity. -->
           <p class="tile-note" data-placeholder="true">PLACEHOLDER — Codex dossier line goes here.</p>
         </article>
-        <article class="tile" tabindex="0" style="--ring:conic-gradient(from -90deg, var(--r) 0.0% 50.0%, var(--w) 50.0% 100.0%);">
+        <article class="tile" style="--ring:conic-gradient(from -90deg, var(--r) 0.0% 50.0%, var(--w) 50.0% 100.0%);">
           <span class="tile-ring" aria-hidden="true"></span>
           <span class="tile-pips" aria-hidden="true">
             <i class="ms ms-r ms-cost" aria-hidden="true"></i>
@@ -624,7 +631,7 @@
           <!-- TODO(codex): replace with the real dossier one-liner for this identity. -->
           <p class="tile-note" data-placeholder="true">PLACEHOLDER — Codex dossier line goes here.</p>
         </article>
-        <article class="tile" tabindex="0" style="--ring:conic-gradient(from -90deg, var(--g) 0.0% 50.0%, var(--u) 50.0% 100.0%);">
+        <article class="tile" style="--ring:conic-gradient(from -90deg, var(--g) 0.0% 50.0%, var(--u) 50.0% 100.0%);">
           <span class="tile-ring" aria-hidden="true"></span>
           <span class="tile-pips" aria-hidden="true">
             <i class="ms ms-g ms-cost" aria-hidden="true"></i>
@@ -641,7 +648,7 @@
       <div class="subgroup">
         <h4 class="subgroup-label">Strixhaven Colleges</h4>
         <div class="grid">
-        <article class="tile" tabindex="0" style="--ring:conic-gradient(from -90deg, var(--w) 0.0% 50.0%, var(--b) 50.0% 100.0%);">
+        <article class="tile" style="--ring:conic-gradient(from -90deg, var(--w) 0.0% 50.0%, var(--b) 50.0% 100.0%);">
           <span class="tile-ring" aria-hidden="true"></span>
           <span class="tile-pips" aria-hidden="true">
             <i class="ms ms-w ms-cost" aria-hidden="true"></i>
@@ -653,7 +660,7 @@
           <!-- TODO(codex): replace with the real dossier one-liner for this identity. -->
           <p class="tile-note" data-placeholder="true">PLACEHOLDER — Codex dossier line goes here.</p>
         </article>
-        <article class="tile" tabindex="0" style="--ring:conic-gradient(from -90deg, var(--u) 0.0% 50.0%, var(--r) 50.0% 100.0%);">
+        <article class="tile" style="--ring:conic-gradient(from -90deg, var(--u) 0.0% 50.0%, var(--r) 50.0% 100.0%);">
           <span class="tile-ring" aria-hidden="true"></span>
           <span class="tile-pips" aria-hidden="true">
             <i class="ms ms-u ms-cost" aria-hidden="true"></i>
@@ -665,7 +672,7 @@
           <!-- TODO(codex): replace with the real dossier one-liner for this identity. -->
           <p class="tile-note" data-placeholder="true">PLACEHOLDER — Codex dossier line goes here.</p>
         </article>
-        <article class="tile" tabindex="0" style="--ring:conic-gradient(from -90deg, var(--b) 0.0% 50.0%, var(--g) 50.0% 100.0%);">
+        <article class="tile" style="--ring:conic-gradient(from -90deg, var(--b) 0.0% 50.0%, var(--g) 50.0% 100.0%);">
           <span class="tile-ring" aria-hidden="true"></span>
           <span class="tile-pips" aria-hidden="true">
             <i class="ms ms-b ms-cost" aria-hidden="true"></i>
@@ -677,7 +684,7 @@
           <!-- TODO(codex): replace with the real dossier one-liner for this identity. -->
           <p class="tile-note" data-placeholder="true">PLACEHOLDER — Codex dossier line goes here.</p>
         </article>
-        <article class="tile" tabindex="0" style="--ring:conic-gradient(from -90deg, var(--r) 0.0% 50.0%, var(--w) 50.0% 100.0%);">
+        <article class="tile" style="--ring:conic-gradient(from -90deg, var(--r) 0.0% 50.0%, var(--w) 50.0% 100.0%);">
           <span class="tile-ring" aria-hidden="true"></span>
           <span class="tile-pips" aria-hidden="true">
             <i class="ms ms-r ms-cost" aria-hidden="true"></i>
@@ -689,7 +696,7 @@
           <!-- TODO(codex): replace with the real dossier one-liner for this identity. -->
           <p class="tile-note" data-placeholder="true">PLACEHOLDER — Codex dossier line goes here.</p>
         </article>
-        <article class="tile" tabindex="0" style="--ring:conic-gradient(from -90deg, var(--g) 0.0% 50.0%, var(--u) 50.0% 100.0%);">
+        <article class="tile" style="--ring:conic-gradient(from -90deg, var(--g) 0.0% 50.0%, var(--u) 50.0% 100.0%);">
           <span class="tile-ring" aria-hidden="true"></span>
           <span class="tile-pips" aria-hidden="true">
             <i class="ms ms-g ms-cost" aria-hidden="true"></i>
@@ -714,7 +721,7 @@
       <div class="subgroup">
         <h4 class="subgroup-label">Shards</h4>
         <div class="grid">
-        <article class="tile" tabindex="0" style="--ring:conic-gradient(from -90deg, var(--g) 0.0% 33.3333%, var(--w) 33.3333% 66.6667%, var(--u) 66.6667% 100.0%);">
+        <article class="tile" style="--ring:conic-gradient(from -90deg, var(--g) 0.0% 33.3333%, var(--w) 33.3333% 66.6667%, var(--u) 66.6667% 100.0%);">
           <span class="tile-ring" aria-hidden="true"></span>
           <span class="tile-pips" aria-hidden="true">
             <i class="ms ms-g ms-cost" aria-hidden="true"></i>
@@ -727,7 +734,7 @@
           <!-- TODO(codex): replace with the real dossier one-liner for this identity. -->
           <p class="tile-note" data-placeholder="true">PLACEHOLDER — Codex dossier line goes here.</p>
         </article>
-        <article class="tile" tabindex="0" style="--ring:conic-gradient(from -90deg, var(--w) 0.0% 33.3333%, var(--u) 33.3333% 66.6667%, var(--b) 66.6667% 100.0%);">
+        <article class="tile" style="--ring:conic-gradient(from -90deg, var(--w) 0.0% 33.3333%, var(--u) 33.3333% 66.6667%, var(--b) 66.6667% 100.0%);">
           <span class="tile-ring" aria-hidden="true"></span>
           <span class="tile-pips" aria-hidden="true">
             <i class="ms ms-w ms-cost" aria-hidden="true"></i>
@@ -740,7 +747,7 @@
           <!-- TODO(codex): replace with the real dossier one-liner for this identity. -->
           <p class="tile-note" data-placeholder="true">PLACEHOLDER — Codex dossier line goes here.</p>
         </article>
-        <article class="tile" tabindex="0" style="--ring:conic-gradient(from -90deg, var(--u) 0.0% 33.3333%, var(--b) 33.3333% 66.6667%, var(--r) 66.6667% 100.0%);">
+        <article class="tile" style="--ring:conic-gradient(from -90deg, var(--u) 0.0% 33.3333%, var(--b) 33.3333% 66.6667%, var(--r) 66.6667% 100.0%);">
           <span class="tile-ring" aria-hidden="true"></span>
           <span class="tile-pips" aria-hidden="true">
             <i class="ms ms-u ms-cost" aria-hidden="true"></i>
@@ -753,7 +760,7 @@
           <!-- TODO(codex): replace with the real dossier one-liner for this identity. -->
           <p class="tile-note" data-placeholder="true">PLACEHOLDER — Codex dossier line goes here.</p>
         </article>
-        <article class="tile" tabindex="0" style="--ring:conic-gradient(from -90deg, var(--b) 0.0% 33.3333%, var(--r) 33.3333% 66.6667%, var(--g) 66.6667% 100.0%);">
+        <article class="tile" style="--ring:conic-gradient(from -90deg, var(--b) 0.0% 33.3333%, var(--r) 33.3333% 66.6667%, var(--g) 66.6667% 100.0%);">
           <span class="tile-ring" aria-hidden="true"></span>
           <span class="tile-pips" aria-hidden="true">
             <i class="ms ms-b ms-cost" aria-hidden="true"></i>
@@ -766,7 +773,7 @@
           <!-- TODO(codex): replace with the real dossier one-liner for this identity. -->
           <p class="tile-note" data-placeholder="true">PLACEHOLDER — Codex dossier line goes here.</p>
         </article>
-        <article class="tile" tabindex="0" style="--ring:conic-gradient(from -90deg, var(--r) 0.0% 33.3333%, var(--g) 33.3333% 66.6667%, var(--w) 66.6667% 100.0%);">
+        <article class="tile" style="--ring:conic-gradient(from -90deg, var(--r) 0.0% 33.3333%, var(--g) 33.3333% 66.6667%, var(--w) 66.6667% 100.0%);">
           <span class="tile-ring" aria-hidden="true"></span>
           <span class="tile-pips" aria-hidden="true">
             <i class="ms ms-r ms-cost" aria-hidden="true"></i>
@@ -784,7 +791,7 @@
       <div class="subgroup">
         <h4 class="subgroup-label">Wedges</h4>
         <div class="grid">
-        <article class="tile" tabindex="0" style="--ring:conic-gradient(from -90deg, var(--w) 0.0% 33.3333%, var(--b) 33.3333% 66.6667%, var(--g) 66.6667% 100.0%);">
+        <article class="tile" style="--ring:conic-gradient(from -90deg, var(--w) 0.0% 33.3333%, var(--b) 33.3333% 66.6667%, var(--g) 66.6667% 100.0%);">
           <span class="tile-ring" aria-hidden="true"></span>
           <span class="tile-pips" aria-hidden="true">
             <i class="ms ms-w ms-cost" aria-hidden="true"></i>
@@ -797,7 +804,7 @@
           <!-- TODO(codex): replace with the real dossier one-liner for this identity. -->
           <p class="tile-note" data-placeholder="true">PLACEHOLDER — Codex dossier line goes here.</p>
         </article>
-        <article class="tile" tabindex="0" style="--ring:conic-gradient(from -90deg, var(--u) 0.0% 33.3333%, var(--r) 33.3333% 66.6667%, var(--w) 66.6667% 100.0%);">
+        <article class="tile" style="--ring:conic-gradient(from -90deg, var(--u) 0.0% 33.3333%, var(--r) 33.3333% 66.6667%, var(--w) 66.6667% 100.0%);">
           <span class="tile-ring" aria-hidden="true"></span>
           <span class="tile-pips" aria-hidden="true">
             <i class="ms ms-u ms-cost" aria-hidden="true"></i>
@@ -810,7 +817,7 @@
           <!-- TODO(codex): replace with the real dossier one-liner for this identity. -->
           <p class="tile-note" data-placeholder="true">PLACEHOLDER — Codex dossier line goes here.</p>
         </article>
-        <article class="tile" tabindex="0" style="--ring:conic-gradient(from -90deg, var(--b) 0.0% 33.3333%, var(--g) 33.3333% 66.6667%, var(--u) 66.6667% 100.0%);">
+        <article class="tile" style="--ring:conic-gradient(from -90deg, var(--b) 0.0% 33.3333%, var(--g) 33.3333% 66.6667%, var(--u) 66.6667% 100.0%);">
           <span class="tile-ring" aria-hidden="true"></span>
           <span class="tile-pips" aria-hidden="true">
             <i class="ms ms-b ms-cost" aria-hidden="true"></i>
@@ -823,7 +830,7 @@
           <!-- TODO(codex): replace with the real dossier one-liner for this identity. -->
           <p class="tile-note" data-placeholder="true">PLACEHOLDER — Codex dossier line goes here.</p>
         </article>
-        <article class="tile" tabindex="0" style="--ring:conic-gradient(from -90deg, var(--r) 0.0% 33.3333%, var(--w) 33.3333% 66.6667%, var(--b) 66.6667% 100.0%);">
+        <article class="tile" style="--ring:conic-gradient(from -90deg, var(--r) 0.0% 33.3333%, var(--w) 33.3333% 66.6667%, var(--b) 66.6667% 100.0%);">
           <span class="tile-ring" aria-hidden="true"></span>
           <span class="tile-pips" aria-hidden="true">
             <i class="ms ms-r ms-cost" aria-hidden="true"></i>
@@ -836,7 +843,7 @@
           <!-- TODO(codex): replace with the real dossier one-liner for this identity. -->
           <p class="tile-note" data-placeholder="true">PLACEHOLDER — Codex dossier line goes here.</p>
         </article>
-        <article class="tile" tabindex="0" style="--ring:conic-gradient(from -90deg, var(--g) 0.0% 33.3333%, var(--u) 33.3333% 66.6667%, var(--r) 66.6667% 100.0%);">
+        <article class="tile" style="--ring:conic-gradient(from -90deg, var(--g) 0.0% 33.3333%, var(--u) 33.3333% 66.6667%, var(--r) 66.6667% 100.0%);">
           <span class="tile-ring" aria-hidden="true"></span>
           <span class="tile-pips" aria-hidden="true">
             <i class="ms ms-g ms-cost" aria-hidden="true"></i>
@@ -860,7 +867,7 @@
         <p class="tier-count">5 identities</p>
       </header>
       <div class="grid">
-        <article class="tile" tabindex="0" style="--ring:conic-gradient(from -90deg, var(--u) 0.0% 25.0%, var(--b) 25.0% 50.0%, var(--r) 50.0% 75.0%, var(--g) 75.0% 100.0%);">
+        <article class="tile" style="--ring:conic-gradient(from -90deg, var(--u) 0.0% 25.0%, var(--b) 25.0% 50.0%, var(--r) 50.0% 75.0%, var(--g) 75.0% 100.0%);">
           <span class="tile-ring" aria-hidden="true"></span>
           <span class="tile-pips" aria-hidden="true">
             <i class="ms ms-u ms-cost" aria-hidden="true"></i>
@@ -874,7 +881,7 @@
           <!-- TODO(codex): replace with the real dossier one-liner for this identity. -->
           <p class="tile-note" data-placeholder="true">PLACEHOLDER — Codex dossier line goes here.</p>
         </article>
-        <article class="tile" tabindex="0" style="--ring:conic-gradient(from -90deg, var(--w) 0.0% 25.0%, var(--b) 25.0% 50.0%, var(--r) 50.0% 75.0%, var(--g) 75.0% 100.0%);">
+        <article class="tile" style="--ring:conic-gradient(from -90deg, var(--w) 0.0% 25.0%, var(--b) 25.0% 50.0%, var(--r) 50.0% 75.0%, var(--g) 75.0% 100.0%);">
           <span class="tile-ring" aria-hidden="true"></span>
           <span class="tile-pips" aria-hidden="true">
             <i class="ms ms-w ms-cost" aria-hidden="true"></i>
@@ -888,7 +895,7 @@
           <!-- TODO(codex): replace with the real dossier one-liner for this identity. -->
           <p class="tile-note" data-placeholder="true">PLACEHOLDER — Codex dossier line goes here.</p>
         </article>
-        <article class="tile" tabindex="0" style="--ring:conic-gradient(from -90deg, var(--w) 0.0% 25.0%, var(--u) 25.0% 50.0%, var(--r) 50.0% 75.0%, var(--g) 75.0% 100.0%);">
+        <article class="tile" style="--ring:conic-gradient(from -90deg, var(--w) 0.0% 25.0%, var(--u) 25.0% 50.0%, var(--r) 50.0% 75.0%, var(--g) 75.0% 100.0%);">
           <span class="tile-ring" aria-hidden="true"></span>
           <span class="tile-pips" aria-hidden="true">
             <i class="ms ms-w ms-cost" aria-hidden="true"></i>
@@ -902,7 +909,7 @@
           <!-- TODO(codex): replace with the real dossier one-liner for this identity. -->
           <p class="tile-note" data-placeholder="true">PLACEHOLDER — Codex dossier line goes here.</p>
         </article>
-        <article class="tile" tabindex="0" style="--ring:conic-gradient(from -90deg, var(--w) 0.0% 25.0%, var(--u) 25.0% 50.0%, var(--b) 50.0% 75.0%, var(--g) 75.0% 100.0%);">
+        <article class="tile" style="--ring:conic-gradient(from -90deg, var(--w) 0.0% 25.0%, var(--u) 25.0% 50.0%, var(--b) 50.0% 75.0%, var(--g) 75.0% 100.0%);">
           <span class="tile-ring" aria-hidden="true"></span>
           <span class="tile-pips" aria-hidden="true">
             <i class="ms ms-w ms-cost" aria-hidden="true"></i>
@@ -916,7 +923,7 @@
           <!-- TODO(codex): replace with the real dossier one-liner for this identity. -->
           <p class="tile-note" data-placeholder="true">PLACEHOLDER — Codex dossier line goes here.</p>
         </article>
-        <article class="tile" tabindex="0" style="--ring:conic-gradient(from -90deg, var(--w) 0.0% 25.0%, var(--u) 25.0% 50.0%, var(--b) 50.0% 75.0%, var(--r) 75.0% 100.0%);">
+        <article class="tile" style="--ring:conic-gradient(from -90deg, var(--w) 0.0% 25.0%, var(--u) 25.0% 50.0%, var(--b) 50.0% 75.0%, var(--r) 75.0% 100.0%);">
           <span class="tile-ring" aria-hidden="true"></span>
           <span class="tile-pips" aria-hidden="true">
             <i class="ms ms-w ms-cost" aria-hidden="true"></i>
@@ -940,7 +947,7 @@
         <p class="tier-count">1 identity</p>
       </header>
       <div class="grid solo">
-        <article class="tile" tabindex="0" style="--ring:conic-gradient(from -90deg, var(--w) 0.0% 20.0%, var(--u) 20.0% 40.0%, var(--b) 40.0% 60.0%, var(--r) 60.0% 80.0%, var(--g) 80.0% 100.0%);">
+        <article class="tile" style="--ring:conic-gradient(from -90deg, var(--w) 0.0% 20.0%, var(--u) 20.0% 40.0%, var(--b) 40.0% 60.0%, var(--r) 60.0% 80.0%, var(--g) 80.0% 100.0%);">
           <span class="tile-ring" aria-hidden="true"></span>
           <span class="tile-pips" aria-hidden="true">
             <i class="ms ms-w ms-cost" aria-hidden="true"></i>
