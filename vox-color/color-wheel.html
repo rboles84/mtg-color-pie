@@ -1162,6 +1162,8 @@ const SRC_SHARD = 'Rosewater, the 2008 shard interviews — paraphrased';
    COLOURS and use the guild name as familiar shorthand. Since "Azorius" names a
    real Ravnican institution, a reader could otherwise take these for guild lore.
    The note is shown, not left in the research notes. */
+const SRC_SCOPE_WEDGE = 'These use the Khans of Tarkir clans and their attributes as Rosewater\'s set-specific lens on the five wedge combinations \u2014 one supported expression of each trio, not a universal rule. The colour paired with its two enemies is structurally isolated, but each Tarkir clan is centred on one of the two allied colours.';
+const SRC_SCOPE_SHARD = 'Rosewater\'s shard cycle speaks through the central colour, using each Alaran shard as that colour\'s idealised world without its two enemies. These report that colour\'s subjective perspective, not a neutral definition of the trio. Bant, Esper, Grixis, Jund and Naya are Alaran shard names, not guilds.';
 const SRC_SCOPE = 'These describe the philosophy of each two-color combination; guild names are familiar shorthand, not full accounts of the Ravnican institutions.';
 const SRC_WEDGE = 'Rosewater, the 2014–15 wedge interviews — paraphrased';
 
@@ -1671,17 +1673,37 @@ const IDENTITIES = [
   { display:'RW',    name:'Boros',      group:'enemy' },
   { display:'GU',    name:'Simic',      group:'enemy' },
 
-  { display:'GWU',   name:'Bant',       group:'shard' },
-  { display:'WUB',   name:'Esper',      group:'shard' },
-  { display:'UBR',   name:'Grixis',     group:'shard' },
-  { display:'BRG',   name:'Jund',       group:'shard' },
-  { display:'RGW',   name:'Naya',       group:'shard' },
+  { display:'GWU', name:'Bant', group:'shard',
+    produces: "In White's account, the absence of what it sees as Black's selfishness and Red's chaos allows White to steer the shard toward its utopia: Green nurtures the good already present, Blue changes what is not working, and the group comes first. White explicitly says that this vision is possible because Black and Red are absent.",
+    src: "Mark Rosewater, \"Peace, Love and Understanding,\" Making Magic, October 6, 2008" },
+  { display:'WUB', name:'Esper', group:'shard',
+    produces: "In Blue's account, White contributes long-term planning, strategy and concern for improving society, while Black contributes control, information, focus and vision. Together they support Blue's pursuit of potential through knowledge, technology and deliberate change. Blue calls Esper its paradise: a place where everyone has reached their potential.",
+    src: "Mark Rosewater, \"Striving For Perfection,\" Making Magic, November 16, 2008" },
+  { display:'UBR', name:'Grixis', group:'shard',
+    produces: "Black describes mixing Red's zeal with Blue's manipulation — impulsiveness with smarts — into something more actively conniving, with survival pushed as far as it can go. In Black's account, Grixis has no morality.",
+    src: "Mark Rosewater, \"Looking Out For Number One,\" Making Magic, October 20, 2008" },
+  { display:'BRG', name:'Jund', group:'shard',
+    produces: "In Red's account, total freedom: anyone may do what they want, and everyone else is equally free to stop them. Red is explicit that the freedom has a price — what survives has come through everything the world could throw at it.",
+    src: "Mark Rosewater, \"Following Your Heart,\" Making Magic, December 1, 2008" },
+  { display:'RGW', name:'Naya', group:'shard',
+    produces: "In Green's account, nature takes centre stage with nothing to rein it in. Green reads the other two as a balance — enough Red that things are not too orderly, enough White that they are not too chaotic — and growth runs as far as it can.",
+    src: "Mark Rosewater, \"Searching Within,\" Making Magic, November 3, 2008" },
 
-  { display:'WBG',   name:'Abzan',      group:'wedge' , attribute:'endurance' },
-  { display:'URW',   name:'Jeskai',     group:'wedge' , attribute:'cunning' },
-  { display:'BGU',   name:'Sultai',     group:'wedge' , attribute:'ruthlessness' },
-  { display:'RWB',   name:'Mardu',      group:'wedge' , attribute:'speed' },
-  { display:'GUR',   name:'Temur',      group:'wedge' , attribute:'savagery' },
+  { display:'WBG', name:'Abzan', group:'wedge' , attribute:'endurance',
+    expresses: "Where the other wedges focus more on creating threats, Abzan de-emphasises threats in favour of answers: it defends through the early and middle game, waits for the opponent to spend down their resources, and only then moves to win. White provides the proactive defence, Black the active defence, and Green the growth that accelerates its mana development.",
+    src: "Mark Rosewater, \"We Will Survive,\" Making Magic, September 29, 2014" },
+  { display:'URW', name:'Jeskai', group:'wedge' , attribute:'cunning',
+    expresses: "All three aim to act in a way the opponent cannot properly anticipate, by different routes: Blue gathers knowledge of the opponent's strategy, Red keeps its intentions hard to gauge, and White takes proactive measures against threats before they arrive.",
+    src: "Mark Rosewater, \"Smart Thinking,\" Making Magic, November 3, 2014" },
+  { display:'BGU', name:'Sultai', group:'wedge' , attribute:'ruthlessness',
+    expresses: "The three settle on ruthlessness as the willingness to do what needs doing, while disagreeing on what that means: Black connects it to taking action to get what it wants, Blue to consciously promoting change, and Green to having the nerve to be true to its own nature. In practice, not much is off limits — cutting off resources, taking what belongs to others, and using the dead.",
+    src: "Mark Rosewater, \"Whatever It Takes,\" Making Magic, February 2, 2015" },
+  { display:'RWB', name:'Mardu', group:'wedge' , attribute:'speed',
+    expresses: "It tries to land hits before the opponent is ready. Red gets to the point as fast as it can; White treats an army as a tool whose speed lets it neutralise forces before they become threats; Black counts time among the resources worth denying.",
+    src: "Mark Rosewater, \"Finishing First,\" Making Magic, November 17, 2014" },
+  { display:'GUR', name:'Temur', group:'wedge' , attribute:'savagery',
+    expresses: "Each reaches savagery from a different direction: Green through accepting its animal nature and the feral side of the web of life, Red through giving in to impulse in the moment to survive, and Blue through overriding psychological limits that likely developed as protection. Mechanically, all three can support larger bodies, especially at common.",
+    src: "Mark Rosewater, \"What Doesn't Kill You Makes You Stronger,\" Making Magic, February 23, 2015" },
 
   /* Commander 2016 face commanders. Historical anchors, NOT alternate
      names for the colour combination — "Atraxa" is not the formal name
@@ -1956,27 +1978,39 @@ function comboBody(cols, id) {
     const hinge = hingeColor(cols, shard ? p.allied : p.enemy);
     const others = cols.filter(c => c !== hinge);
     /* The two colours NOT here. On a shard these are exactly the hinge colour's
-       two enemies — which is why Rosewater interviewed the hinge colour for each
+       two enemies, which is why Rosewater interviewed the hinge colour for each
        shard and had it describe a world with its enemies absent. */
     const away = D.order.filter(c => !cols.includes(c));
+
     const shape = `<p class="panel-body">${p.allied.length} allied edge${p.allied.length === 1 ? '' : 's'}
-        and ${p.enemy.length} conflict chord${p.enemy.length === 1 ? '' : 's'} — the shape of a
+        and ${p.enemy.length} conflict chord${p.enemy.length === 1 ? '' : 's'} \u2014 the shape of a
         <strong>${shard ? 'shard' : 'wedge'}</strong>.</p>`;
 
-    const body = shard
-      ? `<p class="panel-body">${dot(hinge)}<strong>${esc(nm(hinge))}</strong> sits at the centre,
+    /* Structural only. The earlier version editorialised here ("nothing here
+       contradicts it", "tense where a shard is settled"); those were conclusions
+       Rosewater does not state, so they are gone. */
+    const structure = shard
+      ? `<p class="panel-body">${dot(hinge)}<strong>${esc(nm(hinge))} at the centre</strong>,
            allied with both ${dot(others[0])}${esc(nm(others[0]))} and
-           ${dot(others[1])}${esc(nm(others[1]))}. The two colors absent —
-           ${away.map(dot).join('')}${esc(nm(away[0]))} and ${esc(nm(away[1]))} — are exactly
-           ${esc(nm(hinge))}'s own enemies, so nothing here contradicts it.</p>`
-      : `<p class="panel-body">${dot(hinge)}<strong>${esc(nm(hinge))}</strong> has no ally here at all.
-           It stands against both ${dot(others[0])}${esc(nm(others[0]))} and
-           ${dot(others[1])}${esc(nm(others[1]))}, which are allies of each other. That single
-           colour, outnumbered inside its own identity, is what makes a wedge tense where a shard
-           is settled.${id && id.attribute ? ` Tarkir named this wedge's attribute
-           <strong>${esc(id.attribute)}</strong>.` : ''}</p>`;
+           ${dot(others[1])}${esc(nm(others[1]))}. ${away.map(dot).join('')}${esc(nm(away[0]))}
+           and ${esc(nm(away[1]))} are absent \u2014 and they are exactly
+           ${esc(nm(hinge))}'s own enemies.</p>`
+      : `<p class="panel-body">${id && id.attribute
+             ? `<strong>${esc(id.attribute.charAt(0).toUpperCase() + id.attribute.slice(1))}.</strong> ` : ''}${
+           dot(hinge)}<strong>${esc(nm(hinge))}</strong> has no ally here \u2014 it stands against both
+           ${dot(others[0])}${esc(nm(others[0]))} and ${dot(others[1])}${esc(nm(others[1]))},
+           who are allies of each other.</p>`;
 
-    return shape + body + composition(cols);
+    /* The sourced line. Wedges get Tarkir's expression, shards get what the
+       central colour says its world becomes. Neither invents a cost: the shard
+       and wedge interviews have no strength-and-weakness section, and only Jund
+       states a trade-off, which sits inside its own paragraph. */
+    const sourced = id && (id.expresses || id.produces)
+      ? `<p class="panel-body"><strong>${shard ? 'What that produces.' : 'How Tarkir expresses it.'}</strong>
+           ${esc(id.expresses || id.produces)}</p>`
+      : '';
+
+    return shape + structure + sourced + composition(cols);
   }
 
   if (n === 4) {
@@ -2039,9 +2073,15 @@ function showCombo() {
     <p class="panel-sub">${esc(code)}${group ? ' · ' + esc(group) : ''}</p>
     ${comboBody(cols, id)}
     ${neighbourChips(cols)}
-    <p class="panel-src">${cols.length === 2 ? esc(SRC_SCOPE) + ' ' : ''}${cols.length > 1 ? esc(SRC_FRIEND) + ' · ' + esc(SRC_PIE) + ' · ' : ''}${
-      cols.length === 3 ? esc(id && id.group === 'wedge' ? SRC_WEDGE : SRC_SHARD) + ' · ' : ''
+    <p class="panel-src">${cols.length === 2 ? esc(SRC_SCOPE) + ' ' : ''}${
+      cols.length === 3 && id ? esc(id.group === 'wedge' ? SRC_SCOPE_WEDGE : SRC_SCOPE_SHARD) + ' ' : ''}${
+      cols.length === 3 && id && id.src ? esc(id.src) + ' · ' : ''}${cols.length > 1 ? esc(SRC_FRIEND) + ' · ' + esc(SRC_PIE) + ' · ' : ''
     }resolved from the identity registry</p>`;
+  /* SRC_WEDGE / SRC_SHARD are deliberately NOT cited here any more. They named
+     the series ("the 2014-15 wedge interviews"); each three-colour identity now
+     cites the specific article and date instead, which supersedes them. Keeping
+     both was the citation wall in miniature. SRC_FRIEND and SRC_PIE do stay:
+     the "What it is made of" list is built from their values and titles. */
 
   // The panel is rebuilt on every change, so the chips are wired after render.
   panel.querySelectorAll('.nbr').forEach(b => b.addEventListener('click', () => {
