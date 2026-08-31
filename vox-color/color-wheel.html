@@ -1173,6 +1173,7 @@ const SRC_SHARD = 'Rosewater, the 2008 shard interviews — paraphrased';
    COLOURS and use the guild name as familiar shorthand. Since "Azorius" names a
    real Ravnican institution, a reader could otherwise take these for guild lore.
    The note is shown, not left in the research notes. */
+const SRC_SCOPE_NONE = 'Colorless is a game characteristic and a design space, not a faction or a school of thought. Artifacts, Eldrazi, lands and colorless commanders are different things that happen to share it. \u2014 Mark Rosewater, "Just the Artifacts, Ma\'am," February 28, 2005; "Third Time\'s the Charm, Part 2," May 27, 2024; "The Council of Colors, Revisited," August 26, 2024.';
 const SRC_SCOPE_FOUR = 'Four colours have no philosophy article of their own. These five names are deck identities the Commander 2016 design team built for those decks and described in gameplay terms \u2014 Ethan Fleischer, "Designing Commander (2016 Edition)," October 24, 2016. They are one product\'s lenses, not definitions of the colour combinations. The community line is community reading, not canon.';
 const SRC_SCOPE_WEDGE = 'These use the Khans of Tarkir clans and their attributes as Rosewater\'s set-specific lens on the five wedge combinations \u2014 one supported expression of each trio, not a universal rule. The colour paired with its two enemies is structurally isolated, but each Tarkir clan is centred on one of the two allied colours.';
 const SRC_SCOPE_SHARD = 'Rosewater\'s shard cycle speaks through the central colour, using each Alaran shard as that colour\'s idealised world without its two enemies. These report that colour\'s subjective perspective, not a neutral definition of the trio. Bant, Esper, Grixis, Jund and Naya are Alaran shard names, not guilds.';
@@ -1869,7 +1870,7 @@ function tileNote(o) {
     return 'Every color but ' + nm(excl) + '.';
   }
   if (o.group === 'five')      return 'All five.';
-  if (o.group === 'colorless') return 'No colors.';
+  if (o.group === 'colorless') return 'No colors \u2014 not a sixth color.';
   return null;
 }
 
@@ -2007,7 +2008,29 @@ function composition(cols) {
 
 function comboBody(cols, id) {
   const n = cols.length;
-  if (n === 0) return `<p class="panel-body">No colors. The center of the wheel, and the one identity that sits outside every philosophy.</p>`;
+  /* COLOURLESS GETS ITS OWN SHAPE. No shared value, no conflict, no centre
+     colour, and above all no invented sixth philosophy — Rosewater's account of
+     artifacts is that they represent the LACK of one. The previous line here
+     said colourless "sits outside every philosophy", which drifted toward the
+     other error: colourless is outside the five colours but NOT outside the
+     colour pie's regulation. It is reviewed, it has a counsellor, and its rate
+     is watched precisely because it reaches every deck. */
+  if (n === 0) return `
+    <p class="panel-body"><strong>Not a sixth color, and not a sixth philosophy.</strong>
+      Rosewater's account of artifacts is that they represent the lack of one \u2014 the mage who
+      specialises in them is avoiding committing to anything. Colorless marks a card that has no
+      color; what it means comes from the card, not from the absence.</p>
+    <p class="panel-body"><strong>How it plays.</strong> Generic costs mean any mage can play any
+      artifact, which is the whole point of them. Their home ground is making and fixing mana,
+      drawing cards, boosting creatures, being creatures, doing things no color normally does, and
+      interlocking into machines.</p>
+    <p class="panel-body"><strong>What it costs.</strong> Access becomes restraint. Because a
+      colorless effect is available to every deck, granting one hands it to the color that is
+      worst at it \u2014 Rosewater's own example is that enchantment destruction on an artifact is
+      effectively given to black and red. That is why colorless design turns so heavily on rate.</p>
+    <p class="panel-body"><strong>Not the same thing as.</strong> Artifacts can be colored, and
+      lands and other cards can be colorless. A generic cost takes any mana; {C} demands mana that
+      actually has no color.</p>`;
   if (n === 1) return `<p class="panel-body">One vertex. Add a second color to draw an edge.</p>`;
 
   const p = pairsOf(cols);
@@ -2156,6 +2179,7 @@ function showCombo() {
     <p class="panel-src">${cols.length === 2 ? esc(SRC_SCOPE) + ' ' : ''}${
       cols.length === 3 && id ? esc(id.group === 'wedge' ? SRC_SCOPE_WEDGE : SRC_SCOPE_SHARD) + ' ' : ''}${
       cols.length === 4 ? esc(SRC_SCOPE_FOUR) + ' ' : ''}${
+      cols.length === 0 ? esc(SRC_SCOPE_NONE) + ' ' : ''}${
       cols.length === 3 && id && id.src ? esc(id.src) + ' · ' : ''}${cols.length > 1 ? esc(SRC_FRIEND) + ' · ' + esc(SRC_PIE) + ' · ' : ''
     }resolved from the identity registry</p>`;
   /* SRC_WEDGE / SRC_SHARD are deliberately NOT cited here any more. They named
