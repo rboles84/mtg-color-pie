@@ -1728,6 +1728,51 @@ function subLine(o) {
   return null;
 }
 
+/* The tile's one line. DERIVED, never written: everything that carries
+   meaning here is a string that already exists in D — the same strings the
+   wheel shows — and the only words added are structural labels. Nothing is
+   paraphrased into a new sentence, so a tile cannot disagree with the wheel
+   and there is no second copy of the philosophy to drift.
+
+     mono      the colour's method line, verbatim
+     allied    the alliance's shared value, verbatim
+     enemy     the conflict's title, verbatim
+     college   the same conflict title as the guild it renames
+     shard     which colour is at the centre, which two are absent
+     wedge     Rosewater's attribute for the clan, and the colour with no ally
+     four      which colour is left out
+     five/none structural
+
+   Anything with no derivable line keeps the placeholder and stays greppable. */
+function tileNote(o) {
+  const cols = o.display ? o.display.split('') : [];
+  const k = cols.length === 2 ? keyFor(cols[0], cols[1]) : null;
+
+  if (o.group === 'mono')   return D.colors[cols[0]].key;
+  if (o.group === 'allied') return 'Shared value: ' + D.allies[k].value + '.';
+  if (o.group === 'enemy' || o.group === 'college') return D.enemies[k].title + '.';
+
+  if (o.group === 'shard' || o.group === 'wedge') {
+    const p = pairsOf(cols);
+    const shard = p.allied.length === 2;
+    const hinge = hingeColor(cols, shard ? p.allied : p.enemy);
+    if (shard) {
+      const away = D.order.filter(c => !cols.includes(c));
+      return nm(hinge) + ' at the centre; ' + nm(away[0]) + ' and ' + nm(away[1]) + ' absent.';
+    }
+    return (o.attribute ? o.attribute.charAt(0).toUpperCase() + o.attribute.slice(1) + '. ' : '')
+         + nm(hinge) + ' has no ally here.';
+  }
+
+  if (o.group === 'four') {
+    const excl = D.order.find(c => !cols.includes(c));
+    return 'Every color but ' + nm(excl) + '.';
+  }
+  if (o.group === 'five')      return 'All five.';
+  if (o.group === 'colorless') return 'No colors.';
+  return null;
+}
+
 function tile(o) {
   const cols = o.display ? o.display.split('') : ['C'];
   const pips = cols.map(c => '<i class="ms ms-' + c.toLowerCase() + ' ms-cost" aria-hidden="true"></i>').join('');
@@ -1738,8 +1783,11 @@ function tile(o) {
        +   '<h3 class="tile-name">' + esc(o.name) + '</h3>'
        +   '<p class="tile-code">' + cols.join(' ') + '</p>'
        +   (sub ? '<p class="tile-sub">' + esc(sub) + '</p>' : '')
-       /* TODO(codex): one real dossier line per identity replaces this. */
-       +   '<p class="tile-note" data-placeholder="true">PLACEHOLDER — Codex dossier line goes here.</p>'
+       +   (function () {
+             const n = tileNote(o);
+             return n ? '<p class="tile-note">' + esc(n) + '</p>'
+                      : '<p class="tile-note" data-placeholder="true">PLACEHOLDER — Codex dossier line goes here.</p>';
+           })()
        + '</article>';
 }
 
