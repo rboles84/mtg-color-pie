@@ -161,6 +161,51 @@
   .clear-btn:hover { color:var(--bone); border-color:var(--hairline); }
   .layers [hidden] { display:none; }
 
+  /* --- mode control ---------------------------------------------------
+     Explore and Combine are MODES, not toggles: exactly one is active. The
+     layer buttons below stay independent toggles, so the two rows are given
+     visibly different shapes — a joined segment here, separate pills there. */
+  .modes { display:flex; justify-content:center; margin:24px 0 4px; }
+  .mode-seg {
+    display:inline-flex; gap:3px; padding:3px; border-radius:999px;
+    background:var(--glass); border:1px solid var(--hairline);
+    -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px);
+  }
+  .mode-btn {
+    font-family:'Outfit',system-ui,sans-serif; font-size:11.5px; font-weight:400;
+    letter-spacing:.1em; text-transform:uppercase;
+    padding:7px 20px; border-radius:999px; cursor:pointer;
+    background:transparent; color:var(--bone-dim); border:0;
+    transition:background .25s var(--ease), color .25s var(--ease);
+  }
+  .mode-btn:hover { color:var(--bone); }
+  .mode-btn[aria-pressed="true"] { background:var(--gold); color:var(--obsidian); font-weight:500; }
+  .mode-btn:focus-visible { outline:2px solid var(--gold); outline-offset:3px; }
+
+  /* --- combine geometry -----------------------------------------------
+     One polygon for every size: three colours make a triangle, four a
+     quadrilateral, five the pentagon. Points are written in wheel order so
+     it can never self-intersect. Gold, matching .quad — both are "a region
+     of the wheel is the answer" rather than "a line is the answer". */
+  .combo {
+    fill:rgba(212,175,55,.07); stroke:rgba(212,175,55,.42); stroke-width:1.5;
+    opacity:0; pointer-events:none; transition:opacity .3s var(--ease);
+  }
+  .combo.is-shown { opacity:1; }
+
+  /* The empty set is an identity too, so it needs somewhere to live. Shown
+     only in Combine, where "no colours" is a real answer rather than a
+     starting state. */
+  .center-mark { cursor:pointer; outline:none; }
+  .center-ring { fill:none; stroke:var(--hairline); stroke-width:1;
+                  transition:stroke .25s var(--ease); }
+  .center-dot  { fill:var(--c); opacity:.45; transform-origin:center; transform-box:fill-box;
+                  transition:opacity .3s var(--ease), transform .25s var(--ease); }
+  .center-mark:hover .center-dot, .center-mark:focus-visible .center-dot { transform:scale(1.14); }
+  .center-mark:hover .center-ring, .center-mark:focus-visible .center-ring { stroke:rgba(237,230,211,.3); }
+  .center-mark.is-rel .center-dot { opacity:1; }
+  .center-mark:focus-visible .center-ring { stroke:var(--gold); }
+
   .layer-note {
     text-align:center; font-family:'Outfit',system-ui,sans-serif;
     font-size:11px; color:var(--bone-faint); margin:0 0 4px; min-height:1.2em;
@@ -602,6 +647,14 @@
 
   <!-- Layer toggles. Enemies default OFF: the whole point is that the layers
        don't fire simultaneously. LAYER 4 button is present but disabled. -->
+  <!-- Explore reads the wheel; Combine builds an identity out of it. -->
+  <div class="modes">
+    <div class="mode-seg" role="group" aria-label="Mode">
+      <button class="mode-btn" data-mode="explore" aria-pressed="true">Explore</button>
+      <button class="mode-btn" data-mode="combine" aria-pressed="false">Combine</button>
+    </div>
+  </div>
+
   <div class="layers" role="group" aria-label="Diagram layers">
     <button class="layer-btn" id="lay-ally"   aria-pressed="true">Alliances</button>
     <button class="layer-btn" id="lay-enemy"  aria-pressed="false">Conflicts</button>
@@ -646,6 +699,8 @@
 
         <!-- FOUR-COLOR REGIONS — behind everything, revealed on selection -->
         <g id="g-quad">
+      <!-- Combine's region. Points are written by JS from the chosen vertices. -->
+      <polygon class="combo" id="comboPoly" points=""></polygon>
       <polygon class="quad" data-quad="W" points="647.27,319.66 552.82,610.34 247.18,610.34 152.73,319.66"></polygon>
       <polygon class="quad" data-quad="U" points="400.0,140.0 552.82,610.34 247.18,610.34 152.73,319.66"></polygon>
       <polygon class="quad" data-quad="B" points="400.0,140.0 647.27,319.66 247.18,610.34 152.73,319.66"></polygon>
@@ -848,6 +903,13 @@
         <text class="vertex-goal" x="93.76" y="321.5" text-anchor="end">Acceptance</text>
       </g>
         </g>
+      <!-- COLOURLESS — the centre. Combine only. -->
+      <g class="center-mark layer-off" id="centerMark" data-kind="center" data-key="C"
+         tabindex="0" role="button" aria-label="Colorless">
+        <circle class="center-hit" cx="400" cy="400" r="24" fill="transparent"></circle>
+        <circle class="center-ring" cx="400" cy="400" r="15"></circle>
+        <circle class="center-dot" cx="400" cy="400" r="7"></circle>
+      </g>
       </svg>
     </div>
 
@@ -1090,7 +1152,17 @@ function clearSelection() {
   wheel.classList.remove('has-selection');
   wheel.querySelectorAll('.is-rel,.is-excluded').forEach(n => n.classList.remove('is-rel','is-excluded'));
   wheel.querySelectorAll('.quad.is-shown').forEach(n => n.classList.remove('is-shown'));
-  panel.innerHTML = `
+  // Combine's set is part of the selection, so clearing one clears the other.
+  // Safe to touch these directly even though they are declared further down:
+  // nothing calls clearSelection() before the script has finished evaluating.
+  combo.clear();
+  comboPoly.classList.remove('is-shown');
+  centerMark.classList.remove('is-rel');
+  panel.innerHTML = mode === 'combine' ? `
+    <p class="panel-kicker">Combine</p>
+    <h2 class="panel-title">Build an identity</h2>
+    <p class="panel-body panel-empty">Click colors to add or remove them. Every combination
+      resolves to one of the thirty-two — including none of them.</p>` : `
     <p class="panel-kicker">Start anywhere</p>
     <h2 class="panel-title">Pick a point</h2>
     <p class="panel-body panel-empty">Choose a color, an edge, or a crossing.</p>`;
@@ -1405,6 +1477,13 @@ function showFour(excl) {
 /* ---------------------------------------------------------------- events */
 function activate(g) {
   const kind = g.dataset.kind, key = g.dataset.key;
+  // In Combine a colour is a set member rather than a subject, and edges and
+  // crossings are not targets at all — the set is built from colours only.
+  if (mode === 'combine') {
+    if (kind === 'color')  toggleColor(key);
+    if (kind === 'center') { combo.clear(); renderCombo(); }
+    return;
+  }
   if (kind === 'color') { sel = {kind, key, layer:null};    showColor(key); }
   else if (kind === 'ally')  { sel = {kind, key, layer:'ally'};  showAlly(key); }
   else if (kind === 'enemy') { showEnemy(key, null, true); }
@@ -1412,14 +1491,14 @@ function activate(g) {
 }
 
 wheel.addEventListener('click', e => {
-  const g = e.target.closest('.vertex,.edge,.cross');
+  const g = e.target.closest('.vertex,.edge,.cross,.center-mark');
   if (g) activate(g); else clearSelection();
 });
 
 // Keyboard parity: every target is focusable and Enter/Space activates it.
 wheel.addEventListener('keydown', e => {
   if (e.key !== 'Enter' && e.key !== ' ') return;
-  const g = e.target.closest('.vertex,.edge,.cross');
+  const g = e.target.closest('.vertex,.edge,.cross,.center-mark');
   if (!g) return;
   e.preventDefault();
   activate(g);
@@ -1612,6 +1691,190 @@ renderAtlas();
 console.assert(IDENTITIES.length === 32, 'expected 32 identities, got ' + IDENTITIES.length);
 console.assert(new Set(IDENTITIES.map(o => o.key)).size === 32, 'identity keys are not unique');
 console.assert(document.querySelectorAll('.tile').length === 37, 'expected 37 tiles');
+
+/* ========================================================================
+   COMBINE MODE
+   ------------------------------------------------------------------------
+   Explore answers "what is this?". Combine answers "what do these make?".
+   Clicking colours builds a set, and after every click that set resolves to
+   exactly one of the 32 identities — the same records the atlas renders, so
+   there is no second copy of the names to drift.
+
+   THE GEOMETRY IS THE EXPLANATION. One polygon takes the selected vertices
+   in wheel order, so three colours make a triangle, four a quadrilateral,
+   five the whole pentagon. A shard's triangle has two allied edges and one
+   conflict chord; a wedge's has one allied edge and two chords. The
+   difference between Esper and Jeskai is a shape before it is a definition.
+
+   All copy below is DERIVED, not written: names and anchors come from the
+   registry, and the allied/enemy composition is computed from the wheel's
+   own adjacency. Nothing here invents philosophy.
+   ======================================================================== */
+const modeBtns   = [...document.querySelectorAll('.mode-btn')];
+const centerMark = document.getElementById('centerMark');
+const comboPoly  = document.getElementById('comboPoly');
+
+let mode  = 'explore';
+let combo = new Set();
+
+/* Built on first use: IDENTITIES is declared further down the file, so this
+   cannot run at load time. Every caller is a click handler, so by then the
+   whole script has been evaluated. */
+const BY_KEY = new Map();
+function identityFor(set) {
+  if (!BY_KEY.size) IDENTITIES.forEach(o => BY_KEY.set(o.key, o));
+  return BY_KEY.get(D.order.filter(c => set.has(c)).join('')) || null;
+}
+
+const vtxXY = c => {
+  const d = vtx(c).querySelector('.vertex-dot');
+  return [+d.getAttribute('cx'), +d.getAttribute('cy')];
+};
+
+/* Allied pairs are the pentagon's edges, enemy pairs the star's chords. Both
+   are already in D, so membership is read rather than re-derived. */
+function pairsOf(cols) {
+  const out = { allied: [], enemy: [] };
+  for (let i = 0; i < cols.length; i++)
+    for (let j = i + 1; j < cols.length; j++) {
+      const k = keyFor(cols[i], cols[j]);
+      (D.allies[k] ? out.allied : out.enemy).push(k);
+    }
+  return out;
+}
+
+/* The colour that sits at the join: in a shard it is allied with both others,
+   in a wedge it is in conflict with both. That single colour is what makes
+   the two three-colour families feel different to play. */
+function hingeColor(cols, keys) {
+  return cols.find(c => keys.filter(k => k.includes(c)).length === 2) || null;
+}
+
+const GROUP_LABEL = {
+  colorless:'Colorless', mono:'Mono-color', allied:'Allied pair',
+  enemy:'Enemy pair', shard:'Shard', wedge:'Wedge',
+  four:'Four-color', five:'Five-color'
+};
+
+function comboBody(cols, id) {
+  const n = cols.length;
+  if (n === 0) return `<p class="panel-body">No colors. The center of the wheel, and the one identity that sits outside every philosophy.</p>`;
+  if (n === 1) return `<p class="panel-body">One vertex. Add a second color to draw an edge.</p>`;
+
+  const p = pairsOf(cols);
+
+  if (n === 2) {
+    const k = p.allied[0] || p.enemy[0];
+    return p.allied.length
+      ? `<p class="panel-body">An <strong>allied</strong> pair — an edge of the pentagon. They share ${esc(D.allies[k].value.toLowerCase())}.</p>`
+      : `<p class="panel-body">An <strong>enemy</strong> pair — a chord across the star. Their conflict is ${esc(D.enemies[k].title)}.</p>`;
+  }
+
+  if (n === 3) {
+    const shard = p.allied.length === 2;
+    const hinge = hingeColor(cols, shard ? p.allied : p.enemy);
+    const others = cols.filter(c => c !== hinge);
+    return `<p class="panel-body">${p.allied.length} allied edge${p.allied.length === 1 ? '' : 's'}
+        and ${p.enemy.length} conflict chord${p.enemy.length === 1 ? '' : 's'} — the shape of a
+        <strong>${shard ? 'shard' : 'wedge'}</strong>.</p>
+      <p class="panel-body">${dot(hinge)}<strong>${esc(nm(hinge))}</strong> sits at the join,
+        ${shard ? 'allied with' : 'in conflict with'} both
+        ${dot(others[0])}${esc(nm(others[0]))} and ${dot(others[1])}${esc(nm(others[1]))}.
+        That is the whole difference between a shard and a wedge.</p>`;
+  }
+
+  if (n === 4) {
+    const missing = D.order.find(c => !cols.includes(c));
+    return `<p class="panel-body">Four colors, one left out — ${dot(missing)}<strong>${esc(nm(missing))}</strong>.
+        The two conflict chords that cross inside this region meet at the crossing for this identity.</p>
+      ${id && id.commander ? `<p class="panel-body"><strong>Commander 2016 anchor:</strong>
+        ${esc(id.commander)} · ${esc(id.deck)}. A historical anchor, not another name for the combination.</p>` : ''}`;
+  }
+
+  return `<p class="panel-body">All five. The complete pentagon — every alliance and every conflict at once.</p>`;
+}
+
+function showCombo() {
+  const cols = D.order.filter(c => combo.has(c));
+  const id   = identityFor(combo);
+  const name = id ? id.name : cols.join('');
+  const group = id ? (GROUP_LABEL[id.group] || id.group) : '';
+  /* Show the faction's conventional order, not the canonical one — Jeskai
+     reads U R W everywhere else on the page, including its atlas tile. The
+     canonical key is for lookup; `display` is for people. */
+  const shown = id && id.display ? id.display.split('') : cols;
+  const code = shown.length ? shown.join(' ') : 'C';
+
+  panel.innerHTML = `
+    <p class="panel-kicker">Combine · ${cols.length} color${cols.length === 1 ? '' : 's'}</p>
+    <h2 class="panel-title">${shown.map(dot).join('')}${esc(name)}</h2>
+    <p class="panel-sub">${esc(code)}${group ? ' · ' + esc(group) : ''}</p>
+    ${comboBody(cols, id)}
+    <p class="panel-src">Resolved from the identity registry · geometry solved at build time</p>`;
+}
+
+/* Repaint the wheel for the current set: the region polygon, the lit edges
+   between chosen colours, and the lit vertices. */
+function renderCombo() {
+  const cols = D.order.filter(c => combo.has(c));
+
+  // the region: vertices in wheel order, so the polygon never self-intersects
+  if (cols.length >= 3) {
+    comboPoly.setAttribute('points', cols.map(c => vtxXY(c).join(',')).join(' '));
+    comboPoly.classList.add('is-shown');
+  } else {
+    comboPoly.classList.remove('is-shown');
+  }
+
+  const keys = [];
+  for (let i = 0; i < cols.length; i++)
+    for (let j = i + 1; j < cols.length; j++) keys.push(keyFor(cols[i], cols[j]));
+
+  if (cols.length) {
+    highlight([...cols.map(vtx), ...keys.map(edgeEl)]);
+    centerMark.classList.remove('is-rel');
+  } else {
+    wheel.querySelectorAll('.is-rel,.is-excluded').forEach(n => n.classList.remove('is-rel','is-excluded'));
+    wheel.classList.add('has-selection');
+    clearBtn.hidden = false;
+    centerMark.classList.add('is-rel');
+  }
+  showCombo();
+  return keys;
+}
+
+function toggleColor(c) {
+  const adding = !combo.has(c);
+  if (adding) combo.add(c); else combo.delete(c);
+  const keys = renderCombo();
+  // Adding a colour draws the edges it just created, outward from that vertex.
+  // Removing one draws nothing — there is no new structure to show.
+  if (adding) drawFromVertex(c, keys.filter(k => k.includes(c)));
+}
+
+function setMode(m) {
+  mode = m;
+  modeBtns.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.mode === m)));
+  centerMark.classList.toggle('layer-off', m !== 'combine');
+  combo.clear();
+  comboPoly.classList.remove('is-shown');
+  clearSelection();
+  // A triangle is unreadable if half its sides are hidden, so Combine turns
+  // both edge layers on. They stay user-toggleable afterwards.
+  if (m === 'combine') { setLayer('ally', true); setLayer('enemy', true); }
+  updateNote();
+}
+
+function setLayer(k, on) {
+  const L = layers[k];
+  if (!L || L.on === on) return;
+  L.on = on;
+  L.btn.setAttribute('aria-pressed', String(on));
+  L.grp.classList.toggle('layer-off', !on);
+}
+
+modeBtns.forEach(b => b.addEventListener('click', () => setMode(b.dataset.mode)));
+
 
 /* ======================================================================
    Pointer tilt — the only JavaScript on the page.
