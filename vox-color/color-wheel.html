@@ -414,6 +414,11 @@
   .view-btn[aria-pressed="true"] { color:var(--bone); border-color:currentColor; background:rgba(237,230,211,.07); }
   .view-btn:focus-visible { outline:2px solid var(--gold); outline-offset:2px; }
 
+  /* Neighbour chips reuse the conflict-perspective button so the page keeps one
+     vocabulary for "a small thing you can click inside the panel". */
+  .views .nbr { display:inline-flex; align-items:center; gap:2px; }
+  .views .nbr:hover { border-color:rgba(237,230,211,.3); }
+
   .swatch { display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:7px; vertical-align:middle; }
 
 
@@ -1208,6 +1213,7 @@ function clearSelection() {
   comboPoly.classList.remove('is-shown');
   centerMark.classList.remove('is-rel');
   wheel.querySelectorAll('.vertex-half.is-shown').forEach(n => n.classList.remove('is-shown'));
+  setRoute(null);
   panel.innerHTML = mode === 'combine' ? `
     <p class="panel-kicker">Combine</p>
     <h2 class="panel-title">Build an identity</h2>
@@ -1553,6 +1559,12 @@ function activate(g) {
     if (kind === 'center') { combo.clear(); renderCombo(); }
     return;
   }
+  // Explore routes are written here rather than in the renderers, because the
+  // renderers also run when the conflict view buttons re-render a panel and
+  // that is a change of text, not of location.
+  setRoute(kind === 'four' ? 'four=' + key
+         : kind === 'color' ? 'color=' + key
+         : kind + '=' + key);
   if (kind === 'color') { sel = {kind, key, layer:null};    showColor(key); }
   else if (kind === 'ally')  { sel = {kind, key, layer:'ally'};  showAlly(key); }
   else if (kind === 'enemy') { showEnemy(key, null, true); }
@@ -1901,6 +1913,37 @@ function comboBody(cols, id) {
   return `<p class="panel-body">All five. The complete pentagon — every alliance and every conflict at once.</p>`;
 }
 
+/* Resolve any colour list to its identity. identityFor() takes a Set; this
+   takes an array, and fills BY_KEY the same lazy way. */
+function idForCols(cols) {
+  if (!BY_KEY.size) IDENTITIES.forEach(o => BY_KEY.set(o.key, o));
+  return BY_KEY.get(D.order.filter(c => cols.includes(c)).join('')) || null;
+}
+
+/* NEIGHBOURS — every identity one colour away.
+
+   The chip is labelled with the identity you would LAND on, not the colour you
+   would move. "What happens if I add green?" gets answered before the click
+   instead of after it, which is the question someone building a deck actually
+   has. Adding is offered while the set is under five, removing while it is
+   over zero, so colourless and five-colour are reachable ends rather than
+   dead stops. */
+function neighbourChips(cols) {
+  const chip = (next, moved) => {
+    const o = idForCols(next);
+    return '<button class="view-btn nbr" data-set="' + next.join('') + '">' +
+           dot(moved) + esc(o ? o.name : (next.join('') || 'Colorless')) + '</button>';
+  };
+  const adds  = D.order.filter(c => !cols.includes(c))
+                  .map(c => chip(D.order.filter(x => cols.includes(x) || x === c), c));
+  const drops = cols.map(c => chip(cols.filter(x => x !== c), c));
+
+  let out = '';
+  if (adds.length)  out += '<p class="panel-body"><strong>Add a color</strong></p><div class="views">' + adds.join('') + '</div>';
+  if (drops.length) out += '<p class="panel-body"><strong>Remove a color</strong></p><div class="views">' + drops.join('') + '</div>';
+  return out;
+}
+
 function showCombo() {
   const cols = D.order.filter(c => combo.has(c));
   const id   = identityFor(combo);
@@ -1917,9 +1960,17 @@ function showCombo() {
     <h2 class="panel-title">${shown.map(dot).join('')}${esc(name)}</h2>
     <p class="panel-sub">${esc(code)}${group ? ' · ' + esc(group) : ''}</p>
     ${comboBody(cols, id)}
+    ${neighbourChips(cols)}
     <p class="panel-src">${cols.length > 1 ? esc(SRC_FRIEND) + ' · ' + esc(SRC_PIE) + ' · ' : ''}${
       cols.length === 3 ? esc(id && id.group === 'wedge' ? SRC_WEDGE : SRC_SHARD) + ' · ' : ''
     }resolved from the identity registry</p>`;
+
+  // The panel is rebuilt on every change, so the chips are wired after render.
+  panel.querySelectorAll('.nbr').forEach(b => b.addEventListener('click', () => {
+    combo.clear();
+    b.dataset.set.split('').forEach(c => combo.add(c));
+    renderCombo();
+  }));
 }
 
 /* Repaint the wheel for the current set: the region polygon, the lit edges
@@ -1949,6 +2000,7 @@ function renderCombo() {
     centerMark.classList.add('is-rel');
   }
   showCombo();
+  setRoute('combine=' + cols.join(''));
   return keys;
 }
 
@@ -1995,6 +2047,72 @@ function setLayer(k, on) {
 }
 
 modeBtns.forEach(b => b.addEventListener('click', () => setMode(b.dataset.mode)));
+
+/* ========================================================================
+   DEEP LINKS
+   ------------------------------------------------------------------------
+   State lives in the HASH, not the query string, and that is deliberate:
+   this file is opened straight off disk, and history.pushState() to a new
+   path is refused on a file:// origin in some browsers. Hash assignment is
+   not, it still creates real history entries, and it survives being emailed
+   to someone. So back, forward, reload and a pasted link all work from a
+   page with no server behind it.
+
+     #combine=WUR     the set, in canonical order (#combine= is colourless)
+     #color=W         a colour in Explore
+     #ally=WU         an alliance
+     #enemy=WB        a conflict
+     #four=W          the crossing that excludes White
+
+   `applying` guards the round trip: restoring from a hash must not write a
+   new hash, or every restore would push another history entry.
+   ======================================================================== */
+let applying = false;
+
+function setRoute(r) {
+  if (applying) return;
+  const h = r === null ? '' : '#' + r;
+  if (location.hash !== h) location.hash = h;
+}
+
+function applyHash() { applyRoute(decodeURIComponent(location.hash.replace(/^#/, ''))); }
+
+/* Split from applyHash so the restore logic can be exercised without touching
+   location — which matters, because the only environment this file gets
+   previewed in serves it as a data: URL, where hash assignment silently does
+   nothing. The parsing and restoring below are testable; the single line in
+   setRoute that writes location.hash is not, and is the one thing here that
+   has only been reasoned about rather than run. */
+function applyRoute(raw) {
+  applying = true;
+  try {
+    const i = raw.indexOf('=');
+    const k = i < 0 ? raw : raw.slice(0, i);
+    const v = i < 0 ? ''  : raw.slice(i + 1);
+
+    if (k === 'combine') {
+      setMode('combine');
+      combo.clear();
+      v.split('').forEach(c => { if (D.order.includes(c)) combo.add(c); });
+      renderCombo();
+      return;
+    }
+
+    setMode('explore');
+    if (k === 'four') setLayer('cross', true);
+    if (k === 'enemy') setLayer('enemy', true);
+    const el = k === 'color' ? vtx(v)
+             : (k === 'ally' || k === 'enemy') ? edgeEl(v)
+             : k === 'four' ? wheel.querySelector('.cross[data-key="' + v + '"]')
+             : null;
+    if (el) activate(el);
+  } finally {
+    applying = false;
+  }
+}
+
+window.addEventListener('hashchange', applyHash);
+if (location.hash.length > 1) applyHash();
 
 
 /* ======================================================================
