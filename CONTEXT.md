@@ -4,21 +4,33 @@ Handoff notes. Read before editing.
 
 ---
 
-## The two files
+## The file
 
-**`color-wheel.html`** — interactive WUBRG pentagram. Three layers built, a
-fourth stubbed:
+**`vox-color/color-wheel.html`** — one static file, two views.
 
-1. **Vertices** — each colour's goal and the method it reaches it by.
-2. **Edges** — allied pairs (the pentagon) and enemy pairs (the star).
-3. **Crossings** — the five interior intersections of the star.
-4. **Mechanics overlay** — *not built.* Button exists and is disabled. See below.
+It used to be two files. `color-identity-directory.html` was absorbed into it
+(commit `603dd0b`); git history has the original if you need it. They duplicated
+tokens, type stack, glass treatment and ambient mesh, and the atlas owned the 32
+identity records the wheel needed. Merging removed both duplications at once and
+did the shared-stylesheet extraction that had been queued as its own job.
 
-**`color-identity-directory.html`** — 37 tiles across six tiers: colourless,
-mono, two-colour (allied guilds / enemy guilds / Strixhaven colleges),
-three-colour (shards / wedges), four-colour, five-colour. 32 identities; the five
-colleges are alternate names for the five enemy pairs, which is why the tile
-count exceeds the identity count.
+**The wheel** — the primary instrument. Two modes:
+
+- **Explore** — click one thing, read about that thing.
+  1. Vertices: each colour's goal, method, and what it costs.
+  2. Each colour's two faces — one arc per alliance, in the ally's colour.
+  3. Edges: allied pairs (pentagon) and enemy chords (star).
+  4. Crossings: the five interior intersections.
+  5. Mechanics overlay — *not built.* Button exists and is disabled.
+- **Combine** — click colours to build a set; it resolves to one of the 32.
+  The layer toggles are Explore's lenses and are hidden here; Combine owns its
+  own geometry, and Explore's lens state is remembered and handed back.
+
+**The atlas** — all 37 tiles, below the wheel, rendered from the same registry.
+
+Deep links are in the hash (`#combine=WUR`, `#color=W`, `#ally=WU`,
+`#enemy=WB`, `#four=W`). Hash rather than query string because the file is
+opened off disk and `pushState` to a new path is refused on `file://`.
 
 ---
 
@@ -26,75 +38,110 @@ count exceeds the identity count.
 
 A pentagram has exactly five interior crossings. Two chords intersect only when
 their endpoints alternate around the circle, so each crossing touches four
-colours and excludes exactly one. Five crossings, five exclusions, one per
-four-colour identity — a bijection.
+colours and excludes exactly one — a bijection with the five four-colour
+identities.
 
 This is a proof, not an observation, and it means **the crossing coordinates
 cannot be moved.** If they feel crowded, shrink the markers; don't reposition
-them. They were solved numerically in `build/build_wheel.py` with an assertion
-that there are exactly five distinct exclusions.
+them.
 
-The usual pentagram diagrams never label these points. That's the component's
-one original contribution.
+Note the trap: "every chord not containing the excluded colour" returns *three*
+chords, not two, because each colour sits in only two of the five. The extra one
+is always the chord joining the excluded colour's two neighbours. That bug was
+live for a while and is fixed; there's a numeric check in the commit history.
+
+---
+
+## The identity registry
+
+32 identities in `IDENTITIES`, 5 alternate names in `ALIASES`, 37 tiles. The
+Strixhaven colleges are alternate names for identities that already exist —
+Silverquill *is* Orzhov — so they never inflate the count.
+
+`display` is the authoritative field: the colours in the order the faction is
+conventionally written. Jeskai is URW, not WUR. The canonical WUBRG key is
+**derived** from it, so membership and ordering cannot disagree. 11 of the 37
+have a display order that differs from canonical, which is why this is stored
+and not an afterthought.
+
+Everything else a tile shows is derived — ring, pips, code, tier, dossier line.
+
+**The 37 dossier lines are composed from strings already in `D`**, not written
+fresh. That was a deliberate instruction: fresh paraphrase is 37 chances to get
+the philosophy subtly wrong, and it puts a second account of each identity on the
+page that nothing keeps in step with the wheel. If you add real Codex copy, add
+it as data and let the renderer surface it; don't hand-write tiles.
+
+Deliberately not modelled: promise, game feel, actions, tensions, mechanical
+signals. No copy exists for any of them. Empty fields for absent content are only
+future confusion.
 
 ---
 
 ## Sources and provenance
 
-All wheel copy is **paraphrase**, written fresh — not quotation. Deliberate on
-two counts: the articles are Wizards' copyright, and the Codex should speak in
-its own voice. Nothing in the panels is precious; rewrite freely.
+All copy is **paraphrase or derivation**, never quotation. Deliberate on two
+counts: the articles are Wizards' copyright, and the Codex should speak in its
+own voice.
 
-- **Philosophies and the five conflicts** — Rosewater, "Pie Fights," Nov 2016.
-- **The five alliances** — Rosewater, "Thank You for Being a Friend," Mar 2017.
-  Its "the key to X is Y" closers are the source of the vertex method lines.
-- **Four-colour commanders** — verified against the MTG Wiki Commander 2016
-  cycle table. Yidris/Entropic Uprising (non-white), Saskia/Open Hostility
-  (non-blue), Kynaios and Tiro/Stalwart Unity (non-black), Atraxa/Breed
-  Lethality (non-red), Breya/Invent Superiority (non-green).
+Primary sources now live in `voxmana.io/docs/research/canon/`. The wheel draws on:
+
+- **Philosophies and the five conflicts** — "Pie Fights," Nov 2016.
+- **The five alliances** — "Thank You for Being a Friend," Mar 2017. Verified:
+  all five shared values and all five "the key to X is Y" closers match what the
+  file had.
+- **Per-colour downsides** — the 2015 "revisited" series.
+- **Shards** — the 2008 interviews, one per shard, each with its centre colour.
+- **Wedges** — the 2014–15 interviews. Their clan attributes are in the
+  registry: Abzan endurance, Jeskai cunning, Mardu speed, Sultai ruthlessness,
+  Temur savagery.
+- **Four-colour commanders** — Commander 2016, verified against the decklists.
 
 ### Source cautions
 
 - **Rosewater contradicts himself inside "Pie Fights."** The philosophy section
-  says green wants *acceptance*; the summary section says green wants *growth*.
-  The file uses acceptance, matching the 2015 revisited series.
-- **The reference pentagram PNG uses Duncan Sabien's vocabulary**, not Wizards'.
-  "Growth Mindset," "Authenticity," "Profanity," "Heroism," "Tribalism" are his
-  coinages. The current build deliberately uses MaRo canon instead. Also note
-  Sabien states his understanding comes from Rosewater's blog — he's downstream,
-  not independent corroboration.
-- **The "goal through method" formula is Sabien's**, not MaRo's. The vertex
-  labels here are built from MaRo's own wording instead.
-- **Mechanical Color Pie 2017 is superseded.** The current version is Mechanical
-  Color Pie 2021 (18 Oct 2021), with a same-day companion "Mechanical Color Pie
-  2021 Changes" itemising every diff. As of Jan 2025 Rosewater confirmed no
-  newer version exists but intends one eventually. **Layer 4 needs the 2021
-  data — roughly 150 abilities across primary/secondary/tertiary. Wiring 2017
-  would ship known-stale tiering.**
-- **A 2025 "My Words" series exists** (White 19 May, Blue 23 Jun, a third
-  17 Sep), first-person philosophy per colour, newer than the 2015 revisited
-  articles most people cite. Not needed for the build — it's swappable content —
-  but worth knowing if the Codex dossiers predate it. It was never confirmed
-  whether all five published.
+  says green wants *acceptance*; the summary says *growth*. The file uses
+  acceptance, matching the 2015 revisited series, which states it outright.
+- **The classic colour-wheel poster is not a fan coinage.** An earlier version of
+  this document implied its vocabulary wasn't Wizards'. That was wrong.
+  "Hate Is Enough" (Feb 2002) names three sub-conflicts per enemy pair —
+  Morality vs. Amorality, Symbiosis vs. Parasitism, Natural vs. Artificial
+  Growth — which is where Parasitism, Amorality, Interdependence and Technology
+  come from. Its split-vertex structure is the source of the halves.
+- **Duncan Sabien's pentagram is downstream.** "Growth Mindset," "Authenticity,"
+  "Profanity," "Heroism," "Tribalism" are his coinages, and he states his
+  understanding comes from Rosewater's blog. The build uses MaRo canon instead.
+  The "goal through method" formula is his, not MaRo's.
+- **"More Maro on Maro" is misfiled in the research packet.** It's listed under
+  Downsides but concerns the downsides of the colour pie *as a system*; it has no
+  per-colour weaknesses. Those are in the colour essays.
+- **Mechanical Color Pie 2017 is superseded** by the 2021 version plus a
+  same-day changes companion. Layer 4 needs the 2021 data — roughly 150
+  abilities. Wiring 2017 would ship known-stale tiering.
+- **The 2025 "My Words" series completed all five** (White May, Blue Jun, Black
+  Sep, Red Oct, Green Dec). This document previously recorded that as unknown.
+  Not needed for the build — it's swappable content.
 
 ---
 
-## Design constraints (carried from prior work on this site)
+## Design constraints
 
 - Single static HTML. No build step, no framework, no npm.
 - **Static at rest.** No ambient animation, no rAF loops, no particle systems.
-  A real design-reference doc for this project warns explicitly against running
-  many simultaneous animated gradients — it reads as "gaming RGB," not Magic.
-- `reference/current-weave-annotated.html` warns that its own rAF pattern
-  assumes a singleton component. At 32+ elements that warning is the whole
-  design. The wheel uses zero rAF loops; the directory uses one delegated
-  pointer handler writing two custom properties.
-- `prefers-reduced-motion` is honoured by **skipping** JS effects, never slowing
-  them.
+- `prefers-reduced-motion` is honoured by **skipping** effects, never slowing.
 - No carved/embossed ornamental borders — wrong texture against glass.
-- Glass needs colour behind it. The static ambient gradient mesh exists so
-  `backdrop-filter` has something to catch; flat black reads as empty, not
-  frosted.
+- Glass needs colour behind it; the static mesh exists so `backdrop-filter` has
+  something to catch.
+- **The wheel is the instrument.** Playing with the wheel to see an identity is
+  the interaction; clicking a card to see the wheel is backwards. An atlas→wheel
+  sync was proposed and rejected on those grounds.
+
+### Known trade
+
+The atlas is now JS-rendered. No JS, no tiles. Keeping static output while having
+one registry would need a generator writing the HTML — the build step this
+project has ruled out. Worth revisiting if the page is ever crawled or served
+scriptless.
 
 ## Type stack
 
@@ -105,54 +152,45 @@ its own voice. Nothing in the panels is precious; rewrite freely.
 | Lora | Reading | prose, educational content |
 | Outfit | Interface | nav, buttons, filters, metadata, codes |
 
-Supersedes the Cinzel/Fraunces pairing still present in
-`reference/current-weave-annotated.html` — that file needs the same swap
-eventually.
-
 ## Colour tokens
 
-Inherited verbatim from Current Weave: `--obsidian #0b0c11`, `--panel #14151d`,
-`--bone #ede6d3`, `--gold #d4af37`, `--w #f5efc7`, `--u #77b9e8`, `--r #d97858`.
+`--obsidian #0b0c11`, `--panel #14151d`, `--bone #ede6d3`, `--gold #d4af37`,
+`--w #f5efc7`, `--u #77b9e8`, `--r #d97858`.
 
-`--b #aca29a` is `$ms-base-black` pulled from mana-font 1.18.0's own sass
-variables, so the ring arc matches the pip inside it. For reference the full
-mana-font base set is white `#f0f2c0`, blue `#b5cde3`, black `#aca29a`, red
-`#db8664`, green `#93b483`, colourless `#beb9b2`.
+`--b #aca29a` is `$ms-base-black` from mana-font 1.18.0, so the ring arc matches
+the pip inside it. Full mana-font base set: white `#f0f2c0`, blue `#b5cde3`,
+black `#aca29a`, red `#db8664`, green `#93b483`, colourless `#beb9b2`.
 
-**Unverified, needs Rob's sign-off:** `--g #7fb283` and `--c #b6b2a6` were both
-invented — Current Weave only ever needed Jeskai. `--c` in particular now sits
-close to `--b`; Rob is re-tuning it.
+**Still unverified, needs Rob:** `--g #7fb283` and `--c #b6b2a6` were invented.
+`--c` sits close to `--b`; check Esper and Grixis rings when it is retuned.
 
 ---
 
 ## Open items
 
-**Wheel**
-- [ ] Emphasis model rebuild (job 1 in PROMPT.md)
-- [ ] Per-colour draw-on animation (job 2)
 - [ ] Layer 4: mechanical overlay, needs Mechanical Color Pie 2021
+- [ ] `--g` and `--c` confirmation (Rob)
 - [ ] Crossing markers may crowd at hover scale — shrink, never move
-
-**Directory**
-- [ ] 37 placeholder dossier lines, all marked `data-placeholder="true"`
 - [ ] Mono-colour tiles named plainly ("White", "Blue") — swap in Codex names if
       they exist
-- [ ] Ambient mesh still has a purple lobe standing in for black, left over from
-      the old token. Options: leave as a saturated stand-in, desaturate and
-      accept a flatter corner, or drop it and rebalance the other four
-- [ ] `--g` and `--c` confirmation
-- [ ] Hero says "The Thirty-Two Identities"; if the Codex counts 37, that copy
-      may want to change
+- [ ] Hero says "The Color Wheel"; the atlas heading says "The Thirty-Two
+      Identities". If the Codex counts 37, that copy may want to change
+- [ ] Colour panels cite three articles each — three lines of small type. A
+      source drawer would be better than a wall of citations
+- [ ] `setRoute`'s single `location.hash` assignment has never been executed.
+      The only preview environment available serves the file as a `data:` URL,
+      where hash assignment silently fails. Everything either side of that line
+      is tested. **Check it once in a real browser.**
+- [ ] "Hate Is Enough" gives three named sub-conflicts per enemy pair. The wheel
+      currently shows one title per chord. Those three facets are unused.
 
-**Both**
-- [ ] Extract shared tokens/type/glass/mesh to one stylesheet before a third
-      file exists
-- [ ] Decide whether the two components link to each other — the wheel's
-      crossings and the directory's four-colour tier are the same five things
-      rendered twice
+### Resolved since the first draft of this document
+
+Emphasis model rebuild · per-colour draw-on (built, then flattened to White's
+setting on review) · the mesh's leftover violet lobe · shared tokens/type/glass
+extraction · whether the two components link · the `showFour` chord bug · atlas
+tiles' false focusability · all 37 placeholder dossier lines.
 
 ## Not in this folder
 
-The Rosewater article PDFs. Drop them in `reference/` if you want the panel copy
-rewritten against the primary text — the paraphrase in the wheel was written
-from them.
+Nothing now — the Rosewater corpus is in `voxmana.io/docs/research/canon/`.
