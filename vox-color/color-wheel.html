@@ -408,6 +408,23 @@
   }
   .panel-body { font-size:14.5px; line-height:1.68; color:var(--bone-dim); margin:0 0 16px; }
   .panel-body strong { color:var(--bone); font-weight:500; }
+  /* The only direct quotation in the build. Everything else is paraphrase;
+     this earns the exception because it is the clearest statement of the
+     category error the colorless entry exists to prevent, and paraphrasing it
+     would destroy the very thing that makes it land. Reproduced exactly,
+     including Rosewater's own nested quotation marks around the phrase he is
+     quoting from his blog, and attributed in full. */
+  .panel-quote {
+    margin:14px 0 0; padding:2px 0 2px 14px;
+    border-left:2px solid rgba(212,175,55,.35);
+    font-size:14px; line-height:1.6; color:var(--bone);
+  }
+  .panel-quote cite {
+    display:block; margin-top:7px; font-style:normal;
+    font-family:'Outfit',system-ui,sans-serif; font-size:10.5px; font-weight:300;
+    letter-spacing:.02em; color:var(--bone-faint);
+  }
+
   .panel-src {
     font-family:'Outfit',system-ui,sans-serif; font-size:10.5px; font-weight:300;
     color:var(--bone-faint); margin:18px 0 0; padding-top:12px;
@@ -1173,6 +1190,15 @@ const SRC_SHARD = 'Rosewater, the 2008 shard interviews — paraphrased';
    COLOURS and use the guild name as familiar shorthand. Since "Azorius" names a
    real Ravnican institution, a reader could otherwise take these for guild lore.
    The note is shown, not left in the research notes. */
+/* VERBATIM. Checked against the article itself, not reconstructed from a
+   search summary. Do not tidy the contraction, the parenthesis, or the inner
+   quotation marks: those inner quotes are Rosewater quoting a phrase he uses
+   on his blog, and flattening them would misreport who said what. */
+const QUOTE_BAREFOOT = {
+  text: `Colorless isn't a color (as I like to say on my blog, "barefoot is not a type of shoe")`,
+  cite: `Mark Rosewater, "Third Time's the Charm, Part 2," Making Magic, May 27, 2024`
+};
+
 const SRC_SCOPE_NONE = 'Colorless is a game characteristic and a design space, not a faction or a school of thought. Artifacts, Eldrazi, lands and colorless commanders are different things that happen to share it. \u2014 Mark Rosewater, "Just the Artifacts, Ma\'am," February 28, 2005; "Third Time\'s the Charm, Part 2," May 27, 2024; "The Council of Colors, Revisited," August 26, 2024.';
 const SRC_SCOPE_FOUR = 'Four colours have no philosophy article of their own. These five names are deck identities the Commander 2016 design team built for those decks and described in gameplay terms \u2014 Ethan Fleischer, "Designing Commander (2016 Edition)," October 24, 2016. They are one product\'s lenses, not definitions of the colour combinations. The community line is community reading, not canon.';
 const SRC_SCOPE_WEDGE = 'These use the Khans of Tarkir clans and their attributes as Rosewater\'s set-specific lens on the five wedge combinations \u2014 one supported expression of each trio, not a universal rule. The colour paired with its two enemies is structurally isolated, but each Tarkir clan is centred on one of the two allied colours.';
@@ -2020,6 +2046,8 @@ function comboBody(cols, id) {
       Rosewater's account of artifacts is that they represent the lack of one \u2014 the mage who
       specialises in them is avoiding committing to anything. Colorless marks a card that has no
       color; what it means comes from the card, not from the absence.</p>
+    <blockquote class="panel-quote">“${esc(QUOTE_BAREFOOT.text)}”
+      <cite>${esc(QUOTE_BAREFOOT.cite)}</cite></blockquote>
     <p class="panel-body"><strong>How it plays.</strong> Generic costs mean any mage can play any
       artifact, which is the whole point of them. Their home ground is making and fixing mana,
       drawing cards, boosting creatures, being creatures, doing things no color normally does, and

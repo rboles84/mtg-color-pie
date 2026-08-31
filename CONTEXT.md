@@ -80,9 +80,22 @@ future confusion.
 
 ## Sources and provenance
 
-All copy is **paraphrase or derivation**, never quotation. Deliberate on two
-counts: the articles are Wizards' copyright, and the Codex should speak in its
-own voice.
+All copy is **paraphrase or derivation** by default. Deliberate on two counts:
+the articles are Wizards' copyright, and the Codex should speak in its own voice.
+
+**Direct quotation is permitted, but it is exceptional and has rules.** There is
+exactly one quotation in the build — Rosewater's "barefoot is not a type of
+shoe" on colorless — and it earned the exception because it states the entry's
+whole point better than any paraphrase could, and paraphrasing it would have
+destroyed the thing that makes it land.
+
+If you add another, it must be: verified against the article itself rather than a
+search summary or a secondhand brief; reproduced exactly, with no tidying of
+contractions, punctuation or nested quotation marks; attributed in full as
+Author, "Title," Publication, Month Day, Year; and visually distinct from the
+surrounding paraphrase so a reader can tell whose words they are. The stored
+string carries a comment saying not to edit it, and `.panel-quote` is the styling
+hook. If a paraphrase would do the job, use the paraphrase.
 
 Primary sources now live in `voxmana.io/docs/research/canon/`. The wheel draws on:
 
