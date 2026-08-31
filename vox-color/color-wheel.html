@@ -206,6 +206,14 @@
   .center-mark.is-rel .center-dot { opacity:1; }
   .center-mark:focus-visible .center-ring { stroke:var(--gold); }
 
+  /* The layer toggles are EXPLORE's lenses — they choose which structure you
+     are reading. In Combine there is no such choice: the edges you see are
+     whichever ones your colours imply. Leaving the controls up let you switch
+     off the very geometry you were building, which is how a two-colour
+     identity ended up drawing nothing at all. */
+  body.mode-combine .layers,
+  body.mode-combine .layer-note { display:none; }
+
   .layer-note {
     text-align:center; font-family:'Outfit',system-ui,sans-serif;
     font-size:11px; color:var(--bone-faint); margin:0 0 4px; min-height:1.2em;
@@ -1154,6 +1162,8 @@ Object.entries(layers).forEach(([k, L]) => {
 });
 
 function updateNote() {
+  // Layer advice is meaningless in Combine, where the layers are not on offer.
+  if (mode === 'combine') { note.textContent = ''; return; }
   // The crossings are meaningless without the chords that produce them,
   // so say so rather than silently showing floating dots.
   if (layers.cross.on && !layers.enemy.on) {
@@ -1177,6 +1187,11 @@ function keyFor(a, b) {
 
 /* ---------------------------------------------------------------- selection */
 let sel = null;
+/* Declared here, not down in the Combine block, because updateNote() runs at
+   load and reads it. `typeof mode` would NOT have saved us: typeof on a let in
+   its temporal dead zone throws rather than returning 'undefined', which took
+   the whole script out. */
+let mode = 'explore';
 
 function clearSelection() {
   sel = null;
@@ -1766,8 +1781,8 @@ const modeBtns   = [...document.querySelectorAll('.mode-btn')];
 const centerMark = document.getElementById('centerMark');
 const comboPoly  = document.getElementById('comboPoly');
 
-let mode  = 'explore';
 let combo = new Set();
+let priorLayers = null;   // Explore's lens state, held while Combine borrows it
 
 /* Built on first use: IDENTITIES is declared further down the file, so this
    cannot run at load time. Every caller is a click handler, so by then the
@@ -1808,6 +1823,28 @@ const GROUP_LABEL = {
   four:'Four-color', five:'Five-color'
 };
 
+/* The alliances and conflicts inside a combination, named. All of it comes
+   from D — the shared values are MaRo's from "Thank You for Being a Friend",
+   the conflict titles from "Pie Fights" — so a three-colour identity can say
+   what it is made of rather than only what shape it is. Listed in full up to
+   three colours; beyond that it is six or ten rows, so it becomes a count. */
+function composition(cols) {
+  const p = pairsOf(cols);
+  if (cols.length > 3) {
+    return '<p class="panel-body">Inside it: ' + p.allied.length +
+      ' alliance' + (p.allied.length === 1 ? '' : 's') + ' and ' + p.enemy.length +
+      ' conflict' + (p.enemy.length === 1 ? '' : 's') + '.</p>';
+  }
+  const row = (k, label) =>
+    '<li>' + dot(k[0]) + dot(k[1]) + '<strong>' + esc(label) + '</strong></li>';
+  const rows = p.allied.map(k => row(k, D.allies[k].value))
+        .concat(p.enemy.map(k => row(k, D.enemies[k].title)));
+  if (!rows.length) return '';
+  return '<p class="panel-body"><strong>What it is made of</strong></p>' +
+    '<ul class="panel-body" style="margin-top:-8px;padding-left:0;list-style:none">' +
+    rows.join('') + '</ul>';
+}
+
 function comboBody(cols, id) {
   const n = cols.length;
   if (n === 0) return `<p class="panel-body">No colors. The center of the wheel, and the one identity that sits outside every philosophy.</p>`;
@@ -1832,13 +1869,15 @@ function comboBody(cols, id) {
       <p class="panel-body">${dot(hinge)}<strong>${esc(nm(hinge))}</strong> sits at the join,
         ${shard ? 'allied with' : 'in conflict with'} both
         ${dot(others[0])}${esc(nm(others[0]))} and ${dot(others[1])}${esc(nm(others[1]))}.
-        That is the whole difference between a shard and a wedge.</p>`;
+        That is the whole difference between a shard and a wedge.</p>
+      ${composition(cols)}`;
   }
 
   if (n === 4) {
     const missing = D.order.find(c => !cols.includes(c));
     return `<p class="panel-body">Four colors, one left out — ${dot(missing)}<strong>${esc(nm(missing))}</strong>.
         The two conflict chords that cross inside this region meet at the crossing for this identity.</p>
+      ${composition(cols)}
       ${id && id.commander ? `<p class="panel-body"><strong>Commander 2016 anchor:</strong>
         ${esc(id.commander)} · ${esc(id.deck)}. A historical anchor, not another name for the combination.</p>` : ''}`;
   }
@@ -1862,7 +1901,7 @@ function showCombo() {
     <h2 class="panel-title">${shown.map(dot).join('')}${esc(name)}</h2>
     <p class="panel-sub">${esc(code)}${group ? ' · ' + esc(group) : ''}</p>
     ${comboBody(cols, id)}
-    <p class="panel-src">Resolved from the identity registry · geometry solved at build time</p>`;
+    <p class="panel-src">${cols.length > 1 ? esc(SRC_FRIEND) + ' · ' + esc(SRC_PIE) + ' · ' : ''}resolved from the identity registry</p>`;
 }
 
 /* Repaint the wheel for the current set: the region polygon, the lit edges
@@ -1908,12 +1947,24 @@ function setMode(m) {
   mode = m;
   modeBtns.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.mode === m)));
   centerMark.classList.toggle('layer-off', m !== 'combine');
+  document.body.classList.toggle('mode-combine', m === 'combine');
   combo.clear();
   comboPoly.classList.remove('is-shown');
   clearSelection();
-  // A triangle is unreadable if half its sides are hidden, so Combine turns
-  // both edge layers on. They stay user-toggleable afterwards.
-  if (m === 'combine') { setLayer('ally', true); setLayer('enemy', true); }
+  /* Combine needs both edge layers and does not offer the choice, because the
+     structure it draws IS the identity. Explore's layer state is remembered
+     and handed back on the way out, so switching modes never quietly
+     rearranges the lenses someone had set up. */
+  if (m === 'combine') {
+    if (!priorLayers) priorLayers = { ally:layers.ally.on, enemy:layers.enemy.on, cross:layers.cross.on };
+    setLayer('ally', true);
+    setLayer('enemy', true);
+  } else if (priorLayers) {
+    setLayer('ally',  priorLayers.ally);
+    setLayer('enemy', priorLayers.enemy);
+    setLayer('cross', priorLayers.cross);
+    priorLayers = null;
+  }
   updateNote();
 }
 
