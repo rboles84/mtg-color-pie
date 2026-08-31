@@ -1201,6 +1201,7 @@ const SRC_SHARD = 'Rosewater, the 2008 shard interviews — paraphrased';
    COLOURS and use the guild name as familiar shorthand. Since "Azorius" names a
    real Ravnican institution, a reader could otherwise take these for guild lore.
    The note is shown, not left in the research notes. */
+const SRC_SCOPE_FOUR = 'Four colours have no philosophy article of their own. These five names are deck identities the Commander 2016 design team built for those decks and described in gameplay terms \u2014 Ethan Fleischer, "Designing Commander (2016 Edition)," October 24, 2016. They are one product\'s lenses, not definitions of the colour combinations. The community line is community reading, not canon.';
 const SRC_SCOPE_WEDGE = 'These use the Khans of Tarkir clans and their attributes as Rosewater\'s set-specific lens on the five wedge combinations \u2014 one supported expression of each trio, not a universal rule. The colour paired with its two enemies is structurally isolated, but each Tarkir clan is centred on one of the two allied colours.';
 const SRC_SCOPE_SHARD = 'Rosewater\'s shard cycle speaks through the central colour, using each Alaran shard as that colour\'s idealised world without its two enemies. These report that colour\'s subjective perspective, not a neutral definition of the trio. Bant, Esper, Grixis, Jund and Naya are Alaran shard names, not guilds.';
 const SRC_SCOPE = 'These describe the philosophy of each two-color combination; guild names are familiar shorthand, not full accounts of the Ravnican institutions.';
@@ -1749,11 +1750,26 @@ const IDENTITIES = [
   /* Commander 2016 face commanders. Historical anchors, NOT alternate
      names for the colour combination — "Atraxa" is not the formal name
      of every WUBG deck. Verified against the C16 decklists. */
-  { display:'UBRG',  name:'Non-White',  group:'four', commander:'Yidris, Maelstrom Wielder',   deck:'Entropic Uprising' },
-  { display:'WBRG',  name:'Non-Blue',   group:'four', commander:'Saskia the Unyielding',       deck:'Open Hostility' },
-  { display:'WURG',  name:'Non-Black',  group:'four', commander:'Kynaios and Tiro of Meletis', deck:'Stalwart Unity' },
-  { display:'WUBG',  name:'Non-Red',    group:'four', commander:"Atraxa, Praetors' Voice",     deck:'Breed Lethality' },
-  { display:'WUBR',  name:'Non-Green',  group:'four', commander:'Breya, Etherium Shaper',      deck:'Invent Superiority' },
+  { display:'UBRG', name:'Non-White', group:'four',
+    commander:'Yidris, Maelstrom Wielder', deck:'Entropic Uprising',
+    lens:'Chaos', lensDeck:"plays cards sight unseen off the top of the library, flips coins, and generally adds randomness",
+    community:"a world where power, appetite and growth run without a shared rule to hold them to account" },
+  { display:'WBRG', name:'Non-Blue', group:'four',
+    commander:'Saskia the Unyielding', deck:'Open Hostility',
+    lens:'Aggression', lensDeck:"ignores table politics and tries to kill everyone as fast as it can",
+    community:"conviction and action that does not wait to study the problem first" },
+  { display:'WURG', name:'Non-Black', group:'four',
+    commander:'Kynaios and Tiro of Meletis', deck:'Stalwart Unity',
+    lens:'Altruism', lensDeck:"wants everyone at the table to enjoy themselves, handing out mana, cards and tokens",
+    community:"coalition and shared benefit, without private advantage as the final word" },
+  { display:'WUBG', name:'Non-Red', group:'four',
+    commander:"Atraxa, Praetors' Voice", deck:'Breed Lethality',
+    lens:'Growth', lensDeck:"builds a heavy +1/+1 counters theme so any creature can grow into a threat",
+    community:"patient accumulation, without immediate feeling as grounds to act now" },
+  { display:'WUBR', name:'Non-Green', group:'four',
+    commander:'Breya, Etherium Shaper', deck:'Invent Superiority',
+    lens:'Artifice', lensDeck:"draws on 'artifacts matter' cards from all four of its colours",
+    community:"building and rebuilding, without inherited or natural limits treated as binding" },
 
   { display:'WUBRG', name:'Five-Color', group:'five' },
 ];
@@ -2056,11 +2072,37 @@ function comboBody(cols, id) {
 
   if (n === 4) {
     const missing = D.order.find(c => !cols.includes(c));
-    return `<p class="panel-body">Four colors, one left out — ${dot(missing)}<strong>${esc(nm(missing))}</strong>.
-        The two conflict chords that cross inside this region meet at the crossing for this identity.</p>
-      ${composition(cols)}
-      ${id && id.commander ? `<p class="panel-body"><strong>Commander 2016 anchor:</strong>
-        ${esc(id.commander)} · ${esc(id.deck)}.</p>` : ''}`;
+    const m = D.colors[missing];
+
+    /* THE ABSENT VOICE. Derived, not written: it surfaces the missing colour's
+       own goal and method, both already verified against Rosewater and sitting
+       in D.colors. It states which voice is not in the room, in that voice's
+       own terms — it does NOT claim what the four remaining colours therefore
+       become. That claim has no source. */
+    const absent = `<p class="panel-body">Four colors, one left out. ${dot(missing)}<strong>${esc(nm(missing))}</strong>
+        is not in this conversation — the colour that wants ${esc(m.goal.toLowerCase())},
+        pursued through ${esc(m.key.charAt(0).toLowerCase() + m.key.slice(1))}.</p>`;
+
+    /* THE OFFICIAL LENS. Fleischer described these as DECKS, in gameplay terms,
+       so that is how they are shown. Calling Artifice "the philosophy of WUBR"
+       would overstate what Wizards established by a wide margin. */
+    const lens = id && id.lens
+      ? `<p class="panel-body"><strong>Commander 2016 deck lens: ${esc(id.lens)}.</strong>
+           A deck that ${esc(id.lensDeck)}.</p>`
+      : '';
+
+    const anchor = id && id.commander
+      ? `<p class="panel-body"><strong>Its commander:</strong> ${esc(id.commander)} · ${esc(id.deck)}.</p>`
+      : '';
+
+    /* Labelled every time it appears. This is the dominant fan reading, it is
+       genuinely useful, and it is not canon — so it says so rather than sitting
+       alongside sourced lines as though it were one. */
+    const community = id && id.community
+      ? `<p class="panel-body"><strong>Community typically reads it as</strong> ${esc(id.community)}.</p>`
+      : '';
+
+    return absent + lens + anchor + community + composition(cols);
   }
 
   return `<p class="panel-body">All five. The complete pentagon — every alliance and every conflict at once.</p>`;
@@ -2116,6 +2158,7 @@ function showCombo() {
     ${neighbourChips(cols)}
     <p class="panel-src">${cols.length === 2 ? esc(SRC_SCOPE) + ' ' : ''}${
       cols.length === 3 && id ? esc(id.group === 'wedge' ? SRC_SCOPE_WEDGE : SRC_SCOPE_SHARD) + ' ' : ''}${
+      cols.length === 4 ? esc(SRC_SCOPE_FOUR) + ' ' : ''}${
       cols.length === 3 && id && id.src ? esc(id.src) + ' · ' : ''}${cols.length > 1 ? esc(SRC_FRIEND) + ' · ' + esc(SRC_PIE) + ' · ' : ''
     }resolved from the identity registry</p>`;
   /* SRC_WEDGE / SRC_SHARD are deliberately NOT cited here any more. They named

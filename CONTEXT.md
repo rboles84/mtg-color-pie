@@ -118,6 +118,37 @@ Primary sources now live in `voxmana.io/docs/research/canon/`. The wheel draws o
 - **Mechanical Color Pie 2017 is superseded** by the 2021 version plus a
   same-day changes companion. Layer 4 needs the 2021 data — roughly 150
   abilities. Wiring 2017 would ship known-stale tiering.
+- **Four colours have no philosophy article.** Verified, not assumed. The five
+  names — Artifice, Chaos, Aggression, Altruism, Growth — come from Ethan
+  Fleischer's "Designing Commander (2016 Edition)" (24 Oct 2016), NOT from
+  Rosewater, and he describes them as **decks in gameplay terms**: Artifice
+  plays "artifacts matter" cards, Chaos flips coins and plays off the top,
+  Growth is a +1/+1 counters theme. The Ravnica-guild framing came from
+  developer Ben Hayes as a challenge to the team, not as an achieved result.
+  Calling any of them "the philosophy of WUBR" overstates the source badly.
+- **Rosewater on four colours, verified verbatim** — "Absence," 10 May 2013:
+  "It's nearly impossible to design four-color cards that actually feel like
+  four-color cards... The biggest thing about four-color cards is the missing
+  color, but you can't design about what's missing." And, importantly, the
+  other half people drop: "I do think there is a way to design four-color
+  cards, but it requires some context (such as two guilds working together)."
+  His position is that four colours need external context, not that they are
+  meaningless.
+- **A claim that did NOT verify.** A review passed to this project stated that
+  in 2023 Rosewater said the four-colour restriction is "more related to
+  mechanics than flavor." Two Blogatog posts were checked. Dec 2022: "I agree
+  that there's a demand and we should figure out a product where they make
+  sense." Jul 2026: "We will make more, but we do them infrequently." Neither
+  says it. It is not used anywhere and should not be added without a source.
+- **Guardrails for four-colour copy.** These are editorial rules, not page text.
+  Do not write: black = evil, or no-black = good; no-blue = stupid or unable to
+  plan; no-white = incapable of cooperation; no-red = incapable of emotion;
+  no-green = no life or adaptation. Those are fan extrapolations. The absent
+  colour changes the conversation; it does not delete a concept from existence.
+  Note that `canon-inventory-four-color-reference-audit.md` in the research repo
+  breaks several of these ("completely rejects natural limitations", "self-
+  interest absolutely") and is inference without citations — do not treat it as
+  a source.
 - **The 2025 "My Words" series completed all five** (White May, Blue Jun, Black
   Sep, Red Oct, Green Dec). This document previously recorded that as unknown.
   Not needed for the build — it's swappable content.
