@@ -276,6 +276,22 @@
   .vertex:hover .vertex-halo, .vertex:focus-visible .vertex-halo {
     fill:rgba(237,230,211,.09); stroke:rgba(237,230,211,.3);
   }
+  /* --- the two faces of a colour ---------------------------------------
+     Every colour sits in exactly two alliances, so every vertex has two
+     sides: White is Restraint toward Blue and Responsibility toward Green.
+     Each arc is drawn in the ALLY's colour and occupies the half of the ring
+     that actually faces that ally, so position is the label — which is why
+     none of them carry text. The words live in the panel instead.
+
+     Revealed on selection, never standing ornament. The pairing is MaRo's,
+     from "Thank You for Being a Friend"; the split-vertex idea is the
+     structure the classic colour-wheel poster uses. */
+  .vertex-half {
+    fill:none; stroke-width:3.5; stroke-linecap:butt; opacity:0;
+    pointer-events:none; transition:opacity .3s var(--ease);
+  }
+  .vertex-half.is-shown { opacity:.85; }
+
   .vertex-label {
     font-family:'Cormorant SC',Georgia,serif; font-size:23px; font-weight:600;
     letter-spacing:.04em; fill:var(--bone); pointer-events:none;
@@ -865,6 +881,8 @@
       <g class="vertex v-w" data-kind="color" data-key="W" tabindex="0" role="button"
          aria-label="White">
         <circle class="vertex-halo" cx="400.0" cy="140.0" r="34"></circle>
+        <path class="vertex-half" data-of="W" data-toward="U" d="M 400.00 114.00 A 26.0 26.0 0 0 1 400.00 166.00" style="stroke:var(--u)"></path>
+        <path class="vertex-half" data-of="W" data-toward="G" d="M 400.00 166.00 A 26.0 26.0 0 0 1 400.00 114.00" style="stroke:var(--g)"></path>
         <circle class="vertex-glow" cx="400.0" cy="140.0" r="17" style="fill:var(--w)"></circle>
         <circle class="vertex-dot" cx="400.0" cy="140.0" r="17" style="fill:var(--w)"></circle>
         <text class="vertex-label" x="400.0" y="78.0" text-anchor="middle" dy="0em">White</text>
@@ -873,6 +891,8 @@
       <g class="vertex v-u" data-kind="color" data-key="U" tabindex="0" role="button"
          aria-label="Blue">
         <circle class="vertex-halo" cx="647.27" cy="319.66" r="34"></circle>
+        <path class="vertex-half" data-of="U" data-toward="B" d="M 672.00 311.63 A 26.0 26.0 0 0 1 622.54 327.69" style="stroke:var(--b)"></path>
+        <path class="vertex-half" data-of="U" data-toward="W" d="M 622.54 327.69 A 26.0 26.0 0 0 1 672.00 311.63" style="stroke:var(--w)"></path>
         <circle class="vertex-glow" cx="647.27" cy="319.66" r="17" style="fill:var(--u)"></circle>
         <circle class="vertex-dot" cx="647.27" cy="319.66" r="17" style="fill:var(--u)"></circle>
         <text class="vertex-label" x="706.24" y="300.5" text-anchor="start" dy="0.35em">Blue</text>
@@ -881,6 +901,8 @@
       <g class="vertex v-b" data-kind="color" data-key="B" tabindex="0" role="button"
          aria-label="Black">
         <circle class="vertex-halo" cx="552.82" cy="610.34" r="34"></circle>
+        <path class="vertex-half" data-of="B" data-toward="R" d="M 568.10 631.37 A 26.0 26.0 0 0 1 537.54 589.31" style="stroke:var(--r)"></path>
+        <path class="vertex-half" data-of="B" data-toward="U" d="M 537.54 589.31 A 26.0 26.0 0 0 1 568.10 631.37" style="stroke:var(--u)"></path>
         <circle class="vertex-glow" cx="552.82" cy="610.34" r="17" style="fill:var(--b)"></circle>
         <circle class="vertex-dot" cx="552.82" cy="610.34" r="17" style="fill:var(--b)"></circle>
         <text class="vertex-label" x="589.27" y="660.5" text-anchor="start" dy="0.35em">Black</text>
@@ -889,6 +911,8 @@
       <g class="vertex v-r" data-kind="color" data-key="R" tabindex="0" role="button"
          aria-label="Red">
         <circle class="vertex-halo" cx="247.18" cy="610.34" r="34"></circle>
+        <path class="vertex-half" data-of="R" data-toward="G" d="M 231.90 631.37 A 26.0 26.0 0 0 1 262.46 589.31" style="stroke:var(--g)"></path>
+        <path class="vertex-half" data-of="R" data-toward="B" d="M 262.46 589.31 A 26.0 26.0 0 0 1 231.90 631.37" style="stroke:var(--b)"></path>
         <circle class="vertex-glow" cx="247.18" cy="610.34" r="17" style="fill:var(--r)"></circle>
         <circle class="vertex-dot" cx="247.18" cy="610.34" r="17" style="fill:var(--r)"></circle>
         <text class="vertex-label" x="210.73" y="660.5" text-anchor="end" dy="0.35em">Red</text>
@@ -897,6 +921,8 @@
       <g class="vertex v-g" data-kind="color" data-key="G" tabindex="0" role="button"
          aria-label="Green">
         <circle class="vertex-halo" cx="152.73" cy="319.66" r="34"></circle>
+        <path class="vertex-half" data-of="G" data-toward="W" d="M 128.00 311.63 A 26.0 26.0 0 0 1 177.46 327.69" style="stroke:var(--w)"></path>
+        <path class="vertex-half" data-of="G" data-toward="R" d="M 177.46 327.69 A 26.0 26.0 0 0 1 128.00 311.63" style="stroke:var(--r)"></path>
         <circle class="vertex-glow" cx="152.73" cy="319.66" r="17" style="fill:var(--g)"></circle>
         <circle class="vertex-dot" cx="152.73" cy="319.66" r="17" style="fill:var(--g)"></circle>
         <text class="vertex-label" x="93.76" y="300.5" text-anchor="end" dy="0.35em">Green</text>
@@ -950,31 +976,36 @@ const D = {
    "name": "White",
    "goal": "Peace",
    "key": "Obligation, met through self-discipline",
-   "blurb": "Sees avoidable suffering everywhere and enough resources to end it. The obstacle is that the plan only works if everyone commits to it."
+   "blurb": "Sees avoidable suffering everywhere and enough resources to end it. The obstacle is that the plan only works if everyone commits to it.",
+   "downside": "Cannot bend. The plan covers what it anticipated and little else, and because every rule weighs the same, White struggles to say which of them matters most."
   },
   "U": {
    "name": "Blue",
    "goal": "Perfection",
    "key": "Method, held open to adaptation",
-   "blurb": "Treats every person as a blank slate with unbounded potential. Improvement never finishes, so haste is the enemy and time is the resource."
+   "blurb": "Treats every person as a blank slate with unbounded potential. Improvement never finishes, so haste is the enemy and time is the resource.",
+   "downside": "Thinking it through costs the moment. Blue waits, then reacts, and loses ground to colors that simply moved first."
   },
   "B": {
    "name": "Black",
    "goal": "Power",
    "key": "Flexibility, and self-interest without apology",
-   "blurb": "Claims to be the only color seeing the world as it actually is rather than as it should be. Didn't make the world greedy \u2014 just declines to pretend otherwise."
+   "blurb": "Claims to be the only color seeing the world as it actually is rather than as it should be. Didn't make the world greedy \u2014 just declines to pretend otherwise.",
+   "downside": "Its own worst enemy. A willingness to do anything includes the things that cost Black, and the risks it runs are as often against itself as against anyone else."
   },
   "R": {
    "name": "Red",
    "goal": "Freedom",
    "key": "Trusting what you feel",
-   "blurb": "Holds that the answer already arrives as feeling, and the other four colors just talk over it. Measures a life by regret, not by outcome."
+   "blurb": "Holds that the answer already arrives as feeling, and the other four colors just talk over it. Measures a life by regret, not by outcome.",
+   "downside": "Will not look past now. Red chases what it wants immediately, rarely weighs what follows, and takes advice from nobody."
   },
   "G": {
    "name": "Green",
    "goal": "Acceptance",
    "key": "Embracing the role you were born into",
-   "blurb": "Alone among the five in not wanting to change the world, on the grounds that the natural order already resolved every question worth asking."
+   "blurb": "Alone among the five in not wanting to change the world, on the grounds that the natural order already resolved every question worth asking.",
+   "downside": "One answer to every question. Green leans so hard on the natural order that when creatures are not the answer, it has no second plan."
   }
  },
  "allies": {
@@ -1097,6 +1128,7 @@ const D = {
 const SRC_PIE   = 'Rosewater, "Pie Fights," Nov 2016 — paraphrased';
 const SRC_FRIEND= 'Rosewater, "Thank You for Being a Friend," Mar 2017 — paraphrased';
 const SRC_C16   = 'Commander 2016 signature commanders';
+const SRC_REV   = 'Rosewater, the 2015 "revisited" color series — paraphrased';
 
 const wheel = document.getElementById('wheel');
 const panel = document.getElementById('panel');
@@ -1158,6 +1190,7 @@ function clearSelection() {
   combo.clear();
   comboPoly.classList.remove('is-shown');
   centerMark.classList.remove('is-rel');
+  wheel.querySelectorAll('.vertex-half.is-shown').forEach(n => n.classList.remove('is-shown'));
   panel.innerHTML = mode === 'combine' ? `
     <p class="panel-kicker">Combine</p>
     <h2 class="panel-title">Build an identity</h2>
@@ -1168,7 +1201,18 @@ function clearSelection() {
     <p class="panel-body panel-empty">Choose a color, an edge, or a crossing.</p>`;
 }
 
+/* Reveal the named faces. Each is one half-ring on a vertex, drawn in the
+   colour it leans toward: showHalves([['W','U']]) lights White's blue-facing
+   side — the half of White that is in the alliance with Blue. */
+function showHalves(pairs) {
+  pairs.forEach(([of, toward]) => {
+    const el = wheel.querySelector('.vertex-half[data-of="' + of + '"][data-toward="' + toward + '"]');
+    if (el) el.classList.add('is-shown');
+  });
+}
+
 function highlight(nodes, excluded) {
+  wheel.querySelectorAll('.vertex-half.is-shown').forEach(n => n.classList.remove('is-shown'));
   wheel.querySelectorAll('.is-rel,.is-excluded').forEach(n => n.classList.remove('is-rel','is-excluded'));
   wheel.querySelectorAll('.quad.is-shown').forEach(n => n.classList.remove('is-shown'));
   wheel.classList.add('has-selection');
@@ -1380,15 +1424,20 @@ function showColor(c) {
     <h2 class="panel-title">${dot(c)}${esc(o.name)} wants ${esc(o.goal.toLowerCase())}</h2>
     <p class="panel-sub">${esc(o.key)}</p>
     <p class="panel-body">${esc(o.blurb)}</p>
+    <p class="panel-body"><strong>What it costs.</strong> ${esc(o.downside)}</p>
     <p class="panel-body"><strong>Allied with</strong></p>
     <ul class="panel-body" style="margin-top:-8px;padding-left:0;list-style:none">${allyRows}</ul>
     <p class="panel-body"><strong>In conflict with</strong></p>
     <ul class="panel-body" style="margin-top:-8px;padding-left:0;list-style:none">${enemyRows}</ul>
-    <p class="panel-src">${esc(SRC_PIE)}</p>`;
+    <p class="panel-src">${esc(SRC_PIE)} · ${esc(SRC_FRIEND)} · ${esc(SRC_REV)}</p>`;
 
   const edgeKeys = [...allies, ...enemies].map(x => keyFor(c, x));
   highlight([vtx(c), ...allies.map(a => edgeEl(keyFor(c,a))), ...allies.map(vtx),
              ...enemies.map(e => edgeEl(keyFor(c,e))), ...enemies.map(vtx)]);
+  // A colour has exactly two faces, one per alliance. Showing both is the
+  // point: White is not one thing, it is Restraint toward Blue and
+  // Responsibility toward Green, and the geometry says so before the list does.
+  showHalves(allies.map(a => [c, a]));
   drawFromVertex(c, edgeKeys);
 }
 
@@ -1408,6 +1457,9 @@ function showAlly(k) {
   // the shared enemy is highlighted too — that's the whole derivation
   highlight([edgeEl(k), vtx(a), vtx(b), vtx(o.enemy),
              edgeEl(keyFor(a, o.enemy)), edgeEl(keyFor(b, o.enemy))]);
+  // The alliance seen from both ends: the half of A that leans toward B, and
+  // the half of B that leans toward A. One shared value, two faces.
+  showHalves([[a, b], [b, a]]);
   drawFromMiddle([k, keyFor(a, o.enemy), keyFor(b, o.enemy)]);
 }
 
