@@ -1137,6 +1137,8 @@ const SRC_PIE   = 'Rosewater, "Pie Fights," Nov 2016 — paraphrased';
 const SRC_FRIEND= 'Rosewater, "Thank You for Being a Friend," Mar 2017 — paraphrased';
 const SRC_C16   = 'Commander 2016 signature commanders';
 const SRC_REV   = 'Rosewater, the 2015 "revisited" color series — paraphrased';
+const SRC_SHARD = 'Rosewater, the 2008 shard interviews — paraphrased';
+const SRC_WEDGE = 'Rosewater, the 2014–15 wedge interviews — paraphrased';
 
 const wheel = document.getElementById('wheel');
 const panel = document.getElementById('panel');
@@ -1639,11 +1641,11 @@ const IDENTITIES = [
   { display:'BRG',   name:'Jund',       group:'shard' },
   { display:'RGW',   name:'Naya',       group:'shard' },
 
-  { display:'WBG',   name:'Abzan',      group:'wedge' },
-  { display:'URW',   name:'Jeskai',     group:'wedge' },
-  { display:'BGU',   name:'Sultai',     group:'wedge' },
-  { display:'RWB',   name:'Mardu',      group:'wedge' },
-  { display:'GUR',   name:'Temur',      group:'wedge' },
+  { display:'WBG',   name:'Abzan',      group:'wedge' , attribute:'endurance' },
+  { display:'URW',   name:'Jeskai',     group:'wedge' , attribute:'cunning' },
+  { display:'BGU',   name:'Sultai',     group:'wedge' , attribute:'ruthlessness' },
+  { display:'RWB',   name:'Mardu',      group:'wedge' , attribute:'speed' },
+  { display:'GUR',   name:'Temur',      group:'wedge' , attribute:'savagery' },
 
   /* Commander 2016 face commanders. Historical anchors, NOT alternate
      names for the colour combination — "Atraxa" is not the formal name
@@ -1863,14 +1865,28 @@ function comboBody(cols, id) {
     const shard = p.allied.length === 2;
     const hinge = hingeColor(cols, shard ? p.allied : p.enemy);
     const others = cols.filter(c => c !== hinge);
-    return `<p class="panel-body">${p.allied.length} allied edge${p.allied.length === 1 ? '' : 's'}
+    /* The two colours NOT here. On a shard these are exactly the hinge colour's
+       two enemies — which is why Rosewater interviewed the hinge colour for each
+       shard and had it describe a world with its enemies absent. */
+    const away = D.order.filter(c => !cols.includes(c));
+    const shape = `<p class="panel-body">${p.allied.length} allied edge${p.allied.length === 1 ? '' : 's'}
         and ${p.enemy.length} conflict chord${p.enemy.length === 1 ? '' : 's'} — the shape of a
-        <strong>${shard ? 'shard' : 'wedge'}</strong>.</p>
-      <p class="panel-body">${dot(hinge)}<strong>${esc(nm(hinge))}</strong> sits at the join,
-        ${shard ? 'allied with' : 'in conflict with'} both
-        ${dot(others[0])}${esc(nm(others[0]))} and ${dot(others[1])}${esc(nm(others[1]))}.
-        That is the whole difference between a shard and a wedge.</p>
-      ${composition(cols)}`;
+        <strong>${shard ? 'shard' : 'wedge'}</strong>.</p>`;
+
+    const body = shard
+      ? `<p class="panel-body">${dot(hinge)}<strong>${esc(nm(hinge))}</strong> sits at the centre,
+           allied with both ${dot(others[0])}${esc(nm(others[0]))} and
+           ${dot(others[1])}${esc(nm(others[1]))}. The two colors absent —
+           ${away.map(dot).join('')}${esc(nm(away[0]))} and ${esc(nm(away[1]))} — are exactly
+           ${esc(nm(hinge))}'s own enemies, so nothing here contradicts it.</p>`
+      : `<p class="panel-body">${dot(hinge)}<strong>${esc(nm(hinge))}</strong> has no ally here at all.
+           It stands against both ${dot(others[0])}${esc(nm(others[0]))} and
+           ${dot(others[1])}${esc(nm(others[1]))}, which are allies of each other. That single
+           colour, outnumbered inside its own identity, is what makes a wedge tense where a shard
+           is settled.${id && id.attribute ? ` Tarkir named this wedge's attribute
+           <strong>${esc(id.attribute)}</strong>.` : ''}</p>`;
+
+    return shape + body + composition(cols);
   }
 
   if (n === 4) {
@@ -1901,7 +1917,9 @@ function showCombo() {
     <h2 class="panel-title">${shown.map(dot).join('')}${esc(name)}</h2>
     <p class="panel-sub">${esc(code)}${group ? ' · ' + esc(group) : ''}</p>
     ${comboBody(cols, id)}
-    <p class="panel-src">${cols.length > 1 ? esc(SRC_FRIEND) + ' · ' + esc(SRC_PIE) + ' · ' : ''}resolved from the identity registry</p>`;
+    <p class="panel-src">${cols.length > 1 ? esc(SRC_FRIEND) + ' · ' + esc(SRC_PIE) + ' · ' : ''}${
+      cols.length === 3 ? esc(id && id.group === 'wedge' ? SRC_WEDGE : SRC_SHARD) + ' · ' : ''
+    }resolved from the identity registry</p>`;
 }
 
 /* Repaint the wheel for the current set: the region polygon, the lit edges
