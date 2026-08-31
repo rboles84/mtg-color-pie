@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<!--
+==============================================================================
+ THE COLOR WHEEL — interactive, layers 1-3
+==============================================================================
+ Single static file. No build step, no framework. Companion to the 32-identity
+ directory and sharing its tokens and type stack.
+
+ WHAT THIS IS
+ ------------
+ The pentagram diagram, decomposed. The reference PNG fails by firing four
+ datasets at once; this shows one at a time. Three layers ship here:
+
+   1. Vertices ...... each color's goal and the method it reaches it by
+   2. Edges ......... allied pairs (pentagon) and enemy pairs (star)
+   3. Crossings ..... the five interior intersections of the star
+
+ LAYER 4 IS DELIBERATELY ABSENT
+ ------------------------------
+ The mechanical overlay (primary/secondary/tertiary ability access) is stubbed,
+ not built. It needs the Mechanical Color Pie 2021 dataset — roughly 150
+ abilities with tier assignments. The 2017 list is confirmed superseded and
+ wiring it would ship known-stale tiering. Search "LAYER 4" for the hook.
+
+ THE CROSSINGS ARE NOT DECORATION
+ --------------------------------
+ A pentagram has exactly five interior crossings. Two chords intersect only
+ when their endpoints interleave around the circle, which means each crossing
+ touches four colors and excludes exactly one — so the five crossings are in
+ bijection with the five four-color identities. The coordinates here were
+ solved numerically, not eyeballed, and asserted to be five distinct
+ exclusions at generation time. Nobody labels these on the usual diagram.
+
+ SOURCES AND WORDING
+ -------------------
+ Content is MaRo canon, drawn from "Pie Fights" (Nov 2016) for the conflicts
+ and philosophies, and "Thank You for Being a Friend" (Mar 2017) for the
+ alliances. Each panel cites which.
+
+ All copy is PARAPHRASE, written fresh — not quotation. That is deliberate on
+ two counts: the articles are Wizards' copyright, and the Codex should speak in
+ its own voice anyway. Swap freely; nothing here is precious.
+
+ Two things worth knowing about the sources:
+ - MaRo contradicts himself inside "Pie Fights": the philosophy section says
+   green wants acceptance, the summary section says green wants growth.
+   Acceptance is used here, matching the 2015 revisited series.
+ - The "goal through method" vertex format is Sabien's formula, not MaRo's.
+   The method lines here are instead built from MaRo's own "the key to X is Y"
+   closers in "Thank You for Being a Friend", so the structure stays canon.
+
+ MOTION
+ ------
+ Static at rest. No ambient animation, no rAF loop, no particles — same rules
+ as the directory. Hover and selection are the only things that move, and
+ prefers-reduced-motion removes them rather than slowing them.
+==============================================================================
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Color Wheel — Vox Mana</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Almendra:wght@400;700&family=Cormorant+SC:wght@400;500;600;700&family=Lora:wght@400;500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  /* ===================================================================
+     TOKENS — shared with the identity directory
+     =================================================================== */
+  :root {
+    --obsidian:#0b0c11; --panel:#14151d;
+    --bone:#ede6d3; --bone-dim:rgba(237,230,211,.56); --bone-faint:rgba(237,230,211,.30);
+    --gold:#d4af37;
+    --w:#f5efc7; --u:#77b9e8; --b:#aca29a; --r:#d97858; --g:#7fb283;
+    --glass:rgba(237,230,211,.045); --hairline:rgba(237,230,211,.12);
+    --ease:cubic-bezier(.2,.8,.2,1);
+  }
+  * { box-sizing:border-box; }
+  html,body { margin:0; padding:0; }
+  body {
+    min-height:100vh; background:var(--obsidian); color:var(--bone);
+    font-family:'Lora',Georgia,serif; isolation:isolate;
+  }
+
+  /* static ambient mesh, same approach as the directory */
+  .mesh {
+    position:fixed; inset:-10vmax; z-index:-1; pointer-events:none;
+    background:
+      radial-gradient(38vmax 30vmax at 20% 14%, rgba(245,239,199,.09), transparent 62%),
+      radial-gradient(40vmax 32vmax at 82% 18%, rgba(119,185,232,.12), transparent 64%),
+      radial-gradient(40vmax 32vmax at 88% 76%, rgba(172,162,154,.10), transparent 64%),
+      radial-gradient(38vmax 30vmax at 50% 96%, rgba(217,120,88,.10), transparent 62%),
+      radial-gradient(40vmax 32vmax at 12% 72%, rgba(127,178,131,.10), transparent 64%),
+      var(--obsidian);
+    filter:blur(30px);
+  }
+
+  .page { max-width:1280px; margin:0 auto; padding:clamp(28px,5vw,64px) clamp(16px,4vw,40px) 80px; }
+
+  /* ===================================================================
+     HEADER + LAYER CONTROLS
+     =================================================================== */
+  .hero { text-align:center; margin-bottom:28px; }
+  .hero-kicker {
+    font-family:'Outfit',system-ui,sans-serif; font-size:11px; letter-spacing:.26em;
+    text-transform:uppercase; color:var(--bone-faint); margin:0 0 12px;
+  }
+  .hero-title {
+    font-family:'Almendra',Georgia,serif; font-weight:700;
+    font-size:clamp(28px,4.6vw,44px); margin:0 0 10px;
+  }
+  .hero-lede { max-width:54ch; margin:0 auto; font-size:14.5px; line-height:1.6; color:var(--bone-dim); }
+
+  .layers {
+    display:flex; flex-wrap:wrap; justify-content:center; gap:8px;
+    margin:26px 0 6px;
+  }
+  .layer-btn {
+    font-family:'Outfit',system-ui,sans-serif; font-size:11.5px; font-weight:400;
+    letter-spacing:.1em; text-transform:uppercase;
+    padding:8px 15px; border-radius:999px; cursor:pointer;
+    background:var(--glass); color:var(--bone-dim);
+    border:1px solid var(--hairline);
+    -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px);
+    transition:background .25s var(--ease), color .25s var(--ease), border-color .25s var(--ease);
+  }
+  .layer-btn:hover { color:var(--bone); border-color:rgba(237,230,211,.26); }
+  .layer-btn[aria-pressed="true"] {
+    color:var(--obsidian); background:var(--gold); border-color:var(--gold); font-weight:500;
+  }
+  .layer-btn:focus-visible { outline:2px solid var(--gold); outline-offset:3px; }
+  .layer-btn[disabled] { opacity:.34; cursor:not-allowed; }
+
+  /* Not a layer toggle — it performs an action rather than switching a state
+     on, so it deliberately doesn't carry the gold aria-pressed treatment and
+     sits quieter than its neighbours. It should read as the end of the row,
+     not as a fourth layer. */
+  .clear-btn { background:transparent; border-color:transparent; color:var(--bone-faint); }
+  .clear-btn:hover { color:var(--bone); border-color:var(--hairline); }
+  .layers [hidden] { display:none; }
+
+  .layer-note {
+    text-align:center; font-family:'Outfit',system-ui,sans-serif;
+    font-size:11px; color:var(--bone-faint); margin:0 0 4px; min-height:1.2em;
+  }
+
+  /* ===================================================================
+     LAYOUT — wheel beside panel on wide, stacked on narrow
+     =================================================================== */
+  .stage { display:grid; grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr); gap:clamp(16px,3vw,40px); align-items:center; }
+  @media (max-width:900px) { .stage { grid-template-columns:1fr; } }
+
+  .wheel-wrap { position:relative; }
+  svg.wheel { width:100%; height:auto; display:block; overflow:visible; }
+
+  /* ===================================================================
+     WHEEL ELEMENTS
+     All static at rest. Only opacity/stroke/scale change, and only on
+     hover, focus or selection.
+     =================================================================== */
+  .edge-hit { stroke:transparent; stroke-width:26; fill:none; pointer-events:stroke; }
+
+  /* --- EMPHASIS: three channels, not one -----------------------------------
+     Alpha on its own cannot carry this. Tuned in both directions it collapses:
+     rest creeps up so the mid-value colours stay legible, "lit" then has
+     nowhere left to go, and selecting a colour reads as everything ELSE
+     getting darker rather than as one structure lighting up. So emphasis is
+     split across alpha, stroke width and a glow, and no single channel has to
+     go to an extreme.
+
+     The glow is a separate blurred COPY of each line, not a filter switched on
+     and off on the line itself. Two reasons. CSS cannot interpolate
+     `filter:none` to `filter:url(#lit)` — non-interpolable values animate
+     discretely, flipping at the halfway point, which pops. And a sibling lets
+     the glow be tuned independently of the line's own alpha. The copy carries
+     the same gradient stroke, so each edge glows in its own two colours.
+     ------------------------------------------------------------------------ */
+  .edge-glow {
+    fill:none; pointer-events:none; stroke-width:5; opacity:0;
+    filter:url(#lit);
+    transition:opacity .3s var(--ease), stroke-width .3s var(--ease);
+  }
+  .edge-line {
+    fill:none; pointer-events:none; stroke-width:1.6; opacity:.45;
+    transition:opacity .3s var(--ease), stroke-width .3s var(--ease);
+  }
+  .edge.enemy .edge-line, .edge.enemy .edge-glow { stroke-dasharray:7 6; }
+  .edge { cursor:pointer; outline:none; }
+
+  /* lit — selected, part of the selected structure, or under the cursor */
+  .edge.is-rel .edge-line,
+  .edge:hover .edge-line, .edge:focus-visible .edge-line { opacity:1; stroke-width:3.4; }
+  .edge.is-rel .edge-glow,
+  .edge:hover .edge-glow, .edge:focus-visible .edge-glow { opacity:.55; }
+  .edge:focus-visible .edge-hit { stroke:rgba(212,175,55,.3); }
+
+  .vertex { cursor:pointer; outline:none; }
+  .vertex-halo { fill:rgba(237,230,211,.05); stroke:var(--hairline); stroke-width:1;
+                  transition:fill .25s var(--ease), stroke .25s var(--ease); }
+  .vertex-dot { transition:transform .25s var(--ease), opacity .3s var(--ease);
+                 transform-origin:center; transform-box:fill-box; }
+  .vertex-glow { opacity:0; pointer-events:none; filter:url(#lit);
+                  transform-origin:center; transform-box:fill-box;
+                  transition:opacity .3s var(--ease), transform .25s var(--ease); }
+  .vertex.is-rel .vertex-glow,
+  .vertex:hover .vertex-glow, .vertex:focus-visible .vertex-glow { opacity:.6; }
+  .vertex:hover .vertex-dot, .vertex:focus-visible .vertex-dot,
+  .vertex:hover .vertex-glow, .vertex:focus-visible .vertex-glow { transform:scale(1.14); }
+  .vertex:hover .vertex-halo, .vertex:focus-visible .vertex-halo {
+    fill:rgba(237,230,211,.09); stroke:rgba(237,230,211,.3);
+  }
+  .vertex-label {
+    font-family:'Cormorant SC',Georgia,serif; font-size:23px; font-weight:600;
+    letter-spacing:.04em; fill:var(--bone); pointer-events:none;
+    transition:opacity .3s var(--ease);
+  }
+  .vertex-goal {
+    font-family:'Outfit',system-ui,sans-serif; font-size:11.5px; font-weight:300;
+    letter-spacing:.16em; text-transform:uppercase; fill:var(--bone-faint); pointer-events:none;
+    transition:opacity .3s var(--ease);
+  }
+
+  .cross { cursor:pointer; outline:none; }
+  .cross-hit { fill:transparent; }
+  /* Each crossing wears its own identity: four arcs, one per included colour,
+     so you can read WUBG off the marker without clicking it. */
+  .cross-core { fill:var(--obsidian); opacity:.9; }
+  .cross-arc { fill:none; stroke-width:3.4; stroke-linecap:butt; opacity:.7;
+                transition:opacity .3s var(--ease), stroke-width .3s var(--ease); }
+  /* Gold rather than tinted. A tinted glow would need a second copy of all
+     four arcs on every crossing, and those coordinates were solved, not drawn
+     — one source of truth for them is worth more than a colour match. Gold is
+     already the four-colour selection language anyway; see .quad. */
+  .cross-glow { fill:none; stroke:var(--gold); stroke-width:3.5; opacity:0;
+                 pointer-events:none; filter:url(#lit);
+                 transition:opacity .3s var(--ease); }
+  .cross.is-rel .cross-arc,
+  .cross:hover .cross-arc, .cross:focus-visible .cross-arc { opacity:1; stroke-width:4.4; }
+  .cross.is-rel .cross-glow,
+  .cross:hover .cross-glow, .cross:focus-visible .cross-glow { opacity:.7; }
+  .cross-g { transition:transform .25s var(--ease); transform-origin:center; transform-box:fill-box; }
+  .cross:hover .cross-g, .cross:focus-visible .cross-g { transform:scale(1.28); }
+  .cross:focus-visible .cross-core { stroke:var(--gold); stroke-width:1.5; }
+
+  /* layer visibility */
+  .layer-off { display:none; }
+
+  /* Receded, not erased. The far side of the wheel has to stay readable —
+     clicking White must not delete the blue/green structure. .22 is low enough
+     to fall properly back ONLY because the lit edges now gain width and glow;
+     with alpha as the sole channel this value was unusable, which is how the
+     old .34 got there. */
+  .wheel.has-selection .edge:not(.is-rel) .edge-line { opacity:.22; stroke-width:1.4; }
+  .wheel.has-selection .edge:not(.is-rel) .edge-glow { opacity:0; }
+  /* Hovering a receded edge lifts it back to roughly rest — enough to confirm
+     it still takes clicks, not enough to compete with the lit selection. */
+  .wheel.has-selection .edge:not(.is-rel):hover .edge-line,
+  .wheel.has-selection .edge:not(.is-rel):focus-visible .edge-line { opacity:.45; stroke-width:2; }
+  .wheel.has-selection .edge:not(.is-rel):hover .edge-glow,
+  .wheel.has-selection .edge:not(.is-rel):focus-visible .edge-glow { opacity:0; }
+
+  .wheel.has-selection .vertex:not(.is-rel) .vertex-dot { opacity:.3; }
+  .wheel.has-selection .vertex:not(.is-rel) .vertex-label,
+  .wheel.has-selection .vertex:not(.is-rel) .vertex-goal { opacity:.34; }
+  .wheel.has-selection .cross:not(.is-rel) .cross-arc { opacity:.28; stroke-width:3; }
+  /* The excluded colour on a four-colour selection is pushed further back
+     still. This has to be qualified with .wheel.has-selection: unqualified it
+     scores below the dim rule above and never rendered at all. */
+  .wheel.has-selection .vertex.is-excluded .vertex-dot { opacity:.12; }
+
+  /* --- four-colour region ------------------------------------------
+     A crossing on its own is an anonymous dot. Selecting one fills the
+     quadrilateral of the four INCLUDED vertices, so the identity reads as
+     an area of the wheel rather than a point on it. Hidden until selected. */
+  .quad { fill:rgba(212,175,55,.07); stroke:rgba(212,175,55,.4); stroke-width:1.5;
+           stroke-dasharray:5 5; opacity:0; pointer-events:none;
+           transition:opacity .3s var(--ease); }
+  .quad.is-shown { opacity:1; }
+
+  /* ===================================================================
+     PANEL
+     =================================================================== */
+  .panel {
+    padding:26px 24px; border-radius:16px; min-height:330px;
+    background:var(--glass); border:1px solid var(--hairline);
+    -webkit-backdrop-filter:blur(16px) saturate(1.3); backdrop-filter:blur(16px) saturate(1.3);
+    box-shadow:inset 0 1px 0 rgba(237,230,211,.06);
+  }
+  .panel-kicker {
+    font-family:'Outfit',system-ui,sans-serif; font-size:10.5px; font-weight:500;
+    letter-spacing:.2em; text-transform:uppercase; color:var(--gold); margin:0 0 10px;
+  }
+  .panel-title {
+    font-family:'Cormorant SC',Georgia,serif; font-weight:600; font-size:27px;
+    letter-spacing:.03em; margin:0 0 4px; line-height:1.2;
+  }
+  .panel-sub {
+    font-family:'Outfit',system-ui,sans-serif; font-size:12px; font-weight:300;
+    letter-spacing:.05em; color:var(--bone-dim); margin:0 0 16px;
+  }
+  .panel-body { font-size:14.5px; line-height:1.68; color:var(--bone-dim); margin:0 0 16px; }
+  .panel-body strong { color:var(--bone); font-weight:500; }
+  .panel-src {
+    font-family:'Outfit',system-ui,sans-serif; font-size:10.5px; font-weight:300;
+    color:var(--bone-faint); margin:18px 0 0; padding-top:12px;
+    border-top:1px solid var(--hairline);
+  }
+  .panel-empty { color:var(--bone-faint); font-style:italic; }
+  /* programmatic focus target only — never reached by tabbing */
+  .panel:focus { outline:none; }
+  .panel:focus-visible { outline:2px solid var(--gold); outline-offset:3px; }
+
+  /* three-way perspective switch on conflict panels */
+  .views { display:flex; gap:6px; margin:0 0 14px; flex-wrap:wrap; }
+  .view-btn {
+    font-family:'Outfit',system-ui,sans-serif; font-size:11px; letter-spacing:.08em;
+    padding:6px 12px; border-radius:999px; cursor:pointer;
+    background:transparent; color:var(--bone-dim);
+    border:1px solid var(--hairline);
+    transition:background .2s var(--ease), color .2s var(--ease), border-color .2s var(--ease);
+  }
+  .view-btn:hover { color:var(--bone); }
+  .view-btn[aria-pressed="true"] { color:var(--bone); border-color:currentColor; background:rgba(237,230,211,.07); }
+  .view-btn:focus-visible { outline:2px solid var(--gold); outline-offset:2px; }
+
+  .swatch { display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:7px; vertical-align:middle; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation:none !important; transition:none !important; }
+  }
+  @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))) {
+    .panel, .layer-btn { background:rgba(20,21,29,.85); }
+  }
+</style>
+</head>
+<body>
+<div class="mesh" aria-hidden="true"></div>
+
+<main class="page">
+  <header class="hero">
+    <p class="hero-kicker">Vox Mana · Codex</p>
+    <h1 class="hero-title">The Color Wheel</h1>
+    <p class="hero-lede">
+      Five goals, five alliances, five conflicts, and the five identities hiding
+      where the conflicts cross. One layer at a time.
+    </p>
+  </header>
+
+  <!-- Layer toggles. Enemies default OFF: the whole point is that the layers
+       don't fire simultaneously. LAYER 4 button is present but disabled. -->
+  <div class="layers" role="group" aria-label="Diagram layers">
+    <button class="layer-btn" id="lay-ally"   aria-pressed="true">Alliances</button>
+    <button class="layer-btn" id="lay-enemy"  aria-pressed="false">Conflicts</button>
+    <button class="layer-btn" id="lay-cross"  aria-pressed="false">Four-Color</button>
+    <!-- LAYER 4: enable once the Mechanical Color Pie 2021 dataset is wired. -->
+    <button class="layer-btn" id="lay-mech" aria-pressed="false" disabled
+            title="Needs the Mechanical Color Pie 2021 dataset">Mechanics — not wired</button>
+    <!-- Clearing by clicking dead space works but isn't discoverable — nothing
+         tells you the background is a target. This makes it a control. Present
+         only while there is a selection to clear, so the resting row stays as
+         it was. Escape still works. -->
+    <button class="layer-btn clear-btn" id="clearSel" type="button"
+            aria-label="Clear selection" hidden>Clear</button>
+  </div>
+  <p class="layer-note" id="layerNote"></p>
+
+  <div class="stage">
+    <div class="wheel-wrap">
+      <svg class="wheel" id="wheel" viewBox="-30 60 860 700" role="group"
+           aria-label="Interactive color wheel">
+        <defs>
+        <!-- Glow used by the emphasis model. filterUnits is userSpaceOnUse
+             on purpose: two edges are exactly horizontal, so their object
+             bounding box has zero height and a percentage-based filter
+             region would collapse and clip the blur away entirely. -->
+        <filter id="lit" filterUnits="userSpaceOnUse"
+                x="-40" y="50" width="880" height="720"
+                color-interpolation-filters="sRGB">
+          <feGaussianBlur stdDeviation="3.4"/>
+        </filter>
+    <linearGradient id="grad-WU" gradientUnits="userSpaceOnUse" x1="400.0" y1="140.0" x2="647.27" y2="319.66"><stop offset="0%" stop-color="var(--w)"/><stop offset="100%" stop-color="var(--u)"/></linearGradient>
+    <linearGradient id="grad-UB" gradientUnits="userSpaceOnUse" x1="647.27" y1="319.66" x2="552.82" y2="610.34"><stop offset="0%" stop-color="var(--u)"/><stop offset="100%" stop-color="var(--b)"/></linearGradient>
+    <linearGradient id="grad-BR" gradientUnits="userSpaceOnUse" x1="552.82" y1="610.34" x2="247.18" y2="610.34"><stop offset="0%" stop-color="var(--b)"/><stop offset="100%" stop-color="var(--r)"/></linearGradient>
+    <linearGradient id="grad-RG" gradientUnits="userSpaceOnUse" x1="247.18" y1="610.34" x2="152.73" y2="319.66"><stop offset="0%" stop-color="var(--r)"/><stop offset="100%" stop-color="var(--g)"/></linearGradient>
+    <linearGradient id="grad-GW" gradientUnits="userSpaceOnUse" x1="152.73" y1="319.66" x2="400.0" y2="140.0"><stop offset="0%" stop-color="var(--g)"/><stop offset="100%" stop-color="var(--w)"/></linearGradient>
+    <linearGradient id="grad-WB" gradientUnits="userSpaceOnUse" x1="400.0" y1="140.0" x2="552.82" y2="610.34"><stop offset="0%" stop-color="var(--w)"/><stop offset="100%" stop-color="var(--b)"/></linearGradient>
+    <linearGradient id="grad-UR" gradientUnits="userSpaceOnUse" x1="647.27" y1="319.66" x2="247.18" y2="610.34"><stop offset="0%" stop-color="var(--u)"/><stop offset="100%" stop-color="var(--r)"/></linearGradient>
+    <linearGradient id="grad-BG" gradientUnits="userSpaceOnUse" x1="552.82" y1="610.34" x2="152.73" y2="319.66"><stop offset="0%" stop-color="var(--b)"/><stop offset="100%" stop-color="var(--g)"/></linearGradient>
+    <linearGradient id="grad-RW" gradientUnits="userSpaceOnUse" x1="247.18" y1="610.34" x2="400.0" y2="140.0"><stop offset="0%" stop-color="var(--r)"/><stop offset="100%" stop-color="var(--w)"/></linearGradient>
+    <linearGradient id="grad-GU" gradientUnits="userSpaceOnUse" x1="152.73" y1="319.66" x2="647.27" y2="319.66"><stop offset="0%" stop-color="var(--g)"/><stop offset="100%" stop-color="var(--u)"/></linearGradient>
+        </defs>
+
+        <!-- FOUR-COLOR REGIONS — behind everything, revealed on selection -->
+        <g id="g-quad">
+      <polygon class="quad" data-quad="W" points="647.27,319.66 552.82,610.34 247.18,610.34 152.73,319.66"></polygon>
+      <polygon class="quad" data-quad="U" points="400.0,140.0 552.82,610.34 247.18,610.34 152.73,319.66"></polygon>
+      <polygon class="quad" data-quad="B" points="400.0,140.0 647.27,319.66 247.18,610.34 152.73,319.66"></polygon>
+      <polygon class="quad" data-quad="R" points="400.0,140.0 647.27,319.66 552.82,610.34 152.73,319.66"></polygon>
+      <polygon class="quad" data-quad="G" points="400.0,140.0 647.27,319.66 552.82,610.34 247.18,610.34"></polygon>
+        </g>
+
+        <!-- ALLY EDGES — the pentagon -->
+        <g id="g-ally">
+      <g class="edge ally" data-kind="ally" data-key="WU" tabindex="0" role="button"
+         aria-label="White and Blue">
+        <line class="edge-hit" x1="400.0" y1="140.0" x2="647.27" y2="319.66"></line>
+        <line class="edge-glow" x1="400.0" y1="140.0" x2="647.27" y2="319.66"
+              style="stroke:url(#grad-WU)"></line>
+        <line class="edge-line" x1="400.0" y1="140.0" x2="647.27" y2="319.66"
+              style="stroke:url(#grad-WU)"></line>
+      </g>
+      <g class="edge ally" data-kind="ally" data-key="UB" tabindex="0" role="button"
+         aria-label="Blue and Black">
+        <line class="edge-hit" x1="647.27" y1="319.66" x2="552.82" y2="610.34"></line>
+        <line class="edge-glow" x1="647.27" y1="319.66" x2="552.82" y2="610.34"
+              style="stroke:url(#grad-UB)"></line>
+        <line class="edge-line" x1="647.27" y1="319.66" x2="552.82" y2="610.34"
+              style="stroke:url(#grad-UB)"></line>
+      </g>
+      <g class="edge ally" data-kind="ally" data-key="BR" tabindex="0" role="button"
+         aria-label="Black and Red">
+        <line class="edge-hit" x1="552.82" y1="610.34" x2="247.18" y2="610.34"></line>
+        <line class="edge-glow" x1="552.82" y1="610.34" x2="247.18" y2="610.34"
+              style="stroke:url(#grad-BR)"></line>
+        <line class="edge-line" x1="552.82" y1="610.34" x2="247.18" y2="610.34"
+              style="stroke:url(#grad-BR)"></line>
+      </g>
+      <g class="edge ally" data-kind="ally" data-key="RG" tabindex="0" role="button"
+         aria-label="Red and Green">
+        <line class="edge-hit" x1="247.18" y1="610.34" x2="152.73" y2="319.66"></line>
+        <line class="edge-glow" x1="247.18" y1="610.34" x2="152.73" y2="319.66"
+              style="stroke:url(#grad-RG)"></line>
+        <line class="edge-line" x1="247.18" y1="610.34" x2="152.73" y2="319.66"
+              style="stroke:url(#grad-RG)"></line>
+      </g>
+      <g class="edge ally" data-kind="ally" data-key="GW" tabindex="0" role="button"
+         aria-label="Green and White">
+        <line class="edge-hit" x1="152.73" y1="319.66" x2="400.0" y2="140.0"></line>
+        <line class="edge-glow" x1="152.73" y1="319.66" x2="400.0" y2="140.0"
+              style="stroke:url(#grad-GW)"></line>
+        <line class="edge-line" x1="152.73" y1="319.66" x2="400.0" y2="140.0"
+              style="stroke:url(#grad-GW)"></line>
+      </g>
+        </g>
+
+        <!-- ENEMY CHORDS — the star -->
+        <g id="g-enemy" class="layer-off">
+      <g class="edge enemy" data-kind="enemy" data-key="WB" tabindex="0" role="button"
+         aria-label="White and Black">
+        <line class="edge-hit" x1="400.0" y1="140.0" x2="552.82" y2="610.34"></line>
+        <line class="edge-glow" x1="400.0" y1="140.0" x2="552.82" y2="610.34"
+              style="stroke:url(#grad-WB)"></line>
+        <line class="edge-line" x1="400.0" y1="140.0" x2="552.82" y2="610.34"
+              style="stroke:url(#grad-WB)"></line>
+      </g>
+      <g class="edge enemy" data-kind="enemy" data-key="UR" tabindex="0" role="button"
+         aria-label="Blue and Red">
+        <line class="edge-hit" x1="647.27" y1="319.66" x2="247.18" y2="610.34"></line>
+        <line class="edge-glow" x1="647.27" y1="319.66" x2="247.18" y2="610.34"
+              style="stroke:url(#grad-UR)"></line>
+        <line class="edge-line" x1="647.27" y1="319.66" x2="247.18" y2="610.34"
+              style="stroke:url(#grad-UR)"></line>
+      </g>
+      <g class="edge enemy" data-kind="enemy" data-key="BG" tabindex="0" role="button"
+         aria-label="Black and Green">
+        <line class="edge-hit" x1="552.82" y1="610.34" x2="152.73" y2="319.66"></line>
+        <line class="edge-glow" x1="552.82" y1="610.34" x2="152.73" y2="319.66"
+              style="stroke:url(#grad-BG)"></line>
+        <line class="edge-line" x1="552.82" y1="610.34" x2="152.73" y2="319.66"
+              style="stroke:url(#grad-BG)"></line>
+      </g>
+      <g class="edge enemy" data-kind="enemy" data-key="RW" tabindex="0" role="button"
+         aria-label="Red and White">
+        <line class="edge-hit" x1="247.18" y1="610.34" x2="400.0" y2="140.0"></line>
+        <line class="edge-glow" x1="247.18" y1="610.34" x2="400.0" y2="140.0"
+              style="stroke:url(#grad-RW)"></line>
+        <line class="edge-line" x1="247.18" y1="610.34" x2="400.0" y2="140.0"
+              style="stroke:url(#grad-RW)"></line>
+      </g>
+      <g class="edge enemy" data-kind="enemy" data-key="GU" tabindex="0" role="button"
+         aria-label="Green and Blue">
+        <line class="edge-hit" x1="152.73" y1="319.66" x2="647.27" y2="319.66"></line>
+        <line class="edge-glow" x1="152.73" y1="319.66" x2="647.27" y2="319.66"
+              style="stroke:url(#grad-GU)"></line>
+        <line class="edge-line" x1="152.73" y1="319.66" x2="647.27" y2="319.66"
+              style="stroke:url(#grad-GU)"></line>
+      </g>
+        </g>
+
+        <!-- CROSSINGS — coordinates solved numerically, see head comment -->
+        <g id="g-cross" class="layer-off">
+      <g class="cross" data-kind="four" data-key="W" tabindex="0" role="button"
+         aria-label="Four-color identity excluding White">
+        <circle class="cross-hit" cx="400.0" cy="499.31" r="26"></circle>
+        <g class="cross-g">
+          <circle class="cross-core" cx="400.0" cy="499.31" r="11.0"></circle>
+          <circle class="cross-glow" cx="400.0" cy="499.31" r="11.0"></circle>
+          <path class="cross-arc" d="M 400.58 488.33 A 11.0 11.0 0 0 1 410.98 498.73" style="stroke:var(--u)"></path>
+          <path class="cross-arc" d="M 410.98 499.89 A 11.0 11.0 0 0 1 400.58 510.29" style="stroke:var(--b)"></path>
+          <path class="cross-arc" d="M 399.42 510.29 A 11.0 11.0 0 0 1 389.02 499.89" style="stroke:var(--r)"></path>
+          <path class="cross-arc" d="M 389.02 498.73 A 11.0 11.0 0 0 1 399.42 488.33" style="stroke:var(--g)"></path>
+        </g>
+      </g>
+      <g class="cross" data-kind="four" data-key="U" tabindex="0" role="button"
+         aria-label="Four-color identity excluding Blue">
+        <circle class="cross-hit" cx="305.55" cy="430.69" r="26"></circle>
+        <g class="cross-g">
+          <circle class="cross-core" cx="305.55" cy="430.69" r="11.0"></circle>
+          <circle class="cross-glow" cx="305.55" cy="430.69" r="11.0"></circle>
+          <path class="cross-arc" d="M 306.13 419.71 A 11.0 11.0 0 0 1 316.53 430.11" style="stroke:var(--w)"></path>
+          <path class="cross-arc" d="M 316.53 431.27 A 11.0 11.0 0 0 1 306.13 441.67" style="stroke:var(--b)"></path>
+          <path class="cross-arc" d="M 304.97 441.67 A 11.0 11.0 0 0 1 294.57 431.27" style="stroke:var(--r)"></path>
+          <path class="cross-arc" d="M 294.57 430.11 A 11.0 11.0 0 0 1 304.97 419.71" style="stroke:var(--g)"></path>
+        </g>
+      </g>
+      <g class="cross" data-kind="four" data-key="B" tabindex="0" role="button"
+         aria-label="Four-color identity excluding Black">
+        <circle class="cross-hit" cx="341.63" cy="319.66" r="26"></circle>
+        <g class="cross-g">
+          <circle class="cross-core" cx="341.63" cy="319.66" r="11.0"></circle>
+          <circle class="cross-glow" cx="341.63" cy="319.66" r="11.0"></circle>
+          <path class="cross-arc" d="M 342.21 308.68 A 11.0 11.0 0 0 1 352.61 319.08" style="stroke:var(--w)"></path>
+          <path class="cross-arc" d="M 352.61 320.24 A 11.0 11.0 0 0 1 342.21 330.64" style="stroke:var(--u)"></path>
+          <path class="cross-arc" d="M 341.05 330.64 A 11.0 11.0 0 0 1 330.65 320.24" style="stroke:var(--r)"></path>
+          <path class="cross-arc" d="M 330.65 319.08 A 11.0 11.0 0 0 1 341.05 308.68" style="stroke:var(--g)"></path>
+        </g>
+      </g>
+      <g class="cross" data-kind="four" data-key="R" tabindex="0" role="button"
+         aria-label="Four-color identity excluding Red">
+        <circle class="cross-hit" cx="458.37" cy="319.66" r="26"></circle>
+        <g class="cross-g">
+          <circle class="cross-core" cx="458.37" cy="319.66" r="11.0"></circle>
+          <circle class="cross-glow" cx="458.37" cy="319.66" r="11.0"></circle>
+          <path class="cross-arc" d="M 458.95 308.68 A 11.0 11.0 0 0 1 469.35 319.08" style="stroke:var(--w)"></path>
+          <path class="cross-arc" d="M 469.35 320.24 A 11.0 11.0 0 0 1 458.95 330.64" style="stroke:var(--u)"></path>
+          <path class="cross-arc" d="M 457.79 330.64 A 11.0 11.0 0 0 1 447.39 320.24" style="stroke:var(--b)"></path>
+          <path class="cross-arc" d="M 447.39 319.08 A 11.0 11.0 0 0 1 457.79 308.68" style="stroke:var(--g)"></path>
+        </g>
+      </g>
+      <g class="cross" data-kind="four" data-key="G" tabindex="0" role="button"
+         aria-label="Four-color identity excluding Green">
+        <circle class="cross-hit" cx="494.45" cy="430.69" r="26"></circle>
+        <g class="cross-g">
+          <circle class="cross-core" cx="494.45" cy="430.69" r="11.0"></circle>
+          <circle class="cross-glow" cx="494.45" cy="430.69" r="11.0"></circle>
+          <path class="cross-arc" d="M 495.03 419.71 A 11.0 11.0 0 0 1 505.43 430.11" style="stroke:var(--w)"></path>
+          <path class="cross-arc" d="M 505.43 431.27 A 11.0 11.0 0 0 1 495.03 441.67" style="stroke:var(--u)"></path>
+          <path class="cross-arc" d="M 493.87 441.67 A 11.0 11.0 0 0 1 483.47 431.27" style="stroke:var(--b)"></path>
+          <path class="cross-arc" d="M 483.47 430.11 A 11.0 11.0 0 0 1 493.87 419.71" style="stroke:var(--r)"></path>
+        </g>
+      </g>
+        </g>
+
+        <!-- VERTICES last so they sit above the lines -->
+        <g id="g-vertex">
+      <g class="vertex v-w" data-kind="color" data-key="W" tabindex="0" role="button"
+         aria-label="White">
+        <circle class="vertex-halo" cx="400.0" cy="140.0" r="34"></circle>
+        <circle class="vertex-glow" cx="400.0" cy="140.0" r="17" style="fill:var(--w)"></circle>
+        <circle class="vertex-dot" cx="400.0" cy="140.0" r="17" style="fill:var(--w)"></circle>
+        <text class="vertex-label" x="400.0" y="78.0" text-anchor="middle" dy="0em">White</text>
+        <text class="vertex-goal" x="400.0" y="99.0" text-anchor="middle">Peace</text>
+      </g>
+      <g class="vertex v-u" data-kind="color" data-key="U" tabindex="0" role="button"
+         aria-label="Blue">
+        <circle class="vertex-halo" cx="647.27" cy="319.66" r="34"></circle>
+        <circle class="vertex-glow" cx="647.27" cy="319.66" r="17" style="fill:var(--u)"></circle>
+        <circle class="vertex-dot" cx="647.27" cy="319.66" r="17" style="fill:var(--u)"></circle>
+        <text class="vertex-label" x="706.24" y="300.5" text-anchor="start" dy="0.35em">Blue</text>
+        <text class="vertex-goal" x="706.24" y="321.5" text-anchor="start">Perfection</text>
+      </g>
+      <g class="vertex v-b" data-kind="color" data-key="B" tabindex="0" role="button"
+         aria-label="Black">
+        <circle class="vertex-halo" cx="552.82" cy="610.34" r="34"></circle>
+        <circle class="vertex-glow" cx="552.82" cy="610.34" r="17" style="fill:var(--b)"></circle>
+        <circle class="vertex-dot" cx="552.82" cy="610.34" r="17" style="fill:var(--b)"></circle>
+        <text class="vertex-label" x="589.27" y="660.5" text-anchor="start" dy="0.35em">Black</text>
+        <text class="vertex-goal" x="589.27" y="681.5" text-anchor="start">Power</text>
+      </g>
+      <g class="vertex v-r" data-kind="color" data-key="R" tabindex="0" role="button"
+         aria-label="Red">
+        <circle class="vertex-halo" cx="247.18" cy="610.34" r="34"></circle>
+        <circle class="vertex-glow" cx="247.18" cy="610.34" r="17" style="fill:var(--r)"></circle>
+        <circle class="vertex-dot" cx="247.18" cy="610.34" r="17" style="fill:var(--r)"></circle>
+        <text class="vertex-label" x="210.73" y="660.5" text-anchor="end" dy="0.35em">Red</text>
+        <text class="vertex-goal" x="210.73" y="681.5" text-anchor="end">Freedom</text>
+      </g>
+      <g class="vertex v-g" data-kind="color" data-key="G" tabindex="0" role="button"
+         aria-label="Green">
+        <circle class="vertex-halo" cx="152.73" cy="319.66" r="34"></circle>
+        <circle class="vertex-glow" cx="152.73" cy="319.66" r="17" style="fill:var(--g)"></circle>
+        <circle class="vertex-dot" cx="152.73" cy="319.66" r="17" style="fill:var(--g)"></circle>
+        <text class="vertex-label" x="93.76" y="300.5" text-anchor="end" dy="0.35em">Green</text>
+        <text class="vertex-goal" x="93.76" y="321.5" text-anchor="end">Acceptance</text>
+      </g>
+        </g>
+      </svg>
+    </div>
+
+    <!-- tabindex="-1" so focus has somewhere to land when the Clear button
+         removes itself; without it, clearing by keyboard drops focus to body. -->
+    <aside class="panel" id="panel" aria-live="polite" tabindex="-1">
+      <p class="panel-kicker">Start anywhere</p>
+      <h2 class="panel-title">Pick a point</h2>
+      <p class="panel-body panel-empty">
+        Choose a color for its philosophy, an edge for what two colors share or
+        dispute, or — with the four-color layer on — one of the five points where
+        the conflicts intersect.
+      </p>
+    </aside>
+  </div>
+</main>
+
+<script>
+/* =====================================================================
+   DATA — generated from the source articles, see head comment.
+   ===================================================================== */
+const D = {
+ "colors": {
+  "W": {
+   "name": "White",
+   "goal": "Peace",
+   "key": "Obligation, met through self-discipline",
+   "blurb": "Sees avoidable suffering everywhere and enough resources to end it. The obstacle is that the plan only works if everyone commits to it."
+  },
+  "U": {
+   "name": "Blue",
+   "goal": "Perfection",
+   "key": "Method, held open to adaptation",
+   "blurb": "Treats every person as a blank slate with unbounded potential. Improvement never finishes, so haste is the enemy and time is the resource."
+  },
+  "B": {
+   "name": "Black",
+   "goal": "Power",
+   "key": "Flexibility, and self-interest without apology",
+   "blurb": "Claims to be the only color seeing the world as it actually is rather than as it should be. Didn't make the world greedy \u2014 just declines to pretend otherwise."
+  },
+  "R": {
+   "name": "Red",
+   "goal": "Freedom",
+   "key": "Trusting what you feel",
+   "blurb": "Holds that the answer already arrives as feeling, and the other four colors just talk over it. Measures a life by regret, not by outcome."
+  },
+  "G": {
+   "name": "Green",
+   "goal": "Acceptance",
+   "key": "Embracing the role you were born into",
+   "blurb": "Alone among the five in not wanting to change the world, on the grounds that the natural order already resolved every question worth asking."
+  }
+ },
+ "allies": {
+  "WU": {
+   "value": "Restraint",
+   "enemy": "R",
+   "blurb": "Both are undone by impulse. White needs the group to think several moves ahead; blue needs the individual to. Together: plan backwards from the ending.",
+   "split": "Free will versus destiny \u2014 blue grants people agency, white assigns them a role."
+  },
+  "UB": {
+   "value": "Choice",
+   "enemy": "G",
+   "blurb": "Both refuse a life assigned at birth. Blue wants options in order to improve; black wants them in order to advance. Together: stay unreadable and keep every door open.",
+   "split": "Freedom versus security \u2014 black wants no limits, blue wants a floor under the chaos."
+  },
+  "BR": {
+   "value": "Individualism",
+   "enemy": "W",
+   "blurb": "Neither accepts being told to choose against itself. Black wants merit rewarded; red wants impulse followed. Together: strip the restrictions and move.",
+   "split": "Nature versus nurture \u2014 black says you build yourself, red says you were already built."
+  },
+  "RG": {
+   "value": "Intuition",
+   "enemy": "U",
+   "blurb": "Both are insulted by the instruction to ignore what's inside them. Red calls it emotion, green calls it instinct. Together: act faster than deliberation allows.",
+   "split": "Group versus individual \u2014 green sees a web of obligation, red sees its own path."
+  },
+  "GW": {
+   "value": "Responsibility",
+   "enemy": "B",
+   "blurb": "Both object to advancement bought at someone else's cost. Green protects the web; white protects the group. Together: many small things become one large thing.",
+   "split": "Head versus heart \u2014 white overrides instinct, green follows it."
+  }
+ },
+ "enemies": {
+  "WB": {
+   "title": "The Good of the Group vs. the Good of the Individual",
+   "core": "At bottom: how a person ranks the claims on them.",
+   "views": {
+    "W": "Good against evil. A society is judged by how it treats the person with the least.",
+    "B": "Encouragement against coddling. Reward the effort or watch effort stop."
+   }
+  },
+  "UR": {
+   "title": "Head vs. Heart",
+   "core": "At bottom: how a life should be conducted.",
+   "views": {
+    "U": "Carefulness against recklessness. Errors come from moving before you understand.",
+    "R": "Passion against indifference. Errors come from overriding what you already felt."
+   }
+  },
+  "BG": {
+   "title": "Free Will vs. Destiny",
+   "core": "At bottom: how much of your life is yours to decide.",
+   "views": {
+    "B": "Opportunity against superstition. Nothing was written; go take it.",
+    "G": "Truth against skepticism. The pattern is real whether or not you flatter yourself."
+   }
+  },
+  "RW": {
+   "title": "Freedom vs. Security",
+   "core": "At bottom: what a society owes the people inside it.",
+   "views": {
+    "R": "Democracy against fascism. Nobody appointed you to run my life.",
+    "W": "Order against chaos. Your appetites are not worth someone else's safety."
+   }
+  },
+  "GU": {
+   "title": "Nature vs. Nurture",
+   "core": "At bottom: what makes a person who they are.",
+   "views": {
+    "G": "Acceptance against denial. You already are something; stop refusing it.",
+    "U": "Opportunity against stagnation. You are not finished; stop pretending you are."
+   }
+  }
+ },
+ "four": {
+  "W": {
+   "colors": "UBRG",
+   "commander": "Yidris, Maelstrom Wielder",
+   "deck": "Entropic Uprising"
+  },
+  "U": {
+   "colors": "WBRG",
+   "commander": "Saskia the Unyielding",
+   "deck": "Open Hostility"
+  },
+  "B": {
+   "colors": "WURG",
+   "commander": "Kynaios and Tiro of Meletis",
+   "deck": "Stalwart Unity"
+  },
+  "R": {
+   "colors": "WUBG",
+   "commander": "Atraxa, Praetors' Voice",
+   "deck": "Breed Lethality"
+  },
+  "G": {
+   "colors": "WUBR",
+   "commander": "Breya, Etherium Shaper",
+   "deck": "Invent Superiority"
+  }
+ },
+ "order": [
+  "W",
+  "U",
+  "B",
+  "R",
+  "G"
+ ],
+ "names": {
+  "W": "White",
+  "U": "Blue",
+  "B": "Black",
+  "R": "Red",
+  "G": "Green"
+ }
+};
+
+const SRC_PIE   = 'Rosewater, "Pie Fights," Nov 2016 — paraphrased';
+const SRC_FRIEND= 'Rosewater, "Thank You for Being a Friend," Mar 2017 — paraphrased';
+const SRC_C16   = 'Commander 2016 signature commanders';
+
+const wheel = document.getElementById('wheel');
+const panel = document.getElementById('panel');
+const note  = document.getElementById('layerNote');
+const clearBtn = document.getElementById('clearSel');
+
+/* ---------------------------------------------------------------- layers */
+const layers = {
+  ally:  { btn:document.getElementById('lay-ally'),  grp:document.getElementById('g-ally'),  on:true  },
+  enemy: { btn:document.getElementById('lay-enemy'), grp:document.getElementById('g-enemy'), on:false },
+  cross: { btn:document.getElementById('lay-cross'), grp:document.getElementById('g-cross'), on:false }
+};
+
+Object.entries(layers).forEach(([k, L]) => {
+  L.btn.addEventListener('click', () => {
+    L.on = !L.on;
+    L.btn.setAttribute('aria-pressed', String(L.on));
+    L.grp.classList.toggle('layer-off', !L.on);
+    // Turning a layer off should drop a selection that lives on it.
+    if (!L.on && sel && sel.layer === k) clearSelection();
+    updateNote();
+  });
+});
+
+function updateNote() {
+  // The crossings are meaningless without the chords that produce them,
+  // so say so rather than silently showing floating dots.
+  if (layers.cross.on && !layers.enemy.on) {
+    note.textContent = 'The crossings are intersections of the conflict chords — turn Conflicts on to see why they sit there.';
+  } else if (!layers.ally.on && !layers.enemy.on && !layers.cross.on) {
+    note.textContent = 'All layers hidden.';
+  } else {
+    note.textContent = '';
+  }
+}
+
+/* ---------------------------------------------------------------- helpers */
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c]);
+const dot = c => `<span class="swatch" style="background:var(--${c.toLowerCase()})"></span>`;
+const nm  = c => D.names[c];
+
+function keyFor(a, b) {
+  // edge keys are stored in wheel order, so try both
+  return D.allies[a+b] ? a+b : (D.allies[b+a] ? b+a : (D.enemies[a+b] ? a+b : b+a));
+}
+
+/* ---------------------------------------------------------------- selection */
+let sel = null;
+
+function clearSelection() {
+  sel = null;
+  clearBtn.hidden = true;
+  wheel.classList.remove('has-selection');
+  wheel.querySelectorAll('.is-rel,.is-excluded').forEach(n => n.classList.remove('is-rel','is-excluded'));
+  wheel.querySelectorAll('.quad.is-shown').forEach(n => n.classList.remove('is-shown'));
+  panel.innerHTML = `
+    <p class="panel-kicker">Start anywhere</p>
+    <h2 class="panel-title">Pick a point</h2>
+    <p class="panel-body panel-empty">Choose a color, an edge, or a crossing.</p>`;
+}
+
+function highlight(nodes, excluded) {
+  wheel.querySelectorAll('.is-rel,.is-excluded').forEach(n => n.classList.remove('is-rel','is-excluded'));
+  wheel.querySelectorAll('.quad.is-shown').forEach(n => n.classList.remove('is-shown'));
+  wheel.classList.add('has-selection');
+  clearBtn.hidden = false;
+  nodes.forEach(n => n && n.classList.add('is-rel'));
+  if (excluded) {
+    const v = wheel.querySelector(`.vertex[data-key="${excluded}"]`);
+    if (v) v.classList.add('is-excluded');
+    // reveal the region the four included colours enclose
+    const q = wheel.querySelector(`.quad[data-quad="${excluded}"]`);
+    if (q) q.classList.add('is-shown');
+  }
+}
+
+const vtx  = c => wheel.querySelector(`.vertex[data-key="${c}"]`);
+const edgeEl = k => wheel.querySelector(`.edge[data-key="${k}"]`);
+
+/* ---------------------------------------------------------------- draw-on
+   Clicking something draws the edges it lit, once, then stops. No loop, no
+   ambient motion, nothing travelling along a finished line.
+
+   MECHANISM — masks, not the edges themselves.
+   Each edge is wrapped in a group masked by a white line of its own geometry,
+   and it is that MASK line whose stroke-dasharray/stroke-dashoffset animates.
+   Doing it on the edge directly would work for the solid alliances and break
+   the five conflict chords, because their 7/6 dash needs the same property.
+   Masking keeps the two uses apart: the dash stays untouched and is simply
+   revealed. One code path then covers both, instead of a special case for
+   half the edges.
+
+   All three motions are one formula. A dash of length d beginning at distance
+   `-offset` along the line, with an anchor fraction t:
+
+     outward from t     dasharray "d BIG"              offset -t(L-d)
+     inward toward t    dasharray "dt 0 d(1-t) BIG"    offset 0
+
+   d runs 0 to L. Outward with t=0 grows from the first endpoint, t=1 from the
+   second, t=.5 from the middle. Inward is the two-piece case — both ends
+   growing until they meet at t — which is what a crossing needs, since a
+   crossing sits partway along its chords rather than at an end.
+
+   Animations use the Web Animations API with fill:'none' deliberately: when
+   one finishes, the property reverts to its underlying value, which is no
+   dasharray at all. Nothing to clean up, no inline styles left behind, and a
+   mask that is inert whenever it is not mid-draw.
+   ------------------------------------------------------------------------ */
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* CHARACTER — flattened. Every colour now draws the same way: outward from the
+   clicked vertex, 600ms, symmetric easing, every edge in unison. This was
+   White's setting and it was the one that read correctly on screen; judged
+   against it the other four were wrong rather than distinct — green and red
+   too fast, black going the wrong way, blue arriving late.
+
+   The per-colour mapping from the product notes is kept here, because it is
+   sourced and because losing the record of it would be worse than losing the
+   effect. Restoring any single colour is a one-line change:
+     White  order .......... 600ms, cubic-bezier(.4,0,.6,1),    stagger 0,  outward
+     Blue   deliberation ... 900ms, cubic-bezier(.45,0,.35,1),  stagger 90, outward
+     Black  acquisition .... 600ms, cubic-bezier(.35,0,.65,.5), stagger 60, INWARD
+     Red    impulse ........ 260ms, cubic-bezier(.2,.85,.35,1), stagger 0,  outward,
+                             plus flare:true — the "slight overshoot", carried on
+                             the glow because stroke-dashoffset cannot hold it
+     Green  growth ......... 650ms, cubic-bezier(.16,1,.3,1),   stagger 70, outward
+   Note green's easing: a hard ease-out front-loads the travel, which is why it
+   read as faster than red's 650ms would suggest.
+
+   `stagger` was never in the notes — it existed only so White's "in unison"
+   stayed distinguishable. With every colour in unison it has no job, and is
+   left at 0 throughout.
+
+   The five-row shape is deliberate. Everything downstream still reads
+   per-colour, so re-differentiating one colour needs no other change. */
+const DRAW = { dur:600, stagger:0, inward:false, ease:'cubic-bezier(.4,0,.6,1)' };
+const CHAR = { W:DRAW, U:DRAW, B:DRAW, R:DRAW, G:DRAW };
+/* Not in the notes either — an edge belongs to two colours and a crossing to
+   four, so neither has a character of its own. Both are deliberately neutral. */
+const PAIR_DUR  = 600, PAIR_EASE  = 'cubic-bezier(.4,0,.6,1)';
+const CROSS_DUR = 700, CROSS_EASE = 'cubic-bezier(.4,0,.6,1)';
+
+const BIG = 100000;          // long enough that the dash pattern never repeats
+const EDGES = new Map();
+
+(function buildDrawMasks() {
+  if (reduceMotion) return;  // skipped outright, never slowed — as the directory does
+  const NS = 'http://www.w3.org/2000/svg';
+  const defs = wheel.querySelector('defs');
+
+  wheel.querySelectorAll('.edge').forEach(edge => {
+    const line = edge.querySelector('.edge-line');
+    const glow = edge.querySelector('.edge-glow');
+    const x1 = +line.getAttribute('x1'), y1 = +line.getAttribute('y1');
+    const x2 = +line.getAttribute('x2'), y2 = +line.getAttribute('y2');
+    const id = 'draw-' + edge.dataset.key;
+
+    // Built here rather than written into the markup so the coordinates keep
+    // exactly one source. A second hardcoded copy is the thing that drifts.
+    const mask = document.createElementNS(NS, 'mask');
+    mask.setAttribute('id', id);
+    // userSpaceOnUse for the same reason the glow filter needs it: two edges
+    // are exactly horizontal, so a bounding-box region collapses to no height.
+    mask.setAttribute('maskUnits', 'userSpaceOnUse');
+    mask.setAttribute('x', '-40'); mask.setAttribute('y', '50');
+    mask.setAttribute('width', '880'); mask.setAttribute('height', '720');
+
+    const m = document.createElementNS(NS, 'line');
+    m.setAttribute('x1', x1); m.setAttribute('y1', y1);
+    m.setAttribute('x2', x2); m.setAttribute('y2', y2);
+    m.setAttribute('stroke', '#fff');
+    m.setAttribute('stroke-width', '34');  // clears the widest line plus its blur
+    mask.appendChild(m);
+    defs.appendChild(mask);
+
+    // The mask wraps the glow and the line but NOT .edge-hit — masking the
+    // pointer target would make the edge unclickable wherever the mask is
+    // transparent, which during a draw is most of it.
+    const wrap = document.createElementNS(NS, 'g');
+    wrap.setAttribute('mask', 'url(#' + id + ')');
+    edge.insertBefore(wrap, glow);
+    wrap.appendChild(glow); wrap.appendChild(line);
+
+    EDGES.set(edge.dataset.key, {
+      edge, glow, mask:m, anim:null, flare:null,
+      len: Math.hypot(x2 - x1, y2 - y1), x1, y1, x2, y2
+    });
+  });
+})();
+
+const isVisible = e => !e.edge.closest('.layer-off');
+
+function drawEdge(key, o) {
+  const e = EDGES.get(key);
+  if (!e || !isVisible(e)) return;
+  if (e.anim) e.anim.cancel();
+  const L = e.len, t = o.t;
+
+  const frames = o.inward
+    ? [{ strokeDasharray:'0 ' + L + ' 0 ' + BIG, strokeDashoffset:'0' },
+       { strokeDasharray:(t * L) + ' 0 ' + ((1 - t) * L) + ' ' + BIG, strokeDashoffset:'0' }]
+    : [{ strokeDasharray:'0 ' + BIG, strokeDashoffset:String(-t * L) },
+       { strokeDasharray:L + ' ' + BIG, strokeDashoffset:'0' }];
+
+  e.anim = e.mask.animate(frames,
+    { duration:o.dur, delay:o.delay || 0, easing:o.ease, fill:'none' });
+
+  // Red only. The overshoot cannot ride the dashoffset — pushing it past zero
+  // shifts the pattern and opens a gap at the tail of a line that has only
+  // just finished drawing. It goes on the glow instead, peaking as it lands.
+  if (o.flare) {
+    if (e.flare) e.flare.cancel();
+    e.flare = e.glow.animate(
+      [{ opacity:.55 }, { opacity:.95 }, { opacity:.55 }],
+      { duration:240, delay:(o.delay || 0) + o.dur * 0.75, easing:'ease-out', fill:'none' });
+  }
+}
+
+/* A colour's edges draw from that colour outward — or, for black, from the far
+   end inward toward it. `k[0]` is the edge's first endpoint by construction:
+   edge keys are stored in coordinate order. */
+function drawFromVertex(c, keys) {
+  if (reduceMotion) return;
+  const ch = CHAR[c];
+  keys.filter(k => EDGES.has(k) && isVisible(EDGES.get(k))).forEach((k, i) => {
+    let t = (k[0] === c) ? 0 : 1;
+    if (ch.inward) t = 1 - t;
+    drawEdge(k, { t, inward:false, dur:ch.dur, ease:ch.ease,
+                  delay:i * ch.stagger, flare:ch.flare });
+  });
+}
+
+/* An edge, and any edges its panel derives from it: outward from the middle,
+   so it reads as the pair rather than as either of its two colours. */
+function drawFromMiddle(keys) {
+  if (reduceMotion) return;
+  keys.forEach(k => drawEdge(k, { t:.5, inward:false, dur:PAIR_DUR, ease:PAIR_EASE }));
+}
+
+/* The two chords through a crossing, growing from both ends until they meet at
+   the crossing itself. t is where the crossing actually falls along each chord
+   — measured, not assumed to be the midpoint, because it isn't. */
+function drawToCrossing(keys, cx, cy) {
+  if (reduceMotion) return;
+  keys.forEach(k => {
+    const e = EDGES.get(k); if (!e) return;
+    const t = Math.hypot(cx - e.x1, cy - e.y1) / e.len;
+    drawEdge(k, { t, inward:true, dur:CROSS_DUR, ease:CROSS_EASE });
+  });
+}
+
+/* ---------------------------------------------------------------- renderers */
+function showColor(c) {
+  const o = D.colors[c];
+  // a color's two allies are its neighbours; its two enemies are the rest
+  const i = D.order.indexOf(c);
+  const allies  = [D.order[(i+1)%5], D.order[(i+4)%5]];
+  const enemies = D.order.filter(x => x !== c && !allies.includes(x));
+
+  const allyRows = allies.map(a => {
+    const k = keyFor(c, a);
+    return `<li>${dot(a)}<strong>${esc(nm(a))}</strong> — ${esc(D.allies[k].value)}</li>`;
+  }).join('');
+  const enemyRows = enemies.map(e => {
+    const k = keyFor(c, e);
+    return `<li>${dot(e)}<strong>${esc(nm(e))}</strong> — ${esc(D.enemies[k].title)}</li>`;
+  }).join('');
+
+  panel.innerHTML = `
+    <p class="panel-kicker">Color</p>
+    <h2 class="panel-title">${dot(c)}${esc(o.name)} wants ${esc(o.goal.toLowerCase())}</h2>
+    <p class="panel-sub">${esc(o.key)}</p>
+    <p class="panel-body">${esc(o.blurb)}</p>
+    <p class="panel-body"><strong>Allied with</strong></p>
+    <ul class="panel-body" style="margin-top:-8px;padding-left:0;list-style:none">${allyRows}</ul>
+    <p class="panel-body"><strong>In conflict with</strong></p>
+    <ul class="panel-body" style="margin-top:-8px;padding-left:0;list-style:none">${enemyRows}</ul>
+    <p class="panel-src">${esc(SRC_PIE)}</p>`;
+
+  const edgeKeys = [...allies, ...enemies].map(x => keyFor(c, x));
+  highlight([vtx(c), ...allies.map(a => edgeEl(keyFor(c,a))), ...allies.map(vtx),
+             ...enemies.map(e => edgeEl(keyFor(c,e))), ...enemies.map(vtx)]);
+  drawFromVertex(c, edgeKeys);
+}
+
+function showAlly(k) {
+  const o = D.allies[k];
+  const [a, b] = [k[0], k[1]];
+  panel.innerHTML = `
+    <p class="panel-kicker">Alliance</p>
+    <h2 class="panel-title">${dot(a)}${dot(b)}${esc(nm(a))} &amp; ${esc(nm(b))}</h2>
+    <p class="panel-sub">Shared value: ${esc(o.value)}</p>
+    <p class="panel-body">${esc(o.blurb)}</p>
+    <p class="panel-body"><strong>Derived from their shared enemy.</strong>
+      Both oppose ${dot(o.enemy)}${esc(nm(o.enemy))} — and what they agree on is
+      what that opposition has in common.</p>
+    <p class="panel-body"><strong>Where they split:</strong> ${esc(o.split)}</p>
+    <p class="panel-src">${esc(SRC_FRIEND)}</p>`;
+  // the shared enemy is highlighted too — that's the whole derivation
+  highlight([edgeEl(k), vtx(a), vtx(b), vtx(o.enemy),
+             edgeEl(keyFor(a, o.enemy)), edgeEl(keyFor(b, o.enemy))]);
+  drawFromMiddle([k, keyFor(a, o.enemy), keyFor(b, o.enemy)]);
+}
+
+// `animate` is false when the three perspective buttons re-render this panel:
+// switching from Neutral to Green's view is a change of text, not a new
+// selection, and redrawing the chord each time would be motion without cause.
+function showEnemy(k, view, animate) {
+  const o = D.enemies[k];
+  const [a, b] = [k[0], k[1]];
+  view = view || 'neutral';
+  const body = view === 'neutral' ? o.core : o.views[view];
+  const btn = (v, label) =>
+    `<button class="view-btn" data-view="${v}" aria-pressed="${String(view===v)}">${label}</button>`;
+
+  panel.innerHTML = `
+    <p class="panel-kicker">Conflict</p>
+    <h2 class="panel-title">${dot(a)}${dot(b)}${esc(o.title)}</h2>
+    <div class="views">
+      ${btn(a, nm(a) + "'s view")}${btn('neutral','Neutral')}${btn(b, nm(b) + "'s view")}
+    </div>
+    <p class="panel-body">${esc(body)}</p>
+    <p class="panel-src">${esc(SRC_PIE)} · Each conflict reads differently depending on
+      which side states it — the neutral summary is a third framing, not the true one.</p>`;
+
+  panel.querySelectorAll('.view-btn').forEach(el =>
+    el.addEventListener('click', () => showEnemy(k, el.dataset.view, false)));
+
+  highlight([edgeEl(k), vtx(a), vtx(b)]);
+  if (animate) drawFromMiddle([k]);
+  sel = { kind:'enemy', key:k, layer:'enemy' };
+}
+
+function showFour(excl) {
+  const o = D.four[excl];
+  const inc = o.colors.split('');
+  panel.innerHTML = `
+    <p class="panel-kicker">Four-Color · Crossing</p>
+    <h2 class="panel-title">${inc.map(dot).join('')}Non-${esc(nm(excl))}</h2>
+    <p class="panel-sub">${esc(o.commander)} · ${esc(o.deck)}</p>
+    <p class="panel-body">This point is where two conflict chords cross. A chord pair
+      intersects only when their endpoints alternate around the wheel, so every crossing
+      touches four colors and leaves exactly one out — here, ${dot(excl)}<strong>${esc(nm(excl))}</strong>.</p>
+    <p class="panel-body">Five crossings, five excluded colors, five four-color identities.
+      The pentagram contains the whole tier and never labels it.</p>
+    <p class="panel-src">${esc(SRC_C16)} · geometry solved at build time</p>`;
+
+  // Exactly two chords pass through a crossing, but "every chord that doesn't
+  // contain the excluded colour" returns three — each colour sits in two of the
+  // five chords, so removing it leaves three behind. The extra one is always the
+  // chord joining the excluded colour's two NEIGHBOURS, which runs past this
+  // point without touching it. Verified against the coordinates, not assumed:
+  //   non-W drops GU, non-U drops WB, non-B drops UR, non-R drops BG, non-G drops RW.
+  const ei = D.order.indexOf(excl);
+  const spans = keyFor(D.order[(ei+1)%5], D.order[(ei+4)%5]);
+
+  const chords = [];
+  wheel.querySelectorAll('#g-enemy .edge').forEach(e => {
+    const k = e.dataset.key;
+    if (!k.includes(excl) && k !== spans) chords.push(e);
+  });
+  highlight([...chords, ...inc.map(vtx)], excl);
+
+  const hit = wheel.querySelector('.cross[data-key="' + excl + '"] .cross-hit');
+  drawToCrossing(chords.map(e => e.dataset.key), +hit.getAttribute('cx'), +hit.getAttribute('cy'));
+}
+
+/* ---------------------------------------------------------------- events */
+function activate(g) {
+  const kind = g.dataset.kind, key = g.dataset.key;
+  if (kind === 'color') { sel = {kind, key, layer:null};    showColor(key); }
+  else if (kind === 'ally')  { sel = {kind, key, layer:'ally'};  showAlly(key); }
+  else if (kind === 'enemy') { showEnemy(key, null, true); }
+  else if (kind === 'four')  { sel = {kind, key, layer:'cross'}; showFour(key); }
+}
+
+wheel.addEventListener('click', e => {
+  const g = e.target.closest('.vertex,.edge,.cross');
+  if (g) activate(g); else clearSelection();
+});
+
+// Keyboard parity: every target is focusable and Enter/Space activates it.
+wheel.addEventListener('keydown', e => {
+  if (e.key !== 'Enter' && e.key !== ' ') return;
+  const g = e.target.closest('.vertex,.edge,.cross');
+  if (!g) return;
+  e.preventDefault();
+  activate(g);
+});
+
+// The button removes itself on click, so hand focus to the panel — it is the
+// element whose content just changed, and it is aria-live, so the reset is
+// announced rather than silently dropping focus to <body>.
+clearBtn.addEventListener('click', () => { clearSelection(); panel.focus(); });
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') clearSelection(); });
+
+updateNote();
+</script>
+</body>
+</html>

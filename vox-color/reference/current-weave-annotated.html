@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<!--
+============================================================================
+ CURRENT WEAVE — annotated reference build (for integration, not drop-in)
+============================================================================
+ This is the enhanced "Current Weave" summary card built with Rob, meant
+ to replace the simpler version currently live on voxmana.io. Read this
+ file top-to-bottom before touching the real component — it's a working
+ reference, not something to copy-paste wholesale. Search this file for
+ "TODO(codex)" for every specific spot that needs real wiring, and
+ "DEMO ONLY" for anything that must NOT ship.
+
+ WHAT'S REAL VS. DEMO-ONLY
+ --------------------------
+ Everything inside <aside class="current-weave">...</aside> is the actual
+ component. Everything inside <div class="demo-controls">...</div> (the
+ state-toggle button, the two effect checkboxes) exists only so Rob could
+ preview states and compare effects side by side during design. None of
+ it belongs in production:
+   - data-weave-state must be set by real app state ("building" while the
+     user is still choosing, "ready" once the search can run) — not by a
+     button click.
+   - the bead-flare / dust-mote checkboxes were for comparison only. In
+     production both effects should just always run; drop the checkboxes
+     and hardcode `flareOn`/`motesOn` to `true` (or delete the checks).
+
+ IMPORTANT — THIS BUILD HARDCODES EXACTLY THREE COLORS (JESKAI: W/U/R)
+ -----------------------------------------------------------------------
+ Vox Mana covers 37 color identities, not just three-color ones. Three
+ systems below assume exactly 3 colors and need to generalize to however
+ many colors (0–5) the actual identity has before this is a true
+ replacement — none of it is hard, but it's real work, not a copy-paste:
+   1. the rotating border's conic-gradient stops (.weave-border-spin)
+   2. the mana-pip row (currently three hardcoded <i class="ms ms-*">)
+   3. the braid: exactly 3 <path> threads, and beads that cycle w/u/r in
+      a fixed repeating pattern
+ Each spot below is flagged inline with "TODO(codex): N-color".
+
+ PLACEHOLDER CONTENT THAT NEEDS LIVE DATA
+ ------------------------------------------
+ - The art wash (.weave-art) is hardcoded to one Scryfall card (Kykar,
+   Wind's Fury) for demo purposes. Wire it to whatever your existing
+   Scryfall verification pipeline surfaces for the current color
+   identity / weave, using the same art_crop CDN pattern:
+     https://cards.scryfall.io/art_crop/front/{a}/{b}/{uuid}.jpg
+ - The 9 chips (Artifact/Enchantment/Battle/Vigilance/Lifelink/Hexproof/
+   Rare/Mythic/Commander) and their 4 group labels (Type/Keyword/Rarity/
+   Format) are placeholder content. Render from the real weave/choices
+   data structure, and confirm this four-group taxonomy actually matches
+   how choices are categorized elsewhere before reusing it as-is.
+ - "9 choices woven" and the braid's 9 beads are tied to that same
+   placeholder count. This should read the real choice count; the
+   braid's bead count may need to become dynamic too if 9 isn't always
+   the real max.
+
+ DEPENDENCIES TO ADD
+ ---------------------
+ - Google Fonts: Cinzel (500/600/700), Fraunces (variable, incl. italic)
+ - mana-font via jsDelivr, pinned at 1.18.0 (matches the ms-w/ms-u/ms-r
+   classes already used elsewhere on voxmana.io)
+ Both load via <link> tags below — fold into whatever font-loading
+ strategy the site already has rather than adding a second, separate
+ load if these are already present on the page.
+
+ TECHNICAL CHOICES WORTH KNOWING ABOUT
+ ----------------------------------------
+ - The rotating border and the knotwork frame are both `border-image`
+   pointed at an inline SVG data-URI. Fine for a self-contained review
+   file; for production, consider extracting both SVGs to real static
+   assets (e.g. /assets/frame-edge.svg, /assets/knotwork-frame.svg)
+   referenced by URL — easier to read, and the browser can cache them.
+ - @property --angle (drives the rotating border) is a modern-browser
+   feature. Unsupported browsers just see a static, non-rotating
+   gradient border — a safe fallback, no polyfill needed.
+ - prefers-reduced-motion is respected throughout: tilt, braid sparks,
+   bead flares, and dust motes all check `reduceMotion` and simply don't
+   run (not "run slower") when it's set. Keep this intact.
+ - The braid's sparks/motes run their own requestAnimationFrame loop
+   only while data-weave-state="building". This assumes the component
+   appears once per page (a singleton summary card) — confirm that
+   before reusing this pattern anywhere a list of these might render,
+   since N simultaneous copies means N independent rAF loops.
+ - The corner knotwork art is cropped and recolored from a Celtic-knot
+   SVG Rob generated and uploaded himself — not traced from any Magic
+   card, safe to keep. The placeholder Kykar art crop IS real Scryfall
+   API art and needs either a live swap or a proper credit line if it
+   ever ships as-is (see the <p class="credit"> near the bottom).
+
+ ACCESSIBILITY
+ ---------------
+ Decorative layers are aria-hidden. The one real label relationship
+ (aria-labelledby="current-weave-label" on the <aside>, matching the
+ kicker's id) should be preserved and re-checked once this sits inside
+ the page's real heading structure.
+============================================================================
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Current Weave — Enhanced Concept</title>
+<!-- DEPENDENCY: Cinzel + Fraunces (Google Fonts) — see file header before adding a second load -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,380;0,9..144,500;1,9..144,420&display=swap" rel="stylesheet">
+<!-- DEPENDENCY: mana-font, pinned version — matches ms-w/ms-u/ms-r classes used elsewhere on voxmana.io -->
+<link href="https://cdn.jsdelivr.net/npm/mana-font@1.18.0/css/mana.min.css" rel="stylesheet">
+<style>
+  /* NOTE(codex): if --bone/--gold/etc. already exist as design tokens elsewhere on the
+     site, merge into those instead of duplicating a second obsidian/bone/gold palette. */
+  :root{
+    --obsidian:#0b0c11;
+    --panel:#14151d;
+    --panel-edge:rgba(237,230,211,.09);
+    --bone:#ede6d3;
+    --bone-dim:rgba(237,230,211,.56);
+    --bone-faint:rgba(237,230,211,.30);
+    --gold:#d4af37;
+    --w:#f5efc7;
+    --u:#77b9e8;
+    --r:#d97858;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    min-height:100vh;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;
+    background:
+      radial-gradient(ellipse at 50% -10%, rgba(119,185,232,.07), transparent 60%),
+      var(--obsidian);
+    font-family:'Fraunces',serif;
+    padding:48px 20px;
+  }
+
+  /* ---------- card shell ---------- */
+  .current-weave{
+    position:relative;
+    width:344px;
+    max-width:100%;
+    border-radius:18px;
+    padding:2px; /* room for the spinning border ring */
+    isolation:isolate;
+  }
+  .weave-frame{
+    position:relative;
+    border-radius:16px;
+    overflow:hidden;
+    background:var(--panel);
+    border:1px solid var(--panel-edge);
+    transition:transform .35s cubic-bezier(.2,.8,.2,1);
+    transform-style:preserve-3d;
+    will-change:transform;
+  }
+
+  /* rotating conic-gradient frame edge (signature element)
+     TODO(codex): N-color — var(--w),var(--u),var(--r) below is hardcoded to Jeskai's 3
+     colors. Generate the conic-gradient's color-stop list from the identity's actual
+     color array (length 0–5) instead. A colorless identity needs a sensible fallback
+     (e.g. a single neutral tone, no rotation) rather than an empty gradient. */
+  @property --angle{ syntax:'<angle>'; inherits:false; initial-value:0deg; }
+  .weave-border-spin{
+    position:absolute;inset:-2px;border-radius:18px;padding:2px;pointer-events:none;z-index:0;
+    background:conic-gradient(from var(--angle), var(--w), var(--u), var(--r), var(--w));
+    -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor; mask-composite:exclude;
+    animation:spin-edge 14s linear infinite;
+    opacity:.85;
+    transition:opacity .6s ease;
+  }
+  [data-weave-state="building"] .weave-border-spin{ opacity:.35; filter:saturate(.6); }
+  @keyframes spin-edge{ to{ --angle:360deg; } }
+
+  /* card art wash — real card art, heavily muted, feathered behind the content
+     TODO(codex): replace the hardcoded url() below with the card your existing Scryfall
+     pipeline surfaces for the current weave/identity — see file header for the CDN
+     pattern. Keep the same darkening linear-gradient layer over whatever art you swap in;
+     it's what keeps the chip text legible regardless of the art underneath. */
+  .weave-art{
+    position:absolute;inset:0;z-index:0;
+    background-image:
+      linear-gradient(180deg, rgba(20,21,29,.55) 0%, rgba(20,21,29,.86) 46%, var(--panel) 82%),
+      url('https://cards.scryfall.io/art_crop/front/5/9/594cb7dc-ea88-4909-ab40-1d40fecc9817.jpg?1592517535');
+    background-size:cover;
+    background-position:center 30%;
+    filter:saturate(.55) brightness(.5) contrast(1.05);
+    transform:scale(1.08);
+    animation:art-drift 42s ease-in-out infinite alternate;
+  }
+  @keyframes art-drift{ to{ transform:scale(1.16) translateY(-1.5%); } }
+
+  /* Nordic knotwork frame — a thin twisted-rope edge (with a faint echo strand and a
+     small bead at each crossing for a more woven, Celtic feel) plus a small, sparser
+     corner medallion cropped straight from Rob's uploaded Celtic-generator SVG. */
+  .weave-knotwork{
+    position:absolute;inset:6px;z-index:1;pointer-events:none;
+    border-style:solid;border-width:16px;
+    border-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='180' height='180' viewBox='0 0 180 180'><defs><g id='corner'><circle cx='30' cy='30' r='23' fill='none' stroke='rgba(237,230,211,0.48)' stroke-width='1.3' opacity='0.4'/><polygon points='30,16 44,30 30,44 16,30' fill='rgba(237,230,211,0.6)' opacity='0.72'/><polygon points='30,21 39,30 30,39 21,30' fill='none' stroke='rgba(237,230,211,0.48)' stroke-width='1' opacity='0.5'/><line x1='30' y1='16' x2='38' y2='7' stroke='rgba(237,230,211,0.48)' stroke-width='1.6' stroke-linecap='round'/><line x1='44' y1='30' x2='53' y2='38' stroke='rgba(237,230,211,0.48)' stroke-width='1.6' stroke-linecap='round'/><line x1='30' y1='44' x2='22' y2='53' stroke='rgba(237,230,211,0.48)' stroke-width='1.6' stroke-linecap='round'/><line x1='16' y1='30' x2='7' y2='22' stroke='rgba(237,230,211,0.48)' stroke-width='1.6' stroke-linecap='round'/><circle cx='38' cy='7' r='1.7' fill='rgba(237,230,211,0.6)' opacity='0.65'/><circle cx='53' cy='38' r='1.7' fill='rgba(237,230,211,0.6)' opacity='0.65'/><circle cx='22' cy='53' r='1.7' fill='rgba(237,230,211,0.6)' opacity='0.65'/><circle cx='7' cy='22' r='1.7' fill='rgba(237,230,211,0.6)' opacity='0.65'/></g><g id='edge'><path d='M0,30 C10,15 20,15 30,30 C40,45 50,45 60,30' fill='none' stroke='rgba(237,230,211,0.48)' stroke-width='1.8' stroke-linecap='round'/><path d='M0,30 C10,45 20,45 27,31' fill='none' stroke='rgba(237,230,211,0.48)' stroke-width='1.5' stroke-linecap='round' opacity='0.75'/><path d='M33,29 C40,15 50,15 60,30' fill='none' stroke='rgba(237,230,211,0.48)' stroke-width='1.5' stroke-linecap='round' opacity='0.75'/><path d='M0,30 C10,22 20,22 30,30 C40,38 50,38 60,30' fill='none' stroke='rgba(237,230,211,0.48)' stroke-width='0.9' stroke-linecap='round' opacity='0.4'/><polygon points='30,25.5 34.5,30 30,34.5 25.5,30' fill='rgba(237,230,211,0.6)' opacity='0.85'/></g></defs><use href='%23corner' x='0' y='0'/><use href='%23corner' x='120' y='0'/><use href='%23corner' x='0' y='120'/><use href='%23corner' x='120' y='120'/><use href='%23edge' x='60' y='0'/><use href='%23edge' x='60' y='120'/><g transform='translate(0,60) rotate(90 30 30)'><use href='%23edge' x='0' y='0'/></g><g transform='translate(120,60) rotate(90 30 30)'><use href='%23edge' x='0' y='0'/></g></svg>") 60 round;
+    opacity:.92;
+  }
+  [data-weave-state="building"] .weave-knotwork{ opacity:.5; filter:saturate(.7); }
+
+  /* becoming ready pulses the filigree itself, gently, instead of a bright sweep across it */
+  [data-weave-state="ready"] .weave-knotwork{ animation:knotwork-pulse 1.8s ease-out; }
+  @keyframes knotwork-pulse{
+    0%{ filter:brightness(1); }
+    30%{ filter:brightness(1.35); }
+    60%{ filter:brightness(1); }
+    80%{ filter:brightness(1.18); }
+    100%{ filter:brightness(1); }
+  }
+
+  /* small peaked finial straddling the top edge — nod to the arched Kaldheim showcase silhouette */
+  .weave-finial{
+    position:absolute;top:-9px;left:50%;transform:translateX(-50%);z-index:4;pointer-events:none;
+    filter:drop-shadow(0 1px 2px rgba(0,0,0,.6));
+  }
+
+
+  /* tri-colour rule under the kicker — quiet nod to a frame edge */
+  .weave-rule{
+    height:2px;width:64px;margin:6px auto 0;border-radius:2px;
+    background:linear-gradient(90deg,var(--w),var(--u),var(--r));
+    opacity:.7;
+  }
+
+  .weave-body{ position:relative; z-index:3; padding:26px 26px 22px; text-align:center; }
+
+  .current-weave-kicker{
+    display:block;font-family:'Cinzel',serif;font-size:11px;letter-spacing:.22em;
+    color:var(--bone-dim);text-transform:uppercase;
+  }
+
+  /* rings + pips */
+  .current-weave-mark{ position:relative;width:90px;height:90px;margin:22px auto 20px; }
+  .current-weave-ring{ position:absolute;inset:0;border-radius:50%;border:1px solid var(--bone-faint); }
+  .current-weave-ring-outer{ animation:spin-slow 46s linear infinite; }
+  .current-weave-ring-inner{ inset:12px; border-color:rgba(237,230,211,.18); animation:spin-slow 32s linear infinite reverse; }
+  [data-weave-state="ready"] .weave-frame:hover .current-weave-ring-outer{ animation-duration:14s; }
+  [data-weave-state="ready"] .weave-frame:hover .current-weave-ring-inner{ animation-duration:10s; }
+  @keyframes spin-slow{ to{ transform:rotate(360deg); } }
+  .current-weave-pips{
+    position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:6px;
+  }
+  .current-weave-pips .ms{ font-size:15px; filter:drop-shadow(0 1px 2px rgba(0,0,0,.5)); }
+
+  .current-weave-title{
+    font-family:'Cinzel',serif;font-weight:600;font-size:22px;letter-spacing:.02em;
+    color:var(--bone);margin:0 0 16px;
+  }
+
+  /* ---------- chip groups (the 9 woven choices, now legible) ---------- */
+  .weave-groups{ display:flex;flex-direction:column;gap:10px;margin-bottom:18px; }
+  .weave-group{ display:flex;flex-direction:column;gap:6px; }
+  .weave-group-label{
+    font-family:'Cinzel',serif;font-size:9px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--bone-faint);
+  }
+  .weave-chips{ display:flex;flex-wrap:wrap;gap:6px;justify-content:center; }
+  .weave-chip{
+    display:inline-flex;align-items:center;gap:5px;
+    font-family:'Fraunces',serif;font-size:12.5px;color:var(--bone-dim);
+    padding:4px 10px;border-radius:999px;
+    border:1px solid rgba(237,230,211,.14);background:rgba(237,230,211,.03);
+    opacity:0;transform:translateY(4px);
+    animation:chip-in .45s ease forwards;
+  }
+  .weave-chips .weave-chip:nth-child(1){animation-delay:.05s}
+  .weave-chips .weave-chip:nth-child(2){animation-delay:.11s}
+  .weave-chips .weave-chip:nth-child(3){animation-delay:.17s}
+  @keyframes chip-in{ to{ opacity:1;transform:none; } }
+  .weave-chip:hover{ border-color:rgba(237,230,211,.3); color:var(--bone); }
+  .weave-gem{ width:7px;height:7px;border-radius:1.5px;transform:rotate(45deg);flex:none; }
+  .weave-gem.rare{ background:linear-gradient(135deg,#e8c766,#8a6a1f); }
+  .weave-gem.mythic{ background:linear-gradient(135deg,#ff9a5a,#c1441e); }
+
+  /* ---------- footer / status ---------- */
+  .current-weave-status{
+    display:flex;flex-direction:column;align-items:center;gap:6px;
+    padding-top:14px;border-top:1px solid rgba(237,230,211,.08);
+  }
+  .weave-braid{ display:block;margin-bottom:2px; }
+  .weave-braid .bead{ transform-box:fill-box;transform-origin:center;opacity:0;animation:bead-in .4s ease forwards; transition:transform .12s ease,filter .12s ease; }
+  .weave-braid .spark{ opacity:0; transition:opacity .3s ease; filter:drop-shadow(0 0 3px rgba(255,249,215,.85)); }
+  .weave-braid .bead:nth-child(4){animation-delay:.15s}
+  .weave-braid .bead:nth-child(5){animation-delay:.21s}
+  .weave-braid .bead:nth-child(6){animation-delay:.27s}
+  .weave-braid .bead:nth-child(7){animation-delay:.33s}
+  .weave-braid .bead:nth-child(8){animation-delay:.39s}
+  .weave-braid .bead:nth-child(9){animation-delay:.45s}
+  .weave-braid .bead:nth-child(10){animation-delay:.51s}
+  .weave-braid .bead:nth-child(11){animation-delay:.57s}
+  .weave-braid .bead:nth-child(12){animation-delay:.63s}
+
+  /* bead flare — one-shot star-twinkle burst when a spark peaks on a bead (toggleable) */
+  @keyframes bead-flare{
+    0%{ transform:scale(1); filter:none; }
+    30%{ transform:scale(1.9); filter:drop-shadow(0 0 5px rgba(255,249,215,.95)); }
+    55%{ transform:scale(.85); filter:drop-shadow(0 0 2px rgba(255,249,215,.5)); }
+    100%{ transform:scale(1); filter:none; }
+  }
+  .weave-braid .bead.flare{ animation:bead-flare .5s ease-out; }
+
+  /* dust motes — tiny embers shed by a traveling spark (toggleable) */
+  .weave-braid .mote{ transform-box:fill-box;transform-origin:center;pointer-events:none;animation:mote-drift .8s ease-out forwards; }
+  @keyframes mote-drift{
+    0%{ opacity:.7; transform:translate(0,0) scale(1); }
+    100%{ opacity:0; transform:translate(var(--mx,3px), var(--my,-4px)) scale(.4); }
+  }
+
+  /* thread glint removed — combined with the spark it read as an arrow, not a light */
+  @keyframes bead-in{ from{opacity:0;transform:scale(0);} to{opacity:1;transform:scale(1);} }
+  #current-weave-count{ font-size:12px;color:var(--bone-dim); }
+  #current-weave-state{
+    font-family:'Cinzel',serif;font-size:12px;letter-spacing:.08em;color:var(--gold);
+    display:inline-flex;align-items:center;gap:6px;
+  }
+  .pulse-dot{ display:none;width:6px;height:6px;border-radius:50%;background:#9fb3c8;animation:pulse 1.6s ease-in-out infinite; }
+  [data-weave-state="building"] .pulse-dot{ display:inline-block; }
+  [data-weave-state="building"] #current-weave-state{ color:#9fb3c8; }
+  @keyframes pulse{ 0%,100%{opacity:.3;} 50%{opacity:1;} }
+
+  /* ---------- demo-only chrome (not part of the component) ---------- */
+  .demo-controls{ display:flex;flex-direction:column;align-items:center;gap:10px;max-width:344px; }
+  #stateToggle{
+    font-family:'Fraunces',serif;font-size:12.5px;color:var(--bone);
+    background:rgba(237,230,211,.06);border:1px solid rgba(237,230,211,.18);
+    padding:8px 16px;border-radius:999px;cursor:pointer;
+  }
+  #stateToggle:hover{ background:rgba(237,230,211,.1); }
+  #stateToggle:focus-visible{ outline:2px solid var(--u);outline-offset:2px; }
+  .effect-toggles{ display:flex;gap:14px;flex-wrap:wrap;justify-content:center; }
+  .effect-toggles label{ display:inline-flex;align-items:center;gap:5px;font-size:11.5px;color:var(--bone-dim);cursor:pointer;font-family:'Fraunces',serif; }
+  .effect-toggles input{ accent-color:var(--u);cursor:pointer; }
+  .credit{ font-size:10.5px;line-height:1.5;color:var(--bone-faint);text-align:center;margin:0; }
+  .credit a{ color:inherit; }
+
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{ animation:none !important;transition:none !important; }
+  }
+</style>
+</head>
+<body>
+
+  <aside class="current-weave" id="current-weave" aria-labelledby="current-weave-label" data-weave-state="ready">
+    <span class="weave-finial" aria-hidden="true">
+      <svg width="18" height="22" viewBox="0 0 18 22" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9 1 L16 11 L9 21 L2 11 Z" fill="#14151d" stroke="rgba(237,230,211,0.55)" stroke-width="1.6"/>
+        <line x1="9" y1="5" x2="9" y2="17" stroke="rgba(237,230,211,0.35)" stroke-width="1"/>
+      </svg>
+    </span>
+    <div class="weave-frame" id="weaveFrame">
+      <div class="weave-border-spin" aria-hidden="true"></div>
+      <div class="weave-art" aria-hidden="true"></div>
+      <div class="weave-knotwork" aria-hidden="true"></div>
+
+      <div class="weave-body">
+        <span class="current-weave-kicker" id="current-weave-label">Current Weave</span>
+        <div class="weave-rule" aria-hidden="true"></div>
+
+        <div class="current-weave-mark" aria-hidden="true">
+          <span class="current-weave-ring current-weave-ring-outer"></span>
+          <span class="current-weave-ring current-weave-ring-inner"></span>
+          <span class="current-weave-pips">
+            <!-- TODO(codex): N-color — these 3 <i> tags are hardcoded to W/U/R. Generate
+                 one ms-{color} icon per color in the actual identity (0–5 of them; a
+                 colorless identity needs its own icon or a neutral placeholder, not zero). -->
+            <i class="ms ms-w ms-cost" aria-hidden="true"></i>
+            <i class="ms ms-u ms-cost" aria-hidden="true"></i>
+            <i class="ms ms-r ms-cost" aria-hidden="true"></i>
+          </span>
+        </div>
+
+        <h3 class="current-weave-title" id="current-weave-title">Jeskai fit</h3>
+
+        <!-- TODO(codex): all chip text and the 4 group labels (Type/Keyword/Rarity/Format)
+             below are placeholder content matching the original design brief. Render this
+             block from the real weave/choices data structure; confirm the four-group
+             taxonomy actually matches how choices are categorized elsewhere in the app
+             before reusing it as-is — it may need more or fewer groups for other weaves. -->
+        <div class="weave-groups">
+          <div class="weave-group">
+            <span class="weave-group-label">Type</span>
+            <div class="weave-chips">
+              <span class="weave-chip">Artifact</span>
+              <span class="weave-chip">Enchantment</span>
+              <span class="weave-chip">Battle</span>
+            </div>
+          </div>
+          <div class="weave-group">
+            <span class="weave-group-label">Keyword</span>
+            <div class="weave-chips">
+              <span class="weave-chip">Vigilance</span>
+              <span class="weave-chip">Lifelink</span>
+              <span class="weave-chip">Hexproof</span>
+            </div>
+          </div>
+          <div class="weave-group">
+            <span class="weave-group-label">Rarity</span>
+            <div class="weave-chips">
+              <span class="weave-chip"><span class="weave-gem rare" aria-hidden="true"></span>Rare</span>
+              <span class="weave-chip"><span class="weave-gem mythic" aria-hidden="true"></span>Mythic</span>
+            </div>
+          </div>
+          <div class="weave-group">
+            <span class="weave-group-label">Format</span>
+            <div class="weave-chips">
+              <span class="weave-chip">Commander</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="current-weave-status">
+          <!-- TODO(codex): N-color — 3 <path> threads and 9 beads cycling w/u/r are
+               hardcoded to Jeskai. The matching JS below (paths.map / colorKeyOf) assumes
+               exactly 3 <path> elements, one per color; both markup and script need to
+               generalize to however many colors the real identity has. "9 choices woven"
+               and the bead count are separately tied to the placeholder chip count above —
+               see file header. -->
+          <svg class="weave-braid" viewBox="0 0 170 20" width="170" height="20" aria-hidden="true">
+            <path d="M2.58 10 C15.45 0,25.76 20,38.64 10 S61.82 0,74.7 10 S97.88 20,110.76 10 S133.94 0,146.82 10 S167.42 20,167.42 10" fill="none" stroke="var(--u)" stroke-width="1.2" opacity=".45"/>
+            <path d="M2.58 10 C15.45 20,25.76 0,38.64 10 S61.82 20,74.7 10 S97.88 0,110.76 10 S133.94 20,146.82 10 S167.42 0,167.42 10" fill="none" stroke="var(--r)" stroke-width="1.2" opacity=".45"/>
+            <path d="M2.58 10 C15.45 6.25,25.76 13.75,38.64 10 S61.82 6.25,74.7 10 S97.88 13.75,110.76 10 S133.94 6.25,146.82 10 S167.42 13.75,167.42 10" fill="none" stroke="var(--w)" stroke-width="1.1" opacity=".4"/>
+            <circle class="bead" cx="9" cy="10" r="2.3" fill="var(--w)"/>
+            <circle class="bead" cx="28" cy="10" r="2.3" fill="var(--u)"/>
+            <circle class="bead" cx="47" cy="10" r="2.3" fill="var(--r)"/>
+            <circle class="bead" cx="66" cy="10" r="2.3" fill="var(--w)"/>
+            <circle class="bead" cx="85" cy="10" r="2.3" fill="var(--u)"/>
+            <circle class="bead" cx="104" cy="10" r="2.3" fill="var(--r)"/>
+            <circle class="bead" cx="123" cy="10" r="2.3" fill="var(--w)"/>
+            <circle class="bead" cx="142" cy="10" r="2.3" fill="var(--u)"/>
+            <circle class="bead" cx="161" cy="10" r="2.3" fill="var(--r)"/>
+          </svg>
+          <span id="current-weave-count">9 choices woven</span>
+          <strong id="current-weave-state"><span class="pulse-dot" aria-hidden="true"></span>Ready to search</strong>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ============ DEMO ONLY — everything below does not ship ============
+       The button and both checkboxes exist purely so Rob could preview
+       states/effects in isolation. Real data-weave-state comes from app
+       logic, not a click; flareOn/motesOn should just be `true` always.
+       The credit line stays only as long as the placeholder Kykar art
+       does — see file header. -->
+  <div class="demo-controls">
+    <button id="stateToggle" type="button">Toggle state (demo control only)</button>
+    <div class="effect-toggles">
+      <label><input type="checkbox" id="toggleFlare" checked> Bead flare</label>
+      <label><input type="checkbox" id="toggleMotes" checked> Dust motes</label>
+    </div>
+    <p class="credit">Placeholder art: "Kykar, Wind's Fury," illustrated by G-host Lee — Magic: The Gathering, © Wizards of the Coast. Fetched from the Scryfall API for this mockup; swap in whichever card your own matching logic surfaces. Border knotwork is original line art in the spirit of Kaldheim's showcase frames, not traced from any specific card.</p>
+  </div>
+  <!-- ============ END DEMO ONLY ============ -->
+
+<script>
+  const frame = document.getElementById('weaveFrame');
+  const aside = document.getElementById('current-weave');
+  const stateBtn = document.getElementById('stateToggle');
+  const stateLabel = document.getElementById('current-weave-state');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!reduceMotion) {
+    frame.addEventListener('mousemove', (e) => {
+      const r = frame.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width;
+      const py = (e.clientY - r.top) / r.height;
+      const rx = (py - 0.5) * -8;
+      const ry = (px - 0.5) * 10;
+      frame.style.transform = `perspective(800px) rotateX(${rx}deg) rotateY(${ry}deg)`;
+    });
+    frame.addEventListener('mouseleave', () => {
+      frame.style.transform = 'perspective(800px) rotateX(0) rotateY(0)';
+    });
+  }
+
+  // DEMO ONLY — real code should set data-weave-state from app state, not a button click.
+  stateBtn.addEventListener('click', () => {
+    const ready = aside.getAttribute('data-weave-state') === 'ready';
+    const newState = ready ? 'building' : 'ready';
+    aside.setAttribute('data-weave-state', newState);
+    stateLabel.lastChild.textContent = ready ? 'Weaving…' : 'Ready to search';
+  });
+
+  // braid sparks — one small light per thread (white, blue, red — this is a Jeskai weave,
+  // not just two of its colors), each riding its own real path via getPointAtLength, not a
+  // fake box-wander. Beads pulse only for the thread that matches their own color. A real
+  // hover over the braid nudges every thread toward the nearest point under the cursor;
+  // it hands back to the autonomous loop the moment the pointer leaves.
+  //
+  // Two extra effects layer on top, each independently toggleable via the demo checkboxes
+  // so they can be seen solo or combined: a one-shot flare when a spark peaks on a bead, and
+  // a few drifting dust motes shed by each spark.
+  if (!reduceMotion) {
+    const braidSvg = document.querySelector('.weave-braid');
+    const paths = Array.from(braidSvg.querySelectorAll('path'));
+    const beads = Array.from(braidSvg.querySelectorAll('.bead'));
+    beads.forEach(b => {
+      b.addEventListener('animationend', (ev) => {
+        if (ev.animationName !== 'bead-flare') b.style.animation = 'none';
+      });
+      b._armed = true;
+    });
+
+    // DEMO ONLY — in production flareOn/motesOn should just be `true`; delete these two
+    // checkboxes and listeners along with the rest of .demo-controls.
+    let flareOn = true, motesOn = true;
+    document.getElementById('toggleFlare').addEventListener('change', (e) => { flareOn = e.target.checked; });
+    document.getElementById('toggleMotes').addEventListener('change', (e) => { motesOn = e.target.checked; });
+
+    const VIEWBOX_W = 170;
+    const ONE_WAY_MS = 3200;
+    const MOTE_INTERVAL_MS = 260;
+    const svgNS = 'http://www.w3.org/2000/svg';
+
+    // TODO(codex): N-color — colorKeyOf and makeThread below assume exactly 3 threads,
+    // one per Jeskai color. `paths` comes straight from the 3 <path> elements in the
+    // markup, so generalizing the HTML (see TODO above the <svg class="weave-braid">)
+    // and this loop go together — this code itself doesn't need to hardcode "3" anywhere
+    // once the markup provides the right number of <path> elements.
+    function colorKeyOf(el) {
+      const m = el.getAttribute('stroke') && el.getAttribute('stroke').match(/--(\w)\)/);
+      return m ? m[1] : (el.getAttribute('fill').match(/--(\w)\)/) || [, 'u'])[1];
+    }
+
+    function makeThread(path, startFrac) {
+      const totalLen = path.getTotalLength();
+      const SAMPLES = 60;
+      const table = [];
+      for (let i = 0; i <= SAMPLES; i++) {
+        const len = (i / SAMPLES) * totalLen;
+        table.push({ len, x: path.getPointAtLength(len).x });
+      }
+      const colorKey = colorKeyOf(path);
+
+      const spark = document.createElementNS(svgNS, 'path');
+      spark.setAttribute('class', 'spark');
+      spark.setAttribute('d', 'M0,-2 L0.6,-0.6 L2,0 L0.6,0.6 L0,2 L-0.6,0.6 L-2,0 L-0.6,-0.6 Z');
+      spark.setAttribute('fill', `var(--${colorKey})`);
+      braidSvg.appendChild(spark);
+
+      return {
+        path, totalLen, table, spark, colorKey,
+        len: totalLen * startFrac, dir: 1,
+        hovering: false, hoverTarget: null,
+        lastMoteAt: 0,
+      };
+    }
+
+    // startFrac stagger below (0, .33, .66) assumes 3 threads — space N threads evenly
+    // (i / N) once the color count is dynamic.
+    const threads = paths.map((p, i) => makeThread(p, [0, 0.33, 0.66][i] || 0));
+
+    function closestLenForX(thread, x) {
+      let best = thread.table[0], bestD = Infinity;
+      for (const s of thread.table) {
+        const d = Math.abs(s.x - x);
+        if (d < bestD) { bestD = d; best = s; }
+      }
+      return best.len;
+    }
+
+    function pulseBeadsForColor(colorKey, sparkX) {
+      const THRESH = 13;
+      beads.forEach(b => {
+        if (colorKeyOf(b) !== colorKey) return;
+        const bx = parseFloat(b.getAttribute('cx'));
+        const dist = Math.abs(sparkX - bx);
+        const intensity = Math.max(0, 1 - dist / THRESH);
+        b.style.transform = `scale(${(1 + intensity * 0.7).toFixed(3)})`;
+        b.style.filter = intensity > 0.05
+          ? `drop-shadow(0 0 ${(2 + intensity * 3).toFixed(1)}px rgba(255,249,215,${(0.3 + intensity * 0.6).toFixed(2)}))`
+          : 'none';
+
+        if (flareOn) {
+          if (dist < 2.5 && b._armed) {
+            b._armed = false;
+            b.style.animation = 'none';
+            void b.offsetWidth; // restart the keyframe animation
+            b.style.animation = 'bead-flare .5s ease-out';
+          } else if (dist > 8) {
+            b._armed = true;
+          }
+        }
+      });
+    }
+
+    function spawnMote(thread, x, y) {
+      const mote = document.createElementNS(svgNS, 'circle');
+      mote.setAttribute('class', 'mote');
+      mote.setAttribute('cx', x.toFixed(2));
+      mote.setAttribute('cy', y.toFixed(2));
+      mote.setAttribute('r', (0.6 + Math.random() * 0.4).toFixed(2));
+      mote.setAttribute('fill', `var(--${thread.colorKey})`);
+      mote.style.setProperty('--mx', `${(Math.random() * 6 - 3).toFixed(1)}px`);
+      mote.style.setProperty('--my', `${(-3 - Math.random() * 3).toFixed(1)}px`);
+      mote.addEventListener('animationend', () => mote.remove(), { once: true });
+      braidSvg.appendChild(mote);
+    }
+
+    braidSvg.addEventListener('mousemove', (e) => {
+      const r = braidSvg.getBoundingClientRect();
+      const localX = ((e.clientX - r.left) / r.width) * VIEWBOX_W;
+      threads.forEach(t => { t.hovering = true; t.hoverTarget = closestLenForX(t, localX); });
+    });
+    braidSvg.addEventListener('mouseleave', () => {
+      threads.forEach(t => { t.hovering = false; t.hoverTarget = null; });
+    });
+
+    let lastTs = null;
+    function step(ts) {
+      const building = aside.getAttribute('data-weave-state') === 'building';
+      threads.forEach(t => {
+        t.spark.style.opacity = building ? '1' : '0';
+      });
+      if (!building) { lastTs = null; requestAnimationFrame(step); return; }
+
+      if (lastTs === null) lastTs = ts;
+      const dt = ts - lastTs;
+      lastTs = ts;
+
+      threads.forEach(t => {
+        if (t.hovering && t.hoverTarget !== null) {
+          t.len += (t.hoverTarget - t.len) * Math.min(1, dt / 220);
+        } else {
+          t.len += t.dir * (t.totalLen / ONE_WAY_MS) * dt;
+          if (t.len >= t.totalLen) { t.len = t.totalLen; t.dir = -1; }
+          if (t.len <= 0) { t.len = 0; t.dir = 1; }
+        }
+        const clamped = Math.max(0, Math.min(t.totalLen, t.len));
+        const pt = t.path.getPointAtLength(clamped);
+        t.spark.setAttribute('transform', `translate(${pt.x.toFixed(2)},${pt.y.toFixed(2)})`);
+        pulseBeadsForColor(t.colorKey, pt.x);
+
+        if (motesOn && ts - t.lastMoteAt > MOTE_INTERVAL_MS) {
+          t.lastMoteAt = ts;
+          spawnMote(t, pt.x, pt.y);
+        }
+      });
+
+      requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+</script>
+
+</body>
+</html>

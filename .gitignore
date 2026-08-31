@@ -1,0 +1,5 @@
+# Scratch snapshots taken while iterating. Git history supersedes them; they
+# should never be committed.
+*.bak
+*.orig
+*.job*
