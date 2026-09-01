@@ -109,8 +109,54 @@ Primary sources now live in `voxmana.io/docs/research/canon/`. The wheel draws o
   registry: Abzan endurance, Jeskai cunning, Mardu speed, Sultai ruthlessness,
   Temur savagery.
 - **Four-colour commanders** — Commander 2016, verified against the decklists.
+- **The Strixhaven colleges** — "In the Strixhaven," Parts 1 and 2, Mar 29 and
+  Apr 5, 2021 (the disputes and the design parameter); "Planeswalker's Guide to
+  Strixhaven," Apr 1, 2021 (college names, fields, and each colour's half); the
+  *Secrets of Strixhaven* product page (current designations). Pole names come
+  off the dean cards themselves.
+
+### Source hierarchy (established with Rob, and binding)
+
+When two Wizards artifacts disagree, this is the order of control:
+
+1. **Published set articles** — control the final philosophical description.
+2. **Published cards** — control pole names and colour assignment. Card text
+   beats any summary of card text.
+3. **Planeswalker's Guides and official product pages** — control faction
+   naming and lore.
+4. **Vision Design handoff documents** — may supply designer intent, but must be
+   labelled as such. They use placeholder names and pre-final implementation
+   (Silverquill was "Shadix"), so prototype vocabulary must never drift into
+   canon unmarked.
+5. **mtg.wiki** — cross-check and index only, where official sources are
+   incomplete. Never the sole authority for player-facing language.
+
+This is why the wheel says "Radiance · Shadow" and not "Principle of Radiance":
+the pole names are verified on the dean cards, but "Principle of X" is a wiki
+grouping label that could not be traced to Wizards.
 
 ### Source cautions
+
+- **The colleges are NOT a second naming layer for the guilds.** Ravnica asks
+  what two colours have in common; Strixhaven asks what the same two disagree
+  about. Rosewater states this as a design parameter of the set. Because of
+  that, a college's conflict is not interchangeable with its pair's:
+
+  | Pair | The pair's conflict | The college's |
+  |---|---|---|
+  | W/B | Good of the Group vs. the Individual | good of the group vs. the individual |
+  | G/U | Nature vs. Nurture | nature vs. nurture |
+  | U/R | Head vs. Heart | intellect vs. emotion |
+  | R/W | Freedom vs. Security | **chaos vs. order** |
+  | B/G | Free Will vs. Destiny | **life vs. death** |
+
+  Two match, one is the same axis in other words, **two are different
+  conflicts.** Never collapse them: doing so replaces the general taxonomy with
+  one set's lens. Both are shown, and the college is labelled as a lens.
+- **Witherbloom has two official designations, both current.** The Planeswalker's
+  Guide (2021) heads it *The College of Essence Studies*; the *Secrets of
+  Strixhaven* product page prints *College of Life and Death*. Both are Wizards.
+  Both are shown. The other four colleges agree across every source checked.
 
 - **Rosewater contradicts himself inside "Pie Fights."** The philosophy section
   says green wants *acceptance*; the summary says *growth*. The file uses
@@ -241,6 +287,19 @@ black `#aca29a`, red `#db8664`, green `#93b483`, colourless `#beb9b2`.
       is tested. **Check it once in a real browser.**
 - [ ] "Hate Is Enough" gives three named sub-conflicts per enemy pair. The wheel
       currently shows one title per chord. Those three facets are unused.
+
+- [ ] Strixhaven college mottos are published and verified ("Math is magic,"
+      "Get your hands dirty," and so on, on the product page) but were ruled out
+      of the core panel: they are brochure copy and would compete with field,
+      conflict, poles and casting mode. Available if a flavour field ever wants
+      them.
+- [ ] The deans' full names are verified (Shaile/Embrose, Uvilda/Nassari,
+      Valentin/Lisette, Augusta/Plargg, Kianne/Imbraham) but are not shown —
+      the panel carries bare pole names only. They are how the pole names were
+      sourced, so they belong in a provenance drawer if one is ever built.
+- [ ] The *Secrets of Strixhaven* handoff (2026) adds a "Yachting" college
+      gameplay layer — keyword counters, prepared spells, Drone tokens. Not
+      used: it is mechanics, not philosophy, and would bloat the lens.
 
 ### Resolved since the first draft of this document
 
