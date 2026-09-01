@@ -258,21 +258,20 @@ black `#aca29a`, red `#db8664`, green `#93b483`, colourless `#beb9b2`.
 
 ## Open items
 
-- [ ] Layer 4: mechanical overlay. **The 2021 data is found**, not missing:
-      `voxmana.io/docs/research/mono_upgrade/20_mechanical_color_pie_2021.md`
-      (the snapshot) and `21_..._changes.md` (the 2017→2021 change log). The
-      superseded 2017 version is at `canon/misc/mechanical-color-pie-2017.md`.
-      Both are already paraphrase digests, so they suit the copy policy.
-      What is NOT done is turning the snapshot into a dataset. It is prose
-      lists: 393 entries, 205 distinct labels once normalised, 53 of which
-      bundle several sections behind slashes ("friendly to
-      artifacts/enchantments/legendaries/low-MV/planeswalkers" is five
-      sections). Splitting and normalising those is where errors would enter,
-      and it needs checking against the article, not guessing.
-      One real defect found in the digest: Black lists bare "flash" in BOTH
-      secondary and tertiary. One of them is wrong. (Black's two "+N/+N"
-      entries are NOT a duplicate — "(creatures)" and "(spells/Auras)" are
-      different sections.)
+- [~] Layer 4: mechanical overlay. **Data done and frozen; UI not started.**
+      The source is now the ARTICLE, parsed twice and reconciled:
+      `data/mcp2021.reconciled.json` — 238 mechanics, 15/15 sections captured,
+      465 colour-list placements, 212 catalog entries, 4 internal source
+      conflicts all adjudicated with recorded basis. See
+      `MECHANICS-CONTRACT.md` for what the layer is allowed to say.
+      **The 393-entry digest at `mono_upgrade/20_mechanical_color_pie_2021.md`
+      is DEPRECATED as an authority.** It lost ~15% of the placements and
+      merged distinctions Rosewater drew. Its normaliser is kept only as the
+      audit artefact that found the loss. The old "205 distinct labels" and my
+      "243" both counted digest strings and are both void; 238 is the number
+      with a basis.
+      Remaining: Vox family taxonomy, runtime projection, ten fixtures, panel
+      design, then wiring. Nothing past adjudication has started.
 - [ ] `--g` and `--c` confirmation (Rob)
 - [ ] Crossing markers may crowd at hover scale — shrink, never move
 - [ ] Mono-colour tiles named plainly ("White", "Blue") — swap in Codex names if

@@ -67,6 +67,50 @@ TIER_LINE = re.compile(
 # "Creature pumping" and destroys the distinctions the article draws.
 LEAD_STRONG = re.compile(r"^\s*<strong>(.*?)</strong>", re.S | re.I)
 
+# ADJUDICATIONS. The article contradicts itself in four places. Each was ruled
+# on by the user, and each agrees with the parser's standing preference for the
+# ability catalog -- but the REASONS differ, and the reason is what is worth
+# keeping.
+#
+# Flash/B is the strongest: the companion change log gives Flash OLD as
+# "Tertiary: White, black, and red" and NEW as "Secondary: White, black, and
+# green". Black moved tertiary -> secondary in 2021, so the Black--Tertiary
+# summary entry is stale 2017 data nobody cleaned up. A mechanism, not a
+# preference.
+#
+# "+N/+N (on spells)"/W is confirmed differently: the change log shows White
+# was ALREADY primary in 2017, so the summary list contradicts both editions.
+#
+# The other two are absent from the change log entirely, meaning unchanged
+# since 2017 and the summary list is simply wrong about them.
+RULINGS = {
+    ("flash", "B"): {
+        "tier": "secondary",
+        "authority": "companion change log, 2021-10-18",
+        "mechanism": "Flash moved black from tertiary to secondary in 2021; the "
+                     "Black-Tertiary list entry is stale 2017 data.",
+    },
+    ("+n/+n (on spells)", "W"): {
+        "tier": "primary",
+        "authority": "companion change log, 2021-10-18",
+        "mechanism": "The change log records White as primary in 2017 as well, so "
+                     "the White-Secondary list entry contradicts both editions.",
+    },
+    ("exiling cards from graveyard", "W"): {
+        "tier": "secondary",
+        "authority": "ability catalog",
+        "mechanism": "Absent from the change log, so unchanged since 2017; the "
+                     "White-Primary list entry is a summary-list error.",
+    },
+    ("deal n damage to a creature with flying", "R"): {
+        "tier": "tertiary",
+        "authority": "ability catalog",
+        "mechanism": "Absent from the change log, so unchanged since 2017. The "
+                     "catalog explains why: green is the stronger anti-flying "
+                     "colour and ordinary red burn already reaches fliers.",
+    },
+}
+
 COLOR_LIST_HEAD = re.compile(
     r"(White|Blue|Black|Red|Green)\s*[—–-]+\s*(Primary|Secondary|Tertiary)", re.I)
 
@@ -281,9 +325,19 @@ def reconcile(lists, abilities, audit):
             if lt and dt and lt == dt:
                 assignments[c] = {"tier": dt, "basis": "both-agree"}
             elif lt and dt:
-                assignments[c] = {"tier": dt, "basis": "ability-catalog",
-                                  "conflict": {"colour_list_says": lt,
-                                               "ability_catalog_says": dt}}
+                entry = {"tier": dt, "basis": "ability-catalog",
+                         "conflict": {"colour_list_says": lt,
+                                      "ability_catalog_says": dt}}
+                ruling = RULINGS.get((k, c))
+                if ruling:
+                    entry["tier"] = ruling["tier"]
+                    entry["basis"] = "adjudicated"
+                    entry["ruling"] = ruling
+                else:
+                    audit.append(("UNADJUDICATED-CONFLICT",
+                                  "'%s' %s: list=%s catalog=%s has no ruling"
+                                  % (label, c, lt, dt)))
+                assignments[c] = entry
                 rows.append(("TIER-CONFLICT", label, c, lt, dt))
             elif dt:
                 assignments[c] = {"tier": dt, "basis": "ability-catalog-only"}
@@ -353,6 +407,7 @@ def main():
                                 "is where Rosewater discusses the classification",
              "ability-catalog-only": "stated only in the ability catalog",
              "colour-list-only": "stated only in a colour list"},
+         "rulings": {"%s | %s" % (k, c): v for (k, c), v in RULINGS.items()},
          "mechanics": reconciled}, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     L = ["# Mechanical Color Pie 2021 — parse and reconciliation audit\n",

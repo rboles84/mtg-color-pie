@@ -17,6 +17,28 @@
     "ability-catalog-only": "stated only in the ability catalog",
     "colour-list-only": "stated only in a colour list"
   },
+  "rulings": {
+    "flash | B": {
+      "tier": "secondary",
+      "authority": "companion change log, 2021-10-18",
+      "mechanism": "Flash moved black from tertiary to secondary in 2021; the Black-Tertiary list entry is stale 2017 data."
+    },
+    "+n/+n (on spells) | W": {
+      "tier": "primary",
+      "authority": "companion change log, 2021-10-18",
+      "mechanism": "The change log records White as primary in 2017 as well, so the White-Secondary list entry contradicts both editions."
+    },
+    "exiling cards from graveyard | W": {
+      "tier": "secondary",
+      "authority": "ability catalog",
+      "mechanism": "Absent from the change log, so unchanged since 2017; the White-Primary list entry is a summary-list error."
+    },
+    "deal n damage to a creature with flying | R": {
+      "tier": "tertiary",
+      "authority": "ability catalog",
+      "mechanism": "Absent from the change log, so unchanged since 2017. The catalog explains why: green is the stronger anti-flying colour and ordinary red burn already reaches fliers."
+    }
+  },
   "mechanics": {
     "+0/+n (on auras)": {
       "label": "+0/+N (on Auras)",
@@ -254,10 +276,15 @@
       "colors": {
         "W": {
           "tier": "primary",
-          "basis": "ability-catalog",
+          "basis": "adjudicated",
           "conflict": {
             "colour_list_says": "secondary",
             "ability_catalog_says": "primary"
+          },
+          "ruling": {
+            "tier": "primary",
+            "authority": "companion change log, 2021-10-18",
+            "mechanism": "The change log records White as primary in 2017 as well, so the White-Secondary list entry contradicts both editions."
           }
         },
         "B": {
@@ -1181,10 +1208,15 @@
       "colors": {
         "R": {
           "tier": "tertiary",
-          "basis": "ability-catalog",
+          "basis": "adjudicated",
           "conflict": {
             "colour_list_says": "secondary",
             "ability_catalog_says": "tertiary"
+          },
+          "ruling": {
+            "tier": "tertiary",
+            "authority": "ability catalog",
+            "mechanism": "Absent from the change log, so unchanged since 2017. The catalog explains why: green is the stronger anti-flying colour and ordinary red burn already reaches fliers."
           }
         },
         "G": {
@@ -1566,10 +1598,15 @@
       "colors": {
         "W": {
           "tier": "secondary",
-          "basis": "ability-catalog",
+          "basis": "adjudicated",
           "conflict": {
             "colour_list_says": "primary",
             "ability_catalog_says": "secondary"
+          },
+          "ruling": {
+            "tier": "secondary",
+            "authority": "ability catalog",
+            "mechanism": "Absent from the change log, so unchanged since 2017; the White-Primary list entry is a summary-list error."
           }
         },
         "B": {
@@ -1646,10 +1683,15 @@
         },
         "B": {
           "tier": "secondary",
-          "basis": "ability-catalog",
+          "basis": "adjudicated",
           "conflict": {
             "colour_list_says": "tertiary",
             "ability_catalog_says": "secondary"
+          },
+          "ruling": {
+            "tier": "secondary",
+            "authority": "companion change log, 2021-10-18",
+            "mechanism": "Flash moved black from tertiary to secondary in 2021; the Black-Tertiary list entry is stale 2017 data."
           }
         },
         "R": {

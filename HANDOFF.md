@@ -7,7 +7,7 @@ remaining fields are intentionally blank.
 
 ## Control
 
-- Status: `ready-for-qa`
+- Status: `complete`
 - Owner: `robdev`
 - Task: Replace the digest normaliser with a two-pass parser over the full
   official article, and reconcile its two representations.
@@ -85,9 +85,11 @@ remaining fields are intentionally blank.
 
 ## Decisions needed
 
-- FOUR source conflicts between the article's own two halves. Each is real,
-  hand-verified, and needs a ruling. The parser currently prefers the ability
-  catalog in all four:
+- RESOLVED. All four source conflicts are adjudicated and recorded in
+  `data/mcp2021.reconciled.json` under `rulings`, each with its authority and
+  mechanism. Two are confirmed by the companion change log; two are absent
+  from it, meaning unchanged since 2017 and the summary list is simply wrong.
+  For the record, the conflicts were:
   | mechanic | colour | colour list | ability catalog |
   |---|---|---|---|
   | `+N/+N (on spells)` | W | secondary | primary |
@@ -103,8 +105,9 @@ remaining fields are intentionally blank.
 
 ## Follow-ups
 
-- Distinct-label count disagrees with `CONTEXT.md`: 243 vs 205. Reconcile the
-  normalisation rule, then correct whichever number is wrong.
+- Next per `MECHANICS-CONTRACT.md`: the Vox family taxonomy as its own
+  reviewable artefact, then the runtime projection, then ten fixtures, then
+  panel design, then wiring. Nothing past adjudication has started.
 - `max-height:calc(100vh - 180px)` hard-codes the height of the chrome above
   the stage. If the hero or control rows change height, that constant needs
   revisiting; a container query or a measured custom property would be more
