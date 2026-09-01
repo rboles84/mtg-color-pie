@@ -260,7 +260,7 @@ black `#aca29a`, red `#db8664`, green `#93b483`, colourless `#beb9b2`.
 
 - [~] Layer 4: mechanical overlay. **Data done and frozen; UI not started.**
       The source is now the ARTICLE, parsed twice and reconciled:
-      `data/mcp2021.reconciled.json` — 222 source identities / 221 projection
+      `data/mcp2021.reconciled.json` — 221 source identities / 220 projection
       mechanics (1 structural group header: excluded from peer maths, never
       subtracted from the source count), 5 adjudicated source conflicts,
       0 unruled identities, 0 unadjudicated conflicts. 15/15 sections captured,

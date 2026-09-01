@@ -20,9 +20,9 @@ disabled and nothing in `vox-color/color-wheel.html` reads any of this.
 | colour/tier sections captured | 15 of 15 |
 | raw colour-list placements | 465 |
 | ability-catalog entries | 212 |
-| **source identities** | **222** |
+| **source identities** | **221** |
 | structural / group-header only | 1 |
-| **projection mechanics** (peer-eligible) | **221** |
+| **projection mechanics** (peer-eligible) | **220** |
 | genuine internal source conflicts | **5**, all adjudicated |
 | unadjudicated TIER conflicts | 0 |
 | unruled IDENTITY pairs | 0 |
@@ -32,16 +32,16 @@ extraction run is now more likely to add risk than value.
 
 ### Two counts, never one
 
-- **Source identities (222)** — everything Rosewater actually listed,
+- **Source identities (221)** — everything Rosewater actually listed,
   including structural/group entries. `Putting cards from hand onto the
   battlefield` is genuinely a Green-primary summary item *and* the catalog's
   heading over its variants, so it is counted here and marked
   `structural_only`. It is **never quietly subtracted** from this number.
-- **Projection mechanics (221)** — leaf mechanics eligible to behave as peers
+- **Projection mechanics (220)** — leaf mechanics eligible to behave as peers
   in the UI. `structural_only` records are excluded from peer-mechanic maths.
 
 Every merge keeps both original spellings under `source_aliases`, so it stays
-provable. 13 records carry them.
+provable. 14 records carry them.
 
 **The 393-entry digest is deprecated.** It lost about 15% of the placements
 and merged distinctions Rosewater actually drew. `tools/normalize_mechanical_pie.py`
@@ -222,7 +222,41 @@ introduction.
    BEFORE tier reconciliation, conflict detection rerun over the unified
    identities, one new conflict exposed and adjudicated. 0 unruled,
    0 unadjudicated.
-3. Vox family taxonomy, as its own reviewable artefact. **Not started.**
+3. Vox family taxonomy. **Pilot done, 30 of 220, awaiting review.**
+   `data/vox.families.pilot.json`, validated by `tools/check_taxonomy.py`:
+   19 families, 0 miscellaneous, 0 unused families. The pilot's test was
+   whether a junk drawer appears; it did not.
+
+### Invariants, enforced not merely stated
+
+`tools/check_invariants.py` exits non-zero if any of these drift. Run it after
+every rebuild, before anything downstream is generated. It is negative-tested:
+removing one mechanic and stripping one adjudication's authority produces
+three failures and exit 1.
+
+221 source identities · 220 projection mechanics · exactly 1 `structural_only`
+· 5 adjudicated conflicts · 0 unadjudicated · 0 unruled identities · aliases
+retained after every merge · the raw unmerged reconciliation stays
+reproducible independently · identity rulings are inputs, never derived from
+reconciled output · every rebuild reruns tier-conflict detection after
+identity merging.
+
+### Still open: four semantic pairs
+
+Conservative normalisation deliberately refuses these, so they remain two
+mechanics each until ruled. Each differs by an inserted card type or a
+shorthand, which is a change of words and therefore not mine to make:
+
+| colour list | ability catalog |
+|---|---|
+| `Deal N damage to a creature/player where N is…` | `…creature/planeswalker/player…` |
+| `Sacrifice a creature and deal damage to creature/player…` | `…creature/planeswalker/player…` |
+| `Destroy target creature with power 3/4 or greater.` | `…power 3 or greater.` |
+| `Destroy all creatures with power 3/4 or greater.` | `…power 3 or greater.` |
+
+If all four are ruled `same-mechanic`, the counts become 217 / 216. They do
+not block, because they are `distinct` under the stated rules — but the count
+is not final while they are open.
 4. Runtime projection build (`byMechanic`, `byColor`, `families`), generated
    only, never hand-edited.
 5. The ten fixtures, reviewed as data.

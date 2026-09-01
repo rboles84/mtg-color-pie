@@ -54,6 +54,7 @@ import json
 import pathlib
 import re
 import sys
+import unicodedata
 
 HERE = pathlib.Path(__file__).resolve().parent
 
@@ -68,8 +69,25 @@ def load_norm():
     return mod.norm_label
 
 
+def unify(s):
+    """
+    L1 applied at CANDIDATE-GENERATION time, not only inside norm_label.
+
+    Without this, fold() tokenised "Priest–like" (en dash) as two words and
+    "Priest-like" (hyphen) as one, so a pair identical apart from typesetting
+    was reported `distinct` at 0.99 similarity. The unicode step has to happen
+    before tokenisation or it may as well not exist.
+    """
+    s = unicodedata.normalize("NFKC", s)
+    for zw in ("​", "‌", "‍", "﻿"):
+        s = s.replace(zw, "")
+    for dash in ("–", "—", "−"):
+        s = s.replace(dash, "-")
+    return s.replace("’", "'").replace("“", "").replace("”", "")
+
+
 def tokens(s):
-    return re.findall(r"[a-z0-9+/'\-]+", s.lower())
+    return re.findall(r"[a-z0-9+/'\-]+", unify(s).lower())
 
 
 def singular(t):

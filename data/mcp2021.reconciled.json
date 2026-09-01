@@ -538,22 +538,14 @@
       "colors": {
         "W": {
           "tier": "primary",
-          "basis": "ability-catalog-only"
-        }
-      },
-      "in_lists": false,
-      "in_catalog": true
-    },
-    "banisher priest-like effects": {
-      "label": "Banisher Priest-like effects (When this card enters the battlefield, exile target creature/permanent until this card leaves play.)",
-      "colors": {
-        "W": {
-          "tier": "primary",
-          "basis": "colour-list-only"
+          "basis": "both-agree"
         }
       },
       "in_lists": true,
-      "in_catalog": false
+      "in_catalog": true,
+      "source_aliases": [
+        "Banisher Priest-like effects (When this card enters the battlefield, exile target creature/permanent until this card leaves play.)"
+      ]
     },
     "basic land counting": {
       "label": "Basic land counting (Doing an effect equal to the number of basic lands of a certain type you control.)",

@@ -137,16 +137,18 @@
       ],
       "ruling_basis": "conservative normalisation only; no semantic merge"
     },
-    "Banisher Priest-like effects (When this card enters the battlefield, exile target creature/permanent until this card leaves play.) || -": {
-      "proposed": "distinct",
-      "reason": "no conservative counterpart in the catalog; the list asserts tiers the catalog never discusses",
-      "ruling": "distinct",
+    "Banisher Priest-like effects (When this card enters the battlefield, exile target creature/permanent until this card leaves play.) || Banisher Priest–like effect (When this card enters the battlefield, exile target creature/permanent until this card leaves play.)": {
+      "proposed": "same-mechanic",
+      "reason": "grammatical number only",
+      "ruling": "same-mechanic",
       "list_key": "banisher priest-like effects",
-      "catalog_key": null,
-      "canonical_key": null,
+      "catalog_key": "banisher priest-like effect",
+      "canonical_key": "banisher priest-like effect",
       "aliases": [
-        "Banisher Priest-like effects (When this card enters the battlefield, exile target creature/permanent until this card leaves play.)"
-      ]
+        "Banisher Priest-like effects (When this card enters the battlefield, exile target creature/permanent until this card leaves play.)",
+        "Banisher Priest–like effect (When this card enters the battlefield, exile target creature/permanent until this card leaves play.)"
+      ],
+      "ruling_basis": "conservative normalisation only; no semantic merge"
     },
     "Can't be attacked. (Creatures can't attack you.) || Can't be attacked (Creatures can't attack you.)": {
       "proposed": "same-mechanic",
@@ -302,17 +304,6 @@
         "Switch power/toughness"
       ],
       "ruling_basis": "conservative normalisation only; no semantic merge"
-    },
-    "- || Banisher Priest–like effect (When this card enters the battlefield, exile target creature/permanent until this card leaves play.)": {
-      "proposed": "distinct",
-      "reason": "no conservative counterpart in the colour lists",
-      "ruling": "distinct",
-      "list_key": null,
-      "catalog_key": "banisher priest-like effect",
-      "canonical_key": "banisher priest-like effect",
-      "aliases": [
-        "Banisher Priest–like effect (When this card enters the battlefield, exile target creature/permanent until this card leaves play.)"
-      ]
     },
     "- || Deal N damage to a creature/planeswalker/player where N is the number of cards in your hand/your opponent's hand.": {
       "proposed": "distinct",
