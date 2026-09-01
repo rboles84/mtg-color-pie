@@ -1,0 +1,6688 @@
+{
+  "pair_any_access_overlap": {
+    "W": {
+      "U": 47,
+      "B": 44,
+      "R": 41,
+      "G": 51,
+      "W": 104
+    },
+    "U": {
+      "W": 47,
+      "B": 39,
+      "R": 47,
+      "G": 45,
+      "U": 94
+    },
+    "B": {
+      "W": 44,
+      "U": 39,
+      "R": 52,
+      "G": 41,
+      "B": 94
+    },
+    "R": {
+      "W": 41,
+      "U": 47,
+      "B": 52,
+      "G": 42,
+      "R": 92
+    },
+    "G": {
+      "W": 51,
+      "U": 45,
+      "B": 41,
+      "R": 42,
+      "G": 83
+    }
+  },
+  "pair_shared_primary_overlap": {
+    "W": {
+      "U": 5,
+      "B": 2,
+      "R": 2,
+      "G": 9,
+      "W": 60
+    },
+    "U": {
+      "W": 5,
+      "B": 2,
+      "R": 3,
+      "G": 5,
+      "U": 57
+    },
+    "B": {
+      "W": 2,
+      "U": 2,
+      "R": 6,
+      "G": 0,
+      "B": 45
+    },
+    "R": {
+      "W": 2,
+      "U": 3,
+      "B": 6,
+      "G": 3,
+      "R": 45
+    },
+    "G": {
+      "W": 9,
+      "U": 5,
+      "B": 0,
+      "R": 3,
+      "G": 44
+    }
+  },
+  "family_by_color": {
+    "stat_modification": {
+      "W": {
+        "primary": 11,
+        "secondary": 4,
+        "tertiary": 2,
+        "total_reachable": 17,
+        "pct_of_family": 50.0
+      },
+      "U": {
+        "primary": 7,
+        "secondary": 3,
+        "tertiary": 3,
+        "total_reachable": 13,
+        "pct_of_family": 38.2
+      },
+      "B": {
+        "primary": 9,
+        "secondary": 6,
+        "tertiary": 2,
+        "total_reachable": 17,
+        "pct_of_family": 50.0
+      },
+      "R": {
+        "primary": 5,
+        "secondary": 5,
+        "tertiary": 2,
+        "total_reachable": 12,
+        "pct_of_family": 35.3
+      },
+      "G": {
+        "primary": 5,
+        "secondary": 8,
+        "tertiary": 2,
+        "total_reachable": 15,
+        "pct_of_family": 44.1
+      }
+    },
+    "removal": {
+      "W": {
+        "primary": 10,
+        "secondary": 2,
+        "tertiary": 0,
+        "total_reachable": 12,
+        "pct_of_family": 54.5
+      },
+      "U": {
+        "primary": 0,
+        "secondary": 1,
+        "tertiary": 0,
+        "total_reachable": 1,
+        "pct_of_family": 4.5
+      },
+      "B": {
+        "primary": 6,
+        "secondary": 3,
+        "tertiary": 1,
+        "total_reachable": 10,
+        "pct_of_family": 45.5
+      },
+      "R": {
+        "primary": 5,
+        "secondary": 0,
+        "tertiary": 0,
+        "total_reachable": 5,
+        "pct_of_family": 22.7
+      },
+      "G": {
+        "primary": 3,
+        "secondary": 0,
+        "tertiary": 2,
+        "total_reachable": 5,
+        "pct_of_family": 22.7
+      }
+    },
+    "graveyard": {
+      "W": {
+        "primary": 5,
+        "secondary": 2,
+        "tertiary": 2,
+        "total_reachable": 9,
+        "pct_of_family": 56.2
+      },
+      "U": {
+        "primary": 4,
+        "secondary": 2,
+        "tertiary": 1,
+        "total_reachable": 7,
+        "pct_of_family": 43.8
+      },
+      "B": {
+        "primary": 6,
+        "secondary": 1,
+        "tertiary": 0,
+        "total_reachable": 7,
+        "pct_of_family": 43.8
+      },
+      "R": {
+        "primary": 0,
+        "secondary": 5,
+        "tertiary": 1,
+        "total_reachable": 6,
+        "pct_of_family": 37.5
+      },
+      "G": {
+        "primary": 4,
+        "secondary": 2,
+        "tertiary": 1,
+        "total_reachable": 7,
+        "pct_of_family": 43.8
+      }
+    },
+    "combat": {
+      "W": {
+        "primary": 5,
+        "secondary": 2,
+        "tertiary": 0,
+        "total_reachable": 7,
+        "pct_of_family": 46.7
+      },
+      "U": {
+        "primary": 2,
+        "secondary": 1,
+        "tertiary": 1,
+        "total_reachable": 4,
+        "pct_of_family": 26.7
+      },
+      "B": {
+        "primary": 1,
+        "secondary": 5,
+        "tertiary": 1,
+        "total_reachable": 7,
+        "pct_of_family": 46.7
+      },
+      "R": {
+        "primary": 9,
+        "secondary": 3,
+        "tertiary": 0,
+        "total_reachable": 12,
+        "pct_of_family": 80.0
+      },
+      "G": {
+        "primary": 2,
+        "secondary": 4,
+        "tertiary": 0,
+        "total_reachable": 6,
+        "pct_of_family": 40.0
+      }
+    },
+    "evasion": {
+      "W": {
+        "primary": 1,
+        "secondary": 0,
+        "tertiary": 2,
+        "total_reachable": 3,
+        "pct_of_family": 21.4
+      },
+      "U": {
+        "primary": 2,
+        "secondary": 1,
+        "tertiary": 1,
+        "total_reachable": 4,
+        "pct_of_family": 28.6
+      },
+      "B": {
+        "primary": 2,
+        "secondary": 1,
+        "tertiary": 1,
+        "total_reachable": 4,
+        "pct_of_family": 28.6
+      },
+      "R": {
+        "primary": 5,
+        "secondary": 5,
+        "tertiary": 1,
+        "total_reachable": 11,
+        "pct_of_family": 78.6
+      },
+      "G": {
+        "primary": 7,
+        "secondary": 0,
+        "tertiary": 1,
+        "total_reachable": 8,
+        "pct_of_family": 57.1
+      }
+    },
+    "tempo": {
+      "W": {
+        "primary": 2,
+        "secondary": 4,
+        "tertiary": 1,
+        "total_reachable": 7,
+        "pct_of_family": 53.8
+      },
+      "U": {
+        "primary": 11,
+        "secondary": 1,
+        "tertiary": 0,
+        "total_reachable": 12,
+        "pct_of_family": 92.3
+      },
+      "B": {
+        "primary": 0,
+        "secondary": 1,
+        "tertiary": 0,
+        "total_reachable": 1,
+        "pct_of_family": 7.7
+      },
+      "R": {
+        "primary": 1,
+        "secondary": 0,
+        "tertiary": 3,
+        "total_reachable": 4,
+        "pct_of_family": 30.8
+      },
+      "G": {
+        "primary": 1,
+        "secondary": 1,
+        "tertiary": 1,
+        "total_reachable": 3,
+        "pct_of_family": 23.1
+      }
+    },
+    "protection": {
+      "W": {
+        "primary": 6,
+        "secondary": 1,
+        "tertiary": 2,
+        "total_reachable": 9,
+        "pct_of_family": 75.0
+      },
+      "U": {
+        "primary": 3,
+        "secondary": 1,
+        "tertiary": 2,
+        "total_reachable": 6,
+        "pct_of_family": 50.0
+      },
+      "B": {
+        "primary": 2,
+        "secondary": 1,
+        "tertiary": 1,
+        "total_reachable": 4,
+        "pct_of_family": 33.3
+      },
+      "R": {
+        "primary": 2,
+        "secondary": 0,
+        "tertiary": 3,
+        "total_reachable": 5,
+        "pct_of_family": 41.7
+      },
+      "G": {
+        "primary": 3,
+        "secondary": 2,
+        "tertiary": 1,
+        "total_reachable": 6,
+        "pct_of_family": 50.0
+      }
+    },
+    "card_flow": {
+      "W": {
+        "primary": 1,
+        "secondary": 2,
+        "tertiary": 1,
+        "total_reachable": 4,
+        "pct_of_family": 36.4
+      },
+      "U": {
+        "primary": 7,
+        "secondary": 1,
+        "tertiary": 0,
+        "total_reachable": 8,
+        "pct_of_family": 72.7
+      },
+      "B": {
+        "primary": 1,
+        "secondary": 3,
+        "tertiary": 0,
+        "total_reachable": 4,
+        "pct_of_family": 36.4
+      },
+      "R": {
+        "primary": 2,
+        "secondary": 3,
+        "tertiary": 1,
+        "total_reachable": 6,
+        "pct_of_family": 54.5
+      },
+      "G": {
+        "primary": 2,
+        "secondary": 5,
+        "tertiary": 0,
+        "total_reachable": 7,
+        "pct_of_family": 63.6
+      }
+    },
+    "card_type_affinity": {
+      "W": {
+        "primary": 5,
+        "secondary": 2,
+        "tertiary": 1,
+        "total_reachable": 8,
+        "pct_of_family": 80.0
+      },
+      "U": {
+        "primary": 4,
+        "secondary": 1,
+        "tertiary": 0,
+        "total_reachable": 5,
+        "pct_of_family": 50.0
+      },
+      "B": {
+        "primary": 0,
+        "secondary": 1,
+        "tertiary": 1,
+        "total_reachable": 2,
+        "pct_of_family": 20.0
+      },
+      "R": {
+        "primary": 1,
+        "secondary": 4,
+        "tertiary": 0,
+        "total_reachable": 5,
+        "pct_of_family": 50.0
+      },
+      "G": {
+        "primary": 3,
+        "secondary": 0,
+        "tertiary": 0,
+        "total_reachable": 3,
+        "pct_of_family": 30.0
+      }
+    },
+    "sacrifice": {
+      "W": {
+        "primary": 0,
+        "secondary": 0,
+        "tertiary": 1,
+        "total_reachable": 1,
+        "pct_of_family": 12.5
+      },
+      "U": {
+        "primary": 0,
+        "secondary": 0,
+        "tertiary": 1,
+        "total_reachable": 1,
+        "pct_of_family": 12.5
+      },
+      "B": {
+        "primary": 4,
+        "secondary": 2,
+        "tertiary": 0,
+        "total_reachable": 6,
+        "pct_of_family": 75.0
+      },
+      "R": {
+        "primary": 6,
+        "secondary": 1,
+        "tertiary": 0,
+        "total_reachable": 7,
+        "pct_of_family": 87.5
+      },
+      "G": {
+        "primary": 1,
+        "secondary": 0,
+        "tertiary": 1,
+        "total_reachable": 2,
+        "pct_of_family": 25.0
+      }
+    },
+    "disruption": {
+      "W": {
+        "primary": 0,
+        "secondary": 0,
+        "tertiary": 0,
+        "total_reachable": 0,
+        "pct_of_family": 0.0
+      },
+      "U": {
+        "primary": 2,
+        "secondary": 0,
+        "tertiary": 0,
+        "total_reachable": 2,
+        "pct_of_family": 25.0
+      },
+      "B": {
+        "primary": 3,
+        "secondary": 3,
+        "tertiary": 0,
+        "total_reachable": 6,
+        "pct_of_family": 75.0
+      },
+      "R": {
+        "primary": 3,
+        "secondary": 0,
+        "tertiary": 0,
+        "total_reachable": 3,
+        "pct_of_family": 37.5
+      },
+      "G": {
+        "primary": 0,
+        "secondary": 0,
+        "tertiary": 0,
+        "total_reachable": 0,
+        "pct_of_family": 0.0
+      }
+    },
+    "characteristic_change": {
+      "W": {
+        "primary": 1,
+        "secondary": 0,
+        "tertiary": 2,
+        "total_reachable": 3,
+        "pct_of_family": 42.9
+      },
+      "U": {
+        "primary": 5,
+        "secondary": 1,
+        "tertiary": 1,
+        "total_reachable": 7,
+        "pct_of_family": 100.0
+      },
+      "B": {
+        "primary": 0,
+        "secondary": 0,
+        "tertiary": 2,
+        "total_reachable": 2,
+        "pct_of_family": 28.6
+      },
+      "R": {
+        "primary": 0,
+        "secondary": 1,
+        "tertiary": 0,
+        "total_reachable": 1,
+        "pct_of_family": 14.3
+      },
+      "G": {
+        "primary": 1,
+        "secondary": 2,
+        "tertiary": 0,
+        "total_reachable": 3,
+        "pct_of_family": 42.9
+      }
+    },
+    "tutoring": {
+      "W": {
+        "primary": 2,
+        "secondary": 2,
+        "tertiary": 1,
+        "total_reachable": 5,
+        "pct_of_family": 71.4
+      },
+      "U": {
+        "primary": 2,
+        "secondary": 1,
+        "tertiary": 1,
+        "total_reachable": 4,
+        "pct_of_family": 57.1
+      },
+      "B": {
+        "primary": 1,
+        "secondary": 1,
+        "tertiary": 1,
+        "total_reachable": 3,
+        "pct_of_family": 42.9
+      },
+      "R": {
+        "primary": 0,
+        "secondary": 2,
+        "tertiary": 1,
+        "total_reachable": 3,
+        "pct_of_family": 42.9
+      },
+      "G": {
+        "primary": 2,
+        "secondary": 0,
+        "tertiary": 0,
+        "total_reachable": 2,
+        "pct_of_family": 28.6
+      }
+    },
+    "mana": {
+      "W": {
+        "primary": 0,
+        "secondary": 0,
+        "tertiary": 1,
+        "total_reachable": 1,
+        "pct_of_family": 14.3
+      },
+      "U": {
+        "primary": 0,
+        "secondary": 1,
+        "tertiary": 3,
+        "total_reachable": 4,
+        "pct_of_family": 57.1
+      },
+      "B": {
+        "primary": 0,
+        "secondary": 3,
+        "tertiary": 1,
+        "total_reachable": 4,
+        "pct_of_family": 57.1
+      },
+      "R": {
+        "primary": 3,
+        "secondary": 0,
+        "tertiary": 0,
+        "total_reachable": 3,
+        "pct_of_family": 42.9
+      },
+      "G": {
+        "primary": 4,
+        "secondary": 2,
+        "tertiary": 0,
+        "total_reachable": 6,
+        "pct_of_family": 85.7
+      }
+    },
+    "life": {
+      "W": {
+        "primary": 2,
+        "secondary": 0,
+        "tertiary": 2,
+        "total_reachable": 4,
+        "pct_of_family": 66.7
+      },
+      "U": {
+        "primary": 0,
+        "secondary": 0,
+        "tertiary": 1,
+        "total_reachable": 1,
+        "pct_of_family": 16.7
+      },
+      "B": {
+        "primary": 5,
+        "secondary": 1,
+        "tertiary": 0,
+        "total_reachable": 6,
+        "pct_of_family": 100.0
+      },
+      "R": {
+        "primary": 0,
+        "secondary": 0,
+        "tertiary": 1,
+        "total_reachable": 1,
+        "pct_of_family": 16.7
+      },
+      "G": {
+        "primary": 1,
+        "secondary": 0,
+        "tertiary": 1,
+        "total_reachable": 2,
+        "pct_of_family": 33.3
+      }
+    },
+    "counters": {
+      "W": {
+        "primary": 1,
+        "secondary": 1,
+        "tertiary": 0,
+        "total_reachable": 2,
+        "pct_of_family": 40.0
+      },
+      "U": {
+        "primary": 2,
+        "secondary": 0,
+        "tertiary": 1,
+        "total_reachable": 3,
+        "pct_of_family": 60.0
+      },
+      "B": {
+        "primary": 1,
+        "secondary": 1,
+        "tertiary": 1,
+        "total_reachable": 3,
+        "pct_of_family": 60.0
+      },
+      "R": {
+        "primary": 0,
+        "secondary": 0,
+        "tertiary": 2,
+        "total_reachable": 2,
+        "pct_of_family": 40.0
+      },
+      "G": {
+        "primary": 3,
+        "secondary": 0,
+        "tertiary": 0,
+        "total_reachable": 3,
+        "pct_of_family": 60.0
+      }
+    },
+    "cheat_into_play": {
+      "W": {
+        "primary": 2,
+        "secondary": 1,
+        "tertiary": 1,
+        "total_reachable": 4,
+        "pct_of_family": 100.0
+      },
+      "U": {
+        "primary": 1,
+        "secondary": 1,
+        "tertiary": 1,
+        "total_reachable": 3,
+        "pct_of_family": 75.0
+      },
+      "B": {
+        "primary": 0,
+        "secondary": 0,
+        "tertiary": 1,
+        "total_reachable": 1,
+        "pct_of_family": 25.0
+      },
+      "R": {
+        "primary": 0,
+        "secondary": 1,
+        "tertiary": 0,
+        "total_reachable": 1,
+        "pct_of_family": 25.0
+      },
+      "G": {
+        "primary": 1,
+        "secondary": 1,
+        "tertiary": 0,
+        "total_reachable": 2,
+        "pct_of_family": 50.0
+      }
+    },
+    "control": {
+      "W": {
+        "primary": 1,
+        "secondary": 0,
+        "tertiary": 1,
+        "total_reachable": 2,
+        "pct_of_family": 50.0
+      },
+      "U": {
+        "primary": 2,
+        "secondary": 1,
+        "tertiary": 0,
+        "total_reachable": 3,
+        "pct_of_family": 75.0
+      },
+      "B": {
+        "primary": 1,
+        "secondary": 0,
+        "tertiary": 0,
+        "total_reachable": 1,
+        "pct_of_family": 25.0
+      },
+      "R": {
+        "primary": 0,
+        "secondary": 0,
+        "tertiary": 0,
+        "total_reachable": 0,
+        "pct_of_family": 0.0
+      },
+      "G": {
+        "primary": 0,
+        "secondary": 0,
+        "tertiary": 1,
+        "total_reachable": 1,
+        "pct_of_family": 25.0
+      }
+    },
+    "copying": {
+      "W": {
+        "primary": 0,
+        "secondary": 0,
+        "tertiary": 0,
+        "total_reachable": 0,
+        "pct_of_family": 0.0
+      },
+      "U": {
+        "primary": 2,
+        "secondary": 1,
+        "tertiary": 0,
+        "total_reachable": 3,
+        "pct_of_family": 100.0
+      },
+      "B": {
+        "primary": 0,
+        "secondary": 0,
+        "tertiary": 0,
+        "total_reachable": 0,
+        "pct_of_family": 0.0
+      },
+      "R": {
+        "primary": 2,
+        "secondary": 0,
+        "tertiary": 0,
+        "total_reachable": 2,
+        "pct_of_family": 66.7
+      },
+      "G": {
+        "primary": 0,
+        "secondary": 0,
+        "tertiary": 0,
+        "total_reachable": 0,
+        "pct_of_family": 0.0
+      }
+    },
+    "rules_alteration": {
+      "W": {
+        "primary": 3,
+        "secondary": 0,
+        "tertiary": 0,
+        "total_reachable": 3,
+        "pct_of_family": 100.0
+      },
+      "U": {
+        "primary": 0,
+        "secondary": 1,
+        "tertiary": 0,
+        "total_reachable": 1,
+        "pct_of_family": 33.3
+      },
+      "B": {
+        "primary": 0,
+        "secondary": 1,
+        "tertiary": 0,
+        "total_reachable": 1,
+        "pct_of_family": 33.3
+      },
+      "R": {
+        "primary": 0,
+        "secondary": 1,
+        "tertiary": 0,
+        "total_reachable": 1,
+        "pct_of_family": 33.3
+      },
+      "G": {
+        "primary": 0,
+        "secondary": 1,
+        "tertiary": 0,
+        "total_reachable": 1,
+        "pct_of_family": 33.3
+      }
+    },
+    "win_condition": {
+      "W": {
+        "primary": 1,
+        "secondary": 1,
+        "tertiary": 0,
+        "total_reachable": 2,
+        "pct_of_family": 66.7
+      },
+      "U": {
+        "primary": 0,
+        "secondary": 0,
+        "tertiary": 0,
+        "total_reachable": 0,
+        "pct_of_family": 0.0
+      },
+      "B": {
+        "primary": 2,
+        "secondary": 0,
+        "tertiary": 0,
+        "total_reachable": 2,
+        "pct_of_family": 66.7
+      },
+      "R": {
+        "primary": 0,
+        "secondary": 0,
+        "tertiary": 0,
+        "total_reachable": 0,
+        "pct_of_family": 0.0
+      },
+      "G": {
+        "primary": 0,
+        "secondary": 0,
+        "tertiary": 0,
+        "total_reachable": 0,
+        "pct_of_family": 0.0
+      }
+    },
+    "theft": {
+      "W": {
+        "primary": 0,
+        "secondary": 0,
+        "tertiary": 0,
+        "total_reachable": 0,
+        "pct_of_family": 0.0
+      },
+      "U": {
+        "primary": 1,
+        "secondary": 0,
+        "tertiary": 0,
+        "total_reachable": 1,
+        "pct_of_family": 33.3
+      },
+      "B": {
+        "primary": 1,
+        "secondary": 0,
+        "tertiary": 1,
+        "total_reachable": 2,
+        "pct_of_family": 66.7
+      },
+      "R": {
+        "primary": 1,
+        "secondary": 0,
+        "tertiary": 0,
+        "total_reachable": 1,
+        "pct_of_family": 33.3
+      },
+      "G": {
+        "primary": 0,
+        "secondary": 0,
+        "tertiary": 0,
+        "total_reachable": 0,
+        "pct_of_family": 0.0
+      }
+    },
+    "tokens": {
+      "W": {
+        "primary": 1,
+        "secondary": 0,
+        "tertiary": 0,
+        "total_reachable": 1,
+        "pct_of_family": 100.0
+      },
+      "U": {
+        "primary": 0,
+        "secondary": 1,
+        "tertiary": 0,
+        "total_reachable": 1,
+        "pct_of_family": 100.0
+      },
+      "B": {
+        "primary": 0,
+        "secondary": 1,
+        "tertiary": 0,
+        "total_reachable": 1,
+        "pct_of_family": 100.0
+      },
+      "R": {
+        "primary": 0,
+        "secondary": 1,
+        "tertiary": 0,
+        "total_reachable": 1,
+        "pct_of_family": 100.0
+      },
+      "G": {
+        "primary": 1,
+        "secondary": 0,
+        "tertiary": 0,
+        "total_reachable": 1,
+        "pct_of_family": 100.0
+      }
+    }
+  },
+  "family_by_selection": {
+    "stat_modification": {
+      "W": {
+        "reachable": 17,
+        "unavailable": 17,
+        "pct_of_family_reachable": 50.0,
+        "primary_access": 11,
+        "secondary_only": 4,
+        "tertiary_only": 2
+      },
+      "U": {
+        "reachable": 13,
+        "unavailable": 21,
+        "pct_of_family_reachable": 38.2,
+        "primary_access": 7,
+        "secondary_only": 3,
+        "tertiary_only": 3
+      },
+      "B": {
+        "reachable": 17,
+        "unavailable": 17,
+        "pct_of_family_reachable": 50.0,
+        "primary_access": 9,
+        "secondary_only": 6,
+        "tertiary_only": 2
+      },
+      "R": {
+        "reachable": 12,
+        "unavailable": 22,
+        "pct_of_family_reachable": 35.3,
+        "primary_access": 5,
+        "secondary_only": 5,
+        "tertiary_only": 2
+      },
+      "G": {
+        "reachable": 15,
+        "unavailable": 19,
+        "pct_of_family_reachable": 44.1,
+        "primary_access": 5,
+        "secondary_only": 8,
+        "tertiary_only": 2
+      },
+      "WU": {
+        "reachable": 23,
+        "unavailable": 11,
+        "pct_of_family_reachable": 67.6,
+        "primary_access": 18,
+        "secondary_only": 4,
+        "tertiary_only": 1
+      },
+      "WB": {
+        "reachable": 28,
+        "unavailable": 6,
+        "pct_of_family_reachable": 82.4,
+        "primary_access": 20,
+        "secondary_only": 6,
+        "tertiary_only": 2
+      },
+      "WR": {
+        "reachable": 21,
+        "unavailable": 13,
+        "pct_of_family_reachable": 61.8,
+        "primary_access": 16,
+        "secondary_only": 3,
+        "tertiary_only": 2
+      },
+      "WG": {
+        "reachable": 21,
+        "unavailable": 13,
+        "pct_of_family_reachable": 61.8,
+        "primary_access": 14,
+        "secondary_only": 5,
+        "tertiary_only": 2
+      },
+      "UB": {
+        "reachable": 23,
+        "unavailable": 11,
+        "pct_of_family_reachable": 67.6,
+        "primary_access": 16,
+        "secondary_only": 5,
+        "tertiary_only": 2
+      },
+      "UR": {
+        "reachable": 19,
+        "unavailable": 15,
+        "pct_of_family_reachable": 55.9,
+        "primary_access": 12,
+        "secondary_only": 5,
+        "tertiary_only": 2
+      },
+      "UG": {
+        "reachable": 23,
+        "unavailable": 11,
+        "pct_of_family_reachable": 67.6,
+        "primary_access": 12,
+        "secondary_only": 9,
+        "tertiary_only": 2
+      },
+      "BR": {
+        "reachable": 20,
+        "unavailable": 14,
+        "pct_of_family_reachable": 58.8,
+        "primary_access": 13,
+        "secondary_only": 6,
+        "tertiary_only": 1
+      },
+      "BG": {
+        "reachable": 26,
+        "unavailable": 8,
+        "pct_of_family_reachable": 76.5,
+        "primary_access": 14,
+        "secondary_only": 11,
+        "tertiary_only": 1
+      },
+      "RG": {
+        "reachable": 21,
+        "unavailable": 13,
+        "pct_of_family_reachable": 61.8,
+        "primary_access": 10,
+        "secondary_only": 10,
+        "tertiary_only": 1
+      },
+      "WUB": {
+        "reachable": 31,
+        "unavailable": 3,
+        "pct_of_family_reachable": 91.2,
+        "primary_access": 27,
+        "secondary_only": 3,
+        "tertiary_only": 1
+      },
+      "WUR": {
+        "reachable": 25,
+        "unavailable": 9,
+        "pct_of_family_reachable": 73.5,
+        "primary_access": 23,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "WUG": {
+        "reachable": 27,
+        "unavailable": 7,
+        "pct_of_family_reachable": 79.4,
+        "primary_access": 21,
+        "secondary_only": 5,
+        "tertiary_only": 1
+      },
+      "WBR": {
+        "reachable": 29,
+        "unavailable": 5,
+        "pct_of_family_reachable": 85.3,
+        "primary_access": 24,
+        "secondary_only": 4,
+        "tertiary_only": 1
+      },
+      "WBG": {
+        "reachable": 31,
+        "unavailable": 3,
+        "pct_of_family_reachable": 91.2,
+        "primary_access": 23,
+        "secondary_only": 6,
+        "tertiary_only": 2
+      },
+      "WRG": {
+        "reachable": 25,
+        "unavailable": 9,
+        "pct_of_family_reachable": 73.5,
+        "primary_access": 19,
+        "secondary_only": 4,
+        "tertiary_only": 2
+      },
+      "UBR": {
+        "reachable": 25,
+        "unavailable": 9,
+        "pct_of_family_reachable": 73.5,
+        "primary_access": 20,
+        "secondary_only": 4,
+        "tertiary_only": 1
+      },
+      "UBG": {
+        "reachable": 31,
+        "unavailable": 3,
+        "pct_of_family_reachable": 91.2,
+        "primary_access": 21,
+        "secondary_only": 9,
+        "tertiary_only": 1
+      },
+      "URG": {
+        "reachable": 27,
+        "unavailable": 7,
+        "pct_of_family_reachable": 79.4,
+        "primary_access": 17,
+        "secondary_only": 9,
+        "tertiary_only": 1
+      },
+      "BRG": {
+        "reachable": 28,
+        "unavailable": 6,
+        "pct_of_family_reachable": 82.4,
+        "primary_access": 18,
+        "secondary_only": 10,
+        "tertiary_only": 0
+      },
+      "WUBR": {
+        "reachable": 31,
+        "unavailable": 3,
+        "pct_of_family_reachable": 91.2,
+        "primary_access": 31,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUBG": {
+        "reachable": 34,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 30,
+        "secondary_only": 3,
+        "tertiary_only": 1
+      },
+      "WURG": {
+        "reachable": 29,
+        "unavailable": 5,
+        "pct_of_family_reachable": 85.3,
+        "primary_access": 26,
+        "secondary_only": 2,
+        "tertiary_only": 1
+      },
+      "WBRG": {
+        "reachable": 32,
+        "unavailable": 2,
+        "pct_of_family_reachable": 94.1,
+        "primary_access": 27,
+        "secondary_only": 4,
+        "tertiary_only": 1
+      },
+      "UBRG": {
+        "reachable": 32,
+        "unavailable": 2,
+        "pct_of_family_reachable": 94.1,
+        "primary_access": 25,
+        "secondary_only": 7,
+        "tertiary_only": 0
+      },
+      "WUBRG": {
+        "reachable": 34,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 34,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      }
+    },
+    "removal": {
+      "W": {
+        "reachable": 12,
+        "unavailable": 10,
+        "pct_of_family_reachable": 54.5,
+        "primary_access": 10,
+        "secondary_only": 2,
+        "tertiary_only": 0
+      },
+      "U": {
+        "reachable": 1,
+        "unavailable": 21,
+        "pct_of_family_reachable": 4.5,
+        "primary_access": 0,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "B": {
+        "reachable": 10,
+        "unavailable": 12,
+        "pct_of_family_reachable": 45.5,
+        "primary_access": 6,
+        "secondary_only": 3,
+        "tertiary_only": 1
+      },
+      "R": {
+        "reachable": 5,
+        "unavailable": 17,
+        "pct_of_family_reachable": 22.7,
+        "primary_access": 5,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "G": {
+        "reachable": 5,
+        "unavailable": 17,
+        "pct_of_family_reachable": 22.7,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 2
+      },
+      "WU": {
+        "reachable": 13,
+        "unavailable": 9,
+        "pct_of_family_reachable": 59.1,
+        "primary_access": 10,
+        "secondary_only": 3,
+        "tertiary_only": 0
+      },
+      "WB": {
+        "reachable": 18,
+        "unavailable": 4,
+        "pct_of_family_reachable": 81.8,
+        "primary_access": 16,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "WR": {
+        "reachable": 16,
+        "unavailable": 6,
+        "pct_of_family_reachable": 72.7,
+        "primary_access": 15,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WG": {
+        "reachable": 15,
+        "unavailable": 7,
+        "pct_of_family_reachable": 68.2,
+        "primary_access": 12,
+        "secondary_only": 1,
+        "tertiary_only": 2
+      },
+      "UB": {
+        "reachable": 11,
+        "unavailable": 11,
+        "pct_of_family_reachable": 50.0,
+        "primary_access": 6,
+        "secondary_only": 4,
+        "tertiary_only": 1
+      },
+      "UR": {
+        "reachable": 5,
+        "unavailable": 17,
+        "pct_of_family_reachable": 22.7,
+        "primary_access": 5,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "UG": {
+        "reachable": 6,
+        "unavailable": 16,
+        "pct_of_family_reachable": 27.3,
+        "primary_access": 3,
+        "secondary_only": 1,
+        "tertiary_only": 2
+      },
+      "BR": {
+        "reachable": 14,
+        "unavailable": 8,
+        "pct_of_family_reachable": 63.6,
+        "primary_access": 11,
+        "secondary_only": 3,
+        "tertiary_only": 0
+      },
+      "BG": {
+        "reachable": 12,
+        "unavailable": 10,
+        "pct_of_family_reachable": 54.5,
+        "primary_access": 9,
+        "secondary_only": 2,
+        "tertiary_only": 1
+      },
+      "RG": {
+        "reachable": 8,
+        "unavailable": 14,
+        "pct_of_family_reachable": 36.4,
+        "primary_access": 7,
+        "secondary_only": 0,
+        "tertiary_only": 1
+      },
+      "WUB": {
+        "reachable": 19,
+        "unavailable": 3,
+        "pct_of_family_reachable": 86.4,
+        "primary_access": 16,
+        "secondary_only": 2,
+        "tertiary_only": 1
+      },
+      "WUR": {
+        "reachable": 16,
+        "unavailable": 6,
+        "pct_of_family_reachable": 72.7,
+        "primary_access": 15,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WUG": {
+        "reachable": 16,
+        "unavailable": 6,
+        "pct_of_family_reachable": 72.7,
+        "primary_access": 12,
+        "secondary_only": 2,
+        "tertiary_only": 2
+      },
+      "WBR": {
+        "reachable": 21,
+        "unavailable": 1,
+        "pct_of_family_reachable": 95.5,
+        "primary_access": 21,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WBG": {
+        "reachable": 19,
+        "unavailable": 3,
+        "pct_of_family_reachable": 86.4,
+        "primary_access": 18,
+        "secondary_only": 0,
+        "tertiary_only": 1
+      },
+      "WRG": {
+        "reachable": 18,
+        "unavailable": 4,
+        "pct_of_family_reachable": 81.8,
+        "primary_access": 16,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "UBR": {
+        "reachable": 14,
+        "unavailable": 8,
+        "pct_of_family_reachable": 63.6,
+        "primary_access": 11,
+        "secondary_only": 3,
+        "tertiary_only": 0
+      },
+      "UBG": {
+        "reachable": 13,
+        "unavailable": 9,
+        "pct_of_family_reachable": 59.1,
+        "primary_access": 9,
+        "secondary_only": 3,
+        "tertiary_only": 1
+      },
+      "URG": {
+        "reachable": 8,
+        "unavailable": 14,
+        "pct_of_family_reachable": 36.4,
+        "primary_access": 7,
+        "secondary_only": 0,
+        "tertiary_only": 1
+      },
+      "BRG": {
+        "reachable": 15,
+        "unavailable": 7,
+        "pct_of_family_reachable": 68.2,
+        "primary_access": 13,
+        "secondary_only": 2,
+        "tertiary_only": 0
+      },
+      "WUBR": {
+        "reachable": 21,
+        "unavailable": 1,
+        "pct_of_family_reachable": 95.5,
+        "primary_access": 21,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUBG": {
+        "reachable": 20,
+        "unavailable": 2,
+        "pct_of_family_reachable": 90.9,
+        "primary_access": 18,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "WURG": {
+        "reachable": 18,
+        "unavailable": 4,
+        "pct_of_family_reachable": 81.8,
+        "primary_access": 16,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "WBRG": {
+        "reachable": 22,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 22,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "UBRG": {
+        "reachable": 15,
+        "unavailable": 7,
+        "pct_of_family_reachable": 68.2,
+        "primary_access": 13,
+        "secondary_only": 2,
+        "tertiary_only": 0
+      },
+      "WUBRG": {
+        "reachable": 22,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 22,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      }
+    },
+    "graveyard": {
+      "W": {
+        "reachable": 9,
+        "unavailable": 7,
+        "pct_of_family_reachable": 56.2,
+        "primary_access": 5,
+        "secondary_only": 2,
+        "tertiary_only": 2
+      },
+      "U": {
+        "reachable": 7,
+        "unavailable": 9,
+        "pct_of_family_reachable": 43.8,
+        "primary_access": 4,
+        "secondary_only": 2,
+        "tertiary_only": 1
+      },
+      "B": {
+        "reachable": 7,
+        "unavailable": 9,
+        "pct_of_family_reachable": 43.8,
+        "primary_access": 6,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "R": {
+        "reachable": 6,
+        "unavailable": 10,
+        "pct_of_family_reachable": 37.5,
+        "primary_access": 0,
+        "secondary_only": 5,
+        "tertiary_only": 1
+      },
+      "G": {
+        "reachable": 7,
+        "unavailable": 9,
+        "pct_of_family_reachable": 43.8,
+        "primary_access": 4,
+        "secondary_only": 2,
+        "tertiary_only": 1
+      },
+      "WU": {
+        "reachable": 14,
+        "unavailable": 2,
+        "pct_of_family_reachable": 87.5,
+        "primary_access": 9,
+        "secondary_only": 4,
+        "tertiary_only": 1
+      },
+      "WB": {
+        "reachable": 11,
+        "unavailable": 5,
+        "pct_of_family_reachable": 68.8,
+        "primary_access": 10,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WR": {
+        "reachable": 12,
+        "unavailable": 4,
+        "pct_of_family_reachable": 75.0,
+        "primary_access": 5,
+        "secondary_only": 6,
+        "tertiary_only": 1
+      },
+      "WG": {
+        "reachable": 12,
+        "unavailable": 4,
+        "pct_of_family_reachable": 75.0,
+        "primary_access": 9,
+        "secondary_only": 2,
+        "tertiary_only": 1
+      },
+      "UB": {
+        "reachable": 10,
+        "unavailable": 6,
+        "pct_of_family_reachable": 62.5,
+        "primary_access": 9,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "UR": {
+        "reachable": 8,
+        "unavailable": 8,
+        "pct_of_family_reachable": 50.0,
+        "primary_access": 4,
+        "secondary_only": 3,
+        "tertiary_only": 1
+      },
+      "UG": {
+        "reachable": 11,
+        "unavailable": 5,
+        "pct_of_family_reachable": 68.8,
+        "primary_access": 7,
+        "secondary_only": 4,
+        "tertiary_only": 0
+      },
+      "BR": {
+        "reachable": 9,
+        "unavailable": 7,
+        "pct_of_family_reachable": 56.2,
+        "primary_access": 6,
+        "secondary_only": 3,
+        "tertiary_only": 0
+      },
+      "BG": {
+        "reachable": 10,
+        "unavailable": 6,
+        "pct_of_family_reachable": 62.5,
+        "primary_access": 10,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "RG": {
+        "reachable": 10,
+        "unavailable": 6,
+        "pct_of_family_reachable": 62.5,
+        "primary_access": 4,
+        "secondary_only": 6,
+        "tertiary_only": 0
+      },
+      "WUB": {
+        "reachable": 14,
+        "unavailable": 2,
+        "pct_of_family_reachable": 87.5,
+        "primary_access": 13,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WUR": {
+        "reachable": 14,
+        "unavailable": 2,
+        "pct_of_family_reachable": 87.5,
+        "primary_access": 9,
+        "secondary_only": 4,
+        "tertiary_only": 1
+      },
+      "WUG": {
+        "reachable": 16,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 12,
+        "secondary_only": 4,
+        "tertiary_only": 0
+      },
+      "WBR": {
+        "reachable": 13,
+        "unavailable": 3,
+        "pct_of_family_reachable": 81.2,
+        "primary_access": 10,
+        "secondary_only": 3,
+        "tertiary_only": 0
+      },
+      "WBG": {
+        "reachable": 14,
+        "unavailable": 2,
+        "pct_of_family_reachable": 87.5,
+        "primary_access": 14,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WRG": {
+        "reachable": 15,
+        "unavailable": 1,
+        "pct_of_family_reachable": 93.8,
+        "primary_access": 9,
+        "secondary_only": 6,
+        "tertiary_only": 0
+      },
+      "UBR": {
+        "reachable": 10,
+        "unavailable": 6,
+        "pct_of_family_reachable": 62.5,
+        "primary_access": 9,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "UBG": {
+        "reachable": 12,
+        "unavailable": 4,
+        "pct_of_family_reachable": 75.0,
+        "primary_access": 12,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "URG": {
+        "reachable": 11,
+        "unavailable": 5,
+        "pct_of_family_reachable": 68.8,
+        "primary_access": 7,
+        "secondary_only": 4,
+        "tertiary_only": 0
+      },
+      "BRG": {
+        "reachable": 12,
+        "unavailable": 4,
+        "pct_of_family_reachable": 75.0,
+        "primary_access": 10,
+        "secondary_only": 2,
+        "tertiary_only": 0
+      },
+      "WUBR": {
+        "reachable": 14,
+        "unavailable": 2,
+        "pct_of_family_reachable": 87.5,
+        "primary_access": 13,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WUBG": {
+        "reachable": 16,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 16,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WURG": {
+        "reachable": 16,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 12,
+        "secondary_only": 4,
+        "tertiary_only": 0
+      },
+      "WBRG": {
+        "reachable": 16,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 14,
+        "secondary_only": 2,
+        "tertiary_only": 0
+      },
+      "UBRG": {
+        "reachable": 12,
+        "unavailable": 4,
+        "pct_of_family_reachable": 75.0,
+        "primary_access": 12,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUBRG": {
+        "reachable": 16,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 16,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      }
+    },
+    "combat": {
+      "W": {
+        "reachable": 7,
+        "unavailable": 8,
+        "pct_of_family_reachable": 46.7,
+        "primary_access": 5,
+        "secondary_only": 2,
+        "tertiary_only": 0
+      },
+      "U": {
+        "reachable": 4,
+        "unavailable": 11,
+        "pct_of_family_reachable": 26.7,
+        "primary_access": 2,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "B": {
+        "reachable": 7,
+        "unavailable": 8,
+        "pct_of_family_reachable": 46.7,
+        "primary_access": 1,
+        "secondary_only": 5,
+        "tertiary_only": 1
+      },
+      "R": {
+        "reachable": 12,
+        "unavailable": 3,
+        "pct_of_family_reachable": 80.0,
+        "primary_access": 9,
+        "secondary_only": 3,
+        "tertiary_only": 0
+      },
+      "G": {
+        "reachable": 6,
+        "unavailable": 9,
+        "pct_of_family_reachable": 40.0,
+        "primary_access": 2,
+        "secondary_only": 4,
+        "tertiary_only": 0
+      },
+      "WU": {
+        "reachable": 9,
+        "unavailable": 6,
+        "pct_of_family_reachable": 60.0,
+        "primary_access": 6,
+        "secondary_only": 2,
+        "tertiary_only": 1
+      },
+      "WB": {
+        "reachable": 11,
+        "unavailable": 4,
+        "pct_of_family_reachable": 73.3,
+        "primary_access": 6,
+        "secondary_only": 5,
+        "tertiary_only": 0
+      },
+      "WR": {
+        "reachable": 14,
+        "unavailable": 1,
+        "pct_of_family_reachable": 93.3,
+        "primary_access": 12,
+        "secondary_only": 2,
+        "tertiary_only": 0
+      },
+      "WG": {
+        "reachable": 11,
+        "unavailable": 4,
+        "pct_of_family_reachable": 73.3,
+        "primary_access": 7,
+        "secondary_only": 4,
+        "tertiary_only": 0
+      },
+      "UB": {
+        "reachable": 9,
+        "unavailable": 6,
+        "pct_of_family_reachable": 60.0,
+        "primary_access": 3,
+        "secondary_only": 5,
+        "tertiary_only": 1
+      },
+      "UR": {
+        "reachable": 13,
+        "unavailable": 2,
+        "pct_of_family_reachable": 86.7,
+        "primary_access": 10,
+        "secondary_only": 3,
+        "tertiary_only": 0
+      },
+      "UG": {
+        "reachable": 8,
+        "unavailable": 7,
+        "pct_of_family_reachable": 53.3,
+        "primary_access": 4,
+        "secondary_only": 3,
+        "tertiary_only": 1
+      },
+      "BR": {
+        "reachable": 13,
+        "unavailable": 2,
+        "pct_of_family_reachable": 86.7,
+        "primary_access": 10,
+        "secondary_only": 3,
+        "tertiary_only": 0
+      },
+      "BG": {
+        "reachable": 10,
+        "unavailable": 5,
+        "pct_of_family_reachable": 66.7,
+        "primary_access": 3,
+        "secondary_only": 6,
+        "tertiary_only": 1
+      },
+      "RG": {
+        "reachable": 14,
+        "unavailable": 1,
+        "pct_of_family_reachable": 93.3,
+        "primary_access": 11,
+        "secondary_only": 3,
+        "tertiary_only": 0
+      },
+      "WUB": {
+        "reachable": 12,
+        "unavailable": 3,
+        "pct_of_family_reachable": 80.0,
+        "primary_access": 7,
+        "secondary_only": 5,
+        "tertiary_only": 0
+      },
+      "WUR": {
+        "reachable": 14,
+        "unavailable": 1,
+        "pct_of_family_reachable": 93.3,
+        "primary_access": 12,
+        "secondary_only": 2,
+        "tertiary_only": 0
+      },
+      "WUG": {
+        "reachable": 13,
+        "unavailable": 2,
+        "pct_of_family_reachable": 86.7,
+        "primary_access": 8,
+        "secondary_only": 4,
+        "tertiary_only": 1
+      },
+      "WBR": {
+        "reachable": 15,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 13,
+        "secondary_only": 2,
+        "tertiary_only": 0
+      },
+      "WBG": {
+        "reachable": 13,
+        "unavailable": 2,
+        "pct_of_family_reachable": 86.7,
+        "primary_access": 8,
+        "secondary_only": 5,
+        "tertiary_only": 0
+      },
+      "WRG": {
+        "reachable": 15,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 14,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "UBR": {
+        "reachable": 14,
+        "unavailable": 1,
+        "pct_of_family_reachable": 93.3,
+        "primary_access": 11,
+        "secondary_only": 3,
+        "tertiary_only": 0
+      },
+      "UBG": {
+        "reachable": 11,
+        "unavailable": 4,
+        "pct_of_family_reachable": 73.3,
+        "primary_access": 5,
+        "secondary_only": 5,
+        "tertiary_only": 1
+      },
+      "URG": {
+        "reachable": 14,
+        "unavailable": 1,
+        "pct_of_family_reachable": 93.3,
+        "primary_access": 12,
+        "secondary_only": 2,
+        "tertiary_only": 0
+      },
+      "BRG": {
+        "reachable": 14,
+        "unavailable": 1,
+        "pct_of_family_reachable": 93.3,
+        "primary_access": 12,
+        "secondary_only": 2,
+        "tertiary_only": 0
+      },
+      "WUBR": {
+        "reachable": 15,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 13,
+        "secondary_only": 2,
+        "tertiary_only": 0
+      },
+      "WUBG": {
+        "reachable": 14,
+        "unavailable": 1,
+        "pct_of_family_reachable": 93.3,
+        "primary_access": 9,
+        "secondary_only": 5,
+        "tertiary_only": 0
+      },
+      "WURG": {
+        "reachable": 15,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 14,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WBRG": {
+        "reachable": 15,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 15,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "UBRG": {
+        "reachable": 14,
+        "unavailable": 1,
+        "pct_of_family_reachable": 93.3,
+        "primary_access": 13,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WUBRG": {
+        "reachable": 15,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 15,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      }
+    },
+    "evasion": {
+      "W": {
+        "reachable": 3,
+        "unavailable": 11,
+        "pct_of_family_reachable": 21.4,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 2
+      },
+      "U": {
+        "reachable": 4,
+        "unavailable": 10,
+        "pct_of_family_reachable": 28.6,
+        "primary_access": 2,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "B": {
+        "reachable": 4,
+        "unavailable": 10,
+        "pct_of_family_reachable": 28.6,
+        "primary_access": 2,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "R": {
+        "reachable": 11,
+        "unavailable": 3,
+        "pct_of_family_reachable": 78.6,
+        "primary_access": 5,
+        "secondary_only": 5,
+        "tertiary_only": 1
+      },
+      "G": {
+        "reachable": 8,
+        "unavailable": 6,
+        "pct_of_family_reachable": 57.1,
+        "primary_access": 7,
+        "secondary_only": 0,
+        "tertiary_only": 1
+      },
+      "WU": {
+        "reachable": 5,
+        "unavailable": 9,
+        "pct_of_family_reachable": 35.7,
+        "primary_access": 2,
+        "secondary_only": 1,
+        "tertiary_only": 2
+      },
+      "WB": {
+        "reachable": 5,
+        "unavailable": 9,
+        "pct_of_family_reachable": 35.7,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 2
+      },
+      "WR": {
+        "reachable": 11,
+        "unavailable": 3,
+        "pct_of_family_reachable": 78.6,
+        "primary_access": 6,
+        "secondary_only": 4,
+        "tertiary_only": 1
+      },
+      "WG": {
+        "reachable": 8,
+        "unavailable": 6,
+        "pct_of_family_reachable": 57.1,
+        "primary_access": 8,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "UB": {
+        "reachable": 6,
+        "unavailable": 8,
+        "pct_of_family_reachable": 42.9,
+        "primary_access": 4,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "UR": {
+        "reachable": 12,
+        "unavailable": 2,
+        "pct_of_family_reachable": 85.7,
+        "primary_access": 7,
+        "secondary_only": 4,
+        "tertiary_only": 1
+      },
+      "UG": {
+        "reachable": 10,
+        "unavailable": 4,
+        "pct_of_family_reachable": 71.4,
+        "primary_access": 9,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "BR": {
+        "reachable": 11,
+        "unavailable": 3,
+        "pct_of_family_reachable": 78.6,
+        "primary_access": 5,
+        "secondary_only": 5,
+        "tertiary_only": 1
+      },
+      "BG": {
+        "reachable": 10,
+        "unavailable": 4,
+        "pct_of_family_reachable": 71.4,
+        "primary_access": 9,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "RG": {
+        "reachable": 13,
+        "unavailable": 1,
+        "pct_of_family_reachable": 92.9,
+        "primary_access": 12,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WUB": {
+        "reachable": 7,
+        "unavailable": 7,
+        "pct_of_family_reachable": 50.0,
+        "primary_access": 4,
+        "secondary_only": 1,
+        "tertiary_only": 2
+      },
+      "WUR": {
+        "reachable": 12,
+        "unavailable": 2,
+        "pct_of_family_reachable": 85.7,
+        "primary_access": 7,
+        "secondary_only": 4,
+        "tertiary_only": 1
+      },
+      "WUG": {
+        "reachable": 10,
+        "unavailable": 4,
+        "pct_of_family_reachable": 71.4,
+        "primary_access": 9,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WBR": {
+        "reachable": 11,
+        "unavailable": 3,
+        "pct_of_family_reachable": 78.6,
+        "primary_access": 6,
+        "secondary_only": 4,
+        "tertiary_only": 1
+      },
+      "WBG": {
+        "reachable": 10,
+        "unavailable": 4,
+        "pct_of_family_reachable": 71.4,
+        "primary_access": 10,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WRG": {
+        "reachable": 13,
+        "unavailable": 1,
+        "pct_of_family_reachable": 92.9,
+        "primary_access": 13,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "UBR": {
+        "reachable": 12,
+        "unavailable": 2,
+        "pct_of_family_reachable": 85.7,
+        "primary_access": 7,
+        "secondary_only": 4,
+        "tertiary_only": 1
+      },
+      "UBG": {
+        "reachable": 12,
+        "unavailable": 2,
+        "pct_of_family_reachable": 85.7,
+        "primary_access": 11,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "URG": {
+        "reachable": 14,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 14,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "BRG": {
+        "reachable": 13,
+        "unavailable": 1,
+        "pct_of_family_reachable": 92.9,
+        "primary_access": 12,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WUBR": {
+        "reachable": 12,
+        "unavailable": 2,
+        "pct_of_family_reachable": 85.7,
+        "primary_access": 7,
+        "secondary_only": 4,
+        "tertiary_only": 1
+      },
+      "WUBG": {
+        "reachable": 12,
+        "unavailable": 2,
+        "pct_of_family_reachable": 85.7,
+        "primary_access": 11,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WURG": {
+        "reachable": 14,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 14,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WBRG": {
+        "reachable": 13,
+        "unavailable": 1,
+        "pct_of_family_reachable": 92.9,
+        "primary_access": 13,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "UBRG": {
+        "reachable": 14,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 14,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUBRG": {
+        "reachable": 14,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 14,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      }
+    },
+    "tempo": {
+      "W": {
+        "reachable": 7,
+        "unavailable": 6,
+        "pct_of_family_reachable": 53.8,
+        "primary_access": 2,
+        "secondary_only": 4,
+        "tertiary_only": 1
+      },
+      "U": {
+        "reachable": 12,
+        "unavailable": 1,
+        "pct_of_family_reachable": 92.3,
+        "primary_access": 11,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "B": {
+        "reachable": 1,
+        "unavailable": 12,
+        "pct_of_family_reachable": 7.7,
+        "primary_access": 0,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "R": {
+        "reachable": 4,
+        "unavailable": 9,
+        "pct_of_family_reachable": 30.8,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 3
+      },
+      "G": {
+        "reachable": 3,
+        "unavailable": 10,
+        "pct_of_family_reachable": 23.1,
+        "primary_access": 1,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "WU": {
+        "reachable": 13,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 12,
+        "secondary_only": 0,
+        "tertiary_only": 1
+      },
+      "WB": {
+        "reachable": 7,
+        "unavailable": 6,
+        "pct_of_family_reachable": 53.8,
+        "primary_access": 2,
+        "secondary_only": 4,
+        "tertiary_only": 1
+      },
+      "WR": {
+        "reachable": 9,
+        "unavailable": 4,
+        "pct_of_family_reachable": 69.2,
+        "primary_access": 3,
+        "secondary_only": 4,
+        "tertiary_only": 2
+      },
+      "WG": {
+        "reachable": 7,
+        "unavailable": 6,
+        "pct_of_family_reachable": 53.8,
+        "primary_access": 3,
+        "secondary_only": 3,
+        "tertiary_only": 1
+      },
+      "UB": {
+        "reachable": 12,
+        "unavailable": 1,
+        "pct_of_family_reachable": 92.3,
+        "primary_access": 11,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "UR": {
+        "reachable": 13,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 12,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "UG": {
+        "reachable": 12,
+        "unavailable": 1,
+        "pct_of_family_reachable": 92.3,
+        "primary_access": 11,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "BR": {
+        "reachable": 4,
+        "unavailable": 9,
+        "pct_of_family_reachable": 30.8,
+        "primary_access": 1,
+        "secondary_only": 1,
+        "tertiary_only": 2
+      },
+      "BG": {
+        "reachable": 3,
+        "unavailable": 10,
+        "pct_of_family_reachable": 23.1,
+        "primary_access": 1,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "RG": {
+        "reachable": 6,
+        "unavailable": 7,
+        "pct_of_family_reachable": 46.2,
+        "primary_access": 2,
+        "secondary_only": 1,
+        "tertiary_only": 3
+      },
+      "WUB": {
+        "reachable": 13,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 12,
+        "secondary_only": 0,
+        "tertiary_only": 1
+      },
+      "WUR": {
+        "reachable": 13,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 13,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUG": {
+        "reachable": 13,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 12,
+        "secondary_only": 0,
+        "tertiary_only": 1
+      },
+      "WBR": {
+        "reachable": 9,
+        "unavailable": 4,
+        "pct_of_family_reachable": 69.2,
+        "primary_access": 3,
+        "secondary_only": 4,
+        "tertiary_only": 2
+      },
+      "WBG": {
+        "reachable": 7,
+        "unavailable": 6,
+        "pct_of_family_reachable": 53.8,
+        "primary_access": 3,
+        "secondary_only": 3,
+        "tertiary_only": 1
+      },
+      "WRG": {
+        "reachable": 9,
+        "unavailable": 4,
+        "pct_of_family_reachable": 69.2,
+        "primary_access": 4,
+        "secondary_only": 3,
+        "tertiary_only": 2
+      },
+      "UBR": {
+        "reachable": 13,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 12,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "UBG": {
+        "reachable": 12,
+        "unavailable": 1,
+        "pct_of_family_reachable": 92.3,
+        "primary_access": 11,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "URG": {
+        "reachable": 13,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 12,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "BRG": {
+        "reachable": 6,
+        "unavailable": 7,
+        "pct_of_family_reachable": 46.2,
+        "primary_access": 2,
+        "secondary_only": 1,
+        "tertiary_only": 3
+      },
+      "WUBR": {
+        "reachable": 13,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 13,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUBG": {
+        "reachable": 13,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 12,
+        "secondary_only": 0,
+        "tertiary_only": 1
+      },
+      "WURG": {
+        "reachable": 13,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 13,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WBRG": {
+        "reachable": 9,
+        "unavailable": 4,
+        "pct_of_family_reachable": 69.2,
+        "primary_access": 4,
+        "secondary_only": 3,
+        "tertiary_only": 2
+      },
+      "UBRG": {
+        "reachable": 13,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 12,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WUBRG": {
+        "reachable": 13,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 13,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      }
+    },
+    "protection": {
+      "W": {
+        "reachable": 9,
+        "unavailable": 3,
+        "pct_of_family_reachable": 75.0,
+        "primary_access": 6,
+        "secondary_only": 1,
+        "tertiary_only": 2
+      },
+      "U": {
+        "reachable": 6,
+        "unavailable": 6,
+        "pct_of_family_reachable": 50.0,
+        "primary_access": 3,
+        "secondary_only": 1,
+        "tertiary_only": 2
+      },
+      "B": {
+        "reachable": 4,
+        "unavailable": 8,
+        "pct_of_family_reachable": 33.3,
+        "primary_access": 2,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "R": {
+        "reachable": 5,
+        "unavailable": 7,
+        "pct_of_family_reachable": 41.7,
+        "primary_access": 2,
+        "secondary_only": 0,
+        "tertiary_only": 3
+      },
+      "G": {
+        "reachable": 6,
+        "unavailable": 6,
+        "pct_of_family_reachable": 50.0,
+        "primary_access": 3,
+        "secondary_only": 2,
+        "tertiary_only": 1
+      },
+      "WU": {
+        "reachable": 11,
+        "unavailable": 1,
+        "pct_of_family_reachable": 91.7,
+        "primary_access": 8,
+        "secondary_only": 2,
+        "tertiary_only": 1
+      },
+      "WB": {
+        "reachable": 10,
+        "unavailable": 2,
+        "pct_of_family_reachable": 83.3,
+        "primary_access": 8,
+        "secondary_only": 0,
+        "tertiary_only": 2
+      },
+      "WR": {
+        "reachable": 11,
+        "unavailable": 1,
+        "pct_of_family_reachable": 91.7,
+        "primary_access": 8,
+        "secondary_only": 1,
+        "tertiary_only": 2
+      },
+      "WG": {
+        "reachable": 10,
+        "unavailable": 2,
+        "pct_of_family_reachable": 83.3,
+        "primary_access": 8,
+        "secondary_only": 2,
+        "tertiary_only": 0
+      },
+      "UB": {
+        "reachable": 8,
+        "unavailable": 4,
+        "pct_of_family_reachable": 66.7,
+        "primary_access": 5,
+        "secondary_only": 2,
+        "tertiary_only": 1
+      },
+      "UR": {
+        "reachable": 8,
+        "unavailable": 4,
+        "pct_of_family_reachable": 66.7,
+        "primary_access": 5,
+        "secondary_only": 0,
+        "tertiary_only": 3
+      },
+      "UG": {
+        "reachable": 7,
+        "unavailable": 5,
+        "pct_of_family_reachable": 58.3,
+        "primary_access": 5,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "BR": {
+        "reachable": 5,
+        "unavailable": 7,
+        "pct_of_family_reachable": 41.7,
+        "primary_access": 3,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "BG": {
+        "reachable": 8,
+        "unavailable": 4,
+        "pct_of_family_reachable": 66.7,
+        "primary_access": 5,
+        "secondary_only": 2,
+        "tertiary_only": 1
+      },
+      "RG": {
+        "reachable": 8,
+        "unavailable": 4,
+        "pct_of_family_reachable": 66.7,
+        "primary_access": 4,
+        "secondary_only": 2,
+        "tertiary_only": 2
+      },
+      "WUB": {
+        "reachable": 12,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 10,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "WUR": {
+        "reachable": 12,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 10,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "WUG": {
+        "reachable": 11,
+        "unavailable": 1,
+        "pct_of_family_reachable": 91.7,
+        "primary_access": 10,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WBR": {
+        "reachable": 11,
+        "unavailable": 1,
+        "pct_of_family_reachable": 91.7,
+        "primary_access": 9,
+        "secondary_only": 0,
+        "tertiary_only": 2
+      },
+      "WBG": {
+        "reachable": 11,
+        "unavailable": 1,
+        "pct_of_family_reachable": 91.7,
+        "primary_access": 10,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WRG": {
+        "reachable": 11,
+        "unavailable": 1,
+        "pct_of_family_reachable": 91.7,
+        "primary_access": 9,
+        "secondary_only": 2,
+        "tertiary_only": 0
+      },
+      "UBR": {
+        "reachable": 8,
+        "unavailable": 4,
+        "pct_of_family_reachable": 66.7,
+        "primary_access": 6,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "UBG": {
+        "reachable": 9,
+        "unavailable": 3,
+        "pct_of_family_reachable": 75.0,
+        "primary_access": 7,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "URG": {
+        "reachable": 9,
+        "unavailable": 3,
+        "pct_of_family_reachable": 75.0,
+        "primary_access": 6,
+        "secondary_only": 1,
+        "tertiary_only": 2
+      },
+      "BRG": {
+        "reachable": 8,
+        "unavailable": 4,
+        "pct_of_family_reachable": 66.7,
+        "primary_access": 5,
+        "secondary_only": 2,
+        "tertiary_only": 1
+      },
+      "WUBR": {
+        "reachable": 12,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 11,
+        "secondary_only": 0,
+        "tertiary_only": 1
+      },
+      "WUBG": {
+        "reachable": 12,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 12,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WURG": {
+        "reachable": 12,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 11,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WBRG": {
+        "reachable": 11,
+        "unavailable": 1,
+        "pct_of_family_reachable": 91.7,
+        "primary_access": 10,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "UBRG": {
+        "reachable": 9,
+        "unavailable": 3,
+        "pct_of_family_reachable": 75.0,
+        "primary_access": 7,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "WUBRG": {
+        "reachable": 12,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 12,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      }
+    },
+    "card_flow": {
+      "W": {
+        "reachable": 4,
+        "unavailable": 7,
+        "pct_of_family_reachable": 36.4,
+        "primary_access": 1,
+        "secondary_only": 2,
+        "tertiary_only": 1
+      },
+      "U": {
+        "reachable": 8,
+        "unavailable": 3,
+        "pct_of_family_reachable": 72.7,
+        "primary_access": 7,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "B": {
+        "reachable": 4,
+        "unavailable": 7,
+        "pct_of_family_reachable": 36.4,
+        "primary_access": 1,
+        "secondary_only": 3,
+        "tertiary_only": 0
+      },
+      "R": {
+        "reachable": 6,
+        "unavailable": 5,
+        "pct_of_family_reachable": 54.5,
+        "primary_access": 2,
+        "secondary_only": 3,
+        "tertiary_only": 1
+      },
+      "G": {
+        "reachable": 7,
+        "unavailable": 4,
+        "pct_of_family_reachable": 63.6,
+        "primary_access": 2,
+        "secondary_only": 5,
+        "tertiary_only": 0
+      },
+      "WU": {
+        "reachable": 9,
+        "unavailable": 2,
+        "pct_of_family_reachable": 81.8,
+        "primary_access": 8,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WB": {
+        "reachable": 5,
+        "unavailable": 6,
+        "pct_of_family_reachable": 45.5,
+        "primary_access": 2,
+        "secondary_only": 3,
+        "tertiary_only": 0
+      },
+      "WR": {
+        "reachable": 7,
+        "unavailable": 4,
+        "pct_of_family_reachable": 63.6,
+        "primary_access": 3,
+        "secondary_only": 3,
+        "tertiary_only": 1
+      },
+      "WG": {
+        "reachable": 7,
+        "unavailable": 4,
+        "pct_of_family_reachable": 63.6,
+        "primary_access": 2,
+        "secondary_only": 5,
+        "tertiary_only": 0
+      },
+      "UB": {
+        "reachable": 8,
+        "unavailable": 3,
+        "pct_of_family_reachable": 72.7,
+        "primary_access": 7,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "UR": {
+        "reachable": 10,
+        "unavailable": 1,
+        "pct_of_family_reachable": 90.9,
+        "primary_access": 9,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "UG": {
+        "reachable": 9,
+        "unavailable": 2,
+        "pct_of_family_reachable": 81.8,
+        "primary_access": 8,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "BR": {
+        "reachable": 6,
+        "unavailable": 5,
+        "pct_of_family_reachable": 54.5,
+        "primary_access": 3,
+        "secondary_only": 3,
+        "tertiary_only": 0
+      },
+      "BG": {
+        "reachable": 8,
+        "unavailable": 3,
+        "pct_of_family_reachable": 72.7,
+        "primary_access": 3,
+        "secondary_only": 5,
+        "tertiary_only": 0
+      },
+      "RG": {
+        "reachable": 10,
+        "unavailable": 1,
+        "pct_of_family_reachable": 90.9,
+        "primary_access": 4,
+        "secondary_only": 6,
+        "tertiary_only": 0
+      },
+      "WUB": {
+        "reachable": 9,
+        "unavailable": 2,
+        "pct_of_family_reachable": 81.8,
+        "primary_access": 8,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WUR": {
+        "reachable": 11,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 10,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WUG": {
+        "reachable": 9,
+        "unavailable": 2,
+        "pct_of_family_reachable": 81.8,
+        "primary_access": 8,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WBR": {
+        "reachable": 7,
+        "unavailable": 4,
+        "pct_of_family_reachable": 63.6,
+        "primary_access": 4,
+        "secondary_only": 3,
+        "tertiary_only": 0
+      },
+      "WBG": {
+        "reachable": 8,
+        "unavailable": 3,
+        "pct_of_family_reachable": 72.7,
+        "primary_access": 3,
+        "secondary_only": 5,
+        "tertiary_only": 0
+      },
+      "WRG": {
+        "reachable": 10,
+        "unavailable": 1,
+        "pct_of_family_reachable": 90.9,
+        "primary_access": 4,
+        "secondary_only": 6,
+        "tertiary_only": 0
+      },
+      "UBR": {
+        "reachable": 10,
+        "unavailable": 1,
+        "pct_of_family_reachable": 90.9,
+        "primary_access": 9,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "UBG": {
+        "reachable": 9,
+        "unavailable": 2,
+        "pct_of_family_reachable": 81.8,
+        "primary_access": 8,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "URG": {
+        "reachable": 11,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 10,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "BRG": {
+        "reachable": 10,
+        "unavailable": 1,
+        "pct_of_family_reachable": 90.9,
+        "primary_access": 5,
+        "secondary_only": 5,
+        "tertiary_only": 0
+      },
+      "WUBR": {
+        "reachable": 11,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 10,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WUBG": {
+        "reachable": 9,
+        "unavailable": 2,
+        "pct_of_family_reachable": 81.8,
+        "primary_access": 8,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WURG": {
+        "reachable": 11,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 10,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WBRG": {
+        "reachable": 10,
+        "unavailable": 1,
+        "pct_of_family_reachable": 90.9,
+        "primary_access": 5,
+        "secondary_only": 5,
+        "tertiary_only": 0
+      },
+      "UBRG": {
+        "reachable": 11,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 10,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WUBRG": {
+        "reachable": 11,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 10,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      }
+    },
+    "card_type_affinity": {
+      "W": {
+        "reachable": 8,
+        "unavailable": 2,
+        "pct_of_family_reachable": 80.0,
+        "primary_access": 5,
+        "secondary_only": 2,
+        "tertiary_only": 1
+      },
+      "U": {
+        "reachable": 5,
+        "unavailable": 5,
+        "pct_of_family_reachable": 50.0,
+        "primary_access": 4,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "B": {
+        "reachable": 2,
+        "unavailable": 8,
+        "pct_of_family_reachable": 20.0,
+        "primary_access": 0,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "R": {
+        "reachable": 5,
+        "unavailable": 5,
+        "pct_of_family_reachable": 50.0,
+        "primary_access": 1,
+        "secondary_only": 4,
+        "tertiary_only": 0
+      },
+      "G": {
+        "reachable": 3,
+        "unavailable": 7,
+        "pct_of_family_reachable": 30.0,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WU": {
+        "reachable": 10,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 8,
+        "secondary_only": 2,
+        "tertiary_only": 0
+      },
+      "WB": {
+        "reachable": 8,
+        "unavailable": 2,
+        "pct_of_family_reachable": 80.0,
+        "primary_access": 5,
+        "secondary_only": 2,
+        "tertiary_only": 1
+      },
+      "WR": {
+        "reachable": 10,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 6,
+        "secondary_only": 4,
+        "tertiary_only": 0
+      },
+      "WG": {
+        "reachable": 8,
+        "unavailable": 2,
+        "pct_of_family_reachable": 80.0,
+        "primary_access": 7,
+        "secondary_only": 0,
+        "tertiary_only": 1
+      },
+      "UB": {
+        "reachable": 6,
+        "unavailable": 4,
+        "pct_of_family_reachable": 60.0,
+        "primary_access": 4,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "UR": {
+        "reachable": 5,
+        "unavailable": 5,
+        "pct_of_family_reachable": 50.0,
+        "primary_access": 4,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "UG": {
+        "reachable": 7,
+        "unavailable": 3,
+        "pct_of_family_reachable": 70.0,
+        "primary_access": 7,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "BR": {
+        "reachable": 6,
+        "unavailable": 4,
+        "pct_of_family_reachable": 60.0,
+        "primary_access": 1,
+        "secondary_only": 4,
+        "tertiary_only": 1
+      },
+      "BG": {
+        "reachable": 3,
+        "unavailable": 7,
+        "pct_of_family_reachable": 30.0,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "RG": {
+        "reachable": 7,
+        "unavailable": 3,
+        "pct_of_family_reachable": 70.0,
+        "primary_access": 4,
+        "secondary_only": 3,
+        "tertiary_only": 0
+      },
+      "WUB": {
+        "reachable": 10,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 8,
+        "secondary_only": 2,
+        "tertiary_only": 0
+      },
+      "WUR": {
+        "reachable": 10,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 8,
+        "secondary_only": 2,
+        "tertiary_only": 0
+      },
+      "WUG": {
+        "reachable": 10,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 10,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WBR": {
+        "reachable": 10,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 6,
+        "secondary_only": 4,
+        "tertiary_only": 0
+      },
+      "WBG": {
+        "reachable": 8,
+        "unavailable": 2,
+        "pct_of_family_reachable": 80.0,
+        "primary_access": 7,
+        "secondary_only": 0,
+        "tertiary_only": 1
+      },
+      "WRG": {
+        "reachable": 10,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 8,
+        "secondary_only": 2,
+        "tertiary_only": 0
+      },
+      "UBR": {
+        "reachable": 6,
+        "unavailable": 4,
+        "pct_of_family_reachable": 60.0,
+        "primary_access": 4,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "UBG": {
+        "reachable": 7,
+        "unavailable": 3,
+        "pct_of_family_reachable": 70.0,
+        "primary_access": 7,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "URG": {
+        "reachable": 7,
+        "unavailable": 3,
+        "pct_of_family_reachable": 70.0,
+        "primary_access": 7,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "BRG": {
+        "reachable": 7,
+        "unavailable": 3,
+        "pct_of_family_reachable": 70.0,
+        "primary_access": 4,
+        "secondary_only": 3,
+        "tertiary_only": 0
+      },
+      "WUBR": {
+        "reachable": 10,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 8,
+        "secondary_only": 2,
+        "tertiary_only": 0
+      },
+      "WUBG": {
+        "reachable": 10,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 10,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WURG": {
+        "reachable": 10,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 10,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WBRG": {
+        "reachable": 10,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 8,
+        "secondary_only": 2,
+        "tertiary_only": 0
+      },
+      "UBRG": {
+        "reachable": 7,
+        "unavailable": 3,
+        "pct_of_family_reachable": 70.0,
+        "primary_access": 7,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUBRG": {
+        "reachable": 10,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 10,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      }
+    },
+    "sacrifice": {
+      "W": {
+        "reachable": 1,
+        "unavailable": 7,
+        "pct_of_family_reachable": 12.5,
+        "primary_access": 0,
+        "secondary_only": 0,
+        "tertiary_only": 1
+      },
+      "U": {
+        "reachable": 1,
+        "unavailable": 7,
+        "pct_of_family_reachable": 12.5,
+        "primary_access": 0,
+        "secondary_only": 0,
+        "tertiary_only": 1
+      },
+      "B": {
+        "reachable": 6,
+        "unavailable": 2,
+        "pct_of_family_reachable": 75.0,
+        "primary_access": 4,
+        "secondary_only": 2,
+        "tertiary_only": 0
+      },
+      "R": {
+        "reachable": 7,
+        "unavailable": 1,
+        "pct_of_family_reachable": 87.5,
+        "primary_access": 6,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "G": {
+        "reachable": 2,
+        "unavailable": 6,
+        "pct_of_family_reachable": 25.0,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 1
+      },
+      "WU": {
+        "reachable": 1,
+        "unavailable": 7,
+        "pct_of_family_reachable": 12.5,
+        "primary_access": 0,
+        "secondary_only": 0,
+        "tertiary_only": 1
+      },
+      "WB": {
+        "reachable": 6,
+        "unavailable": 2,
+        "pct_of_family_reachable": 75.0,
+        "primary_access": 4,
+        "secondary_only": 2,
+        "tertiary_only": 0
+      },
+      "WR": {
+        "reachable": 7,
+        "unavailable": 1,
+        "pct_of_family_reachable": 87.5,
+        "primary_access": 6,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WG": {
+        "reachable": 2,
+        "unavailable": 6,
+        "pct_of_family_reachable": 25.0,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 1
+      },
+      "UB": {
+        "reachable": 6,
+        "unavailable": 2,
+        "pct_of_family_reachable": 75.0,
+        "primary_access": 4,
+        "secondary_only": 2,
+        "tertiary_only": 0
+      },
+      "UR": {
+        "reachable": 7,
+        "unavailable": 1,
+        "pct_of_family_reachable": 87.5,
+        "primary_access": 6,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "UG": {
+        "reachable": 2,
+        "unavailable": 6,
+        "pct_of_family_reachable": 25.0,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 1
+      },
+      "BR": {
+        "reachable": 8,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 8,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "BG": {
+        "reachable": 7,
+        "unavailable": 1,
+        "pct_of_family_reachable": 87.5,
+        "primary_access": 5,
+        "secondary_only": 2,
+        "tertiary_only": 0
+      },
+      "RG": {
+        "reachable": 7,
+        "unavailable": 1,
+        "pct_of_family_reachable": 87.5,
+        "primary_access": 6,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WUB": {
+        "reachable": 6,
+        "unavailable": 2,
+        "pct_of_family_reachable": 75.0,
+        "primary_access": 4,
+        "secondary_only": 2,
+        "tertiary_only": 0
+      },
+      "WUR": {
+        "reachable": 7,
+        "unavailable": 1,
+        "pct_of_family_reachable": 87.5,
+        "primary_access": 6,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WUG": {
+        "reachable": 2,
+        "unavailable": 6,
+        "pct_of_family_reachable": 25.0,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 1
+      },
+      "WBR": {
+        "reachable": 8,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 8,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WBG": {
+        "reachable": 7,
+        "unavailable": 1,
+        "pct_of_family_reachable": 87.5,
+        "primary_access": 5,
+        "secondary_only": 2,
+        "tertiary_only": 0
+      },
+      "WRG": {
+        "reachable": 7,
+        "unavailable": 1,
+        "pct_of_family_reachable": 87.5,
+        "primary_access": 6,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "UBR": {
+        "reachable": 8,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 8,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "UBG": {
+        "reachable": 7,
+        "unavailable": 1,
+        "pct_of_family_reachable": 87.5,
+        "primary_access": 5,
+        "secondary_only": 2,
+        "tertiary_only": 0
+      },
+      "URG": {
+        "reachable": 7,
+        "unavailable": 1,
+        "pct_of_family_reachable": 87.5,
+        "primary_access": 6,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "BRG": {
+        "reachable": 8,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 8,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUBR": {
+        "reachable": 8,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 8,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUBG": {
+        "reachable": 7,
+        "unavailable": 1,
+        "pct_of_family_reachable": 87.5,
+        "primary_access": 5,
+        "secondary_only": 2,
+        "tertiary_only": 0
+      },
+      "WURG": {
+        "reachable": 7,
+        "unavailable": 1,
+        "pct_of_family_reachable": 87.5,
+        "primary_access": 6,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WBRG": {
+        "reachable": 8,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 8,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "UBRG": {
+        "reachable": 8,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 8,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUBRG": {
+        "reachable": 8,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 8,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      }
+    },
+    "disruption": {
+      "W": {
+        "reachable": 0,
+        "unavailable": 8,
+        "pct_of_family_reachable": 0.0,
+        "primary_access": 0,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "U": {
+        "reachable": 2,
+        "unavailable": 6,
+        "pct_of_family_reachable": 25.0,
+        "primary_access": 2,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "B": {
+        "reachable": 6,
+        "unavailable": 2,
+        "pct_of_family_reachable": 75.0,
+        "primary_access": 3,
+        "secondary_only": 3,
+        "tertiary_only": 0
+      },
+      "R": {
+        "reachable": 3,
+        "unavailable": 5,
+        "pct_of_family_reachable": 37.5,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "G": {
+        "reachable": 0,
+        "unavailable": 8,
+        "pct_of_family_reachable": 0.0,
+        "primary_access": 0,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WU": {
+        "reachable": 2,
+        "unavailable": 6,
+        "pct_of_family_reachable": 25.0,
+        "primary_access": 2,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WB": {
+        "reachable": 6,
+        "unavailable": 2,
+        "pct_of_family_reachable": 75.0,
+        "primary_access": 3,
+        "secondary_only": 3,
+        "tertiary_only": 0
+      },
+      "WR": {
+        "reachable": 3,
+        "unavailable": 5,
+        "pct_of_family_reachable": 37.5,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WG": {
+        "reachable": 0,
+        "unavailable": 8,
+        "pct_of_family_reachable": 0.0,
+        "primary_access": 0,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "UB": {
+        "reachable": 6,
+        "unavailable": 2,
+        "pct_of_family_reachable": 75.0,
+        "primary_access": 5,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "UR": {
+        "reachable": 5,
+        "unavailable": 3,
+        "pct_of_family_reachable": 62.5,
+        "primary_access": 5,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "UG": {
+        "reachable": 2,
+        "unavailable": 6,
+        "pct_of_family_reachable": 25.0,
+        "primary_access": 2,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "BR": {
+        "reachable": 8,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 6,
+        "secondary_only": 2,
+        "tertiary_only": 0
+      },
+      "BG": {
+        "reachable": 6,
+        "unavailable": 2,
+        "pct_of_family_reachable": 75.0,
+        "primary_access": 3,
+        "secondary_only": 3,
+        "tertiary_only": 0
+      },
+      "RG": {
+        "reachable": 3,
+        "unavailable": 5,
+        "pct_of_family_reachable": 37.5,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUB": {
+        "reachable": 6,
+        "unavailable": 2,
+        "pct_of_family_reachable": 75.0,
+        "primary_access": 5,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WUR": {
+        "reachable": 5,
+        "unavailable": 3,
+        "pct_of_family_reachable": 62.5,
+        "primary_access": 5,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUG": {
+        "reachable": 2,
+        "unavailable": 6,
+        "pct_of_family_reachable": 25.0,
+        "primary_access": 2,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WBR": {
+        "reachable": 8,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 6,
+        "secondary_only": 2,
+        "tertiary_only": 0
+      },
+      "WBG": {
+        "reachable": 6,
+        "unavailable": 2,
+        "pct_of_family_reachable": 75.0,
+        "primary_access": 3,
+        "secondary_only": 3,
+        "tertiary_only": 0
+      },
+      "WRG": {
+        "reachable": 3,
+        "unavailable": 5,
+        "pct_of_family_reachable": 37.5,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "UBR": {
+        "reachable": 8,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 8,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "UBG": {
+        "reachable": 6,
+        "unavailable": 2,
+        "pct_of_family_reachable": 75.0,
+        "primary_access": 5,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "URG": {
+        "reachable": 5,
+        "unavailable": 3,
+        "pct_of_family_reachable": 62.5,
+        "primary_access": 5,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "BRG": {
+        "reachable": 8,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 6,
+        "secondary_only": 2,
+        "tertiary_only": 0
+      },
+      "WUBR": {
+        "reachable": 8,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 8,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUBG": {
+        "reachable": 6,
+        "unavailable": 2,
+        "pct_of_family_reachable": 75.0,
+        "primary_access": 5,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WURG": {
+        "reachable": 5,
+        "unavailable": 3,
+        "pct_of_family_reachable": 62.5,
+        "primary_access": 5,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WBRG": {
+        "reachable": 8,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 6,
+        "secondary_only": 2,
+        "tertiary_only": 0
+      },
+      "UBRG": {
+        "reachable": 8,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 8,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUBRG": {
+        "reachable": 8,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 8,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      }
+    },
+    "characteristic_change": {
+      "W": {
+        "reachable": 3,
+        "unavailable": 4,
+        "pct_of_family_reachable": 42.9,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 2
+      },
+      "U": {
+        "reachable": 7,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 5,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "B": {
+        "reachable": 2,
+        "unavailable": 5,
+        "pct_of_family_reachable": 28.6,
+        "primary_access": 0,
+        "secondary_only": 0,
+        "tertiary_only": 2
+      },
+      "R": {
+        "reachable": 1,
+        "unavailable": 6,
+        "pct_of_family_reachable": 14.3,
+        "primary_access": 0,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "G": {
+        "reachable": 3,
+        "unavailable": 4,
+        "pct_of_family_reachable": 42.9,
+        "primary_access": 1,
+        "secondary_only": 2,
+        "tertiary_only": 0
+      },
+      "WU": {
+        "reachable": 7,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 6,
+        "secondary_only": 0,
+        "tertiary_only": 1
+      },
+      "WB": {
+        "reachable": 3,
+        "unavailable": 4,
+        "pct_of_family_reachable": 42.9,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 2
+      },
+      "WR": {
+        "reachable": 3,
+        "unavailable": 4,
+        "pct_of_family_reachable": 42.9,
+        "primary_access": 1,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "WG": {
+        "reachable": 4,
+        "unavailable": 3,
+        "pct_of_family_reachable": 57.1,
+        "primary_access": 2,
+        "secondary_only": 2,
+        "tertiary_only": 0
+      },
+      "UB": {
+        "reachable": 7,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 5,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "UR": {
+        "reachable": 7,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 5,
+        "secondary_only": 2,
+        "tertiary_only": 0
+      },
+      "UG": {
+        "reachable": 7,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 6,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "BR": {
+        "reachable": 2,
+        "unavailable": 5,
+        "pct_of_family_reachable": 28.6,
+        "primary_access": 0,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "BG": {
+        "reachable": 3,
+        "unavailable": 4,
+        "pct_of_family_reachable": 42.9,
+        "primary_access": 1,
+        "secondary_only": 2,
+        "tertiary_only": 0
+      },
+      "RG": {
+        "reachable": 3,
+        "unavailable": 4,
+        "pct_of_family_reachable": 42.9,
+        "primary_access": 1,
+        "secondary_only": 2,
+        "tertiary_only": 0
+      },
+      "WUB": {
+        "reachable": 7,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 6,
+        "secondary_only": 0,
+        "tertiary_only": 1
+      },
+      "WUR": {
+        "reachable": 7,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 6,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WUG": {
+        "reachable": 7,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 7,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WBR": {
+        "reachable": 3,
+        "unavailable": 4,
+        "pct_of_family_reachable": 42.9,
+        "primary_access": 1,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "WBG": {
+        "reachable": 4,
+        "unavailable": 3,
+        "pct_of_family_reachable": 57.1,
+        "primary_access": 2,
+        "secondary_only": 2,
+        "tertiary_only": 0
+      },
+      "WRG": {
+        "reachable": 4,
+        "unavailable": 3,
+        "pct_of_family_reachable": 57.1,
+        "primary_access": 2,
+        "secondary_only": 2,
+        "tertiary_only": 0
+      },
+      "UBR": {
+        "reachable": 7,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 5,
+        "secondary_only": 2,
+        "tertiary_only": 0
+      },
+      "UBG": {
+        "reachable": 7,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 6,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "URG": {
+        "reachable": 7,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 6,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "BRG": {
+        "reachable": 3,
+        "unavailable": 4,
+        "pct_of_family_reachable": 42.9,
+        "primary_access": 1,
+        "secondary_only": 2,
+        "tertiary_only": 0
+      },
+      "WUBR": {
+        "reachable": 7,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 6,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WUBG": {
+        "reachable": 7,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 7,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WURG": {
+        "reachable": 7,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 7,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WBRG": {
+        "reachable": 4,
+        "unavailable": 3,
+        "pct_of_family_reachable": 57.1,
+        "primary_access": 2,
+        "secondary_only": 2,
+        "tertiary_only": 0
+      },
+      "UBRG": {
+        "reachable": 7,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 6,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WUBRG": {
+        "reachable": 7,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 7,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      }
+    },
+    "tutoring": {
+      "W": {
+        "reachable": 5,
+        "unavailable": 2,
+        "pct_of_family_reachable": 71.4,
+        "primary_access": 2,
+        "secondary_only": 2,
+        "tertiary_only": 1
+      },
+      "U": {
+        "reachable": 4,
+        "unavailable": 3,
+        "pct_of_family_reachable": 57.1,
+        "primary_access": 2,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "B": {
+        "reachable": 3,
+        "unavailable": 4,
+        "pct_of_family_reachable": 42.9,
+        "primary_access": 1,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "R": {
+        "reachable": 3,
+        "unavailable": 4,
+        "pct_of_family_reachable": 42.9,
+        "primary_access": 0,
+        "secondary_only": 2,
+        "tertiary_only": 1
+      },
+      "G": {
+        "reachable": 2,
+        "unavailable": 5,
+        "pct_of_family_reachable": 28.6,
+        "primary_access": 2,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WU": {
+        "reachable": 6,
+        "unavailable": 1,
+        "pct_of_family_reachable": 85.7,
+        "primary_access": 4,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "WB": {
+        "reachable": 6,
+        "unavailable": 1,
+        "pct_of_family_reachable": 85.7,
+        "primary_access": 3,
+        "secondary_only": 2,
+        "tertiary_only": 1
+      },
+      "WR": {
+        "reachable": 6,
+        "unavailable": 1,
+        "pct_of_family_reachable": 85.7,
+        "primary_access": 2,
+        "secondary_only": 3,
+        "tertiary_only": 1
+      },
+      "WG": {
+        "reachable": 5,
+        "unavailable": 2,
+        "pct_of_family_reachable": 71.4,
+        "primary_access": 4,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "UB": {
+        "reachable": 5,
+        "unavailable": 2,
+        "pct_of_family_reachable": 71.4,
+        "primary_access": 3,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "UR": {
+        "reachable": 4,
+        "unavailable": 3,
+        "pct_of_family_reachable": 57.1,
+        "primary_access": 2,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "UG": {
+        "reachable": 4,
+        "unavailable": 3,
+        "pct_of_family_reachable": 57.1,
+        "primary_access": 4,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "BR": {
+        "reachable": 4,
+        "unavailable": 3,
+        "pct_of_family_reachable": 57.1,
+        "primary_access": 1,
+        "secondary_only": 2,
+        "tertiary_only": 1
+      },
+      "BG": {
+        "reachable": 3,
+        "unavailable": 4,
+        "pct_of_family_reachable": 42.9,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "RG": {
+        "reachable": 3,
+        "unavailable": 4,
+        "pct_of_family_reachable": 42.9,
+        "primary_access": 2,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WUB": {
+        "reachable": 7,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 5,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "WUR": {
+        "reachable": 6,
+        "unavailable": 1,
+        "pct_of_family_reachable": 85.7,
+        "primary_access": 4,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "WUG": {
+        "reachable": 6,
+        "unavailable": 1,
+        "pct_of_family_reachable": 85.7,
+        "primary_access": 6,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WBR": {
+        "reachable": 7,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 3,
+        "secondary_only": 3,
+        "tertiary_only": 1
+      },
+      "WBG": {
+        "reachable": 6,
+        "unavailable": 1,
+        "pct_of_family_reachable": 85.7,
+        "primary_access": 5,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WRG": {
+        "reachable": 6,
+        "unavailable": 1,
+        "pct_of_family_reachable": 85.7,
+        "primary_access": 4,
+        "secondary_only": 2,
+        "tertiary_only": 0
+      },
+      "UBR": {
+        "reachable": 5,
+        "unavailable": 2,
+        "pct_of_family_reachable": 71.4,
+        "primary_access": 3,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "UBG": {
+        "reachable": 5,
+        "unavailable": 2,
+        "pct_of_family_reachable": 71.4,
+        "primary_access": 5,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "URG": {
+        "reachable": 4,
+        "unavailable": 3,
+        "pct_of_family_reachable": 57.1,
+        "primary_access": 4,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "BRG": {
+        "reachable": 4,
+        "unavailable": 3,
+        "pct_of_family_reachable": 57.1,
+        "primary_access": 3,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WUBR": {
+        "reachable": 7,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 5,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "WUBG": {
+        "reachable": 7,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 7,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WURG": {
+        "reachable": 6,
+        "unavailable": 1,
+        "pct_of_family_reachable": 85.7,
+        "primary_access": 6,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WBRG": {
+        "reachable": 7,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 5,
+        "secondary_only": 2,
+        "tertiary_only": 0
+      },
+      "UBRG": {
+        "reachable": 5,
+        "unavailable": 2,
+        "pct_of_family_reachable": 71.4,
+        "primary_access": 5,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUBRG": {
+        "reachable": 7,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 7,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      }
+    },
+    "mana": {
+      "W": {
+        "reachable": 1,
+        "unavailable": 6,
+        "pct_of_family_reachable": 14.3,
+        "primary_access": 0,
+        "secondary_only": 0,
+        "tertiary_only": 1
+      },
+      "U": {
+        "reachable": 4,
+        "unavailable": 3,
+        "pct_of_family_reachable": 57.1,
+        "primary_access": 0,
+        "secondary_only": 1,
+        "tertiary_only": 3
+      },
+      "B": {
+        "reachable": 4,
+        "unavailable": 3,
+        "pct_of_family_reachable": 57.1,
+        "primary_access": 0,
+        "secondary_only": 3,
+        "tertiary_only": 1
+      },
+      "R": {
+        "reachable": 3,
+        "unavailable": 4,
+        "pct_of_family_reachable": 42.9,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "G": {
+        "reachable": 6,
+        "unavailable": 1,
+        "pct_of_family_reachable": 85.7,
+        "primary_access": 4,
+        "secondary_only": 2,
+        "tertiary_only": 0
+      },
+      "WU": {
+        "reachable": 4,
+        "unavailable": 3,
+        "pct_of_family_reachable": 57.1,
+        "primary_access": 0,
+        "secondary_only": 1,
+        "tertiary_only": 3
+      },
+      "WB": {
+        "reachable": 4,
+        "unavailable": 3,
+        "pct_of_family_reachable": 57.1,
+        "primary_access": 0,
+        "secondary_only": 3,
+        "tertiary_only": 1
+      },
+      "WR": {
+        "reachable": 3,
+        "unavailable": 4,
+        "pct_of_family_reachable": 42.9,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WG": {
+        "reachable": 6,
+        "unavailable": 1,
+        "pct_of_family_reachable": 85.7,
+        "primary_access": 4,
+        "secondary_only": 2,
+        "tertiary_only": 0
+      },
+      "UB": {
+        "reachable": 5,
+        "unavailable": 2,
+        "pct_of_family_reachable": 71.4,
+        "primary_access": 0,
+        "secondary_only": 4,
+        "tertiary_only": 1
+      },
+      "UR": {
+        "reachable": 5,
+        "unavailable": 2,
+        "pct_of_family_reachable": 71.4,
+        "primary_access": 3,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "UG": {
+        "reachable": 6,
+        "unavailable": 1,
+        "pct_of_family_reachable": 85.7,
+        "primary_access": 4,
+        "secondary_only": 2,
+        "tertiary_only": 0
+      },
+      "BR": {
+        "reachable": 4,
+        "unavailable": 3,
+        "pct_of_family_reachable": 57.1,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 1
+      },
+      "BG": {
+        "reachable": 7,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 4,
+        "secondary_only": 3,
+        "tertiary_only": 0
+      },
+      "RG": {
+        "reachable": 7,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 7,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUB": {
+        "reachable": 5,
+        "unavailable": 2,
+        "pct_of_family_reachable": 71.4,
+        "primary_access": 0,
+        "secondary_only": 4,
+        "tertiary_only": 1
+      },
+      "WUR": {
+        "reachable": 5,
+        "unavailable": 2,
+        "pct_of_family_reachable": 71.4,
+        "primary_access": 3,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "WUG": {
+        "reachable": 6,
+        "unavailable": 1,
+        "pct_of_family_reachable": 85.7,
+        "primary_access": 4,
+        "secondary_only": 2,
+        "tertiary_only": 0
+      },
+      "WBR": {
+        "reachable": 4,
+        "unavailable": 3,
+        "pct_of_family_reachable": 57.1,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 1
+      },
+      "WBG": {
+        "reachable": 7,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 4,
+        "secondary_only": 3,
+        "tertiary_only": 0
+      },
+      "WRG": {
+        "reachable": 7,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 7,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "UBR": {
+        "reachable": 5,
+        "unavailable": 2,
+        "pct_of_family_reachable": 71.4,
+        "primary_access": 3,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "UBG": {
+        "reachable": 7,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 4,
+        "secondary_only": 3,
+        "tertiary_only": 0
+      },
+      "URG": {
+        "reachable": 7,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 7,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "BRG": {
+        "reachable": 7,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 7,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUBR": {
+        "reachable": 5,
+        "unavailable": 2,
+        "pct_of_family_reachable": 71.4,
+        "primary_access": 3,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "WUBG": {
+        "reachable": 7,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 4,
+        "secondary_only": 3,
+        "tertiary_only": 0
+      },
+      "WURG": {
+        "reachable": 7,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 7,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WBRG": {
+        "reachable": 7,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 7,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "UBRG": {
+        "reachable": 7,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 7,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUBRG": {
+        "reachable": 7,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 7,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      }
+    },
+    "life": {
+      "W": {
+        "reachable": 4,
+        "unavailable": 2,
+        "pct_of_family_reachable": 66.7,
+        "primary_access": 2,
+        "secondary_only": 0,
+        "tertiary_only": 2
+      },
+      "U": {
+        "reachable": 1,
+        "unavailable": 5,
+        "pct_of_family_reachable": 16.7,
+        "primary_access": 0,
+        "secondary_only": 0,
+        "tertiary_only": 1
+      },
+      "B": {
+        "reachable": 6,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 5,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "R": {
+        "reachable": 1,
+        "unavailable": 5,
+        "pct_of_family_reachable": 16.7,
+        "primary_access": 0,
+        "secondary_only": 0,
+        "tertiary_only": 1
+      },
+      "G": {
+        "reachable": 2,
+        "unavailable": 4,
+        "pct_of_family_reachable": 33.3,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 1
+      },
+      "WU": {
+        "reachable": 4,
+        "unavailable": 2,
+        "pct_of_family_reachable": 66.7,
+        "primary_access": 2,
+        "secondary_only": 0,
+        "tertiary_only": 2
+      },
+      "WB": {
+        "reachable": 6,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 6,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WR": {
+        "reachable": 4,
+        "unavailable": 2,
+        "pct_of_family_reachable": 66.7,
+        "primary_access": 2,
+        "secondary_only": 0,
+        "tertiary_only": 2
+      },
+      "WG": {
+        "reachable": 4,
+        "unavailable": 2,
+        "pct_of_family_reachable": 66.7,
+        "primary_access": 2,
+        "secondary_only": 0,
+        "tertiary_only": 2
+      },
+      "UB": {
+        "reachable": 6,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 5,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "UR": {
+        "reachable": 1,
+        "unavailable": 5,
+        "pct_of_family_reachable": 16.7,
+        "primary_access": 0,
+        "secondary_only": 0,
+        "tertiary_only": 1
+      },
+      "UG": {
+        "reachable": 2,
+        "unavailable": 4,
+        "pct_of_family_reachable": 33.3,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 1
+      },
+      "BR": {
+        "reachable": 6,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 5,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "BG": {
+        "reachable": 6,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 6,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "RG": {
+        "reachable": 2,
+        "unavailable": 4,
+        "pct_of_family_reachable": 33.3,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 1
+      },
+      "WUB": {
+        "reachable": 6,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 6,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUR": {
+        "reachable": 4,
+        "unavailable": 2,
+        "pct_of_family_reachable": 66.7,
+        "primary_access": 2,
+        "secondary_only": 0,
+        "tertiary_only": 2
+      },
+      "WUG": {
+        "reachable": 4,
+        "unavailable": 2,
+        "pct_of_family_reachable": 66.7,
+        "primary_access": 2,
+        "secondary_only": 0,
+        "tertiary_only": 2
+      },
+      "WBR": {
+        "reachable": 6,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 6,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WBG": {
+        "reachable": 6,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 6,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WRG": {
+        "reachable": 4,
+        "unavailable": 2,
+        "pct_of_family_reachable": 66.7,
+        "primary_access": 2,
+        "secondary_only": 0,
+        "tertiary_only": 2
+      },
+      "UBR": {
+        "reachable": 6,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 5,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "UBG": {
+        "reachable": 6,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 6,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "URG": {
+        "reachable": 2,
+        "unavailable": 4,
+        "pct_of_family_reachable": 33.3,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 1
+      },
+      "BRG": {
+        "reachable": 6,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 6,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUBR": {
+        "reachable": 6,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 6,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUBG": {
+        "reachable": 6,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 6,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WURG": {
+        "reachable": 4,
+        "unavailable": 2,
+        "pct_of_family_reachable": 66.7,
+        "primary_access": 2,
+        "secondary_only": 0,
+        "tertiary_only": 2
+      },
+      "WBRG": {
+        "reachable": 6,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 6,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "UBRG": {
+        "reachable": 6,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 6,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUBRG": {
+        "reachable": 6,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 6,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      }
+    },
+    "counters": {
+      "W": {
+        "reachable": 2,
+        "unavailable": 3,
+        "pct_of_family_reachable": 40.0,
+        "primary_access": 1,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "U": {
+        "reachable": 3,
+        "unavailable": 2,
+        "pct_of_family_reachable": 60.0,
+        "primary_access": 2,
+        "secondary_only": 0,
+        "tertiary_only": 1
+      },
+      "B": {
+        "reachable": 3,
+        "unavailable": 2,
+        "pct_of_family_reachable": 60.0,
+        "primary_access": 1,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "R": {
+        "reachable": 2,
+        "unavailable": 3,
+        "pct_of_family_reachable": 40.0,
+        "primary_access": 0,
+        "secondary_only": 0,
+        "tertiary_only": 2
+      },
+      "G": {
+        "reachable": 3,
+        "unavailable": 2,
+        "pct_of_family_reachable": 60.0,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WU": {
+        "reachable": 3,
+        "unavailable": 2,
+        "pct_of_family_reachable": 60.0,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WB": {
+        "reachable": 4,
+        "unavailable": 1,
+        "pct_of_family_reachable": 80.0,
+        "primary_access": 2,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "WR": {
+        "reachable": 3,
+        "unavailable": 2,
+        "pct_of_family_reachable": 60.0,
+        "primary_access": 1,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "WG": {
+        "reachable": 3,
+        "unavailable": 2,
+        "pct_of_family_reachable": 60.0,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "UB": {
+        "reachable": 5,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 3,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "UR": {
+        "reachable": 4,
+        "unavailable": 1,
+        "pct_of_family_reachable": 80.0,
+        "primary_access": 2,
+        "secondary_only": 0,
+        "tertiary_only": 2
+      },
+      "UG": {
+        "reachable": 4,
+        "unavailable": 1,
+        "pct_of_family_reachable": 80.0,
+        "primary_access": 4,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "BR": {
+        "reachable": 3,
+        "unavailable": 2,
+        "pct_of_family_reachable": 60.0,
+        "primary_access": 1,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "BG": {
+        "reachable": 4,
+        "unavailable": 1,
+        "pct_of_family_reachable": 80.0,
+        "primary_access": 4,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "RG": {
+        "reachable": 3,
+        "unavailable": 2,
+        "pct_of_family_reachable": 60.0,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUB": {
+        "reachable": 5,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 4,
+        "secondary_only": 0,
+        "tertiary_only": 1
+      },
+      "WUR": {
+        "reachable": 4,
+        "unavailable": 1,
+        "pct_of_family_reachable": 80.0,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 1
+      },
+      "WUG": {
+        "reachable": 4,
+        "unavailable": 1,
+        "pct_of_family_reachable": 80.0,
+        "primary_access": 4,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WBR": {
+        "reachable": 4,
+        "unavailable": 1,
+        "pct_of_family_reachable": 80.0,
+        "primary_access": 2,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "WBG": {
+        "reachable": 4,
+        "unavailable": 1,
+        "pct_of_family_reachable": 80.0,
+        "primary_access": 4,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WRG": {
+        "reachable": 3,
+        "unavailable": 2,
+        "pct_of_family_reachable": 60.0,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "UBR": {
+        "reachable": 5,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 3,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "UBG": {
+        "reachable": 5,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 5,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "URG": {
+        "reachable": 4,
+        "unavailable": 1,
+        "pct_of_family_reachable": 80.0,
+        "primary_access": 4,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "BRG": {
+        "reachable": 4,
+        "unavailable": 1,
+        "pct_of_family_reachable": 80.0,
+        "primary_access": 4,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUBR": {
+        "reachable": 5,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 4,
+        "secondary_only": 0,
+        "tertiary_only": 1
+      },
+      "WUBG": {
+        "reachable": 5,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 5,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WURG": {
+        "reachable": 4,
+        "unavailable": 1,
+        "pct_of_family_reachable": 80.0,
+        "primary_access": 4,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WBRG": {
+        "reachable": 4,
+        "unavailable": 1,
+        "pct_of_family_reachable": 80.0,
+        "primary_access": 4,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "UBRG": {
+        "reachable": 5,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 5,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUBRG": {
+        "reachable": 5,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 5,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      }
+    },
+    "cheat_into_play": {
+      "W": {
+        "reachable": 4,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 2,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "U": {
+        "reachable": 3,
+        "unavailable": 1,
+        "pct_of_family_reachable": 75.0,
+        "primary_access": 1,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "B": {
+        "reachable": 1,
+        "unavailable": 3,
+        "pct_of_family_reachable": 25.0,
+        "primary_access": 0,
+        "secondary_only": 0,
+        "tertiary_only": 1
+      },
+      "R": {
+        "reachable": 1,
+        "unavailable": 3,
+        "pct_of_family_reachable": 25.0,
+        "primary_access": 0,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "G": {
+        "reachable": 2,
+        "unavailable": 2,
+        "pct_of_family_reachable": 50.0,
+        "primary_access": 1,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WU": {
+        "reachable": 4,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 3,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WB": {
+        "reachable": 4,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 2,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "WR": {
+        "reachable": 4,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 2,
+        "secondary_only": 2,
+        "tertiary_only": 0
+      },
+      "WG": {
+        "reachable": 4,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 3,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "UB": {
+        "reachable": 3,
+        "unavailable": 1,
+        "pct_of_family_reachable": 75.0,
+        "primary_access": 1,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "UR": {
+        "reachable": 3,
+        "unavailable": 1,
+        "pct_of_family_reachable": 75.0,
+        "primary_access": 1,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "UG": {
+        "reachable": 3,
+        "unavailable": 1,
+        "pct_of_family_reachable": 75.0,
+        "primary_access": 2,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "BR": {
+        "reachable": 1,
+        "unavailable": 3,
+        "pct_of_family_reachable": 25.0,
+        "primary_access": 0,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "BG": {
+        "reachable": 2,
+        "unavailable": 2,
+        "pct_of_family_reachable": 50.0,
+        "primary_access": 1,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "RG": {
+        "reachable": 2,
+        "unavailable": 2,
+        "pct_of_family_reachable": 50.0,
+        "primary_access": 1,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WUB": {
+        "reachable": 4,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 3,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WUR": {
+        "reachable": 4,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 3,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WUG": {
+        "reachable": 4,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 4,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WBR": {
+        "reachable": 4,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 2,
+        "secondary_only": 2,
+        "tertiary_only": 0
+      },
+      "WBG": {
+        "reachable": 4,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 3,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WRG": {
+        "reachable": 4,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 3,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "UBR": {
+        "reachable": 3,
+        "unavailable": 1,
+        "pct_of_family_reachable": 75.0,
+        "primary_access": 1,
+        "secondary_only": 1,
+        "tertiary_only": 1
+      },
+      "UBG": {
+        "reachable": 3,
+        "unavailable": 1,
+        "pct_of_family_reachable": 75.0,
+        "primary_access": 2,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "URG": {
+        "reachable": 3,
+        "unavailable": 1,
+        "pct_of_family_reachable": 75.0,
+        "primary_access": 2,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "BRG": {
+        "reachable": 2,
+        "unavailable": 2,
+        "pct_of_family_reachable": 50.0,
+        "primary_access": 1,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WUBR": {
+        "reachable": 4,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 3,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WUBG": {
+        "reachable": 4,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 4,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WURG": {
+        "reachable": 4,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 4,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WBRG": {
+        "reachable": 4,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 3,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "UBRG": {
+        "reachable": 3,
+        "unavailable": 1,
+        "pct_of_family_reachable": 75.0,
+        "primary_access": 2,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WUBRG": {
+        "reachable": 4,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 4,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      }
+    },
+    "control": {
+      "W": {
+        "reachable": 2,
+        "unavailable": 2,
+        "pct_of_family_reachable": 50.0,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 1
+      },
+      "U": {
+        "reachable": 3,
+        "unavailable": 1,
+        "pct_of_family_reachable": 75.0,
+        "primary_access": 2,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "B": {
+        "reachable": 1,
+        "unavailable": 3,
+        "pct_of_family_reachable": 25.0,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "R": {
+        "reachable": 0,
+        "unavailable": 4,
+        "pct_of_family_reachable": 0.0,
+        "primary_access": 0,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "G": {
+        "reachable": 1,
+        "unavailable": 3,
+        "pct_of_family_reachable": 25.0,
+        "primary_access": 0,
+        "secondary_only": 0,
+        "tertiary_only": 1
+      },
+      "WU": {
+        "reachable": 3,
+        "unavailable": 1,
+        "pct_of_family_reachable": 75.0,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WB": {
+        "reachable": 3,
+        "unavailable": 1,
+        "pct_of_family_reachable": 75.0,
+        "primary_access": 2,
+        "secondary_only": 0,
+        "tertiary_only": 1
+      },
+      "WR": {
+        "reachable": 2,
+        "unavailable": 2,
+        "pct_of_family_reachable": 50.0,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 1
+      },
+      "WG": {
+        "reachable": 3,
+        "unavailable": 1,
+        "pct_of_family_reachable": 75.0,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 2
+      },
+      "UB": {
+        "reachable": 4,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 3,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "UR": {
+        "reachable": 3,
+        "unavailable": 1,
+        "pct_of_family_reachable": 75.0,
+        "primary_access": 2,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "UG": {
+        "reachable": 3,
+        "unavailable": 1,
+        "pct_of_family_reachable": 75.0,
+        "primary_access": 2,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "BR": {
+        "reachable": 1,
+        "unavailable": 3,
+        "pct_of_family_reachable": 25.0,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "BG": {
+        "reachable": 2,
+        "unavailable": 2,
+        "pct_of_family_reachable": 50.0,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 1
+      },
+      "RG": {
+        "reachable": 1,
+        "unavailable": 3,
+        "pct_of_family_reachable": 25.0,
+        "primary_access": 0,
+        "secondary_only": 0,
+        "tertiary_only": 1
+      },
+      "WUB": {
+        "reachable": 4,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 4,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUR": {
+        "reachable": 3,
+        "unavailable": 1,
+        "pct_of_family_reachable": 75.0,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUG": {
+        "reachable": 3,
+        "unavailable": 1,
+        "pct_of_family_reachable": 75.0,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WBR": {
+        "reachable": 3,
+        "unavailable": 1,
+        "pct_of_family_reachable": 75.0,
+        "primary_access": 2,
+        "secondary_only": 0,
+        "tertiary_only": 1
+      },
+      "WBG": {
+        "reachable": 4,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 2,
+        "secondary_only": 0,
+        "tertiary_only": 2
+      },
+      "WRG": {
+        "reachable": 3,
+        "unavailable": 1,
+        "pct_of_family_reachable": 75.0,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 2
+      },
+      "UBR": {
+        "reachable": 4,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 3,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "UBG": {
+        "reachable": 4,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 3,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "URG": {
+        "reachable": 3,
+        "unavailable": 1,
+        "pct_of_family_reachable": 75.0,
+        "primary_access": 2,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "BRG": {
+        "reachable": 2,
+        "unavailable": 2,
+        "pct_of_family_reachable": 50.0,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 1
+      },
+      "WUBR": {
+        "reachable": 4,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 4,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUBG": {
+        "reachable": 4,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 4,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WURG": {
+        "reachable": 3,
+        "unavailable": 1,
+        "pct_of_family_reachable": 75.0,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WBRG": {
+        "reachable": 4,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 2,
+        "secondary_only": 0,
+        "tertiary_only": 2
+      },
+      "UBRG": {
+        "reachable": 4,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 3,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WUBRG": {
+        "reachable": 4,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 4,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      }
+    },
+    "copying": {
+      "W": {
+        "reachable": 0,
+        "unavailable": 3,
+        "pct_of_family_reachable": 0.0,
+        "primary_access": 0,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "U": {
+        "reachable": 3,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 2,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "B": {
+        "reachable": 0,
+        "unavailable": 3,
+        "pct_of_family_reachable": 0.0,
+        "primary_access": 0,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "R": {
+        "reachable": 2,
+        "unavailable": 1,
+        "pct_of_family_reachable": 66.7,
+        "primary_access": 2,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "G": {
+        "reachable": 0,
+        "unavailable": 3,
+        "pct_of_family_reachable": 0.0,
+        "primary_access": 0,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WU": {
+        "reachable": 3,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 2,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WB": {
+        "reachable": 0,
+        "unavailable": 3,
+        "pct_of_family_reachable": 0.0,
+        "primary_access": 0,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WR": {
+        "reachable": 2,
+        "unavailable": 1,
+        "pct_of_family_reachable": 66.7,
+        "primary_access": 2,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WG": {
+        "reachable": 0,
+        "unavailable": 3,
+        "pct_of_family_reachable": 0.0,
+        "primary_access": 0,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "UB": {
+        "reachable": 3,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 2,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "UR": {
+        "reachable": 3,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "UG": {
+        "reachable": 3,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 2,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "BR": {
+        "reachable": 2,
+        "unavailable": 1,
+        "pct_of_family_reachable": 66.7,
+        "primary_access": 2,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "BG": {
+        "reachable": 0,
+        "unavailable": 3,
+        "pct_of_family_reachable": 0.0,
+        "primary_access": 0,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "RG": {
+        "reachable": 2,
+        "unavailable": 1,
+        "pct_of_family_reachable": 66.7,
+        "primary_access": 2,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUB": {
+        "reachable": 3,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 2,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WUR": {
+        "reachable": 3,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUG": {
+        "reachable": 3,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 2,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WBR": {
+        "reachable": 2,
+        "unavailable": 1,
+        "pct_of_family_reachable": 66.7,
+        "primary_access": 2,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WBG": {
+        "reachable": 0,
+        "unavailable": 3,
+        "pct_of_family_reachable": 0.0,
+        "primary_access": 0,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WRG": {
+        "reachable": 2,
+        "unavailable": 1,
+        "pct_of_family_reachable": 66.7,
+        "primary_access": 2,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "UBR": {
+        "reachable": 3,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "UBG": {
+        "reachable": 3,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 2,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "URG": {
+        "reachable": 3,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "BRG": {
+        "reachable": 2,
+        "unavailable": 1,
+        "pct_of_family_reachable": 66.7,
+        "primary_access": 2,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUBR": {
+        "reachable": 3,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUBG": {
+        "reachable": 3,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 2,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WURG": {
+        "reachable": 3,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WBRG": {
+        "reachable": 2,
+        "unavailable": 1,
+        "pct_of_family_reachable": 66.7,
+        "primary_access": 2,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "UBRG": {
+        "reachable": 3,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUBRG": {
+        "reachable": 3,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      }
+    },
+    "rules_alteration": {
+      "W": {
+        "reachable": 3,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "U": {
+        "reachable": 1,
+        "unavailable": 2,
+        "pct_of_family_reachable": 33.3,
+        "primary_access": 0,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "B": {
+        "reachable": 1,
+        "unavailable": 2,
+        "pct_of_family_reachable": 33.3,
+        "primary_access": 0,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "R": {
+        "reachable": 1,
+        "unavailable": 2,
+        "pct_of_family_reachable": 33.3,
+        "primary_access": 0,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "G": {
+        "reachable": 1,
+        "unavailable": 2,
+        "pct_of_family_reachable": 33.3,
+        "primary_access": 0,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WU": {
+        "reachable": 3,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WB": {
+        "reachable": 3,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WR": {
+        "reachable": 3,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WG": {
+        "reachable": 3,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "UB": {
+        "reachable": 1,
+        "unavailable": 2,
+        "pct_of_family_reachable": 33.3,
+        "primary_access": 0,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "UR": {
+        "reachable": 1,
+        "unavailable": 2,
+        "pct_of_family_reachable": 33.3,
+        "primary_access": 0,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "UG": {
+        "reachable": 1,
+        "unavailable": 2,
+        "pct_of_family_reachable": 33.3,
+        "primary_access": 0,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "BR": {
+        "reachable": 1,
+        "unavailable": 2,
+        "pct_of_family_reachable": 33.3,
+        "primary_access": 0,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "BG": {
+        "reachable": 1,
+        "unavailable": 2,
+        "pct_of_family_reachable": 33.3,
+        "primary_access": 0,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "RG": {
+        "reachable": 1,
+        "unavailable": 2,
+        "pct_of_family_reachable": 33.3,
+        "primary_access": 0,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WUB": {
+        "reachable": 3,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUR": {
+        "reachable": 3,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUG": {
+        "reachable": 3,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WBR": {
+        "reachable": 3,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WBG": {
+        "reachable": 3,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WRG": {
+        "reachable": 3,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "UBR": {
+        "reachable": 1,
+        "unavailable": 2,
+        "pct_of_family_reachable": 33.3,
+        "primary_access": 0,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "UBG": {
+        "reachable": 1,
+        "unavailable": 2,
+        "pct_of_family_reachable": 33.3,
+        "primary_access": 0,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "URG": {
+        "reachable": 1,
+        "unavailable": 2,
+        "pct_of_family_reachable": 33.3,
+        "primary_access": 0,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "BRG": {
+        "reachable": 1,
+        "unavailable": 2,
+        "pct_of_family_reachable": 33.3,
+        "primary_access": 0,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WUBR": {
+        "reachable": 3,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUBG": {
+        "reachable": 3,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WURG": {
+        "reachable": 3,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WBRG": {
+        "reachable": 3,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "UBRG": {
+        "reachable": 1,
+        "unavailable": 2,
+        "pct_of_family_reachable": 33.3,
+        "primary_access": 0,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WUBRG": {
+        "reachable": 3,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      }
+    },
+    "win_condition": {
+      "W": {
+        "reachable": 2,
+        "unavailable": 1,
+        "pct_of_family_reachable": 66.7,
+        "primary_access": 1,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "U": {
+        "reachable": 0,
+        "unavailable": 3,
+        "pct_of_family_reachable": 0.0,
+        "primary_access": 0,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "B": {
+        "reachable": 2,
+        "unavailable": 1,
+        "pct_of_family_reachable": 66.7,
+        "primary_access": 2,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "R": {
+        "reachable": 0,
+        "unavailable": 3,
+        "pct_of_family_reachable": 0.0,
+        "primary_access": 0,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "G": {
+        "reachable": 0,
+        "unavailable": 3,
+        "pct_of_family_reachable": 0.0,
+        "primary_access": 0,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WU": {
+        "reachable": 2,
+        "unavailable": 1,
+        "pct_of_family_reachable": 66.7,
+        "primary_access": 1,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WB": {
+        "reachable": 3,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WR": {
+        "reachable": 2,
+        "unavailable": 1,
+        "pct_of_family_reachable": 66.7,
+        "primary_access": 1,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WG": {
+        "reachable": 2,
+        "unavailable": 1,
+        "pct_of_family_reachable": 66.7,
+        "primary_access": 1,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "UB": {
+        "reachable": 2,
+        "unavailable": 1,
+        "pct_of_family_reachable": 66.7,
+        "primary_access": 2,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "UR": {
+        "reachable": 0,
+        "unavailable": 3,
+        "pct_of_family_reachable": 0.0,
+        "primary_access": 0,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "UG": {
+        "reachable": 0,
+        "unavailable": 3,
+        "pct_of_family_reachable": 0.0,
+        "primary_access": 0,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "BR": {
+        "reachable": 2,
+        "unavailable": 1,
+        "pct_of_family_reachable": 66.7,
+        "primary_access": 2,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "BG": {
+        "reachable": 2,
+        "unavailable": 1,
+        "pct_of_family_reachable": 66.7,
+        "primary_access": 2,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "RG": {
+        "reachable": 0,
+        "unavailable": 3,
+        "pct_of_family_reachable": 0.0,
+        "primary_access": 0,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUB": {
+        "reachable": 3,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUR": {
+        "reachable": 2,
+        "unavailable": 1,
+        "pct_of_family_reachable": 66.7,
+        "primary_access": 1,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WUG": {
+        "reachable": 2,
+        "unavailable": 1,
+        "pct_of_family_reachable": 66.7,
+        "primary_access": 1,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WBR": {
+        "reachable": 3,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WBG": {
+        "reachable": 3,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WRG": {
+        "reachable": 2,
+        "unavailable": 1,
+        "pct_of_family_reachable": 66.7,
+        "primary_access": 1,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "UBR": {
+        "reachable": 2,
+        "unavailable": 1,
+        "pct_of_family_reachable": 66.7,
+        "primary_access": 2,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "UBG": {
+        "reachable": 2,
+        "unavailable": 1,
+        "pct_of_family_reachable": 66.7,
+        "primary_access": 2,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "URG": {
+        "reachable": 0,
+        "unavailable": 3,
+        "pct_of_family_reachable": 0.0,
+        "primary_access": 0,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "BRG": {
+        "reachable": 2,
+        "unavailable": 1,
+        "pct_of_family_reachable": 66.7,
+        "primary_access": 2,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUBR": {
+        "reachable": 3,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUBG": {
+        "reachable": 3,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WURG": {
+        "reachable": 2,
+        "unavailable": 1,
+        "pct_of_family_reachable": 66.7,
+        "primary_access": 1,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "WBRG": {
+        "reachable": 3,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "UBRG": {
+        "reachable": 2,
+        "unavailable": 1,
+        "pct_of_family_reachable": 66.7,
+        "primary_access": 2,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUBRG": {
+        "reachable": 3,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      }
+    },
+    "theft": {
+      "W": {
+        "reachable": 0,
+        "unavailable": 3,
+        "pct_of_family_reachable": 0.0,
+        "primary_access": 0,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "U": {
+        "reachable": 1,
+        "unavailable": 2,
+        "pct_of_family_reachable": 33.3,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "B": {
+        "reachable": 2,
+        "unavailable": 1,
+        "pct_of_family_reachable": 66.7,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 1
+      },
+      "R": {
+        "reachable": 1,
+        "unavailable": 2,
+        "pct_of_family_reachable": 33.3,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "G": {
+        "reachable": 0,
+        "unavailable": 3,
+        "pct_of_family_reachable": 0.0,
+        "primary_access": 0,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WU": {
+        "reachable": 1,
+        "unavailable": 2,
+        "pct_of_family_reachable": 33.3,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WB": {
+        "reachable": 2,
+        "unavailable": 1,
+        "pct_of_family_reachable": 66.7,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 1
+      },
+      "WR": {
+        "reachable": 1,
+        "unavailable": 2,
+        "pct_of_family_reachable": 33.3,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WG": {
+        "reachable": 0,
+        "unavailable": 3,
+        "pct_of_family_reachable": 0.0,
+        "primary_access": 0,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "UB": {
+        "reachable": 2,
+        "unavailable": 1,
+        "pct_of_family_reachable": 66.7,
+        "primary_access": 2,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "UR": {
+        "reachable": 2,
+        "unavailable": 1,
+        "pct_of_family_reachable": 66.7,
+        "primary_access": 2,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "UG": {
+        "reachable": 1,
+        "unavailable": 2,
+        "pct_of_family_reachable": 33.3,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "BR": {
+        "reachable": 3,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 2,
+        "secondary_only": 0,
+        "tertiary_only": 1
+      },
+      "BG": {
+        "reachable": 2,
+        "unavailable": 1,
+        "pct_of_family_reachable": 66.7,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 1
+      },
+      "RG": {
+        "reachable": 1,
+        "unavailable": 2,
+        "pct_of_family_reachable": 33.3,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUB": {
+        "reachable": 2,
+        "unavailable": 1,
+        "pct_of_family_reachable": 66.7,
+        "primary_access": 2,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUR": {
+        "reachable": 2,
+        "unavailable": 1,
+        "pct_of_family_reachable": 66.7,
+        "primary_access": 2,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUG": {
+        "reachable": 1,
+        "unavailable": 2,
+        "pct_of_family_reachable": 33.3,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WBR": {
+        "reachable": 3,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 2,
+        "secondary_only": 0,
+        "tertiary_only": 1
+      },
+      "WBG": {
+        "reachable": 2,
+        "unavailable": 1,
+        "pct_of_family_reachable": 66.7,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 1
+      },
+      "WRG": {
+        "reachable": 1,
+        "unavailable": 2,
+        "pct_of_family_reachable": 33.3,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "UBR": {
+        "reachable": 3,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "UBG": {
+        "reachable": 2,
+        "unavailable": 1,
+        "pct_of_family_reachable": 66.7,
+        "primary_access": 2,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "URG": {
+        "reachable": 2,
+        "unavailable": 1,
+        "pct_of_family_reachable": 66.7,
+        "primary_access": 2,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "BRG": {
+        "reachable": 3,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 2,
+        "secondary_only": 0,
+        "tertiary_only": 1
+      },
+      "WUBR": {
+        "reachable": 3,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUBG": {
+        "reachable": 2,
+        "unavailable": 1,
+        "pct_of_family_reachable": 66.7,
+        "primary_access": 2,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WURG": {
+        "reachable": 2,
+        "unavailable": 1,
+        "pct_of_family_reachable": 66.7,
+        "primary_access": 2,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WBRG": {
+        "reachable": 3,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 2,
+        "secondary_only": 0,
+        "tertiary_only": 1
+      },
+      "UBRG": {
+        "reachable": 3,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUBRG": {
+        "reachable": 3,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 3,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      }
+    },
+    "tokens": {
+      "W": {
+        "reachable": 1,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "U": {
+        "reachable": 1,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 0,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "B": {
+        "reachable": 1,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 0,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "R": {
+        "reachable": 1,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 0,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "G": {
+        "reachable": 1,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WU": {
+        "reachable": 1,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WB": {
+        "reachable": 1,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WR": {
+        "reachable": 1,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WG": {
+        "reachable": 1,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "UB": {
+        "reachable": 1,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 0,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "UR": {
+        "reachable": 1,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 0,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "UG": {
+        "reachable": 1,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "BR": {
+        "reachable": 1,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 0,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "BG": {
+        "reachable": 1,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "RG": {
+        "reachable": 1,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUB": {
+        "reachable": 1,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUR": {
+        "reachable": 1,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUG": {
+        "reachable": 1,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WBR": {
+        "reachable": 1,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WBG": {
+        "reachable": 1,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WRG": {
+        "reachable": 1,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "UBR": {
+        "reachable": 1,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 0,
+        "secondary_only": 1,
+        "tertiary_only": 0
+      },
+      "UBG": {
+        "reachable": 1,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "URG": {
+        "reachable": 1,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "BRG": {
+        "reachable": 1,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUBR": {
+        "reachable": 1,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUBG": {
+        "reachable": 1,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WURG": {
+        "reachable": 1,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WBRG": {
+        "reachable": 1,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "UBRG": {
+        "reachable": 1,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      },
+      "WUBRG": {
+        "reachable": 1,
+        "unavailable": 0,
+        "pct_of_family_reachable": 100.0,
+        "primary_access": 1,
+        "secondary_only": 0,
+        "tertiary_only": 0
+      }
+    }
+  },
+  "color_breadth_distribution": {
+    "1": 81,
+    "2": 75,
+    "3": 30,
+    "4": 4,
+    "5": 26
+  }
+}

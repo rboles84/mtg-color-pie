@@ -1,0 +1,6 @@
+omitted,selection,lost_completely,best_access_degraded,owner_lost_access_retained,unaffected,cross_check_global_exclusive_access,cross_check_pass
+W,UBRG,26,17,61,112,26,True
+U,WBRG,14,29,51,122,14,True
+B,WURG,20,15,59,122,20,True
+R,WUBG,11,20,61,124,11,True
+G,WUBR,10,18,55,133,10,True

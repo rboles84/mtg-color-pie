@@ -1,0 +1,32 @@
+key,colors,color_count,aliases,lens_aliases,reachable_count,reachable_pct_of_216,primary_available,secondary_only,tertiary_only,unavailable_count,shared_any_access,shared_primary,complementary,conditional_reachable,families_reached,families_with_primary_access
+W,W,1,White,,104,48.1,60,24,20,112,not_applicable,not_applicable,not_applicable,57,20,18
+U,U,1,Blue,,94,43.5,57,20,17,122,not_applicable,not_applicable,not_applicable,53,22,16
+B,B,1,Black,,94,43.5,45,35,14,122,not_applicable,not_applicable,not_applicable,54,22,15
+R,R,1,Red,,92,42.6,45,32,15,124,not_applicable,not_applicable,not_applicable,52,21,13
+G,G,1,Green,,83,38.4,44,28,11,133,not_applicable,not_applicable,not_applicable,50,19,17
+WU,W U,2,Azorius,,151,69.9,112,24,15,65,47,5,104,80,23,21
+WB,W B,2,Orzhov,Silverquill,154,71.3,103,34,17,62,44,2,110,82,22,21
+WR,W R,2,Boros,Lorehold,155,71.8,103,37,15,61,41,2,114,81,23,23
+WG,W G,2,Selesnya,,136,63.0,95,29,12,80,51,9,85,72,20,20
+UB,U B,2,Dimir,,149,69.0,100,37,12,67,39,2,110,78,23,20
+UR,U R,2,Izzet,Prismari,139,64.4,99,27,13,77,47,3,92,76,22,19
+UG,U G,2,Simic,Quandrix,132,61.1,96,28,8,84,45,5,87,74,22,21
+BR,B R,2,Rakdos,,134,62.0,84,39,11,82,52,6,82,74,23,19
+BG,B G,2,Golgari,Witherbloom,136,63.0,89,40,7,80,41,0,95,77,22,21
+RG,R G,2,Gruul,,133,61.6,86,38,9,83,42,3,91,74,22,20
+WUB,W U B,3,Esper,,189,87.5,153,26,10,27,27,0,162,94,23,22
+WUR,W U R,3,Jeskai,,183,84.7,152,22,9,33,28,0,155,93,23,23
+WUG,W U G,3,Bant,,173,80.1,143,22,8,43,35,1,138,89,23,23
+WBR,W B R,3,Mardu,,185,85.6,140,33,12,31,32,0,153,95,23,23
+WBG,W B G,3,Abzan,,178,82.4,138,32,8,38,33,0,145,93,22,22
+WRG,W R G,3,Naya,,176,81.5,135,32,9,40,31,0,145,90,23,23
+UBR,U B R,3,Grixis,,173,80.1,136,29,8,43,31,0,142,91,23,21
+UBG,U B G,3,Sultai,,175,81.0,139,32,4,41,29,0,146,92,23,22
+URG,U R G,3,Temur,,163,75.5,135,23,5,53,28,0,135,88,22,21
+BRG,B R G,3,Jund,,166,76.9,125,35,6,50,32,0,134,90,23,22
+WUBR,W U B R,4,Non-Green,,206,95.4,187,14,5,10,26,0,180,101,23,23
+WUBG,W U B G,4,Non-Red,,205,94.9,184,18,3,11,27,0,178,101,23,23
+WURG,W U R G,4,Non-Black,,196,90.7,180,12,4,20,26,0,170,98,23,23
+WBRG,W B R G,4,Non-Blue,,202,93.5,172,24,6,14,28,0,174,102,23,23
+UBRG,U B R G,4,Non-White,,190,88.0,172,17,1,26,27,0,163,99,23,22
+WUBRG,W U B R G,5,Five-Color,,216,100.0,215,1,0,0,26,0,190,105,23,23

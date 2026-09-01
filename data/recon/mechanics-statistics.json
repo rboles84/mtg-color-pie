@@ -1,0 +1,4242 @@
+{
+  "meta": {
+    "generated_by": "tools/recon_stats.py",
+    "snapshot": "2021-10-18",
+    "read_only": true,
+    "tier_meaning": "Primary, secondary and tertiary describe frequency and ownership in design, NOT card quality. Never sum them into a score, and never compare tiers across different mechanics as if they were one unit.",
+    "classes": {
+      "A": "direct source/runtime fact",
+      "B": "arithmetic over accepted records",
+      "C": "interpretation - excluded from this file"
+    }
+  },
+  "placement_accounting": {
+    "raw_color_list_placements": 465,
+    "final_reconciled_peer_assignments": 467,
+    "assignments_on_all_source_identities": 468,
+    "structural_only_identities": 1,
+    "structural_only_assignments_excluded": 1,
+    "by_basis": {
+      "both-agree": 450,
+      "adjudicated": 5,
+      "colour-list-only": 6,
+      "ability-catalog-only": 7
+    },
+    "catalog_only_assignments": 7,
+    "list_only_assignments": 6,
+    "both_agree_assignments": 450,
+    "adjudicated_assignments": 5,
+    "equation": "raw_color_list_placements(465) is a count of LIST entries before identity merging; final_reconciled_peer_assignments(467) counts distinct (mechanic, colour) pairs after 19 identity merges, after catalog-only assignments are added, and after 1 structural-only assignment(s) are excluded. The two are different measurements of different populations and are not expected to be equal."
+  },
+  "registry_audit": {
+    "total_registry_records": 37,
+    "records_mapping_to_a_wubrg_subset": 36,
+    "unique_wubrg_color_sets_represented": 31,
+    "canonical_nonempty_wubrg_subsets": 31,
+    "color_sets_with_more_than_one_registry_name": {
+      "BG": [
+        "Golgari",
+        "Witherbloom"
+      ],
+      "UG": [
+        "Simic",
+        "Quandrix"
+      ],
+      "UR": [
+        "Izzet",
+        "Prismari"
+      ],
+      "WB": [
+        "Orzhov",
+        "Silverquill"
+      ],
+      "WR": [
+        "Boros",
+        "Lorehold"
+      ]
+    },
+    "records_not_reducible_to_a_wubrg_subset": [
+      {
+        "name": "Colorless",
+        "group": "colorless",
+        "mechanical_projection_status": "not_measured",
+        "reason": "MCP2021 does not provide this as a peer WUBRG ownership column"
+      }
+    ],
+    "note": "A registry record is a DISPLAY NAME. Several names share one colour set, so registry record count is not a count of independent mechanical identities and no statistic is duplicated per alias."
+  },
+  "special_identities": {
+    "Colorless": {
+      "group": "colorless",
+      "mechanical_projection_status": "not_measured",
+      "reason": "MCP2021 provides W/U/B/R/G tier ownership only; it does not provide a comparable Colorless ownership column.",
+      "empty_wubrg_selection_reachable": 0,
+      "empty_selection_note": "Algorithmic empty-set result of the WUBRG projection. NOT a count of Colorless mechanics.",
+      "excluded_from_mono_color_aggregates": true
+    },
+    "_yore_lookup": [
+      {
+        "name": "Non-Green",
+        "display": "WUBR",
+        "aka": [
+          "Yore-Tiller"
+        ],
+        "canonical_key": "WUBR",
+        "mechanical_projection_status": "measured"
+      }
+    ]
+  },
+  "overall": {
+    "peer_mechanics": 216,
+    "reconciled_source_identities": 217,
+    "structural_only": 1,
+    "final_peer_color_assignments": 467,
+    "primary_assignments": 251,
+    "secondary_assignments": 139,
+    "tertiary_assignments": 77,
+    "mechanics_by_primary_owner_count": {
+      "0": 1,
+      "1": 180,
+      "2": 34,
+      "3": 1,
+      "4": 0,
+      "5": 0
+    },
+    "max_primary_owners_on_a_mechanic": 3,
+    "mechanics_with_zero_primary_owner": 1
+  },
+  "color_breadth": {
+    "1": {
+      "mechanics_assigned_to_exactly_n_colors": 81,
+      "pct_of_216": 37.5,
+      "keys": [
+        "+n/+n (on creatures, single use)",
+        "+n/-n (on spells)",
+        "-n/+n (on auras)",
+        "-n/+n (on spells)",
+        "-n/-0 (on creatures)",
+        "-n/-0 to their team",
+        "-n/-n (on auras)",
+        "-n/-n (on creatures)",
+        "banisher priest-like effect",
+        "bring back creatures/permanents that went to the graveyard this turn",
+        "can't be attacked (creatures can't attack you.)",
+        "can't be blocked",
+        "can't lose the game and opponent can't win",
+        "can't win the game and opponent can't lose",
+        "changing lands",
+        "copying permanents, permanently",
+        "creature pumping, their team, one-shot :: -n/-n to their team",
+        "creature pumping, their team, ongoing :: -n/-n to their team",
+        "creature sacrifice, forced, repeatable",
+        "damage prevention",
+        "damage redirection",
+        "daunt",
+        "deal n damage to a creature/planeswalker/player where n is the number of cards in your hand/your opponent's hand",
+        "deal n damage to target attacking or blocking creature",
+        "destroy all creatures controlled by one player",
+        "destroy all creatures with power 3 or greater",
+        "destroy target attacking or blocking creature",
+        "destroy target creature that damaged you or a creature you control this turn",
+        "destroy target creature with flying",
+        "destroy target creature with power 3 or greater",
+        "destroy target creature. its controller gets compensation",
+        "devil's deal permanents",
+        "discard as effect",
+        "forced sacrifice :: sacrifice a creature",
+        "forced sacrifice :: sacrifice an artifact",
+        "forced sacrifice of a creature",
+        "freeze creature",
+        "friendly to legendary permanents",
+        "friendly to low mana value cards",
+        "friendly to planeswalkers",
+        "gain control of target player's turn",
+        "illusion ability",
+        "impulsive draw",
+        "life loss as an effect",
+        "lobotomy",
+        "lockdown (enchanted creature doesn't untap.)",
+        "looting (draw a card and discard a card.)",
+        "lure",
+        "meddling",
+        "moving enchantments/counters",
+        "must attack",
+        "pacifism-like effect",
+        "panic",
+        "play extra lands/put a land from hand onto the battlefield",
+        "playing cards off the top of library, for free",
+        "preventing actions",
+        "putting lands from hand onto the battlefield",
+        "putting planeswalkers from hand onto the battlefield",
+        "random destruction effects",
+        "reanimate permanent",
+        "removing counters",
+        "return target artifact from graveyard to hand",
+        "return target card from graveyard to hand",
+        "return target enchantment from graveyard to hand",
+        "return target land from graveyard to hand",
+        "return to library",
+        "rummaging (discard a card and draw a card.)",
+        "sacrifice a land",
+        "sengir ability",
+        "specter ability",
+        "stalking",
+        "stealing permanents, temporarily",
+        "super trample",
+        "torment ability",
+        "transformation",
+        "tutor for a planeswalker",
+        "tutor for an enchantment",
+        "tutor for any card",
+        "twiddle",
+        "wheeling",
+        "word changing"
+      ]
+    },
+    "2": {
+      "mechanics_assigned_to_exactly_n_colors": 75,
+      "pct_of_216": 34.7,
+      "keys": [
+        "+0/+n (on creatures)",
+        "+0/+n (on spells)",
+        "+n/+n (on creatures)",
+        "+n/-n (on auras)",
+        "-n/+n (on creatures)",
+        "-n/-0 (on auras)",
+        "-n/-0 (on spells)",
+        "animating artifacts",
+        "animating enchantments",
+        "bite",
+        "can't block",
+        "card filtering",
+        "cast spells from opponent's graveyard/exile",
+        "copying permanents, temporarily",
+        "counter target activated/triggered ability",
+        "counterspell",
+        "creature pumping, your team, one-shot :: +n/+0 to your team",
+        "creature pumping, your team, one-shot :: +n/+n to your team",
+        "creature pumping, your team, ongoing :: +n/+0 to your team",
+        "curiosity",
+        "deal n damage to a creature that's been damaged this turn",
+        "deal n damage to a creature with flying",
+        "deathtouch",
+        "destroy all creatures",
+        "destroy target creature",
+        "destroy target tapped creature",
+        "direct damage, multiple targets",
+        "double strike",
+        "drain life",
+        "enchantress ability",
+        "extra attack",
+        "fight",
+        "flicker",
+        "fog",
+        "forced attack",
+        "forced block (target creature must block this turn.)",
+        "friendly to creatures",
+        "friendly to instants and sorceries",
+        "gaseous form",
+        "instant and/or sorcery triggers",
+        "lifelink",
+        "looking at opponent's hand",
+        "lure, limited",
+        "mana production, temporary",
+        "manipulate time (end the turn.)",
+        "maro ability",
+        "menace",
+        "milling",
+        "planeswalker destruction",
+        "polymorph",
+        "punisher effects",
+        "putting artifacts from hand onto the battlefield",
+        "restocking",
+        "return target creature from graveyard to hand",
+        "return target instant from graveyard to hand",
+        "return target sorcery from graveyard to hand",
+        "sacrifice a creature and deal damage to creature/planeswalker/player equal to the sacrificed creature's power/toughness",
+        "sacrifice a permanent",
+        "sacrifice a permanent :: sacrifice a creature",
+        "sacrifice a permanent :: sacrifice an artifact",
+        "sacrifice an enchantment",
+        "spell copying",
+        "spell redirection",
+        "stealing permanents, permanently",
+        "switch power/toughness",
+        "tapping creatures",
+        "taxing",
+        "time walk (take an extra turn after this one.)",
+        "tutor for an artifact",
+        "tutor for an instant or sorcery",
+        "untapping lands",
+        "untaps itself",
+        "ward (for life)",
+        "warlord",
+        "you don't lose"
+      ]
+    },
+    "3": {
+      "mechanics_assigned_to_exactly_n_colors": 30,
+      "pct_of_216": 13.9,
+      "keys": [
+        "+0/+n (on auras)",
+        "+n/+0 (on creatures)",
+        "+n/+0 (on spells)",
+        "+n/-n (on creatures)",
+        "artifact destruction",
+        "can't be countered",
+        "cast spells out of graveyard",
+        "deal damage when blocked",
+        "deal n damage to creature, planeswalker, and/or player",
+        "enchantment destruction",
+        "exiling cards from graveyard",
+        "first strike",
+        "friendly to artifacts",
+        "friendly to enchantments",
+        "haste",
+        "hexproof",
+        "increasing counters and/or tokens",
+        "land destruction",
+        "life gain",
+        "mana production, permanent",
+        "playing cards off the top of opponent's library",
+        "prowess",
+        "putting enchantments from hand onto the battlefield",
+        "reach",
+        "return to hand",
+        "rewards for death",
+        "untapping creatures",
+        "variable creature",
+        "vigilance",
+        "ward (for mana)"
+      ]
+    },
+    "4": {
+      "mechanics_assigned_to_exactly_n_colors": 4,
+      "pct_of_216": 1.9,
+      "keys": [
+        "+n/+n (on spells)",
+        "color changing",
+        "reanimation",
+        "treasure creation"
+      ]
+    },
+    "5": {
+      "mechanics_assigned_to_exactly_n_colors": 26,
+      "pct_of_216": 12.0,
+      "keys": [
+        "+1/+1 counter (creation and caring)",
+        "+n/+0 (on auras)",
+        "+n/+n (on auras)",
+        "-n/-n (on spells)",
+        "animating lands",
+        "basic land counting",
+        "card draw",
+        "cast spells from your graveyard",
+        "creature pumping, your team, ongoing :: +n/+n to your team",
+        "defender",
+        "discard as a cost",
+        "flash",
+        "flying",
+        "friendly to lands",
+        "indestructible",
+        "lhurgoyf",
+        "life loss as a cost",
+        "playing cards off the top of your library, paying their mana cost",
+        "protection",
+        "putting creatures from hand onto the battlefield",
+        "rules setting",
+        "scry",
+        "token generation",
+        "trample",
+        "tutor for a creature",
+        "tutor for a land"
+      ]
+    }
+  },
+  "color_signatures": [
+    {
+      "signature": "W",
+      "color_count": 1,
+      "count": 26,
+      "keys": [
+        "-n/+n (on auras)",
+        "-n/+n (on spells)",
+        "banisher priest-like effect",
+        "bring back creatures/permanents that went to the graveyard this turn",
+        "can't be attacked (creatures can't attack you.)",
+        "can't lose the game and opponent can't win",
+        "damage prevention",
+        "damage redirection",
+        "deal n damage to target attacking or blocking creature",
+        "destroy all creatures with power 3 or greater",
+        "destroy target attacking or blocking creature",
+        "destroy target creature that damaged you or a creature you control this turn",
+        "destroy target creature with power 3 or greater",
+        "destroy target creature. its controller gets compensation",
+        "friendly to legendary permanents",
+        "friendly to low mana value cards",
+        "friendly to planeswalkers",
+        "meddling",
+        "pacifism-like effect",
+        "preventing actions",
+        "putting planeswalkers from hand onto the battlefield",
+        "reanimate permanent",
+        "return target artifact from graveyard to hand",
+        "return target enchantment from graveyard to hand",
+        "tutor for a planeswalker",
+        "tutor for an enchantment"
+      ]
+    },
+    {
+      "signature": "WUBRG",
+      "color_count": 5,
+      "count": 26,
+      "keys": [
+        "+1/+1 counter (creation and caring)",
+        "+n/+0 (on auras)",
+        "+n/+n (on auras)",
+        "-n/-n (on spells)",
+        "animating lands",
+        "basic land counting",
+        "card draw",
+        "cast spells from your graveyard",
+        "creature pumping, your team, ongoing :: +n/+n to your team",
+        "defender",
+        "discard as a cost",
+        "flash",
+        "flying",
+        "friendly to lands",
+        "indestructible",
+        "lhurgoyf",
+        "life loss as a cost",
+        "playing cards off the top of your library, paying their mana cost",
+        "protection",
+        "putting creatures from hand onto the battlefield",
+        "rules setting",
+        "scry",
+        "token generation",
+        "trample",
+        "tutor for a creature",
+        "tutor for a land"
+      ]
+    },
+    {
+      "signature": "B",
+      "color_count": 1,
+      "count": 20,
+      "keys": [
+        "+n/-n (on spells)",
+        "-n/-n (on auras)",
+        "-n/-n (on creatures)",
+        "can't win the game and opponent can't lose",
+        "creature pumping, their team, one-shot :: -n/-n to their team",
+        "creature pumping, their team, ongoing :: -n/-n to their team",
+        "creature sacrifice, forced, repeatable",
+        "destroy all creatures controlled by one player",
+        "devil's deal permanents",
+        "discard as effect",
+        "forced sacrifice :: sacrifice a creature",
+        "forced sacrifice of a creature",
+        "gain control of target player's turn",
+        "life loss as an effect",
+        "lobotomy",
+        "removing counters",
+        "sengir ability",
+        "specter ability",
+        "torment ability",
+        "tutor for any card"
+      ]
+    },
+    {
+      "signature": "U",
+      "color_count": 1,
+      "count": 14,
+      "keys": [
+        "-n/-0 (on creatures)",
+        "-n/-0 to their team",
+        "can't be blocked",
+        "changing lands",
+        "copying permanents, permanently",
+        "freeze creature",
+        "illusion ability",
+        "lockdown (enchanted creature doesn't untap.)",
+        "looting (draw a card and discard a card.)",
+        "moving enchantments/counters",
+        "return to library",
+        "transformation",
+        "twiddle",
+        "word changing"
+      ]
+    },
+    {
+      "signature": "UR",
+      "color_count": 2,
+      "count": 13,
+      "keys": [
+        "copying permanents, temporarily",
+        "forced attack",
+        "friendly to instants and sorceries",
+        "instant and/or sorcery triggers",
+        "manipulate time (end the turn.)",
+        "polymorph",
+        "return target instant from graveyard to hand",
+        "return target sorcery from graveyard to hand",
+        "spell copying",
+        "spell redirection",
+        "switch power/toughness",
+        "time walk (take an extra turn after this one.)",
+        "tutor for an instant or sorcery"
+      ]
+    },
+    {
+      "signature": "BR",
+      "color_count": 2,
+      "count": 12,
+      "keys": [
+        "+n/-n (on auras)",
+        "can't block",
+        "creature pumping, your team, ongoing :: +n/+0 to your team",
+        "deal n damage to a creature that's been damaged this turn",
+        "mana production, temporary",
+        "menace",
+        "punisher effects",
+        "sacrifice a creature and deal damage to creature/planeswalker/player equal to the sacrificed creature's power/toughness",
+        "sacrifice a permanent",
+        "sacrifice a permanent :: sacrifice a creature",
+        "sacrifice a permanent :: sacrifice an artifact",
+        "ward (for life)"
+      ]
+    },
+    {
+      "signature": "R",
+      "color_count": 1,
+      "count": 11,
+      "keys": [
+        "deal n damage to a creature/planeswalker/player where n is the number of cards in your hand/your opponent's hand",
+        "forced sacrifice :: sacrifice an artifact",
+        "impulsive draw",
+        "must attack",
+        "panic",
+        "playing cards off the top of library, for free",
+        "random destruction effects",
+        "rummaging (discard a card and draw a card.)",
+        "sacrifice a land",
+        "stealing permanents, temporarily",
+        "wheeling"
+      ]
+    },
+    {
+      "signature": "G",
+      "color_count": 1,
+      "count": 10,
+      "keys": [
+        "+n/+n (on creatures, single use)",
+        "daunt",
+        "destroy target creature with flying",
+        "lure",
+        "play extra lands/put a land from hand onto the battlefield",
+        "putting lands from hand onto the battlefield",
+        "return target card from graveyard to hand",
+        "return target land from graveyard to hand",
+        "stalking",
+        "super trample"
+      ]
+    },
+    {
+      "signature": "WU",
+      "color_count": 2,
+      "count": 10,
+      "keys": [
+        "-n/+n (on creatures)",
+        "animating enchantments",
+        "counterspell",
+        "flicker",
+        "gaseous form",
+        "putting artifacts from hand onto the battlefield",
+        "tapping creatures",
+        "taxing",
+        "tutor for an artifact",
+        "untaps itself"
+      ]
+    },
+    {
+      "signature": "WUG",
+      "color_count": 3,
+      "count": 8,
+      "keys": [
+        "+0/+n (on auras)",
+        "hexproof",
+        "increasing counters and/or tokens",
+        "putting enchantments from hand onto the battlefield",
+        "return to hand",
+        "untapping creatures",
+        "vigilance",
+        "ward (for mana)"
+      ]
+    },
+    {
+      "signature": "UG",
+      "color_count": 2,
+      "count": 7,
+      "keys": [
+        "animating artifacts",
+        "card filtering",
+        "counter target activated/triggered ability",
+        "curiosity",
+        "maro ability",
+        "restocking",
+        "untapping lands"
+      ]
+    },
+    {
+      "signature": "WB",
+      "color_count": 2,
+      "count": 7,
+      "keys": [
+        "destroy all creatures",
+        "destroy target creature",
+        "destroy target tapped creature",
+        "drain life",
+        "lifelink",
+        "return target creature from graveyard to hand",
+        "you don't lose"
+      ]
+    },
+    {
+      "signature": "WG",
+      "color_count": 2,
+      "count": 7,
+      "keys": [
+        "+0/+n (on creatures)",
+        "+0/+n (on spells)",
+        "creature pumping, your team, one-shot :: +n/+n to your team",
+        "enchantress ability",
+        "fog",
+        "friendly to creatures",
+        "warlord"
+      ]
+    },
+    {
+      "signature": "RG",
+      "color_count": 2,
+      "count": 6,
+      "keys": [
+        "bite",
+        "deal n damage to a creature with flying",
+        "fight",
+        "forced block (target creature must block this turn.)",
+        "lure, limited",
+        "sacrifice an enchantment"
+      ]
+    },
+    {
+      "signature": "UB",
+      "color_count": 2,
+      "count": 6,
+      "keys": [
+        "-n/-0 (on auras)",
+        "-n/-0 (on spells)",
+        "cast spells from opponent's graveyard/exile",
+        "looking at opponent's hand",
+        "milling",
+        "stealing permanents, permanently"
+      ]
+    },
+    {
+      "signature": "UBR",
+      "color_count": 3,
+      "count": 4,
+      "keys": [
+        "+n/-n (on creatures)",
+        "cast spells out of graveyard",
+        "deal damage when blocked",
+        "playing cards off the top of opponent's library"
+      ]
+    },
+    {
+      "signature": "WBG",
+      "color_count": 3,
+      "count": 4,
+      "keys": [
+        "enchantment destruction",
+        "exiling cards from graveyard",
+        "friendly to enchantments",
+        "life gain"
+      ]
+    },
+    {
+      "signature": "WBR",
+      "color_count": 3,
+      "count": 4,
+      "keys": [
+        "+n/+0 (on spells)",
+        "deal n damage to creature, planeswalker, and/or player",
+        "first strike",
+        "rewards for death"
+      ]
+    },
+    {
+      "signature": "WR",
+      "color_count": 2,
+      "count": 4,
+      "keys": [
+        "creature pumping, your team, one-shot :: +n/+0 to your team",
+        "direct damage, multiple targets",
+        "double strike",
+        "extra attack"
+      ]
+    },
+    {
+      "signature": "BG",
+      "color_count": 2,
+      "count": 3,
+      "keys": [
+        "+n/+n (on creatures)",
+        "deathtouch",
+        "planeswalker destruction"
+      ]
+    },
+    {
+      "signature": "BRG",
+      "color_count": 3,
+      "count": 3,
+      "keys": [
+        "haste",
+        "land destruction",
+        "variable creature"
+      ]
+    },
+    {
+      "signature": "WRG",
+      "color_count": 3,
+      "count": 3,
+      "keys": [
+        "+n/+0 (on creatures)",
+        "artifact destruction",
+        "reach"
+      ]
+    },
+    {
+      "signature": "WBRG",
+      "color_count": 4,
+      "count": 2,
+      "keys": [
+        "+n/+n (on spells)",
+        "reanimation"
+      ]
+    },
+    {
+      "signature": "WUR",
+      "color_count": 3,
+      "count": 2,
+      "keys": [
+        "friendly to artifacts",
+        "prowess"
+      ]
+    },
+    {
+      "signature": "UBG",
+      "color_count": 3,
+      "count": 1,
+      "keys": [
+        "mana production, permanent"
+      ]
+    },
+    {
+      "signature": "UBRG",
+      "color_count": 4,
+      "count": 1,
+      "keys": [
+        "treasure creation"
+      ]
+    },
+    {
+      "signature": "URG",
+      "color_count": 3,
+      "count": 1,
+      "keys": [
+        "can't be countered"
+      ]
+    },
+    {
+      "signature": "WUBG",
+      "color_count": 4,
+      "count": 1,
+      "keys": [
+        "color changing"
+      ]
+    }
+  ],
+  "per_color": {
+    "W": {
+      "name": "White",
+      "primary": 60,
+      "secondary": 24,
+      "tertiary": 20,
+      "total_reachable": 104,
+      "reachable_pct_of_216": 48.1,
+      "globally_exclusive_access": 26,
+      "globally_unique_primary_owner": 43,
+      "conditional_mechanics": 57,
+      "primary_family_distribution": {
+        "stat_modification": 17,
+        "removal": 12,
+        "graveyard": 9,
+        "protection": 9,
+        "card_type_affinity": 8,
+        "combat": 7,
+        "tempo": 7,
+        "tutoring": 5,
+        "card_flow": 4,
+        "life": 4,
+        "cheat_into_play": 4,
+        "characteristic_change": 3,
+        "evasion": 3,
+        "rules_alteration": 3,
+        "counters": 2,
+        "win_condition": 2,
+        "control": 2,
+        "mana": 1,
+        "sacrifice": 1,
+        "tokens": 1
+      },
+      "all_family_membership_distribution": {
+        "stat_modification": 17,
+        "combat": 16,
+        "removal": 12,
+        "protection": 10,
+        "card_flow": 10,
+        "graveyard": 9,
+        "card_type_affinity": 8,
+        "tempo": 7,
+        "tutoring": 5,
+        "life": 4,
+        "cheat_into_play": 4,
+        "characteristic_change": 3,
+        "evasion": 3,
+        "rules_alteration": 3,
+        "counters": 2,
+        "win_condition": 2,
+        "control": 2,
+        "mana": 1,
+        "sacrifice": 1,
+        "disruption": 1,
+        "tokens": 1
+      },
+      "exclusive_access_keys": [
+        "-n/+n (on auras)",
+        "-n/+n (on spells)",
+        "banisher priest-like effect",
+        "bring back creatures/permanents that went to the graveyard this turn",
+        "can't be attacked (creatures can't attack you.)",
+        "can't lose the game and opponent can't win",
+        "damage prevention",
+        "damage redirection",
+        "deal n damage to target attacking or blocking creature",
+        "destroy all creatures with power 3 or greater",
+        "destroy target attacking or blocking creature",
+        "destroy target creature that damaged you or a creature you control this turn",
+        "destroy target creature with power 3 or greater",
+        "destroy target creature. its controller gets compensation",
+        "friendly to legendary permanents",
+        "friendly to low mana value cards",
+        "friendly to planeswalkers",
+        "meddling",
+        "pacifism-like effect",
+        "preventing actions",
+        "putting planeswalkers from hand onto the battlefield",
+        "reanimate permanent",
+        "return target artifact from graveyard to hand",
+        "return target enchantment from graveyard to hand",
+        "tutor for a planeswalker",
+        "tutor for an enchantment"
+      ],
+      "unique_primary_owner_keys": [
+        "+0/+n (on auras)",
+        "+0/+n (on creatures)",
+        "+0/+n (on spells)",
+        "-n/+n (on auras)",
+        "-n/+n (on spells)",
+        "animating enchantments",
+        "banisher priest-like effect",
+        "bring back creatures/permanents that went to the graveyard this turn",
+        "can't be attacked (creatures can't attack you.)",
+        "can't lose the game and opponent can't win",
+        "creature pumping, your team, one-shot :: +n/+n to your team",
+        "creature pumping, your team, ongoing :: +n/+n to your team",
+        "damage prevention",
+        "damage redirection",
+        "deal n damage to target attacking or blocking creature",
+        "destroy all creatures",
+        "destroy all creatures with power 3 or greater",
+        "destroy target attacking or blocking creature",
+        "destroy target creature that damaged you or a creature you control this turn",
+        "destroy target creature with power 3 or greater",
+        "destroy target creature. its controller gets compensation",
+        "destroy target tapped creature",
+        "friendly to legendary permanents",
+        "friendly to low mana value cards",
+        "friendly to planeswalkers",
+        "gaseous form",
+        "indestructible",
+        "meddling",
+        "pacifism-like effect",
+        "preventing actions",
+        "protection",
+        "putting enchantments from hand onto the battlefield",
+        "putting planeswalkers from hand onto the battlefield",
+        "reanimate permanent",
+        "return target artifact from graveyard to hand",
+        "return target enchantment from graveyard to hand",
+        "rules setting",
+        "tapping creatures",
+        "taxing",
+        "tutor for a planeswalker",
+        "tutor for an enchantment",
+        "vigilance",
+        "warlord"
+      ]
+    },
+    "U": {
+      "name": "Blue",
+      "primary": 57,
+      "secondary": 20,
+      "tertiary": 17,
+      "total_reachable": 94,
+      "reachable_pct_of_216": 43.5,
+      "globally_exclusive_access": 14,
+      "globally_unique_primary_owner": 43,
+      "conditional_mechanics": 53,
+      "primary_family_distribution": {
+        "stat_modification": 13,
+        "tempo": 12,
+        "card_flow": 8,
+        "characteristic_change": 7,
+        "graveyard": 7,
+        "protection": 6,
+        "card_type_affinity": 5,
+        "mana": 4,
+        "evasion": 4,
+        "combat": 4,
+        "tutoring": 4,
+        "counters": 3,
+        "copying": 3,
+        "control": 3,
+        "cheat_into_play": 3,
+        "disruption": 2,
+        "sacrifice": 1,
+        "life": 1,
+        "removal": 1,
+        "rules_alteration": 1,
+        "theft": 1,
+        "tokens": 1
+      },
+      "all_family_membership_distribution": {
+        "card_flow": 16,
+        "stat_modification": 13,
+        "tempo": 13,
+        "combat": 8,
+        "graveyard": 8,
+        "characteristic_change": 7,
+        "protection": 7,
+        "card_type_affinity": 5,
+        "mana": 4,
+        "evasion": 4,
+        "tutoring": 4,
+        "counters": 3,
+        "copying": 3,
+        "control": 3,
+        "disruption": 3,
+        "cheat_into_play": 3,
+        "removal": 2,
+        "tokens": 2,
+        "sacrifice": 1,
+        "life": 1,
+        "rules_alteration": 1,
+        "theft": 1
+      },
+      "exclusive_access_keys": [
+        "-n/-0 (on creatures)",
+        "-n/-0 to their team",
+        "can't be blocked",
+        "changing lands",
+        "copying permanents, permanently",
+        "freeze creature",
+        "illusion ability",
+        "lockdown (enchanted creature doesn't untap.)",
+        "looting (draw a card and discard a card.)",
+        "moving enchantments/counters",
+        "return to library",
+        "transformation",
+        "twiddle",
+        "word changing"
+      ],
+      "unique_primary_owner_keys": [
+        "+n/-n (on creatures)",
+        "-n/+n (on creatures)",
+        "-n/-0 (on auras)",
+        "-n/-0 (on creatures)",
+        "-n/-0 (on spells)",
+        "-n/-0 to their team",
+        "animating artifacts",
+        "can't be blocked",
+        "card draw",
+        "changing lands",
+        "color changing",
+        "copying permanents, permanently",
+        "counter target activated/triggered ability",
+        "counterspell",
+        "curiosity",
+        "flash",
+        "freeze creature",
+        "friendly to instants and sorceries",
+        "hexproof",
+        "illusion ability",
+        "lockdown (enchanted creature doesn't untap.)",
+        "looking at opponent's hand",
+        "looting (draw a card and discard a card.)",
+        "manipulate time (end the turn.)",
+        "maro ability",
+        "milling",
+        "moving enchantments/counters",
+        "prowess",
+        "putting artifacts from hand onto the battlefield",
+        "return target instant from graveyard to hand",
+        "return target sorcery from graveyard to hand",
+        "return to hand",
+        "return to library",
+        "scry",
+        "stealing permanents, permanently",
+        "switch power/toughness",
+        "time walk (take an extra turn after this one.)",
+        "transformation",
+        "tutor for an artifact",
+        "tutor for an instant or sorcery",
+        "twiddle",
+        "untaps itself",
+        "word changing"
+      ]
+    },
+    "B": {
+      "name": "Black",
+      "primary": 45,
+      "secondary": 35,
+      "tertiary": 14,
+      "total_reachable": 94,
+      "reachable_pct_of_216": 43.5,
+      "globally_exclusive_access": 20,
+      "globally_unique_primary_owner": 35,
+      "conditional_mechanics": 54,
+      "primary_family_distribution": {
+        "stat_modification": 17,
+        "removal": 10,
+        "graveyard": 7,
+        "combat": 7,
+        "sacrifice": 6,
+        "disruption": 6,
+        "life": 6,
+        "mana": 4,
+        "evasion": 4,
+        "card_flow": 4,
+        "protection": 4,
+        "counters": 3,
+        "tutoring": 3,
+        "characteristic_change": 2,
+        "win_condition": 2,
+        "card_type_affinity": 2,
+        "theft": 2,
+        "tempo": 1,
+        "control": 1,
+        "cheat_into_play": 1,
+        "rules_alteration": 1,
+        "tokens": 1
+      },
+      "all_family_membership_distribution": {
+        "combat": 17,
+        "stat_modification": 17,
+        "removal": 12,
+        "card_flow": 10,
+        "graveyard": 8,
+        "disruption": 8,
+        "sacrifice": 6,
+        "life": 6,
+        "mana": 4,
+        "evasion": 4,
+        "protection": 4,
+        "counters": 3,
+        "tutoring": 3,
+        "characteristic_change": 2,
+        "win_condition": 2,
+        "card_type_affinity": 2,
+        "theft": 2,
+        "tokens": 2,
+        "tempo": 1,
+        "control": 1,
+        "cheat_into_play": 1,
+        "rules_alteration": 1
+      },
+      "exclusive_access_keys": [
+        "+n/-n (on spells)",
+        "-n/-n (on auras)",
+        "-n/-n (on creatures)",
+        "can't win the game and opponent can't lose",
+        "creature pumping, their team, one-shot :: -n/-n to their team",
+        "creature pumping, their team, ongoing :: -n/-n to their team",
+        "creature sacrifice, forced, repeatable",
+        "destroy all creatures controlled by one player",
+        "devil's deal permanents",
+        "discard as effect",
+        "forced sacrifice :: sacrifice a creature",
+        "forced sacrifice of a creature",
+        "gain control of target player's turn",
+        "life loss as an effect",
+        "lobotomy",
+        "removing counters",
+        "sengir ability",
+        "specter ability",
+        "torment ability",
+        "tutor for any card"
+      ],
+      "unique_primary_owner_keys": [
+        "+n/+n (on creatures)",
+        "+n/-n (on auras)",
+        "+n/-n (on spells)",
+        "-n/-n (on auras)",
+        "-n/-n (on creatures)",
+        "-n/-n (on spells)",
+        "can't win the game and opponent can't lose",
+        "cast spells from your graveyard",
+        "cast spells out of graveyard",
+        "creature pumping, their team, one-shot :: -n/-n to their team",
+        "creature pumping, their team, ongoing :: -n/-n to their team",
+        "creature sacrifice, forced, repeatable",
+        "deathtouch",
+        "destroy all creatures controlled by one player",
+        "destroy target creature",
+        "devil's deal permanents",
+        "discard as a cost",
+        "discard as effect",
+        "drain life",
+        "exiling cards from graveyard",
+        "forced sacrifice :: sacrifice a creature",
+        "forced sacrifice of a creature",
+        "gain control of target player's turn",
+        "life loss as a cost",
+        "life loss as an effect",
+        "lobotomy",
+        "planeswalker destruction",
+        "removing counters",
+        "return target creature from graveyard to hand",
+        "rewards for death",
+        "sengir ability",
+        "specter ability",
+        "torment ability",
+        "tutor for any card",
+        "you don't lose"
+      ]
+    },
+    "R": {
+      "name": "Red",
+      "primary": 45,
+      "secondary": 32,
+      "tertiary": 15,
+      "total_reachable": 92,
+      "reachable_pct_of_216": 42.6,
+      "globally_exclusive_access": 11,
+      "globally_unique_primary_owner": 31,
+      "conditional_mechanics": 52,
+      "primary_family_distribution": {
+        "stat_modification": 12,
+        "combat": 12,
+        "evasion": 11,
+        "sacrifice": 7,
+        "card_flow": 6,
+        "graveyard": 6,
+        "removal": 5,
+        "protection": 5,
+        "card_type_affinity": 5,
+        "tempo": 4,
+        "mana": 3,
+        "disruption": 3,
+        "tutoring": 3,
+        "counters": 2,
+        "copying": 2,
+        "characteristic_change": 1,
+        "life": 1,
+        "cheat_into_play": 1,
+        "rules_alteration": 1,
+        "theft": 1,
+        "tokens": 1
+      },
+      "all_family_membership_distribution": {
+        "combat": 21,
+        "stat_modification": 12,
+        "card_flow": 12,
+        "evasion": 11,
+        "removal": 7,
+        "sacrifice": 7,
+        "graveyard": 6,
+        "protection": 5,
+        "disruption": 5,
+        "card_type_affinity": 5,
+        "tempo": 4,
+        "mana": 3,
+        "tutoring": 3,
+        "counters": 2,
+        "copying": 2,
+        "tokens": 2,
+        "characteristic_change": 1,
+        "life": 1,
+        "cheat_into_play": 1,
+        "rules_alteration": 1,
+        "theft": 1
+      },
+      "exclusive_access_keys": [
+        "deal n damage to a creature/planeswalker/player where n is the number of cards in your hand/your opponent's hand",
+        "forced sacrifice :: sacrifice an artifact",
+        "impulsive draw",
+        "must attack",
+        "panic",
+        "playing cards off the top of library, for free",
+        "random destruction effects",
+        "rummaging (discard a card and draw a card.)",
+        "sacrifice a land",
+        "stealing permanents, temporarily",
+        "wheeling"
+      ],
+      "unique_primary_owner_keys": [
+        "+n/+0 (on auras)",
+        "+n/+0 (on creatures)",
+        "basic land counting",
+        "copying permanents, temporarily",
+        "creature pumping, your team, one-shot :: +n/+0 to your team",
+        "creature pumping, your team, ongoing :: +n/+0 to your team",
+        "deal damage when blocked",
+        "deal n damage to a creature that's been damaged this turn",
+        "deal n damage to a creature/planeswalker/player where n is the number of cards in your hand/your opponent's hand",
+        "deal n damage to creature, planeswalker, and/or player",
+        "direct damage, multiple targets",
+        "extra attack",
+        "forced attack",
+        "forced sacrifice :: sacrifice an artifact",
+        "haste",
+        "impulsive draw",
+        "land destruction",
+        "mana production, temporary",
+        "must attack",
+        "panic",
+        "playing cards off the top of library, for free",
+        "polymorph",
+        "punisher effects",
+        "random destruction effects",
+        "rummaging (discard a card and draw a card.)",
+        "sacrifice a creature and deal damage to creature/planeswalker/player equal to the sacrificed creature's power/toughness",
+        "sacrifice a land",
+        "sacrifice a permanent",
+        "stealing permanents, temporarily",
+        "treasure creation",
+        "wheeling"
+      ]
+    },
+    "G": {
+      "name": "Green",
+      "primary": 44,
+      "secondary": 28,
+      "tertiary": 11,
+      "total_reachable": 83,
+      "reachable_pct_of_216": 38.4,
+      "globally_exclusive_access": 10,
+      "globally_unique_primary_owner": 28,
+      "conditional_mechanics": 50,
+      "primary_family_distribution": {
+        "stat_modification": 15,
+        "evasion": 8,
+        "card_flow": 7,
+        "graveyard": 7,
+        "mana": 6,
+        "combat": 6,
+        "protection": 6,
+        "removal": 5,
+        "counters": 3,
+        "characteristic_change": 3,
+        "tempo": 3,
+        "card_type_affinity": 3,
+        "sacrifice": 2,
+        "life": 2,
+        "cheat_into_play": 2,
+        "tutoring": 2,
+        "control": 1,
+        "rules_alteration": 1,
+        "tokens": 1
+      },
+      "all_family_membership_distribution": {
+        "stat_modification": 15,
+        "combat": 15,
+        "card_flow": 10,
+        "evasion": 8,
+        "graveyard": 7,
+        "mana": 6,
+        "protection": 6,
+        "removal": 5,
+        "tempo": 4,
+        "counters": 3,
+        "characteristic_change": 3,
+        "card_type_affinity": 3,
+        "sacrifice": 2,
+        "disruption": 2,
+        "life": 2,
+        "cheat_into_play": 2,
+        "tokens": 2,
+        "tutoring": 2,
+        "control": 1,
+        "rules_alteration": 1
+      },
+      "exclusive_access_keys": [
+        "+n/+n (on creatures, single use)",
+        "daunt",
+        "destroy target creature with flying",
+        "lure",
+        "play extra lands/put a land from hand onto the battlefield",
+        "putting lands from hand onto the battlefield",
+        "return target card from graveyard to hand",
+        "return target land from graveyard to hand",
+        "stalking",
+        "super trample"
+      ],
+      "unique_primary_owner_keys": [
+        "+n/+n (on creatures, single use)",
+        "animating lands",
+        "bite",
+        "daunt",
+        "deal n damage to a creature with flying",
+        "destroy target creature with flying",
+        "fight",
+        "fog",
+        "forced block (target creature must block this turn.)",
+        "friendly to creatures",
+        "friendly to lands",
+        "lhurgoyf",
+        "lure",
+        "lure, limited",
+        "mana production, permanent",
+        "play extra lands/put a land from hand onto the battlefield",
+        "putting creatures from hand onto the battlefield",
+        "putting lands from hand onto the battlefield",
+        "reach",
+        "return target card from graveyard to hand",
+        "return target land from graveyard to hand",
+        "stalking",
+        "super trample",
+        "trample",
+        "tutor for a creature",
+        "tutor for a land",
+        "untapping lands",
+        "variable creature"
+      ]
+    }
+  },
+  "selections": [
+    {
+      "key": "W",
+      "colors": "W",
+      "color_count": 1,
+      "reachable_count": 104,
+      "reachable_pct_of_216": 48.1,
+      "primary_available": 60,
+      "secondary_only": 24,
+      "tertiary_only": 20,
+      "unavailable_count": 112,
+      "shared_any_access": "not_applicable",
+      "shared_primary": "not_applicable",
+      "complementary": "not_applicable",
+      "conditional_reachable": 57,
+      "families_reached": 20,
+      "families_with_primary_access": 18,
+      "aliases": "White",
+      "lens_aliases": ""
+    },
+    {
+      "key": "U",
+      "colors": "U",
+      "color_count": 1,
+      "reachable_count": 94,
+      "reachable_pct_of_216": 43.5,
+      "primary_available": 57,
+      "secondary_only": 20,
+      "tertiary_only": 17,
+      "unavailable_count": 122,
+      "shared_any_access": "not_applicable",
+      "shared_primary": "not_applicable",
+      "complementary": "not_applicable",
+      "conditional_reachable": 53,
+      "families_reached": 22,
+      "families_with_primary_access": 16,
+      "aliases": "Blue",
+      "lens_aliases": ""
+    },
+    {
+      "key": "B",
+      "colors": "B",
+      "color_count": 1,
+      "reachable_count": 94,
+      "reachable_pct_of_216": 43.5,
+      "primary_available": 45,
+      "secondary_only": 35,
+      "tertiary_only": 14,
+      "unavailable_count": 122,
+      "shared_any_access": "not_applicable",
+      "shared_primary": "not_applicable",
+      "complementary": "not_applicable",
+      "conditional_reachable": 54,
+      "families_reached": 22,
+      "families_with_primary_access": 15,
+      "aliases": "Black",
+      "lens_aliases": ""
+    },
+    {
+      "key": "R",
+      "colors": "R",
+      "color_count": 1,
+      "reachable_count": 92,
+      "reachable_pct_of_216": 42.6,
+      "primary_available": 45,
+      "secondary_only": 32,
+      "tertiary_only": 15,
+      "unavailable_count": 124,
+      "shared_any_access": "not_applicable",
+      "shared_primary": "not_applicable",
+      "complementary": "not_applicable",
+      "conditional_reachable": 52,
+      "families_reached": 21,
+      "families_with_primary_access": 13,
+      "aliases": "Red",
+      "lens_aliases": ""
+    },
+    {
+      "key": "G",
+      "colors": "G",
+      "color_count": 1,
+      "reachable_count": 83,
+      "reachable_pct_of_216": 38.4,
+      "primary_available": 44,
+      "secondary_only": 28,
+      "tertiary_only": 11,
+      "unavailable_count": 133,
+      "shared_any_access": "not_applicable",
+      "shared_primary": "not_applicable",
+      "complementary": "not_applicable",
+      "conditional_reachable": 50,
+      "families_reached": 19,
+      "families_with_primary_access": 17,
+      "aliases": "Green",
+      "lens_aliases": ""
+    },
+    {
+      "key": "WU",
+      "colors": "W U",
+      "color_count": 2,
+      "reachable_count": 151,
+      "reachable_pct_of_216": 69.9,
+      "primary_available": 112,
+      "secondary_only": 24,
+      "tertiary_only": 15,
+      "unavailable_count": 65,
+      "shared_any_access": 47,
+      "shared_primary": 5,
+      "complementary": 104,
+      "conditional_reachable": 80,
+      "families_reached": 23,
+      "families_with_primary_access": 21,
+      "aliases": "Azorius",
+      "lens_aliases": ""
+    },
+    {
+      "key": "WB",
+      "colors": "W B",
+      "color_count": 2,
+      "reachable_count": 154,
+      "reachable_pct_of_216": 71.3,
+      "primary_available": 103,
+      "secondary_only": 34,
+      "tertiary_only": 17,
+      "unavailable_count": 62,
+      "shared_any_access": 44,
+      "shared_primary": 2,
+      "complementary": 110,
+      "conditional_reachable": 82,
+      "families_reached": 22,
+      "families_with_primary_access": 21,
+      "aliases": "Orzhov",
+      "lens_aliases": "Silverquill"
+    },
+    {
+      "key": "WR",
+      "colors": "W R",
+      "color_count": 2,
+      "reachable_count": 155,
+      "reachable_pct_of_216": 71.8,
+      "primary_available": 103,
+      "secondary_only": 37,
+      "tertiary_only": 15,
+      "unavailable_count": 61,
+      "shared_any_access": 41,
+      "shared_primary": 2,
+      "complementary": 114,
+      "conditional_reachable": 81,
+      "families_reached": 23,
+      "families_with_primary_access": 23,
+      "aliases": "Boros",
+      "lens_aliases": "Lorehold"
+    },
+    {
+      "key": "WG",
+      "colors": "W G",
+      "color_count": 2,
+      "reachable_count": 136,
+      "reachable_pct_of_216": 63.0,
+      "primary_available": 95,
+      "secondary_only": 29,
+      "tertiary_only": 12,
+      "unavailable_count": 80,
+      "shared_any_access": 51,
+      "shared_primary": 9,
+      "complementary": 85,
+      "conditional_reachable": 72,
+      "families_reached": 20,
+      "families_with_primary_access": 20,
+      "aliases": "Selesnya",
+      "lens_aliases": ""
+    },
+    {
+      "key": "UB",
+      "colors": "U B",
+      "color_count": 2,
+      "reachable_count": 149,
+      "reachable_pct_of_216": 69.0,
+      "primary_available": 100,
+      "secondary_only": 37,
+      "tertiary_only": 12,
+      "unavailable_count": 67,
+      "shared_any_access": 39,
+      "shared_primary": 2,
+      "complementary": 110,
+      "conditional_reachable": 78,
+      "families_reached": 23,
+      "families_with_primary_access": 20,
+      "aliases": "Dimir",
+      "lens_aliases": ""
+    },
+    {
+      "key": "UR",
+      "colors": "U R",
+      "color_count": 2,
+      "reachable_count": 139,
+      "reachable_pct_of_216": 64.4,
+      "primary_available": 99,
+      "secondary_only": 27,
+      "tertiary_only": 13,
+      "unavailable_count": 77,
+      "shared_any_access": 47,
+      "shared_primary": 3,
+      "complementary": 92,
+      "conditional_reachable": 76,
+      "families_reached": 22,
+      "families_with_primary_access": 19,
+      "aliases": "Izzet",
+      "lens_aliases": "Prismari"
+    },
+    {
+      "key": "UG",
+      "colors": "U G",
+      "color_count": 2,
+      "reachable_count": 132,
+      "reachable_pct_of_216": 61.1,
+      "primary_available": 96,
+      "secondary_only": 28,
+      "tertiary_only": 8,
+      "unavailable_count": 84,
+      "shared_any_access": 45,
+      "shared_primary": 5,
+      "complementary": 87,
+      "conditional_reachable": 74,
+      "families_reached": 22,
+      "families_with_primary_access": 21,
+      "aliases": "Simic",
+      "lens_aliases": "Quandrix"
+    },
+    {
+      "key": "BR",
+      "colors": "B R",
+      "color_count": 2,
+      "reachable_count": 134,
+      "reachable_pct_of_216": 62.0,
+      "primary_available": 84,
+      "secondary_only": 39,
+      "tertiary_only": 11,
+      "unavailable_count": 82,
+      "shared_any_access": 52,
+      "shared_primary": 6,
+      "complementary": 82,
+      "conditional_reachable": 74,
+      "families_reached": 23,
+      "families_with_primary_access": 19,
+      "aliases": "Rakdos",
+      "lens_aliases": ""
+    },
+    {
+      "key": "BG",
+      "colors": "B G",
+      "color_count": 2,
+      "reachable_count": 136,
+      "reachable_pct_of_216": 63.0,
+      "primary_available": 89,
+      "secondary_only": 40,
+      "tertiary_only": 7,
+      "unavailable_count": 80,
+      "shared_any_access": 41,
+      "shared_primary": 0,
+      "complementary": 95,
+      "conditional_reachable": 77,
+      "families_reached": 22,
+      "families_with_primary_access": 21,
+      "aliases": "Golgari",
+      "lens_aliases": "Witherbloom"
+    },
+    {
+      "key": "RG",
+      "colors": "R G",
+      "color_count": 2,
+      "reachable_count": 133,
+      "reachable_pct_of_216": 61.6,
+      "primary_available": 86,
+      "secondary_only": 38,
+      "tertiary_only": 9,
+      "unavailable_count": 83,
+      "shared_any_access": 42,
+      "shared_primary": 3,
+      "complementary": 91,
+      "conditional_reachable": 74,
+      "families_reached": 22,
+      "families_with_primary_access": 20,
+      "aliases": "Gruul",
+      "lens_aliases": ""
+    },
+    {
+      "key": "WUB",
+      "colors": "W U B",
+      "color_count": 3,
+      "reachable_count": 189,
+      "reachable_pct_of_216": 87.5,
+      "primary_available": 153,
+      "secondary_only": 26,
+      "tertiary_only": 10,
+      "unavailable_count": 27,
+      "shared_any_access": 27,
+      "shared_primary": 0,
+      "complementary": 162,
+      "conditional_reachable": 94,
+      "families_reached": 23,
+      "families_with_primary_access": 22,
+      "aliases": "Esper",
+      "lens_aliases": ""
+    },
+    {
+      "key": "WUR",
+      "colors": "W U R",
+      "color_count": 3,
+      "reachable_count": 183,
+      "reachable_pct_of_216": 84.7,
+      "primary_available": 152,
+      "secondary_only": 22,
+      "tertiary_only": 9,
+      "unavailable_count": 33,
+      "shared_any_access": 28,
+      "shared_primary": 0,
+      "complementary": 155,
+      "conditional_reachable": 93,
+      "families_reached": 23,
+      "families_with_primary_access": 23,
+      "aliases": "Jeskai",
+      "lens_aliases": ""
+    },
+    {
+      "key": "WUG",
+      "colors": "W U G",
+      "color_count": 3,
+      "reachable_count": 173,
+      "reachable_pct_of_216": 80.1,
+      "primary_available": 143,
+      "secondary_only": 22,
+      "tertiary_only": 8,
+      "unavailable_count": 43,
+      "shared_any_access": 35,
+      "shared_primary": 1,
+      "complementary": 138,
+      "conditional_reachable": 89,
+      "families_reached": 23,
+      "families_with_primary_access": 23,
+      "aliases": "Bant",
+      "lens_aliases": ""
+    },
+    {
+      "key": "WBR",
+      "colors": "W B R",
+      "color_count": 3,
+      "reachable_count": 185,
+      "reachable_pct_of_216": 85.6,
+      "primary_available": 140,
+      "secondary_only": 33,
+      "tertiary_only": 12,
+      "unavailable_count": 31,
+      "shared_any_access": 32,
+      "shared_primary": 0,
+      "complementary": 153,
+      "conditional_reachable": 95,
+      "families_reached": 23,
+      "families_with_primary_access": 23,
+      "aliases": "Mardu",
+      "lens_aliases": ""
+    },
+    {
+      "key": "WBG",
+      "colors": "W B G",
+      "color_count": 3,
+      "reachable_count": 178,
+      "reachable_pct_of_216": 82.4,
+      "primary_available": 138,
+      "secondary_only": 32,
+      "tertiary_only": 8,
+      "unavailable_count": 38,
+      "shared_any_access": 33,
+      "shared_primary": 0,
+      "complementary": 145,
+      "conditional_reachable": 93,
+      "families_reached": 22,
+      "families_with_primary_access": 22,
+      "aliases": "Abzan",
+      "lens_aliases": ""
+    },
+    {
+      "key": "WRG",
+      "colors": "W R G",
+      "color_count": 3,
+      "reachable_count": 176,
+      "reachable_pct_of_216": 81.5,
+      "primary_available": 135,
+      "secondary_only": 32,
+      "tertiary_only": 9,
+      "unavailable_count": 40,
+      "shared_any_access": 31,
+      "shared_primary": 0,
+      "complementary": 145,
+      "conditional_reachable": 90,
+      "families_reached": 23,
+      "families_with_primary_access": 23,
+      "aliases": "Naya",
+      "lens_aliases": ""
+    },
+    {
+      "key": "UBR",
+      "colors": "U B R",
+      "color_count": 3,
+      "reachable_count": 173,
+      "reachable_pct_of_216": 80.1,
+      "primary_available": 136,
+      "secondary_only": 29,
+      "tertiary_only": 8,
+      "unavailable_count": 43,
+      "shared_any_access": 31,
+      "shared_primary": 0,
+      "complementary": 142,
+      "conditional_reachable": 91,
+      "families_reached": 23,
+      "families_with_primary_access": 21,
+      "aliases": "Grixis",
+      "lens_aliases": ""
+    },
+    {
+      "key": "UBG",
+      "colors": "U B G",
+      "color_count": 3,
+      "reachable_count": 175,
+      "reachable_pct_of_216": 81.0,
+      "primary_available": 139,
+      "secondary_only": 32,
+      "tertiary_only": 4,
+      "unavailable_count": 41,
+      "shared_any_access": 29,
+      "shared_primary": 0,
+      "complementary": 146,
+      "conditional_reachable": 92,
+      "families_reached": 23,
+      "families_with_primary_access": 22,
+      "aliases": "Sultai",
+      "lens_aliases": ""
+    },
+    {
+      "key": "URG",
+      "colors": "U R G",
+      "color_count": 3,
+      "reachable_count": 163,
+      "reachable_pct_of_216": 75.5,
+      "primary_available": 135,
+      "secondary_only": 23,
+      "tertiary_only": 5,
+      "unavailable_count": 53,
+      "shared_any_access": 28,
+      "shared_primary": 0,
+      "complementary": 135,
+      "conditional_reachable": 88,
+      "families_reached": 22,
+      "families_with_primary_access": 21,
+      "aliases": "Temur",
+      "lens_aliases": ""
+    },
+    {
+      "key": "BRG",
+      "colors": "B R G",
+      "color_count": 3,
+      "reachable_count": 166,
+      "reachable_pct_of_216": 76.9,
+      "primary_available": 125,
+      "secondary_only": 35,
+      "tertiary_only": 6,
+      "unavailable_count": 50,
+      "shared_any_access": 32,
+      "shared_primary": 0,
+      "complementary": 134,
+      "conditional_reachable": 90,
+      "families_reached": 23,
+      "families_with_primary_access": 22,
+      "aliases": "Jund",
+      "lens_aliases": ""
+    },
+    {
+      "key": "WUBR",
+      "colors": "W U B R",
+      "color_count": 4,
+      "reachable_count": 206,
+      "reachable_pct_of_216": 95.4,
+      "primary_available": 187,
+      "secondary_only": 14,
+      "tertiary_only": 5,
+      "unavailable_count": 10,
+      "shared_any_access": 26,
+      "shared_primary": 0,
+      "complementary": 180,
+      "conditional_reachable": 101,
+      "families_reached": 23,
+      "families_with_primary_access": 23,
+      "aliases": "Non-Green",
+      "lens_aliases": ""
+    },
+    {
+      "key": "WUBG",
+      "colors": "W U B G",
+      "color_count": 4,
+      "reachable_count": 205,
+      "reachable_pct_of_216": 94.9,
+      "primary_available": 184,
+      "secondary_only": 18,
+      "tertiary_only": 3,
+      "unavailable_count": 11,
+      "shared_any_access": 27,
+      "shared_primary": 0,
+      "complementary": 178,
+      "conditional_reachable": 101,
+      "families_reached": 23,
+      "families_with_primary_access": 23,
+      "aliases": "Non-Red",
+      "lens_aliases": ""
+    },
+    {
+      "key": "WURG",
+      "colors": "W U R G",
+      "color_count": 4,
+      "reachable_count": 196,
+      "reachable_pct_of_216": 90.7,
+      "primary_available": 180,
+      "secondary_only": 12,
+      "tertiary_only": 4,
+      "unavailable_count": 20,
+      "shared_any_access": 26,
+      "shared_primary": 0,
+      "complementary": 170,
+      "conditional_reachable": 98,
+      "families_reached": 23,
+      "families_with_primary_access": 23,
+      "aliases": "Non-Black",
+      "lens_aliases": ""
+    },
+    {
+      "key": "WBRG",
+      "colors": "W B R G",
+      "color_count": 4,
+      "reachable_count": 202,
+      "reachable_pct_of_216": 93.5,
+      "primary_available": 172,
+      "secondary_only": 24,
+      "tertiary_only": 6,
+      "unavailable_count": 14,
+      "shared_any_access": 28,
+      "shared_primary": 0,
+      "complementary": 174,
+      "conditional_reachable": 102,
+      "families_reached": 23,
+      "families_with_primary_access": 23,
+      "aliases": "Non-Blue",
+      "lens_aliases": ""
+    },
+    {
+      "key": "UBRG",
+      "colors": "U B R G",
+      "color_count": 4,
+      "reachable_count": 190,
+      "reachable_pct_of_216": 88.0,
+      "primary_available": 172,
+      "secondary_only": 17,
+      "tertiary_only": 1,
+      "unavailable_count": 26,
+      "shared_any_access": 27,
+      "shared_primary": 0,
+      "complementary": 163,
+      "conditional_reachable": 99,
+      "families_reached": 23,
+      "families_with_primary_access": 22,
+      "aliases": "Non-White",
+      "lens_aliases": ""
+    },
+    {
+      "key": "WUBRG",
+      "colors": "W U B R G",
+      "color_count": 5,
+      "reachable_count": 216,
+      "reachable_pct_of_216": 100.0,
+      "primary_available": 215,
+      "secondary_only": 1,
+      "tertiary_only": 0,
+      "unavailable_count": 0,
+      "shared_any_access": 26,
+      "shared_primary": 0,
+      "complementary": 190,
+      "conditional_reachable": 105,
+      "families_reached": 23,
+      "families_with_primary_access": 23,
+      "aliases": "Five-Color",
+      "lens_aliases": ""
+    }
+  ],
+  "selection_size_distributions": {
+    "1": {
+      "selections": 5,
+      "reachable_count": {
+        "min": 83,
+        "max": 104,
+        "mean": 93.4,
+        "median": 94
+      },
+      "primary_available": {
+        "min": 44,
+        "max": 60,
+        "mean": 50.2,
+        "median": 45
+      },
+      "conditional_reachable": {
+        "min": 50,
+        "max": 57,
+        "mean": 53.2,
+        "median": 53
+      },
+      "ordered": [
+        [
+          "W",
+          104
+        ],
+        [
+          "U",
+          94
+        ],
+        [
+          "B",
+          94
+        ],
+        [
+          "R",
+          92
+        ],
+        [
+          "G",
+          83
+        ]
+      ]
+    },
+    "2": {
+      "selections": 10,
+      "reachable_count": {
+        "min": 132,
+        "max": 155,
+        "mean": 141.9,
+        "median": 137.5
+      },
+      "primary_available": {
+        "min": 84,
+        "max": 112,
+        "mean": 96.7,
+        "median": 97.5
+      },
+      "conditional_reachable": {
+        "min": 72,
+        "max": 82,
+        "mean": 76.8,
+        "median": 76.5
+      },
+      "ordered": [
+        [
+          "WR",
+          155
+        ],
+        [
+          "WB",
+          154
+        ],
+        [
+          "WU",
+          151
+        ],
+        [
+          "UB",
+          149
+        ],
+        [
+          "UR",
+          139
+        ],
+        [
+          "WG",
+          136
+        ],
+        [
+          "BG",
+          136
+        ],
+        [
+          "BR",
+          134
+        ],
+        [
+          "RG",
+          133
+        ],
+        [
+          "UG",
+          132
+        ]
+      ]
+    },
+    "3": {
+      "selections": 10,
+      "reachable_count": {
+        "min": 163,
+        "max": 189,
+        "mean": 176.1,
+        "median": 175.5
+      },
+      "primary_available": {
+        "min": 125,
+        "max": 153,
+        "mean": 139.6,
+        "median": 138.5
+      },
+      "conditional_reachable": {
+        "min": 88,
+        "max": 95,
+        "mean": 91.5,
+        "median": 91.5
+      },
+      "ordered": [
+        [
+          "WUB",
+          189
+        ],
+        [
+          "WBR",
+          185
+        ],
+        [
+          "WUR",
+          183
+        ],
+        [
+          "WBG",
+          178
+        ],
+        [
+          "WRG",
+          176
+        ],
+        [
+          "UBG",
+          175
+        ],
+        [
+          "WUG",
+          173
+        ],
+        [
+          "UBR",
+          173
+        ],
+        [
+          "BRG",
+          166
+        ],
+        [
+          "URG",
+          163
+        ]
+      ]
+    },
+    "4": {
+      "selections": 5,
+      "reachable_count": {
+        "min": 190,
+        "max": 206,
+        "mean": 199.8,
+        "median": 202
+      },
+      "primary_available": {
+        "min": 172,
+        "max": 187,
+        "mean": 179,
+        "median": 180
+      },
+      "conditional_reachable": {
+        "min": 98,
+        "max": 102,
+        "mean": 100.2,
+        "median": 101
+      },
+      "ordered": [
+        [
+          "WUBR",
+          206
+        ],
+        [
+          "WUBG",
+          205
+        ],
+        [
+          "WBRG",
+          202
+        ],
+        [
+          "WURG",
+          196
+        ],
+        [
+          "UBRG",
+          190
+        ]
+      ]
+    },
+    "5": {
+      "selections": 1,
+      "reachable_count": {
+        "min": 216,
+        "max": 216,
+        "mean": 216,
+        "median": 216
+      },
+      "primary_available": {
+        "min": 215,
+        "max": 215,
+        "mean": 215,
+        "median": 215
+      },
+      "conditional_reachable": {
+        "min": 105,
+        "max": 105,
+        "mean": 105,
+        "median": 105
+      },
+      "ordered": [
+        [
+          "WUBRG",
+          216
+        ]
+      ]
+    }
+  },
+  "pair_overlap": [
+    {
+      "pair": "WU",
+      "any_access_overlap": 47,
+      "shared_primary_overlap": 5,
+      "union_size": 151,
+      "jaccard_any_access": 0.311,
+      "note": "jaccard is mechanical overlap in this dataset only"
+    },
+    {
+      "pair": "WB",
+      "any_access_overlap": 44,
+      "shared_primary_overlap": 2,
+      "union_size": 154,
+      "jaccard_any_access": 0.286,
+      "note": "jaccard is mechanical overlap in this dataset only"
+    },
+    {
+      "pair": "WR",
+      "any_access_overlap": 41,
+      "shared_primary_overlap": 2,
+      "union_size": 155,
+      "jaccard_any_access": 0.265,
+      "note": "jaccard is mechanical overlap in this dataset only"
+    },
+    {
+      "pair": "WG",
+      "any_access_overlap": 51,
+      "shared_primary_overlap": 9,
+      "union_size": 136,
+      "jaccard_any_access": 0.375,
+      "note": "jaccard is mechanical overlap in this dataset only"
+    },
+    {
+      "pair": "UB",
+      "any_access_overlap": 39,
+      "shared_primary_overlap": 2,
+      "union_size": 149,
+      "jaccard_any_access": 0.262,
+      "note": "jaccard is mechanical overlap in this dataset only"
+    },
+    {
+      "pair": "UR",
+      "any_access_overlap": 47,
+      "shared_primary_overlap": 3,
+      "union_size": 139,
+      "jaccard_any_access": 0.338,
+      "note": "jaccard is mechanical overlap in this dataset only"
+    },
+    {
+      "pair": "UG",
+      "any_access_overlap": 45,
+      "shared_primary_overlap": 5,
+      "union_size": 132,
+      "jaccard_any_access": 0.341,
+      "note": "jaccard is mechanical overlap in this dataset only"
+    },
+    {
+      "pair": "BR",
+      "any_access_overlap": 52,
+      "shared_primary_overlap": 6,
+      "union_size": 134,
+      "jaccard_any_access": 0.388,
+      "note": "jaccard is mechanical overlap in this dataset only"
+    },
+    {
+      "pair": "BG",
+      "any_access_overlap": 41,
+      "shared_primary_overlap": 0,
+      "union_size": 136,
+      "jaccard_any_access": 0.301,
+      "note": "jaccard is mechanical overlap in this dataset only"
+    },
+    {
+      "pair": "RG",
+      "any_access_overlap": 42,
+      "shared_primary_overlap": 3,
+      "union_size": 133,
+      "jaccard_any_access": 0.316,
+      "note": "jaccard is mechanical overlap in this dataset only"
+    }
+  ],
+  "marginal_additions": [
+    {
+      "base": "W",
+      "added": "U",
+      "result": "WU",
+      "newly_reachable": 47,
+      "best_tier_improved": 16,
+      "new_owner_no_improvement": 31,
+      "unchanged": 57,
+      "still_unavailable": 65
+    },
+    {
+      "base": "W",
+      "added": "B",
+      "result": "WB",
+      "newly_reachable": 50,
+      "best_tier_improved": 14,
+      "new_owner_no_improvement": 30,
+      "unchanged": 60,
+      "still_unavailable": 62
+    },
+    {
+      "base": "W",
+      "added": "R",
+      "result": "WR",
+      "newly_reachable": 51,
+      "best_tier_improved": 16,
+      "new_owner_no_improvement": 25,
+      "unchanged": 63,
+      "still_unavailable": 61
+    },
+    {
+      "base": "W",
+      "added": "G",
+      "result": "WG",
+      "newly_reachable": 32,
+      "best_tier_improved": 17,
+      "new_owner_no_improvement": 34,
+      "unchanged": 53,
+      "still_unavailable": 80
+    },
+    {
+      "base": "U",
+      "added": "W",
+      "result": "WU",
+      "newly_reachable": 57,
+      "best_tier_improved": 15,
+      "new_owner_no_improvement": 32,
+      "unchanged": 47,
+      "still_unavailable": 65
+    },
+    {
+      "base": "U",
+      "added": "B",
+      "result": "UB",
+      "newly_reachable": 55,
+      "best_tier_improved": 12,
+      "new_owner_no_improvement": 27,
+      "unchanged": 55,
+      "still_unavailable": 67
+    },
+    {
+      "base": "U",
+      "added": "R",
+      "result": "UR",
+      "newly_reachable": 45,
+      "best_tier_improved": 11,
+      "new_owner_no_improvement": 36,
+      "unchanged": 47,
+      "still_unavailable": 77
+    },
+    {
+      "base": "U",
+      "added": "G",
+      "result": "UG",
+      "newly_reachable": 38,
+      "best_tier_improved": 18,
+      "new_owner_no_improvement": 27,
+      "unchanged": 49,
+      "still_unavailable": 84
+    },
+    {
+      "base": "B",
+      "added": "W",
+      "result": "WB",
+      "newly_reachable": 60,
+      "best_tier_improved": 16,
+      "new_owner_no_improvement": 28,
+      "unchanged": 50,
+      "still_unavailable": 62
+    },
+    {
+      "base": "B",
+      "added": "U",
+      "result": "UB",
+      "newly_reachable": 55,
+      "best_tier_improved": 14,
+      "new_owner_no_improvement": 25,
+      "unchanged": 55,
+      "still_unavailable": 67
+    },
+    {
+      "base": "B",
+      "added": "R",
+      "result": "BR",
+      "newly_reachable": 40,
+      "best_tier_improved": 17,
+      "new_owner_no_improvement": 35,
+      "unchanged": 42,
+      "still_unavailable": 82
+    },
+    {
+      "base": "B",
+      "added": "G",
+      "result": "BG",
+      "newly_reachable": 42,
+      "best_tier_improved": 18,
+      "new_owner_no_improvement": 23,
+      "unchanged": 53,
+      "still_unavailable": 80
+    },
+    {
+      "base": "R",
+      "added": "W",
+      "result": "WR",
+      "newly_reachable": 63,
+      "best_tier_improved": 14,
+      "new_owner_no_improvement": 27,
+      "unchanged": 51,
+      "still_unavailable": 61
+    },
+    {
+      "base": "R",
+      "added": "U",
+      "result": "UR",
+      "newly_reachable": 47,
+      "best_tier_improved": 16,
+      "new_owner_no_improvement": 31,
+      "unchanged": 45,
+      "still_unavailable": 77
+    },
+    {
+      "base": "R",
+      "added": "B",
+      "result": "BR",
+      "newly_reachable": 42,
+      "best_tier_improved": 14,
+      "new_owner_no_improvement": 38,
+      "unchanged": 40,
+      "still_unavailable": 82
+    },
+    {
+      "base": "R",
+      "added": "G",
+      "result": "RG",
+      "newly_reachable": 41,
+      "best_tier_improved": 22,
+      "new_owner_no_improvement": 20,
+      "unchanged": 50,
+      "still_unavailable": 83
+    },
+    {
+      "base": "G",
+      "added": "W",
+      "result": "WG",
+      "newly_reachable": 53,
+      "best_tier_improved": 16,
+      "new_owner_no_improvement": 35,
+      "unchanged": 32,
+      "still_unavailable": 80
+    },
+    {
+      "base": "G",
+      "added": "U",
+      "result": "UG",
+      "newly_reachable": 49,
+      "best_tier_improved": 13,
+      "new_owner_no_improvement": 32,
+      "unchanged": 38,
+      "still_unavailable": 84
+    },
+    {
+      "base": "G",
+      "added": "B",
+      "result": "BG",
+      "newly_reachable": 53,
+      "best_tier_improved": 11,
+      "new_owner_no_improvement": 30,
+      "unchanged": 42,
+      "still_unavailable": 80
+    },
+    {
+      "base": "G",
+      "added": "R",
+      "result": "RG",
+      "newly_reachable": 50,
+      "best_tier_improved": 9,
+      "new_owner_no_improvement": 33,
+      "unchanged": 41,
+      "still_unavailable": 83
+    },
+    {
+      "base": "WU",
+      "added": "B",
+      "result": "WUB",
+      "newly_reachable": 38,
+      "best_tier_improved": 16,
+      "new_owner_no_improvement": 40,
+      "unchanged": 95,
+      "still_unavailable": 27
+    },
+    {
+      "base": "WU",
+      "added": "R",
+      "result": "WUR",
+      "newly_reachable": 32,
+      "best_tier_improved": 19,
+      "new_owner_no_improvement": 41,
+      "unchanged": 91,
+      "still_unavailable": 33
+    },
+    {
+      "base": "WU",
+      "added": "G",
+      "result": "WUG",
+      "newly_reachable": 22,
+      "best_tier_improved": 16,
+      "new_owner_no_improvement": 45,
+      "unchanged": 90,
+      "still_unavailable": 43
+    },
+    {
+      "base": "WB",
+      "added": "U",
+      "result": "WUB",
+      "newly_reachable": 35,
+      "best_tier_improved": 22,
+      "new_owner_no_improvement": 37,
+      "unchanged": 95,
+      "still_unavailable": 27
+    },
+    {
+      "base": "WB",
+      "added": "R",
+      "result": "WBR",
+      "newly_reachable": 31,
+      "best_tier_improved": 23,
+      "new_owner_no_improvement": 38,
+      "unchanged": 93,
+      "still_unavailable": 31
+    },
+    {
+      "base": "WB",
+      "added": "G",
+      "result": "WBG",
+      "newly_reachable": 24,
+      "best_tier_improved": 17,
+      "new_owner_no_improvement": 42,
+      "unchanged": 95,
+      "still_unavailable": 38
+    },
+    {
+      "base": "WR",
+      "added": "U",
+      "result": "WUR",
+      "newly_reachable": 28,
+      "best_tier_improved": 23,
+      "new_owner_no_improvement": 43,
+      "unchanged": 89,
+      "still_unavailable": 33
+    },
+    {
+      "base": "WR",
+      "added": "B",
+      "result": "WBR",
+      "newly_reachable": 30,
+      "best_tier_improved": 15,
+      "new_owner_no_improvement": 49,
+      "unchanged": 91,
+      "still_unavailable": 31
+    },
+    {
+      "base": "WR",
+      "added": "G",
+      "result": "WRG",
+      "newly_reachable": 21,
+      "best_tier_improved": 21,
+      "new_owner_no_improvement": 41,
+      "unchanged": 93,
+      "still_unavailable": 40
+    },
+    {
+      "base": "WG",
+      "added": "U",
+      "result": "WUG",
+      "newly_reachable": 37,
+      "best_tier_improved": 17,
+      "new_owner_no_improvement": 40,
+      "unchanged": 79,
+      "still_unavailable": 43
+    },
+    {
+      "base": "WG",
+      "added": "B",
+      "result": "WBG",
+      "newly_reachable": 42,
+      "best_tier_improved": 14,
+      "new_owner_no_improvement": 38,
+      "unchanged": 84,
+      "still_unavailable": 38
+    },
+    {
+      "base": "WG",
+      "added": "R",
+      "result": "WRG",
+      "newly_reachable": 40,
+      "best_tier_improved": 14,
+      "new_owner_no_improvement": 38,
+      "unchanged": 84,
+      "still_unavailable": 40
+    },
+    {
+      "base": "UB",
+      "added": "W",
+      "result": "WUB",
+      "newly_reachable": 40,
+      "best_tier_improved": 21,
+      "new_owner_no_improvement": 43,
+      "unchanged": 85,
+      "still_unavailable": 27
+    },
+    {
+      "base": "UB",
+      "added": "R",
+      "result": "UBR",
+      "newly_reachable": 24,
+      "best_tier_improved": 20,
+      "new_owner_no_improvement": 48,
+      "unchanged": 81,
+      "still_unavailable": 43
+    },
+    {
+      "base": "UB",
+      "added": "G",
+      "result": "UBG",
+      "newly_reachable": 26,
+      "best_tier_improved": 20,
+      "new_owner_no_improvement": 37,
+      "unchanged": 92,
+      "still_unavailable": 41
+    },
+    {
+      "base": "UR",
+      "added": "W",
+      "result": "WUR",
+      "newly_reachable": 44,
+      "best_tier_improved": 17,
+      "new_owner_no_improvement": 43,
+      "unchanged": 79,
+      "still_unavailable": 33
+    },
+    {
+      "base": "UR",
+      "added": "B",
+      "result": "UBR",
+      "newly_reachable": 34,
+      "best_tier_improved": 11,
+      "new_owner_no_improvement": 49,
+      "unchanged": 79,
+      "still_unavailable": 43
+    },
+    {
+      "base": "UR",
+      "added": "G",
+      "result": "URG",
+      "newly_reachable": 24,
+      "best_tier_improved": 23,
+      "new_owner_no_improvement": 36,
+      "unchanged": 80,
+      "still_unavailable": 53
+    },
+    {
+      "base": "UG",
+      "added": "W",
+      "result": "WUG",
+      "newly_reachable": 41,
+      "best_tier_improved": 17,
+      "new_owner_no_improvement": 46,
+      "unchanged": 69,
+      "still_unavailable": 43
+    },
+    {
+      "base": "UG",
+      "added": "B",
+      "result": "UBG",
+      "newly_reachable": 43,
+      "best_tier_improved": 12,
+      "new_owner_no_improvement": 39,
+      "unchanged": 81,
+      "still_unavailable": 41
+    },
+    {
+      "base": "UG",
+      "added": "R",
+      "result": "URG",
+      "newly_reachable": 31,
+      "best_tier_improved": 11,
+      "new_owner_no_improvement": 50,
+      "unchanged": 71,
+      "still_unavailable": 53
+    },
+    {
+      "base": "BR",
+      "added": "W",
+      "result": "WBR",
+      "newly_reachable": 51,
+      "best_tier_improved": 16,
+      "new_owner_no_improvement": 37,
+      "unchanged": 81,
+      "still_unavailable": 31
+    },
+    {
+      "base": "BR",
+      "added": "U",
+      "result": "UBR",
+      "newly_reachable": 39,
+      "best_tier_improved": 22,
+      "new_owner_no_improvement": 33,
+      "unchanged": 79,
+      "still_unavailable": 43
+    },
+    {
+      "base": "BR",
+      "added": "G",
+      "result": "BRG",
+      "newly_reachable": 32,
+      "best_tier_improved": 24,
+      "new_owner_no_improvement": 27,
+      "unchanged": 83,
+      "still_unavailable": 50
+    },
+    {
+      "base": "BG",
+      "added": "W",
+      "result": "WBG",
+      "newly_reachable": 42,
+      "best_tier_improved": 17,
+      "new_owner_no_improvement": 45,
+      "unchanged": 74,
+      "still_unavailable": 38
+    },
+    {
+      "base": "BG",
+      "added": "U",
+      "result": "UBG",
+      "newly_reachable": 39,
+      "best_tier_improved": 18,
+      "new_owner_no_improvement": 37,
+      "unchanged": 81,
+      "still_unavailable": 41
+    },
+    {
+      "base": "BG",
+      "added": "R",
+      "result": "BRG",
+      "newly_reachable": 30,
+      "best_tier_improved": 15,
+      "new_owner_no_improvement": 47,
+      "unchanged": 74,
+      "still_unavailable": 50
+    },
+    {
+      "base": "RG",
+      "added": "W",
+      "result": "WRG",
+      "newly_reachable": 43,
+      "best_tier_improved": 17,
+      "new_owner_no_improvement": 44,
+      "unchanged": 72,
+      "still_unavailable": 40
+    },
+    {
+      "base": "RG",
+      "added": "U",
+      "result": "URG",
+      "newly_reachable": 30,
+      "best_tier_improved": 23,
+      "new_owner_no_improvement": 41,
+      "unchanged": 69,
+      "still_unavailable": 53
+    },
+    {
+      "base": "RG",
+      "added": "B",
+      "result": "BRG",
+      "newly_reachable": 33,
+      "best_tier_improved": 13,
+      "new_owner_no_improvement": 48,
+      "unchanged": 72,
+      "still_unavailable": 50
+    },
+    {
+      "base": "WUB",
+      "added": "R",
+      "result": "WUBR",
+      "newly_reachable": 17,
+      "best_tier_improved": 25,
+      "new_owner_no_improvement": 50,
+      "unchanged": 114,
+      "still_unavailable": 10
+    },
+    {
+      "base": "WUB",
+      "added": "G",
+      "result": "WUBG",
+      "newly_reachable": 16,
+      "best_tier_improved": 15,
+      "new_owner_no_improvement": 52,
+      "unchanged": 122,
+      "still_unavailable": 11
+    },
+    {
+      "base": "WUR",
+      "added": "B",
+      "result": "WUBR",
+      "newly_reachable": 23,
+      "best_tier_improved": 13,
+      "new_owner_no_improvement": 58,
+      "unchanged": 112,
+      "still_unavailable": 10
+    },
+    {
+      "base": "WUR",
+      "added": "G",
+      "result": "WURG",
+      "newly_reachable": 13,
+      "best_tier_improved": 18,
+      "new_owner_no_improvement": 52,
+      "unchanged": 113,
+      "still_unavailable": 20
+    },
+    {
+      "base": "WUG",
+      "added": "B",
+      "result": "WUBG",
+      "newly_reachable": 32,
+      "best_tier_improved": 16,
+      "new_owner_no_improvement": 46,
+      "unchanged": 111,
+      "still_unavailable": 11
+    },
+    {
+      "base": "WUG",
+      "added": "R",
+      "result": "WURG",
+      "newly_reachable": 23,
+      "best_tier_improved": 16,
+      "new_owner_no_improvement": 53,
+      "unchanged": 104,
+      "still_unavailable": 20
+    },
+    {
+      "base": "WBR",
+      "added": "U",
+      "result": "WUBR",
+      "newly_reachable": 21,
+      "best_tier_improved": 28,
+      "new_owner_no_improvement": 45,
+      "unchanged": 112,
+      "still_unavailable": 10
+    },
+    {
+      "base": "WBR",
+      "added": "G",
+      "result": "WBRG",
+      "newly_reachable": 17,
+      "best_tier_improved": 21,
+      "new_owner_no_improvement": 45,
+      "unchanged": 119,
+      "still_unavailable": 14
+    },
+    {
+      "base": "WBG",
+      "added": "U",
+      "result": "WUBG",
+      "newly_reachable": 27,
+      "best_tier_improved": 22,
+      "new_owner_no_improvement": 45,
+      "unchanged": 111,
+      "still_unavailable": 11
+    },
+    {
+      "base": "WBG",
+      "added": "R",
+      "result": "WBRG",
+      "newly_reachable": 24,
+      "best_tier_improved": 18,
+      "new_owner_no_improvement": 50,
+      "unchanged": 110,
+      "still_unavailable": 14
+    },
+    {
+      "base": "WRG",
+      "added": "U",
+      "result": "WURG",
+      "newly_reachable": 20,
+      "best_tier_improved": 25,
+      "new_owner_no_improvement": 49,
+      "unchanged": 102,
+      "still_unavailable": 20
+    },
+    {
+      "base": "WRG",
+      "added": "B",
+      "result": "WBRG",
+      "newly_reachable": 26,
+      "best_tier_improved": 16,
+      "new_owner_no_improvement": 52,
+      "unchanged": 108,
+      "still_unavailable": 14
+    },
+    {
+      "base": "UBR",
+      "added": "W",
+      "result": "WUBR",
+      "newly_reachable": 33,
+      "best_tier_improved": 20,
+      "new_owner_no_improvement": 51,
+      "unchanged": 102,
+      "still_unavailable": 10
+    },
+    {
+      "base": "UBR",
+      "added": "G",
+      "result": "UBRG",
+      "newly_reachable": 17,
+      "best_tier_improved": 25,
+      "new_owner_no_improvement": 41,
+      "unchanged": 107,
+      "still_unavailable": 26
+    },
+    {
+      "base": "UBG",
+      "added": "W",
+      "result": "WUBG",
+      "newly_reachable": 30,
+      "best_tier_improved": 18,
+      "new_owner_no_improvement": 56,
+      "unchanged": 101,
+      "still_unavailable": 11
+    },
+    {
+      "base": "UBG",
+      "added": "R",
+      "result": "UBRG",
+      "newly_reachable": 15,
+      "best_tier_improved": 18,
+      "new_owner_no_improvement": 59,
+      "unchanged": 98,
+      "still_unavailable": 26
+    },
+    {
+      "base": "URG",
+      "added": "W",
+      "result": "WURG",
+      "newly_reachable": 33,
+      "best_tier_improved": 17,
+      "new_owner_no_improvement": 54,
+      "unchanged": 92,
+      "still_unavailable": 20
+    },
+    {
+      "base": "URG",
+      "added": "B",
+      "result": "UBRG",
+      "newly_reachable": 27,
+      "best_tier_improved": 12,
+      "new_owner_no_improvement": 55,
+      "unchanged": 96,
+      "still_unavailable": 26
+    },
+    {
+      "base": "BRG",
+      "added": "W",
+      "result": "WBRG",
+      "newly_reachable": 36,
+      "best_tier_improved": 17,
+      "new_owner_no_improvement": 51,
+      "unchanged": 98,
+      "still_unavailable": 14
+    },
+    {
+      "base": "BRG",
+      "added": "U",
+      "result": "UBRG",
+      "newly_reachable": 24,
+      "best_tier_improved": 27,
+      "new_owner_no_improvement": 43,
+      "unchanged": 96,
+      "still_unavailable": 26
+    },
+    {
+      "base": "WUBR",
+      "added": "G",
+      "result": "WUBRG",
+      "newly_reachable": 10,
+      "best_tier_improved": 18,
+      "new_owner_no_improvement": 55,
+      "unchanged": 133,
+      "still_unavailable": 0
+    },
+    {
+      "base": "WUBG",
+      "added": "R",
+      "result": "WUBRG",
+      "newly_reachable": 11,
+      "best_tier_improved": 20,
+      "new_owner_no_improvement": 61,
+      "unchanged": 124,
+      "still_unavailable": 0
+    },
+    {
+      "base": "WURG",
+      "added": "B",
+      "result": "WUBRG",
+      "newly_reachable": 20,
+      "best_tier_improved": 15,
+      "new_owner_no_improvement": 59,
+      "unchanged": 122,
+      "still_unavailable": 0
+    },
+    {
+      "base": "WBRG",
+      "added": "U",
+      "result": "WUBRG",
+      "newly_reachable": 14,
+      "best_tier_improved": 29,
+      "new_owner_no_improvement": 51,
+      "unchanged": 122,
+      "still_unavailable": 0
+    },
+    {
+      "base": "UBRG",
+      "added": "W",
+      "result": "WUBRG",
+      "newly_reachable": 26,
+      "best_tier_improved": 17,
+      "new_owner_no_improvement": 61,
+      "unchanged": 112,
+      "still_unavailable": 0
+    }
+  ],
+  "marginal_addition_by_color": {
+    "W": {
+      "transitions": 15,
+      "newly_reachable": {
+        "min": 26,
+        "max": 63,
+        "mean": 43.5,
+        "median": 42
+      },
+      "best_tier_improved": {
+        "min": 14,
+        "max": 21,
+        "mean": 17,
+        "median": 17
+      },
+      "new_owner_no_improvement": {
+        "min": 27,
+        "max": 61,
+        "mean": 43.5,
+        "median": 44
+      }
+    },
+    "U": {
+      "transitions": 15,
+      "newly_reachable": {
+        "min": 14,
+        "max": 55,
+        "mean": 34.1,
+        "median": 35
+      },
+      "best_tier_improved": {
+        "min": 13,
+        "max": 29,
+        "mean": 21,
+        "median": 22
+      },
+      "new_owner_no_improvement": {
+        "min": 25,
+        "max": 51,
+        "mean": 38.9,
+        "median": 40
+      }
+    },
+    "B": {
+      "transitions": 15,
+      "newly_reachable": {
+        "min": 20,
+        "max": 55,
+        "mean": 36.5,
+        "median": 34
+      },
+      "best_tier_improved": {
+        "min": 11,
+        "max": 16,
+        "mean": 13.6,
+        "median": 14
+      },
+      "new_owner_no_improvement": {
+        "min": 27,
+        "max": 59,
+        "mean": 43.9,
+        "median": 46
+      }
+    },
+    "R": {
+      "transitions": 15,
+      "newly_reachable": {
+        "min": 11,
+        "max": 51,
+        "mean": 30.9,
+        "median": 31
+      },
+      "best_tier_improved": {
+        "min": 9,
+        "max": 25,
+        "mean": 16.8,
+        "median": 17
+      },
+      "new_owner_no_improvement": {
+        "min": 25,
+        "max": 61,
+        "mean": 44.3,
+        "median": 47
+      }
+    },
+    "G": {
+      "transitions": 15,
+      "newly_reachable": {
+        "min": 10,
+        "max": 42,
+        "mean": 25,
+        "median": 24
+      },
+      "best_tier_improved": {
+        "min": 15,
+        "max": 25,
+        "mean": 19.5,
+        "median": 18
+      },
+      "new_owner_no_improvement": {
+        "min": 20,
+        "max": 55,
+        "mean": 38.5,
+        "median": 41
+      }
+    }
+  },
+  "four_color_absence": [
+    {
+      "omitted": "W",
+      "selection": "UBRG",
+      "lost_completely": 26,
+      "best_access_degraded": 17,
+      "owner_lost_access_retained": 61,
+      "unaffected": 112,
+      "cross_check_global_exclusive_access": 26,
+      "cross_check_pass": true
+    },
+    {
+      "omitted": "U",
+      "selection": "WBRG",
+      "lost_completely": 14,
+      "best_access_degraded": 29,
+      "owner_lost_access_retained": 51,
+      "unaffected": 122,
+      "cross_check_global_exclusive_access": 14,
+      "cross_check_pass": true
+    },
+    {
+      "omitted": "B",
+      "selection": "WURG",
+      "lost_completely": 20,
+      "best_access_degraded": 15,
+      "owner_lost_access_retained": 59,
+      "unaffected": 122,
+      "cross_check_global_exclusive_access": 20,
+      "cross_check_pass": true
+    },
+    {
+      "omitted": "R",
+      "selection": "WUBG",
+      "lost_completely": 11,
+      "best_access_degraded": 20,
+      "owner_lost_access_retained": 61,
+      "unaffected": 124,
+      "cross_check_global_exclusive_access": 11,
+      "cross_check_pass": true
+    },
+    {
+      "omitted": "G",
+      "selection": "WUBR",
+      "lost_completely": 10,
+      "best_access_degraded": 18,
+      "owner_lost_access_retained": 55,
+      "unaffected": 133,
+      "cross_check_global_exclusive_access": 10,
+      "cross_check_pass": true
+    }
+  ],
+  "families": [
+    {
+      "family": "stat_modification",
+      "primary_member_count": 34,
+      "secondary_member_count": 0,
+      "all_member_count": 34,
+      "pct_of_216_by_primary_membership": 15.7,
+      "reach_W": 17,
+      "reach_U": 13,
+      "reach_B": 17,
+      "reach_R": 12,
+      "reach_G": 15,
+      "primary_W": 11,
+      "primary_U": 7,
+      "primary_B": 9,
+      "primary_R": 5,
+      "primary_G": 5,
+      "color_breadth_of_members": 2.18,
+      "canonical_selections_reaching_family": 31,
+      "conditional_member_count": 21
+    },
+    {
+      "family": "removal",
+      "primary_member_count": 22,
+      "secondary_member_count": 3,
+      "all_member_count": 25,
+      "pct_of_216_by_primary_membership": 10.2,
+      "reach_W": 12,
+      "reach_U": 1,
+      "reach_B": 10,
+      "reach_R": 5,
+      "reach_G": 5,
+      "primary_W": 10,
+      "primary_U": 0,
+      "primary_B": 6,
+      "primary_R": 5,
+      "primary_G": 3,
+      "color_breadth_of_members": 1.5,
+      "canonical_selections_reaching_family": 31,
+      "conditional_member_count": 12
+    },
+    {
+      "family": "graveyard",
+      "primary_member_count": 16,
+      "secondary_member_count": 1,
+      "all_member_count": 17,
+      "pct_of_216_by_primary_membership": 7.4,
+      "reach_W": 9,
+      "reach_U": 7,
+      "reach_B": 7,
+      "reach_R": 6,
+      "reach_G": 7,
+      "primary_W": 5,
+      "primary_U": 4,
+      "primary_B": 6,
+      "primary_R": 0,
+      "primary_G": 4,
+      "color_breadth_of_members": 2.25,
+      "canonical_selections_reaching_family": 31,
+      "conditional_member_count": 6
+    },
+    {
+      "family": "combat",
+      "primary_member_count": 15,
+      "secondary_member_count": 16,
+      "all_member_count": 31,
+      "pct_of_216_by_primary_membership": 6.9,
+      "reach_W": 7,
+      "reach_U": 4,
+      "reach_B": 7,
+      "reach_R": 12,
+      "reach_G": 6,
+      "primary_W": 5,
+      "primary_U": 2,
+      "primary_B": 1,
+      "primary_R": 9,
+      "primary_G": 2,
+      "color_breadth_of_members": 2.4,
+      "canonical_selections_reaching_family": 31,
+      "conditional_member_count": 6
+    },
+    {
+      "family": "evasion",
+      "primary_member_count": 14,
+      "secondary_member_count": 0,
+      "all_member_count": 14,
+      "pct_of_216_by_primary_membership": 6.5,
+      "reach_W": 3,
+      "reach_U": 4,
+      "reach_B": 4,
+      "reach_R": 11,
+      "reach_G": 8,
+      "primary_W": 1,
+      "primary_U": 2,
+      "primary_B": 2,
+      "primary_R": 5,
+      "primary_G": 7,
+      "color_breadth_of_members": 2.14,
+      "canonical_selections_reaching_family": 31,
+      "conditional_member_count": 8
+    },
+    {
+      "family": "tempo",
+      "primary_member_count": 13,
+      "secondary_member_count": 1,
+      "all_member_count": 14,
+      "pct_of_216_by_primary_membership": 6.0,
+      "reach_W": 7,
+      "reach_U": 12,
+      "reach_B": 1,
+      "reach_R": 4,
+      "reach_G": 3,
+      "primary_W": 2,
+      "primary_U": 11,
+      "primary_B": 0,
+      "primary_R": 1,
+      "primary_G": 1,
+      "color_breadth_of_members": 2.08,
+      "canonical_selections_reaching_family": 31,
+      "conditional_member_count": 8
+    },
+    {
+      "family": "protection",
+      "primary_member_count": 12,
+      "secondary_member_count": 1,
+      "all_member_count": 13,
+      "pct_of_216_by_primary_membership": 5.6,
+      "reach_W": 9,
+      "reach_U": 6,
+      "reach_B": 4,
+      "reach_R": 5,
+      "reach_G": 6,
+      "primary_W": 6,
+      "primary_U": 3,
+      "primary_B": 2,
+      "primary_R": 2,
+      "primary_G": 3,
+      "color_breadth_of_members": 2.5,
+      "canonical_selections_reaching_family": 31,
+      "conditional_member_count": 5
+    },
+    {
+      "family": "card_flow",
+      "primary_member_count": 11,
+      "secondary_member_count": 11,
+      "all_member_count": 22,
+      "pct_of_216_by_primary_membership": 5.1,
+      "reach_W": 4,
+      "reach_U": 8,
+      "reach_B": 4,
+      "reach_R": 6,
+      "reach_G": 7,
+      "primary_W": 1,
+      "primary_U": 7,
+      "primary_B": 1,
+      "primary_R": 2,
+      "primary_G": 2,
+      "color_breadth_of_members": 2.64,
+      "canonical_selections_reaching_family": 31,
+      "conditional_member_count": 6
+    },
+    {
+      "family": "card_type_affinity",
+      "primary_member_count": 10,
+      "secondary_member_count": 0,
+      "all_member_count": 10,
+      "pct_of_216_by_primary_membership": 4.6,
+      "reach_W": 8,
+      "reach_U": 5,
+      "reach_B": 2,
+      "reach_R": 5,
+      "reach_G": 3,
+      "primary_W": 5,
+      "primary_U": 4,
+      "primary_B": 0,
+      "primary_R": 1,
+      "primary_G": 3,
+      "color_breadth_of_members": 2.3,
+      "canonical_selections_reaching_family": 31,
+      "conditional_member_count": 1
+    },
+    {
+      "family": "sacrifice",
+      "primary_member_count": 8,
+      "secondary_member_count": 0,
+      "all_member_count": 8,
+      "pct_of_216_by_primary_membership": 3.7,
+      "reach_W": 1,
+      "reach_U": 1,
+      "reach_B": 6,
+      "reach_R": 7,
+      "reach_G": 2,
+      "primary_W": 0,
+      "primary_U": 0,
+      "primary_B": 4,
+      "primary_R": 6,
+      "primary_G": 1,
+      "color_breadth_of_members": 2.12,
+      "canonical_selections_reaching_family": 31,
+      "conditional_member_count": 2
+    },
+    {
+      "family": "disruption",
+      "primary_member_count": 8,
+      "secondary_member_count": 2,
+      "all_member_count": 10,
+      "pct_of_216_by_primary_membership": 3.7,
+      "reach_W": 0,
+      "reach_U": 2,
+      "reach_B": 6,
+      "reach_R": 3,
+      "reach_G": 0,
+      "primary_W": 0,
+      "primary_U": 2,
+      "primary_B": 3,
+      "primary_R": 3,
+      "primary_G": 0,
+      "color_breadth_of_members": 1.38,
+      "canonical_selections_reaching_family": 28,
+      "conditional_member_count": 4
+    },
+    {
+      "family": "characteristic_change",
+      "primary_member_count": 7,
+      "secondary_member_count": 0,
+      "all_member_count": 7,
+      "pct_of_216_by_primary_membership": 3.2,
+      "reach_W": 3,
+      "reach_U": 7,
+      "reach_B": 2,
+      "reach_R": 1,
+      "reach_G": 3,
+      "primary_W": 1,
+      "primary_U": 5,
+      "primary_B": 0,
+      "primary_R": 0,
+      "primary_G": 1,
+      "color_breadth_of_members": 2.29,
+      "canonical_selections_reaching_family": 31,
+      "conditional_member_count": 3
+    },
+    {
+      "family": "tutoring",
+      "primary_member_count": 7,
+      "secondary_member_count": 0,
+      "all_member_count": 7,
+      "pct_of_216_by_primary_membership": 3.2,
+      "reach_W": 5,
+      "reach_U": 4,
+      "reach_B": 3,
+      "reach_R": 3,
+      "reach_G": 2,
+      "primary_W": 2,
+      "primary_U": 2,
+      "primary_B": 1,
+      "primary_R": 0,
+      "primary_G": 2,
+      "color_breadth_of_members": 2.43,
+      "canonical_selections_reaching_family": 31,
+      "conditional_member_count": 3
+    },
+    {
+      "family": "mana",
+      "primary_member_count": 7,
+      "secondary_member_count": 0,
+      "all_member_count": 7,
+      "pct_of_216_by_primary_membership": 3.2,
+      "reach_W": 1,
+      "reach_U": 4,
+      "reach_B": 4,
+      "reach_R": 3,
+      "reach_G": 6,
+      "primary_W": 0,
+      "primary_U": 0,
+      "primary_B": 0,
+      "primary_R": 3,
+      "primary_G": 4,
+      "color_breadth_of_members": 2.57,
+      "canonical_selections_reaching_family": 31,
+      "conditional_member_count": 3
+    },
+    {
+      "family": "life",
+      "primary_member_count": 6,
+      "secondary_member_count": 0,
+      "all_member_count": 6,
+      "pct_of_216_by_primary_membership": 2.8,
+      "reach_W": 4,
+      "reach_U": 1,
+      "reach_B": 6,
+      "reach_R": 1,
+      "reach_G": 2,
+      "primary_W": 2,
+      "primary_U": 0,
+      "primary_B": 5,
+      "primary_R": 0,
+      "primary_G": 1,
+      "color_breadth_of_members": 2.33,
+      "canonical_selections_reaching_family": 31,
+      "conditional_member_count": 4
+    },
+    {
+      "family": "counters",
+      "primary_member_count": 5,
+      "secondary_member_count": 0,
+      "all_member_count": 5,
+      "pct_of_216_by_primary_membership": 2.3,
+      "reach_W": 2,
+      "reach_U": 3,
+      "reach_B": 3,
+      "reach_R": 2,
+      "reach_G": 3,
+      "primary_W": 1,
+      "primary_U": 2,
+      "primary_B": 1,
+      "primary_R": 0,
+      "primary_G": 3,
+      "color_breadth_of_members": 2.6,
+      "canonical_selections_reaching_family": 31,
+      "conditional_member_count": 1
+    },
+    {
+      "family": "cheat_into_play",
+      "primary_member_count": 4,
+      "secondary_member_count": 0,
+      "all_member_count": 4,
+      "pct_of_216_by_primary_membership": 1.9,
+      "reach_W": 4,
+      "reach_U": 3,
+      "reach_B": 1,
+      "reach_R": 1,
+      "reach_G": 2,
+      "primary_W": 2,
+      "primary_U": 1,
+      "primary_B": 0,
+      "primary_R": 0,
+      "primary_G": 1,
+      "color_breadth_of_members": 2.75,
+      "canonical_selections_reaching_family": 31,
+      "conditional_member_count": 2
+    },
+    {
+      "family": "control",
+      "primary_member_count": 4,
+      "secondary_member_count": 0,
+      "all_member_count": 4,
+      "pct_of_216_by_primary_membership": 1.9,
+      "reach_W": 2,
+      "reach_U": 3,
+      "reach_B": 1,
+      "reach_R": 0,
+      "reach_G": 1,
+      "primary_W": 1,
+      "primary_U": 2,
+      "primary_B": 1,
+      "primary_R": 0,
+      "primary_G": 0,
+      "color_breadth_of_members": 1.75,
+      "canonical_selections_reaching_family": 30,
+      "conditional_member_count": 2
+    },
+    {
+      "family": "copying",
+      "primary_member_count": 3,
+      "secondary_member_count": 0,
+      "all_member_count": 3,
+      "pct_of_216_by_primary_membership": 1.4,
+      "reach_W": 0,
+      "reach_U": 3,
+      "reach_B": 0,
+      "reach_R": 2,
+      "reach_G": 0,
+      "primary_W": 0,
+      "primary_U": 2,
+      "primary_B": 0,
+      "primary_R": 2,
+      "primary_G": 0,
+      "color_breadth_of_members": 1.67,
+      "canonical_selections_reaching_family": 24,
+      "conditional_member_count": 2
+    },
+    {
+      "family": "rules_alteration",
+      "primary_member_count": 3,
+      "secondary_member_count": 0,
+      "all_member_count": 3,
+      "pct_of_216_by_primary_membership": 1.4,
+      "reach_W": 3,
+      "reach_U": 1,
+      "reach_B": 1,
+      "reach_R": 1,
+      "reach_G": 1,
+      "primary_W": 3,
+      "primary_U": 0,
+      "primary_B": 0,
+      "primary_R": 0,
+      "primary_G": 0,
+      "color_breadth_of_members": 2.33,
+      "canonical_selections_reaching_family": 31,
+      "conditional_member_count": 2
+    },
+    {
+      "family": "win_condition",
+      "primary_member_count": 3,
+      "secondary_member_count": 0,
+      "all_member_count": 3,
+      "pct_of_216_by_primary_membership": 1.4,
+      "reach_W": 2,
+      "reach_U": 0,
+      "reach_B": 2,
+      "reach_R": 0,
+      "reach_G": 0,
+      "primary_W": 1,
+      "primary_U": 0,
+      "primary_B": 2,
+      "primary_R": 0,
+      "primary_G": 0,
+      "color_breadth_of_members": 1.33,
+      "canonical_selections_reaching_family": 24,
+      "conditional_member_count": 1
+    },
+    {
+      "family": "theft",
+      "primary_member_count": 3,
+      "secondary_member_count": 0,
+      "all_member_count": 3,
+      "pct_of_216_by_primary_membership": 1.4,
+      "reach_W": 0,
+      "reach_U": 1,
+      "reach_B": 2,
+      "reach_R": 1,
+      "reach_G": 0,
+      "primary_W": 0,
+      "primary_U": 1,
+      "primary_B": 1,
+      "primary_R": 1,
+      "primary_G": 0,
+      "color_breadth_of_members": 1.33,
+      "canonical_selections_reaching_family": 28,
+      "conditional_member_count": 2
+    },
+    {
+      "family": "tokens",
+      "primary_member_count": 1,
+      "secondary_member_count": 1,
+      "all_member_count": 2,
+      "pct_of_216_by_primary_membership": 0.5,
+      "reach_W": 1,
+      "reach_U": 1,
+      "reach_B": 1,
+      "reach_R": 1,
+      "reach_G": 1,
+      "primary_W": 1,
+      "primary_U": 0,
+      "primary_B": 0,
+      "primary_R": 0,
+      "primary_G": 1,
+      "color_breadth_of_members": 5,
+      "canonical_selections_reaching_family": 31,
+      "conditional_member_count": 1
+    }
+  ],
+  "family_size_skew": {
+    "families": 23,
+    "min": 1,
+    "max": 34,
+    "mean": 9.39,
+    "median": 7,
+    "stdev": 7.31,
+    "quartiles": [
+      4.0,
+      7.0,
+      13.0
+    ],
+    "coefficient_of_variation": 0.778
+  },
+  "conditional": {
+    "total": 105,
+    "note": "overlapping annotation; never added into a mutually exclusive bucket",
+    "by_color": {
+      "W": 57,
+      "U": 53,
+      "B": 54,
+      "R": 52,
+      "G": 50
+    },
+    "by_tier_assignment": {
+      "primary": 122,
+      "secondary": 90,
+      "tertiary": 54
+    },
+    "by_family": {
+      "stat_modification": 21,
+      "removal": 12,
+      "evasion": 8,
+      "tempo": 8,
+      "card_flow": 6,
+      "graveyard": 6,
+      "combat": 6,
+      "protection": 5,
+      "disruption": 4,
+      "life": 4,
+      "characteristic_change": 3,
+      "mana": 3,
+      "tutoring": 3,
+      "copying": 2,
+      "control": 2,
+      "sacrifice": 2,
+      "rules_alteration": 2,
+      "cheat_into_play": 2,
+      "theft": 2,
+      "card_type_affinity": 1,
+      "counters": 1,
+      "tokens": 1,
+      "win_condition": 1
+    },
+    "by_color_breadth": {
+      "2": 39,
+      "5": 17,
+      "3": 21,
+      "4": 4,
+      "1": 24
+    }
+  },
+  "provenance": {
+    "source_aliases_retained": 18,
+    "adjudicated_source_conflicts": 5,
+    "unresolved_conflicts": 0,
+    "structural_only_records": 1,
+    "mechanics_carrying_adjudication_provenance": 5,
+    "mechanics_carrying_source_aliases": 18,
+    "raw_unmerged_identities": 236,
+    "catalog_only_assignments": 7,
+    "list_only_assignments": 6,
+    "both_agree_assignments": 450
+  },
+  "graph_readiness": {
+    "three_layer_model": {
+      "color_nodes": 5,
+      "family_nodes": 23,
+      "mechanic_nodes": 216,
+      "total_nodes": 244,
+      "color_to_mechanic_edges": 467,
+      "primary_family_to_mechanic_edges": 216,
+      "secondary_family_to_mechanic_edges": 36,
+      "total_edges": 719
+    },
+    "derived_relationship_counts_not_materialized": {
+      "shares_primary_family_mechanic_pairs": 1520,
+      "note": "Reported as a count only. No mechanic-to-mechanic edge exists in the source; materialising this would invent relationships."
+    },
+    "selection_render_load": {
+      "rows": [
+        {
+          "key": "W",
+          "color_count": 1,
+          "mechanic_nodes": 104,
+          "family_nodes": 20,
+          "color_mechanic_edges": 104,
+          "family_mechanic_edges": 121
+        },
+        {
+          "key": "U",
+          "color_count": 1,
+          "mechanic_nodes": 94,
+          "family_nodes": 22,
+          "color_mechanic_edges": 94,
+          "family_mechanic_edges": 112
+        },
+        {
+          "key": "B",
+          "color_count": 1,
+          "mechanic_nodes": 94,
+          "family_nodes": 22,
+          "color_mechanic_edges": 94,
+          "family_mechanic_edges": 116
+        },
+        {
+          "key": "R",
+          "color_count": 1,
+          "mechanic_nodes": 92,
+          "family_nodes": 21,
+          "color_mechanic_edges": 92,
+          "family_mechanic_edges": 112
+        },
+        {
+          "key": "G",
+          "color_count": 1,
+          "mechanic_nodes": 83,
+          "family_nodes": 19,
+          "color_mechanic_edges": 83,
+          "family_mechanic_edges": 99
+        },
+        {
+          "key": "WU",
+          "color_count": 2,
+          "mechanic_nodes": 151,
+          "family_nodes": 23,
+          "color_mechanic_edges": 198,
+          "family_mechanic_edges": 176
+        },
+        {
+          "key": "WB",
+          "color_count": 2,
+          "mechanic_nodes": 154,
+          "family_nodes": 22,
+          "color_mechanic_edges": 198,
+          "family_mechanic_edges": 183
+        },
+        {
+          "key": "WR",
+          "color_count": 2,
+          "mechanic_nodes": 155,
+          "family_nodes": 23,
+          "color_mechanic_edges": 196,
+          "family_mechanic_edges": 182
+        },
+        {
+          "key": "WG",
+          "color_count": 2,
+          "mechanic_nodes": 136,
+          "family_nodes": 20,
+          "color_mechanic_edges": 187,
+          "family_mechanic_edges": 159
+        },
+        {
+          "key": "UB",
+          "color_count": 2,
+          "mechanic_nodes": 149,
+          "family_nodes": 23,
+          "color_mechanic_edges": 188,
+          "family_mechanic_edges": 176
+        },
+        {
+          "key": "UR",
+          "color_count": 2,
+          "mechanic_nodes": 139,
+          "family_nodes": 22,
+          "color_mechanic_edges": 186,
+          "family_mechanic_edges": 165
+        },
+        {
+          "key": "UG",
+          "color_count": 2,
+          "mechanic_nodes": 132,
+          "family_nodes": 22,
+          "color_mechanic_edges": 177,
+          "family_mechanic_edges": 156
+        },
+        {
+          "key": "BR",
+          "color_count": 2,
+          "mechanic_nodes": 134,
+          "family_nodes": 23,
+          "color_mechanic_edges": 186,
+          "family_mechanic_edges": 162
+        },
+        {
+          "key": "BG",
+          "color_count": 2,
+          "mechanic_nodes": 136,
+          "family_nodes": 22,
+          "color_mechanic_edges": 177,
+          "family_mechanic_edges": 164
+        },
+        {
+          "key": "RG",
+          "color_count": 2,
+          "mechanic_nodes": 133,
+          "family_nodes": 22,
+          "color_mechanic_edges": 175,
+          "family_mechanic_edges": 157
+        },
+        {
+          "key": "WUB",
+          "color_count": 3,
+          "mechanic_nodes": 189,
+          "family_nodes": 23,
+          "color_mechanic_edges": 292,
+          "family_mechanic_edges": 221
+        },
+        {
+          "key": "WUR",
+          "color_count": 3,
+          "mechanic_nodes": 183,
+          "family_nodes": 23,
+          "color_mechanic_edges": 290,
+          "family_mechanic_edges": 214
+        },
+        {
+          "key": "WUG",
+          "color_count": 3,
+          "mechanic_nodes": 173,
+          "family_nodes": 23,
+          "color_mechanic_edges": 281,
+          "family_mechanic_edges": 202
+        },
+        {
+          "key": "WBR",
+          "color_count": 3,
+          "mechanic_nodes": 185,
+          "family_nodes": 23,
+          "color_mechanic_edges": 290,
+          "family_mechanic_edges": 218
+        },
+        {
+          "key": "WBG",
+          "color_count": 3,
+          "mechanic_nodes": 178,
+          "family_nodes": 22,
+          "color_mechanic_edges": 281,
+          "family_mechanic_edges": 211
+        },
+        {
+          "key": "WRG",
+          "color_count": 3,
+          "mechanic_nodes": 176,
+          "family_nodes": 23,
+          "color_mechanic_edges": 279,
+          "family_mechanic_edges": 206
+        },
+        {
+          "key": "UBR",
+          "color_count": 3,
+          "mechanic_nodes": 173,
+          "family_nodes": 23,
+          "color_mechanic_edges": 280,
+          "family_mechanic_edges": 204
+        },
+        {
+          "key": "UBG",
+          "color_count": 3,
+          "mechanic_nodes": 175,
+          "family_nodes": 23,
+          "color_mechanic_edges": 271,
+          "family_mechanic_edges": 207
+        },
+        {
+          "key": "URG",
+          "color_count": 3,
+          "mechanic_nodes": 163,
+          "family_nodes": 22,
+          "color_mechanic_edges": 269,
+          "family_mechanic_edges": 192
+        },
+        {
+          "key": "BRG",
+          "color_count": 3,
+          "mechanic_nodes": 166,
+          "family_nodes": 23,
+          "color_mechanic_edges": 269,
+          "family_mechanic_edges": 198
+        },
+        {
+          "key": "WUBR",
+          "color_count": 4,
+          "mechanic_nodes": 206,
+          "family_nodes": 23,
+          "color_mechanic_edges": 384,
+          "family_mechanic_edges": 240
+        },
+        {
+          "key": "WUBG",
+          "color_count": 4,
+          "mechanic_nodes": 205,
+          "family_nodes": 23,
+          "color_mechanic_edges": 375,
+          "family_mechanic_edges": 240
+        },
+        {
+          "key": "WURG",
+          "color_count": 4,
+          "mechanic_nodes": 196,
+          "family_nodes": 23,
+          "color_mechanic_edges": 373,
+          "family_mechanic_edges": 229
+        },
+        {
+          "key": "WBRG",
+          "color_count": 4,
+          "mechanic_nodes": 202,
+          "family_nodes": 23,
+          "color_mechanic_edges": 373,
+          "family_mechanic_edges": 238
+        },
+        {
+          "key": "UBRG",
+          "color_count": 4,
+          "mechanic_nodes": 190,
+          "family_nodes": 23,
+          "color_mechanic_edges": 363,
+          "family_mechanic_edges": 224
+        },
+        {
+          "key": "WUBRG",
+          "color_count": 5,
+          "mechanic_nodes": 216,
+          "family_nodes": 23,
+          "color_mechanic_edges": 467,
+          "family_mechanic_edges": 252
+        }
+      ],
+      "mechanic_nodes": {
+        "min": 83,
+        "max": 216,
+        "mean": 156.8,
+        "median": 163
+      },
+      "color_mechanic_edges": {
+        "min": 83,
+        "max": 467,
+        "mean": 241.0,
+        "median": 269
+      },
+      "family_mechanic_edges": {
+        "min": 99,
+        "max": 252,
+        "mean": 185.0,
+        "median": 192
+      }
+    }
+  },
+  "notable_extremes": [
+    {
+      "metric": "highest reachable_count among mono-color selections",
+      "value": 104,
+      "records": [
+        "W"
+      ],
+      "tied": false,
+      "tie_count": 1
+    },
+    {
+      "metric": "lowest reachable_count among mono-color selections",
+      "value": 83,
+      "records": [
+        "G"
+      ],
+      "tied": false,
+      "tie_count": 1
+    },
+    {
+      "metric": "highest reachable_count among pair selections",
+      "value": 155,
+      "records": [
+        "WR"
+      ],
+      "tied": false,
+      "tie_count": 1
+    },
+    {
+      "metric": "lowest reachable_count among pair selections",
+      "value": 132,
+      "records": [
+        "UG"
+      ],
+      "tied": false,
+      "tie_count": 1
+    },
+    {
+      "metric": "highest reachable_count among trio selections",
+      "value": 189,
+      "records": [
+        "WUB"
+      ],
+      "tied": false,
+      "tie_count": 1
+    },
+    {
+      "metric": "lowest reachable_count among trio selections",
+      "value": 163,
+      "records": [
+        "URG"
+      ],
+      "tied": false,
+      "tie_count": 1
+    },
+    {
+      "metric": "highest reachable_count among four-color selections",
+      "value": 206,
+      "records": [
+        "WUBR"
+      ],
+      "tied": false,
+      "tie_count": 1
+    },
+    {
+      "metric": "lowest reachable_count among four-color selections",
+      "value": 190,
+      "records": [
+        "UBRG"
+      ],
+      "tied": false,
+      "tie_count": 1
+    },
+    {
+      "metric": "highest shared_primary_overlap among color pairs",
+      "value": 9,
+      "records": [
+        "WG"
+      ],
+      "tied": false,
+      "tie_count": 1
+    },
+    {
+      "metric": "lowest shared_primary_overlap among color pairs",
+      "value": 0,
+      "records": [
+        "BG"
+      ],
+      "tied": false,
+      "tie_count": 1
+    },
+    {
+      "metric": "largest family by primary_member_count",
+      "value": 34,
+      "records": [
+        "stat_modification"
+      ],
+      "tied": false,
+      "tie_count": 1
+    },
+    {
+      "metric": "smallest family by primary_member_count",
+      "value": 1,
+      "records": [
+        "tokens"
+      ],
+      "tied": false,
+      "tie_count": 1
+    },
+    {
+      "metric": "highest lost_completely when the color is omitted",
+      "value": 26,
+      "records": [
+        "W"
+      ],
+      "tied": false,
+      "tie_count": 1
+    },
+    {
+      "metric": "lowest lost_completely when the color is omitted",
+      "value": 10,
+      "records": [
+        "G"
+      ],
+      "tied": false,
+      "tie_count": 1
+    },
+    {
+      "metric": "highest best_access_degraded when the color is omitted",
+      "value": 29,
+      "records": [
+        "U"
+      ],
+      "tied": false,
+      "tie_count": 1
+    },
+    {
+      "metric": "lowest best_access_degraded when the color is omitted",
+      "value": 15,
+      "records": [
+        "B"
+      ],
+      "tied": false,
+      "tie_count": 1
+    }
+  ],
+  "definition_divergences": [
+    {
+      "term": "shared_access",
+      "upstream_artifact": "tools/selection.py and data/fixtures/*",
+      "upstream_definition": "mutually exclusive with shared_primary: every selected colour has access AND not all of them are primary",
+      "recon_definition": "shared_any_access is INCLUSIVE: every selected colour has some tier assignment, whether or not all are primary",
+      "reason_for_recon_definition": "the recon spec asserts shared_any_access + complementary + unavailable == 216, which only holds for the inclusive reading",
+      "relationship": "upstream shared_access + upstream shared_primary == recon shared_any_access",
+      "verified_on": "all 26 multicolour selections, zero exceptions",
+      "classification": "definitional, NOT a data disagreement",
+      "action_taken": "none - reported for Owner review. Changing either the fixture or runtime semantics is out of scope for this mission."
+    }
+  ],
+  "tertiary_fixture_audit": {
+    "global_tertiary_everywhere_count": 0,
+    "verdict": "VACUOUS_FIXTURE",
+    "explanation": "Fixture 10 asserts the set of mechanics that are tertiary in EVERY colour that has them. That set is empty, so the fixture asserts an empty set and cannot demonstrate tertiary rendering.",
+    "valid_candidate_selections": [
+      {
+        "selection": "W",
+        "tertiary_only_count": 20,
+        "example_keys": [
+          "-n/+n (on creatures)",
+          "-n/-n (on spells)",
+          "animating lands"
+        ]
+      },
+      {
+        "selection": "U",
+        "tertiary_only_count": 17,
+        "example_keys": [
+          "+1/+1 counter (creation and caring)",
+          "+n/+0 (on auras)",
+          "-n/-n (on spells)"
+        ]
+      },
+      {
+        "selection": "WB",
+        "tertiary_only_count": 17,
+        "example_keys": [
+          "-n/+n (on creatures)",
+          "animating lands",
+          "color changing"
+        ]
+      },
+      {
+        "selection": "R",
+        "tertiary_only_count": 15,
+        "example_keys": [
+          "+1/+1 counter (creation and caring)",
+          "-n/-n (on spells)",
+          "card draw"
+        ]
+      },
+      {
+        "selection": "WU",
+        "tertiary_only_count": 15,
+        "example_keys": [
+          "-n/-n (on spells)",
+          "animating lands",
+          "basic land counting"
+        ]
+      },
+      {
+        "selection": "WR",
+        "tertiary_only_count": 15,
+        "example_keys": [
+          "-n/+n (on creatures)",
+          "-n/-n (on spells)",
+          "card draw"
+        ]
+      },
+      {
+        "selection": "B",
+        "tertiary_only_count": 14,
+        "example_keys": [
+          "animating lands",
+          "color changing",
+          "creature pumping, your team, ongoing :: +n/+0 to your team"
+        ]
+      },
+      {
+        "selection": "UR",
+        "tertiary_only_count": 13,
+        "example_keys": [
+          "+1/+1 counter (creation and caring)",
+          "-n/-n (on spells)",
+          "creature pumping, your team, ongoing :: +n/+n to your team"
+        ]
+      },
+      {
+        "selection": "WG",
+        "tertiary_only_count": 12,
+        "example_keys": [
+          "-n/+n (on creatures)",
+          "-n/-n (on spells)",
+          "cast spells from your graveyard"
+        ]
+      },
+      {
+        "selection": "UB",
+        "tertiary_only_count": 12,
+        "example_keys": [
+          "animating lands",
+          "creature pumping, your team, ongoing :: +n/+0 to your team",
+          "creature pumping, your team, ongoing :: +n/+n to your team"
+        ]
+      }
+    ],
+    "action_taken": "none - reported only, per mission scope"
+  }
+}

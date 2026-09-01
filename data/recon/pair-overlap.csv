@@ -1,0 +1,11 @@
+pair,any_access_overlap,shared_primary_overlap,union_size,jaccard_any_access,note
+WU,47,5,151,0.311,jaccard is mechanical overlap in this dataset only
+WB,44,2,154,0.286,jaccard is mechanical overlap in this dataset only
+WR,41,2,155,0.265,jaccard is mechanical overlap in this dataset only
+WG,51,9,136,0.375,jaccard is mechanical overlap in this dataset only
+UB,39,2,149,0.262,jaccard is mechanical overlap in this dataset only
+UR,47,3,139,0.338,jaccard is mechanical overlap in this dataset only
+UG,45,5,132,0.341,jaccard is mechanical overlap in this dataset only
+BR,52,6,134,0.388,jaccard is mechanical overlap in this dataset only
+BG,41,0,136,0.301,jaccard is mechanical overlap in this dataset only
+RG,42,3,133,0.316,jaccard is mechanical overlap in this dataset only
