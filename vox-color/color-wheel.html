@@ -466,6 +466,23 @@
     color:var(--bone-faint); margin:18px 0 0; padding-top:12px;
     border-top:1px solid var(--hairline);
   }
+  /* SOURCES COLLAPSE. Two of these stack on a conflict panel now the lens is
+     there, and together they were taller than the philosophy above them. They
+     are reference material: true, needed, and not what you came to read.
+     <details> because it is native -- keyboard reachable, found by the
+     browser's own find-in-page, and it needs no JS and no animation, so
+     prefers-reduced-motion has nothing to skip. */
+  .panel-src > summary {
+    letter-spacing:.14em; text-transform:uppercase; cursor:pointer;
+    list-style:none; padding:2px 0;
+  }
+  .panel-src > summary::-webkit-details-marker { display:none; }
+  .panel-src > summary::before { content:'+ '; }
+  .panel-src[open] > summary::before { content:'− '; }
+  .panel-src > summary:hover { color:var(--bone-dim); }
+  .panel-src > summary:focus-visible { outline:2px solid var(--gold); outline-offset:3px; }
+  .panel-src > p { margin:9px 0 0; }
+
   .panel-empty { color:var(--bone-faint); font-style:italic; }
   /* programmatic focus target only — never reached by tabbing */
   .panel:focus { outline:none; }
@@ -1304,7 +1321,8 @@ const COLLEGES = {
       { c:'W', name:'Radiance', gloss:'language that uplifts allies and turns light on the evils of society' },
       { c:'B', name:'Shadow',   gloss:'language that lands stinging truths and cuts a rival down' }
     ],
-    magic:'Spoken. Spells are made from spoken-word battle poetry, or from runic ink written on the air.'
+    magic:'Spoken. The words themselves are the spellcasting.',
+    designNote:'In vision design \u2014 which precedes set design, and which things changed after \u2014 spoken magic was characterised as the fastest form of casting, and that is what made Silverquill the combat-oriented college.'
   },
   UR: {
     name:'Prismari', desig:'College of Elemental Arts',
@@ -1313,12 +1331,12 @@ const COLLEGES = {
     dispute:'What is art for \u2014 to make people think, or to make people feel? And should it be carefully worked out, or raw and spontaneous?',
     poles:[
       { c:'U', name:'Perfection', gloss:'training, study, visualisation, precise technique, artistic theory' },
-      { c:'R', name:'Expression', gloss:'emotional truth pushed out through fire, earth and storm' }
+      { c:'R', name:'Expression', gloss:'spontaneity, emotion and direct self-expression through elemental art' }
     ],
     magic:'Gesture. The movement is what casts the spell.'
   },
   BG: {
-    name:'Witherbloom', desig:'College of Life and Death \u00b7 also College of Essence Studies',
+    name:'Witherbloom', desig:'College of Essence Studies \u00b7 also the College of Life and Death',
     field:'Biology \u2014 the science college.',
     conflict:'Life vs. death',
     dispute:'Everyone here loves science; the divide is over what drives nature. Which force ultimately sets its direction \u2014 life, or death?',
@@ -1326,7 +1344,7 @@ const COLLEGES = {
       { c:'B', name:'Vein', gloss:'exploiting life energy, squeezing essence out to fuel the spell' },
       { c:'G', name:'Root', gloss:'encouraging life energy, coaxing it to blossom and grow' }
     ],
-    magic:'Components. Spells are brewed from natural ingredients and the essence of living things.'
+    magic:'Components. Magic is worked through combinations of natural components and life essence.'
   },
   RW: {
     name:'Lorehold', desig:'College of Archaeomancy',
@@ -1334,10 +1352,10 @@ const COLLEGES = {
     conflict:'Chaos vs. order',
     dispute:'Is a society shaped by the structures that pull people together \u2014 laws, religions, jobs, schools \u2014 or by their bonds to family and friends? Rules, or passions?',
     poles:[
-      { c:'W', name:'Order', gloss:'uncovering and recording the past, chronicling it for posterity' },
-      { c:'R', name:'Chaos', gloss:'reckless discovery; the emotion of history over precision or procedure' }
+      { c:'W', name:'Order', gloss:'history as patterns, institutions and structures that shape a society' },
+      { c:'R', name:'Chaos', gloss:'history as people, passions and contingent events that resist orderly prediction' }
     ],
-    magic:'Written. Spells are called out of ancient tomes, scrolls and relics.'
+    magic:'Written. Spells come from writing \u2014 especially old books and scrolls.'
   },
   GU: {
     name:'Quandrix', desig:'College of Numeromancy',
@@ -1348,11 +1366,11 @@ const COLLEGES = {
       { c:'G', name:'Substance', gloss:'making physical reality out of mathematical possibility' },
       { c:'U', name:'Theory',    gloss:'the abstract realms of theory, conjecture and possibility' }
     ],
-    magic:'Formula. Spells are preconfigured using maths.'
+    magic:'Formula. Spells are preconfigured using mathematics.'
   }
 };
 
-const SRC_SCOPE_COLLEGE = 'Strixhaven deliberately reinterprets the five enemy pairs as academic disputes. These college conflicts are set-specific lenses, chosen to build five distinct schools of study \u2014 they do not replace the broader color-pie conflicts used elsewhere on the wheel, and two of the five differ from them outright. \u2014 Mark Rosewater, "In the Strixhaven," Parts 1 and 2, March 29 and April 5, 2021. College names, fields and the two sides of each: "Planeswalker\'s Guide to Strixhaven," April 1, 2021, and the Secrets of Strixhaven product page. Pole names are the deans\' titles as printed on the cards.';
+const SRC_SCOPE_COLLEGE = 'Strixhaven deliberately reinterprets the five enemy pairs as academic disputes. These college conflicts are set-specific lenses, chosen to build five distinct schools of study \u2014 they do not replace the broader color-pie conflicts used elsewhere on the wheel, and two of the five differ from them outright. \u2014 Mark Rosewater, "In the Strixhaven," Parts 1 and 2, March 29 and April 5, 2021. College names, fields and the two sides of each: "Planeswalker\'s Guide to Strixhaven," April 1, 2021, and the Secrets of Strixhaven product page. Pole names are the deans\' titles as printed on the cards. Anything drawn from a vision-design handoff is labelled a design note, because those precede set design and changed after it.';
 
 const SRC_WEDGE = 'Rosewater, the 2014–15 wedge interviews — paraphrased';
 
@@ -1667,7 +1685,7 @@ function showColor(c) {
     <ul class="panel-body" style="margin-top:-8px;padding-left:0;list-style:none">${allyRows}</ul>
     <p class="panel-body"><strong>In conflict with</strong></p>
     <ul class="panel-body" style="margin-top:-8px;padding-left:0;list-style:none">${enemyRows}</ul>
-    <p class="panel-src">${esc(SRC_PIE)} · ${esc(SRC_FRIEND)} · ${esc(SRC_REV)}</p>`;
+    <details class="panel-src"><summary>Sources &amp; scope</summary><p>${esc(SRC_PIE)} · ${esc(SRC_FRIEND)} · ${esc(SRC_REV)}</p></details>`;
 
   const edgeKeys = [...allies, ...enemies].map(x => keyFor(c, x));
   highlight([vtx(c), ...allies.map(a => edgeEl(keyFor(c,a))), ...allies.map(vtx),
@@ -1692,7 +1710,7 @@ function showAlly(k) {
       what that opposition has in common.</p>
     <p class="panel-body"><strong>What it costs.</strong> ${esc(o.cost)}</p>
     <p class="panel-body"><strong>Where they split:</strong> ${esc(o.split)}</p>
-    <p class="panel-src">${esc(SRC_FRIEND)} · ${esc(SRC_SCOPE)}</p>`;
+    <details class="panel-src"><summary>Sources &amp; scope</summary><p>${esc(SRC_FRIEND)} · ${esc(SRC_SCOPE)}</p></details>`;
   // the shared enemy is highlighted too — that's the whole derivation
   highlight([edgeEl(k), vtx(a), vtx(b), vtx(o.enemy),
              edgeEl(keyFor(a, o.enemy)), edgeEl(keyFor(b, o.enemy))]);
@@ -1726,18 +1744,20 @@ function collegeBlock(k) {
 
   return `
     <div class="panel-lens">
-      <p class="panel-kicker">Strixhaven lens</p>
-      ${guild ? `<p class="panel-body">Ravnica asks what ${esc(nm(a))} and ${esc(nm(b))} agree
-        on, and calls the answer <strong>${esc(guild)}</strong>. Strixhaven asks what the same
-        two argue about, and calls the answer <strong>${esc(col.name)}</strong>.</p>` : ''}
+      <p class="panel-kicker">Strixhaven · Conflict lens</p>
+      ${guild ? `<p class="panel-body">Ravnica explores what ${esc(nm(a))} and ${esc(nm(b))}
+        can agree on; <strong>${esc(guild)}</strong> is one expression of that common ground.
+        Strixhaven explores what the same two disagree about; <strong>${esc(col.name)}</strong>
+        turns one such conflict into a field of study.</p>` : ''}
       <p class="panel-lens-name">${esc(col.name)}</p>
       <p class="panel-lens-desig">${esc(col.desig)}</p>
       <p class="panel-body"><strong>Studies.</strong> ${esc(col.field)}</p>
-      <p class="panel-body"><strong>Its conflict.</strong> ${esc(col.conflict)}.</p>
+      <p class="panel-body"><strong>College conflict.</strong> ${esc(col.conflict)}.</p>
       <p class="panel-body"><strong>Its dispute.</strong> ${esc(col.dispute)}</p>
       <ul class="poles">${poles}</ul>
       <p class="panel-body"><strong>Its magic.</strong> ${esc(col.magic)}</p>
-      <p class="panel-src">${esc(SRC_SCOPE_COLLEGE)}</p>
+      ${col.designNote ? `<p class="panel-body"><strong>Design note.</strong> ${esc(col.designNote)}</p>` : ''}
+      <details class="panel-src"><summary>Sources &amp; scope</summary><p>${esc(SRC_SCOPE_COLLEGE)}</p></details>
     </div>`;
 }
 
@@ -1753,7 +1773,7 @@ function showEnemy(k, view, animate) {
     `<button class="view-btn" data-view="${v}" aria-pressed="${String(view===v)}">${label}</button>`;
 
   panel.innerHTML = `
-    <p class="panel-kicker">Conflict</p>
+    <p class="panel-kicker">Color-pie conflict</p>
     <h2 class="panel-title">${dot(a)}${dot(b)}${esc(o.title)}</h2>
     <div class="views">
       ${btn(a, nm(a) + "'s view")}${btn('neutral','Neutral')}${btn(b, nm(b) + "'s view")}
@@ -1762,9 +1782,9 @@ function showEnemy(k, view, animate) {
     <p class="panel-body"><strong>How they work together.</strong> ${esc(o.together)}</p>
     <p class="panel-body"><strong>What it costs.</strong> ${esc(o.cost)}</p>
     ${collegeBlock(k)}
-    <p class="panel-src">${esc(SRC_PIE)} · Each conflict reads differently depending on
+    <details class="panel-src"><summary>Sources &amp; scope</summary><p>${esc(SRC_PIE)} · Each conflict reads differently depending on
       which side states it — the neutral summary is a third framing, not the true one.
-      ${esc(SRC_SCOPE)}</p>`;
+      ${esc(SRC_SCOPE)}</p></details>`;
 
   panel.querySelectorAll('.view-btn').forEach(el =>
     el.addEventListener('click', () => showEnemy(k, el.dataset.view, false)));
@@ -1812,7 +1832,7 @@ function showFour(excl) {
     ${id && id.community ? `<p class="panel-body"><strong>Community typically reads it as</strong>
       ${esc(id.community)}.</p>` : ''}
 
-    <p class="panel-src">${esc(SRC_SCOPE_FOUR)} Geometry solved at build time.</p>`;
+    <details class="panel-src"><summary>Sources &amp; scope</summary><p>${esc(SRC_SCOPE_FOUR)} Geometry solved at build time.</p></details>`;
 
   // Exactly two chords pass through a crossing, but "every chord that doesn't
   // contain the excluded colour" returns three — each colour sits in two of the
@@ -2434,13 +2454,13 @@ function showCombo() {
     ${id && id.aka ? `<p class="panel-aka">Also called ${id.aka.map(esc).join(' · ')}</p>` : ''}
     ${comboBody(cols, id)}
     ${neighbourChips(cols)}
-    <p class="panel-src">${cols.length === 2 ? esc(SRC_SCOPE) + ' ' : ''}${
+    <details class="panel-src"><summary>Sources &amp; scope</summary><p>${cols.length === 2 ? esc(SRC_SCOPE) + ' ' : ''}${
       cols.length === 3 && id ? esc(id.group === 'wedge' ? SRC_SCOPE_WEDGE : SRC_SCOPE_SHARD) + ' ' : ''}${
       cols.length === 4 ? esc(SRC_SCOPE_FOUR) + ' ' : ''}${
       cols.length === 0 ? esc(SRC_SCOPE_NONE) + ' ' : ''}${
       cols.length === 5 ? esc(SRC_SCOPE_FIVE) + ' ' : ''}${
       cols.length === 3 && id && id.src ? esc(id.src) + ' · ' : ''}${cols.length > 1 ? esc(SRC_FRIEND) + ' · ' + esc(SRC_PIE) + ' · ' : ''
-    }resolved from the identity registry</p>`;
+    }resolved from the identity registry</p></details>`;
   /* SRC_WEDGE / SRC_SHARD are deliberately NOT cited here any more. They named
      the series ("the 2014-15 wedge interviews"); each three-colour identity now
      cites the specific article and date instead, which supersedes them. Keeping
