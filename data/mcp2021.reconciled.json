@@ -561,7 +561,7 @@
       "in_lists": true,
       "in_catalog": false
     },
-    "animating artifacts (target/all non-creature artifact(s) you control becomes an artifact creature.)": {
+    "animating artifacts": {
       "label": "Animating artifacts (Target/all non-creature artifact(s) you control becomes an artifact creature.)",
       "colors": {
         "U": {
@@ -576,7 +576,7 @@
       "in_lists": true,
       "in_catalog": true
     },
-    "animating enchantments (target/all non-aura enchantment(s) you control becomes an enchantment creature.)": {
+    "animating enchantments": {
       "label": "Animating Enchantments (Target/all non-aura enchantment(s) you control becomes an enchantment creature.)",
       "colors": {
         "W": {
@@ -637,6 +637,17 @@
       "in_lists": true,
       "in_catalog": true
     },
+    "banisher priest-like effect": {
+      "label": "Banisher Priest–like effect (When this card enters the battlefield, exile target creature/permanent until this card leaves play.)",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "ability-catalog-only"
+        }
+      },
+      "in_lists": false,
+      "in_catalog": true
+    },
     "banisher priest-like effects": {
       "label": "Banisher Priest-like effects (When this card enters the battlefield, exile target creature/permanent until this card leaves play.)",
       "colors": {
@@ -647,17 +658,6 @@
       },
       "in_lists": true,
       "in_catalog": false
-    },
-    "banisher priest–like effect": {
-      "label": "Banisher Priest–like effect (When this card enters the battlefield, exile target creature/permanent until this card leaves play.)",
-      "colors": {
-        "W": {
-          "tier": "primary",
-          "basis": "ability-catalog-only"
-        }
-      },
-      "in_lists": false,
-      "in_catalog": true
     },
     "basic land counting": {
       "label": "Basic land counting (Doing an effect equal to the number of basic lands of a certain type you control.)",
@@ -937,7 +937,7 @@
       "in_lists": true,
       "in_catalog": true
     },
-    "color changing of your choice until end of turn.)": {
+    "color changing": {
       "label": "Color changing (Target/this creature becomes the color(s) of your choice until end of turn.)",
       "colors": {
         "W": {
@@ -1793,6 +1793,28 @@
       "in_lists": true,
       "in_catalog": true
     },
+    "forced sacrifice :: sacrifice a creature": {
+      "label": "Sacrifice a creature. (Target/all player(s) sacrifice a creature.)",
+      "colors": {
+        "B": {
+          "tier": "primary",
+          "basis": "ability-catalog-only"
+        }
+      },
+      "in_lists": false,
+      "in_catalog": true
+    },
+    "forced sacrifice :: sacrifice an artifact": {
+      "label": "Sacrifice an artifact. (Target/all player(s) sacrifice an artifact.)",
+      "colors": {
+        "R": {
+          "tier": "primary",
+          "basis": "ability-catalog-only"
+        }
+      },
+      "in_lists": false,
+      "in_catalog": true
+    },
     "forced sacrifice of a creature": {
       "label": "Forced sacrifice of a creature",
       "colors": {
@@ -2420,7 +2442,7 @@
       "in_lists": true,
       "in_catalog": true
     },
-    "panic (target creature can't block this turn.)": {
+    "panic": {
       "label": "\"Panic\" (Target creature can't block this turn.)",
       "colors": {
         "R": {
@@ -2587,33 +2609,18 @@
       "in_catalog": true
     },
     "punisher effects": {
-      "label": "\"Punisher\" effects (Opponent chooses one: thing X happens or thing Y happens.)",
-      "colors": {
-        "B": {
-          "tier": "secondary",
-          "basis": "colour-list-only"
-        },
-        "R": {
-          "tier": "primary",
-          "basis": "colour-list-only"
-        }
-      },
-      "in_lists": true,
-      "in_catalog": false
-    },
-    "punisher effects ​": {
       "label": "\"Punisher\" effects (Opponent chooses one: thing X happens or thing Y happens.)​",
       "colors": {
         "B": {
           "tier": "secondary",
-          "basis": "ability-catalog-only"
+          "basis": "both-agree"
         },
         "R": {
           "tier": "primary",
-          "basis": "ability-catalog-only"
+          "basis": "both-agree"
         }
       },
-      "in_lists": false,
+      "in_lists": true,
       "in_catalog": true
     },
     "putting artifacts from hand onto the battlefield": {
@@ -2981,15 +2988,15 @@
       "colors": {
         "B": {
           "tier": "primary",
-          "basis": "both-agree"
+          "basis": "colour-list-only"
         },
         "R": {
           "tier": "primary",
-          "basis": "both-agree"
+          "basis": "colour-list-only"
         }
       },
       "in_lists": true,
-      "in_catalog": true
+      "in_catalog": false
     },
     "sacrifice a creature and deal damage to creature/planeswalker/player equal to the sacrificed creature's power/toughness": {
       "label": "Sacrifice a creature and deal damage to creature/planeswalker/player equal to the sacrificed creature's power/toughness.",
@@ -3021,28 +3028,6 @@
       "in_lists": true,
       "in_catalog": false
     },
-    "sacrifice a creature. (target player/all player(s) sacrifice a creature.)": {
-      "label": "Sacrifice a creature. (Target player/all player(s) sacrifice a creature.)",
-      "colors": {
-        "B": {
-          "tier": "primary",
-          "basis": "colour-list-only"
-        }
-      },
-      "in_lists": true,
-      "in_catalog": false
-    },
-    "sacrifice a creature. (target/all player(s) sacrifice a creature.)": {
-      "label": "Sacrifice a creature. (Target/all player(s) sacrifice a creature.)",
-      "colors": {
-        "B": {
-          "tier": "primary",
-          "basis": "ability-catalog-only"
-        }
-      },
-      "in_lists": false,
-      "in_catalog": true
-    },
     "sacrifice a land": {
       "label": "Sacrifice a land.",
       "colors": {
@@ -3069,9 +3054,43 @@
       "in_lists": true,
       "in_catalog": true
     },
-    "sacrifice a permanent. (target/all player(s) sacrifice a permanent.)": {
-      "label": "Sacrifice a permanent. (Target/all player(s) sacrifice a permanent.)",
+    "sacrifice a permanent :: sacrifice a creature": {
+      "label": "Sacrifice a creature.",
       "colors": {
+        "B": {
+          "tier": "primary",
+          "basis": "ability-catalog-only"
+        },
+        "R": {
+          "tier": "primary",
+          "basis": "ability-catalog-only"
+        }
+      },
+      "in_lists": false,
+      "in_catalog": true
+    },
+    "sacrifice a permanent :: sacrifice an artifact": {
+      "label": "Sacrifice an artifact.",
+      "colors": {
+        "B": {
+          "tier": "primary",
+          "basis": "ability-catalog-only"
+        },
+        "R": {
+          "tier": "primary",
+          "basis": "ability-catalog-only"
+        }
+      },
+      "in_lists": false,
+      "in_catalog": true
+    },
+    "sacrifice an artifact": {
+      "label": "Sacrifice an artifact.",
+      "colors": {
+        "B": {
+          "tier": "primary",
+          "basis": "colour-list-only"
+        },
         "R": {
           "tier": "primary",
           "basis": "colour-list-only"
@@ -3079,32 +3098,6 @@
       },
       "in_lists": true,
       "in_catalog": false
-    },
-    "sacrifice an artifact": {
-      "label": "Sacrifice an artifact.",
-      "colors": {
-        "B": {
-          "tier": "primary",
-          "basis": "both-agree"
-        },
-        "R": {
-          "tier": "primary",
-          "basis": "both-agree"
-        }
-      },
-      "in_lists": true,
-      "in_catalog": true
-    },
-    "sacrifice an artifact. (target/all player(s) sacrifice an artifact.)": {
-      "label": "Sacrifice an artifact. (Target/all player(s) sacrifice an artifact.)",
-      "colors": {
-        "R": {
-          "tier": "primary",
-          "basis": "both-agree"
-        }
-      },
-      "in_lists": true,
-      "in_catalog": true
     },
     "sacrifice an enchantment": {
       "label": "Sacrifice an enchantment.",
@@ -3389,25 +3382,14 @@
       "in_catalog": true
     },
     "transformation": {
-      "label": "\"Transformation\" (Target creature becomes a color/card type with N power and N toughness.)",
-      "colors": {
-        "U": {
-          "tier": "primary",
-          "basis": "colour-list-only"
-        }
-      },
-      "in_lists": true,
-      "in_catalog": false
-    },
-    "transformation (target creature becomes a (color) (card type) with n power and n toughness.)": {
       "label": "\"Transformation\" (Target creature becomes a (color) (card type) with N power and N toughness.)",
       "colors": {
         "U": {
           "tier": "primary",
-          "basis": "ability-catalog-only"
+          "basis": "both-agree"
         }
       },
-      "in_lists": false,
+      "in_lists": true,
       "in_catalog": true
     },
     "treasure creation": {
@@ -3550,7 +3532,7 @@
       "in_lists": true,
       "in_catalog": true
     },
-    "twiddle (tap or untap target creature/permanent.)": {
+    "twiddle": {
       "label": "\"Twiddle\" (Tap or untap target creature/permanent.)",
       "colors": {
         "U": {

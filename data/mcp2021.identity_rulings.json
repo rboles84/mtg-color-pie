@@ -1,0 +1,298 @@
+{
+  "note": "Set `ruling` to same-mechanic | distinct | group-header. Any UNRULED entry blocks the runtime build. Both labels are kept as aliases under whichever mechanic the ruling produces.",
+  "rulings": {
+    "+N/+0 to your team || -": {
+      "proposed": "uncertain",
+      "reason": "matches 2 catalog labels at grammatical number only",
+      "ruling": "UNRULED",
+      "aliases": [
+        "+N/+0 to your team"
+      ]
+    },
+    "+N/+0 to your team, one-shot || +N/+0 to your team": {
+      "proposed": "variant-split",
+      "reason": "list puts 'one-shot' in the label; the catalog puts it in the group header 'Creature pumping, your team, one-shot'",
+      "ruling": "UNRULED",
+      "aliases": [
+        "+N/+0 to your team, one-shot",
+        "+N/+0 to your team"
+      ]
+    },
+    "+N/+0 to your team, ongoing || +N/+0 to your team": {
+      "proposed": "variant-split",
+      "reason": "list puts 'ongoing' in the label; the catalog puts it in the group header 'Creature pumping, your team, ongoing'",
+      "ruling": "UNRULED",
+      "aliases": [
+        "+N/+0 to your team, ongoing",
+        "+N/+0 to your team"
+      ]
+    },
+    "+N/+N to your team, one-shot || +N/+N to your team": {
+      "proposed": "variant-split",
+      "reason": "list puts 'one-shot' in the label; the catalog puts it in the group header 'Creature pumping, your team, one-shot'",
+      "ruling": "UNRULED",
+      "aliases": [
+        "+N/+N to your team, one-shot",
+        "+N/+N to your team"
+      ]
+    },
+    "+N/+N to your team, ongoing || +N/+N to your team": {
+      "proposed": "variant-split",
+      "reason": "list puts 'ongoing' in the label; the catalog puts it in the group header 'Creature pumping, your team, ongoing'",
+      "ruling": "UNRULED",
+      "aliases": [
+        "+N/+N to your team, ongoing",
+        "+N/+N to your team"
+      ]
+    },
+    "-N/+N (on Auras) || -": {
+      "proposed": "distinct",
+      "reason": "no conservative counterpart in the catalog; the list asserts tiers the catalog never discusses",
+      "ruling": "distinct",
+      "aliases": [
+        "-N/+N (on Auras)"
+      ]
+    },
+    "-N/+N (on spells) || -": {
+      "proposed": "distinct",
+      "reason": "no conservative counterpart in the catalog; the list asserts tiers the catalog never discusses",
+      "ruling": "distinct",
+      "aliases": [
+        "-N/+N (on spells)"
+      ]
+    },
+    "-N/-0 (on creatures) || -": {
+      "proposed": "distinct",
+      "reason": "no conservative counterpart in the catalog; the list asserts tiers the catalog never discusses",
+      "ruling": "distinct",
+      "aliases": [
+        "-N/-0 (on creatures)"
+      ]
+    },
+    "-N/-0 to their team, one-shot || -N/-0 to their team": {
+      "proposed": "variant-split",
+      "reason": "list puts 'one-shot' in the label; the catalog puts it in the group header 'Creature pumping, their team, one-shot'",
+      "ruling": "UNRULED",
+      "aliases": [
+        "-N/-0 to their team, one-shot",
+        "-N/-0 to their team"
+      ]
+    },
+    "-N/-N to their team, one-shot || -N/-N to their team": {
+      "proposed": "variant-split",
+      "reason": "list puts 'one-shot' in the label; the catalog puts it in the group header 'Creature pumping, their team, one-shot'",
+      "ruling": "UNRULED",
+      "aliases": [
+        "-N/-N to their team, one-shot",
+        "-N/-N to their team"
+      ]
+    },
+    "-N/-N to their team, ongoing || -N/-N to their team": {
+      "proposed": "variant-split",
+      "reason": "list puts 'ongoing' in the label; the catalog puts it in the group header 'Creature pumping, their team, ongoing'",
+      "ruling": "UNRULED",
+      "aliases": [
+        "-N/-N to their team, ongoing",
+        "-N/-N to their team"
+      ]
+    },
+    "Banisher Priest-like effects (When this card enters the battlefield, exile target creature/permanent until this card leaves play.) || -": {
+      "proposed": "distinct",
+      "reason": "no conservative counterpart in the catalog; the list asserts tiers the catalog never discusses",
+      "ruling": "distinct",
+      "aliases": [
+        "Banisher Priest-like effects (When this card enters the battlefield, exile target creature/permanent until this card leaves play.)"
+      ]
+    },
+    "Can't be attacked. (Creatures can't attack you.) || Can't be attacked (Creatures can't attack you.)": {
+      "proposed": "same-mechanic",
+      "reason": "grammatical number only",
+      "ruling": "UNRULED",
+      "aliases": [
+        "Can't be attacked. (Creatures can't attack you.)",
+        "Can't be attacked (Creatures can't attack you.)"
+      ]
+    },
+    "Can't lose the game and opponents can't win. || Can't lose the game and opponent can't win": {
+      "proposed": "same-mechanic",
+      "reason": "grammatical number only",
+      "ruling": "UNRULED",
+      "aliases": [
+        "Can't lose the game and opponents can't win.",
+        "Can't lose the game and opponent can't win"
+      ]
+    },
+    "Can't win the game and opponents can't lose || Can't win the game and opponent can't lose": {
+      "proposed": "same-mechanic",
+      "reason": "grammatical number only",
+      "ruling": "UNRULED",
+      "aliases": [
+        "Can't win the game and opponents can't lose",
+        "Can't win the game and opponent can't lose"
+      ]
+    },
+    "Creature sacrifice, forced, repeatable (All players/opponents must sacrifice a creature each turn.) || -": {
+      "proposed": "distinct",
+      "reason": "no conservative counterpart in the catalog; the list asserts tiers the catalog never discusses",
+      "ruling": "distinct",
+      "aliases": [
+        "Creature sacrifice, forced, repeatable (All players/opponents must sacrifice a creature each turn.)"
+      ]
+    },
+    "Deal N damage to a creature/player where N is the number of cards in your hand/your opponent's hand. || -": {
+      "proposed": "distinct",
+      "reason": "no conservative counterpart in the catalog; the list asserts tiers the catalog never discusses",
+      "ruling": "distinct",
+      "aliases": [
+        "Deal N damage to a creature/player where N is the number of cards in your hand/your opponent's hand."
+      ]
+    },
+    "Destroy all creatures with power 3/4 or greater. || -": {
+      "proposed": "distinct",
+      "reason": "no conservative counterpart in the catalog; the list asserts tiers the catalog never discusses",
+      "ruling": "distinct",
+      "aliases": [
+        "Destroy all creatures with power 3/4 or greater."
+      ]
+    },
+    "Destroy target creature with power 3/4 or greater. || -": {
+      "proposed": "distinct",
+      "reason": "no conservative counterpart in the catalog; the list asserts tiers the catalog never discusses",
+      "ruling": "distinct",
+      "aliases": [
+        "Destroy target creature with power 3/4 or greater."
+      ]
+    },
+    "Forced sacrifice of a creature || -": {
+      "proposed": "distinct",
+      "reason": "no conservative counterpart in the catalog; the list asserts tiers the catalog never discusses",
+      "ruling": "distinct",
+      "aliases": [
+        "Forced sacrifice of a creature"
+      ]
+    },
+    "Putting cards from hand onto the battlefield || -": {
+      "proposed": "group-header",
+      "reason": "the catalog uses this as a heading over its variants; keep as source, do NOT make it a peer mechanic in the runtime model",
+      "ruling": "group-header",
+      "aliases": [
+        "Putting cards from hand onto the battlefield"
+      ]
+    },
+    "Sacrifice a creature. || Sacrifice a creature.": {
+      "proposed": "same-mechanic",
+      "reason": "identical label; split only because the catalog qualifies it by its group header",
+      "ruling": "UNRULED",
+      "aliases": [
+        "Sacrifice a creature.",
+        "Sacrifice a creature."
+      ]
+    },
+    "Sacrifice a creature and deal damage to creature/player equal to the sacrificed creature's power/toughness. || -": {
+      "proposed": "distinct",
+      "reason": "no conservative counterpart in the catalog; the list asserts tiers the catalog never discusses",
+      "ruling": "distinct",
+      "aliases": [
+        "Sacrifice a creature and deal damage to creature/player equal to the sacrificed creature's power/toughness."
+      ]
+    },
+    "Sacrifice an artifact. || Sacrifice an artifact.": {
+      "proposed": "same-mechanic",
+      "reason": "identical label; split only because the catalog qualifies it by its group header",
+      "ruling": "UNRULED",
+      "aliases": [
+        "Sacrifice an artifact.",
+        "Sacrifice an artifact."
+      ]
+    },
+    "Switching power/toughness || Switch power/toughness": {
+      "proposed": "same-mechanic",
+      "reason": "trivial morphology only",
+      "ruling": "UNRULED",
+      "aliases": [
+        "Switching power/toughness",
+        "Switch power/toughness"
+      ]
+    },
+    "- || Banisher Priest–like effect (When this card enters the battlefield, exile target creature/permanent until this card leaves play.)": {
+      "proposed": "distinct",
+      "reason": "no conservative counterpart in the colour lists",
+      "ruling": "distinct",
+      "aliases": [
+        "Banisher Priest–like effect (When this card enters the battlefield, exile target creature/permanent until this card leaves play.)"
+      ]
+    },
+    "- || -N/-N to their team": {
+      "proposed": "distinct",
+      "reason": "no conservative counterpart in the colour lists",
+      "ruling": "distinct",
+      "aliases": [
+        "-N/-N to their team"
+      ]
+    },
+    "- || +N/+0 to your team": {
+      "proposed": "distinct",
+      "reason": "no conservative counterpart in the colour lists",
+      "ruling": "distinct",
+      "aliases": [
+        "+N/+0 to your team"
+      ]
+    },
+    "- || +N/+N to your team": {
+      "proposed": "distinct",
+      "reason": "no conservative counterpart in the colour lists",
+      "ruling": "distinct",
+      "aliases": [
+        "+N/+N to your team"
+      ]
+    },
+    "- || Deal N damage to a creature/planeswalker/player where N is the number of cards in your hand/your opponent's hand.": {
+      "proposed": "distinct",
+      "reason": "no conservative counterpart in the colour lists",
+      "ruling": "distinct",
+      "aliases": [
+        "Deal N damage to a creature/planeswalker/player where N is the number of cards in your hand/your opponent's hand."
+      ]
+    },
+    "- || Destroy all creatures with power 3 or greater.": {
+      "proposed": "distinct",
+      "reason": "no conservative counterpart in the colour lists",
+      "ruling": "distinct",
+      "aliases": [
+        "Destroy all creatures with power 3 or greater."
+      ]
+    },
+    "- || Destroy target creature with power 3 or greater.": {
+      "proposed": "distinct",
+      "reason": "no conservative counterpart in the colour lists",
+      "ruling": "distinct",
+      "aliases": [
+        "Destroy target creature with power 3 or greater."
+      ]
+    },
+    "- || Sacrifice a creature. (Target/all player(s) sacrifice a creature.)": {
+      "proposed": "distinct",
+      "reason": "no conservative counterpart in the colour lists",
+      "ruling": "distinct",
+      "aliases": [
+        "Sacrifice a creature. (Target/all player(s) sacrifice a creature.)"
+      ]
+    },
+    "- || Sacrifice an artifact. (Target/all player(s) sacrifice an artifact.)": {
+      "proposed": "distinct",
+      "reason": "no conservative counterpart in the colour lists",
+      "ruling": "distinct",
+      "aliases": [
+        "Sacrifice an artifact. (Target/all player(s) sacrifice an artifact.)"
+      ]
+    },
+    "- || Sacrifice a creature and deal damage to creature/planeswalker/player equal to the sacrificed creature's power/toughness.": {
+      "proposed": "distinct",
+      "reason": "no conservative counterpart in the colour lists",
+      "ruling": "distinct",
+      "aliases": [
+        "Sacrifice a creature and deal damage to creature/planeswalker/player equal to the sacrificed creature's power/toughness."
+      ]
+    }
+  }
+}

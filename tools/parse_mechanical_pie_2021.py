@@ -42,6 +42,7 @@ import json
 import pathlib
 import re
 import sys
+import unicodedata
 from collections import defaultdict
 
 COLOR_WORDS = {"white": "W", "blue": "U", "black": "B", "red": "R", "green": "G"}
@@ -141,9 +142,33 @@ def norm_label(label):
     # manufactures conflicts that do not exist. A long one is a rules gloss,
     # and those vary slightly between the two halves of the article ("power
     # and toughness are equal" vs "is equal"), so they must go.
-    s = re.sub(r"\(([^)]{40,})\)", " ", label)
+    # NESTED PARENTHESES. "(Target/all player(s) sacrifice a creature.)" has an
+    # inner "(s)", so a [^)] run stops early and the gloss survives stripping.
+    # The two halves of the article gloss the same mechanic slightly
+    # differently, so a surviving gloss splits one mechanic into two. Scanned
+    # with a depth counter instead, and only spans of 40+ characters are cut.
+    s, depth, start, keep = label, 0, None, []
+    cut = []
+    for i, ch in enumerate(s):
+        if ch == "(":
+            if depth == 0:
+                start = i
+            depth += 1
+        elif ch == ")" and depth:
+            depth -= 1
+            if depth == 0 and start is not None:
+                if i - start + 1 >= 40:
+                    cut.append((start, i + 1))
+                start = None
+    for a, b in reversed(cut):
+        s = s[:a] + " " + s[b:]
+
+    s = unicodedata.normalize("NFKC", s)
+    for zw in ("​", "‌", "‍", "﻿"):
+        s = s.replace(zw, "")
     s = s.replace("“", "").replace("”", "").replace('"', "")
     s = s.replace("’", "'")
+    s = s.replace("–", "-").replace("—", "-").replace("−", "-")
     s = re.sub(r"[.,;:]+$", "", s.strip())
     s = re.sub(r"\s+", " ", s).strip().lower()
     # The article misspells this in the Red and Green lists. Recorded as an
