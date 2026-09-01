@@ -22,6 +22,7 @@ scaling it to 221 would only multiply the problem.
 """
 import argparse, json, pathlib, sys
 from collections import Counter
+from gate import require_source_gate
 
 SOURCE_FIELDS = {"tier", "tiers", "colors", "colours", "label", "assignments", "explanation"}
 
@@ -29,6 +30,8 @@ ap = argparse.ArgumentParser()
 ap.add_argument("--data", type=pathlib.Path, default=pathlib.Path("data"))
 ap.add_argument("--taxonomy", default="vox.families.pilot.json")
 a = ap.parse_args()
+
+require_source_gate(a.data)   # upstream first, always
 
 rec = json.loads((a.data / "mcp2021.reconciled.json").read_text(encoding="utf-8"))
 tax = json.loads((a.data / a.taxonomy).read_text(encoding="utf-8"))

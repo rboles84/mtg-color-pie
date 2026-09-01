@@ -273,8 +273,9 @@ black `#aca29a`, red `#db8664`, green `#93b483`, colourless `#beb9b2`.
       audit artefact that found the loss. The old "205 distinct labels" and my
       "243" both counted digest strings and are both void; 238 is the number
       with a basis.
-      Remaining: Vox family taxonomy, runtime projection, ten fixtures, panel
-      design, then wiring. Nothing past adjudication has started.
+      Source layer FROZEN at 217/216, enforced by `tools/check_invariants.py`.
+      Vox family taxonomy complete: 216/216, 23 families, 0 miscellaneous.
+      Remaining: runtime projection, ten fixtures, panel design, then wiring.
 - [ ] `--g` and `--c` confirmation (Rob)
 - [ ] Crossing markers may crowd at hover scale — shrink, never move
 - [ ] Mono-colour tiles named plainly ("White", "Blue") — swap in Codex names if
