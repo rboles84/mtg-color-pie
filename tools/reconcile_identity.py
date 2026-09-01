@@ -101,7 +101,11 @@ def main():
     args = ap.parse_args()
     norm_label = load_norm()
 
-    rec = json.loads((args.data / "mcp2021.reconciled.json").read_text(encoding="utf-8"))
+    # The UNMERGED baseline, deliberately. Reading the merged file would be
+    # circular: previous merges hide the pairs this audit exists to find.
+    raw = args.data / "mcp2021.reconciled.raw.json"
+    rec = json.loads((raw if raw.is_file() else
+                      args.data / "mcp2021.reconciled.json").read_text(encoding="utf-8"))
     abil = json.loads((args.data / "mcp2021.abilities.json").read_text(encoding="utf-8"))
 
     mech = rec["mechanics"]
@@ -131,18 +135,27 @@ def main():
         if m:
             qual = m.group(1).lower()
             base = fold(llabel[:m.start()], 4)
-            for ck, cv in cat_only.items():
-                for a in abil["abilities"]:
-                    if norm_label(a["label"]) not in ck:
-                        continue
-                    if a.get("group") and qual in a["group"].lower() \
-                       and fold(a["label"], 4) == base:
-                        best = (ck, cv, "variant-split",
-                                "list puts '%s' in the label; the catalog puts it in "
-                                "the group header '%s'" % (qual, a["group"]))
-                        break
-                if best:
-                    break
+            # Build the target key FROM THE MATCHED ABILITY, never from a
+            # separate loop over catalog keys. Pairing an outer candidate key
+            # with an inner ability record decoupled the two: the group test
+            # passed against one entry while the key came from another, so the
+            # "ongoing" summary entry merged into the ONE-SHOT mechanic. That
+            # silently corrupts both mechanics' tiers AND permanently hides the
+            # contradiction the merge exists to expose.
+            for a_ in abil["abilities"]:
+                if not a_.get("group") or qual not in a_["group"].lower():
+                    continue
+                if fold(a_["label"], 4) != base:
+                    continue
+                ck = norm_label(a_["group"]) + " :: " + norm_label(a_["label"])
+                if ck not in mech:
+                    ck = norm_label(a_["label"])
+                if ck not in mech:
+                    continue
+                best = (ck, mech[ck], "variant-split",
+                        "list puts '%s' in the label; the catalog puts it in the "
+                        "group header '%s'" % (qual, a_["group"]))
+                break
 
         # group-header: the list item names a catalog heading
         if not best and fold(llabel, 4) in groups:
@@ -210,10 +223,19 @@ def main():
             "proposed": r["relationship"],
             "reason": r["reason"],
             "ruling": prior.get("ruling", "UNRULED" if needs else r["relationship"]),
+            "list_key": r["list_key"],
+            "catalog_key": r["catalog_key"],
+            # canonical_key lets a reviewer aim a merge at a specific catalog
+            # entry the matcher could not choose between. The bare
+            # "+N/+0 to your team" matches both the one-shot and the ongoing
+            # group, and only a human can say which the summary list meant.
+            "canonical_key": prior.get("canonical_key", r["catalog_key"]),
             "aliases": [x for x in (r["list_label"], r["catalog_label"]) if x],
         }
     path.write_text(json.dumps(
-        {"note": "Set `ruling` to same-mechanic | distinct | group-header. "
+        {"note": "Set `ruling` to same-mechanic | distinct | group-header | "
+                 "variant-split. For an `uncertain` row, also set `canonical_key` "
+                 "to the catalog key the merge should target. "
                  "Any UNRULED entry blocks the runtime build. Both labels are kept "
                  "as aliases under whichever mechanic the ruling produces.",
          "rulings": rulings}, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")

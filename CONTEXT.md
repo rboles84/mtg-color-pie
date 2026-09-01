@@ -260,9 +260,10 @@ black `#aca29a`, red `#db8664`, green `#93b483`, colourless `#beb9b2`.
 
 - [~] Layer 4: mechanical overlay. **Data done and frozen; UI not started.**
       The source is now the ARTICLE, parsed twice and reconciled:
-      `data/mcp2021.reconciled.json` — 236 mechanics UPPER BOUND (222 projected
-      once identity rulings land; Step 2.5 is open and blocking),
-      15/15 sections captured,
+      `data/mcp2021.reconciled.json` — 222 source identities / 221 projection
+      mechanics (1 structural group header: excluded from peer maths, never
+      subtracted from the source count), 5 adjudicated source conflicts,
+      0 unruled identities, 0 unadjudicated conflicts. 15/15 sections captured,
       465 colour-list placements, 212 catalog entries, 4 internal source
       conflicts all adjudicated with recorded basis. See
       `MECHANICS-CONTRACT.md` for what the layer is allowed to say.

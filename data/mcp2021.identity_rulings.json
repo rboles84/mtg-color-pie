@@ -1,54 +1,77 @@
 {
-  "note": "Set `ruling` to same-mechanic | distinct | group-header. Any UNRULED entry blocks the runtime build. Both labels are kept as aliases under whichever mechanic the ruling produces.",
+  "note": "Set `ruling` to same-mechanic | distinct | group-header | variant-split. For an `uncertain` row, also set `canonical_key` to the catalog key the merge should target. Any UNRULED entry blocks the runtime build. Both labels are kept as aliases under whichever mechanic the ruling produces.",
   "rulings": {
     "+N/+0 to your team || -": {
       "proposed": "uncertain",
       "reason": "matches 2 catalog labels at grammatical number only",
-      "ruling": "UNRULED",
+      "ruling": "same-mechanic",
+      "list_key": "+n/+0 to your team",
+      "catalog_key": null,
+      "canonical_key": "creature pumping, your team, one-shot :: +n/+0 to your team",
       "aliases": [
         "+N/+0 to your team"
-      ]
+      ],
+      "ruling_basis": "bare summary label is W=secondary, matching the one-shot catalog entry exactly; White is absent from the ongoing entry"
     },
     "+N/+0 to your team, one-shot || +N/+0 to your team": {
       "proposed": "variant-split",
       "reason": "list puts 'one-shot' in the label; the catalog puts it in the group header 'Creature pumping, your team, one-shot'",
-      "ruling": "UNRULED",
+      "ruling": "variant-split",
+      "list_key": "+n/+0 to your team, one-shot",
+      "catalog_key": "creature pumping, your team, one-shot :: +n/+0 to your team",
+      "canonical_key": "creature pumping, your team, one-shot :: +n/+0 to your team",
       "aliases": [
         "+N/+0 to your team, one-shot",
         "+N/+0 to your team"
-      ]
+      ],
+      "ruling_basis": "conservative normalisation only; no semantic merge"
     },
     "+N/+0 to your team, ongoing || +N/+0 to your team": {
       "proposed": "variant-split",
       "reason": "list puts 'ongoing' in the label; the catalog puts it in the group header 'Creature pumping, your team, ongoing'",
-      "ruling": "UNRULED",
+      "ruling": "variant-split",
+      "list_key": "+n/+0 to your team, ongoing",
+      "catalog_key": "creature pumping, your team, ongoing :: +n/+0 to your team",
+      "canonical_key": "creature pumping, your team, ongoing :: +n/+0 to your team",
       "aliases": [
         "+N/+0 to your team, ongoing",
         "+N/+0 to your team"
-      ]
+      ],
+      "ruling_basis": "conservative normalisation only; no semantic merge"
     },
     "+N/+N to your team, one-shot || +N/+N to your team": {
       "proposed": "variant-split",
       "reason": "list puts 'one-shot' in the label; the catalog puts it in the group header 'Creature pumping, your team, one-shot'",
-      "ruling": "UNRULED",
+      "ruling": "variant-split",
+      "list_key": "+n/+n to your team, one-shot",
+      "catalog_key": "creature pumping, your team, one-shot :: +n/+n to your team",
+      "canonical_key": "creature pumping, your team, one-shot :: +n/+n to your team",
       "aliases": [
         "+N/+N to your team, one-shot",
         "+N/+N to your team"
-      ]
+      ],
+      "ruling_basis": "conservative normalisation only; no semantic merge"
     },
     "+N/+N to your team, ongoing || +N/+N to your team": {
       "proposed": "variant-split",
       "reason": "list puts 'ongoing' in the label; the catalog puts it in the group header 'Creature pumping, your team, ongoing'",
-      "ruling": "UNRULED",
+      "ruling": "variant-split",
+      "list_key": "+n/+n to your team, ongoing",
+      "catalog_key": "creature pumping, your team, ongoing :: +n/+n to your team",
+      "canonical_key": "creature pumping, your team, ongoing :: +n/+n to your team",
       "aliases": [
         "+N/+N to your team, ongoing",
         "+N/+N to your team"
-      ]
+      ],
+      "ruling_basis": "conservative normalisation only; no semantic merge"
     },
     "-N/+N (on Auras) || -": {
       "proposed": "distinct",
       "reason": "no conservative counterpart in the catalog; the list asserts tiers the catalog never discusses",
       "ruling": "distinct",
+      "list_key": "-n/+n (on auras)",
+      "catalog_key": null,
+      "canonical_key": null,
       "aliases": [
         "-N/+N (on Auras)"
       ]
@@ -57,6 +80,9 @@
       "proposed": "distinct",
       "reason": "no conservative counterpart in the catalog; the list asserts tiers the catalog never discusses",
       "ruling": "distinct",
+      "list_key": "-n/+n (on spells)",
+      "catalog_key": null,
+      "canonical_key": null,
       "aliases": [
         "-N/+N (on spells)"
       ]
@@ -65,6 +91,9 @@
       "proposed": "distinct",
       "reason": "no conservative counterpart in the catalog; the list asserts tiers the catalog never discusses",
       "ruling": "distinct",
+      "list_key": "-n/-0 (on creatures)",
+      "catalog_key": null,
+      "canonical_key": null,
       "aliases": [
         "-N/-0 (on creatures)"
       ]
@@ -72,34 +101,49 @@
     "-N/-0 to their team, one-shot || -N/-0 to their team": {
       "proposed": "variant-split",
       "reason": "list puts 'one-shot' in the label; the catalog puts it in the group header 'Creature pumping, their team, one-shot'",
-      "ruling": "UNRULED",
+      "ruling": "variant-split",
+      "list_key": "-n/-0 to their team, one-shot",
+      "catalog_key": "-n/-0 to their team",
+      "canonical_key": "-n/-0 to their team",
       "aliases": [
         "-N/-0 to their team, one-shot",
         "-N/-0 to their team"
-      ]
+      ],
+      "ruling_basis": "conservative normalisation only; no semantic merge"
     },
     "-N/-N to their team, one-shot || -N/-N to their team": {
       "proposed": "variant-split",
       "reason": "list puts 'one-shot' in the label; the catalog puts it in the group header 'Creature pumping, their team, one-shot'",
-      "ruling": "UNRULED",
+      "ruling": "variant-split",
+      "list_key": "-n/-n to their team, one-shot",
+      "catalog_key": "creature pumping, their team, one-shot :: -n/-n to their team",
+      "canonical_key": "creature pumping, their team, one-shot :: -n/-n to their team",
       "aliases": [
         "-N/-N to their team, one-shot",
         "-N/-N to their team"
-      ]
+      ],
+      "ruling_basis": "conservative normalisation only; no semantic merge"
     },
     "-N/-N to their team, ongoing || -N/-N to their team": {
       "proposed": "variant-split",
       "reason": "list puts 'ongoing' in the label; the catalog puts it in the group header 'Creature pumping, their team, ongoing'",
-      "ruling": "UNRULED",
+      "ruling": "variant-split",
+      "list_key": "-n/-n to their team, ongoing",
+      "catalog_key": "creature pumping, their team, ongoing :: -n/-n to their team",
+      "canonical_key": "creature pumping, their team, ongoing :: -n/-n to their team",
       "aliases": [
         "-N/-N to their team, ongoing",
         "-N/-N to their team"
-      ]
+      ],
+      "ruling_basis": "conservative normalisation only; no semantic merge"
     },
     "Banisher Priest-like effects (When this card enters the battlefield, exile target creature/permanent until this card leaves play.) || -": {
       "proposed": "distinct",
       "reason": "no conservative counterpart in the catalog; the list asserts tiers the catalog never discusses",
       "ruling": "distinct",
+      "list_key": "banisher priest-like effects",
+      "catalog_key": null,
+      "canonical_key": null,
       "aliases": [
         "Banisher Priest-like effects (When this card enters the battlefield, exile target creature/permanent until this card leaves play.)"
       ]
@@ -107,34 +151,49 @@
     "Can't be attacked. (Creatures can't attack you.) || Can't be attacked (Creatures can't attack you.)": {
       "proposed": "same-mechanic",
       "reason": "grammatical number only",
-      "ruling": "UNRULED",
+      "ruling": "same-mechanic",
+      "list_key": "can't be attacked. (creatures can't attack you.)",
+      "catalog_key": "can't be attacked (creatures can't attack you.)",
+      "canonical_key": "can't be attacked (creatures can't attack you.)",
       "aliases": [
         "Can't be attacked. (Creatures can't attack you.)",
         "Can't be attacked (Creatures can't attack you.)"
-      ]
+      ],
+      "ruling_basis": "conservative normalisation only; no semantic merge"
     },
     "Can't lose the game and opponents can't win. || Can't lose the game and opponent can't win": {
       "proposed": "same-mechanic",
       "reason": "grammatical number only",
-      "ruling": "UNRULED",
+      "ruling": "same-mechanic",
+      "list_key": "can't lose the game and opponents can't win",
+      "catalog_key": "can't lose the game and opponent can't win",
+      "canonical_key": "can't lose the game and opponent can't win",
       "aliases": [
         "Can't lose the game and opponents can't win.",
         "Can't lose the game and opponent can't win"
-      ]
+      ],
+      "ruling_basis": "conservative normalisation only; no semantic merge"
     },
     "Can't win the game and opponents can't lose || Can't win the game and opponent can't lose": {
       "proposed": "same-mechanic",
       "reason": "grammatical number only",
-      "ruling": "UNRULED",
+      "ruling": "same-mechanic",
+      "list_key": "can't win the game and opponents can't lose",
+      "catalog_key": "can't win the game and opponent can't lose",
+      "canonical_key": "can't win the game and opponent can't lose",
       "aliases": [
         "Can't win the game and opponents can't lose",
         "Can't win the game and opponent can't lose"
-      ]
+      ],
+      "ruling_basis": "conservative normalisation only; no semantic merge"
     },
     "Creature sacrifice, forced, repeatable (All players/opponents must sacrifice a creature each turn.) || -": {
       "proposed": "distinct",
       "reason": "no conservative counterpart in the catalog; the list asserts tiers the catalog never discusses",
       "ruling": "distinct",
+      "list_key": "creature sacrifice, forced, repeatable",
+      "catalog_key": null,
+      "canonical_key": null,
       "aliases": [
         "Creature sacrifice, forced, repeatable (All players/opponents must sacrifice a creature each turn.)"
       ]
@@ -143,6 +202,9 @@
       "proposed": "distinct",
       "reason": "no conservative counterpart in the catalog; the list asserts tiers the catalog never discusses",
       "ruling": "distinct",
+      "list_key": "deal n damage to a creature/player where n is the number of cards in your hand/your opponent's hand",
+      "catalog_key": null,
+      "canonical_key": null,
       "aliases": [
         "Deal N damage to a creature/player where N is the number of cards in your hand/your opponent's hand."
       ]
@@ -151,6 +213,9 @@
       "proposed": "distinct",
       "reason": "no conservative counterpart in the catalog; the list asserts tiers the catalog never discusses",
       "ruling": "distinct",
+      "list_key": "destroy all creatures with power 3/4 or greater",
+      "catalog_key": null,
+      "canonical_key": null,
       "aliases": [
         "Destroy all creatures with power 3/4 or greater."
       ]
@@ -159,6 +224,9 @@
       "proposed": "distinct",
       "reason": "no conservative counterpart in the catalog; the list asserts tiers the catalog never discusses",
       "ruling": "distinct",
+      "list_key": "destroy target creature with power 3/4 or greater",
+      "catalog_key": null,
+      "canonical_key": null,
       "aliases": [
         "Destroy target creature with power 3/4 or greater."
       ]
@@ -167,6 +235,9 @@
       "proposed": "distinct",
       "reason": "no conservative counterpart in the catalog; the list asserts tiers the catalog never discusses",
       "ruling": "distinct",
+      "list_key": "forced sacrifice of a creature",
+      "catalog_key": null,
+      "canonical_key": null,
       "aliases": [
         "Forced sacrifice of a creature"
       ]
@@ -175,6 +246,9 @@
       "proposed": "group-header",
       "reason": "the catalog uses this as a heading over its variants; keep as source, do NOT make it a peer mechanic in the runtime model",
       "ruling": "group-header",
+      "list_key": "putting cards from hand onto the battlefield",
+      "catalog_key": null,
+      "canonical_key": null,
       "aliases": [
         "Putting cards from hand onto the battlefield"
       ]
@@ -182,16 +256,23 @@
     "Sacrifice a creature. || Sacrifice a creature.": {
       "proposed": "same-mechanic",
       "reason": "identical label; split only because the catalog qualifies it by its group header",
-      "ruling": "UNRULED",
+      "ruling": "same-mechanic",
+      "list_key": "sacrifice a creature",
+      "catalog_key": "sacrifice a permanent :: sacrifice a creature",
+      "canonical_key": "sacrifice a permanent :: sacrifice a creature",
       "aliases": [
         "Sacrifice a creature.",
         "Sacrifice a creature."
-      ]
+      ],
+      "ruling_basis": "conservative normalisation only; no semantic merge"
     },
     "Sacrifice a creature and deal damage to creature/player equal to the sacrificed creature's power/toughness. || -": {
       "proposed": "distinct",
       "reason": "no conservative counterpart in the catalog; the list asserts tiers the catalog never discusses",
       "ruling": "distinct",
+      "list_key": "sacrifice a creature and deal damage to creature/player equal to the sacrificed creature's power/toughness",
+      "catalog_key": null,
+      "canonical_key": null,
       "aliases": [
         "Sacrifice a creature and deal damage to creature/player equal to the sacrificed creature's power/toughness."
       ]
@@ -199,57 +280,47 @@
     "Sacrifice an artifact. || Sacrifice an artifact.": {
       "proposed": "same-mechanic",
       "reason": "identical label; split only because the catalog qualifies it by its group header",
-      "ruling": "UNRULED",
+      "ruling": "same-mechanic",
+      "list_key": "sacrifice an artifact",
+      "catalog_key": "sacrifice a permanent :: sacrifice an artifact",
+      "canonical_key": "sacrifice a permanent :: sacrifice an artifact",
       "aliases": [
         "Sacrifice an artifact.",
         "Sacrifice an artifact."
-      ]
+      ],
+      "ruling_basis": "conservative normalisation only; no semantic merge"
     },
     "Switching power/toughness || Switch power/toughness": {
       "proposed": "same-mechanic",
       "reason": "trivial morphology only",
-      "ruling": "UNRULED",
+      "ruling": "same-mechanic",
+      "list_key": "switching power/toughness",
+      "catalog_key": "switch power/toughness",
+      "canonical_key": "switch power/toughness",
       "aliases": [
         "Switching power/toughness",
         "Switch power/toughness"
-      ]
+      ],
+      "ruling_basis": "conservative normalisation only; no semantic merge"
     },
     "- || Banisher Priest–like effect (When this card enters the battlefield, exile target creature/permanent until this card leaves play.)": {
       "proposed": "distinct",
       "reason": "no conservative counterpart in the colour lists",
       "ruling": "distinct",
+      "list_key": null,
+      "catalog_key": "banisher priest-like effect",
+      "canonical_key": "banisher priest-like effect",
       "aliases": [
         "Banisher Priest–like effect (When this card enters the battlefield, exile target creature/permanent until this card leaves play.)"
-      ]
-    },
-    "- || -N/-N to their team": {
-      "proposed": "distinct",
-      "reason": "no conservative counterpart in the colour lists",
-      "ruling": "distinct",
-      "aliases": [
-        "-N/-N to their team"
-      ]
-    },
-    "- || +N/+0 to your team": {
-      "proposed": "distinct",
-      "reason": "no conservative counterpart in the colour lists",
-      "ruling": "distinct",
-      "aliases": [
-        "+N/+0 to your team"
-      ]
-    },
-    "- || +N/+N to your team": {
-      "proposed": "distinct",
-      "reason": "no conservative counterpart in the colour lists",
-      "ruling": "distinct",
-      "aliases": [
-        "+N/+N to your team"
       ]
     },
     "- || Deal N damage to a creature/planeswalker/player where N is the number of cards in your hand/your opponent's hand.": {
       "proposed": "distinct",
       "reason": "no conservative counterpart in the colour lists",
       "ruling": "distinct",
+      "list_key": null,
+      "catalog_key": "deal n damage to a creature/planeswalker/player where n is the number of cards in your hand/your opponent's hand",
+      "canonical_key": "deal n damage to a creature/planeswalker/player where n is the number of cards in your hand/your opponent's hand",
       "aliases": [
         "Deal N damage to a creature/planeswalker/player where N is the number of cards in your hand/your opponent's hand."
       ]
@@ -258,6 +329,9 @@
       "proposed": "distinct",
       "reason": "no conservative counterpart in the colour lists",
       "ruling": "distinct",
+      "list_key": null,
+      "catalog_key": "destroy all creatures with power 3 or greater",
+      "canonical_key": "destroy all creatures with power 3 or greater",
       "aliases": [
         "Destroy all creatures with power 3 or greater."
       ]
@@ -266,6 +340,9 @@
       "proposed": "distinct",
       "reason": "no conservative counterpart in the colour lists",
       "ruling": "distinct",
+      "list_key": null,
+      "catalog_key": "destroy target creature with power 3 or greater",
+      "canonical_key": "destroy target creature with power 3 or greater",
       "aliases": [
         "Destroy target creature with power 3 or greater."
       ]
@@ -274,6 +351,9 @@
       "proposed": "distinct",
       "reason": "no conservative counterpart in the colour lists",
       "ruling": "distinct",
+      "list_key": null,
+      "catalog_key": "forced sacrifice :: sacrifice a creature",
+      "canonical_key": "forced sacrifice :: sacrifice a creature",
       "aliases": [
         "Sacrifice a creature. (Target/all player(s) sacrifice a creature.)"
       ]
@@ -282,6 +362,9 @@
       "proposed": "distinct",
       "reason": "no conservative counterpart in the colour lists",
       "ruling": "distinct",
+      "list_key": null,
+      "catalog_key": "forced sacrifice :: sacrifice an artifact",
+      "canonical_key": "forced sacrifice :: sacrifice an artifact",
       "aliases": [
         "Sacrifice an artifact. (Target/all player(s) sacrifice an artifact.)"
       ]
@@ -290,6 +373,9 @@
       "proposed": "distinct",
       "reason": "no conservative counterpart in the colour lists",
       "ruling": "distinct",
+      "list_key": null,
+      "catalog_key": "sacrifice a creature and deal damage to creature/planeswalker/player equal to the sacrificed creature's power/toughness",
+      "canonical_key": "sacrifice a creature and deal damage to creature/planeswalker/player equal to the sacrificed creature's power/toughness",
       "aliases": [
         "Sacrifice a creature and deal damage to creature/planeswalker/player equal to the sacrificed creature's power/toughness."
       ]

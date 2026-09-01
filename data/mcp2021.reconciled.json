@@ -33,6 +33,11 @@
       "authority": "ability catalog",
       "mechanism": "Absent from the change log, so unchanged since 2017; the White-Primary list entry is a summary-list error."
     },
+    "creature pumping, your team, ongoing :: +n/+0 to your team | B": {
+      "tier": "tertiary",
+      "authority": "ability catalog",
+      "mechanism": "Persistent summary/catalog inconsistency in BOTH 2017 and 2021. The detailed catalog says tertiary and no 2021 change is recorded, so the Black-Secondary summary claim is a long-standing list error."
+    },
     "deal n damage to a creature with flying | R": {
       "tier": "tertiary",
       "authority": "ability catalog",
@@ -181,43 +186,6 @@
       "in_lists": true,
       "in_catalog": true
     },
-    "+n/+0 to your team": {
-      "label": "+N/+0 to your team",
-      "colors": {
-        "W": {
-          "tier": "secondary",
-          "basis": "colour-list-only"
-        }
-      },
-      "in_lists": true,
-      "in_catalog": false
-    },
-    "+n/+0 to your team, one-shot": {
-      "label": "+N/+0 to your team, one-shot",
-      "colors": {
-        "R": {
-          "tier": "primary",
-          "basis": "colour-list-only"
-        }
-      },
-      "in_lists": true,
-      "in_catalog": false
-    },
-    "+n/+0 to your team, ongoing": {
-      "label": "+N/+0 to your team, ongoing",
-      "colors": {
-        "B": {
-          "tier": "secondary",
-          "basis": "colour-list-only"
-        },
-        "R": {
-          "tier": "primary",
-          "basis": "colour-list-only"
-        }
-      },
-      "in_lists": true,
-      "in_catalog": false
-    },
     "+n/+n (on auras)": {
       "label": "+N/+N (on Auras)",
       "colors": {
@@ -302,48 +270,6 @@
       },
       "in_lists": true,
       "in_catalog": true
-    },
-    "+n/+n to your team, one-shot": {
-      "label": "+N/+N to your team, one-shot",
-      "colors": {
-        "W": {
-          "tier": "primary",
-          "basis": "colour-list-only"
-        },
-        "G": {
-          "tier": "secondary",
-          "basis": "colour-list-only"
-        }
-      },
-      "in_lists": true,
-      "in_catalog": false
-    },
-    "+n/+n to your team, ongoing": {
-      "label": "+N/+N to your team, ongoing",
-      "colors": {
-        "W": {
-          "tier": "primary",
-          "basis": "colour-list-only"
-        },
-        "U": {
-          "tier": "tertiary",
-          "basis": "colour-list-only"
-        },
-        "B": {
-          "tier": "tertiary",
-          "basis": "colour-list-only"
-        },
-        "R": {
-          "tier": "tertiary",
-          "basis": "colour-list-only"
-        },
-        "G": {
-          "tier": "secondary",
-          "basis": "colour-list-only"
-        }
-      },
-      "in_lists": true,
-      "in_catalog": false
     },
     "+n/-n (on auras)": {
       "label": "+N/-N (on Auras)",
@@ -473,22 +399,14 @@
       "colors": {
         "U": {
           "tier": "primary",
-          "basis": "ability-catalog-only"
-        }
-      },
-      "in_lists": false,
-      "in_catalog": true
-    },
-    "-n/-0 to their team, one-shot": {
-      "label": "-N/-0 to their team, one-shot",
-      "colors": {
-        "U": {
-          "tier": "primary",
-          "basis": "colour-list-only"
+          "basis": "both-agree"
         }
       },
       "in_lists": true,
-      "in_catalog": false
+      "in_catalog": true,
+      "source_aliases": [
+        "-N/-0 to their team, one-shot"
+      ]
     },
     "-n/-n (on auras)": {
       "label": "-N/-N (on Auras)",
@@ -538,28 +456,6 @@
       },
       "in_lists": true,
       "in_catalog": true
-    },
-    "-n/-n to their team, one-shot": {
-      "label": "-N/-N to their team, one-shot",
-      "colors": {
-        "B": {
-          "tier": "primary",
-          "basis": "colour-list-only"
-        }
-      },
-      "in_lists": true,
-      "in_catalog": false
-    },
-    "-n/-n to their team, ongoing": {
-      "label": "-N/-N to their team, ongoing",
-      "colors": {
-        "B": {
-          "tier": "primary",
-          "basis": "colour-list-only"
-        }
-      },
-      "in_lists": true,
-      "in_catalog": false
     },
     "animating artifacts": {
       "label": "Animating artifacts (Target/all non-creature artifact(s) you control becomes an artifact creature.)",
@@ -717,22 +613,14 @@
       "colors": {
         "W": {
           "tier": "primary",
-          "basis": "ability-catalog-only"
-        }
-      },
-      "in_lists": false,
-      "in_catalog": true
-    },
-    "can't be attacked. (creatures can't attack you.)": {
-      "label": "Can't be attacked. (Creatures can't attack you.)",
-      "colors": {
-        "W": {
-          "tier": "primary",
-          "basis": "colour-list-only"
+          "basis": "both-agree"
         }
       },
       "in_lists": true,
-      "in_catalog": false
+      "in_catalog": true,
+      "source_aliases": [
+        "Can't be attacked. (Creatures can't attack you.)"
+      ]
     },
     "can't be blocked": {
       "label": "Can't be blocked",
@@ -784,44 +672,28 @@
       "colors": {
         "W": {
           "tier": "primary",
-          "basis": "ability-catalog-only"
-        }
-      },
-      "in_lists": false,
-      "in_catalog": true
-    },
-    "can't lose the game and opponents can't win": {
-      "label": "Can't lose the game and opponents can't win.",
-      "colors": {
-        "W": {
-          "tier": "primary",
-          "basis": "colour-list-only"
+          "basis": "both-agree"
         }
       },
       "in_lists": true,
-      "in_catalog": false
+      "in_catalog": true,
+      "source_aliases": [
+        "Can't lose the game and opponents can't win."
+      ]
     },
     "can't win the game and opponent can't lose": {
       "label": "Can't win the game and opponent can't lose",
       "colors": {
         "B": {
           "tier": "primary",
-          "basis": "ability-catalog-only"
-        }
-      },
-      "in_lists": false,
-      "in_catalog": true
-    },
-    "can't win the game and opponents can't lose": {
-      "label": "Can't win the game and opponents can't lose",
-      "colors": {
-        "B": {
-          "tier": "primary",
-          "basis": "colour-list-only"
+          "basis": "both-agree"
         }
       },
       "in_lists": true,
-      "in_catalog": false
+      "in_catalog": true,
+      "source_aliases": [
+        "Can't win the game and opponents can't lose"
+      ]
     },
     "card draw": {
       "label": "Card draw",
@@ -1021,94 +893,122 @@
       "colors": {
         "B": {
           "tier": "primary",
-          "basis": "ability-catalog-only"
+          "basis": "both-agree"
         }
       },
-      "in_lists": false,
-      "in_catalog": true
+      "in_lists": true,
+      "in_catalog": true,
+      "source_aliases": [
+        "-N/-N to their team, one-shot"
+      ]
     },
     "creature pumping, their team, ongoing :: -n/-n to their team": {
       "label": "-N/-N to their team",
       "colors": {
         "B": {
           "tier": "primary",
-          "basis": "ability-catalog-only"
+          "basis": "both-agree"
         }
       },
-      "in_lists": false,
-      "in_catalog": true
+      "in_lists": true,
+      "in_catalog": true,
+      "source_aliases": [
+        "-N/-N to their team, ongoing"
+      ]
     },
     "creature pumping, your team, one-shot :: +n/+0 to your team": {
       "label": "+N/+0 to your team",
       "colors": {
         "W": {
           "tier": "secondary",
-          "basis": "ability-catalog-only"
+          "basis": "both-agree"
         },
         "R": {
           "tier": "primary",
-          "basis": "ability-catalog-only"
+          "basis": "both-agree"
         }
       },
-      "in_lists": false,
-      "in_catalog": true
+      "in_lists": true,
+      "in_catalog": true,
+      "source_aliases": [
+        "+N/+0 to your team",
+        "+N/+0 to your team, one-shot"
+      ]
     },
     "creature pumping, your team, one-shot :: +n/+n to your team": {
       "label": "+N/+N to your team",
       "colors": {
         "W": {
           "tier": "primary",
-          "basis": "ability-catalog-only"
+          "basis": "both-agree"
         },
         "G": {
           "tier": "secondary",
-          "basis": "ability-catalog-only"
+          "basis": "both-agree"
         }
       },
-      "in_lists": false,
-      "in_catalog": true
+      "in_lists": true,
+      "in_catalog": true,
+      "source_aliases": [
+        "+N/+N to your team, one-shot"
+      ]
     },
     "creature pumping, your team, ongoing :: +n/+0 to your team": {
       "label": "+N/+0 to your team",
       "colors": {
         "B": {
           "tier": "tertiary",
-          "basis": "ability-catalog-only"
+          "basis": "adjudicated",
+          "conflict": {
+            "colour_list_says": "secondary",
+            "ability_catalog_says": "tertiary"
+          },
+          "ruling": {
+            "tier": "tertiary",
+            "authority": "ability catalog",
+            "mechanism": "Persistent summary/catalog inconsistency in BOTH 2017 and 2021. The detailed catalog says tertiary and no 2021 change is recorded, so the Black-Secondary summary claim is a long-standing list error."
+          }
         },
         "R": {
           "tier": "primary",
-          "basis": "ability-catalog-only"
+          "basis": "both-agree"
         }
       },
-      "in_lists": false,
-      "in_catalog": true
+      "in_lists": true,
+      "in_catalog": true,
+      "source_aliases": [
+        "+N/+0 to your team, ongoing"
+      ]
     },
     "creature pumping, your team, ongoing :: +n/+n to your team": {
       "label": "+N/+N to your team",
       "colors": {
         "W": {
           "tier": "primary",
-          "basis": "ability-catalog-only"
+          "basis": "both-agree"
         },
         "U": {
           "tier": "tertiary",
-          "basis": "ability-catalog-only"
+          "basis": "both-agree"
         },
         "B": {
           "tier": "tertiary",
-          "basis": "ability-catalog-only"
+          "basis": "both-agree"
         },
         "R": {
           "tier": "tertiary",
-          "basis": "ability-catalog-only"
+          "basis": "both-agree"
         },
         "G": {
           "tier": "secondary",
-          "basis": "ability-catalog-only"
+          "basis": "both-agree"
         }
       },
-      "in_lists": false,
-      "in_catalog": true
+      "in_lists": true,
+      "in_catalog": true,
+      "source_aliases": [
+        "+N/+N to your team, ongoing"
+      ]
     },
     "creature sacrifice, forced, repeatable": {
       "label": "Creature sacrifice, forced, repeatable (All players/opponents must sacrifice a creature each turn.)",
@@ -2647,7 +2547,8 @@
         }
       },
       "in_lists": true,
-      "in_catalog": false
+      "in_catalog": false,
+      "structural_only": true
     },
     "putting creatures from hand onto the battlefield": {
       "label": "Putting creatures from hand onto the battlefield",
@@ -2983,21 +2884,6 @@
       "in_lists": true,
       "in_catalog": true
     },
-    "sacrifice a creature": {
-      "label": "Sacrifice a creature.",
-      "colors": {
-        "B": {
-          "tier": "primary",
-          "basis": "colour-list-only"
-        },
-        "R": {
-          "tier": "primary",
-          "basis": "colour-list-only"
-        }
-      },
-      "in_lists": true,
-      "in_catalog": false
-    },
     "sacrifice a creature and deal damage to creature/planeswalker/player equal to the sacrificed creature's power/toughness": {
       "label": "Sacrifice a creature and deal damage to creature/planeswalker/player equal to the sacrificed creature's power/toughness.",
       "colors": {
@@ -3059,45 +2945,38 @@
       "colors": {
         "B": {
           "tier": "primary",
-          "basis": "ability-catalog-only"
+          "basis": "both-agree"
         },
         "R": {
           "tier": "primary",
-          "basis": "ability-catalog-only"
+          "basis": "both-agree"
         }
       },
-      "in_lists": false,
-      "in_catalog": true
+      "in_lists": true,
+      "in_catalog": true,
+      "source_aliases": [
+        "Sacrifice a creature.",
+        "Sacrifice a creature. (Target player/all player(s) sacrifice a creature.)"
+      ]
     },
     "sacrifice a permanent :: sacrifice an artifact": {
       "label": "Sacrifice an artifact.",
       "colors": {
         "B": {
           "tier": "primary",
-          "basis": "ability-catalog-only"
+          "basis": "both-agree"
         },
         "R": {
           "tier": "primary",
-          "basis": "ability-catalog-only"
-        }
-      },
-      "in_lists": false,
-      "in_catalog": true
-    },
-    "sacrifice an artifact": {
-      "label": "Sacrifice an artifact.",
-      "colors": {
-        "B": {
-          "tier": "primary",
-          "basis": "colour-list-only"
-        },
-        "R": {
-          "tier": "primary",
-          "basis": "colour-list-only"
+          "basis": "both-agree"
         }
       },
       "in_lists": true,
-      "in_catalog": false
+      "in_catalog": true,
+      "source_aliases": [
+        "Sacrifice an artifact.",
+        "Sacrifice an artifact. (Target/all player(s) sacrifice an artifact.)"
+      ]
     },
     "sacrifice an enchantment": {
       "label": "Sacrifice an enchantment.",
@@ -3246,30 +3125,18 @@
       "colors": {
         "U": {
           "tier": "primary",
-          "basis": "ability-catalog-only"
+          "basis": "both-agree"
         },
         "R": {
           "tier": "secondary",
-          "basis": "ability-catalog-only"
-        }
-      },
-      "in_lists": false,
-      "in_catalog": true
-    },
-    "switching power/toughness": {
-      "label": "Switching power/toughness",
-      "colors": {
-        "U": {
-          "tier": "primary",
-          "basis": "colour-list-only"
-        },
-        "R": {
-          "tier": "secondary",
-          "basis": "colour-list-only"
+          "basis": "both-agree"
         }
       },
       "in_lists": true,
-      "in_catalog": false
+      "in_catalog": true,
+      "source_aliases": [
+        "Switching power/toughness"
+      ]
     },
     "tapping creatures": {
       "label": "Tapping creatures",

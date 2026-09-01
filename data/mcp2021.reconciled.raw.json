@@ -1,0 +1,3693 @@
+{
+  "source": {
+    "document": "Mechanical Color Pie 2021",
+    "author": "Mark Rosewater (with the Council of Colors)",
+    "published": "2021-10-18",
+    "url": "https://magic.wizards.com/en/news/making-magic/mechanical-color-pie-2021",
+    "snapshot": true,
+    "caution": "Rosewater states this is a snapshot for 2021-10-18 that will continue to evolve, that per-set needs bend the default, and that some entries are experiments that may not stick.",
+    "definitions": {
+      "spells": "instants and sorceries, per the article's own terminology",
+      "N": "a natural number of 1 or greater; repeated N need not be equal"
+    }
+  },
+  "note": "UNMERGED baseline, before Step 2.5 identity rulings. The identity audit reads this file so that it cannot be fooled by its own previous output.",
+  "mechanics": {
+    "+0/+n (on auras)": {
+      "label": "+0/+N (on Auras)",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "U": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "+0/+n (on creatures)": {
+      "label": "+0/+N (on creatures)",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "+0/+n (on spells)": {
+      "label": "+0/+N (on spells)",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "+1/+1 counter (creation and caring)": {
+      "label": "+1/+1 counter (creation and caring)",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "U": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "+n/+0 (on auras)": {
+      "label": "+N/+0 (on Auras)",
+      "colors": {
+        "W": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "U": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "+n/+0 (on creatures)": {
+      "label": "+N/+0 (on creatures)",
+      "colors": {
+        "W": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "+n/+0 (on spells)": {
+      "label": "+N/+0 (on spells)",
+      "colors": {
+        "W": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "+n/+0 to your team": {
+      "label": "+N/+0 to your team",
+      "colors": {
+        "W": {
+          "tier": "secondary",
+          "basis": "colour-list-only"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": false
+    },
+    "+n/+0 to your team, one-shot": {
+      "label": "+N/+0 to your team, one-shot",
+      "colors": {
+        "R": {
+          "tier": "primary",
+          "basis": "colour-list-only"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": false
+    },
+    "+n/+0 to your team, ongoing": {
+      "label": "+N/+0 to your team, ongoing",
+      "colors": {
+        "B": {
+          "tier": "secondary",
+          "basis": "colour-list-only"
+        },
+        "R": {
+          "tier": "primary",
+          "basis": "colour-list-only"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": false
+    },
+    "+n/+n (on auras)": {
+      "label": "+N/+N (on Auras)",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "U": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "+n/+n (on creatures)": {
+      "label": "+N/+N (on creatures)",
+      "colors": {
+        "B": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "+n/+n (on creatures, single use)": {
+      "label": "+N/+N (on creatures, single use)",
+      "colors": {
+        "G": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "+n/+n (on spells)": {
+      "label": "+N/+N (on spells)",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "adjudicated",
+          "conflict": {
+            "colour_list_says": "secondary",
+            "ability_catalog_says": "primary"
+          },
+          "ruling": {
+            "tier": "primary",
+            "authority": "companion change log, 2021-10-18",
+            "mechanism": "The change log records White as primary in 2017 as well, so the White-Secondary list entry contradicts both editions."
+          }
+        },
+        "B": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "+n/+n to your team, one-shot": {
+      "label": "+N/+N to your team, one-shot",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "colour-list-only"
+        },
+        "G": {
+          "tier": "secondary",
+          "basis": "colour-list-only"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": false
+    },
+    "+n/+n to your team, ongoing": {
+      "label": "+N/+N to your team, ongoing",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "colour-list-only"
+        },
+        "U": {
+          "tier": "tertiary",
+          "basis": "colour-list-only"
+        },
+        "B": {
+          "tier": "tertiary",
+          "basis": "colour-list-only"
+        },
+        "R": {
+          "tier": "tertiary",
+          "basis": "colour-list-only"
+        },
+        "G": {
+          "tier": "secondary",
+          "basis": "colour-list-only"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": false
+    },
+    "+n/-n (on auras)": {
+      "label": "+N/-N (on Auras)",
+      "colors": {
+        "B": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "+n/-n (on creatures)": {
+      "label": "+N/-N (on creatures)",
+      "colors": {
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "+n/-n (on spells)": {
+      "label": "+N/-N (on spells)",
+      "colors": {
+        "B": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "-n/+n (on auras)": {
+      "label": "-N/+N (on Auras)",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "colour-list-only"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": false
+    },
+    "-n/+n (on creatures)": {
+      "label": "-N/+N (on creatures)",
+      "colors": {
+        "W": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "-n/+n (on spells)": {
+      "label": "-N/+N (on spells)",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "colour-list-only"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": false
+    },
+    "-n/-0 (on auras)": {
+      "label": "-N/-0 (on Auras)",
+      "colors": {
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "-n/-0 (on creatures)": {
+      "label": "-N/-0 (on creatures)",
+      "colors": {
+        "U": {
+          "tier": "primary",
+          "basis": "colour-list-only"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": false
+    },
+    "-n/-0 (on spells)": {
+      "label": "-N/-0 (on spells)",
+      "colors": {
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "-n/-0 to their team": {
+      "label": "-N/-0 to their team",
+      "colors": {
+        "U": {
+          "tier": "primary",
+          "basis": "ability-catalog-only"
+        }
+      },
+      "in_lists": false,
+      "in_catalog": true
+    },
+    "-n/-0 to their team, one-shot": {
+      "label": "-N/-0 to their team, one-shot",
+      "colors": {
+        "U": {
+          "tier": "primary",
+          "basis": "colour-list-only"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": false
+    },
+    "-n/-n (on auras)": {
+      "label": "-N/-N (on Auras)",
+      "colors": {
+        "B": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "-n/-n (on creatures)": {
+      "label": "-N/-N (on creatures)",
+      "colors": {
+        "B": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "-n/-n (on spells)": {
+      "label": "-N/-N (on spells)",
+      "colors": {
+        "W": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "U": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "-n/-n to their team, one-shot": {
+      "label": "-N/-N to their team, one-shot",
+      "colors": {
+        "B": {
+          "tier": "primary",
+          "basis": "colour-list-only"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": false
+    },
+    "-n/-n to their team, ongoing": {
+      "label": "-N/-N to their team, ongoing",
+      "colors": {
+        "B": {
+          "tier": "primary",
+          "basis": "colour-list-only"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": false
+    },
+    "animating artifacts": {
+      "label": "Animating artifacts (Target/all non-creature artifact(s) you control becomes an artifact creature.)",
+      "colors": {
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "animating enchantments": {
+      "label": "Animating Enchantments (Target/all non-aura enchantment(s) you control becomes an enchantment creature.)",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "U": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "animating lands": {
+      "label": "Animating lands (Target land becomes an N/N creature until end of turn.)",
+      "colors": {
+        "W": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "U": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "artifact destruction": {
+      "label": "Artifact destruction",
+      "colors": {
+        "W": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "banisher priest-like effect": {
+      "label": "Banisher Priest–like effect (When this card enters the battlefield, exile target creature/permanent until this card leaves play.)",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "ability-catalog-only"
+        }
+      },
+      "in_lists": false,
+      "in_catalog": true
+    },
+    "banisher priest-like effects": {
+      "label": "Banisher Priest-like effects (When this card enters the battlefield, exile target creature/permanent until this card leaves play.)",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "colour-list-only"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": false
+    },
+    "basic land counting": {
+      "label": "Basic land counting (Doing an effect equal to the number of basic lands of a certain type you control.)",
+      "colors": {
+        "W": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "U": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "bite": {
+      "label": "\"Bite\" (Target creature deals damage to equal to its power to another target creature.)",
+      "colors": {
+        "R": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "bring back creatures/permanents that went to the graveyard this turn": {
+      "label": "Bring back creatures/permanents that went to the graveyard this turn",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "can't be attacked (creatures can't attack you.)": {
+      "label": "Can't be attacked (Creatures can't attack you.)",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "ability-catalog-only"
+        }
+      },
+      "in_lists": false,
+      "in_catalog": true
+    },
+    "can't be attacked. (creatures can't attack you.)": {
+      "label": "Can't be attacked. (Creatures can't attack you.)",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "colour-list-only"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": false
+    },
+    "can't be blocked": {
+      "label": "Can't be blocked",
+      "colors": {
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "can't be countered": {
+      "label": "Can't be countered",
+      "colors": {
+        "U": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "can't block": {
+      "label": "Can't block",
+      "colors": {
+        "B": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "can't lose the game and opponent can't win": {
+      "label": "Can't lose the game and opponent can't win",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "ability-catalog-only"
+        }
+      },
+      "in_lists": false,
+      "in_catalog": true
+    },
+    "can't lose the game and opponents can't win": {
+      "label": "Can't lose the game and opponents can't win.",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "colour-list-only"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": false
+    },
+    "can't win the game and opponent can't lose": {
+      "label": "Can't win the game and opponent can't lose",
+      "colors": {
+        "B": {
+          "tier": "primary",
+          "basis": "ability-catalog-only"
+        }
+      },
+      "in_lists": false,
+      "in_catalog": true
+    },
+    "can't win the game and opponents can't lose": {
+      "label": "Can't win the game and opponents can't lose",
+      "colors": {
+        "B": {
+          "tier": "primary",
+          "basis": "colour-list-only"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": false
+    },
+    "card draw": {
+      "label": "Card draw",
+      "colors": {
+        "W": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "card filtering": {
+      "label": "Card filtering (Look at the top N cards of your library and put N in your hand and put the rest on the bottom of the library in any order.)",
+      "colors": {
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "cast spells from opponent's graveyard/exile": {
+      "label": "Cast spells from opponent's graveyard/exile.",
+      "colors": {
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "cast spells from your graveyard": {
+      "label": "Cast spells from your graveyard.",
+      "colors": {
+        "W": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "U": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "cast spells out of graveyard": {
+      "label": "Cast spells out of graveyard.",
+      "colors": {
+        "U": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "changing lands": {
+      "label": "Changing lands (Target land becomes the basic land of your choice.)",
+      "colors": {
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "color changing": {
+      "label": "Color changing (Target/this creature becomes the color(s) of your choice until end of turn.)",
+      "colors": {
+        "W": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "copying permanents, permanently": {
+      "label": "Copying permanents, permanently",
+      "colors": {
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "copying permanents, temporarily": {
+      "label": "Copying permanents, temporarily",
+      "colors": {
+        "U": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "counter target activated/triggered ability": {
+      "label": "Counter target activated/triggered ability",
+      "colors": {
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "counterspell": {
+      "label": "Counterspell",
+      "colors": {
+        "W": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "creature pumping, their team, one-shot :: -n/-n to their team": {
+      "label": "-N/-N to their team",
+      "colors": {
+        "B": {
+          "tier": "primary",
+          "basis": "ability-catalog-only"
+        }
+      },
+      "in_lists": false,
+      "in_catalog": true
+    },
+    "creature pumping, their team, ongoing :: -n/-n to their team": {
+      "label": "-N/-N to their team",
+      "colors": {
+        "B": {
+          "tier": "primary",
+          "basis": "ability-catalog-only"
+        }
+      },
+      "in_lists": false,
+      "in_catalog": true
+    },
+    "creature pumping, your team, one-shot :: +n/+0 to your team": {
+      "label": "+N/+0 to your team",
+      "colors": {
+        "W": {
+          "tier": "secondary",
+          "basis": "ability-catalog-only"
+        },
+        "R": {
+          "tier": "primary",
+          "basis": "ability-catalog-only"
+        }
+      },
+      "in_lists": false,
+      "in_catalog": true
+    },
+    "creature pumping, your team, one-shot :: +n/+n to your team": {
+      "label": "+N/+N to your team",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "ability-catalog-only"
+        },
+        "G": {
+          "tier": "secondary",
+          "basis": "ability-catalog-only"
+        }
+      },
+      "in_lists": false,
+      "in_catalog": true
+    },
+    "creature pumping, your team, ongoing :: +n/+0 to your team": {
+      "label": "+N/+0 to your team",
+      "colors": {
+        "B": {
+          "tier": "tertiary",
+          "basis": "ability-catalog-only"
+        },
+        "R": {
+          "tier": "primary",
+          "basis": "ability-catalog-only"
+        }
+      },
+      "in_lists": false,
+      "in_catalog": true
+    },
+    "creature pumping, your team, ongoing :: +n/+n to your team": {
+      "label": "+N/+N to your team",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "ability-catalog-only"
+        },
+        "U": {
+          "tier": "tertiary",
+          "basis": "ability-catalog-only"
+        },
+        "B": {
+          "tier": "tertiary",
+          "basis": "ability-catalog-only"
+        },
+        "R": {
+          "tier": "tertiary",
+          "basis": "ability-catalog-only"
+        },
+        "G": {
+          "tier": "secondary",
+          "basis": "ability-catalog-only"
+        }
+      },
+      "in_lists": false,
+      "in_catalog": true
+    },
+    "creature sacrifice, forced, repeatable": {
+      "label": "Creature sacrifice, forced, repeatable (All players/opponents must sacrifice a creature each turn.)",
+      "colors": {
+        "B": {
+          "tier": "primary",
+          "basis": "colour-list-only"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": false
+    },
+    "curiosity": {
+      "label": "\"Curiosity\" (Whenever this creature deals combat damage to an opponent, draw a card.)",
+      "colors": {
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "damage prevention": {
+      "label": "Damage prevention (Prevent the next N damage that would be dealt to target creature/player.)",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "damage redirection": {
+      "label": "Damage redirection (Prevent the next N damage that would be dealt to target creature/player this turn. If damage is prevented in this way, this card deals that much damage to target creature/player.)",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "daunt": {
+      "label": "\"Daunt\" (This creature can't be blocked by creatures with power 2 or less.)",
+      "colors": {
+        "G": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "deal damage when blocked": {
+      "label": "Deal damage when blocked",
+      "colors": {
+        "U": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "deal n damage to a creature that's been damaged this turn": {
+      "label": "Deal N damage to a creature that's been damaged this turn.",
+      "colors": {
+        "B": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "deal n damage to a creature with flying": {
+      "label": "Deal N damage to a creature with flying.",
+      "colors": {
+        "R": {
+          "tier": "tertiary",
+          "basis": "adjudicated",
+          "conflict": {
+            "colour_list_says": "secondary",
+            "ability_catalog_says": "tertiary"
+          },
+          "ruling": {
+            "tier": "tertiary",
+            "authority": "ability catalog",
+            "mechanism": "Absent from the change log, so unchanged since 2017. The catalog explains why: green is the stronger anti-flying colour and ordinary red burn already reaches fliers."
+          }
+        },
+        "G": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "deal n damage to a creature/planeswalker/player where n is the number of cards in your hand/your opponent's hand": {
+      "label": "Deal N damage to a creature/planeswalker/player where N is the number of cards in your hand/your opponent's hand.",
+      "colors": {
+        "R": {
+          "tier": "primary",
+          "basis": "ability-catalog-only"
+        }
+      },
+      "in_lists": false,
+      "in_catalog": true
+    },
+    "deal n damage to a creature/player where n is the number of cards in your hand/your opponent's hand": {
+      "label": "Deal N damage to a creature/player where N is the number of cards in your hand/your opponent's hand.",
+      "colors": {
+        "R": {
+          "tier": "primary",
+          "basis": "colour-list-only"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": false
+    },
+    "deal n damage to creature, planeswalker, and/or player": {
+      "label": "Deal N damage to creature, planeswalker, and/or player.",
+      "colors": {
+        "W": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "deal n damage to target attacking or blocking creature": {
+      "label": "Deal N damage to target attacking or blocking creature.",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "deathtouch": {
+      "label": "Deathtouch",
+      "colors": {
+        "B": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "defender": {
+      "label": "Defender",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "destroy all creatures": {
+      "label": "Destroy all creatures.",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "destroy all creatures controlled by one player": {
+      "label": "Destroy all creatures controlled by one player.",
+      "colors": {
+        "B": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "destroy all creatures with power 3 or greater": {
+      "label": "Destroy all creatures with power 3 or greater.",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "ability-catalog-only"
+        }
+      },
+      "in_lists": false,
+      "in_catalog": true
+    },
+    "destroy all creatures with power 3/4 or greater": {
+      "label": "Destroy all creatures with power 3/4 or greater.",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "colour-list-only"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": false
+    },
+    "destroy target attacking or blocking creature": {
+      "label": "Destroy target attacking or blocking creature.",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "destroy target creature": {
+      "label": "Destroy target creature.",
+      "colors": {
+        "W": {
+          "tier": "secondary",
+          "basis": "ability-catalog-only"
+        },
+        "B": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "destroy target creature that damaged you or a creature you control this turn": {
+      "label": "Destroy target creature that damaged you or a creature you control this turn.",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "destroy target creature with flying": {
+      "label": "Destroy target creature with flying.",
+      "colors": {
+        "G": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "destroy target creature with power 3 or greater": {
+      "label": "Destroy target creature with power 3 or greater.",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "ability-catalog-only"
+        }
+      },
+      "in_lists": false,
+      "in_catalog": true
+    },
+    "destroy target creature with power 3/4 or greater": {
+      "label": "Destroy target creature with power 3/4 or greater.",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "colour-list-only"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": false
+    },
+    "destroy target creature. its controller gets compensation": {
+      "label": "Destroy target creature. Its controller gets compensation.",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "destroy target tapped creature": {
+      "label": "Destroy target tapped creature.",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "devil's deal permanents": {
+      "label": "\"Devil's Deal\" permanents (Cards that grant you power but at a cost)",
+      "colors": {
+        "B": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "direct damage, multiple targets": {
+      "label": "Direct damage, multiple targets",
+      "colors": {
+        "W": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "discard as a cost": {
+      "label": "Discard as a cost",
+      "colors": {
+        "W": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "U": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "discard as effect": {
+      "label": "Discard as effect",
+      "colors": {
+        "B": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "double strike": {
+      "label": "Double strike",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "drain life": {
+      "label": "\"Drain life\" (Deal damage to a creature/player and gain life equal to that damage.)",
+      "colors": {
+        "W": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "enchantment destruction": {
+      "label": "Enchantment destruction",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "enchantress ability": {
+      "label": "\"Enchantress\" ability (Whenever you play an enchantment, draw a card.)",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "exiling cards from graveyard": {
+      "label": "Exiling cards from graveyard",
+      "colors": {
+        "W": {
+          "tier": "secondary",
+          "basis": "adjudicated",
+          "conflict": {
+            "colour_list_says": "primary",
+            "ability_catalog_says": "secondary"
+          },
+          "ruling": {
+            "tier": "secondary",
+            "authority": "ability catalog",
+            "mechanism": "Absent from the change log, so unchanged since 2017; the White-Primary list entry is a summary-list error."
+          }
+        },
+        "B": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "extra attack": {
+      "label": "Extra attack (Untap all creatures that attacked this turn. After this main phase, there is an additional combat phase followed by an additional main phase.)",
+      "colors": {
+        "W": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "fight": {
+      "label": "Fight",
+      "colors": {
+        "R": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "first strike": {
+      "label": "First strike",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "flash": {
+      "label": "Flash",
+      "colors": {
+        "W": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "secondary",
+          "basis": "adjudicated",
+          "conflict": {
+            "colour_list_says": "tertiary",
+            "ability_catalog_says": "secondary"
+          },
+          "ruling": {
+            "tier": "secondary",
+            "authority": "companion change log, 2021-10-18",
+            "mechanism": "Flash moved black from tertiary to secondary in 2021; the Black-Tertiary list entry is stale 2017 data."
+          }
+        },
+        "R": {
+          "tier": "tertiary",
+          "basis": "ability-catalog-only"
+        },
+        "G": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "flicker": {
+      "label": "\"Flicker\" (Exile target creature/permanent, then return it to the battlefield under its owner's control—occasionally the creature/permanent returns at the end of the turn.)",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "flying": {
+      "label": "Flying",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "fog": {
+      "label": "\"Fog\" (Prevent all combat damage that would be dealt this turn.)",
+      "colors": {
+        "W": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "forced attack": {
+      "label": "Forced attack (Target creature attacks this turn if able.)",
+      "colors": {
+        "U": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "forced block (target creature must block this turn.)": {
+      "label": "Forced block (Target creature must block this turn.)",
+      "colors": {
+        "R": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "forced sacrifice :: sacrifice a creature": {
+      "label": "Sacrifice a creature. (Target/all player(s) sacrifice a creature.)",
+      "colors": {
+        "B": {
+          "tier": "primary",
+          "basis": "ability-catalog-only"
+        }
+      },
+      "in_lists": false,
+      "in_catalog": true
+    },
+    "forced sacrifice :: sacrifice an artifact": {
+      "label": "Sacrifice an artifact. (Target/all player(s) sacrifice an artifact.)",
+      "colors": {
+        "R": {
+          "tier": "primary",
+          "basis": "ability-catalog-only"
+        }
+      },
+      "in_lists": false,
+      "in_catalog": true
+    },
+    "forced sacrifice of a creature": {
+      "label": "Forced sacrifice of a creature",
+      "colors": {
+        "B": {
+          "tier": "primary",
+          "basis": "colour-list-only"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": false
+    },
+    "freeze creature": {
+      "label": "\"Freeze\" creature (Tap target creature. That creature doesn't untap during its controller's next untap step.)",
+      "colors": {
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "friendly to artifacts": {
+      "label": "Friendly to artifacts",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "friendly to creatures": {
+      "label": "Friendly to creatures",
+      "colors": {
+        "W": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "friendly to enchantments": {
+      "label": "Friendly to enchantments",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "friendly to instants and sorceries": {
+      "label": "Friendly to instants and sorceries",
+      "colors": {
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "friendly to lands": {
+      "label": "Friendly to lands",
+      "colors": {
+        "W": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "U": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "friendly to legendary permanents": {
+      "label": "Friendly to legendary permanents",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "friendly to low mana value cards": {
+      "label": "Friendly to low mana value cards",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "friendly to planeswalkers": {
+      "label": "Friendly to planeswalkers",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "gain control of target player's turn": {
+      "label": "Gain control of target player's turn",
+      "colors": {
+        "B": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "gaseous form": {
+      "label": "\"Gaseous Form\" (This creature neither deals nor receives damage.)",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "U": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "haste": {
+      "label": "Haste",
+      "colors": {
+        "B": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "hexproof": {
+      "label": "Hexproof",
+      "colors": {
+        "W": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "illusion ability": {
+      "label": "\"Illusion ability\" (Sacrifice this creature if it is the target of a spell or ability.)",
+      "colors": {
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "impulsive draw": {
+      "label": "\"Impulsive draw\" (Exile the top N cards of your library. Until end of turn, you may play cards exiled this way.)",
+      "colors": {
+        "R": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "increasing counters and/or tokens": {
+      "label": "Increasing counters and/or tokens",
+      "colors": {
+        "W": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "indestructible": {
+      "label": "Indestructible",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "U": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "instant and/or sorcery triggers": {
+      "label": "Instant and/or sorcery triggers (Whenever you cast an instant and/or sorcery . . . )",
+      "colors": {
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "land destruction": {
+      "label": "Land destruction",
+      "colors": {
+        "B": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "lhurgoyf": {
+      "label": "\"Lhurgoyf\" (This creature's power and toughness are equal to the number of cards in your/all graveyards.)",
+      "colors": {
+        "W": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "U": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "life gain": {
+      "label": "Life gain",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "life loss as a cost": {
+      "label": "Life loss as a cost",
+      "colors": {
+        "W": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "U": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "life loss as an effect": {
+      "label": "Life loss as an effect",
+      "colors": {
+        "B": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "lifelink": {
+      "label": "Lifelink",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "lobotomy": {
+      "label": "\"Lobotomy\" (Choose a non-land card name. Search target player's graveyard hand and library for all cards with that name and exile them.)",
+      "colors": {
+        "B": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "lockdown (enchanted creature doesn't untap.)": {
+      "label": "\"Lockdown\" (Enchanted creature doesn't untap.)",
+      "colors": {
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "looking at opponent's hand": {
+      "label": "Looking at opponent's hand",
+      "colors": {
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "looting (draw a card and discard a card.)": {
+      "label": "\"Looting\" (Draw a card and discard a card.)",
+      "colors": {
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "lure": {
+      "label": "\"Lure\" (All creatures able to block this creature must do so.)",
+      "colors": {
+        "G": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "lure, limited": {
+      "label": "\"Lure,\" limited (This creature must be blocked this turn if able.)",
+      "colors": {
+        "R": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "mana production, permanent": {
+      "label": "Mana production, permanent",
+      "colors": {
+        "U": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "mana production, temporary": {
+      "label": "Mana production, temporary",
+      "colors": {
+        "B": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "manipulate time (end the turn.)": {
+      "label": "\"Manipulate time\" (End the turn.)",
+      "colors": {
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "maro ability": {
+      "label": "\"Maro\" ability (This creature's power and toughness are equal to the number of cards in our hand.)",
+      "colors": {
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "meddling": {
+      "label": "\"Meddling\" (Name a spell. That spell can't be played as long as this card is on the battlefield.)",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "menace": {
+      "label": "Menace",
+      "colors": {
+        "B": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "milling": {
+      "label": "Milling (You/target player puts the top N cards from his or her library into his or her graveyard.)",
+      "colors": {
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "moving enchantments/counters": {
+      "label": "Moving enchantments/counters",
+      "colors": {
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "must attack": {
+      "label": "Must attack",
+      "colors": {
+        "R": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "pacifism-like effect": {
+      "label": "Pacifism-like effect (Enchanted creature cannot attack or block.)",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "panic": {
+      "label": "\"Panic\" (Target creature can't block this turn.)",
+      "colors": {
+        "R": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "planeswalker destruction": {
+      "label": "Planeswalker destruction",
+      "colors": {
+        "B": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "play extra lands/put a land from hand onto the battlefield": {
+      "label": "Play extra lands/Put a land from hand onto the battlefield",
+      "colors": {
+        "G": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "playing cards off the top of library, for free": {
+      "label": "Playing cards off the top of library, for free",
+      "colors": {
+        "R": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "playing cards off the top of opponent's library": {
+      "label": "Playing cards off the top of opponent's library",
+      "colors": {
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "playing cards off the top of your library, paying their mana cost": {
+      "label": "Playing cards off the top of your library, paying their mana cost (You may look at the top card of your library and if it's a [blah] you may play it.)",
+      "colors": {
+        "W": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "U": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "polymorph": {
+      "label": "\"Polymorph\" (Exile target creature. Its controller reveals cards from the top of his or her library until he or she reveals a creature card. That player puts that card onto the battlefield.)",
+      "colors": {
+        "U": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "preventing actions": {
+      "label": "Preventing actions (Your opponents can't cast spells this turn.)",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "protection": {
+      "label": "Protection",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "U": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "prowess": {
+      "label": "Prowess",
+      "colors": {
+        "W": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "punisher effects": {
+      "label": "\"Punisher\" effects (Opponent chooses one: thing X happens or thing Y happens.)​",
+      "colors": {
+        "B": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "putting artifacts from hand onto the battlefield": {
+      "label": "Putting artifacts from hand onto the battlefield",
+      "colors": {
+        "W": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "putting cards from hand onto the battlefield": {
+      "label": "Putting cards from hand onto the battlefield",
+      "colors": {
+        "G": {
+          "tier": "primary",
+          "basis": "colour-list-only"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": false
+    },
+    "putting creatures from hand onto the battlefield": {
+      "label": "Putting creatures from hand onto the battlefield",
+      "colors": {
+        "W": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "U": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "putting enchantments from hand onto the battlefield": {
+      "label": "Putting enchantments from hand onto the battlefield",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "U": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "putting lands from hand onto the battlefield": {
+      "label": "Putting lands from hand onto the battlefield",
+      "colors": {
+        "G": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "putting planeswalkers from hand onto the battlefield": {
+      "label": "Putting planeswalkers from hand onto the battlefield",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "random destruction effects": {
+      "label": "Random destruction effects (Destruction where the outcome is unknown at the time of casting.)",
+      "colors": {
+        "R": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "reach": {
+      "label": "Reach",
+      "colors": {
+        "W": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "reanimate permanent": {
+      "label": "\"Reanimate\" permanent (Return a permanent card from a graveyard to the battlefield.)",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "reanimation": {
+      "label": "\"Reanimation\" (Return a creature card from a graveyard to the battlefield.)",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "removing counters": {
+      "label": "Removing counters",
+      "colors": {
+        "B": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "restocking": {
+      "label": "\"Restocking\" (Putting cards from graveyard back into your library)",
+      "colors": {
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "return target artifact from graveyard to hand": {
+      "label": "Return target artifact from graveyard to hand.",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "return target card from graveyard to hand": {
+      "label": "Return target card from graveyard to hand.",
+      "colors": {
+        "G": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "return target creature from graveyard to hand": {
+      "label": "Return target creature from graveyard to hand.",
+      "colors": {
+        "W": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "return target enchantment from graveyard to hand": {
+      "label": "Return target enchantment from graveyard to hand.",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "return target instant from graveyard to hand": {
+      "label": "Return target instant from graveyard to hand.",
+      "colors": {
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "return target land from graveyard to hand": {
+      "label": "Return target land from graveyard to hand.",
+      "colors": {
+        "G": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "return target sorcery from graveyard to hand": {
+      "label": "Return target sorcery from graveyard to hand.",
+      "colors": {
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "return to hand": {
+      "label": "Return to hand (Return target creature/permanent to its owner's hand.)",
+      "colors": {
+        "W": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "tertiary",
+          "basis": "ability-catalog-only"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "return to library": {
+      "label": "Return to library (Put a creature/permanent on top of its owner's library or some number of cards down.)",
+      "colors": {
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "rewards for death": {
+      "label": "Rewards for death (Whenever another creature/creature you control dies . . . )",
+      "colors": {
+        "W": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "rules setting": {
+      "label": "Rules setting",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "U": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "rummaging (discard a card and draw a card.)": {
+      "label": "\"Rummaging\" (Discard a card and draw a card.)",
+      "colors": {
+        "R": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "sacrifice a creature": {
+      "label": "Sacrifice a creature.",
+      "colors": {
+        "B": {
+          "tier": "primary",
+          "basis": "colour-list-only"
+        },
+        "R": {
+          "tier": "primary",
+          "basis": "colour-list-only"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": false
+    },
+    "sacrifice a creature and deal damage to creature/planeswalker/player equal to the sacrificed creature's power/toughness": {
+      "label": "Sacrifice a creature and deal damage to creature/planeswalker/player equal to the sacrificed creature's power/toughness.",
+      "colors": {
+        "B": {
+          "tier": "secondary",
+          "basis": "ability-catalog-only"
+        },
+        "R": {
+          "tier": "primary",
+          "basis": "ability-catalog-only"
+        }
+      },
+      "in_lists": false,
+      "in_catalog": true
+    },
+    "sacrifice a creature and deal damage to creature/player equal to the sacrificed creature's power/toughness": {
+      "label": "Sacrifice a creature and deal damage to creature/player equal to the sacrificed creature's power/toughness.",
+      "colors": {
+        "B": {
+          "tier": "secondary",
+          "basis": "colour-list-only"
+        },
+        "R": {
+          "tier": "primary",
+          "basis": "colour-list-only"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": false
+    },
+    "sacrifice a land": {
+      "label": "Sacrifice a land.",
+      "colors": {
+        "R": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "sacrifice a permanent": {
+      "label": "Sacrifice a permanent.",
+      "colors": {
+        "B": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "sacrifice a permanent :: sacrifice a creature": {
+      "label": "Sacrifice a creature.",
+      "colors": {
+        "B": {
+          "tier": "primary",
+          "basis": "ability-catalog-only"
+        },
+        "R": {
+          "tier": "primary",
+          "basis": "ability-catalog-only"
+        }
+      },
+      "in_lists": false,
+      "in_catalog": true
+    },
+    "sacrifice a permanent :: sacrifice an artifact": {
+      "label": "Sacrifice an artifact.",
+      "colors": {
+        "B": {
+          "tier": "primary",
+          "basis": "ability-catalog-only"
+        },
+        "R": {
+          "tier": "primary",
+          "basis": "ability-catalog-only"
+        }
+      },
+      "in_lists": false,
+      "in_catalog": true
+    },
+    "sacrifice an artifact": {
+      "label": "Sacrifice an artifact.",
+      "colors": {
+        "B": {
+          "tier": "primary",
+          "basis": "colour-list-only"
+        },
+        "R": {
+          "tier": "primary",
+          "basis": "colour-list-only"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": false
+    },
+    "sacrifice an enchantment": {
+      "label": "Sacrifice an enchantment.",
+      "colors": {
+        "R": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "scry": {
+      "label": "Scry",
+      "colors": {
+        "W": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "sengir ability": {
+      "label": "\"Sengir\" ability (When a creature damaged by this creature dies, put a +1/+1 counter on this creature.)",
+      "colors": {
+        "B": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "specter ability": {
+      "label": "\"Specter\" ability (When this creature deals combat damage to an opponent, that player discards a card.)",
+      "colors": {
+        "B": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "spell copying": {
+      "label": "Spell copying (Copy target instant or sorcery spell. You may choose new targets for the copy.)",
+      "colors": {
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "spell redirection": {
+      "label": "Spell redirection (Change the target of target spell and/or ability with a single target.)",
+      "colors": {
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "stalking": {
+      "label": "\"Stalking\" (This creature can't be blocked by more than one creature.)",
+      "colors": {
+        "G": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "stealing permanents, permanently": {
+      "label": "Stealing permanents, permanently",
+      "colors": {
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "stealing permanents, temporarily": {
+      "label": "Stealing permanents, temporarily",
+      "colors": {
+        "R": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "super trample": {
+      "label": "\"Super trample\" (You may have this creature assign combat damage as though it weren't blocked.)",
+      "colors": {
+        "G": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "switch power/toughness": {
+      "label": "Switch power/toughness",
+      "colors": {
+        "U": {
+          "tier": "primary",
+          "basis": "ability-catalog-only"
+        },
+        "R": {
+          "tier": "secondary",
+          "basis": "ability-catalog-only"
+        }
+      },
+      "in_lists": false,
+      "in_catalog": true
+    },
+    "switching power/toughness": {
+      "label": "Switching power/toughness",
+      "colors": {
+        "U": {
+          "tier": "primary",
+          "basis": "colour-list-only"
+        },
+        "R": {
+          "tier": "secondary",
+          "basis": "colour-list-only"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": false
+    },
+    "tapping creatures": {
+      "label": "Tapping creatures",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "U": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "taxing": {
+      "label": "Taxing",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "U": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "time walk (take an extra turn after this one.)": {
+      "label": "\"Time Walk\" (Take an extra turn after this one.)",
+      "colors": {
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "token generation": {
+      "label": "Token generation",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "U": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "torment ability": {
+      "label": "\"Torment\" ability (Target player sacrifices a nonland permanent, pays 3 life, or discards a card.)",
+      "colors": {
+        "B": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "trample": {
+      "label": "Trample",
+      "colors": {
+        "W": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "U": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "transformation": {
+      "label": "\"Transformation\" (Target creature becomes a (color) (card type) with N power and N toughness.)",
+      "colors": {
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "treasure creation": {
+      "label": "Treasure creation (artifact tokens with \"T, Sacrifice this artifact: Add one mana of any color.\")",
+      "colors": {
+        "U": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "tutor for a creature": {
+      "label": "\"Tutor\" for a creature.",
+      "colors": {
+        "W": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "U": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "tutor for a land": {
+      "label": "\"Tutor\" for a land.",
+      "colors": {
+        "W": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "U": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "tutor for a planeswalker": {
+      "label": "\"Tutor\" for a planeswalker.",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "tutor for an artifact": {
+      "label": "\"Tutor\" for an artifact.",
+      "colors": {
+        "W": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "tutor for an enchantment": {
+      "label": "\"Tutor\" for an enchantment.",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "tutor for an instant or sorcery": {
+      "label": "\"Tutor\" for an instant or sorcery.",
+      "colors": {
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "tutor for any card": {
+      "label": "\"Tutor\" for any card.",
+      "colors": {
+        "B": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "twiddle": {
+      "label": "\"Twiddle\" (Tap or untap target creature/permanent.)",
+      "colors": {
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "untapping creatures": {
+      "label": "Untapping creatures",
+      "colors": {
+        "W": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "untapping lands": {
+      "label": "Untapping lands",
+      "colors": {
+        "U": {
+          "tier": "tertiary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "untaps itself": {
+      "label": "Untaps itself",
+      "colors": {
+        "W": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "variable creature": {
+      "label": "Variable Creature (This creature enters the battlefield with X +1/+1 counters.)",
+      "colors": {
+        "B": {
+          "tier": "tertiary",
+          "basis": "ability-catalog-only"
+        },
+        "R": {
+          "tier": "tertiary",
+          "basis": "ability-catalog-only"
+        },
+        "G": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "vigilance": {
+      "label": "Vigilance",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "U": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "ward (for life)": {
+      "label": "Ward (for life)",
+      "colors": {
+        "B": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "R": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "ward (for mana)": {
+      "label": "Ward (for mana)",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "warlord": {
+      "label": "\"Warlord\" (This creature's power and toughness is equal to the number of creatures you control.)",
+      "colors": {
+        "W": {
+          "tier": "primary",
+          "basis": "both-agree"
+        },
+        "G": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "wheeling": {
+      "label": "\"Wheeling\" (All players discard their hand and draw N cards.)",
+      "colors": {
+        "R": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "word changing": {
+      "label": "Word Changing (Change a word in rules text into another word from the same subset.)",
+      "colors": {
+        "U": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    },
+    "you don't lose": {
+      "label": "\"You don't lose\" (Permanents that prevent you from losing the game while they're on the battlefield, usually with an alternate means to lose.)",
+      "colors": {
+        "W": {
+          "tier": "secondary",
+          "basis": "both-agree"
+        },
+        "B": {
+          "tier": "primary",
+          "basis": "both-agree"
+        }
+      },
+      "in_lists": true,
+      "in_catalog": true
+    }
+  }
+}

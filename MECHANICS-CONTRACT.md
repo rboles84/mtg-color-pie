@@ -20,20 +20,28 @@ disabled and nothing in `vox-color/color-wheel.html` reads any of this.
 | colour/tier sections captured | 15 of 15 |
 | raw colour-list placements | 465 |
 | ability-catalog entries | 212 |
-| reconciled mechanics, upper bound | **236** |
-| projected after identity rulings | **222** |
-| genuine internal source conflicts | 4, all adjudicated |
+| **source identities** | **222** |
+| structural / group-header only | 1 |
+| **projection mechanics** (peer-eligible) | **221** |
+| genuine internal source conflicts | **5**, all adjudicated |
 | unadjudicated TIER conflicts | 0 |
-| unruled IDENTITY pairs | **14 — blocking** |
+| unruled IDENTITY pairs | 0 |
 
 Frozen means: no further parser pass without a stated defect. Another
 extraction run is now more likely to add risk than value.
 
-**The mechanic count is NOT frozen.** Tier reconciliation asked whether the
-two halves agree about a mechanic's colours. It never asked the prior
-question: are these two labels the same mechanic at all? Until Step 2.5
-closes, 236 is an upper bound and 222 is the projection if every proposal is
-accepted. No runtime artefact may be built on either number.
+### Two counts, never one
+
+- **Source identities (222)** — everything Rosewater actually listed,
+  including structural/group entries. `Putting cards from hand onto the
+  battlefield` is genuinely a Green-primary summary item *and* the catalog's
+  heading over its variants, so it is counted here and marked
+  `structural_only`. It is **never quietly subtracted** from this number.
+- **Projection mechanics (221)** — leaf mechanics eligible to behave as peers
+  in the UI. `structural_only` records are excluded from peer-mechanic maths.
+
+Every merge keeps both original spellings under `source_aliases`, so it stays
+provable. 13 records carry them.
 
 **The 393-entry digest is deprecated.** It lost about 15% of the placements
 and merged distinctions Rosewater actually drew. `tools/normalize_mechanical_pie.py`
@@ -52,6 +60,14 @@ reason is the part that matters.
 | `+N/+N (on spells)` | W | secondary | primary | **primary** | change log: White was primary in 2017 too, so the list contradicts both editions |
 | `Exiling cards from graveyard` | W | primary | secondary | **secondary** | absent from the change log, so unchanged since 2017; list error |
 | `Deal N damage to a creature with flying.` | R | secondary | tertiary | **tertiary** | absent from the change log; the catalog explains why green is the stronger anti-flying colour |
+| `+N/+0 to your team` (ongoing) | B | secondary | tertiary | **tertiary** | persistent summary/catalog inconsistency in **both** 2017 and 2021; no 2021 change recorded |
+
+Conflict #5 was invisible to the original audit. Before identity
+reconciliation the summary label `+N/+0 to your team, ongoing` and the catalog
+entry `+N/+0 to your team` under the ongoing group were two different
+mechanics, so nothing ever compared their tiers. **That is the argument for
+the gate:** literal-string reconciliation cannot detect a contradiction
+between two records it believes are unrelated.
 
 The losing claim is never deleted. Each carries `conflict`, `basis:
 "adjudicated"` and the ruling's authority.
@@ -202,20 +218,35 @@ introduction.
 
 1. ~~Extraction and reconciliation~~ — done, frozen.
 2. ~~Adjudicate the four tier conflicts~~ — done, recorded with basis.
-2.5 **Identity reconciliation — OPEN, blocking.** 14 pairs await a ruling in
-   `data/mcp2021.identity_rulings.json`; the review table is
-   `data/mcp2021.identity_review.md`. Until every entry is ruled, the mechanic
-   count stays provisional and nothing downstream may be built.
-3. Vox family taxonomy, as its own reviewable artefact. **Not started, and not
-   to be started until 2.5 closes** — a taxonomy built over a mechanic list
-   that is still merging would have to be redone.
+2.5 ~~Identity reconciliation~~ — done. 14 pairs ruled, merges applied
+   BEFORE tier reconciliation, conflict detection rerun over the unified
+   identities, one new conflict exposed and adjudicated. 0 unruled,
+   0 unadjudicated.
+3. Vox family taxonomy, as its own reviewable artefact. **Not started.**
 4. Runtime projection build (`byMechanic`, `byColor`, `families`), generated
    only, never hand-edited.
 5. The ten fixtures, reviewed as data.
 6. Panel design.
 7. Wire the Mechanics toggle.
 
-Nothing past step 2.5 has started, and 2.5 is blocked on rulings.
+Nothing past step 2.5 has started.
+
+### The gate, and why it is structural
+
+    identity rulings -> rebuild union -> RERUN tier conflicts
+      -> adjudicate everything newly exposed -> zero UNADJUDICATED
+      -> only then is the count frozen
+
+The merges are an **input to the parser**, applied before tier reconciliation,
+not a cleanup afterwards. The conflict detector therefore reruns over unified
+identities on every run, and a contradiction hidden by a wording difference
+surfaces by itself. Merely checking that the 14 proposals were consumed would
+not have been enough: the fifth conflict only exists after the merge.
+
+The identity audit reads `mcp2021.reconciled.raw.json`, the UNMERGED baseline,
+never the merged output. Running it against an already-merged file is
+circular — the merges hide the pairs the audit exists to find, and it reports
+a clean bill of health it has not earned.
 
 ### Step 2.5 relationship vocabulary
 

@@ -103,6 +103,20 @@ RULINGS = {
         "mechanism": "Absent from the change log, so unchanged since 2017; the "
                      "White-Primary list entry is a summary-list error.",
     },
+    # Conflict #5. Invisible to the original audit: before identity
+    # reconciliation the summary label "+N/+0 to your team, ongoing" and the
+    # catalog entry "+N/+0 to your team" under the ongoing group were treated
+    # as two different mechanics, so nothing ever compared their tiers. The
+    # mismatch predates 2021 -- it is present in the 2017 edition too -- and
+    # the 2021 change log does not record this mechanic as changing.
+    ("creature pumping, your team, ongoing :: +n/+0 to your team", "B"): {
+        "tier": "tertiary",
+        "authority": "ability catalog",
+        "mechanism": "Persistent summary/catalog inconsistency in BOTH 2017 and "
+                     "2021. The detailed catalog says tertiary and no 2021 change "
+                     "is recorded, so the Black-Secondary summary claim is a "
+                     "long-standing list error.",
+    },
     ("deal n damage to a creature with flying", "R"): {
         "tier": "tertiary",
         "authority": "ability catalog",
@@ -114,6 +128,42 @@ RULINGS = {
 
 COLOR_LIST_HEAD = re.compile(
     r"(White|Blue|Black|Red|Green)\s*[—–-]+\s*(Primary|Secondary|Tertiary)", re.I)
+
+
+def load_identity_aliases(data_dir, audit):
+    """
+    list-side key -> canonical key, from the Step 2.5 rulings.
+
+    This is what makes the gate structural rather than a promise. Merging
+    identities BEFORE tier reconciliation means the conflict detector reruns
+    over unified mechanics automatically, and any contradiction that was
+    hidden by a wording difference surfaces on the next run instead of
+    requiring somebody to remember to look.
+    """
+    path = data_dir / "mcp2021.identity_rulings.json"
+    if not path.is_file():
+        audit.append(("identity-rulings-absent",
+                      "no %s; identity merging skipped and the mechanic count is "
+                      "an UPPER BOUND" % path.name))
+        return {}, set()
+    doc = json.loads(path.read_text(encoding="utf-8"))
+    aliases, structural = {}, set()
+    unruled = 0
+    for rid, r in doc.get("rulings", {}).items():
+        if r.get("ruling") == "UNRULED":
+            unruled += 1
+            continue
+        if r.get("ruling") == "group-header" and r.get("list_key"):
+            structural.add(r["list_key"])
+        if r.get("ruling") in ("same-mechanic", "variant-split"):
+            src, dst = r.get("list_key"), r.get("canonical_key") or r.get("catalog_key")
+            if src and dst and src != dst:
+                aliases[src] = dst
+    if unruled:
+        audit.append(("IDENTITY-UNRULED",
+                      "%d identity pair(s) still UNRULED; the mechanic count is NOT "
+                      "final and no runtime artefact may be built" % unruled))
+    return aliases, structural
 
 
 def text_of(fragment):
@@ -306,12 +356,18 @@ def parse_abilities(doc, audit):
 # --------------------------------------------------------------------------
 # PASS 3 -- reconcile
 # --------------------------------------------------------------------------
-def reconcile(lists, abilities, audit):
+def reconcile(lists, abilities, audit, aliases=None, structural=None):
+    aliases = aliases or {}
+    structural = structural or set()
     list_claims = defaultdict(dict)      # key -> {color: tier}
     list_label = {}
+    alias_used = {}
     for (color, tier), items in lists.items():
         for item in items:
             k = norm_label(item)
+            if k in aliases:                     # Step 2.5 merge
+                alias_used.setdefault(aliases[k], set()).add(item)
+                k = aliases[k]
             list_label.setdefault(k, item)
             if color in list_claims[k] and list_claims[k][color] != tier:
                 audit.append(("SOURCE-CONFLICT-within-lists",
@@ -369,9 +425,17 @@ def reconcile(lists, abilities, audit):
             elif lt:
                 assignments[c] = {"tier": lt, "basis": "colour-list-only"}
         if assignments:
-            reconciled[k] = {"label": label, "colors": assignments,
-                             "in_lists": k in list_claims,
-                             "in_catalog": k in detail_claims}
+            rec = {"label": label, "colors": assignments,
+                   "in_lists": k in list_claims,
+                   "in_catalog": k in detail_claims}
+            if k in alias_used:
+                rec["source_aliases"] = sorted(alias_used[k])   # merge stays provable
+            if k in structural:
+                # A heading, not a peer mechanic. Counted as a source identity
+                # and NEVER subtracted from that count, but excluded from any
+                # peer-mechanic calculation in the projection layer.
+                rec["structural_only"] = True
+            reconciled[k] = rec
     return reconciled, rows, list_claims, detail_claims, list_label, detail_label
 
 
@@ -387,10 +451,17 @@ def main():
     doc = args.source.read_text(encoding="utf-8", errors="replace")
 
     audit = []
+    aliases, structural = load_identity_aliases(args.out, audit)
     lists = parse_lists(doc, audit)
     abilities = parse_abilities(doc, audit)
     reconciled, conflicts, list_claims, detail_claims, list_label, detail_label = \
-        reconcile(lists, abilities, audit)
+        reconcile(lists, abilities, audit, aliases, structural)
+
+    # UNMERGED BASELINE. The identity audit must read this, never the merged
+    # output: running it against an already-merged file is circular -- the
+    # merges hide the very pairs the audit exists to find, and it reports a
+    # clean bill of health it has not earned.
+    raw_reconciled = reconcile(lists, abilities, [], None, None)[0]
 
     missing = [(c, t) for c in "WUBRG" for t in TIERS if (c, t) not in lists]
     for c, t in missing:
@@ -422,6 +493,14 @@ def main():
 
     (args.out / "mcp2021.abilities.json").write_text(json.dumps(
         {"source": prov, "abilities": abilities}, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8")
+
+    (args.out / "mcp2021.reconciled.raw.json").write_text(json.dumps(
+        {"source": prov,
+         "note": "UNMERGED baseline, before Step 2.5 identity rulings. The "
+                 "identity audit reads this file so that it cannot be fooled by "
+                 "its own previous output.",
+         "mechanics": raw_reconciled}, indent=2, ensure_ascii=False) + "\n",
         encoding="utf-8")
 
     (args.out / "mcp2021.reconciled.json").write_text(json.dumps(
@@ -474,7 +553,12 @@ def main():
 
     print("colour-list placements : %d" % sum(len(v) for v in lists.values()))
     print("ability-catalog entries: %d" % len(abilities))
-    print("reconciled mechanics   : %d" % len(reconciled))
+    struct = sum(1 for v in reconciled.values() if v.get("structural_only"))
+    print("source identities      : %d  (everything Rosewater listed)" % len(reconciled))
+    print("  structural/group only: %d  (excluded from peer-mechanic maths)" % struct)
+    print("projection mechanics   : %d  (eligible as peers in the UI)"
+          % (len(reconciled) - struct))
+    print("identity merges applied: %d" % len(aliases))
     print("tier conflicts         : %d" % len(conflicts))
     for _, label, c, lt, dt in conflicts:
         print("   %-46s %s  list=%s  catalog=%s" % (label[:46], c, lt, dt))
