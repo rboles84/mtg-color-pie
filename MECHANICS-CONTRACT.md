@@ -346,7 +346,11 @@ The shorter summary wording survives as a `source_alias` in every case.
    `tools/fixtures.py` regenerates and compares byte-for-byte; `--update` only
    after deciding new output is correct.
 6. Panel design.
-7. Wire the Mechanics toggle.
+7. ~~Panel implementation~~ — done, behind the disabled toggle. The runtime is
+   inlined by `tools/inline_runtime.py` because the app runs from `file://`
+   where `fetch()` cannot read a sibling file. Reachable only via
+   `#mechanics=preview` until the visual review passes.
+8. Enable the toggle. **Not done** — awaiting owner visual review.
 
 Nothing past step 2.5 has started.
 

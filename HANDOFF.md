@@ -7,81 +7,100 @@ remaining fields are intentionally blank.
 
 ## Control
 
-- Status: `complete`
-- Owner: `robdev`
-- Task: Replace the digest normaliser with a two-pass parser over the full
-  official article, and reconcile its two representations.
-- Requested outcome: treat the expanded *Mechanical Color Pie 2021* as the
-  authoritative source; parse the colour lists and the ability catalog
-  independently; cross-validate; preserve every conflict; invent nothing.
-- Allowed files: `tools/parse_mechanical_pie_2021.py` (new), `data/*`
-  (generated), `HANDOFF.md`.
-- Allowed surfaces: none in the app. `vox-color/color-wheel.html` untouched.
-- Non-goals: does NOT wire the Mechanics button; does not resolve the four
-  source conflicts; does not design the overlay.
+- Status: `qa-passed`
+- Owner: `robqa`
+- Task: Implement the Mechanics panel behind the still-disabled toggle.
+- Requested outcome: the locked presentation contract, consuming the runtime
+  projection without reinterpreting it. Owner visual review before enabling.
+- Allowed files: `vox-color/color-wheel.html`, `tools/inline_runtime.py` (new),
+  `MECHANICS-CONTRACT.md`, `HANDOFF.md`.
+- Allowed surfaces: a generated inline runtime block; mechanics-mode CSS; a
+  `mode === 'mechanics'` branch; the mechanics panel renderer; a search field.
+- Non-goals: the Mechanics button STAYS DISABLED for ordinary visitors. No
+  change to the source layer, taxonomy, runtime generator, fixtures or the
+  existing Explore/Combine behaviour. No wheel decoration with mechanics. No
+  bars, radar charts, sizes or scores of any kind.
 
 ## Acceptance criteria
 
-- Both representations parsed independently from the article HTML.
-- Every colour/tier section reported as captured or NOT CAPTURED, never as
-  empty.
-- Conflicts preserved with both claims and a stated basis for the canonical
-  pick.
-- Source typos recorded, not silently corrected.
-- No mechanic distinction collapsed that the article draws.
+- Toggle remains `disabled`; the mode is reachable only via an explicit
+  preview route so the owner can review it.
+- In mechanics mode the ally, enemy and crossing geometry are all suppressed;
+  five nodes remain; multiple colours can be selected.
+- Header always shows "Mechanical Color Pie 2021 · snapshot dated October 18,
+  2021" and the tier sentence, visible rather than in a tooltip.
+- Panel order matches the contract; four-colour inserts Mechanical Absence;
+  WUBRG replaces it with Full Colored Access.
+- `new_owner_no_improvement` is a first-class delta group.
+- Tier is shown as a badge. No element's SIZE encodes tier.
+- Restrictions surface verbatim; provenance only on expansion.
+- Leaving mechanics mode restores Explore's prior layer state.
+- 216 mechanics reachable; no console errors; existing panels unchanged.
 
 ## Test plan
 
-- Compare placement count against the 393 the digest yielded.
-- Verify parsed tiers for known entries against the article by eye.
-- Confirm every reported conflict is real, not a parser artefact.
+- `node --check` on the extracted script.
+- Enter mechanics mode; assert suppressed layers and multi-select.
+- Assert counts for W, WB, WUBR, WUBRG against the golden fixtures.
+- Assert no bar/meter/progress element exists in the panel.
+- Search returns the selection's access for a known mechanic.
+- Leave the mode; confirm prior layer state returns.
 
 ## robdev report
 
-- Changed files: `tools/parse_mechanical_pie_2021.py` (new), four generated
-  files in `data/`, `HANDOFF.md`.
-- Summary: fetched the article (444KB, HTTP 200) and parsed it twice. Pass 1
-  reads the five colour lists; pass 2 reads the ability catalog with its
-  explanations; pass 3 reconciles them and records a basis for every
-  assignment. Where the two halves disagree the catalog wins, because that is
-  where Rosewater discusses the classification -- but the losing claim is
-  retained in the record.
-- Decisions: short parentheticals are KEPT in the match key and long ones
-  dropped -- "+N/+N (on creatures)" / "(on spells)" / "(on Auras)" are three
-  entries with three different assignments, while long glosses vary in wording
-  between the two halves. Labels that repeat under different group headers are
-  qualified by the group. "Cast spells from your graveyard" and "out of
-  graveyard" are NOT merged: the article gives them separate entries.
-- Checks: 465 colour-list placements against the digest's 393 -- the digest was
-  losing 72, about 15%. 212 catalog entries, 238 reconciled mechanics, all 15
-  colour/tier sections captured. All four surviving conflicts verified by hand
-  against the article text.
-- Skipped checks: none applicable; the app is untouched.
-- Risks or unverified items: explanations are attached to the entry they
-  follow. Spot-checked and correct, but not exhaustively verified.
+- Changed files: `vox-color/color-wheel.html`, `tools/inline_runtime.py` (new),
+  `MECHANICS-CONTRACT.md`, `HANDOFF.md`.
+- Summary: the runtime is INLINED by a generator, because the app opens from
+  `file://` where `fetch()` cannot read a sibling JSON. `byColor`/`byFamily`
+  are dropped and re-derived in the page rather than shipping the long keys
+  three times. Mechanics is a third value of `mode`, suppressing the ally,
+  enemy, crossing and quad geometry; colours become multi-select; the panel
+  follows the locked order.
+- Decisions: the toggle STAYS disabled; the only way in is `#mechanics=preview`
+  so the panel is reviewable without shipping a half-finished control.
+  `conditional` is an overlapping flag, not a fifth bucket.
+  `new_owner_no_improvement` is a first-class delta group.
+- Checks: `node --check` OK. Every selection figure matches the golden
+  fixtures exactly -- W 60/24/20; WB sections 2/42/110/62/82; WB add-G
+  24/17/42/95/38; WB remove-B 50/14/30/60; UBR add-W 33/20/51/102/10; WUBRG
+  remove-G 10/18/55. Geometry suppressed (all four groups `display:none`).
+  0 bar/meter/progress/score elements; 111 tier badges at ONE distinct height.
+  Flying keeps its Dragons-and-Phoenixes restriction; Flash shows its
+  provenance with authority, collapsed by default (105px closed, 515px open).
+  Layer state survives an explore -> mechanics -> explore round trip. 37 tiles.
+  No console errors.
+- Skipped checks: CDN-unavailable and reduced-motion, unchanged in blast
+  radius; the new CSS adds no animation and the existing reduced-motion block
+  already clears transitions with `!important`.
+- Risks or unverified items: the HTML is now 265 KB, up from 153 KB, entirely
+  from the inlined dataset. Fine from disk; worth revisiting if it is ever
+  served over a slow link.
 
 ## robqa report
 
-- Result: `pass` after THREE parser defects were found and fixed.
-- Severity: all three `major` -- each silently produced plausible wrong data.
-- Scope check: the app is untouched; only tools and generated data changed.
-- Evidence: the first run reported 8 conflicts. Checking them against the
-  article showed 5 were parser artefacts, not source disagreements:
-  1. Tier lines were matched anywhere in a paragraph, so explanation prose
-     ("This ability was primary in both black and green for a while") parsed
-     as an assignment and emitted a second, wrong record per ability.
-     Anchoring the pattern to the start of a line fixed it. 8 -> 3.
-  2. Sub-abilities live in `<ul><li><strong>` between the paragraphs, not in
-     the paragraphs. A paragraph-only scan filed all 19 creature-pumping
-     variants under the group header "Creature pumping" -- collapsing exactly
-     the distinctions this dataset exists to keep.
-  3. Stripping every parenthetical made "+N/+N (on creatures)", "(on spells)"
-     and "(on Auras)" collide into one key, manufacturing conflicts.
-  Each fix was re-run and the conflict list re-verified by hand.
-- Blocked checks: none.
-- Human check required: the four conflicts are real and need a ruling on
-  which side the runtime dataset should follow.
-- Defects: none outstanding.
+- Result: `pass`.
+- Severity: two `note`-level test defects in the developer's own checks,
+  corrected before any conclusion was drawn.
+- Scope check: only the declared files changed; the source layer, taxonomy,
+  runtime generator and fixtures are untouched.
+- Evidence: browser figures quoted above were compared against
+  `data/fixtures/*.json` and match exactly, which is the point of the
+  golden files -- the panel mirrors `selection.py` rather than reinterpreting
+  it. Search now ranks exact then prefix then substring, so "flying" returns
+  Flying first instead of burying it under two longer matches.
+- Blocked checks: the hash preview route could not be exercised end to end.
+  The preview pane serves the page as a `data:` URL and drops the fragment, so
+  the regex was verified directly (`#mechanics=preview` true, `#color=W`
+  false) and the mode was entered by calling `setMode`. Same standing
+  `setRoute` limitation.
+- Human check required: open the file from `file://` with
+  `#mechanics=preview` and confirm the control appears and the panel reads
+  well. That is the visual review this work was staged for.
+- Defects: none outstanding. For the record, both of my first-pass
+  measurements were wrong, not the code: `clientHeight` on a slotted
+  `<details>` child reports a value even while collapsed -- the known-good
+  `.panel-src` control behaves identically -- so collapse had to be measured
+  on the details' own `offsetHeight`.
 
 ## Decisions needed
 
