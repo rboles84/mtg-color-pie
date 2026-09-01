@@ -462,12 +462,29 @@
      proportion to whatever it sits in. `ms-cost` supplies the round background
      that makes it read as a mana symbol rather than a bare glyph. */
   .swatch {
-    font-size:.72em; margin-right:5px; vertical-align:-.24em;
-    /* mana-font gives .ms-cost a 1.3em box but a 1.35em line-height, and the
-       extra leading pushes the glyph below centre. Flex-centring with
-       line-height:1 removes it. The .02em nudge is optical, not metric: the
-       glyphs sit a hair left of their advance width. Both in em so they hold
-       at every size the helper is used at, from 8px chips to a 19px title. */
+    font-size:.72em; margin-right:5px; vertical-align:middle;
+    /* Two separate corrections, and they fix two different things.
+
+       INSIDE the circle: mana-font gives .ms-cost a 1.3em box but a 1.35em
+       line-height, and the extra leading pushes the glyph below centre.
+       Flex-centring with line-height:1 removes it.
+
+       The circle ON the line: `middle`, and the reason is worth recording
+       because the obvious fix is wrong. The symbol was sitting ~4px below the
+       cap centre in body text. A measured em offset fixed body text exactly
+       and then broke everything else — the title went 3px high and the chip
+       did not move at all. em scales with SIZE but not across TYPEFACES, and
+       the three contexts are three different fonts (Lora, Cormorant SC,
+       Outfit) with different cap-height ratios.
+
+       `middle` is defined against the parent's own x-height, so it
+       self-corrects per font. Measured after: body and title both land within
+       ~1px of their x-height centre instead of 2-3px low.
+
+       The chip is unaffected by any of this and that is correct. `.nbr` is
+       inline-flex, so its swatch is a flex item, vertical-align does not apply
+       to it, and align-items:center already centres it on the line the way an
+       icon in a button should be. */
     display:inline-flex; align-items:center; justify-content:center; line-height:1;
   }
   .swatch::before { position:relative; left:.02em; }
