@@ -3148,6 +3148,12 @@ function applyRoute(raw) {
       return;
     }
 
+    if (k === 'mechanics') {
+      enableMechanicsPreview();
+      setMode('mechanics');
+      return;
+    }
+
     setMode('explore');
     if (k === 'four') setLayer('cross', true);
     if (k === 'enemy') setLayer('enemy', true);
@@ -3173,20 +3179,25 @@ new MutationObserver(moreBelow).observe(panel, { childList: true, subtree: true 
 window.addEventListener('resize', moreBelow);
 moreBelow();
 
-/* MECHANICS PREVIEW. The toggle is disabled in the markup on purpose, so the
-   only way in is an explicit route. That keeps the feature reviewable without
-   shipping a half-finished control to whoever opens the page. Remove this
-   block and drop the `disabled` attribute when it is signed off. */
-if (/(^|#|&)mechanics=preview/.test(location.hash)) {
+/* MECHANICS PREVIEW. The toggle ships DISABLED on purpose, so the only way in
+   is an explicit route. That keeps the panel reviewable without handing an
+   unfinished control to whoever opens the page.
+
+   This has to be a function the ROUTER can call, not just a block that runs at
+   load: applyRoute() sends every unrecognised key to setMode('explore'), so a
+   preview entered before routing was immediately undone. Teaching the router
+   about the route fixes it properly and makes it survive back/forward too. */
+let mechPreviewOn = false;
+function enableMechanicsPreview() {
+  if (mechPreviewOn) return;
+  mechPreviewOn = true;
   const b = layers.mech && layers.mech.btn;
-  if (b) {
-    b.disabled = false;
-    b.textContent = 'Mechanics';
-    b.title = 'Mechanical Color Pie 2021 — preview';
-    b.addEventListener('click', () =>
-      setMode(mode === 'mechanics' ? 'explore' : 'mechanics'));
-  }
-  setMode('mechanics');
+  if (!b) return;
+  b.disabled = false;
+  b.textContent = 'Mechanics';
+  b.title = 'Mechanical Color Pie 2021 — preview';
+  b.addEventListener('click', () =>
+    setMode(mode === 'mechanics' ? 'explore' : 'mechanics'));
 }
 
 if (location.hash.length > 1) applyHash();
