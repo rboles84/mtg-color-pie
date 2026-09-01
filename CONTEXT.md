@@ -279,8 +279,11 @@ black `#aca29a`, red `#db8664`, green `#93b483`, colourless `#beb9b2`.
       they exist
 - [ ] Hero says "The Color Wheel"; the atlas heading says "The Thirty-Two
       Identities". If the Codex counts 37, that copy may want to change
-- [ ] Colour panels cite three articles each — three lines of small type. A
-      source drawer would be better than a wall of citations
+- [x] Colour panels cite three articles each — three lines of small type. A
+      source drawer would be better than a wall of citations. DONE: all six
+      source notes are a closed-by-default <details>, and a conflict panel
+      merges its colour-pie and Strixhaven scope text into that one drawer
+      rather than stacking two.
 - [ ] `setRoute`'s single `location.hash` assignment has never been executed.
       The only preview environment available serves the file as a `data:` URL,
       where hash assignment silently fails. Everything either side of that line

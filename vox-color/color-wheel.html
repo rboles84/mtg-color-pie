@@ -222,7 +222,11 @@
   /* ===================================================================
      LAYOUT — wheel beside panel on wide, stacked on narrow
      =================================================================== */
-  .stage { display:grid; grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr); gap:clamp(16px,3vw,40px); align-items:center; }
+  /* align-items was `center`: the grid row took the height of whichever
+     column was taller, so a long panel grew the row and re-centred the
+     wheel inside it -- the wheel visibly jumped on selection. Start-aligned,
+     the wheel's cell is its own height and the panel cannot move it. */
+  .stage { display:grid; grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr); gap:clamp(16px,3vw,40px); align-items:start; }
   @media (max-width:900px) { .stage { grid-template-columns:1fr; } }
 
   .wheel-wrap { position:relative; }
@@ -389,10 +393,23 @@
      PANEL
      =================================================================== */
   .panel {
-    padding:26px 24px; border-radius:16px; min-height:330px;
+    padding:26px 24px; border-radius:16px;
+    /* Bounded, and it scrolls itself. Panel content ranges from a short
+       mono entry to a conflict panel carrying a whole college, so an
+       unbounded box made the page height lurch on every click. */
+    min-height:420px; max-height:calc(100vh - 180px);
+    overflow-y:auto; overscroll-behavior:contain; scrollbar-gutter:stable;
     background:var(--glass); border:1px solid var(--hairline);
     -webkit-backdrop-filter:blur(16px) saturate(1.3); backdrop-filter:blur(16px) saturate(1.3);
     box-shadow:inset 0 1px 0 rgba(237,230,211,.06);
+  }
+  /* MUST stay after `.panel`. Both selectors are a single class, so this
+     only wins on source order -- when it lived up beside the `.stage`
+     rule the bound never lifted and phones got a scroll box inside a
+     scrolling page. Below 900px the layout is one column, where a tall
+     panel is the better answer. */
+  @media (max-width:900px) {
+    .panel { max-height:none; min-height:0; overflow-y:visible; }
   }
   .panel-kicker {
     font-family:'Outfit',system-ui,sans-serif; font-size:10.5px; font-weight:500;
@@ -1757,7 +1774,6 @@ function collegeBlock(k) {
       <ul class="poles">${poles}</ul>
       <p class="panel-body"><strong>Its magic.</strong> ${esc(col.magic)}</p>
       ${col.designNote ? `<p class="panel-body"><strong>Design note.</strong> ${esc(col.designNote)}</p>` : ''}
-      <details class="panel-src"><summary>Sources &amp; scope</summary><p>${esc(SRC_SCOPE_COLLEGE)}</p></details>
     </div>`;
 }
 
@@ -1784,7 +1800,7 @@ function showEnemy(k, view, animate) {
     ${collegeBlock(k)}
     <details class="panel-src"><summary>Sources &amp; scope</summary><p>${esc(SRC_PIE)} · Each conflict reads differently depending on
       which side states it — the neutral summary is a third framing, not the true one.
-      ${esc(SRC_SCOPE)}</p></details>`;
+      ${esc(SRC_SCOPE)}${COLLEGES[k] ? ' ' + esc(SRC_SCOPE_COLLEGE) : ''}</p></details>`;
 
   panel.querySelectorAll('.view-btn').forEach(el =>
     el.addEventListener('click', () => showEnemy(k, el.dataset.view, false)));
@@ -1857,6 +1873,7 @@ function showFour(excl) {
 /* ---------------------------------------------------------------- events */
 function activate(g) {
   const kind = g.dataset.kind, key = g.dataset.key;
+  panel.scrollTop = 0;   // new subject, so start at the top of the panel
   // In Combine a colour is a set member rather than a subject, and edges and
   // crossings are not targets at all — the set is built from colours only.
   if (mode === 'combine') {
