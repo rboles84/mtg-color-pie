@@ -1199,6 +1199,7 @@ const QUOTE_BAREFOOT = {
   cite: `Mark Rosewater, "Third Time's the Charm, Part 2," Making Magic, May 27, 2024`
 };
 
+const SRC_SCOPE_FIVE = 'Five-color identity means access to all five colors. It does not by itself describe a worldview, guarantee balance between them, or require equal use of each. A card\'s color, its Commander color identity, the magic a character can wield and that character\'s philosophical alignment can overlap without being the same thing. \u2014 Mark Rosewater, "Party of Five," February 2, 2009; "Mana with All the Fixin\'s," March 23, 2009.';
 const SRC_SCOPE_NONE = 'Colorless is a game characteristic and a design space, not a faction or a school of thought. Artifacts, Eldrazi, lands and colorless commanders are different things that happen to share it. \u2014 Mark Rosewater, "Just the Artifacts, Ma\'am," February 28, 2005; "Third Time\'s the Charm, Part 2," May 27, 2024; "The Council of Colors, Revisited," August 26, 2024.';
 const SRC_SCOPE_FOUR = 'Four colours have no philosophy article of their own. These five names are deck identities the Commander 2016 design team built for those decks and described in gameplay terms \u2014 Ethan Fleischer, "Designing Commander (2016 Edition)," October 24, 2016. They are one product\'s lenses, not definitions of the colour combinations. The community line is community reading, not canon.';
 const SRC_SCOPE_WEDGE = 'These use the Khans of Tarkir clans and their attributes as Rosewater\'s set-specific lens on the five wedge combinations \u2014 one supported expression of each trio, not a universal rule. The colour paired with its two enemies is structurally isolated, but each Tarkir clan is centred on one of the two allied colours.';
@@ -1895,7 +1896,7 @@ function tileNote(o) {
     const excl = D.order.find(c => !cols.includes(c));
     return 'Every color but ' + nm(excl) + '.';
   }
-  if (o.group === 'five')      return 'All five.';
+  if (o.group === 'five')      return 'All five \u2014 every conflict now internal.';
   if (o.group === 'colorless') return 'No colors \u2014 not a sixth color.';
   return null;
 }
@@ -2153,7 +2154,40 @@ function comboBody(cols, id) {
     return absent + lens + anchor + community + composition(cols);
   }
 
-  return `<p class="panel-body">All five. The complete pentagon — every alliance and every conflict at once.</p>`;
+  /* WUBRG. Almost all of this is DERIVED from data already verified elsewhere
+     in this file, which is what makes it safe to say.
+
+     The naming argument is the interesting one, and it proves itself: every
+     label people reach for to describe five colours — unity, harmony,
+     perfection, power, balance — is already one colour's own goal. Those goals
+     are in D.colors and were checked against Rosewater years ago. So the panel
+     lists them rather than asserting the point, and the reader can see that
+     naming WUBRG after any value would hand it to one of the five.
+
+     The five conflicts are likewise read straight out of D.enemies. Every one
+     of them sits inside this identity, which is why it cannot be called
+     balance: it contains both sides of all five arguments. */
+  const goals = D.order.map(c => `${dot(c)}${esc(nm(c))} ${esc(D.colors[c].goal.toLowerCase())}`).join(', ');
+  const fights = Object.keys(D.enemies).map(k => esc(D.enemies[k].title)).join(' \u00b7 ');
+
+  return `
+    <p class="panel-body"><strong>All five, still disagreeing.</strong> ${goals}. Holding every
+      colour does not reconcile them \u2014 it means owning the whole argument rather than settling it.</p>
+    <p class="panel-body"><strong>There is no spare name for it.</strong> Two of the obvious
+      candidates are already taken outright: perfection is Blue's goal and power is Black's, both
+      listed above. Unity leans White and harmony leans Green. Naming five colours after a value
+      tends to hand them to one of the five. What they share is not a belief — it is that nothing
+      is left outside to disagree with.</p>
+    <p class="panel-body"><strong>How it plays.</strong> Rosewater's test for a five-colour card is
+      that its breadth has to matter: an effect that would sit comfortably in one or two colours
+      invites the question of why it is five-colour at all. So five-colour designs tend to reach for
+      something broad or strange enough that fewer colours would not honestly describe it.</p>
+    <p class="panel-body"><strong>What it costs.</strong> Access weakens the pie that gives colours
+      meaning. Rosewater has said that making five-colour access too easy limits the importance of
+      the colour pie, because decks can simply reach past their own colours for what they lack.
+      Five colours are at their most distinctive when something else narrows the choices they opened.</p>
+    <p class="panel-body"><strong>Where the tension lives.</strong> Inside. Nothing sits outside this
+      identity to argue with, so all five conflicts are internal to it: ${fights}.</p>`;
 }
 
 /* Resolve any colour list to its identity. identityFor() takes a Set; this
@@ -2208,6 +2242,7 @@ function showCombo() {
       cols.length === 3 && id ? esc(id.group === 'wedge' ? SRC_SCOPE_WEDGE : SRC_SCOPE_SHARD) + ' ' : ''}${
       cols.length === 4 ? esc(SRC_SCOPE_FOUR) + ' ' : ''}${
       cols.length === 0 ? esc(SRC_SCOPE_NONE) + ' ' : ''}${
+      cols.length === 5 ? esc(SRC_SCOPE_FIVE) + ' ' : ''}${
       cols.length === 3 && id && id.src ? esc(id.src) + ' · ' : ''}${cols.length > 1 ? esc(SRC_FRIEND) + ' · ' + esc(SRC_PIE) + ' · ' : ''
     }resolved from the identity registry</p>`;
   /* SRC_WEDGE / SRC_SHARD are deliberately NOT cited here any more. They named
