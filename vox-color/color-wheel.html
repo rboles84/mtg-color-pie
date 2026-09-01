@@ -406,6 +406,14 @@
     font-family:'Outfit',system-ui,sans-serif; font-size:12px; font-weight:300;
     letter-spacing:.05em; color:var(--bone-dim); margin:0 0 16px;
   }
+  /* Alternate names. Deliberately quiet and directly under the name it
+     belongs to: this is metadata about what a thing is called, not content
+     about what it is, so it must not compete with the philosophy below it. */
+  .panel-aka {
+    font-family:'Outfit',system-ui,sans-serif; font-size:11px; font-weight:300;
+    letter-spacing:.03em; color:var(--bone-faint); margin:-10px 0 16px;
+  }
+
   .panel-body { font-size:14.5px; line-height:1.68; color:var(--bone-dim); margin:0 0 16px; }
   .panel-body strong { color:var(--bone); font-weight:500; }
   /* The only direct quotation in the build. Everything else is paraphrase;
@@ -1619,6 +1627,7 @@ function showFour(excl) {
     <p class="panel-kicker">Four-Color · Crossing</p>
     <h2 class="panel-title">${shown.map(dot).join('')}${esc(id ? id.name : 'Non-' + nm(excl))}</h2>
     <p class="panel-sub">${shown.join(' ')} · Four-color</p>
+    ${id && id.aka ? `<p class="panel-aka">Also called ${id.aka.map(esc).join(' · ')}</p>` : ''}
 
     <p class="panel-body">This point is where two conflict chords cross. A chord pair
       intersects only when their endpoints alternate around the wheel, so every crossing
@@ -1757,58 +1766,58 @@ const IDENTITIES = [
   { display:'RW',    name:'Boros',      group:'enemy' },
   { display:'GU',    name:'Simic',      group:'enemy' },
 
-  { display:'GWU', name:'Bant', group:'shard',
+  { display:'GWU', name:'Bant', aka:['Brokers'], group:'shard',
     produces: "In White's account, the absence of what it sees as Black's selfishness and Red's chaos allows White to steer the shard toward its utopia: Green nurtures the good already present, Blue changes what is not working, and the group comes first. White explicitly says that this vision is possible because Black and Red are absent.",
     src: "Mark Rosewater, \"Peace, Love and Understanding,\" Making Magic, October 6, 2008" },
-  { display:'WUB', name:'Esper', group:'shard',
+  { display:'WUB', name:'Esper', aka:['Obscura'], group:'shard',
     produces: "In Blue's account, White contributes long-term planning, strategy and concern for improving society, while Black contributes control, information, focus and vision. Together they support Blue's pursuit of potential through knowledge, technology and deliberate change. Blue calls Esper its paradise: a place where everyone has reached their potential.",
     src: "Mark Rosewater, \"Striving For Perfection,\" Making Magic, November 16, 2008" },
-  { display:'UBR', name:'Grixis', group:'shard',
+  { display:'UBR', name:'Grixis', aka:['Maestros'], group:'shard',
     produces: "Black describes mixing Red's zeal with Blue's manipulation — impulsiveness with smarts — into something more actively conniving, with survival pushed as far as it can go. In Black's account, Grixis has no morality.",
     src: "Mark Rosewater, \"Looking Out For Number One,\" Making Magic, October 20, 2008" },
-  { display:'BRG', name:'Jund', group:'shard',
+  { display:'BRG', name:'Jund', aka:['Riveteers'], group:'shard',
     produces: "In Red's account, total freedom: anyone may do what they want, and everyone else is equally free to stop them. Red is explicit that the freedom has a price — what survives has come through everything the world could throw at it.",
     src: "Mark Rosewater, \"Following Your Heart,\" Making Magic, December 1, 2008" },
-  { display:'RGW', name:'Naya', group:'shard',
+  { display:'RGW', name:'Naya', aka:['Cabaretti'], group:'shard',
     produces: "In Green's account, nature takes centre stage with nothing to rein it in. Green reads the other two as a balance — enough Red that things are not too orderly, enough White that they are not too chaotic — and growth runs as far as it can.",
     src: "Mark Rosewater, \"Searching Within,\" Making Magic, November 3, 2008" },
 
-  { display:'WBG', name:'Abzan', group:'wedge' , attribute:'endurance',
+  { display:'WBG', name:'Abzan', aka:['Indatha', 'Teneb', 'Necra'], group:'wedge' , attribute:'endurance',
     expresses: "Where the other wedges focus more on creating threats, Abzan de-emphasises threats in favour of answers: it defends through the early and middle game, waits for the opponent to spend down their resources, and only then moves to win. White provides the proactive defence, Black the active defence, and Green the growth that accelerates its mana development.",
     src: "Mark Rosewater, \"We Will Survive,\" Making Magic, September 29, 2014" },
-  { display:'URW', name:'Jeskai', group:'wedge' , attribute:'cunning',
+  { display:'URW', name:'Jeskai', aka:['Raugrin', 'Numot', 'Raka'], group:'wedge' , attribute:'cunning',
     expresses: "All three aim to act in a way the opponent cannot properly anticipate, by different routes: Blue gathers knowledge of the opponent's strategy, Red keeps its intentions hard to gauge, and White takes proactive measures against threats before they arrive.",
     src: "Mark Rosewater, \"Smart Thinking,\" Making Magic, November 3, 2014" },
-  { display:'BGU', name:'Sultai', group:'wedge' , attribute:'ruthlessness',
+  { display:'BGU', name:'Sultai', aka:['Zagoth', 'Vorosh', 'Ana'], group:'wedge' , attribute:'ruthlessness',
     expresses: "The three settle on ruthlessness as the willingness to do what needs doing, while disagreeing on what that means: Black connects it to taking action to get what it wants, Blue to consciously promoting change, and Green to having the nerve to be true to its own nature. In practice, not much is off limits — cutting off resources, taking what belongs to others, and using the dead.",
     src: "Mark Rosewater, \"Whatever It Takes,\" Making Magic, February 2, 2015" },
-  { display:'RWB', name:'Mardu', group:'wedge' , attribute:'speed',
+  { display:'RWB', name:'Mardu', aka:['Savai', 'Oros', 'Dega'], group:'wedge' , attribute:'speed',
     expresses: "It tries to land hits before the opponent is ready. Red gets to the point as fast as it can; White treats an army as a tool whose speed lets it neutralise forces before they become threats; Black counts time among the resources worth denying.",
     src: "Mark Rosewater, \"Finishing First,\" Making Magic, November 17, 2014" },
-  { display:'GUR', name:'Temur', group:'wedge' , attribute:'savagery',
+  { display:'GUR', name:'Temur', aka:['Ketria', 'Intet', 'Ceta'], group:'wedge' , attribute:'savagery',
     expresses: "Each reaches savagery from a different direction: Green through accepting its animal nature and the feral side of the web of life, Red through giving in to impulse in the moment to survive, and Blue through overriding psychological limits that likely developed as protection. Mechanically, all three can support larger bodies, especially at common.",
     src: "Mark Rosewater, \"What Doesn't Kill You Makes You Stronger,\" Making Magic, February 23, 2015" },
 
   /* Commander 2016 face commanders. Historical anchors, NOT alternate
      names for the colour combination — "Atraxa" is not the formal name
      of every WUBG deck. Verified against the C16 decklists. */
-  { display:'UBRG', name:'Non-White', group:'four',
+  { display:'UBRG', name:'Non-White', aka:['Glint-Eye'], group:'four',
     commander:'Yidris, Maelstrom Wielder', deck:'Entropic Uprising',
     lens:'Chaos', lensDeck:"plays cards sight unseen off the top of the library, flips coins, and generally adds randomness",
     community:"a world where power, appetite and growth run without a shared rule to hold them to account" },
-  { display:'WBRG', name:'Non-Blue', group:'four',
+  { display:'WBRG', name:'Non-Blue', aka:['Dune-Brood'], group:'four',
     commander:'Saskia the Unyielding', deck:'Open Hostility',
     lens:'Aggression', lensDeck:"ignores table politics and tries to kill everyone as fast as it can",
     community:"conviction and action that does not wait to study the problem first" },
-  { display:'WURG', name:'Non-Black', group:'four',
+  { display:'WURG', name:'Non-Black', aka:['Ink-Treader'], group:'four',
     commander:'Kynaios and Tiro of Meletis', deck:'Stalwart Unity',
     lens:'Altruism', lensDeck:"wants everyone at the table to enjoy themselves, handing out mana, cards and tokens",
     community:"coalition and shared benefit, without private advantage as the final word" },
-  { display:'WUBG', name:'Non-Red', group:'four',
+  { display:'WUBG', name:'Non-Red', aka:['Witch-Maw'], group:'four',
     commander:"Atraxa, Praetors' Voice", deck:'Breed Lethality',
     lens:'Growth', lensDeck:"builds a heavy +1/+1 counters theme so any creature can grow into a threat",
     community:"patient accumulation, without immediate feeling as grounds to act now" },
-  { display:'WUBR', name:'Non-Green', group:'four',
+  { display:'WUBR', name:'Non-Green', aka:['Yore-Tiller'], group:'four',
     commander:'Breya, Etherium Shaper', deck:'Invent Superiority',
     lens:'Artifice', lensDeck:"draws on 'artifacts matter' cards from all four of its colours",
     community:"building and rebuilding, without inherited or natural limits treated as binding" },
@@ -2253,6 +2262,7 @@ function showCombo() {
     <p class="panel-kicker">Combine · ${cols.length} color${cols.length === 1 ? '' : 's'}</p>
     <h2 class="panel-title">${shown.map(dot).join('')}${esc(name)}</h2>
     <p class="panel-sub">${esc(code)}${group ? ' · ' + esc(group) : ''}</p>
+    ${id && id.aka ? `<p class="panel-aka">Also called ${id.aka.map(esc).join(' · ')}</p>` : ''}
     ${comboBody(cols, id)}
     ${neighbourChips(cols)}
     <p class="panel-src">${cols.length === 2 ? esc(SRC_SCOPE) + ' ' : ''}${
