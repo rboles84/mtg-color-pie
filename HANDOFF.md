@@ -9,65 +9,93 @@ remaining fields are intentionally blank.
 
 - Status: `ready-for-qa`
 - Owner: `robdev`
-- Task: A script to normalise the Mechanical Color Pie 2021 digest into a
-  dataset, as the first step toward the unwired Mechanics layer.
-- Requested outcome: a repeatable normaliser, plus an honest account of what
-  cannot be normalised automatically.
-- Allowed files: `tools/normalize_mechanical_pie.py` (new), `data/*` (new,
-  generated), `HANDOFF.md`.
+- Task: Replace the digest normaliser with a two-pass parser over the full
+  official article, and reconcile its two representations.
+- Requested outcome: treat the expanded *Mechanical Color Pie 2021* as the
+  authoritative source; parse the colour lists and the ability catalog
+  independently; cross-validate; preserve every conflict; invent nothing.
+- Allowed files: `tools/parse_mechanical_pie_2021.py` (new), `data/*`
+  (generated), `HANDOFF.md`.
 - Allowed surfaces: none in the app. `vox-color/color-wheel.html` untouched.
-- Non-goals: the script does NOT wire the Mechanics button, does not change
-  the app, and does not decide any split. The layer's visual design is a
-  separate, unanswered question.
+- Non-goals: does NOT wire the Mechanics button; does not resolve the four
+  source conflicts; does not design the overlay.
 
 ## Acceptance criteria
 
-- Parses all five colours at three tiers with no entry lost.
-- Never splits power/toughness notation.
-- Emits proposals for genuine bundles rather than applying them.
-- Reports any label appearing at two tiers of one colour.
-- Fails loudly, as `blocked`, when the sibling corpus is absent.
+- Both representations parsed independently from the article HTML.
+- Every colour/tier section reported as captured or NOT CAPTURED, never as
+  empty.
+- Conflicts preserved with both claims and a stated basis for the canonical
+  pick.
+- Source typos recorded, not silently corrected.
+- No mechanic distinction collapsed that the article draws.
 
 ## Test plan
 
-- Run against the real digest; compare the entry count with the 393 recorded
-  independently in `CONTEXT.md`.
-- Inspect an entry mixing P/T notation with a real bundle.
-- Confirm valid JSON.
+- Compare placement count against the 393 the digest yielded.
+- Verify parsed tiers for known entries against the article by eye.
+- Confirm every reported conflict is real, not a parser artefact.
 
 ## robdev report
 
-- Changed files: `tools/normalize_mechanical_pie.py` (new),
-  `data/mechanical_pie_2021.json`, `data/mechanical_pie_review.md` (generated),
-  `HANDOFF.md`.
-- Summary: parses the digest into colour -> tier -> entries, VERBATIM. Every
-  entry is classified `atomic` / `pt-only` / `paren-only` / `bundle`; only
-  `bundle` gets a proposed expansion, written to a review file for a ruling.
-  Nothing is split in the dataset.
-- Decisions: P/T notation and parenthetical content are masked with
-  NAMESPACED placeholders before bundle detection, so a slash inside `+N/+N`
-  or inside `(...)` can never be mistaken for a bundle. Paren-internal slashes
-  are surfaced as a separate judgement class rather than guessed at.
-- Checks: run against the real digest -> 393 entries, matching the count in
-  `CONTEXT.md` derived independently. 304 atomic, 34 pt-only, 14 paren-only,
-  41 bundle. JSON re-parsed and keys verified. Spot-checked
-  `+N/+N & -N/+N & +0/+N on Auras/spells`: splits `Auras/spells` only and
-  leaves the P/T notation whole -- the exact case a naive splitter destroys.
-- Skipped checks: none applicable; the app is untouched, so no browser,
-  viewport, motion or routing checks are in this task's blast radius.
-- Risks or unverified items: distinct-label count is 243 here against the 205
-  recorded in `CONTEXT.md`. Both cannot be right; mine normalises only case,
-  whitespace and a trailing stop, so the 205 came from a stricter rule that is
-  not written down. Recorded as a follow-up rather than silently adopting
-  either number.
+- Changed files: `tools/parse_mechanical_pie_2021.py` (new), four generated
+  files in `data/`, `HANDOFF.md`.
+- Summary: fetched the article (444KB, HTTP 200) and parsed it twice. Pass 1
+  reads the five colour lists; pass 2 reads the ability catalog with its
+  explanations; pass 3 reconciles them and records a basis for every
+  assignment. Where the two halves disagree the catalog wins, because that is
+  where Rosewater discusses the classification -- but the losing claim is
+  retained in the record.
+- Decisions: short parentheticals are KEPT in the match key and long ones
+  dropped -- "+N/+N (on creatures)" / "(on spells)" / "(on Auras)" are three
+  entries with three different assignments, while long glosses vary in wording
+  between the two halves. Labels that repeat under different group headers are
+  qualified by the group. "Cast spells from your graveyard" and "out of
+  graveyard" are NOT merged: the article gives them separate entries.
+- Checks: 465 colour-list placements against the digest's 393 -- the digest was
+  losing 72, about 15%. 212 catalog entries, 238 reconciled mechanics, all 15
+  colour/tier sections captured. All four surviving conflicts verified by hand
+  against the article text.
+- Skipped checks: none applicable; the app is untouched.
+- Risks or unverified items: explanations are attached to the entry they
+  follow. Spot-checked and correct, but not exhaustively verified.
+
+## robqa report
+
+- Result: `pass` after THREE parser defects were found and fixed.
+- Severity: all three `major` -- each silently produced plausible wrong data.
+- Scope check: the app is untouched; only tools and generated data changed.
+- Evidence: the first run reported 8 conflicts. Checking them against the
+  article showed 5 were parser artefacts, not source disagreements:
+  1. Tier lines were matched anywhere in a paragraph, so explanation prose
+     ("This ability was primary in both black and green for a while") parsed
+     as an assignment and emitted a second, wrong record per ability.
+     Anchoring the pattern to the start of a line fixed it. 8 -> 3.
+  2. Sub-abilities live in `<ul><li><strong>` between the paragraphs, not in
+     the paragraphs. A paragraph-only scan filed all 19 creature-pumping
+     variants under the group header "Creature pumping" -- collapsing exactly
+     the distinctions this dataset exists to keep.
+  3. Stripping every parenthetical made "+N/+N (on creatures)", "(on spells)"
+     and "(on Auras)" collide into one key, manufacturing conflicts.
+  Each fix was re-run and the conflict list re-verified by hand.
+- Blocked checks: none.
+- Human check required: the four conflicts are real and need a ruling on
+  which side the runtime dataset should follow.
+- Defects: none outstanding.
 
 ## Decisions needed
 
-- The 41-entry split queue in `data/mechanical_pie_review.md` needs rulings
-  before any dataset can be considered normalised. 14 paren-only entries
-  need a judgement too.
-- Black lists bare `flash` at BOTH Secondary and Tertiary. Only the article
-  can settle which is correct; the digest cannot.
+- FOUR source conflicts between the article's own two halves. Each is real,
+  hand-verified, and needs a ruling. The parser currently prefers the ability
+  catalog in all four:
+  | mechanic | colour | colour list | ability catalog |
+  |---|---|---|---|
+  | `+N/+N (on spells)` | W | secondary | primary |
+  | `Deal N damage to a creature with flying.` | R | secondary | tertiary |
+  | `Exiling cards from graveyard` | W | primary | secondary |
+  | `Flash` | B | tertiary | secondary |
+- The digest split queue is SUPERSEDED. The article separates those bundles
+  itself, so the 41 rulings are no longer needed.
 - Re-add `scrollbar-gutter:stable`? It removes the measured 10px text reflow
   between scrolling and non-scrolling panels. With the track now transparent
   it no longer produces a visible gutter, so the original objection to it no
