@@ -398,11 +398,51 @@
        mono entry to a conflict panel carrying a whole college, so an
        unbounded box made the page height lurch on every click. */
     min-height:420px; max-height:calc(100vh - 180px);
-    overflow-y:auto; overscroll-behavior:contain; scrollbar-gutter:stable;
+    overflow-y:auto; overscroll-behavior-y:contain;
+    /* QUIET THE SCROLLBAR. The complaint was never that the panel
+       scrolls -- it was that an opaque OS track reads as browser chrome
+       bolted onto the instrument. The transparent track is what removes
+       the stripe; the thin thumb is what keeps it grabbable. Not hidden
+       outright: not every visitor has a wheel, trackpad or touch, and a
+       pointer moved to the edge should still find a handle.
+       scrollbar-gutter:stable is deliberately NOT set -- it permanently
+       reserves the gutter, which is the same visual weight being removed. */
+    scrollbar-width:thin;
+    scrollbar-color:rgba(212,175,55,.30) transparent;
     background:var(--glass); border:1px solid var(--hairline);
     -webkit-backdrop-filter:blur(16px) saturate(1.3); backdrop-filter:blur(16px) saturate(1.3);
     box-shadow:inset 0 1px 0 rgba(237,230,211,.06);
   }
+  .panel:hover, .panel:focus-within { scrollbar-color:rgba(212,175,55,.55) transparent; }
+  /* Fallback for engines that do not honour scrollbar-width/-color. Chrome
+     ignores these once the standard properties apply. The transparent
+     border plus background-clip is what insets the thumb from the card
+     edge, so it reads as a filament rather than a bar. */
+  .panel::-webkit-scrollbar { width:10px; }
+  .panel::-webkit-scrollbar-track { background:transparent; }
+  .panel::-webkit-scrollbar-thumb {
+    background:rgba(212,175,55,.30); border:3px solid transparent;
+    background-clip:content-box; border-radius:999px;
+  }
+  .panel:hover::-webkit-scrollbar-thumb, .panel:focus-within::-webkit-scrollbar-thumb {
+    background:rgba(212,175,55,.55); background-clip:content-box;
+  }
+
+  /* "THERE IS MORE BELOW." A sticky pseudo-element pins to the foot of the
+     scroll box while content moves under it, so the text reads as receding
+     into the surface rather than being cut off. Negative top margin means
+     it adds no height of its own. `has-more` is set only while content
+     actually remains, so it is absent at the end and on a panel that fits.
+     It is a state, not an animation; the reduced-motion block above already
+     removes the transition with !important. */
+  .panel::after {
+    content:''; display:block; position:sticky; bottom:0; height:34px;
+    margin:-34px -24px 0; pointer-events:none;
+    opacity:0; transition:opacity .18s linear;
+    background:linear-gradient(rgba(11,12,17,0), rgba(11,12,17,.92));
+  }
+  .panel.has-more::after { opacity:1; }
+
   /* MUST stay after `.panel`. Both selectors are a single class, so this
      only wins on source order -- when it lived up beside the `.stage`
      rule the bound never lifted and phones got a scroll box inside a
@@ -410,6 +450,7 @@
      panel is the better answer. */
   @media (max-width:900px) {
     .panel { max-height:none; min-height:0; overflow-y:visible; }
+    .panel::after { display:none; }   /* nothing is clipped, so nothing to hint at */
   }
   .panel-kicker {
     font-family:'Outfit',system-ui,sans-serif; font-size:10.5px; font-weight:500;
@@ -2631,6 +2672,17 @@ function applyRoute(raw) {
 }
 
 window.addEventListener('hashchange', applyHash);
+/* The "more below" state. MutationObserver because the panel is re-rendered
+   by innerHTML from a dozen call sites, and one hook here is more reliable
+   than remembering to call this in each of them. Passive scroll listener:
+   this only ever reads geometry and toggles a class. */
+const moreBelow = () => panel.classList.toggle('has-more',
+  panel.scrollHeight - panel.scrollTop - panel.clientHeight > 2);
+panel.addEventListener('scroll', moreBelow, { passive: true });
+new MutationObserver(moreBelow).observe(panel, { childList: true, subtree: true });
+window.addEventListener('resize', moreBelow);
+moreBelow();
+
 if (location.hash.length > 1) applyHash();
 
 
