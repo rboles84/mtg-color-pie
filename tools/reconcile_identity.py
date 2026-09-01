@@ -262,7 +262,8 @@ def main():
 
     # ---- recomputed counts -------------------------------------------------
     merges = sum(1 for v in rulings.values()
-                 if v["ruling"] in ("same-mechanic", "variant-split"))
+                 if v["ruling"] in ("same-mechanic", "variant-split")
+                 and v.get("list_key"))
     headers = sum(1 for v in rulings.values() if v["ruling"] == "group-header")
     proposed = sum(1 for v in rulings.values()
                    if v["proposed"] in ("same-mechanic", "variant-split"))

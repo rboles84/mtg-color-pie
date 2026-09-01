@@ -1124,22 +1124,14 @@
       "colors": {
         "R": {
           "tier": "primary",
-          "basis": "ability-catalog-only"
-        }
-      },
-      "in_lists": false,
-      "in_catalog": true
-    },
-    "deal n damage to a creature/player where n is the number of cards in your hand/your opponent's hand": {
-      "label": "Deal N damage to a creature/player where N is the number of cards in your hand/your opponent's hand.",
-      "colors": {
-        "R": {
-          "tier": "primary",
-          "basis": "colour-list-only"
+          "basis": "both-agree"
         }
       },
       "in_lists": true,
-      "in_catalog": false
+      "in_catalog": true,
+      "source_aliases": [
+        "Deal N damage to a creature/player where N is the number of cards in your hand/your opponent's hand."
+      ]
     },
     "deal n damage to creature, planeswalker, and/or player": {
       "label": "Deal N damage to creature, planeswalker, and/or player.",
@@ -1244,22 +1236,14 @@
       "colors": {
         "W": {
           "tier": "primary",
-          "basis": "ability-catalog-only"
-        }
-      },
-      "in_lists": false,
-      "in_catalog": true
-    },
-    "destroy all creatures with power 3/4 or greater": {
-      "label": "Destroy all creatures with power 3/4 or greater.",
-      "colors": {
-        "W": {
-          "tier": "primary",
-          "basis": "colour-list-only"
+          "basis": "both-agree"
         }
       },
       "in_lists": true,
-      "in_catalog": false
+      "in_catalog": true,
+      "source_aliases": [
+        "Destroy all creatures with power 3/4 or greater."
+      ]
     },
     "destroy target attacking or blocking creature": {
       "label": "Destroy target attacking or blocking creature.",
@@ -1314,22 +1298,14 @@
       "colors": {
         "W": {
           "tier": "primary",
-          "basis": "ability-catalog-only"
-        }
-      },
-      "in_lists": false,
-      "in_catalog": true
-    },
-    "destroy target creature with power 3/4 or greater": {
-      "label": "Destroy target creature with power 3/4 or greater.",
-      "colors": {
-        "W": {
-          "tier": "primary",
-          "basis": "colour-list-only"
+          "basis": "both-agree"
         }
       },
       "in_lists": true,
-      "in_catalog": false
+      "in_catalog": true,
+      "source_aliases": [
+        "Destroy target creature with power 3/4 or greater."
+      ]
     },
     "destroy target creature. its controller gets compensation": {
       "label": "Destroy target creature. Its controller gets compensation.",
@@ -2881,30 +2857,18 @@
       "colors": {
         "B": {
           "tier": "secondary",
-          "basis": "ability-catalog-only"
+          "basis": "both-agree"
         },
         "R": {
           "tier": "primary",
-          "basis": "ability-catalog-only"
-        }
-      },
-      "in_lists": false,
-      "in_catalog": true
-    },
-    "sacrifice a creature and deal damage to creature/player equal to the sacrificed creature's power/toughness": {
-      "label": "Sacrifice a creature and deal damage to creature/player equal to the sacrificed creature's power/toughness.",
-      "colors": {
-        "B": {
-          "tier": "secondary",
-          "basis": "colour-list-only"
-        },
-        "R": {
-          "tier": "primary",
-          "basis": "colour-list-only"
+          "basis": "both-agree"
         }
       },
       "in_lists": true,
-      "in_catalog": false
+      "in_catalog": true,
+      "source_aliases": [
+        "Sacrifice a creature and deal damage to creature/player equal to the sacrificed creature's power/toughness."
+      ]
     },
     "sacrifice a land": {
       "label": "Sacrifice a land.",

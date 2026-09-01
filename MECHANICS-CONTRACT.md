@@ -20,9 +20,9 @@ disabled and nothing in `vox-color/color-wheel.html` reads any of this.
 | colour/tier sections captured | 15 of 15 |
 | raw colour-list placements | 465 |
 | ability-catalog entries | 212 |
-| **source identities** | **221** |
+| **source identities** | **217** — FROZEN |
 | structural / group-header only | 1 |
-| **projection mechanics** (peer-eligible) | **220** |
+| **projection mechanics** (peer-eligible) | **216** — FROZEN |
 | genuine internal source conflicts | **5**, all adjudicated |
 | unadjudicated TIER conflicts | 0 |
 | unruled IDENTITY pairs | 0 |
@@ -32,16 +32,16 @@ extraction run is now more likely to add risk than value.
 
 ### Two counts, never one
 
-- **Source identities (221)** — everything Rosewater actually listed,
+- **Source identities (217)** — everything Rosewater actually listed,
   including structural/group entries. `Putting cards from hand onto the
   battlefield` is genuinely a Green-primary summary item *and* the catalog's
   heading over its variants, so it is counted here and marked
   `structural_only`. It is **never quietly subtracted** from this number.
-- **Projection mechanics (220)** — leaf mechanics eligible to behave as peers
+- **Projection mechanics (216)** — leaf mechanics eligible to behave as peers
   in the UI. `structural_only` records are excluded from peer-mechanic maths.
 
 Every merge keeps both original spellings under `source_aliases`, so it stays
-provable. 14 records carry them.
+provable. 18 records carry them.
 
 **The 393-entry digest is deprecated.** It lost about 15% of the placements
 and merged distinctions Rosewater actually drew. `tools/normalize_mechanical_pie.py`
@@ -234,29 +234,39 @@ every rebuild, before anything downstream is generated. It is negative-tested:
 removing one mechanic and stripping one adjudication's authority produces
 three failures and exit 1.
 
-221 source identities · 220 projection mechanics · exactly 1 `structural_only`
-· 5 adjudicated conflicts · 0 unadjudicated · 0 unruled identities · aliases
-retained after every merge · the raw unmerged reconciliation stays
-reproducible independently · identity rulings are inputs, never derived from
-reconciled output · every rebuild reruns tier-conflict detection after
-identity merging.
+**217** source identities · **216** projection mechanics · exactly 1
+`structural_only` · **19** identity merges · 5 adjudicated conflicts · 0
+unadjudicated · 0 unruled identities · aliases retained after every merge · the
+raw unmerged reconciliation stays reproducible independently · identity
+rulings are inputs, never derived from reconciled output · every rebuild
+reruns tier-conflict detection after identity merging.
 
-### Still open: four semantic pairs
+### The merge safety hierarchy
 
-Conservative normalisation deliberately refuses these, so they remain two
-mechanics each until ruled. Each differs by an inserted card type or a
-shorthand, which is a change of words and therefore not mine to make:
+Level 4 is what the four semantic pairs used, and the level exists precisely
+so that "a reviewer decided" is never confused with "the matcher inferred".
 
-| colour list | ability catalog |
-|---|---|
-| `Deal N damage to a creature/player where N is…` | `…creature/planeswalker/player…` |
-| `Sacrifice a creature and deal damage to creature/player…` | `…creature/planeswalker/player…` |
-| `Destroy target creature with power 3/4 or greater.` | `…power 3 or greater.` |
-| `Destroy all creatures with power 3/4 or greater.` | `…power 3 or greater.` |
+| level | kind | automatic? |
+|---|---|---|
+| 1 | typesetting / unicode | yes |
+| 2 | deterministic grammatical equivalence | yes |
+| 3 | meaningful word changes | **never** |
+| 4 | meaningful word changes **with direct source evidence** that one wording updates or parameterises the other | reviewer may rule `same-mechanic` |
 
-If all four are ruled `same-mechanic`, the counts become 217 / 216. They do
-not block, because they are `distinct` under the stated rules — but the count
-is not final while they are open.
+**Do not generalise level 4 into "inserted or deleted words are safe to
+merge".** The conservative matcher was right to refuse all four; what unlocked
+them was external evidence, not similarity.
+
+### The four semantic identities, and their evidence
+
+| pair | canonical | evidence |
+|---|---|---|
+| `creature/player` vs `creature/planeswalker/player` (hand-size damage) | the planeswalker wording | change log: OLD is the shorter form, NEW adds planeswalker as a target |
+| same, for sacrifice-for-damage | the planeswalker wording | same change-log entry |
+| `power 3/4 or greater` vs `power 3 or greater` (single) | `power 3 or greater` | change log documents the floor moving from 4 to 3 |
+| `power 3/4 or greater` vs `power 3 or greater` (mass) | `power 3 or greater` | the change log's own NEW text is `3/4 or greater`, then says the number is most often 3 but can be tweaked up — so `3/4` is Rosewater's shorthand for one parameterised threshold |
+
+The shorter summary wording survives as a `source_alias` in every case.
 4. Runtime projection build (`byMechanic`, `byColor`, `families`), generated
    only, never hand-edited.
 5. The ten fixtures, reviewed as data.

@@ -36,12 +36,13 @@ import pathlib
 import sys
 
 EXPECTED = {
-    "source_identities": 221,
-    "projection_mechanics": 220,
+    "source_identities": 217,
+    "projection_mechanics": 216,
     "structural_only": 1,
     "adjudicated_conflicts": 5,
     "unadjudicated_conflicts": 0,
     "unruled_identities": 0,
+    "identity_merges": 19,
 }
 
 
@@ -80,6 +81,9 @@ def main():
             if "conflict" in c and c.get("basis") != "adjudicated"),
         "unruled_identities": sum(
             1 for v in rulings["rulings"].values() if v.get("ruling") == "UNRULED"),
+        "identity_merges": sum(
+            1 for v in rulings["rulings"].values()
+            if v.get("ruling") in ("same-mechanic", "variant-split") and v.get("list_key")),
     }
     for k, want in EXPECTED.items():
         if got[k] != want:
@@ -88,8 +92,13 @@ def main():
             notes.append("%-24s %d" % (k, got[k]))
 
     # Aliases must survive every merge, or a merge stops being provable.
+    # Count only rows that actually absorb a list-side record. The canonical
+    # side of a semantic pair is a TARGET, not a merge; counting it inflated
+    # the figure from 19 to 23 while changing no behaviour, which is exactly
+    # the sort of quietly wrong number these invariants exist to catch.
     merges = sum(1 for v in rulings["rulings"].values()
-                 if v.get("ruling") in ("same-mechanic", "variant-split"))
+                 if v.get("ruling") in ("same-mechanic", "variant-split")
+                 and v.get("list_key"))
     with_alias = sum(1 for v in M.values() if v.get("source_aliases"))
     if merges and not with_alias:
         fails.append("%d merges applied but no record carries source_aliases" % merges)

@@ -10,8 +10,7 @@
       "canonical_key": "creature pumping, your team, one-shot :: +n/+0 to your team",
       "aliases": [
         "+N/+0 to your team"
-      ],
-      "ruling_basis": "bare summary label is W=secondary, matching the one-shot catalog entry exactly; White is absent from the ongoing entry"
+      ]
     },
     "+N/+0 to your team, one-shot || +N/+0 to your team": {
       "proposed": "variant-split",
@@ -23,8 +22,7 @@
       "aliases": [
         "+N/+0 to your team, one-shot",
         "+N/+0 to your team"
-      ],
-      "ruling_basis": "conservative normalisation only; no semantic merge"
+      ]
     },
     "+N/+0 to your team, ongoing || +N/+0 to your team": {
       "proposed": "variant-split",
@@ -36,8 +34,7 @@
       "aliases": [
         "+N/+0 to your team, ongoing",
         "+N/+0 to your team"
-      ],
-      "ruling_basis": "conservative normalisation only; no semantic merge"
+      ]
     },
     "+N/+N to your team, one-shot || +N/+N to your team": {
       "proposed": "variant-split",
@@ -49,8 +46,7 @@
       "aliases": [
         "+N/+N to your team, one-shot",
         "+N/+N to your team"
-      ],
-      "ruling_basis": "conservative normalisation only; no semantic merge"
+      ]
     },
     "+N/+N to your team, ongoing || +N/+N to your team": {
       "proposed": "variant-split",
@@ -62,8 +58,7 @@
       "aliases": [
         "+N/+N to your team, ongoing",
         "+N/+N to your team"
-      ],
-      "ruling_basis": "conservative normalisation only; no semantic merge"
+      ]
     },
     "-N/+N (on Auras) || -": {
       "proposed": "distinct",
@@ -108,8 +103,7 @@
       "aliases": [
         "-N/-0 to their team, one-shot",
         "-N/-0 to their team"
-      ],
-      "ruling_basis": "conservative normalisation only; no semantic merge"
+      ]
     },
     "-N/-N to their team, one-shot || -N/-N to their team": {
       "proposed": "variant-split",
@@ -121,8 +115,7 @@
       "aliases": [
         "-N/-N to their team, one-shot",
         "-N/-N to their team"
-      ],
-      "ruling_basis": "conservative normalisation only; no semantic merge"
+      ]
     },
     "-N/-N to their team, ongoing || -N/-N to their team": {
       "proposed": "variant-split",
@@ -134,8 +127,7 @@
       "aliases": [
         "-N/-N to their team, ongoing",
         "-N/-N to their team"
-      ],
-      "ruling_basis": "conservative normalisation only; no semantic merge"
+      ]
     },
     "Banisher Priest-like effects (When this card enters the battlefield, exile target creature/permanent until this card leaves play.) || Banisher Priest–like effect (When this card enters the battlefield, exile target creature/permanent until this card leaves play.)": {
       "proposed": "same-mechanic",
@@ -147,8 +139,7 @@
       "aliases": [
         "Banisher Priest-like effects (When this card enters the battlefield, exile target creature/permanent until this card leaves play.)",
         "Banisher Priest–like effect (When this card enters the battlefield, exile target creature/permanent until this card leaves play.)"
-      ],
-      "ruling_basis": "conservative normalisation only; no semantic merge"
+      ]
     },
     "Can't be attacked. (Creatures can't attack you.) || Can't be attacked (Creatures can't attack you.)": {
       "proposed": "same-mechanic",
@@ -160,8 +151,7 @@
       "aliases": [
         "Can't be attacked. (Creatures can't attack you.)",
         "Can't be attacked (Creatures can't attack you.)"
-      ],
-      "ruling_basis": "conservative normalisation only; no semantic merge"
+      ]
     },
     "Can't lose the game and opponents can't win. || Can't lose the game and opponent can't win": {
       "proposed": "same-mechanic",
@@ -173,8 +163,7 @@
       "aliases": [
         "Can't lose the game and opponents can't win.",
         "Can't lose the game and opponent can't win"
-      ],
-      "ruling_basis": "conservative normalisation only; no semantic merge"
+      ]
     },
     "Can't win the game and opponents can't lose || Can't win the game and opponent can't lose": {
       "proposed": "same-mechanic",
@@ -186,8 +175,7 @@
       "aliases": [
         "Can't win the game and opponents can't lose",
         "Can't win the game and opponent can't lose"
-      ],
-      "ruling_basis": "conservative normalisation only; no semantic merge"
+      ]
     },
     "Creature sacrifice, forced, repeatable (All players/opponents must sacrifice a creature each turn.) || -": {
       "proposed": "distinct",
@@ -203,10 +191,10 @@
     "Deal N damage to a creature/player where N is the number of cards in your hand/your opponent's hand. || -": {
       "proposed": "distinct",
       "reason": "no conservative counterpart in the catalog; the list asserts tiers the catalog never discusses",
-      "ruling": "distinct",
+      "ruling": "same-mechanic",
       "list_key": "deal n damage to a creature/player where n is the number of cards in your hand/your opponent's hand",
       "catalog_key": null,
-      "canonical_key": null,
+      "canonical_key": "deal n damage to a creature/planeswalker/player where n is the number of cards in your hand/your opponent's hand",
       "aliases": [
         "Deal N damage to a creature/player where N is the number of cards in your hand/your opponent's hand."
       ]
@@ -214,10 +202,10 @@
     "Destroy all creatures with power 3/4 or greater. || -": {
       "proposed": "distinct",
       "reason": "no conservative counterpart in the catalog; the list asserts tiers the catalog never discusses",
-      "ruling": "distinct",
+      "ruling": "same-mechanic",
       "list_key": "destroy all creatures with power 3/4 or greater",
       "catalog_key": null,
-      "canonical_key": null,
+      "canonical_key": "destroy all creatures with power 3 or greater",
       "aliases": [
         "Destroy all creatures with power 3/4 or greater."
       ]
@@ -225,10 +213,10 @@
     "Destroy target creature with power 3/4 or greater. || -": {
       "proposed": "distinct",
       "reason": "no conservative counterpart in the catalog; the list asserts tiers the catalog never discusses",
-      "ruling": "distinct",
+      "ruling": "same-mechanic",
       "list_key": "destroy target creature with power 3/4 or greater",
       "catalog_key": null,
-      "canonical_key": null,
+      "canonical_key": "destroy target creature with power 3 or greater",
       "aliases": [
         "Destroy target creature with power 3/4 or greater."
       ]
@@ -265,16 +253,15 @@
       "aliases": [
         "Sacrifice a creature.",
         "Sacrifice a creature."
-      ],
-      "ruling_basis": "conservative normalisation only; no semantic merge"
+      ]
     },
     "Sacrifice a creature and deal damage to creature/player equal to the sacrificed creature's power/toughness. || -": {
       "proposed": "distinct",
       "reason": "no conservative counterpart in the catalog; the list asserts tiers the catalog never discusses",
-      "ruling": "distinct",
+      "ruling": "same-mechanic",
       "list_key": "sacrifice a creature and deal damage to creature/player equal to the sacrificed creature's power/toughness",
       "catalog_key": null,
-      "canonical_key": null,
+      "canonical_key": "sacrifice a creature and deal damage to creature/planeswalker/player equal to the sacrificed creature's power/toughness",
       "aliases": [
         "Sacrifice a creature and deal damage to creature/player equal to the sacrificed creature's power/toughness."
       ]
@@ -289,8 +276,7 @@
       "aliases": [
         "Sacrifice an artifact.",
         "Sacrifice an artifact."
-      ],
-      "ruling_basis": "conservative normalisation only; no semantic merge"
+      ]
     },
     "Switching power/toughness || Switch power/toughness": {
       "proposed": "same-mechanic",
@@ -302,13 +288,12 @@
       "aliases": [
         "Switching power/toughness",
         "Switch power/toughness"
-      ],
-      "ruling_basis": "conservative normalisation only; no semantic merge"
+      ]
     },
     "- || Deal N damage to a creature/planeswalker/player where N is the number of cards in your hand/your opponent's hand.": {
       "proposed": "distinct",
       "reason": "no conservative counterpart in the colour lists",
-      "ruling": "distinct",
+      "ruling": "canonical-target",
       "list_key": null,
       "catalog_key": "deal n damage to a creature/planeswalker/player where n is the number of cards in your hand/your opponent's hand",
       "canonical_key": "deal n damage to a creature/planeswalker/player where n is the number of cards in your hand/your opponent's hand",
@@ -319,7 +304,7 @@
     "- || Destroy all creatures with power 3 or greater.": {
       "proposed": "distinct",
       "reason": "no conservative counterpart in the colour lists",
-      "ruling": "distinct",
+      "ruling": "canonical-target",
       "list_key": null,
       "catalog_key": "destroy all creatures with power 3 or greater",
       "canonical_key": "destroy all creatures with power 3 or greater",
@@ -330,7 +315,7 @@
     "- || Destroy target creature with power 3 or greater.": {
       "proposed": "distinct",
       "reason": "no conservative counterpart in the colour lists",
-      "ruling": "distinct",
+      "ruling": "canonical-target",
       "list_key": null,
       "catalog_key": "destroy target creature with power 3 or greater",
       "canonical_key": "destroy target creature with power 3 or greater",
@@ -363,7 +348,7 @@
     "- || Sacrifice a creature and deal damage to creature/planeswalker/player equal to the sacrificed creature's power/toughness.": {
       "proposed": "distinct",
       "reason": "no conservative counterpart in the colour lists",
-      "ruling": "distinct",
+      "ruling": "canonical-target",
       "list_key": null,
       "catalog_key": "sacrifice a creature and deal damage to creature/planeswalker/player equal to the sacrificed creature's power/toughness",
       "canonical_key": "sacrifice a creature and deal damage to creature/planeswalker/player equal to the sacrificed creature's power/toughness",
