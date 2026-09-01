@@ -29,6 +29,14 @@ def write_report(S, out_dir):
     nsig = len(S["color_signatures"])
 
     p("# Mechanical Color Pie 2021 - statistical reconnaissance\n")
+    p("> ## %s\n>" % S["status"])
+    p("> These definitions are frozen. Do not reopen them during UI work merely because")
+    p("> another label would read better.\n")
+    p("| term | frozen meaning |")
+    p("|---|---|")
+    for term, meaning in S["frozen_definitions"].items():
+        p("| `%s` | %s |" % (term, meaning))
+    p("")
     p("Read-only measurement of the accepted source layer, taxonomy and runtime")
     p("projection. Nothing upstream was modified. Snapshot dated %s.\n" % S["meta"]["snapshot"])
     p("Tiers describe design ownership and frequency. They are never translated into")
@@ -119,10 +127,28 @@ def write_report(S, out_dir):
           % (v["empty_wubrg_selection_reachable"], v["empty_selection_note"]))
         p("- excluded from mono-color aggregates: %s\n"
           % v["excluded_from_mono_color_aggregates"])
-    p("**Yore** - registry lookup result:\n")
-    p("```json")
-    p(json.dumps(S["special_identities"]["_yore_lookup"], indent=2))
-    p("```\n")
+    p("### Naming model\n")
+    nm = S["naming_model"]
+    p("%s\n" % nm["rule"])
+    p("| canonical key | display | common names | Commander 2016 lens | reachable | unavailable |")
+    p("|---|---|---|---|---|---|")
+    for x in nm["four_color_naming"]:
+        p("| %s | %s | %s | %s | %d | %d |"
+          % (x["canonical_key"], x["display"], ", ".join(x["common_names"]) or "-",
+             x["commander_2016_design_lens"] or "-", x["reachable"], x["unavailable"]))
+    p("")
+    p("Nephilim card names are official card names. Community short forms are community")
+    p("usage; Wizards has not standardised them as formal names for the colour sets.\n")
+    wubr = [x for x in nm["four_color_naming"] if x["canonical_key"] == "WUBR"]
+    if wubr:
+        names = wubr[0]["common_names"]
+        p("**WUBR** is represented as `%s`, often called %s. Its mechanical statistics"
+          " belong to the WUBR colour set; the nicknames add no additional mechanical"
+          " row.\n" % (wubr[0]["display"],
+                       ", or simply ".join(names[:2]) if len(names) > 1 else ", ".join(names)))
+    att = [r for r in S["selections"] if r.get("commander_2016_attribution")]
+    if att:
+        p("**Commander 2016 attribution.** %s\n" % att[0]["commander_2016_attribution"])
 
     # 5
     p("## 5. Overall distribution\n")
@@ -224,13 +250,19 @@ def write_report(S, out_dir):
       " coefficient of variation %.3f.\n"
       % (k["min"], k["max"], k["mean"], k["median"], k["stdev"], k["quartiles"],
          k["coefficient_of_variation"]))
-    p("| family | primary | secondary | all | pct of 216 | W | U | B | R | G | conditional |")
+    fp = S["family_populations"]
+    p("Canonical members total **%d**, a partition of 216. Secondary cross-links total"
+      " **%d**. Family-to-mechanic connections total **%d**. %s\n"
+      % (fp["canonical_family_members_total"], fp["secondary_family_links_total"],
+         fp["family_to_mechanic_connections_total"], fp["note"]))
+    p("| family | canonical members | secondary links | expanded neighborhood | pct of 216 | W | U | B | R | G | conditional |")
     p("|---|---|---|---|---|---|---|---|---|---|---|")
     for f in S["families"]:
         p("| %s | %d | %d | %d | %.1f%% | %d | %d | %d | %d | %d | %d |"
-          % (f["family"], f["primary_member_count"], f["secondary_member_count"],
-             f["all_member_count"], f["pct_of_216_by_primary_membership"],
-             f["reach_W"], f["reach_U"], f["reach_B"], f["reach_R"], f["reach_G"],
+          % (f["family"], f["canonical_family_members"], f["secondary_family_links"],
+             f["expanded_family_neighborhood"], f["pct_of_216_by_primary_membership"],
+             f["canonical_reach_W"], f["canonical_reach_U"], f["canonical_reach_B"],
+             f["canonical_reach_R"], f["canonical_reach_G"],
              f["conditional_member_count"]))
     p("")
 

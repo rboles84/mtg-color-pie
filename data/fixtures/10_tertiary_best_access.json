@@ -1,0 +1,20 @@
+{
+  "appears_in_selection": true,
+  "best_access_in_selection": "tertiary",
+  "candidates_available": 20,
+  "label": "Counterspell",
+  "mechanic": "counterspell",
+  "no_quality_language": {
+    "mechanic_record_has_no_score_field": true,
+    "runtime_meta_states_tier_is_not_power": true
+  },
+  "note": "Tertiary is occasional access, not weak. This record reads tertiary for White and primary elsewhere; neither is better than the other.",
+  "primary_owners_elsewhere": [
+    "U"
+  ],
+  "selection": [
+    "W"
+  ],
+  "tertiary_only_count_for_W": 20,
+  "white_tier": "tertiary"
+}

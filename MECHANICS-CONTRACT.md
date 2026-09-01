@@ -31,6 +31,24 @@ count differently · Claude thinks Rosewater probably intended something else.
 Those may change aliases, Vox families, presentation, or a future dataset. They
 may not change what the mechanics are.
 
+### Statistical recon: FROZEN
+
+`data/recon/` measures this layer and is itself frozen. Its terminology is
+canonical and is not to be reopened during UI work because another label would
+read better:
+
+- `shared_any_access` is INCLUSIVE of `shared_primary`.
+- `shared_mixed_tier` is the exclusive remainder, and is the population that
+  `selection.py` and the golden fixtures call `shared_access`.
+- `shared_any_access = shared_primary + shared_mixed_tier`, asserted for every
+  multi-colour selection.
+- `canonical_family_members` is a partition summing to 216;
+  `expanded_family_neighborhood` adds secondary cross-links and overlaps.
+
+`tools/check_recon.py` is the freeze gate. It invokes the source, taxonomy and
+fixture gates itself before asserting 53 statistical properties, so the chain
+cannot be skipped by forgetting to run something.
+
 ### Gate order, enforced
 
     source gate -> generate -> downstream gate

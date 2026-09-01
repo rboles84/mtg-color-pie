@@ -56,6 +56,8 @@ def read_registry(html_path):
         nm = re.search(r"name:'([^']+)'", chunk)
         gp = re.search(r"group:'([a-z]+)'", chunk)
         of = re.search(r"of:'([^']+)'", chunk)
+        lens = re.search(r"lens:'([^']+)'", chunk)
+        cmdr = re.search(r"commander:'([^']+)'", chunk)
         aka = re.findall(r"aka:\[([^\]]*)\]", chunk)
         if not nm or not gp:
             continue
@@ -67,6 +69,8 @@ def read_registry(html_path):
             "name": nm.group(1),
             "group": gp.group(1),
             "of": of.group(1) if of else "",
+            "lens": lens.group(1) if lens else "",
+            "commander": cmdr.group(1) if cmdr else "",
             "aka": akas,
         })
     seen, uniq = set(), []
@@ -105,7 +109,8 @@ def selection_row(M, colors):
     cs = set(colors)
     buckets = {"primary_available": [], "secondary_only": [], "tertiary_only": [],
                "unavailable": []}
-    share = {"shared_any_access": [], "shared_primary": [], "complementary": []}
+    share = {"shared_any_access": [], "shared_primary": [], "shared_mixed_tier": [],
+             "complementary": []}
     conditional = []
     fams_reached, fams_primary = set(), set()
 
@@ -130,6 +135,12 @@ def selection_row(M, colors):
                 share["shared_any_access"].append(k)
                 if all(t == "primary" for t in owned.values()):
                     share["shared_primary"].append(k)
+                else:
+                    # shared_mixed_tier is what selection.py and the golden
+                    # fixtures call `shared_access`. Same population, clearer
+                    # name: shared_any_access is INCLUSIVE of shared_primary,
+                    # this one is not.
+                    share["shared_mixed_tier"].append(k)
             else:
                 share["complementary"].append(k)
 
@@ -137,6 +148,8 @@ def selection_row(M, colors):
     assert sum(len(v) for v in buckets.values()) == total, ("best-access partition", colors)
     assert (len(share["shared_any_access"]) + len(share["complementary"])
             + len(buckets["unavailable"])) == total, ("sharing partition", colors)
+    assert (len(share["shared_primary"]) + len(share["shared_mixed_tier"])
+            == len(share["shared_any_access"])), ("shared decomposition", colors)
 
     reach = total - len(buckets["unavailable"])
     mono = len(cs) == 1
@@ -152,6 +165,8 @@ def selection_row(M, colors):
         "unavailable_count": len(buckets["unavailable"]),
         "shared_any_access": "not_applicable" if mono else len(share["shared_any_access"]),
         "shared_primary": "not_applicable" if mono else len(share["shared_primary"]),
+        "shared_mixed_tier": "not_applicable" if mono else len(share["shared_mixed_tier"]),
+        "compat_shared_access_equals_shared_mixed_tier": True,
         "complementary": "not_applicable" if mono else len(share["complementary"]),
         "conditional_reachable": len(conditional),
         "families_reached": len(fams_reached),
@@ -186,6 +201,40 @@ def marginal_addition(M, base, added):
         else:
             out["unchanged"].append(k)
     assert sum(len(v) for v in out.values()) == len(M), ("addition partition", base, added)
+    return out
+
+
+def transition_detail(M, base, added):
+    """
+    Exact before->after best-access transitions for one added colour.
+
+    Subdivides newly_reachable and best_tier_improved into named transitions,
+    and asserts the subdivision reconciles to the coarse buckets. A transition
+    is a change in design OWNERSHIP and ACCESS. It is never a power change.
+    """
+    b, a = set(base), set(base) | {added}
+    keys = ["unavailable_to_tertiary", "unavailable_to_secondary", "unavailable_to_primary",
+            "tertiary_to_secondary", "tertiary_to_primary", "secondary_to_primary",
+            "same_tier_new_owner"]
+    out = {k: [] for k in keys}
+    for k, e in M.items():
+        b0, o0 = best_access(e, b)
+        b1, o1 = best_access(e, a)
+        if b1 is None:
+            continue
+        if b0 is None:
+            out["unavailable_to_" + b1].append(k)
+        elif RANK[b1] > RANK[b0]:
+            out[b0 + "_to_" + b1].append(k)
+        elif len(o1) > len(o0):
+            out["same_tier_new_owner"].append(k)
+    coarse = marginal_addition(M, base, added)
+    newly = sum(len(out["unavailable_to_" + t]) for t in TIERS)
+    improved = (len(out["tertiary_to_secondary"]) + len(out["tertiary_to_primary"])
+                + len(out["secondary_to_primary"]))
+    assert newly == len(coarse["newly_reachable"]), ("newly reconcile", base, added)
+    assert improved == len(coarse["best_tier_improved"]), ("improved reconcile", base, added)
+    assert len(out["same_tier_new_owner"]) == len(coarse["new_owner_no_improvement"]),         ("new owner reconcile", base, added)
     return out
 
 
@@ -228,7 +277,29 @@ def main():
     M = rt["byMechanic"]
     N = len(M)
 
-    S = {"meta": {
+    S = {"status": "STATISTICAL RECON STATUS: FROZEN",
+         "frozen_definitions": {
+             "reachable": "at least one selected colour holds some tier assignment",
+             "primary_available": "best access across the selection is primary",
+             "secondary_only": "best access across the selection is secondary",
+             "tertiary_only": "best access across the selection is tertiary",
+             "shared_any_access": "every selected colour holds some tier; INCLUSIVE of shared_primary",
+             "shared_primary": "every selected colour is primary",
+             "shared_mixed_tier": ("every selected colour holds some tier, EXCLUDING "
+                                   "shared_primary. This is the population that "
+                                   "selection.py and the golden fixtures call "
+                                   "`shared_access`."),
+             "complementary": "at least one but not every selected colour has access",
+             "unavailable": "no selected colour has access",
+             "conditional": ("overlapping annotation from the runtime; never added into "
+                             "a mutually exclusive bucket"),
+             "canonical_family_members": ("exactly one Vox family per mechanic; a "
+                                          "partition summing to 216"),
+             "expanded_family_neighborhood": ("canonical members plus secondary "
+                                              "cross-links; overlaps across families"),
+             "identity": ("shared_any_access = shared_primary + shared_mixed_tier"),
+         },
+         "meta": {
         "generated_by": "tools/recon_stats.py",
         "snapshot": rt["meta"]["snapshot_date"],
         "read_only": True,
@@ -319,15 +390,6 @@ def main():
             "excluded_from_mono_color_aggregates": True,
         } for r in unmapped
     }
-    yore = [r for r in reg if "yore" in (r["name"] + " " + " ".join(r["aka"])).lower()]
-    S["special_identities"]["_yore_lookup"] = (
-        [{"name": r["name"], "display": r["display"], "aka": r["aka"],
-          "canonical_key": canon_key(r["display"]),
-          "mechanical_projection_status": "measured" if canon_key(r["display"])
-                                          else "not_measured"} for r in yore]
-        or [{"mechanical_projection_status": "not_measured",
-             "reason": "No registry record matching 'Yore' was found."}])
-
     # ---- 8. dataset-wide --------------------------------------------------
     tier_counts = Counter(d["tier"] for e in M.values() for d in e["colors"].values())
     prim_owner = Counter(sum(1 for d in e["colors"].values() if d["tier"] == "primary")
@@ -411,13 +473,68 @@ def main():
             continue
         (lens_map if r["group"] == "college" else alias_map)[k].append(r["name"])
 
+    # NAMING MODEL. A nickname decorates a colour set; it never creates another
+    # mechanical identity. There are exactly 31 nonempty WUBRG selections and
+    # every alias, lens and community short form attaches to one of them.
+    #
+    # The community short form is DERIVED by one uniform rule -- the segment of
+    # the Nephilim card name before the hyphen -- so it is not invented per
+    # case. It is community usage and is labelled as such; Wizards has not
+    # standardised it as a formal name for the colour set.
+    reg_by_key = defaultdict(list)
+    for r in reg:
+        k = canon_key(r["display"])
+        if k:
+            reg_by_key[k].append(r)
+
     sel_rows = []
     for key in subsets:
         row = selection_row(M, set(key))
+        recs = reg_by_key.get(key, [])
         row["aliases"] = "; ".join(alias_map.get(key, []))
         row["lens_aliases"] = "; ".join(lens_map.get(key, []))
+        row["display"] = next((r["name"] for r in recs if r["group"] != "college"), "")
+        nephilim = [a for r in recs for a in r["aka"]]
+        row["nephilim_card_names"] = "; ".join(nephilim)
+        row["community_short_forms"] = "; ".join(
+            sorted({a.split("-")[0] for a in nephilim if "-" in a}))
+        row["common_names"] = "; ".join(
+            nephilim + sorted({a.split("-")[0] for a in nephilim if "-" in a}))
+        lens = next((r["lens"] for r in recs if r["lens"]), "")
+        row["commander_2016_design_lens"] = lens
+        row["commander_2016_attribution"] = (
+            "Developed by the Commander 2016 design team led by Ethan Fleischer, "
+            "following lead developer Ben Hayes's challenge that each four-colour "
+            "grouping receive a distinct faction-like identity. Sources: Ethan "
+            "Fleischer, \"Designing Commander (2016 Edition),\" Oct 24 2016; Mark "
+            "Rosewater, \"Howdy Partner,\" Oct 24 2016." if lens else "")
+        row["naming_note"] = (
+            "Nephilim card names are official card names. Community short forms are "
+            "community usage, not a Wizards-standardised name for the colour set."
+            if nephilim else "")
         sel_rows.append(row)
     S["selections"] = [{k: v for k, v in r.items() if k != "_lists"} for r in sel_rows]
+
+    # The previous build carried a `_yore_lookup` field whose result came from a
+    # substring match on the registry alias "Yore-Tiller". That presented a
+    # nickname as though a fuzzy search had discovered a separate special
+    # identity. Naming and mechanical projection are separated here instead:
+    # WUBR is one canonical selection that CARRIES the names, and the names add
+    # no mechanical row of their own.
+    S["naming_model"] = {
+        "rule": ("Aliases, lenses and community short forms decorate one of the 31 "
+                 "canonical WUBRG selections. They never create an additional "
+                 "mechanical identity, row or subset."),
+        "canonical_selection_count": 31,
+        "four_color_naming": [
+            {"canonical_key": r["key"], "display": r["display"],
+             "common_names": [x for x in r["common_names"].split("; ") if x],
+             "commander_2016_design_lens": r["commander_2016_design_lens"],
+             "mechanical_projection_status": "measured",
+             "reachable": r["reachable_count"], "unavailable": r["unavailable_count"]}
+            for r in sel_rows if r["color_count"] == 4],
+    }
+
 
     def spread_stats(vals):
         return {"min": min(vals), "max": max(vals),
@@ -466,6 +583,7 @@ def main():
             if c in key:
                 continue
             o = marginal_addition(M, set(key), c)
+            td = transition_detail(M, set(key), c)
             add_rows.append({
                 "base": key, "added": c, "result": canon_key(set(key) | {c}),
                 "newly_reachable": len(o["newly_reachable"]),
@@ -473,10 +591,17 @@ def main():
                 "new_owner_no_improvement": len(o["new_owner_no_improvement"]),
                 "unchanged": len(o["unchanged"]),
                 "still_unavailable": len(o["still_unavailable"]),
-                "_lists": o,
+                **{"t_" + k: len(v) for k, v in td.items()},
+                "_lists": o, "_transitions": td,
             })
-    S["marginal_additions"] = [{k: v for k, v in r.items() if k != "_lists"}
+    S["marginal_additions"] = [{k: v for k, v in r.items()
+                                if k not in ("_lists", "_transitions")}
                                for r in add_rows]
+    S["tier_transition_totals"] = {
+        k: sum(len(r["_transitions"][k]) for r in add_rows)
+        for k in add_rows[0]["_transitions"]}
+    S["tier_transition_note"] = ("A transition is a change in design ownership and "
+                                 "access. It is never a change in power.")
     by_added = defaultdict(list)
     for r in add_rows:
         by_added[r["added"]].append(r)
@@ -535,12 +660,25 @@ def main():
         fam_color_mx[f] = cm
         reached = sum(1 for key in subsets
                       if any(set(key) & set(M[k]["colors"]) for k in ks))
+        # CANONICAL vs EXPANDED. A mechanic has exactly one canonical family;
+        # a secondary family is a CROSS-LINK, not a second classification.
+        # canonical_family_members sums to 216 and is a partition.
+        # expanded_family_neighborhood overlaps across families and must never
+        # be added into the same total.
+        sec = fam_secondary.get(f, [])
         fam_rows.append({
             "family": f,
+            "canonical_family_members": len(ks),
+            "secondary_family_links": len(sec),
+            "expanded_family_neighborhood": len(set(ks) | set(sec)),
             "primary_member_count": len(ks),
-            "secondary_member_count": len(fam_secondary.get(f, [])),
-            "all_member_count": len(set(ks) | set(fam_secondary.get(f, []))),
+            "secondary_member_count": len(sec),
+            "all_member_count": len(set(ks) | set(sec)),
             "pct_of_216_by_primary_membership": round(100.0 * len(ks) / N, 1),
+            **{"canonical_reach_" + c: colr[c] for c in ORDER},
+            **{"canonical_primary_" + c: colp[c] for c in ORDER},
+            **{"expanded_reach_" + c: sum(
+                1 for k in set(ks) | set(sec) if c in M[k]["colors"]) for c in ORDER},
             **{"reach_" + c: colr[c] for c in ORDER},
             **{"primary_" + c: colp[c] for c in ORDER},
             "color_breadth_of_members": round(
@@ -561,9 +699,19 @@ def main():
                 "tertiary_only": best.count("tertiary"),
             }
     S["families"] = fam_rows
-    sizes = [r["primary_member_count"] for r in fam_rows]
+    S["family_populations"] = {
+        "canonical_family_members_total": sum(r["canonical_family_members"] for r in fam_rows),
+        "secondary_family_links_total": sum(r["secondary_family_links"] for r in fam_rows),
+        "family_to_mechanic_connections_total": (
+            sum(r["canonical_family_members"] for r in fam_rows)
+            + sum(r["secondary_family_links"] for r in fam_rows)),
+        "note": ("canonical membership is a partition of 216; secondary links are "
+                 "cross-links that overlap and are never added into that total"),
+    }
+    sizes = [r["canonical_family_members"] for r in fam_rows]
     q = statistics.quantiles(sizes, n=4) if len(sizes) > 3 else []
     S["family_size_skew"] = {
+        "population": "canonical_family_members (partition, sums to 216)",
         "families": len(fam_rows), "min": min(sizes), "max": max(sizes),
         "mean": round(statistics.mean(sizes), 2), "median": statistics.median(sizes),
         "stdev": round(statistics.pstdev(sizes), 2),
@@ -661,10 +809,10 @@ def main():
                       "shared_primary_overlap", True))
     ex.append(extreme("lowest shared_primary_overlap among color pairs", pair_rows,
                       "shared_primary_overlap", False))
-    ex.append(extreme("largest family by primary_member_count", fam_rows,
-                      "primary_member_count", True))
-    ex.append(extreme("smallest family by primary_member_count", fam_rows,
-                      "primary_member_count", False))
+    ex.append(extreme("largest family by canonical_family_members", fam_rows,
+                      "canonical_family_members", True))
+    ex.append(extreme("smallest family by canonical_family_members", fam_rows,
+                      "canonical_family_members", False))
     ex.append(extreme("highest lost_completely when the color is omitted", absence,
                       "lost_completely", True))
     ex.append(extreme("lowest lost_completely when the color is omitted", absence,

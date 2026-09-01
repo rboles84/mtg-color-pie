@@ -114,15 +114,46 @@ def build(rt):
         "colour_count": len(np["colors"]),
     }
 
-    # 10  tertiary-only access must be representable without implying "bad"
-    tert = sorted(k for k, e in rt["byMechanic"].items()
-                  if e["colors"] and all(d["tier"] == "tertiary"
-                                         for d in e["colors"].values()))
-    f["10_tertiary_only"] = {
-        "count": len(tert),
-        "examples": tert[:5],
-        "note": "tertiary is occasional, not weak. No count here may be rendered "
-                "as a score, a bar length, or a ranking.",
+    # 10  REPAIRED. The previous version asserted the set of mechanics that are
+    #     tertiary in EVERY colour holding them. That set is empty, so the
+    #     fixture asserted nothing and could not protect the behaviour it
+    #     existed for. It now uses a real tertiary-best selection.
+    #
+    #     The candidate is chosen PROGRAMMATICALLY from the runtime: a mechanic
+    #     whose best access in a White-only selection is tertiary AND which
+    #     another colour holds at primary. That second condition is what makes
+    #     it a real test -- the same record must read as tertiary here and
+    #     primary elsewhere without either being called better.
+    w_sel = {"W"}
+    tert_best = sorted(
+        k for k, e in rt["byMechanic"].items()
+        if S.access(e, w_sel)[0] == "tertiary"
+        and any(d["tier"] == "primary" for c, d in e["colors"].items() if c != "W"))
+    assert tert_best, "no tertiary-best candidate in a White-only selection"
+    pick = "counterspell" if "counterspell" in tert_best else tert_best[0]
+    e = rt["byMechanic"][pick]
+    best, owned = S.access(e, w_sel)
+    f["10_tertiary_best_access"] = {
+        "selection": ["W"],
+        "mechanic": pick,
+        "label": e["label"],
+        "best_access_in_selection": best,
+        "white_tier": e["colors"]["W"]["tier"],
+        "primary_owners_elsewhere": sorted(
+            c for c, d in e["colors"].items() if c != "W" and d["tier"] == "primary"),
+        "appears_in_selection": pick in [
+            k for k, x in rt["byMechanic"].items() if set(x["colors"]) & w_sel],
+        "candidates_available": len(tert_best),
+        "tertiary_only_count_for_W": len(
+            [k for k, x in rt["byMechanic"].items() if S.access(x, w_sel)[0] == "tertiary"]),
+        "no_quality_language": {
+            "runtime_meta_states_tier_is_not_power": "NOT card quality"
+                in rt["meta"]["tier_meaning"],
+            "mechanic_record_has_no_score_field": not any(
+                k in e for k in ("score", "rating", "power", "strength", "rank")),
+        },
+        "note": "Tertiary is occasional access, not weak. This record reads tertiary "
+                "for White and primary elsewhere; neither is better than the other.",
     }
 
     # 11  PROVENANCE: an identity merge must survive into the runtime

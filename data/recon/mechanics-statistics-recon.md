@@ -1,5 +1,26 @@
 # Mechanical Color Pie 2021 - statistical reconnaissance
 
+> ## STATISTICAL RECON STATUS: FROZEN
+>
+> These definitions are frozen. Do not reopen them during UI work merely because
+> another label would read better.
+
+| term | frozen meaning |
+|---|---|
+| `reachable` | at least one selected colour holds some tier assignment |
+| `primary_available` | best access across the selection is primary |
+| `secondary_only` | best access across the selection is secondary |
+| `tertiary_only` | best access across the selection is tertiary |
+| `shared_any_access` | every selected colour holds some tier; INCLUSIVE of shared_primary |
+| `shared_primary` | every selected colour is primary |
+| `shared_mixed_tier` | every selected colour holds some tier, EXCLUDING shared_primary. This is the population that selection.py and the golden fixtures call `shared_access`. |
+| `complementary` | at least one but not every selected colour has access |
+| `unavailable` | no selected colour has access |
+| `conditional` | overlapping annotation from the runtime; never added into a mutually exclusive bucket |
+| `canonical_family_members` | exactly one Vox family per mechanic; a partition summing to 216 |
+| `expanded_family_neighborhood` | canonical members plus secondary cross-links; overlaps across families |
+| `identity` | shared_any_access = shared_primary + shared_mixed_tier |
+
 Read-only measurement of the accepted source layer, taxonomy and runtime
 projection. Nothing upstream was modified. Snapshot dated 2021-10-18.
 
@@ -91,21 +112,24 @@ Color sets carrying more than one registry name:
 - `empty_wubrg_selection_reachable: 0` - Algorithmic empty-set result of the WUBRG projection. NOT a count of Colorless mechanics.
 - excluded from mono-color aggregates: True
 
-**Yore** - registry lookup result:
+### Naming model
 
-```json
-[
-  {
-    "name": "Non-Green",
-    "display": "WUBR",
-    "aka": [
-      "Yore-Tiller"
-    ],
-    "canonical_key": "WUBR",
-    "mechanical_projection_status": "measured"
-  }
-]
-```
+Aliases, lenses and community short forms decorate one of the 31 canonical WUBRG selections. They never create an additional mechanical identity, row or subset.
+
+| canonical key | display | common names | Commander 2016 lens | reachable | unavailable |
+|---|---|---|---|---|---|
+| WUBR | Non-Green | Yore-Tiller, Yore | Artifice | 206 | 10 |
+| WUBG | Non-Red | Witch-Maw, Witch | Growth | 205 | 11 |
+| WURG | Non-Black | Ink-Treader, Ink | Altruism | 196 | 20 |
+| WBRG | Non-Blue | Dune-Brood, Dune | Aggression | 202 | 14 |
+| UBRG | Non-White | Glint-Eye, Glint | Chaos | 190 | 26 |
+
+Nephilim card names are official card names. Community short forms are community
+usage; Wizards has not standardised them as formal names for the colour sets.
+
+**WUBR** is represented as `Non-Green`, often called Yore-Tiller, or simply Yore. Its mechanical statistics belong to the WUBR colour set; the nicknames add no additional mechanical row.
+
+**Commander 2016 attribution.** Developed by the Commander 2016 design team led by Ethan Fleischer, following lead developer Ben Hayes's challenge that each four-colour grouping receive a distinct faction-like identity. Sources: Ethan Fleischer, "Designing Commander (2016 Edition)," Oct 24 2016; Mark Rosewater, "Howdy Partner," Oct 24 2016.
 
 ## 5. Overall distribution
 
@@ -227,7 +251,9 @@ overlaps and must not be added into the same total.
 
 Size skew: min 1, max 34, mean 9.39, median 7, stdev 7.31, quartiles [4.0, 7.0, 13.0], coefficient of variation 0.778.
 
-| family | primary | secondary | all | pct of 216 | W | U | B | R | G | conditional |
+Canonical members total **216**, a partition of 216. Secondary cross-links total **36**. Family-to-mechanic connections total **252**. canonical membership is a partition of 216; secondary links are cross-links that overlap and are never added into that total
+
+| family | canonical members | secondary links | expanded neighborhood | pct of 216 | W | U | B | R | G | conditional |
 |---|---|---|---|---|---|---|---|---|---|---|
 | stat_modification | 34 | 0 | 34 | 15.7% | 17 | 13 | 17 | 12 | 15 | 21 |
 | removal | 22 | 3 | 25 | 10.2% | 12 | 1 | 10 | 5 | 5 | 12 |
@@ -238,19 +264,19 @@ Size skew: min 1, max 34, mean 9.39, median 7, stdev 7.31, quartiles [4.0, 7.0, 
 | protection | 12 | 1 | 13 | 5.6% | 9 | 6 | 4 | 5 | 6 | 5 |
 | card_flow | 11 | 11 | 22 | 5.1% | 4 | 8 | 4 | 6 | 7 | 6 |
 | card_type_affinity | 10 | 0 | 10 | 4.6% | 8 | 5 | 2 | 5 | 3 | 1 |
-| sacrifice | 8 | 0 | 8 | 3.7% | 1 | 1 | 6 | 7 | 2 | 2 |
 | disruption | 8 | 2 | 10 | 3.7% | 0 | 2 | 6 | 3 | 0 | 4 |
-| characteristic_change | 7 | 0 | 7 | 3.2% | 3 | 7 | 2 | 1 | 3 | 3 |
-| tutoring | 7 | 0 | 7 | 3.2% | 5 | 4 | 3 | 3 | 2 | 3 |
+| sacrifice | 8 | 0 | 8 | 3.7% | 1 | 1 | 6 | 7 | 2 | 2 |
 | mana | 7 | 0 | 7 | 3.2% | 1 | 4 | 4 | 3 | 6 | 3 |
+| tutoring | 7 | 0 | 7 | 3.2% | 5 | 4 | 3 | 3 | 2 | 3 |
+| characteristic_change | 7 | 0 | 7 | 3.2% | 3 | 7 | 2 | 1 | 3 | 3 |
 | life | 6 | 0 | 6 | 2.8% | 4 | 1 | 6 | 1 | 2 | 4 |
 | counters | 5 | 0 | 5 | 2.3% | 2 | 3 | 3 | 2 | 3 | 1 |
 | cheat_into_play | 4 | 0 | 4 | 1.9% | 4 | 3 | 1 | 1 | 2 | 2 |
 | control | 4 | 0 | 4 | 1.9% | 2 | 3 | 1 | 0 | 1 | 2 |
-| copying | 3 | 0 | 3 | 1.4% | 0 | 3 | 0 | 2 | 0 | 2 |
-| rules_alteration | 3 | 0 | 3 | 1.4% | 3 | 1 | 1 | 1 | 1 | 2 |
 | win_condition | 3 | 0 | 3 | 1.4% | 2 | 0 | 2 | 0 | 0 | 1 |
+| copying | 3 | 0 | 3 | 1.4% | 0 | 3 | 0 | 2 | 0 | 2 |
 | theft | 3 | 0 | 3 | 1.4% | 0 | 1 | 2 | 1 | 0 | 2 |
+| rules_alteration | 3 | 0 | 3 | 1.4% | 3 | 1 | 1 | 1 | 1 | 2 |
 | tokens | 1 | 1 | 2 | 0.5% | 1 | 1 | 1 | 1 | 1 | 1 |
 
 ## 12. Conditionality
@@ -319,8 +345,8 @@ Every extreme names its metric and reports ties rather than discarding them.
 | lowest reachable_count among four-color selections | 190 | UBRG | no |
 | highest shared_primary_overlap among color pairs | 9 | WG | no |
 | lowest shared_primary_overlap among color pairs | 0 | BG | no |
-| largest family by primary_member_count | 34 | stat_modification | no |
-| smallest family by primary_member_count | 1 | tokens | no |
+| largest family by canonical_family_members | 34 | stat_modification | no |
+| smallest family by canonical_family_members | 1 | tokens | no |
 | highest lost_completely when the color is omitted | 26 | W | no |
 | lowest lost_completely when the color is omitted | 10 | G | no |
 | highest best_access_degraded when the color is omitted | 29 | U | no |

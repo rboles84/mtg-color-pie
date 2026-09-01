@@ -16,7 +16,8 @@ import json
 import pathlib
 import sys
 
-from gate import require_source_gate
+from gate import require_source_gate, require_taxonomy_gate
+import subprocess
 
 ORDER = "WUBRG"
 N = 216
@@ -27,7 +28,18 @@ def main():
     ap.add_argument("--data", type=pathlib.Path, default=pathlib.Path("data"))
     a = ap.parse_args()
 
+    # THE RECON VALIDATOR IS THE FREEZE GATE. It invokes the accepted upstream
+    # chain structurally rather than trusting that somebody ran it first:
+    #   source gate -> taxonomy gate -> runtime/fixture gate -> recon assertions
     require_source_gate(a.data)
+    require_taxonomy_gate(a.data)
+    r = subprocess.run([sys.executable, str(pathlib.Path(__file__).parent / "fixtures.py"),
+                        "--data", str(a.data)], capture_output=True, text=True)
+    if r.returncode != 0:
+        sys.stdout.write(r.stdout); sys.stdout.write(r.stderr)
+        print("\nFIXTURE GATE FAILED. Recon assertions will not run.")
+        sys.exit(1)
+    print("%-20s: PASS" % "fixture gate")
 
     S = json.loads((a.data / "recon" / "mechanics-statistics.json").read_text(encoding="utf-8"))
     rt = json.loads((a.data / "mechanical-color-pie.runtime.json").read_text(encoding="utf-8"))
@@ -142,6 +154,110 @@ def main():
     chk(len(keys) == len(set(keys)), "aliases never create duplicate canonical rows")
     chk(S["registry_audit"]["unique_wubrg_color_sets_represented"] <= 31,
         "registry colour sets do not exceed the 31 canonical selections")
+
+    # ---- shared decomposition (frozen terminology) -----------------------
+    dec_bad = [r["key"] for r in S["selections"] if r["color_count"] > 1
+               and r["shared_primary"] + r["shared_mixed_tier"] != r["shared_any_access"]]
+    chk(not dec_bad, "shared_primary + shared_mixed_tier == shared_any_access for every "
+        "multicolor selection", str(dec_bad))
+
+    # ---- exclusive access reconciles to the breadth-1 bucket -------------
+    excl_sum = sum(S["per_color"][c]["globally_exclusive_access"] for c in ORDER)
+    breadth1 = S["color_breadth"]["1"]["mechanics_assigned_to_exactly_n_colors"]
+    chk(excl_sum == breadth1,
+        "sum of per-colour exclusive access equals the exactly-one-colour bucket",
+        "%d vs %d" % (excl_sum, breadth1))
+
+    # ---- unique primary ownership reconciles ------------------------------
+    uniq_sum = sum(S["per_color"][c]["globally_unique_primary_owner"] for c in ORDER)
+    one_prim = S["overall"]["mechanics_by_primary_owner_count"]["1"]
+    chk(uniq_sum == one_prim,
+        "sum of per-colour unique-primary-owner equals the exactly-one-primary bucket",
+        "%d vs %d" % (uniq_sum, one_prim))
+
+    # ---- primary-owner weighted count equals primary assignments ---------
+    wprim = sum(int(i) * v for i, v in
+                S["overall"]["mechanics_by_primary_owner_count"].items())
+    chk(wprim == S["overall"]["primary_assignments"],
+        "primary-owner weighted sum equals total primary assignments",
+        "%d vs %d" % (wprim, S["overall"]["primary_assignments"]))
+
+    # ---- exact access signatures -----------------------------------------
+    sigs = S["color_signatures"]
+    chk(sum(x["count"] for x in sigs) == N, "signature counts sum to 216")
+    chk(all(1 <= x["color_count"] <= 5 for x in sigs),
+        "every signature contains between 1 and 5 colours")
+    sig_by_n = {}
+    for x in sigs:
+        sig_by_n[x["color_count"]] = sig_by_n.get(x["color_count"], 0) + x["count"]
+    sig_bad = [n for n in range(1, 6)
+               if sig_by_n.get(n, 0)
+               != S["color_breadth"][str(n)]["mechanics_assigned_to_exactly_n_colors"]]
+    chk(not sig_bad, "every signature contributes to its colour-breadth bucket", str(sig_bad))
+    chk(len(sigs) == len({x["signature"] for x in sigs}) and len(sigs) <= 31,
+        "distinct nonzero signature count is derived, not assumed",
+        "%d" % len(sigs))
+
+    # ---- pair set arithmetic ---------------------------------------------
+    sel_by_key = {r["key"]: r for r in S["selections"]}
+    pair_bad = []
+    for pr in S["pair_overlap"]:
+        a_, b_ = pr["pair"][0], pr["pair"][1]
+        union = (S["per_color"][a_]["total_reachable"] + S["per_color"][b_]["total_reachable"]
+                 - pr["any_access_overlap"])
+        key = "".join(c for c in ORDER if c in (a_, b_))
+        if union != pr["union_size"] or union != sel_by_key[key]["reachable_count"]:
+            pair_bad.append(pr["pair"])
+    chk(not pair_bad, "inclusion-exclusion holds for all ten pairs and matches the "
+        "pair selection reachable_count", str(pair_bad))
+
+    # ---- family graph accounting -----------------------------------------
+    fam = S["family_populations"]
+    g = S["graph_readiness"]["three_layer_model"]
+    chk(g["primary_family_to_mechanic_edges"] == N,
+        "primary-family edges equal 216", "%d" % g["primary_family_to_mechanic_edges"])
+    chk(fam["canonical_family_members_total"] == N,
+        "canonical family membership sums to 216")
+    chk(fam["family_to_mechanic_connections_total"]
+        == g["primary_family_to_mechanic_edges"] + g["secondary_family_to_mechanic_edges"],
+        "expanded family edges equal primary + secondary family edges")
+    chk(g["total_edges"] == (g["color_to_mechanic_edges"]
+                             + g["primary_family_to_mechanic_edges"]
+                             + g["secondary_family_to_mechanic_edges"]),
+        "graph total edges equal the sum of the three edge classes")
+    chk(all(len([1]) == 1 for _ in [0]) and all(
+        e.get("family") for e in M.values()),
+        "every mechanic has exactly one primary family")
+
+    # ---- tier-transition detail reconciles -------------------------------
+    tt = S["tier_transition_totals"]
+    newly_tot = sum(r["newly_reachable"] for r in S["marginal_additions"])
+    impr_tot = sum(r["best_tier_improved"] for r in S["marginal_additions"])
+    owner_tot = sum(r["new_owner_no_improvement"] for r in S["marginal_additions"])
+    chk(tt["unavailable_to_tertiary"] + tt["unavailable_to_secondary"]
+        + tt["unavailable_to_primary"] == newly_tot,
+        "detailed unavailable-to-X transitions reconcile to newly_reachable")
+    chk(tt["tertiary_to_secondary"] + tt["tertiary_to_primary"]
+        + tt["secondary_to_primary"] == impr_tot,
+        "detailed improvement transitions reconcile to best_tier_improved")
+    chk(tt["same_tier_new_owner"] == owner_tot,
+        "same_tier_new_owner reconciles to new_owner_no_improvement")
+
+    # ---- naming model never multiplies selections ------------------------
+    nm = S["naming_model"]
+    chk(nm["canonical_selection_count"] == 31, "naming model asserts 31 canonical selections")
+    chk(all(x["mechanical_projection_status"] == "measured"
+            for x in nm["four_color_naming"]),
+        "every four-colour naming record is measured, not a separate identity")
+    chk(len({x["canonical_key"] for x in nm["four_color_naming"]}) == 5,
+        "five four-colour naming records, one per colour set")
+    chk("_yore_lookup" not in json.dumps(S),
+        "the misleading _yore_lookup field is gone")
+
+    # ---- frozen status ----------------------------------------------------
+    chk(S.get("status", "").endswith("FROZEN"), "recon carries the FROZEN status marker")
+    chk(len(S.get("frozen_definitions", {})) >= 12,
+        "frozen definitions are recorded", "%d" % len(S.get("frozen_definitions", {})))
 
     # ---- agreement with accepted golden fixtures -------------------------
     fx = a.data / "fixtures"
