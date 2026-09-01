@@ -1,0 +1,21 @@
+{
+  "add_W": {
+    "best_tier_improved": 20,
+    "new_owner_no_improvement": 51,
+    "newly_reachable": 33,
+    "still_unavailable": 10,
+    "unchanged": 102
+  },
+  "sections": {
+    "complementary": 142,
+    "conditional": 91,
+    "shared_access": 31,
+    "shared_primary": 0,
+    "unavailable": 43
+  },
+  "selection": [
+    "U",
+    "B",
+    "R"
+  ]
+}

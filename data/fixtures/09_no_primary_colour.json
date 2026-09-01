@@ -1,0 +1,14 @@
+{
+  "colors": {
+    "B": "secondary",
+    "G": "secondary",
+    "R": "secondary",
+    "U": "secondary",
+    "W": "secondary"
+  },
+  "colour_count": 5,
+  "has_primary": false,
+  "tiers_present": [
+    "secondary"
+  ]
+}

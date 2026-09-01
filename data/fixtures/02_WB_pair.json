@@ -1,0 +1,26 @@
+{
+  "add_G": {
+    "best_tier_improved": 17,
+    "new_owner_no_improvement": 42,
+    "newly_reachable": 24,
+    "still_unavailable": 38,
+    "unchanged": 95
+  },
+  "remove_B": {
+    "lost_completely": 50,
+    "lost_owner_retained_access": 30,
+    "tier_degraded": 14,
+    "unchanged": 60
+  },
+  "sections": {
+    "complementary": 110,
+    "conditional": 82,
+    "shared_access": 42,
+    "shared_primary": 2,
+    "unavailable": 62
+  },
+  "selection": [
+    "W",
+    "B"
+  ]
+}

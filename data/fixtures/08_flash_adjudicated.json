@@ -1,0 +1,16 @@
+{
+  "black_authority": "companion change log, 2021-10-18",
+  "black_basis": "adjudicated",
+  "black_conflict": {
+    "ability_catalog_says": "secondary",
+    "colour_list_says": "tertiary"
+  },
+  "black_tier": "secondary",
+  "colors": {
+    "B": "secondary",
+    "G": "secondary",
+    "R": "tertiary",
+    "U": "primary",
+    "W": "secondary"
+  }
+}

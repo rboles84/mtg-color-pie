@@ -1,0 +1,12 @@
+{
+  "colors": {
+    "B": "secondary",
+    "G": "tertiary",
+    "R": "secondary",
+    "U": "primary",
+    "W": "primary"
+  },
+  "has_restriction": true,
+  "restriction_mentions_dragons": true,
+  "restriction_mentions_phoenixes": true
+}

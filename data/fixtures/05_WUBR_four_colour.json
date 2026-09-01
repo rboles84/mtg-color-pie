@@ -1,0 +1,34 @@
+{
+  "best_access_worse": 18,
+  "completely_lost": 10,
+  "excluded": "G",
+  "families_most_affected": [
+    [
+      "evasion",
+      7
+    ],
+    [
+      "mana",
+      4
+    ],
+    [
+      "graveyard",
+      3
+    ],
+    [
+      "stat_modification",
+      3
+    ],
+    [
+      "card_type_affinity",
+      2
+    ]
+  ],
+  "retained_but_lost_owner": 55,
+  "selection": [
+    "W",
+    "U",
+    "B",
+    "R"
+  ]
+}

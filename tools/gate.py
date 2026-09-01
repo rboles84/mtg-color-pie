@@ -15,6 +15,22 @@ import sys
 HERE = pathlib.Path(__file__).resolve().parent
 
 
+def _run(script, data_dir, label):
+    r = subprocess.run([sys.executable, str(HERE / script), "--data", str(data_dir)],
+                       capture_output=True, text=True)
+    if r.returncode != 0:
+        sys.stdout.write(r.stdout)
+        sys.stdout.write(r.stderr)
+        print("\n%s FAILED. Downstream generation will not start." % label)
+        sys.exit(1)
+    print("%-20s: PASS" % label)
+
+
+def require_taxonomy_gate(data_dir):
+    """Runtime depends on the taxonomy, so the taxonomy gate runs before it."""
+    _run("check_taxonomy.py", data_dir, "taxonomy gate")
+
+
 def require_source_gate(data_dir):
     r = subprocess.run([sys.executable, str(HERE / "check_invariants.py"),
                         "--data", str(data_dir)],

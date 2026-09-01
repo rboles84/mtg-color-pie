@@ -1,0 +1,17 @@
+{
+  "sections": {
+    "complementary": 0,
+    "conditional": 57,
+    "shared_access": 44,
+    "shared_primary": 60,
+    "unavailable": 112
+  },
+  "selection": [
+    "W"
+  ],
+  "tiers": {
+    "primary": 60,
+    "secondary": 24,
+    "tertiary": 20
+  }
+}

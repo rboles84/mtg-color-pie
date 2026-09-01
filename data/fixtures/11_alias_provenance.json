@@ -1,0 +1,25 @@
+{
+  "every_record_appears_once": true,
+  "no_alias_leaked_as_its_own_mechanic": true,
+  "records_with_aliases": 18,
+  "sample": {
+    "-n/-0 to their team": {
+      "aliases": [
+        "-N/-0 to their team, one-shot"
+      ],
+      "appearances_in_byMechanic": 1
+    },
+    "banisher priest-like effect": {
+      "aliases": [
+        "Banisher Priest-like effects (When this card enters the battlefield, exile target creature/permanent until this card leaves play.)"
+      ],
+      "appearances_in_byMechanic": 1
+    },
+    "can't be attacked (creatures can't attack you.)": {
+      "aliases": [
+        "Can't be attacked. (Creatures can't attack you.)"
+      ],
+      "appearances_in_byMechanic": 1
+    }
+  }
+}
