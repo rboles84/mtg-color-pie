@@ -1759,10 +1759,10 @@ function showEnemy(k, view, animate) {
     <p class="panel-body">${esc(body)}</p>
     <p class="panel-body"><strong>How they work together.</strong> ${esc(o.together)}</p>
     <p class="panel-body"><strong>What it costs.</strong> ${esc(o.cost)}</p>
+    ${collegeBlock(k)}
     <p class="panel-src">${esc(SRC_PIE)} · Each conflict reads differently depending on
       which side states it — the neutral summary is a third framing, not the true one.
-      ${esc(SRC_SCOPE)}</p>
-    ${collegeBlock(k)}`;
+      ${esc(SRC_SCOPE)}</p>`;
 
   panel.querySelectorAll('.view-btn').forEach(el =>
     el.addEventListener('click', () => showEnemy(k, el.dataset.view, false)));
