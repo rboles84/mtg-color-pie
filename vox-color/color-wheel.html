@@ -433,6 +433,34 @@
     letter-spacing:.02em; color:var(--bone-faint);
   }
 
+  /* THE STRIXHAVEN LENS. A second, narrower reading of the SAME enemy pair,
+     so it sits below the pair's own philosophy, behind a rule, in a quieter
+     key. It must read as an additional lens and never as a correction:
+     Witherbloom's life-and-death is not black-green's free will and destiny,
+     and the panel has to make that legible at a glance rather than in a note
+     nobody reaches. */
+  .panel-lens { margin:22px 0 0; padding:17px 0 0; border-top:1px solid var(--hairline); }
+  .panel-lens .panel-kicker { margin-bottom:9px; }
+  .panel-lens .panel-body { font-size:13.5px; margin:0 0 12px; }
+  .panel-lens .panel-body:last-of-type { margin-bottom:0; }
+  .panel-lens-name {
+    font-family:'Cormorant SC',Georgia,serif; font-weight:600; font-size:19px;
+    letter-spacing:.03em; margin:0 0 3px; line-height:1.25;
+  }
+  .panel-lens-desig {
+    font-family:'Outfit',system-ui,sans-serif; font-size:11px; font-weight:300;
+    letter-spacing:.04em; color:var(--bone-faint); margin:0 0 14px;
+  }
+  /* The two halves of the college. Bare names on purpose: these are the deans'
+     titles exactly as printed on the cards, and "Principle of X" -- the wiki's
+     grouping label -- is not sourced to Wizards, so it is not used here. */
+  .poles { list-style:none; margin:0 0 13px; padding:0; display:grid; gap:7px; }
+  .pole {
+    font-family:'Outfit',system-ui,sans-serif; font-size:12px; font-weight:300;
+    letter-spacing:.02em; line-height:1.5; color:var(--bone-dim);
+  }
+  .pole strong { color:var(--bone); font-weight:500; letter-spacing:.05em; }
+
   .panel-src {
     font-family:'Outfit',system-ui,sans-serif; font-size:10.5px; font-weight:300;
     color:var(--bone-faint); margin:18px 0 0; padding-top:12px;
@@ -1230,6 +1258,102 @@ const SRC_SCOPE_FOUR = 'Four colours have no philosophy article of their own. Th
 const SRC_SCOPE_WEDGE = 'These use the Khans of Tarkir clans and their attributes as Rosewater\'s set-specific lens on the five wedge combinations \u2014 one supported expression of each trio, not a universal rule. The colour paired with its two enemies is structurally isolated, but each Tarkir clan is centred on one of the two allied colours.';
 const SRC_SCOPE_SHARD = 'Rosewater\'s shard cycle speaks through the central colour, using each Alaran shard as that colour\'s idealised world without its two enemies. These report that colour\'s subjective perspective, not a neutral definition of the trio. Bant, Esper, Grixis, Jund and Naya are Alaran shard names, not guilds.';
 const SRC_SCOPE = 'These describe the philosophy of each two-color combination; guild names are familiar shorthand, not full accounts of the Ravnican institutions.';
+
+/* ======================================================================
+   THE STRIXHAVEN LENS
+   ----------------------------------------------------------------------
+   A SECOND reading of the five enemy pairs, kept deliberately separate
+   from D.enemies rather than merged into it.
+
+   WHY SEPARATE. Rosewater states the difference as a design parameter of
+   the set: the Ravnica guilds were built on what two colors have in
+   COMMON, the Strixhaven colleges on what those same two colors DISAGREE
+   about. Two readings of one pair. The wheel already draws that line --
+   `together` is the overlap reading, `title`/`views` the conflict one --
+   it just never named it. This is the name.
+
+   WHY IT MUST NOT OVERWRITE. Checked all five against D.enemies: two are
+   the same conflict (W/B group-vs-individual, G/U nature-vs-nurture), one
+   is the same axis in other words (U/R head-vs-heart / intellect-vs-
+   emotion), and TWO ARE NOT THE SAME CONFLICT AT ALL. Witherbloom's is
+   life vs. death, which is not black-green's free will vs. destiny.
+   Lorehold's is chaos vs. order, which is narrower than red-white's
+   freedom vs. security. Collapsing them would destroy a real distinction
+   and quietly replace the general taxonomy with one set's lens. Both are
+   shown; the college is labelled as the lens it is.
+
+   POLE NAMES are the deans' titles as printed on the cards -- each dean
+   MDFC was pulled from Scryfall and its per-face color checked, so the
+   color-to-pole mapping comes from card text, not from a summary. The
+   wiki files faculty under "Principle of Radiance" and so on; that label
+   could not be traced to a Wizards source, so it is not used.
+
+   WITHERBLOOM HAS TWO OFFICIAL DESIGNATIONS, both from Wizards and both
+   current: the Planeswalker's Guide (2021) heads it "The College of
+   Essence Studies", the Secrets of Strixhaven product page prints
+   "College of Life and Death". Both are shown. The other four agree
+   across every source checked.
+   ====================================================================== */
+const COLLEGES = {
+  WB: {
+    name:'Silverquill', desig:'College of Eloquence',
+    field:'Words \u2014 language, literature and communications.',
+    conflict:'Good of the group vs. good of the individual',
+    dispute:'What is communication for \u2014 to help other people, or to further your own agenda? Writing can be selfless or selfish, so the argument is over whether the power of words should be spent to better society or to better yourself.',
+    poles:[
+      { c:'W', name:'Radiance', gloss:'language that uplifts allies and turns light on the evils of society' },
+      { c:'B', name:'Shadow',   gloss:'language that lands stinging truths and cuts a rival down' }
+    ],
+    magic:'Spoken. Spells are made from spoken-word battle poetry, or from runic ink written on the air.'
+  },
+  UR: {
+    name:'Prismari', desig:'College of Elemental Arts',
+    field:'Art \u2014 painting, sculpture, dance, music, theatre; every form of self-expression.',
+    conflict:'Intellect vs. emotion',
+    dispute:'What is art for \u2014 to make people think, or to make people feel? And should it be carefully worked out, or raw and spontaneous?',
+    poles:[
+      { c:'U', name:'Perfection', gloss:'training, study, visualisation, precise technique, artistic theory' },
+      { c:'R', name:'Expression', gloss:'emotional truth pushed out through fire, earth and storm' }
+    ],
+    magic:'Gesture. The movement is what casts the spell.'
+  },
+  BG: {
+    name:'Witherbloom', desig:'College of Life and Death \u00b7 also College of Essence Studies',
+    field:'Biology \u2014 the science college.',
+    conflict:'Life vs. death',
+    dispute:'Everyone here loves science; the divide is over what drives nature. Which force ultimately sets its direction \u2014 life, or death?',
+    poles:[
+      { c:'B', name:'Vein', gloss:'exploiting life energy, squeezing essence out to fuel the spell' },
+      { c:'G', name:'Root', gloss:'encouraging life energy, coaxing it to blossom and grow' }
+    ],
+    magic:'Components. Spells are brewed from natural ingredients and the essence of living things.'
+  },
+  RW: {
+    name:'Lorehold', desig:'College of Archaeomancy',
+    field:'History, with psychology, anthropology and archaeology \u2014 how people deal with one another, and how that shapes a society.',
+    conflict:'Chaos vs. order',
+    dispute:'Is a society shaped by the structures that pull people together \u2014 laws, religions, jobs, schools \u2014 or by their bonds to family and friends? Rules, or passions?',
+    poles:[
+      { c:'W', name:'Order', gloss:'uncovering and recording the past, chronicling it for posterity' },
+      { c:'R', name:'Chaos', gloss:'reckless discovery; the emotion of history over precision or procedure' }
+    ],
+    magic:'Written. Spells are called out of ancient tomes, scrolls and relics.'
+  },
+  GU: {
+    name:'Quandrix', desig:'College of Numeromancy',
+    field:'Mathematics \u2014 patterns, fractals and symmetries.',
+    conflict:'Nature vs. nurture',
+    dispute:'What is mathematics \u2014 a natural force that always existed and humans merely discovered, or something humanity made? Everyone here loves it; they argue about where it came from.',
+    poles:[
+      { c:'G', name:'Substance', gloss:'making physical reality out of mathematical possibility' },
+      { c:'U', name:'Theory',    gloss:'the abstract realms of theory, conjecture and possibility' }
+    ],
+    magic:'Formula. Spells are preconfigured using maths.'
+  }
+};
+
+const SRC_SCOPE_COLLEGE = 'Strixhaven deliberately reinterprets the five enemy pairs as academic disputes. These college conflicts are set-specific lenses, chosen to build five distinct schools of study \u2014 they do not replace the broader color-pie conflicts used elsewhere on the wheel, and two of the five differ from them outright. \u2014 Mark Rosewater, "In the Strixhaven," Parts 1 and 2, March 29 and April 5, 2021. College names, fields and the two sides of each: "Planeswalker\'s Guide to Strixhaven," April 1, 2021, and the Secrets of Strixhaven product page. Pole names are the deans\' titles as printed on the cards.';
+
 const SRC_WEDGE = 'Rosewater, the 2014–15 wedge interviews — paraphrased';
 
 const wheel = document.getElementById('wheel');
@@ -1576,6 +1700,45 @@ function showAlly(k) {
   drawFromMiddle([k, keyFor(a, o.enemy), keyFor(b, o.enemy)]);
 }
 
+/* The Strixhaven lens block, rendered only on CONFLICT panels. The colleges
+   are readings of enemy pairs, so an allied panel must never grow one --
+   which is why this hangs off showEnemy and not off a shared pair renderer.
+
+   The opening line is the whole point of the feature: same two colors, two
+   questions, two answers, both official. Everything under it explains the
+   second answer. The pair's own conflict is already the panel title a few
+   inches above, so where a college disagrees with it the reader sees both
+   without being told which to believe. */
+function collegeBlock(k) {
+  const col = COLLEGES[k];
+  if (!col) return '';
+  const a = k[0], b = k[1];
+  /* Compare COLOUR SETS, not strings. D.enemies is keyed in display order
+     (RW, GU) while the registry key is WUBRG-canonical (WR, UG), so a direct
+     `o.key === k` silently found nothing for Lorehold and Quandrix and dropped
+     the contrast line on exactly those two panels. */
+  const set   = x => x.split('').sort().join('');
+  const guild = (IDENTITIES.find(o => o.group === 'enemy' && set(o.key) === set(k)) || {}).name;
+  const poles = col.poles.map(p =>
+    `<li class="pole">${dot(p.c)}<strong>${esc(p.name)}</strong> \u2014 ${esc(p.gloss)}</li>`).join('');
+
+  return `
+    <div class="panel-lens">
+      <p class="panel-kicker">Strixhaven lens</p>
+      ${guild ? `<p class="panel-body">Ravnica asks what ${esc(nm(a))} and ${esc(nm(b))} agree
+        on, and calls the answer <strong>${esc(guild)}</strong>. Strixhaven asks what the same
+        two argue about, and calls the answer <strong>${esc(col.name)}</strong>.</p>` : ''}
+      <p class="panel-lens-name">${esc(col.name)}</p>
+      <p class="panel-lens-desig">${esc(col.desig)}</p>
+      <p class="panel-body"><strong>Studies.</strong> ${esc(col.field)}</p>
+      <p class="panel-body"><strong>Its conflict.</strong> ${esc(col.conflict)}.</p>
+      <p class="panel-body"><strong>Its dispute.</strong> ${esc(col.dispute)}</p>
+      <ul class="poles">${poles}</ul>
+      <p class="panel-body"><strong>Its magic.</strong> ${esc(col.magic)}</p>
+      <p class="panel-src">${esc(SRC_SCOPE_COLLEGE)}</p>
+    </div>`;
+}
+
 // `animate` is false when the three perspective buttons re-render this panel:
 // switching from Neutral to Green's view is a change of text, not a new
 // selection, and redrawing the chord each time would be motion without cause.
@@ -1598,7 +1761,8 @@ function showEnemy(k, view, animate) {
     <p class="panel-body"><strong>What it costs.</strong> ${esc(o.cost)}</p>
     <p class="panel-src">${esc(SRC_PIE)} · Each conflict reads differently depending on
       which side states it — the neutral summary is a third framing, not the true one.
-      ${esc(SRC_SCOPE)}</p>`;
+      ${esc(SRC_SCOPE)}</p>
+    ${collegeBlock(k)}`;
 
   panel.querySelectorAll('.view-btn').forEach(el =>
     el.addEventListener('click', () => showEnemy(k, el.dataset.view, false)));
@@ -1891,7 +2055,9 @@ function subLine(o) {
      mono      the colour's method line, verbatim
      allied    the alliance's shared value, verbatim
      enemy     the conflict's title, verbatim
-     college   the same conflict title as the guild it renames
+     college   the college's OWN conflict, not the guild's — two of the five
+               differ, and Witherbloom's tile used to read the pair's
+               "Free Will vs. Destiny" when its dispute is life vs. death
      shard     which colour is at the centre, which two are absent
      wedge     Rosewater's attribute for the clan, and the colour with no ally
      four      which colour is left out
@@ -1904,7 +2070,8 @@ function tileNote(o) {
 
   if (o.group === 'mono')   return D.colors[cols[0]].key;
   if (o.group === 'allied') return 'Shared value: ' + D.allies[k].value + '.';
-  if (o.group === 'enemy' || o.group === 'college') return D.enemies[k].title + '.';
+  if (o.group === 'enemy')   return D.enemies[k].title + '.';
+  if (o.group === 'college') return COLLEGES[k].conflict + '.';
 
   if (o.group === 'shard' || o.group === 'wedge') {
     const p = pairsOf(cols);
