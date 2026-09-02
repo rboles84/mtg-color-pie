@@ -29,6 +29,10 @@ GOLDEN = pathlib.Path(__file__).resolve().parent.parent / "data" / "fixtures"
 FLYING = "flying"
 FLASH = "flash"
 NO_PRIMARY = "playing cards off the top of your library, paying their mana cost"
+# Fixture 10's subject, pinned like the three above. It is VERIFIED on every
+# run, never re-selected: see the note in build() for why that distinction is
+# the whole point of this constant.
+TERTIARY_CASE = "counterspell"
 
 
 def counts(d):
@@ -130,8 +134,36 @@ def build(rt):
         if S.access(e, w_sel)[0] == "tertiary"
         and any(d["tier"] == "primary" for c, d in e["colors"].items() if c != "W"))
     assert tert_best, "no tertiary-best candidate in a White-only selection"
-    pick = "counterspell" if "counterspell" in tert_best else tert_best[0]
+
+    # PINNED, AND VERIFIED RATHER THAN SELECTED.
+    #
+    # The previous version fell back to tert_best[0] when the pin was missing.
+    # That meant a --update run would silently swap the fixture's subject and
+    # bake the substitute into the golden with no failure anywhere -- the test
+    # would still pass, while quietly testing a different mechanic than the one
+    # the fixture was accepted for. A fixture that can rewrite its own premise
+    # protects nothing.
+    #
+    # Each condition is checked separately so a failure says which part of the
+    # accepted case stopped holding, rather than only that something did.
+    pick = TERTIARY_CASE
+    if pick not in rt["byMechanic"]:
+        raise AssertionError(
+            "Fixture 10 is pinned to %r, which is no longer a peer mechanic. "
+            "Do not substitute another mechanic: decide whether the pinned case "
+            "is still the accepted one, then update the pin deliberately." % pick)
     e = rt["byMechanic"][pick]
+    w_tier = (e["colors"].get("W") or {}).get("tier")
+    u_tier = (e["colors"].get("U") or {}).get("tier")
+    if w_tier != "tertiary" or u_tier != "primary":
+        raise AssertionError(
+            "Fixture 10 is pinned to %r as the White-tertiary / Blue-primary case, "
+            "but White is now %r and Blue is now %r. Failing loudly rather than "
+            "selecting a replacement." % (pick, w_tier, u_tier))
+    if pick not in tert_best:
+        raise AssertionError(
+            "Fixture 10's pinned case %r no longer qualifies as tertiary-best in a "
+            "White-only selection." % pick)
     best, owned = S.access(e, w_sel)
     f["10_tertiary_best_access"] = {
         "selection": ["W"],
