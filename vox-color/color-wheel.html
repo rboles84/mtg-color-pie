@@ -1021,154 +1021,368 @@
   .mcp-mxrow:hover .mcp-mxname { color:var(--bone); }
 
   /* ======================================================================
-     MECHANICS VISUALIZATION PROTOTYPES  (preview only)
+     THE MECHANICAL WORLD  (preview only)
      ----------------------------------------------------------------------
-     Three architectures over one frozen dataset. They share the wheel, the
-     ownership strip, the tier vocabulary and the detail surface, so what is
-     actually being compared is the ARCHITECTURE and not three different
-     visual languages.
+     Round two. The first round put the mechanics into whatever space the
+     wheel left over -- about a sixth of the viewport -- and it was rejected
+     for exactly that. Here the law is inverted:
 
-     Tier is never encoded as size, length or fill percentage anywhere in
-     here. Primary is not "more" -- it is the colour that gets the effect
-     most often, at the lowest rarity. Category, never magnitude.
+       MECHANICS MODE OWNS THE CANVAS.
+
+     The wheel docks to a narrow sticky controller. It is still the thing you
+     select colours with and still the thing that tells you where you are; it
+     just stops consuming the page while the subject of the page is squeezed.
+
+     THREE DEPTHS, ONE WORLD:
+       L1  the board      every family at once, legible without a click
+       L2  the family     one family opened, with room to read
+       L3  the mechanic   one record, the single owner of detail
+
+     A deeper layer does not replace the one above it -- it sits ON it, and
+     the layer beneath stays visible, reduced and out of focus, so the reader
+     can always see where they came from. That is the whole point of the
+     mall-map metaphor: you never lose the floor plan.
+
+     TIER IS CATEGORY, NEVER MAGNITUDE. Nothing in here scales, fills or
+     lengthens by tier. The ownership strip encodes tier as FILL STYLE and is
+     the same primitive at every depth, so the encoding is learned once.
      ====================================================================== */
 
-  /* preview-only switcher: small, not a dev toolbar */
+  /* --- mechanics-mode stage: dock + world ------------------------------- */
+  body.mode-mech .stage {
+    grid-template-columns:240px minmax(0,1fr);
+    gap:clamp(14px,2vw,26px);
+  }
+  body.mode-mech .wheel-wrap { grid-column:1; grid-row:1; position:sticky; top:14px; }
+  /* At dock scale the vertex wording renders around 7px, which is not a label,
+     it is noise -- and it is what forces the wide viewBox in the first place.
+     Mechanics hides it and crops to the glyphs, which roughly halves the empty
+     margin and takes the colour hit targets back over 24px. The selected
+     colours are named at full size in the rail, so nothing is lost. */
+  body.mode-mech .vertex-label, body.mode-mech .vertex-goal { display:none; }
+  body.mode-mech .panel { display:none; }
+  body.mode-mech .world { grid-column:2; grid-row:1; display:block; }
+  /* The dock caption names what the wheel has become, so a shrunken wheel
+     reads as a control rather than as a wheel that broke. */
+  .dock-cap { display:none; font-family:'Outfit',system-ui,sans-serif; font-size:9px;
+    letter-spacing:.22em; text-transform:uppercase; color:var(--bone-faint);
+    text-align:center; margin:2px 0 8px; }
+  body.mode-mech .dock-cap { display:block; }
+
+  @media (max-width:900px) {
+    body.mode-mech .stage { grid-template-columns:1fr; }
+    body.mode-mech .wheel-wrap { position:static; max-width:230px; margin:0 auto; }
+    body.mode-mech .world { grid-column:1; grid-row:2; }
+  }
+
+  /* --- the world container ---------------------------------------------- */
+  .world { display:none; position:relative; }
+  .world[hidden] { display:none; }
+
+  /* --- control rail: selection readout, search, what-changes ------------- */
+  .rail { border:1px solid var(--hairline); border-radius:15px; background:var(--glass);
+    -webkit-backdrop-filter:blur(16px) saturate(1.3); backdrop-filter:blur(16px) saturate(1.3);
+    padding:15px 18px; margin:0 0 14px; }
+  .rail-top { display:flex; flex-wrap:wrap; gap:12px 18px; align-items:baseline; }
+  .rail-sel { font-family:'Cormorant SC',Georgia,serif; font-size:20px; letter-spacing:.02em;
+    color:var(--bone); display:flex; align-items:center; gap:8px; }
+  .rail-sel .mcp-strip { vertical-align:middle; }
+  .rail-fig { display:flex; flex-wrap:wrap; gap:14px; margin-left:auto;
+    font-family:'Outfit',system-ui,sans-serif; font-size:11.5px; color:var(--bone-faint);
+    font-variant-numeric:tabular-nums; }
+  .rail-fig b { color:var(--bone); font-weight:400; font-size:15px; margin-right:4px; }
+  .rail-scope { font-family:'Outfit',system-ui,sans-serif; font-size:11.5px;
+    color:var(--bone-faint); margin:9px 0 0; line-height:1.55; }
+  .rail-scope b { color:var(--bone-dim); font-weight:400; }
+
+  .rail-tools { display:flex; flex-wrap:wrap; gap:9px; align-items:center; margin:12px 0 0; }
+  .world-search { flex:1 1 200px; min-width:150px; background:rgba(237,230,211,.04);
+    border:1px solid var(--hairline); border-radius:999px; color:var(--bone);
+    font-family:'Outfit',system-ui,sans-serif; font-size:12.5px; padding:7px 15px; }
+  .world-search::placeholder { color:var(--bone-faint); }
+  .world-search:focus-visible { outline:2px solid var(--gold); outline-offset:2px; }
+
+  .addbar { display:flex; gap:6px; flex-wrap:wrap; }
+  .addbtn { font-family:'Outfit',system-ui,sans-serif; font-size:11px; padding:5px 11px;
+    border-radius:999px; cursor:pointer; background:transparent; color:var(--bone-dim);
+    border:1px solid rgba(237,230,211,.18); }
+  .addbtn:hover { color:var(--bone); border-color:rgba(237,230,211,.34); }
+  .addbtn:focus-visible { outline:2px solid var(--gold); outline-offset:2px; }
+  .addbtn[aria-pressed="true"] { border-color:var(--gold); color:var(--gold);
+    background:rgba(212,175,55,.12); }
+
+  /* --- the teaching band -------------------------------------------------
+     ONE band at a time, shaped by how many colours are selected. A pair gets
+     its anatomy, four colours get the cost of the missing one, five get the
+     ownership statement. Never all of them at once -- that would be the
+     dashboard wall this round is explicitly not building. */
+  .band { margin:12px 0 0; padding:13px 0 0; border-top:1px solid var(--hairline); }
+  .band-h { font-family:'Outfit',system-ui,sans-serif; font-size:9.5px; letter-spacing:.2em;
+    text-transform:uppercase; color:var(--gold); margin:0 0 9px; }
+
+  /* Anatomy ribbon. The proportion here is a COUNT OF MECHANICS -- how many
+     records fall in each part of the pair -- and never a tier. Segments carry
+     their own numbers so the bar is a locator, not the reading itself. */
+  .ribbon { display:flex; height:26px; border-radius:7px; overflow:hidden;
+    border:1px solid var(--hairline); }
+  .ribbon span { display:flex; align-items:center; justify-content:center;
+    font-family:'Outfit',system-ui,sans-serif; font-size:10.5px; color:var(--obsidian);
+    font-variant-numeric:tabular-nums; min-width:0; overflow:hidden; white-space:nowrap; }
+  .rib-shared { background:rgba(212,175,55,.72); }
+  .rib-comp   { background:rgba(237,230,211,.34); }
+  .rib-un     { background:rgba(237,230,211,.09); color:var(--bone-faint); }
+  .rib-key { display:flex; flex-wrap:wrap; gap:13px; margin:9px 0 0;
+    font-family:'Outfit',system-ui,sans-serif; font-size:11px; color:var(--bone-faint); }
+  .rib-key i { display:inline-block; width:9px; height:9px; border-radius:2px;
+    margin-right:6px; vertical-align:middle; font-style:normal; }
+  .rib-key b { color:var(--bone); font-weight:400; font-variant-numeric:tabular-nums; }
+  .rib-sub { margin:7px 0 0; padding-left:12px; border-left:2px solid rgba(212,175,55,.34);
+    font-family:'Outfit',system-ui,sans-serif; font-size:11px; color:var(--bone-faint); }
+  .rib-sub b { color:var(--bone-dim); font-weight:400; }
+
+  /* Four-colour absence and add-a-colour deltas: labelled plates, equal
+     footprint. Equal on purpose -- 10 lost matters more than 133 unaffected,
+     and sizing them by count would say the opposite. */
+  .plates { display:grid; grid-template-columns:repeat(auto-fit,minmax(112px,1fr)); gap:8px; }
+  .plate { background:rgba(237,230,211,.035); border:1px solid var(--hairline);
+    border-radius:10px; padding:10px 12px; }
+  .plate b { display:block; font-family:'Outfit',system-ui,sans-serif; font-weight:400;
+    font-size:19px; color:var(--bone); font-variant-numeric:tabular-nums; line-height:1.2; }
+  .plate span { font-family:'Outfit',system-ui,sans-serif; font-size:9px; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--bone-faint); }
+  .plate.is-key { border-color:rgba(212,175,55,.4); background:rgba(212,175,55,.07); }
+  .plate.is-key b { color:var(--gold); }
+
+  /* ======================================================================
+     L1 - THE BOARD.  An interactive periodic table of the 23 families.
+     Each tile is one family: its name, how much of it the selection reaches,
+     and a five-cell ownership row reading WUBRG. Read the board across and
+     you learn who owns what without opening anything.
+     ====================================================================== */
+  .board { display:grid; gap:9px; grid-template-columns:repeat(auto-fill,minmax(163px,1fr)); }
+  .tile-f { position:relative; text-align:left; cursor:pointer; color:inherit;
+    background:var(--glass); border:1px solid var(--hairline); border-radius:13px;
+    padding:12px 13px 11px; overflow:hidden;
+    -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px);
+    transition:border-color .18s var(--ease), background .18s var(--ease),
+               transform .18s var(--ease); }
+  .tile-f:hover { border-color:rgba(237,230,211,.32); background:rgba(237,230,211,.06); }
+  .tile-f:focus-visible { outline:2px solid var(--gold); outline-offset:2px; }
+  .tile-f[aria-pressed="true"] { border-color:var(--gold); background:rgba(212,175,55,.11); }
+  /* Unreachable is stated, not merely faded: colour alone must not carry it. */
+  .tile-f.is-out { opacity:.42; }
+  .tile-f.is-out .tf-n { text-decoration:line-through; text-decoration-thickness:1px; }
+
+  .tf-n { font-family:'Cormorant SC',Georgia,serif; font-size:15.5px; letter-spacing:.015em;
+    color:var(--bone); line-height:1.2; display:block; margin:0 0 7px;
+    text-transform:capitalize; }
+  .tf-c { font-family:'Outfit',system-ui,sans-serif; font-size:10.5px; color:var(--bone-faint);
+    font-variant-numeric:tabular-nums; display:block; margin:0 0 9px; }
+  .tf-c b { color:var(--bone); font-weight:400; font-size:13px; }
+  .tf-strip { display:block; }
+  /* The gold hairline marks a family the selection can reach at primary. It
+     is a category mark, not a score: it says "this colour is a designer of
+     this family", nothing about how strong the cards are. */
+  .tf-pri { position:absolute; left:0; top:0; bottom:0; width:2px; background:var(--gold);
+    opacity:.55; }
+  .tf-x { position:absolute; right:9px; top:10px; font-family:'Outfit',system-ui,sans-serif;
+    font-size:8.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--bone-faint); }
+
+  /* Atlas variant: districts, not equal cells. Bigger family, bigger plate.
+     Size here encodes MEMBERSHIP COUNT, which is a real magnitude, and never
+     tier -- a one-mechanic family is small because it has one mechanic. */
+  .world.v-atlas .board { grid-auto-flow:dense; }
+  .world.v-atlas .tile-f.sz-3 { grid-column:span 2; grid-row:span 2; }
+  .world.v-atlas .tile-f.sz-2 { grid-column:span 2; }
+  .world.v-atlas .tile-f.sz-3 .tf-n { font-size:22px; }
+  .world.v-atlas .tile-f.sz-2 .tf-n { font-size:18px; }
+  .world.v-atlas .tile-f { transition:transform .2s var(--ease), border-color .18s var(--ease),
+    background .18s var(--ease); }
+  .world.v-atlas .tile-f:hover { transform:translateY(-2px); }
+
+  /* ======================================================================
+     DEPTH.  L2 and L3 are planes over the board, not replacements for it.
+     ====================================================================== */
+  .wl-over { position:absolute; inset:0; z-index:3; display:flex; flex-direction:column;
+    border-radius:16px; overflow:hidden; border:1px solid rgba(237,230,211,.16);
+    background:rgba(11,12,17,.82);
+    -webkit-backdrop-filter:blur(13px) saturate(1.2); backdrop-filter:blur(13px) saturate(1.2);
+    box-shadow:0 24px 60px rgba(0,0,0,.5); }
+  .wl-over[hidden] { display:none; }
+  .wl-3 { z-index:4; }
+
+  /* The receding rule. The layer below stays on screen, quieter and slightly
+     smaller, so descent reads as depth rather than as a page change. */
+  .recede { transition:transform .26s var(--ease), opacity .26s var(--ease),
+                       filter .26s var(--ease); }
+  .is-recede-1 { transform:scale(.988); opacity:.5; filter:blur(1px); }
+  .is-recede-2 { transform:scale(.976); opacity:.3; filter:blur(2px); }
+
+  /* Layered variant: the planes are visibly offset so all three read as a
+     stack. Board is left uncovered at the top edge on purpose. */
+  .world.v-layered .wl-2 { inset:26px 0 0 22px; }
+  .world.v-layered .wl-3 { inset:52px 0 0 44px; }
+  .world.v-layered .is-recede-1 { transform:scale(.985) translateY(-8px); opacity:.44; }
+  .world.v-layered .is-recede-2 { transform:scale(.975) translateY(-6px); opacity:.26; }
+
+  /* Atlas variant: the district grows out of its own tile, so the descent has
+     a direction and the reader keeps the place they clicked. */
+  .world.v-atlas .wl-2 { inset:8px; transform-origin:var(--ox,50%) var(--oy,50%); }
+  .world.v-atlas .wl-3 { inset:22px; }
+
+  @keyframes wl-in { from { opacity:0; transform:scale(.972); } to { opacity:1; transform:none; } }
+  .wl-anim { animation:wl-in .24s var(--ease) both; }
+
+  /* --- layer chrome: breadcrumb, title, close --------------------------- */
+  .wl-bar { display:flex; align-items:center; gap:11px; padding:13px 17px;
+    border-bottom:1px solid var(--hairline); flex:0 0 auto; }
+  .wl-crumb { font-family:'Outfit',system-ui,sans-serif; font-size:10px; letter-spacing:.15em;
+    text-transform:uppercase; color:var(--bone-faint); display:flex; align-items:center;
+    gap:7px; flex-wrap:wrap; min-width:0; }
+  .wl-crumb button { background:transparent; border:0; padding:0; cursor:pointer;
+    color:var(--bone-faint); font:inherit; letter-spacing:inherit; text-transform:inherit; }
+  .wl-crumb button:hover { color:var(--bone); }
+  .wl-crumb button:focus-visible { outline:2px solid var(--gold); outline-offset:2px; }
+  .wl-crumb .here { color:var(--gold); }
+  .wl-up { margin-left:auto; flex:0 0 auto; background:transparent; cursor:pointer;
+    border:1px solid var(--hairline); border-radius:999px; color:var(--bone-dim);
+    font-family:'Outfit',system-ui,sans-serif; font-size:10.5px; padding:4px 12px; }
+  .wl-up:hover { color:var(--bone); border-color:rgba(237,230,211,.34); }
+  .wl-up:focus-visible { outline:2px solid var(--gold); outline-offset:2px; }
+  .wl-body { flex:1 1 auto; overflow-y:auto; overscroll-behavior:contain; padding:16px 17px 20px;
+    scrollbar-width:thin; scrollbar-color:rgba(212,175,55,.3) transparent; }
+  .wl-body::-webkit-scrollbar { width:10px; }
+  .wl-body::-webkit-scrollbar-track { background:transparent; }
+  .wl-body::-webkit-scrollbar-thumb { background:rgba(212,175,55,.3);
+    border-radius:99px; border:3px solid transparent; background-clip:content-box; }
+
+  .wl-title { font-family:'Cormorant SC',Georgia,serif; font-size:clamp(21px,2.4vw,28px);
+    color:var(--bone); margin:0; letter-spacing:.02em; text-transform:capitalize; }
+  .wl-sub { font-family:'Outfit',system-ui,sans-serif; font-size:11.5px; color:var(--bone-faint);
+    margin:4px 0 0; font-variant-numeric:tabular-nums; }
+
+  /* ======================================================================
+     L2 - THE FAMILY.  Mechanics get real reading width here, because the
+     labels are prose: the median is 33 characters and a hundred of them run
+     past forty. They were never going to fit beside a dot.
+     ====================================================================== */
+  .mlist { list-style:none; margin:0; padding:0; }
+  .mrow { border-bottom:1px solid rgba(237,230,211,.06); }
+  .mbtn { width:100%; display:grid; grid-template-columns:auto 1fr auto; gap:12px;
+    align-items:start; padding:11px 4px; background:transparent; border:0; cursor:pointer;
+    text-align:left; color:inherit; font-family:'Outfit',system-ui,sans-serif; font-size:13px; }
+  .mbtn:hover { background:rgba(237,230,211,.05); }
+  .mbtn:focus-visible { outline:2px solid var(--gold); outline-offset:-2px; }
+  .mbtn[aria-pressed="true"] { background:rgba(212,175,55,.1); }
+  .mbtn .mnm { color:var(--bone-dim); line-height:1.5; }
+  .mbtn:hover .mnm, .mbtn[aria-pressed="true"] .mnm { color:var(--bone); }
+  .mbtn .mmeta { display:flex; gap:6px; align-items:center; flex:0 0 auto; padding-top:1px; }
+  .mrow.is-out .mnm { color:var(--bone-faint); text-decoration:line-through;
+    text-decoration-thickness:1px; }
+
+  .xlink { display:inline-block; font-family:'Outfit',system-ui,sans-serif; font-size:9px;
+    letter-spacing:.09em; text-transform:uppercase; color:var(--gold); opacity:.8;
+    border:1px solid rgba(212,175,55,.3); border-radius:999px; padding:1px 6px;
+    margin-left:7px; vertical-align:middle; }
+  .cond-badge { display:inline-block; font-family:'Outfit',system-ui,sans-serif; font-size:9px;
+    letter-spacing:.1em; text-transform:uppercase; color:var(--gold);
+    border:1px solid rgba(212,175,55,.36); border-radius:999px; padding:1px 6px; opacity:.85; }
+
+  .fam-note { font-family:'Outfit',system-ui,sans-serif; font-size:11.5px; color:var(--bone-faint);
+    margin:0 0 12px; line-height:1.6; }
+  .fam-note b { color:var(--bone-dim); font-weight:400; }
+
+  /* ======================================================================
+     L3 - THE MECHANIC.  The single owner of mechanic detail. Nothing else in
+     the world renders a mechanic's record; the first round shipped two
+     copies of it on one screen and the owner reasonably called that out.
+     ====================================================================== */
+  .mx-label { font-family:'Cormorant SC',Georgia,serif; font-size:clamp(20px,2.3vw,26px);
+    color:var(--bone); margin:0 0 12px; letter-spacing:.015em; line-height:1.25; }
+  .mx-sec { margin:16px 0 0; padding:14px 0 0; border-top:1px solid var(--hairline); }
+  .mx-h { font-family:'Outfit',system-ui,sans-serif; font-size:9.5px; letter-spacing:.2em;
+    text-transform:uppercase; color:var(--gold); margin:0 0 8px; }
+  .mx-owners { display:flex; flex-wrap:wrap; gap:8px; }
+  .mx-own { display:flex; align-items:center; gap:6px; padding:5px 11px; border-radius:999px;
+    border:1px solid var(--hairline); background:rgba(237,230,211,.03);
+    font-family:'Outfit',system-ui,sans-serif; font-size:11.5px; color:var(--bone-dim); }
+  .mx-own.in-sel { border-color:rgba(212,175,55,.42); background:rgba(212,175,55,.07); }
+  .mx-text { font-size:14px; line-height:1.68; color:var(--bone-dim); margin:0;
+    font-family:'Lora',Georgia,serif; }
+  .mx-restrict { border-left:2px solid rgba(212,175,55,.42); padding-left:13px; }
+  .mx-prov { font-family:'Outfit',system-ui,sans-serif; font-size:11.5px; line-height:1.6;
+    color:var(--bone-faint); margin:9px 0 0; }
+  .mx-prov b { color:var(--bone-dim); font-weight:400; }
+  .mx-reach { font-family:'Outfit',system-ui,sans-serif; font-size:12px; color:var(--bone-dim); }
+  .mx-reach b { color:var(--bone); font-weight:400; }
+
+  /* --- search results: a locator into the world, not a second product ---- */
+  .hits { list-style:none; margin:0; padding:0; }
+  .hit { border-bottom:1px solid rgba(237,230,211,.06); }
+  .hitb { width:100%; display:grid; grid-template-columns:auto 1fr auto; gap:11px;
+    align-items:start; padding:10px 4px; background:transparent; border:0; cursor:pointer;
+    text-align:left; color:inherit; font-family:'Outfit',system-ui,sans-serif; font-size:12.5px; }
+  .hitb:hover { background:rgba(237,230,211,.05); }
+  .hitb:focus-visible { outline:2px solid var(--gold); outline-offset:-2px; }
+  .hitb .hnm { color:var(--bone-dim); line-height:1.5; }
+  .hitb:hover .hnm { color:var(--bone); }
+  .hitb .hfam { font-size:10px; letter-spacing:.13em; text-transform:uppercase;
+    color:var(--bone-faint); display:block; margin-top:3px; }
+
+  .world-empty { border:1px solid var(--hairline); border-radius:13px; padding:22px;
+    font-family:'Outfit',system-ui,sans-serif; font-size:13px; color:var(--bone-faint);
+    text-align:center; }
+  .colorless-note { border:1px solid rgba(212,175,55,.28); border-radius:12px;
+    padding:15px 17px; margin:0 0 14px; font-size:13.5px; color:var(--bone-dim);
+    background:rgba(212,175,55,.05); line-height:1.6; }
+  .colorless-note b { color:var(--bone); font-weight:500; }
+
+  /* preview-only variant switcher */
   .proto-bar { display:none; gap:6px; align-items:center; justify-content:center;
     margin:14px 0 0; flex-wrap:wrap; }
   body.proto-on .proto-bar { display:flex; }
   .proto-bar .lbl { font-family:'Outfit',system-ui,sans-serif; font-size:9.5px;
-    letter-spacing:.2em; text-transform:uppercase; color:var(--bone-faint);
-    margin-right:4px; }
-  .proto-btn { font-family:'Outfit',system-ui,sans-serif; font-size:11px;
-    letter-spacing:.09em; padding:5px 13px; border-radius:999px; cursor:pointer;
-    background:transparent; color:var(--bone-dim);
-    border:1px solid rgba(237,230,211,.16); }
+    letter-spacing:.2em; text-transform:uppercase; color:var(--bone-faint); margin-right:4px; }
+  .proto-btn { font-family:'Outfit',system-ui,sans-serif; font-size:11px; letter-spacing:.09em;
+    padding:5px 13px; border-radius:999px; cursor:pointer; background:transparent;
+    color:var(--bone-dim); border:1px solid rgba(237,230,211,.16); }
   .proto-btn:hover { color:var(--bone); border-color:rgba(237,230,211,.3); }
   .proto-btn[aria-pressed="true"] { background:rgba(212,175,55,.14); color:var(--gold);
     border-color:rgba(212,175,55,.42); }
   .proto-btn:focus-visible { outline:2px solid var(--gold); outline-offset:3px; }
 
-  /* the constellation field lives where the panel sits; the wheel keeps its
-     column so orientation never moves between prototypes */
-  .proto-wrap { position:relative; min-height:520px; border-radius:16px;
-    border:1px solid var(--hairline); background:var(--glass);
-    -webkit-backdrop-filter:blur(16px) saturate(1.3);
-    backdrop-filter:blur(16px) saturate(1.3); overflow:hidden; }
-  .proto-wrap[hidden] { display:none; }
-  #protoField { width:100%; height:100%; display:block; position:absolute; inset:0; }
-
-  .field-hint { position:absolute; left:16px; top:14px; z-index:2; pointer-events:none;
-    font-family:'Outfit',system-ui,sans-serif; font-size:10px; letter-spacing:.17em;
-    text-transform:uppercase; color:var(--bone-faint); }
-  .field-count { position:absolute; right:16px; top:14px; z-index:2; pointer-events:none;
-    font-family:'Outfit',system-ui,sans-serif; font-size:10.5px; color:var(--bone-faint);
-    font-variant-numeric:tabular-nums; }
-
-  /* --- family node -------------------------------------------------------
-     Radius is BOUNDED (family sizes run 1..34, so a raw mapping would make
-     one node eleven times another). Reachability drives opacity, primary
-     access drives the ring, and the label carries the counts. */
-  .fam-node { cursor:pointer; }
-  .fam-node .disc { fill:rgba(237,230,211,.05); stroke:rgba(237,230,211,.2);
-    stroke-width:1.2; transition:fill .18s var(--ease), stroke .18s var(--ease); }
-  .fam-node .ring { fill:none; stroke:var(--gold); stroke-width:1.4; opacity:0;
-    transition:opacity .18s var(--ease); }
-  .fam-node.has-primary .ring { opacity:.62; }
-  .fam-node .fname { font-family:'Outfit',system-ui,sans-serif; font-size:10.5px;
-    fill:var(--bone-dim); text-anchor:middle; pointer-events:none; }
-  .fam-node .fcount { font-family:'Outfit',system-ui,sans-serif; font-size:9.5px;
-    fill:var(--bone-faint); text-anchor:middle; pointer-events:none; }
-  .fam-node:hover .disc, .fam-node:focus-visible .disc { fill:rgba(237,230,211,.12);
-    stroke:rgba(237,230,211,.44); }
-  .fam-node:focus-visible { outline:none; }
-  .fam-node:focus-visible .disc { stroke:var(--gold); stroke-width:2; }
-  .fam-node.is-open .disc { fill:rgba(212,175,55,.16); stroke:var(--gold); stroke-width:1.8; }
-  /* proximity wake: neighbours near the pointer lift slightly. Purely
-     additive -- everything works with a pointer that never hovers. */
-  .fam-node { transition:transform .22s var(--ease); transform-box:fill-box;
-    transform-origin:center; }
-  .fam-node.near .disc { fill:rgba(237,230,211,.09); stroke:rgba(237,230,211,.32); }
-
-  /* --- mechanic node ----------------------------------------------------- */
-  .mech-node { cursor:pointer; }
-  .mech-node .mdot { stroke-width:1.4; transition:r .16s var(--ease); }
-  .mech-node .mlabel { font-family:'Outfit',system-ui,sans-serif; font-size:9.5px;
-    fill:var(--bone-dim); pointer-events:none; }
-  .mech-node:hover .mlabel, .mech-node:focus-visible .mlabel { fill:var(--bone); }
-  .mech-node:focus-visible { outline:none; }
-  .mech-node:focus-visible .mdot { stroke:var(--gold); stroke-width:2.4; }
-  .mech-node.is-open .mdot { stroke:var(--gold); stroke-width:2.4; }
-  .mech-cond { fill:none; stroke:var(--gold); stroke-width:1; opacity:.5; }
-  .link { stroke:rgba(237,230,211,.16); stroke-width:1; fill:none; }
-  .link.xlink { stroke:rgba(212,175,55,.42); stroke-dasharray:3 3; }
-
-  /* --- detail drawer, shared by constellation and radial ----------------- */
-  .proto-detail { position:absolute; right:0; top:0; bottom:0; width:min(360px,86%);
-    z-index:3; padding:20px; overflow:auto; overscroll-behavior:contain;
-    background:rgba(11,12,17,.93); border-left:1px solid var(--hairline);
-    -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px); }
-  .proto-detail[hidden] { display:none; }
-  .proto-detail .close { position:absolute; right:12px; top:10px; background:transparent;
-    border:1px solid var(--hairline); color:var(--bone-dim); border-radius:999px;
-    width:26px; height:26px; cursor:pointer; font-size:14px; line-height:1; }
-  .proto-detail .close:hover { color:var(--bone); border-color:rgba(237,230,211,.34); }
-  .proto-detail .close:focus-visible { outline:2px solid var(--gold); outline-offset:2px; }
-
-  /* --- split prototype: family-first browser ----------------------------- */
-  .famlist { list-style:none; margin:10px 0 0; padding:0; }
-  .fam-item { border-bottom:1px solid rgba(237,230,211,.06); }
-  .fam-btn { width:100%; display:grid; grid-template-columns:auto 1fr auto auto;
-    gap:11px; align-items:center; padding:9px 2px; background:transparent;
-    border:0; cursor:pointer; text-align:left; color:inherit;
-    font-family:'Outfit',system-ui,sans-serif; font-size:12.5px; }
-  .fam-btn:hover { background:rgba(237,230,211,.045); }
-  .fam-btn:focus-visible { outline:2px solid var(--gold); outline-offset:-2px; }
-  .fam-btn .fnm { color:var(--bone-dim); }
-  .fam-btn[aria-expanded="true"] .fnm { color:var(--bone); }
-  .fam-btn .fct { color:var(--bone-faint); font-variant-numeric:tabular-nums;
-    font-size:11px; }
-  .fam-btn .chev { color:var(--bone-faint); font-size:10px; transition:transform .18s var(--ease); }
-  .fam-btn[aria-expanded="true"] .chev { transform:rotate(90deg); }
-  .fam-open { padding:2px 0 12px 26px; }
-
-  .cond-badge { display:inline-block; font-family:'Outfit',system-ui,sans-serif;
-    font-size:9px; letter-spacing:.1em; text-transform:uppercase; color:var(--gold);
-    border:1px solid rgba(212,175,55,.36); border-radius:999px; padding:1px 6px;
-    opacity:.85; }
-
-  /* pair anatomy + absence + delta: compact, never a chart of strength */
-  .anat { display:grid; grid-template-columns:repeat(auto-fit,minmax(96px,1fr)); gap:6px;
-    margin:12px 0 0; }
-  .anat div { background:rgba(237,230,211,.035); border:1px solid var(--hairline);
-    border-radius:9px; padding:9px 10px; }
-  .anat b { display:block; font-family:'Outfit',system-ui,sans-serif; font-weight:400;
-    font-size:17px; color:var(--bone); font-variant-numeric:tabular-nums; }
-  .anat span { font-family:'Outfit',system-ui,sans-serif; font-size:9px;
-    letter-spacing:.09em; text-transform:uppercase; color:var(--bone-faint); }
-  .anat .sub { margin-left:10px; border-left:2px solid rgba(212,175,55,.3); }
-
-  .addbar { display:flex; gap:6px; flex-wrap:wrap; margin:10px 0 0; }
-  .addbtn { font-family:'Outfit',system-ui,sans-serif; font-size:11px; padding:4px 11px;
-    border-radius:999px; cursor:pointer; background:transparent; color:var(--bone-dim);
-    border:1px solid rgba(237,230,211,.18); }
-  .addbtn:hover { color:var(--bone); }
-  .addbtn:focus-visible { outline:2px solid var(--gold); outline-offset:2px; }
-  .addbtn[aria-pressed="true"] { border-color:var(--gold); color:var(--gold); }
-
-  .colorless-note { border:1px solid rgba(212,175,55,.28); border-radius:11px;
-    padding:14px 16px; margin:12px 0 0; font-size:13.5px; color:var(--bone-dim);
-    background:rgba(212,175,55,.05); }
-
-  @media (max-width:900px) {
-    .proto-wrap { min-height:420px; }
-    .proto-detail { position:static; width:auto; border-left:0;
-      border-top:1px solid var(--hairline); }
-  }
+  /* Reduced motion SKIPS the depth effects rather than slowing them, and the
+     recede states drop their blur entirely -- a blurred layer that never
+     animates is just unreadable text. Opacity alone still says "behind". */
   @media (prefers-reduced-motion:reduce) {
-    .fam-node, .fam-node .disc, .fam-node .ring, .mech-node .mdot, .fam-btn .chev {
-      transition:none !important; }
+    .recede, .tile-f, .world.v-atlas .tile-f { transition:none !important; }
+    .wl-anim { animation:none !important; }
+    .is-recede-1, .is-recede-2,
+    .world.v-layered .is-recede-1, .world.v-layered .is-recede-2 {
+      transform:none !important; filter:none !important; }
+    .is-recede-1 { opacity:.55; }
+    .is-recede-2 { opacity:.4; }
   }
+
+  /* the three planes share one positioned stack, so an overlay covers the
+     board and NOT the control rail -- search and the colour readout stay
+     reachable at every depth. */
+  .stack { position:relative; min-height:470px; }
+  .wl-over:focus { outline:none; }
+  .wl-over:focus-visible { outline:2px solid var(--gold); outline-offset:2px; }
+
+  /* five columns: the tier cell above the number of mechanics that colour
+     reaches in this family. The cell says WHETHER and at what ownership; the
+     number says HOW MANY. Neither is a score. */
+  .tf-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:3px; }
+  .tf-col { text-align:center; }
+  .tf-col .mcp-cell { margin:0 auto; }
+  .tf-col em { display:block; font-family:'Outfit',system-ui,sans-serif; font-style:normal;
+    font-size:9px; color:var(--bone-faint); font-variant-numeric:tabular-nums; margin-top:3px; }
+  .tf-col.off { opacity:.3; }
+  .percol { display:inline-flex; flex-wrap:wrap; gap:4px 12px; align-items:center;
+    vertical-align:middle; }
+  .percol span { color:var(--bone-dim); }
 
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation:none !important; transition:none !important; }
@@ -1220,12 +1434,13 @@
 
   <div class="proto-bar" role="group" aria-label="Prototype switcher (preview only)">
     <span class="lbl">Prototype</span>
-    <button class="proto-btn" data-proto="constellation" aria-pressed="false">Constellation</button>
-    <button class="proto-btn" data-proto="radial" aria-pressed="false">Radial</button>
-    <button class="proto-btn" data-proto="split" aria-pressed="false">Split</button>
+    <button class="proto-btn" data-proto="board" aria-pressed="false">Board</button>
+    <button class="proto-btn" data-proto="atlas" aria-pressed="false">Atlas</button>
+    <button class="proto-btn" data-proto="layered" aria-pressed="false">Layered</button>
   </div>
   <div class="stage">
     <div class="wheel-wrap">
+      <p class="dock-cap">Color selection</p>
       <svg class="wheel" id="wheel" viewBox="-30 60 860 700" role="group"
            aria-label="Interactive color wheel">
         <defs>
@@ -1483,12 +1698,17 @@
 
     <!-- tabindex="-1" so focus has somewhere to land when the Clear button
          removes itself; without it, clearing by keyboard drops focus to body. -->
-    <div class="proto-wrap" id="protoWrap" hidden>
-      <span class="field-hint" id="fieldHint"></span>
-      <span class="field-count" id="fieldCount"></span>
-      <svg id="protoField" role="group" aria-label="Mechanics field"></svg>
-      <aside class="proto-detail" id="protoDetail" hidden aria-live="polite"></aside>
-    </div>
+    <!-- THE MECHANICAL WORLD. Three depths in one positioned stack; the rail
+         sits outside it so the controls survive every descent. -->
+    <section class="world" id="world" hidden>
+      <div id="wRail"></div>
+      <div class="stack" id="wStack">
+        <div class="recede" id="wl1"><div class="board" id="wBoard"></div></div>
+        <section class="wl-over wl-2 recede" id="wl2" tabindex="-1" hidden
+                 aria-live="polite"></section>
+        <section class="wl-over wl-3" id="wl3" tabindex="-1" hidden aria-live="polite"></section>
+      </div>
+    </section>
     <aside class="panel" id="panel" aria-live="polite" tabindex="-1">
       <p class="panel-kicker">Start anywhere</p>
       <h2 class="panel-title">Pick a point</h2>
@@ -1861,7 +2081,7 @@ function clearSelection() {
   if (mode === 'mechanics') {
     mech.sel.clear(); mech.q = ''; mech.delta = null;
     mech.fam = null; mech.pick = null;
-    renderProto();
+    renderWorld();
     return;
   }
   panel.innerHTML = mode === 'combine' ? `
@@ -2319,7 +2539,23 @@ wheel.addEventListener('keydown', e => {
 // announced rather than silently dropping focus to <body>.
 clearBtn.addEventListener('click', () => { clearSelection(); panel.focus(); });
 
-document.addEventListener('keydown', e => { if (e.key === 'Escape') clearSelection(); });
+/* ONE Escape path. In mechanics mode Escape climbs the layer stack -- the same
+   route the breadcrumb takes -- and only clears the selection once the reader
+   is already at the board.
+
+   Two handlers used to compete here. This one is registered first, so it ran
+   first and called clearSelection(), which wipes mech.fam and mech.pick; the
+   layer handler then "climbed" from an already-empty stack. Escape out of a
+   mechanic silently dropped the family too. Consolidated rather than reordered,
+   because two listeners for one key is the bug waiting to happen again. */
+document.addEventListener('keydown', e => {
+  if (e.key !== 'Escape') return;
+  if (mech.on) {
+    if (mech.pick) { mech.pick = null; mech.focusLayer = true; renderWorld(); return; }
+    if (mech.fam || mech.mode2) { mech.fam = null; mech.mode2 = null; renderWorld(); return; }
+  }
+  clearSelection();
+});
 
 updateNote();
 
@@ -2607,47 +2843,11 @@ function mcpOverview() {
       <ul class="mcp-mxlist">${matrixRows}</ul></details>`;
 }
 
-function renderMechanics() {
-  const cols = mech.sel;
-  const list = [...cols];
-  const head = `
-    <div class="mech-head">
-      <p class="panel-kicker">Mechanical Color Pie 2021</p>
-      <p class="mech-snap">${esc(MCP.meta.snapshot_date ? 'Snapshot dated October 18, 2021' : '')}</p>
-      <p class="mech-pips">${list.length ? list.map(dot).join('') : ''}
-        <span class="mech-count">${list.length ? list.map(nm).map(esc).join(' · ') : 'no colors selected'}</span></p>
-      <p class="mech-scope">Shows how the selected colors access Rosewater's 2021 mechanical
-        color pie. Tiers describe design ownership and frequency, not power.</p>
-    </div>
-    <input class="mech-search" type="search" id="mechSearch" placeholder="Find a mechanic…"
-           value="${esc(mech.q)}" aria-label="Find a mechanic">`;
-
-  if (!cols.size) {
-    panel.innerHTML = head + mcpOverview() + mcpSearchBlock();
-    mcpWire();
-    return;
-  }
-
-  const S = mcpSections(cols);
-  let body = '';
-
-  if (mech.q) { body = mcpSearchBlock(); panel.innerHTML = head + body; mcpWire(); return; }
-
-  /* PROTOTYPE PANEL. Replaces the previous per-size body, which listed
-     mechanics directly and could run to hundreds of rows -- the scrolling
-     dump this story exists to replace.
-
-     Two parts only: a summary shaped by the question the selection actually
-     poses, then the family-first browser. Families are the compression
-     layer; only an opened family lists its mechanics. */
-  body = protoSummary(cols) + renderSplitBrowser(cols);
-  body += `<details class="panel-src"><summary>Sources &amp; scope</summary><p>${esc(MCP.meta.caution)}
-    ${esc(MCP.meta.tier_meaning)} Families are ${esc(MCP.meta.families_are)}.
-    ${esc(MCP.meta.document)}, ${esc(MCP.meta.author)}, ${esc(MCP.meta.snapshot_date)}.</p></details>`;
-
-  panel.innerHTML = head + body;
-  mcpWire();
-}
+/* SUPERSEDED by renderWorld(). Mechanics mode no longer renders into the
+   side panel at all -- the world owns the canvas, which is the whole point
+   of this round. Kept as a thin alias so any remaining caller lands in the
+   right place instead of silently doing nothing. */
+function renderMechanics() { renderWorld(); }
 
 function mcpWhatChanges(cols) {
   const chips = 'WUBRG'.split('').map(c =>
@@ -2717,469 +2917,587 @@ function mechToggleColor(c) {
   wheel.classList.toggle('has-selection', mech.sel.size > 0);
   clearBtn.hidden = mech.sel.size === 0;
   mech.fam = null; mech.pick = null;   // a new selection reopens nothing
-  renderProto();
+  renderWorld();
 }
 
 
 /* ======================================================================
-   MECHANICS VISUALIZATION PROTOTYPES  (preview only, not production)
+   THE MECHANICAL WORLD  (preview only, not production)
    ----------------------------------------------------------------------
-   Three architectures over ONE frozen dataset, sharing the wheel, the
-   ownership strip, the tier vocabulary and the detail surface -- so what is
-   being compared is the architecture, not three visual languages.
+   Round two, built from docs/research/mechanics-visualization-architecture-
+   reset.md. The first round is superseded, not repaired; `13b81f7` keeps it.
 
-     constellation  families as a spatial field
-     radial         mechanics growing out of the wheel's own geometry
-     split          wheel plus a family-first browser
+   THE LAW: mechanics mode owns the canvas. The wheel docks to a controller.
 
-   PROGRESSIVE DISCLOSURE is the shared rule. Nothing shows 216 mechanics at
-   once. Families (23) are the compression layer; a family opens to its own
-   mechanics; a mechanic opens to its detail. The 36 secondary cross-links
-   appear only for the focused mechanic, never as 36 permanent lines.
+   THREE VARIANTS OF ONE ARCHITECTURE, not three unrelated products. They
+   share the board primitive, the family layer, the detail layer and the
+   whole data path. What differs is how depth is expressed:
 
-   Tier is category, never magnitude. Nothing here scales by tier.
+     board     uniform periodic table; planes cover cleanly. Most legible.
+     atlas     districts sized by membership; the family grows out of its
+               own tile, so descent has a direction and a place.
+     layered   the three planes are visibly offset and stacked, so the
+               reader can see all three depths at once.
+
+   ONE OWNER OF DETAIL. Only renderMechLayer() draws a mechanic's record.
+   The family list and the search results carry a name and its badges and
+   nothing else. The previous round put the same record on screen twice and
+   was rightly called out for it.
+
+   TIER IS CATEGORY. Nothing scales, fills or lengthens by tier anywhere.
    ====================================================================== */
 
-const PROTOS = ['constellation', 'radial', 'split'];
-mech.proto = 'split';
-mech.fam = null;        // open family
-mech.pick = null;       // open mechanic
+/* Cropped to the vertex GLYPH bounding box (measured 563x538 at 119,106) plus
+   padding, rather than the full box the wording needs. */
+const WHEEL_VIEWBOX = wheel.getAttribute('viewBox');
+const MECH_VIEWBOX  = '105 92 591 566';
+
+const PROTOS = ['board', 'atlas', 'layered'];
+mech.proto = 'board';
+mech.fam   = null;    // open family key           (L2)
+mech.pick  = null;    // open mechanic key         (L3)
+mech.mode2 = null;    // 'family' | 'search'       what L2 is showing
 
 const FAM_LABEL = f => (f || 'unclassified').replace(/_/g, ' ');
 
-/* Reachability for the current selection, computed once per render. */
-function protoReach(cols) {
-  const out = { fams: {}, total: 0 };
+/* Best access, bucketed. Two of the required figures -- WUBRG's 215 primary
+   and its single secondary-only -- are statements about BEST access, which
+   mcpSections does not answer, so they get their own partition here. */
+function bestBuckets(cols) {
+  const o = { primary: [], secondary: [], tertiary: [], none: [] };
   Object.entries(MCP.byMechanic).forEach(([k, e]) => {
-    const owned = Object.keys(e.colors).filter(c => cols.has(c));
-    if (!owned.length) return;
-    out.total++;
-    const f = e.family || 'unclassified';
-    const g = out.fams[f] || (out.fams[f] = { keys: [], primary: 0 });
-    g.keys.push(k);
-    if (owned.some(c => e.colors[c].tier === 'primary')) g.primary++;
+    const { best } = mcpAccess(e, cols);
+    o[best || 'none'].push(k);
   });
-  return out;
+  return o;
 }
 
-/* ----------------------------------------------------------------------
-   SHARED DETAIL. Same record, same words, in all three prototypes -- so a
-   difference the Owner sees between prototypes is architectural.
-   ---------------------------------------------------------------------- */
-function protoDetailHTML(k, cols) {
-  const e = MCP.byMechanic[k];
-  if (!e) return '';
-  const owners = D.order.filter(c => e.colors[c]).map(c =>
-    `<span class="mech-owner">${dot(c)}${esc(nm(c))} ${tierBadge(e.colors[c].tier)}</span>`).join('');
-  const best = mcpAccess(e, cols).best;
-  const xlink = (e.families_secondary || []).map(f =>
-    `<p class="panel-body"><strong>Cross-linked family.</strong> ${esc(FAM_LABEL(f))}.
-       The mechanic stays canonically in ${esc(FAM_LABEL(e.family))}; a cross-link is a
-       second relationship, not a second classification.</p>`).join('');
-  const conflicted = Object.entries(e.colors).filter(([, d]) => d.conflict);
-  const prov = conflicted.map(([c, d]) => {
-    const r = d.ruling || {};
-    return `<p class="mech-prov"><strong>Source note.</strong> ${esc(nm(c))} appears as
-      ${esc(d.conflict.colour_list_says)} in the article's colour summaries and
-      ${esc(d.conflict.ability_catalog_says)} in its ability catalog. This dataset uses
-      ${esc(d.tier)}${r.authority ? ' on the authority of the ' + esc(r.authority) : ''}.</p>`;
-  }).join('');
-
-  return `
-    <p class="panel-kicker">Mechanic</p>
-    <h2 class="panel-title" style="font-size:21px">${esc(e.label)}</h2>
-    <p class="mech-pips">${mcpStrip(e.colors, 13)}
-      <span class="sr-only">${esc(mcpStripText(e.colors))}</span></p>
-    <p class="panel-body"><strong>Family.</strong> ${esc(FAM_LABEL(e.family))}
-      ${e.has_restriction ? '<span class="cond-badge">carries a limit</span>' : ''}</p>
-    ${cols.size ? `<p class="panel-body"><strong>Best access for this selection.</strong>
-      ${best ? tierBadge(best) : 'not reachable'}</p>` : ''}
-    <div class="mech-owners">${owners}</div>
-    ${e.explanation ? `<p class="${e.has_restriction ? 'mech-restrict' : 'mech-expl'}">${esc(e.explanation)}</p>` : ''}
-    ${xlink}${prov}`;
-}
-
-/* ----------------------------------------------------------------------
-   PROTOTYPE A - CONSTELLATION
-   Families as a spatial field. Positions come from a golden-angle
-   phyllotaxis seeded by a stable sort, so the field is deterministic:
-   the same selection always lays out the same way and nodes never jitter
-   between renders. Radius is BOUNDED because family sizes run 1..34 and a
-   raw mapping would make one node eleven times the area of another.
-   ---------------------------------------------------------------------- */
-function renderConstellation(cols) {
-  const svg = document.getElementById('protoField');
-  const W = 900, H = 620, cx = W / 2, cy = H / 2;
-  svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
-  if (!cols.size) {
-    svg.innerHTML = `<text x="${cx}" y="${cy}" text-anchor="middle"
-      style="fill:var(--bone-faint);font-family:Outfit,sans-serif;font-size:13px">
-      Select one or more colors on the wheel</text>`;
-    return { fams: 0, mechs: 0, edges: 0 };
-  }
-  const R = protoReach(cols);
-  const fams = Object.keys(R.fams).sort((a, b) =>
-    R.fams[b].keys.length - R.fams[a].keys.length || a.localeCompare(b));
-
-  const GOLDEN = Math.PI * (3 - Math.sqrt(5));
-  const parts = [];
-  const openKeys = mech.fam && R.fams[mech.fam] ? R.fams[mech.fam].keys : [];
-  let edges = 0;
-
-  fams.forEach((f, i) => {
-    const g = R.fams[f];
-    const t = (i + 0.5) / fams.length;
-    const rad = 60 + Math.sqrt(t) * 235;
-    const ang = i * GOLDEN;
-    const x = cx + Math.cos(ang) * rad * 1.32;
-    const y = cy + Math.sin(ang) * rad * 0.92;
-    // BOUNDED radius: 14..27px across the whole 1..34 range
-    const size = 14 + Math.min(13, Math.sqrt(g.keys.length) * 2.4);
-    const open = mech.fam === f;
-    parts.push(`<g class="fam-node${open ? ' is-open' : ''}${g.primary ? ' has-primary' : ''}"
-        data-fam="${esc(f)}" tabindex="0" role="button"
-        aria-label="${esc(FAM_LABEL(f))}, ${g.keys.length} reachable of ${MCP_BY_FAMILY[f].length}"
-        transform="translate(${x.toFixed(1)},${y.toFixed(1)})">
-        <circle class="disc" r="${size.toFixed(1)}"></circle>
-        <circle class="ring" r="${(size + 4).toFixed(1)}"></circle>
-        <text class="fname" y="${(size + 15).toFixed(1)}">${esc(FAM_LABEL(f))}</text>
-        <text class="fcount" y="${(size + 27).toFixed(1)}">${g.keys.length}/${MCP_BY_FAMILY[f].length}</text>
-      </g>`);
-
-    if (open) {
-      // Only THIS family's mechanics are revealed. Never all 216.
-      const n = openKeys.length;
-      openKeys.forEach((k, j) => {
-        const a2 = (j / Math.max(1, n)) * Math.PI * 2;
-        const rr = size + 46 + (j % 3) * 17;
-        const mx = x + Math.cos(a2) * rr, my = y + Math.sin(a2) * rr;
-        const e = MCP.byMechanic[k];
-        const best = mcpAccess(e, cols).best;
-        const col = D.order.find(c => cols.has(c) && e.colors[c] &&
-          e.colors[c].tier === best) || [...cols][0];
-        const v = 'var(--' + col.toLowerCase() + ')';
-        const fill = best === 'primary' ? v : 'transparent';
-        edges++;
-        parts.push(`<line class="link" x1="${x.toFixed(1)}" y1="${y.toFixed(1)}"
-            x2="${mx.toFixed(1)}" y2="${my.toFixed(1)}"></line>
-          <g class="mech-node${mech.pick === k ? ' is-open' : ''}" data-mech="${esc(k)}"
-             tabindex="0" role="button" aria-label="${esc(e.label)}, ${best}"
-             transform="translate(${mx.toFixed(1)},${my.toFixed(1)})">
-            <circle class="mdot" r="5" fill="${fill}" stroke="${v}"></circle>
-            ${e.has_restriction ? '<circle class="mech-cond" r="8.5"></circle>' : ''}
-            <text class="mlabel" x="11" y="3.5">${esc(e.label.replace(/\s*\([^)]*\)\s*$/, '').slice(0, 30))}</text>
-          </g>`);
+/* One row of the board. `agg` is the strongest tier each colour holds
+   ANYWHERE in the family, and `cnt` is how many of the family's mechanics
+   that colour reaches at all. Both are category/count facts; neither is a
+   ranking, and the family is never scored. */
+function famView(cols) {
+  return Object.keys(MCP_BY_FAMILY).map(f => {
+    const keys = MCP_BY_FAMILY[f];
+    const agg = {}, cnt = { W:0, U:0, B:0, R:0, G:0 };
+    let reach = 0, pri = 0;
+    keys.forEach(k => {
+      const e = MCP.byMechanic[k];
+      const { best } = mcpAccess(e, cols);
+      if (best) { reach++; if (best === 'primary') pri++; }
+      Object.entries(e.colors).forEach(([c, d]) => {
+        cnt[c]++;
+        if (!agg[c] || TIER_RANK[d.tier] > TIER_RANK[agg[c].tier]) agg[c] = { tier: d.tier };
       });
-      // cross-links only for the FOCUSED mechanic, never all 36 at once
-      if (mech.pick && MCP.byMechanic[mech.pick]) {
-        (MCP.byMechanic[mech.pick].families_secondary || []).forEach(sf => {
-          const idx = fams.indexOf(sf);
-          if (idx < 0) return;
-          const t2 = (idx + 0.5) / fams.length, r2 = 60 + Math.sqrt(t2) * 235;
-          const a3 = idx * GOLDEN;
-          parts.push(`<line class="link xlink" x1="${x.toFixed(1)}" y1="${y.toFixed(1)}"
-            x2="${(cx + Math.cos(a3) * r2 * 1.32).toFixed(1)}"
-            y2="${(cy + Math.sin(a3) * r2 * 0.92).toFixed(1)}"></line>`);
-          edges++;
-        });
-      }
-    }
-  });
-  svg.innerHTML = parts.join('');
-  return { fams: fams.length, mechs: openKeys.length, edges };
+    });
+    return { f, keys, total: keys.length, reach, pri, agg, cnt };
+  }).sort((a, b) => b.total - a.total || a.f.localeCompare(b.f));
 }
 
-/* ----------------------------------------------------------------------
-   PROTOTYPE B - RADIAL
-   Mechanics grow out of the wheel's own geometry rather than sitting
-   beside it. Families ride a ring outside the pentagon; the focused
-   family's mechanics ride an arc beyond that. The viewBox widens while
-   radial is active and is restored on exit, so the wheel is never
-   permanently altered.
-   ---------------------------------------------------------------------- */
-const WHEEL_VIEWBOX = wheel.getAttribute('viewBox');
-const RADIAL_VIEWBOX = '-210 -110 1220 1060';
-
-function renderRadial(cols) {
-  let g = document.getElementById('g-mech-radial');
-  if (!g) {
-    g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-    g.setAttribute('id', 'g-mech-radial');
-    wheel.appendChild(g);
-  }
-  const cx = 400, cy = 375;
-  if (!cols.size) { g.innerHTML = ''; return { fams: 0, mechs: 0, edges: 0 }; }
-
-  const R = protoReach(cols);
-  const fams = Object.keys(R.fams).sort();
-  const parts = [];
-  let edges = 0;
-  const famR = 335;
-  const openKeys = mech.fam && R.fams[mech.fam] ? R.fams[mech.fam].keys : [];
-
-  fams.forEach((f, i) => {
-    const a = (i / fams.length) * Math.PI * 2 - Math.PI / 2;
-    const x = cx + Math.cos(a) * famR, y = cy + Math.sin(a) * famR;
-    const grp = R.fams[f];
-    const size = 13 + Math.min(11, Math.sqrt(grp.keys.length) * 2.1);
-    const open = mech.fam === f;
-    parts.push(`<line class="link" x1="${cx}" y1="${cy}" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}"></line>
-      <g class="fam-node${open ? ' is-open' : ''}${grp.primary ? ' has-primary' : ''}"
-         data-fam="${esc(f)}" tabindex="0" role="button"
-         aria-label="${esc(FAM_LABEL(f))}, ${grp.keys.length} reachable of ${MCP_BY_FAMILY[f].length}"
-         transform="translate(${x.toFixed(1)},${y.toFixed(1)})">
-        <circle class="disc" r="${size.toFixed(1)}"></circle>
-        <circle class="ring" r="${(size + 4).toFixed(1)}"></circle>
-        <text class="fname" y="${(size + 14).toFixed(1)}">${esc(FAM_LABEL(f))}</text>
-        <text class="fcount" y="${(size + 25).toFixed(1)}">${grp.keys.length}/${MCP_BY_FAMILY[f].length}</text>
-      </g>`);
-    edges++;
-
-    if (open) {
-      const spread = Math.min(Math.PI * 1.5, 0.14 * openKeys.length);
-      openKeys.forEach((k, j) => {
-        const a2 = a - spread / 2 + (openKeys.length > 1 ? (j / (openKeys.length - 1)) * spread : 0);
-        const rr = famR + 78 + (j % 2) * 26;
-        const mx = cx + Math.cos(a2) * rr, my = cy + Math.sin(a2) * rr;
-        const e = MCP.byMechanic[k];
-        const best = mcpAccess(e, cols).best;
-        const col = D.order.find(c => cols.has(c) && e.colors[c] &&
-          e.colors[c].tier === best) || [...cols][0];
-        const v = 'var(--' + col.toLowerCase() + ')';
-        const flip = Math.cos(a2) < 0;
-        parts.push(`<line class="link" x1="${x.toFixed(1)}" y1="${y.toFixed(1)}"
-            x2="${mx.toFixed(1)}" y2="${my.toFixed(1)}"></line>
-          <g class="mech-node${mech.pick === k ? ' is-open' : ''}" data-mech="${esc(k)}"
-             tabindex="0" role="button" aria-label="${esc(e.label)}, ${best}"
-             transform="translate(${mx.toFixed(1)},${my.toFixed(1)})">
-            <circle class="mdot" r="5" fill="${best === 'primary' ? v : 'transparent'}" stroke="${v}"></circle>
-            ${e.has_restriction ? '<circle class="mech-cond" r="8.5"></circle>' : ''}
-            <text class="mlabel" x="${flip ? -11 : 11}" y="3.5"
-              style="text-anchor:${flip ? 'end' : 'start'}">${esc(e.label.replace(/\s*\([^)]*\)\s*$/, '').slice(0, 26))}</text>
-          </g>`);
-        edges++;
-      });
-    }
-  });
-  g.innerHTML = parts.join('');
-  return { fams: fams.length, mechs: openKeys.length, edges };
-}
-
-/* ----------------------------------------------------------------------
-   PROTOTYPE C - SPLIT
-   Family-first browser. The 23 families are the navigation; only the
-   opened family lists mechanics. This is the same progressive-disclosure
-   rule as the two spatial prototypes, expressed as structure rather than
-   as a field.
-   ---------------------------------------------------------------------- */
-function renderSplitBrowser(cols) {
-  const R = protoReach(cols);
-  const fams = Object.keys(R.fams).sort((a, b) =>
-    R.fams[b].keys.length - R.fams[a].keys.length || a.localeCompare(b));
-  const rows = fams.map(f => {
-    const g = R.fams[f], open = mech.fam === f;
-    const cond = g.keys.filter(k => MCP.byMechanic[k].has_restriction).length;
-    return `<li class="fam-item">
-      <button class="fam-btn" data-fam="${esc(f)}" aria-expanded="${open}">
-        <span class="chev">&#9656;</span>
-        <span class="fnm">${esc(FAM_LABEL(f))}</span>
-        <span class="fct">${g.keys.length}/${MCP_BY_FAMILY[f].length}</span>
-        ${g.primary ? '<span class="cond-badge" style="border-color:rgba(237,230,211,.24);color:var(--bone-dim)">primary</span>'
-                    : '<span class="fct" aria-hidden="true"></span>'}
-      </button>
-      ${open ? `<div class="fam-open">
-          ${cond ? `<p class="fct" style="margin:0 0 6px">${cond} carry a limit</p>` : ''}
-          ${mcpList(g.keys, cols)}</div>` : ''}
-    </li>`;
+/* The family glyph: five columns, one per colour, each carrying the tier
+   cell above its count. This is the thing the board teaches with -- reading
+   `removal` across shows White 12 and Blue 1, which no amount of bubbles
+   ever said. Columns outside the selection are dimmed, not removed: absence
+   needs a slot that can go dark. */
+function famGlyph(v, cols) {
+  const cells = D.order.map(c => {
+    const t = (v.agg[c] || {}).tier;
+    const cv = 'var(--' + c.toLowerCase() + ')';
+    let inner = '', style = 'width:13px;height:13px;';
+    if (t === 'primary')        style += 'background:' + cv + ';border-color:transparent';
+    else if (t === 'secondary') style += 'border-color:' + cv;
+    else if (t === 'tertiary') { style += 'border-color:transparent';
+      inner = '<i style="inset:3.5px;background:' + cv + '"></i>'; }
+    else style += 'border-color:rgba(237,230,211,.11)';
+    return `<span class="tf-col${cols.size && !cols.has(c) ? ' off' : ''}">
+      <span class="mcp-cell" style="${style}">${inner}</span>
+      <em>${v.cnt[c] || '·'}</em></span>`;
   }).join('');
-  return `<p class="mcp-h">Families reached &middot; ${fams.length} of 23</p>
-    <ul class="famlist">${rows}</ul>`;
+  return `<span class="tf-grid" aria-hidden="true">${cells}</span>`;
+}
+
+function famGlyphText(v) {
+  const owned = D.order.filter(c => v.agg[c]);
+  return owned.length
+    ? owned.map(c => `${nm(c)} reaches ${v.cnt[c]}, strongest ownership ${v.agg[c].tier}`).join('; ')
+    : 'no colour reaches this family';
 }
 
 /* ----------------------------------------------------------------------
-   Selection-shaped summaries. The emphasis changes with the question the
-   selection actually poses, instead of showing every statistic always.
+   THE RAIL.  One teaching band at a time, shaped by the selection size.
+   Never all of them at once: that would be the dashboard wall this round
+   is explicitly not building.
    ---------------------------------------------------------------------- */
-function protoSummary(cols) {
+function renderRail(cols) {
+  const list = [...cols].sort((a, b) => D.order.indexOf(a) - D.order.indexOf(b));
   const n = cols.size;
-  if (!n) return '';
-  const S = mcpSections(cols);
-  const reach = 216 - S.unavailable.length;
-  const b = { primary: 0, secondary: 0, tertiary: 0 };
-  Object.entries(MCP.byMechanic).forEach(([, e]) => {
-    const a = mcpAccess(e, cols).best; if (a) b[a]++;
-  });
-  const box = (v, l, sub) => `<div class="${sub ? 'sub' : ''}"><b>${v}</b><span>${l}</span></div>`;
+  const B = bestBuckets(cols);
+  const reach = 216 - B.none.length;
+  const M = MCP.meta.counts || {};
 
-  if (n === 1) {
-    return `<div class="anat">${box(reach, 'reachable')}${box(b.primary, 'primary')}
-      ${box(b.secondary, 'secondary-only')}${box(b.tertiary, 'tertiary-only')}</div>`;
+  const strip = mcpStrip(Object.fromEntries(list.map(c => [c, { tier: 'primary' }])), 12);
+  const title = n
+    ? `${strip}<span>${list.map(nm).map(esc).join(' · ')}</span>`
+    : `<span>The mechanical color pie</span>`;
+
+  let figs;
+  if (!n) {
+    figs = `<span><b>216</b>mechanics</span><span><b>23</b>families</span>
+            <span><b>467</b>color assignments</span>`;
+  } else {
+    figs = `<span><b>${reach}</b>reachable of 216</span>
+            <span><b>${B.primary.length}</b>primary</span>
+            <span><b>${B.secondary.length}</b>secondary</span>
+            <span><b>${B.tertiary.length}</b>tertiary</span>`;
   }
-  if (n === 5) {
-    return `<div class="anat">${box(reach, 'reachable')}${box(b.primary, 'primary available')}
-      ${box(b.secondary + b.tertiary, 'not primary anywhere')}${box(S.unavailable.length, 'unavailable')}</div>
-      <p class="mcp-sub">Every mechanic is reachable somewhere across the five colors.
-        Ownership is still uneven: one mechanic has no primary color at all.</p>`;
+
+  let band = '';
+
+  if (!n) {
+    band = `<div class="band"><p class="band-h">Where to start</p>
+      <p class="rail-scope">Select colors on the wheel. The board below is every
+      family in Rosewater's 2021 mechanical color pie; each tile shows how much of
+      that family your selection reaches and which colors design it.
+      <b>Tiers describe design ownership and frequency, not power.</b></p></div>`;
   }
-  // 2-4 colors: sharing structure is the interesting part, not the total
-  const sp = S.shared_primary.length, sa = S.shared_access.length + sp;
-  let extra = '';
+
+  /* A PAIR. Shared / complementary / unavailable partition all 216, and the
+     shared part splits again into both-primary and mixed-tier. The ribbon's
+     proportion is a COUNT OF MECHANICS, never a tier. */
+  if (n === 2) {
+    const S = mcpSections(cols);
+    const shared = S.shared_primary.length + S.shared_access.length;
+    const pct = x => (100 * x / 216).toFixed(2) + '%';
+    band = `<div class="band"><p class="band-h">What ${list.map(nm).map(esc).join(' and ')} share</p>
+      <div class="ribbon" role="img" aria-label="Of 216 mechanics, ${shared} are reachable by both
+        selected colors, ${S.complementary.length} by only one of them, and
+        ${S.unavailable.length} by neither.">
+        <span class="rib-shared" style="width:${pct(shared)}">${shared}</span>
+        <span class="rib-comp" style="width:${pct(S.complementary.length)}">${S.complementary.length}</span>
+        <span class="rib-un" style="width:${pct(S.unavailable.length)}">${S.unavailable.length}</span>
+      </div>
+      <div class="rib-key">
+        <span><i class="rib-shared" style="background:rgba(212,175,55,.72)"></i>
+          <b>${shared}</b> both colors reach</span>
+        <span><i style="background:rgba(237,230,211,.34)"></i>
+          <b>${S.complementary.length}</b> only one reaches</span>
+        <span><i style="background:rgba(237,230,211,.14)"></i>
+          <b>${S.unavailable.length}</b> neither reaches</span>
+      </div>
+      <p class="rib-sub">Of the ${shared} both reach, <b>${S.shared_primary.length}</b> are primary
+        for both and <b>${S.shared_access.length}</b> are shared at mixed tiers. Both are shared —
+        the split says how central the mechanic is to each color, not how good it is.</p></div>`;
+  }
+
+  if (n === 3) {
+    band = `<div class="band"><p class="band-h">Three colors</p>
+      <div class="plates">
+        <div class="plate"><b>${reach}</b><span>reachable</span></div>
+        <div class="plate is-key"><b>${B.none.length}</b><span>out of reach</span></div>
+        <div class="plate"><b>${B.primary.length}</b><span>at primary</span></div>
+      </div></div>`;
+  }
+
+  /* FOUR COLOURS. The question is the cost of the one that is missing, so
+     the band is a comparison against all five rather than a count of what
+     is here. This is the fact the previous round could not draw at all. */
   if (n === 4) {
     const miss = D.order.find(c => !cols.has(c));
     const d = mcpDeltaRemove(new Set(D.order), miss);
-    extra = `<p class="mcp-h">Mechanical absence &middot; without ${esc(nm(miss))}</p>
-      <div class="anat">${box(d.lost_completely.length, 'lost completely')}
-        ${box(d.tier_degraded.length, 'best access degraded')}
-        ${box(d.lost_owner_retained_access.length, 'owner lost, access kept')}
-        ${box(d.unchanged.length, 'unaffected')}</div>`;
+    band = `<div class="band"><p class="band-h">What the absence of ${esc(nm(miss))} costs</p>
+      <div class="plates">
+        <div class="plate is-key"><b>${d.lost_completely.length}</b><span>lost completely</span></div>
+        <div class="plate"><b>${d.tier_degraded.length}</b><span>tier degraded</span></div>
+        <div class="plate"><b>${d.lost_owner_retained_access.length}</b><span>owner lost, access kept</span></div>
+        <div class="plate"><b>${d.unchanged.length}</b><span>unaffected</span></div>
+      </div>
+      <p class="rib-sub">Measured against all five colors. <b>Owner lost, access kept</b> means another
+        selected color still performs it — ${esc(nm(miss))} was simply one of the colors that did.</p></div>`;
   }
-  return `<div class="anat">${box(reach, 'reachable')}${box(sa, 'shared by all selected')}
-      ${box(sp, 'primary together', 1)}${box(sa - sp, 'mixed tier', 1)}
-      ${box(S.complementary.length, 'complementary')}${box(S.unavailable.length, 'unavailable')}</div>
-    ${extra}${protoAddBar(cols)}`;
-}
 
-function protoAddBar(cols) {
-  const missing = D.order.filter(c => !cols.has(c));
-  if (!missing.length) return '';
-  const chips = missing.map(c =>
-    `<button class="addbtn" data-add="${c}" aria-pressed="${mech.delta === c}">+ ${esc(nm(c))}</button>`).join('');
-  let out = `<p class="mcp-h">What changes if&hellip;</p><div class="addbar">${chips}</div>`;
-  if (mech.delta && missing.includes(mech.delta)) {
-    const d = mcpDeltaAdd(cols, mech.delta);
-    const box = (v, l) => `<div><b>${v}</b><span>${l}</span></div>`;
-    out += `<div class="anat">${box(d.newly_reachable.length, 'newly reachable')}
-      ${box(d.best_tier_improved.length, 'best tier improved')}
-      ${box(d.new_owner_no_improvement.length, 'new owner, same best tier')}
-      ${box(d.unchanged.length, 'unchanged')}${box(d.still_unavailable.length, 'still unavailable')}</div>
-      <p class="mcp-sub">These are changes in access and ownership, not in power.</p>`;
+  if (n === 5) {
+    band = `<div class="band"><p class="band-h">Full colored access</p>
+      <div class="plates">
+        <div class="plate"><b>${reach}</b><span>reachable</span></div>
+        <div class="plate"><b>${B.primary.length}</b><span>primary available</span></div>
+        <div class="plate is-key"><b>${B.secondary.length}</b><span>secondary at best</span></div>
+        <div class="plate"><b>${B.none.length}</b><span>unavailable</span></div>
+      </div>
+      <p class="rib-sub">Every mechanic is reachable, but access is not ownership: exactly
+        <b>${B.secondary.length}</b> of the 216 has no primary owner in any color.</p></div>`;
   }
-  return out;
+
+  /* What changes if… — the add/remove delta, on demand and never by default. */
+  let delta = '';
+  if (n) {
+    const chips = D.order.map(c =>
+      `<button class="addbtn" data-add="${c}" aria-pressed="${String(mech.delta === c)}"
+        >${cols.has(c) ? '&minus;' : '+'} ${esc(nm(c))}</button>`).join('');
+    delta = `<div class="addbar" role="group" aria-label="What changes if a color is added or removed">${chips}</div>`;
+
+    if (mech.delta) {
+      const c = mech.delta;
+      if (cols.has(c)) {
+        const d = mcpDeltaRemove(cols, c);
+        delta += `<div class="band"><p class="band-h">Removing ${esc(nm(c))}</p>
+          <div class="plates">
+            <div class="plate is-key"><b>${d.lost_completely.length}</b><span>lost completely</span></div>
+            <div class="plate"><b>${d.tier_degraded.length}</b><span>tier degraded</span></div>
+            <div class="plate"><b>${d.lost_owner_retained_access.length}</b><span>owner lost, access kept</span></div>
+            <div class="plate"><b>${d.unchanged.length}</b><span>unchanged</span></div>
+          </div></div>`;
+      } else {
+        const d = mcpDeltaAdd(cols, c);
+        delta += `<div class="band"><p class="band-h">Adding ${esc(nm(c))}</p>
+          <div class="plates">
+            <div class="plate is-key"><b>${d.newly_reachable.length}</b><span>newly reachable</span></div>
+            <div class="plate"><b>${d.best_tier_improved.length}</b><span>best tier improved</span></div>
+            <div class="plate"><b>${d.new_owner_no_improvement.length}</b><span>new owner, same tier</span></div>
+            <div class="plate"><b>${d.unchanged.length}</b><span>unchanged</span></div>
+            <div class="plate"><b>${d.still_unavailable.length}</b><span>still unavailable</span></div>
+          </div>
+          <p class="rib-sub"><b>New owner, same tier</b> is its own outcome: adding a color to a
+            selection that already has primary access cannot raise the maximum, but it can add a
+            second color that legitimately performs the mechanic.</p></div>`;
+      }
+    }
+  }
+
+  return `<div class="rail">
+    <div class="rail-top">
+      <p class="rail-sel">${title}</p>
+      <p class="rail-fig">${figs}</p>
+    </div>
+    <div class="rail-tools">
+      <input class="world-search" type="search" id="worldSearch" placeholder="Find a mechanic…"
+             value="${esc(mech.q)}" aria-label="Find a mechanic">
+      ${delta}
+    </div>
+    ${band}
+  </div>`;
 }
 
 /* ----------------------------------------------------------------------
-   Dispatcher + wiring
+   L1 - THE BOARD
    ---------------------------------------------------------------------- */
-function renderProto() {
-  const cols = mech.sel;
-  const wrap = document.getElementById('protoWrap');
-  const spatial = mech.proto !== 'split';
-  wrap.hidden = !spatial;
-  document.body.classList.toggle('proto-spatial', spatial);
-  wheel.setAttribute('viewBox', mech.proto === 'radial' ? RADIAL_VIEWBOX : WHEEL_VIEWBOX);
-  const rg = document.getElementById('g-mech-radial');
-  if (rg && mech.proto !== 'radial') rg.innerHTML = '';
-
-  let load = { fams: 0, mechs: 0, edges: 0 };
-  if (mech.proto === 'constellation') load = renderConstellation(cols);
-  else if (mech.proto === 'radial') load = renderRadial(cols);
-
-  const hint = document.getElementById('fieldHint');
-  const cnt = document.getElementById('fieldCount');
-  if (hint) hint.textContent = mech.fam ? FAM_LABEL(mech.fam) : 'families reachable';
-  if (cnt) cnt.textContent = spatial
-    ? `${load.fams} families · ${load.mechs} mechanics · ${load.edges} edges drawn` : '';
-
-  // detail drawer for the spatial prototypes
-  const det = document.getElementById('protoDetail');
-  if (det) {
-    if (spatial && mech.pick) {
-      det.hidden = false;
-      det.innerHTML = `<button class="close" id="protoClose" aria-label="Close detail">&times;</button>`
-        + protoDetailHTML(mech.pick, cols);
-    } else { det.hidden = true; det.innerHTML = ''; }
-  }
-  renderMechanics();   // panel: summary + browser (split) or detail-lite
-  protoWire();
+function renderBoard(cols) {
+  const views = famView(cols);
+  const big = views[0] ? views[0].total : 1;
+  return views.map(v => {
+    const out = cols.size && v.reach === 0;
+    /* Atlas sizes the plate by MEMBERSHIP, which is a real magnitude: a
+       one-mechanic family is small because it has one mechanic. */
+    const sz = v.total >= Math.max(20, big * 0.6) ? 3 : v.total >= 10 ? 2 : 1;
+    const cnt = cols.size
+      ? `<b>${v.reach}</b> of ${v.total} reachable`
+      : `<b>${v.total}</b> mechanic${v.total === 1 ? '' : 's'}`;
+    return `<button class="tile-f sz-${sz}${out ? ' is-out' : ''}" data-fam="${esc(v.f)}"
+        aria-pressed="${String(mech.fam === v.f)}"
+        aria-label="${esc(FAM_LABEL(v.f))}. ${cols.size ? v.reach + ' of ' + v.total + ' reachable' :
+          v.total + ' mechanics'}. ${esc(famGlyphText(v))}">
+      ${v.pri ? '<span class="tf-pri" aria-hidden="true"></span>' : ''}
+      ${out ? '<span class="tf-x">out of reach</span>' : ''}
+      <span class="tf-n">${esc(FAM_LABEL(v.f))}</span>
+      <span class="tf-c">${cnt}</span>
+      ${famGlyph(v, cols)}
+    </button>`;
+  }).join('');
 }
 
-function protoWire() {
+/* ----------------------------------------------------------------------
+   L2 - THE FAMILY, or the search results. Names and badges only: the
+   record itself belongs to L3 and to nowhere else.
+   ---------------------------------------------------------------------- */
+function mechLine(k, cols, showFam) {
+  const e = MCP.byMechanic[k];
+  const { best } = mcpAccess(e, cols);
+  const out = cols.size && !best;
+  return `<li class="${showFam ? 'hit' : 'mrow'}${out ? ' is-out' : ''}">
+    <button class="${showFam ? 'hitb' : 'mbtn'}" data-mech="${esc(k)}"
+      aria-pressed="${String(mech.pick === k)}"
+      aria-label="${esc(e.label)}. ${esc(mcpStripText(e.colors))}.${
+        cols.size ? ' Best access for this selection: ' + (best || 'not reachable') + '.' : ''}">
+      ${mcpStrip(e.colors, 11)}
+      <span class="${showFam ? 'hnm' : 'mnm'}">${esc(e.label)}
+        ${showFam ? `<span class="hfam">${esc(FAM_LABEL(e.family))}</span>` : ''}</span>
+      <span class="mmeta">
+        ${best ? tierBadge(best) : ''}
+        ${e.has_restriction ? '<span class="cond-badge">limit</span>' : ''}
+      </span>
+    </button></li>`;
+}
+
+function renderFamilyLayer(cols) {
+  if (mech.mode2 === 'search') {
+    const q = mech.q.toLowerCase();
+    /* Exact, then prefix, then substring. Sorted alphabetically a search for
+       "counterspell" would bury Counterspell under longer matches. */
+    const score = k => k === q ? 0 : k.startsWith(q) ? 1 : k.includes(q) ? 2 : 3;
+    const hits = Object.keys(MCP.byMechanic)
+      .filter(k => k.includes(q) || (MCP.byMechanic[k].family || '').includes(q))
+      .sort((a, b) => score(a) - score(b) || a.localeCompare(b));
+    return {
+      crumb: `<button data-up="1">The board</button><span>›</span><span class="here">Search</span>`,
+      title: `“${esc(mech.q)}”`,
+      sub: `${hits.length} match${hits.length === 1 ? '' : 'es'} · each one names the family it lives in`,
+      body: hits.length
+        ? `<ul class="hits">${hits.map(k => mechLine(k, cols, true)).join('')}</ul>`
+        : `<p class="world-empty">Nothing matches that.</p>`
+    };
+  }
+
+  const f = mech.fam;
+  const keys = MCP_BY_FAMILY[f] || [];
+  const v = famView(cols).find(x => x.f === f) || { reach: 0, total: keys.length, cnt: {} };
+  /* The trailing separator is sr-only: the flex gap separates these visually,
+     but textContent runs them together, so a screen reader would otherwise say
+     "White 7Blue 4Black 7". */
+  const per = `<span class="percol">` + D.order.map(c =>
+    `<span>${dot(c)}${esc(nm(c))} ${v.cnt[c] || 0}<span class="sr-only">, </span></span>`)
+    .join('') + `</span>`;
+  /* Cross-links are shown as the family's INBOUND list, once, with the
+     mechanic still counted only in its canonical family. 36 links total; a
+     family that has none says nothing rather than showing an empty section. */
+  const xs = Object.keys(MCP.byMechanic).filter(k =>
+    (MCP.byMechanic[k].families_secondary || []).includes(f));
+
+  const sorted = keys.slice().sort((a, b) => {
+    const A = mcpAccess(MCP.byMechanic[a], cols).best, B2 = mcpAccess(MCP.byMechanic[b], cols).best;
+    return (B2 ? TIER_RANK[B2] : 0) - (A ? TIER_RANK[A] : 0)
+        || MCP.byMechanic[a].label.localeCompare(MCP.byMechanic[b].label);
+  });
+
+  return {
+    crumb: `<button data-up="1">The board</button><span>›</span>
+            <span class="here">${esc(FAM_LABEL(f))}</span>`,
+    title: esc(FAM_LABEL(f)),
+    sub: cols.size
+      ? `${v.reach} of ${v.total} reachable · ${v.pri} at primary`
+      : `${v.total} mechanic${v.total === 1 ? '' : 's'}`,
+    body: `<p class="fam-note">Reached by ${per} — how many of this family's mechanics each
+        color performs, at any tier.</p>
+      ${xs.length ? `<p class="fam-note"><b>${xs.length}</b> mechanic${xs.length === 1 ? '' : 's'}
+        from other families also touch${xs.length === 1 ? 'es' : ''} this one. They stay counted in
+        their own family — open one to see the link.</p>` : ''}
+      <ul class="mlist">${sorted.map(k => mechLine(k, cols, false)).join('')}</ul>`
+  };
+}
+
+/* ----------------------------------------------------------------------
+   L3 - THE MECHANIC.  The single owner of mechanic detail.
+   ---------------------------------------------------------------------- */
+function renderMechLayer(cols) {
+  const k = mech.pick, e = MCP.byMechanic[k];
+  const { best, owned } = mcpAccess(e, cols);
+  const owners = D.order.filter(c => e.colors[c]).map(c =>
+    `<span class="mx-own${owned[c] ? ' in-sel' : ''}">${dot(c)}${esc(nm(c))}
+       ${tierBadge(e.colors[c].tier)}</span>`).join('');
+  const xf = (e.families_secondary || []).filter(Boolean);
+  const conflicted = Object.entries(e.colors).filter(([, d]) => d.conflict);
+  const prov = conflicted.map(([c, d]) => {
+    const r = d.ruling || {};
+    return `<p class="mx-prov"><b>Source note.</b> ${esc(nm(c))} appears as
+      ${esc(d.conflict.colour_list_says)} in the article's color summaries and
+      ${esc(d.conflict.ability_catalog_says)} in its ability catalog. This dataset uses
+      ${esc(d.tier)}${r.authority ? ' on the authority of the ' + esc(r.authority) : ''},
+      and keeps the conflicting claim.${r.mechanism ? ' ' + esc(r.mechanism) : ''}</p>`;
+  }).join('');
+
+  const reachLine = !cols.size
+    ? `<p class="mx-reach">No colors selected yet.</p>`
+    : best
+      ? `<p class="mx-reach">Your selection reaches this at <b>${esc(best)}</b>, through
+         ${D.order.filter(c => owned[c]).map(c => esc(nm(c))).join(' and ')}.</p>`
+      : `<p class="mx-reach">No selected color performs this.</p>`;
+
+  const crumbFam = mech.fam
+    ? `<button data-up="2">${esc(FAM_LABEL(mech.fam))}</button>`
+    : `<button data-up="2">Search</button>`;
+
+  return {
+    crumb: `<button data-up="1">The board</button><span>›</span>${crumbFam}
+            <span>›</span><span class="here">Mechanic</span>`,
+    title: '', sub: '',
+    body: `<h3 class="mx-label">${esc(e.label)}</h3>
+      ${mcpStrip(e.colors, 15)}<span class="sr-only">${esc(mcpStripText(e.colors))}</span>
+      ${e.has_restriction ? ' <span class="cond-badge">carries a limit</span>' : ''}
+      <div class="mx-sec"><p class="mx-h">Your selection</p>${reachLine}</div>
+      <div class="mx-sec"><p class="mx-h">Who designs it</p>
+        <div class="mx-owners">${owners}</div></div>
+      ${e.explanation ? `<div class="mx-sec"><p class="mx-h">From the source</p>
+        <p class="mx-text${e.has_restriction ? ' mx-restrict' : ''}">${esc(e.explanation)}</p></div>` : ''}
+      <div class="mx-sec"><p class="mx-h">Where it lives</p>
+        <p class="mx-prov"><b>Family.</b> ${esc(FAM_LABEL(e.family))} — its canonical home, and the
+          only place it is counted.</p>
+        ${xf.length ? `<p class="mx-prov"><b>Also touches.</b> ${xf.map(x => esc(FAM_LABEL(x))).join(' · ')}.
+          A cross-link, not a second membership.</p>` : ''}
+        ${e.source_aliases && e.source_aliases.length
+          ? `<p class="mx-prov"><b>Also written as.</b> ${e.source_aliases.map(esc).join(' · ')}</p>` : ''}
+        ${prov}</div>`
+  };
+}
+
+/* ----------------------------------------------------------------------
+   DISPATCH
+   ---------------------------------------------------------------------- */
+/* upLevel is 1 for "all the way back to the board" and 2 for "up one".
+   It was hardcoded to 1, which made L3's "Back to <family>" button skip the
+   family entirely and land on the board -- the label promised one thing and
+   the button did another. */
+function layerHTML(o, upLabel, upLevel) {
+  return `<div class="wl-bar">
+      <span class="wl-crumb">${o.crumb}</span>
+      <button class="wl-up" data-up="${upLevel || 1}">${esc(upLabel)}</button>
+    </div>
+    <div class="wl-body">
+      ${o.title ? `<h2 class="wl-title">${o.title}</h2>` : ''}
+      ${o.sub ? `<p class="wl-sub">${o.sub}</p>` : ''}
+      ${o.title || o.sub ? '<div style="height:14px"></div>' : ''}
+      ${o.body}
+    </div>`;
+}
+
+let worldPrevDepth = 0;
+
+function renderWorld() {
+  const cols = mech.sel;
+  const world = document.getElementById('world');
+  if (!world) return;
+  world.className = 'world v-' + mech.proto;
+
+  document.getElementById('wRail').innerHTML = renderRail(cols);
+  document.getElementById('wBoard').innerHTML = renderBoard(cols);
+
+  const l1 = document.getElementById('wl1');
+  const l2 = document.getElementById('wl2');
+  const l3 = document.getElementById('wl3');
+
+  const on2 = !!(mech.fam || mech.mode2 === 'search');
+  const on3 = !!mech.pick;
+  const depth = on3 ? 3 : on2 ? 2 : 1;
+
+  if (on2) {
+    const o = renderFamilyLayer(cols);
+    l2.innerHTML = layerHTML(o, 'Back to the board', 1);
+    l2.hidden = false;
+    l2.setAttribute('aria-label', mech.mode2 === 'search'
+      ? 'Search results' : FAM_LABEL(mech.fam) + ' family');
+  } else { l2.hidden = true; l2.innerHTML = ''; }
+
+  if (on3) {
+    const o = renderMechLayer(cols);
+    l3.innerHTML = layerHTML(o, mech.fam ? 'Back to ' + FAM_LABEL(mech.fam) : 'Back to results', 2);
+    l3.hidden = false;
+    l3.setAttribute('aria-label', MCP.byMechanic[mech.pick].label);
+  } else { l3.hidden = true; l3.innerHTML = ''; }
+
+  /* THE RECEDING RULE. The layer beneath stays rendered and stays on screen;
+     it only steps back. That is the whole mall-map idea -- you can always
+     see the floor you came from. */
+  l1.classList.toggle('is-recede-1', depth === 2);
+  l1.classList.toggle('is-recede-2', depth === 3);
+  l2.classList.toggle('is-recede-1', depth === 3);
+
+  /* Animate only the plane that just appeared, and only when going deeper. */
+  if (depth > worldPrevDepth) {
+    const el = depth === 3 ? l3 : depth === 2 ? l2 : null;
+    if (el) { el.classList.remove('wl-anim'); void el.offsetWidth; el.classList.add('wl-anim'); }
+  }
+  worldPrevDepth = depth;
+
+  worldWire();
+  if (mech.focusLayer) {
+    const el = depth === 3 ? l3 : depth === 2 ? l2 : null;
+    if (el) el.focus();
+    mech.focusLayer = false;
+  }
+}
+
+function worldWire() {
   document.querySelectorAll('.proto-btn').forEach(b =>
     b.setAttribute('aria-pressed', String(b.dataset.proto === mech.proto)));
-  const close = document.getElementById('protoClose');
-  if (close) close.addEventListener('click', () => { mech.pick = null; renderProto(); });
-}
-
-/* one delegated handler for every prototype: click and keyboard both route
-   through the same path, so nothing is hover-only or mouse-only */
-function protoActivate(el) {
-  if (!el) return;
-  if (el.dataset.fam !== undefined) {
-    mech.fam = mech.fam === el.dataset.fam ? null : el.dataset.fam;
-    mech.pick = null;
-    renderProto();
-  } else if (el.dataset.mech !== undefined) {
-    mech.pick = mech.pick === el.dataset.mech ? null : el.dataset.mech;
-    renderProto();
-  } else if (el.dataset.add !== undefined) {
-    mech.delta = mech.delta === el.dataset.add ? null : el.dataset.add;
-    renderProto();
-  } else if (el.dataset.proto !== undefined) {
-    setProto(el.dataset.proto);
+  const s = document.getElementById('worldSearch');
+  if (s && !s.dataset.wired) {
+    s.dataset.wired = '1';
+    s.addEventListener('input', () => {
+      mech.q = s.value.trim();
+      mech.pick = null;
+      if (mech.q) { mech.mode2 = 'search'; mech.fam = null; }
+      else if (mech.mode2 === 'search') mech.mode2 = null;
+      const at = s.selectionStart;
+      renderWorld();
+      const t = document.getElementById('worldSearch');
+      if (t) { t.focus(); t.setSelectionRange(at, at); }
+    });
   }
 }
+
+/* ONE delegated handler. Click and keyboard both route through it, because
+   every target is a real <button>: nothing here is hover-only or mouse-only. */
 document.addEventListener('click', e => {
   if (!mech.on) return;
-  const t = e.target.closest('[data-fam],[data-mech],[data-add],[data-proto]');
-  if (t) { e.preventDefault(); protoActivate(t); }
-});
-document.addEventListener('keydown', e => {
-  if (!mech.on || (e.key !== 'Enter' && e.key !== ' ')) return;
-  const t = e.target.closest && e.target.closest('[data-fam],[data-mech]');
-  if (t && t.tagName.toLowerCase() === 'g') { e.preventDefault(); protoActivate(t); }
+  const t = e.target.closest('[data-fam],[data-mech],[data-add],[data-proto],[data-up]');
+  if (!t) return;
+  e.preventDefault();
+  if (t.dataset.proto !== undefined) { setProto(t.dataset.proto); return; }
+  if (t.dataset.up !== undefined) {
+    if (t.dataset.up === '1') { mech.fam = null; mech.pick = null; mech.mode2 = null; }
+    else { mech.pick = null; }
+    mech.focusLayer = true;
+    renderWorld();
+    if (!mech.fam && mech.mode2 !== 'search') {
+      const back = document.querySelector('.tile-f[data-fam]');
+      if (back) back.focus();
+    }
+    return;
+  }
+  if (t.dataset.add !== undefined) {
+    mech.delta = mech.delta === t.dataset.add ? null : t.dataset.add;
+    renderWorld(); return;
+  }
+  if (t.dataset.fam !== undefined) {
+    /* Atlas descends FROM the tile: the plane grows out of the place that was
+       clicked, so the reader keeps their bearings. */
+    const st = document.getElementById('wStack');
+    if (st && mech.proto === 'atlas') {
+      const r = t.getBoundingClientRect(), sr = st.getBoundingClientRect();
+      st.style.setProperty('--ox', (100 * (r.left + r.width / 2 - sr.left) / sr.width).toFixed(1) + '%');
+      st.style.setProperty('--oy', (100 * (r.top + r.height / 2 - sr.top) / sr.height).toFixed(1) + '%');
+    }
+    mech.fam = t.dataset.fam; mech.mode2 = 'family'; mech.pick = null;
+    mech.focusLayer = true; renderWorld(); return;
+  }
+  if (t.dataset.mech !== undefined) {
+    mech.pick = t.dataset.mech; mech.focusLayer = true; renderWorld();
+  }
 });
 
-/* proximity wake for the constellation field. Purely additive: it only
-   adds a class, so a pointer that never hovers loses nothing. */
-(function () {
-  const wrap = document.getElementById('protoWrap');
-  if (!wrap || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  let raf = 0;
-  wrap.addEventListener('pointermove', ev => {
-    if (mech.proto !== 'constellation' || raf) return;
-    raf = requestAnimationFrame(() => {
-      raf = 0;
-      const svg = document.getElementById('protoField');
-      const r = svg.getBoundingClientRect();
-      const vb = svg.viewBox.baseVal;
-      const px = (ev.clientX - r.left) / r.width * vb.width;
-      const py = (ev.clientY - r.top) / r.height * vb.height;
-      svg.querySelectorAll('.fam-node').forEach(n => {
-        const m = /translate\(([-\d.]+),([-\d.]+)\)/.exec(n.getAttribute('transform') || '');
-        if (!m) return;
-        const d = Math.hypot(px - +m[1], py - +m[2]);
-        n.classList.toggle('near', d < 120);
-      });
-    });
-  });
-  wrap.addEventListener('pointerleave', () =>
-    wrap.querySelectorAll('.fam-node.near').forEach(n => n.classList.remove('near')));
-})();
-
-/* Colorless is NOT measured as a peer ownership column in MCP2021. Showing
-   "Colorless - 0 mechanics" would report an absence of data as a fact about
-   Colorless, which is a different claim entirely. */
+/* Colorless is NOT a peer ownership column in MCP2021. Saying "0 mechanics"
+   would report an absence of data as a fact about Colorless, which is a
+   different claim entirely. */
 function renderColorlessNote() {
-  mech.sel.clear(); mech.fam = null; mech.pick = null;
+  mech.sel.clear(); mech.fam = null; mech.pick = null; mech.mode2 = null;
   wheel.querySelectorAll('.vertex').forEach(v => v.classList.remove('is-rel'));
-  renderProto();
+  renderWorld();
+  const r = document.getElementById('wRail');
+  if (!r) return;
   const note = document.createElement('div');
   note.className = 'colorless-note';
-  note.innerHTML = `<strong>Colorless is not measured here.</strong> The Mechanical Color
-    Pie 2021 assigns ownership across White, Blue, Black, Red and Green. Colorless is not
-    a peer ownership column in this dataset, so it has no mechanic count -- that is a
-    limit of the source, not a statement about Colorless.`;
-  panel.appendChild(note);
+  note.innerHTML = `<b>Colorless is not measured here.</b> The Mechanical Color Pie 2021 assigns
+    ownership across White, Blue, Black, Red and Green. Colorless is not a peer ownership column in
+    this dataset, so it has no mechanic count — that is a limit of the source, not a statement
+    about Colorless.`;
+  r.insertBefore(note, r.firstChild);
 }
 
 function setProto(p) {
   if (!PROTOS.includes(p)) return;
   mech.proto = p;
-  mech.fam = null; mech.pick = null;
+  mech.fam = null; mech.pick = null; mech.mode2 = null; worldPrevDepth = 0;
   if (location.hash !== '#mechanics=' + p) {
     try { location.hash = 'mechanics=' + p; } catch (err) { /* file:// may refuse */ }
   }
-  renderProto();
+  renderWorld();
 }
 
 
@@ -3831,14 +4149,13 @@ function setMode(m) {
     priorLayers = null;
   }
   document.body.classList.toggle('proto-on', m === 'mechanics');
-  if (m === 'mechanics') renderProto();
-  else {
-    // leaving mechanics restores the wheel exactly as it was
-    wheel.setAttribute('viewBox', WHEEL_VIEWBOX);
-    const rg = document.getElementById('g-mech-radial'); if (rg) rg.innerHTML = '';
-    const pw = document.getElementById('protoWrap'); if (pw) pw.hidden = true;
-    document.body.classList.remove('proto-spatial');
-  }
+  /* The docked wheel crops to its glyphs. Same geometry, same coordinates --
+     only the window onto them changes, so nothing moves and the crossing
+     proof is untouched. */
+  wheel.setAttribute('viewBox', m === 'mechanics' ? MECH_VIEWBOX : WHEEL_VIEWBOX);
+  if (m === 'mechanics') renderWorld();
+  const w = document.getElementById('world');
+  if (w) w.hidden = (m !== 'mechanics');
   updateNote();
 }
 
