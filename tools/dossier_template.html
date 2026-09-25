@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mechanical Color Pie 2021 — data dossier</title>
+<style>
+:root{
+  --bg:#fbfaf7; --bg2:#fff; --bg3:#f2efe9; --ink:#1c1a17; --ink2:#5a544c;
+  --line:#ddd6ca; --line2:#c8bfae; --accent:#7a5c1e; --accent-bg:#f6efdc;
+  --W:#e8d9a8; --U:#8fb8dd; --B:#8f8a92; --R:#dd9481; --G:#8fbf9a;
+  --Wi:#6b5a22; --Ui:#1f4d75; --Bi:#3a3540; --Ri:#7d2e19; --Gi:#1f5c33;
+  --pri:#2f6b3a; --sec:#8a6d1f; --ter:#6a5a8a;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#15130f; --bg2:#1c1a16; --bg3:#242019; --ink:#ece7dd; --ink2:#a49c8e;
+  --line:#332e26; --line2:#4a4338; --accent:#d9b463; --accent-bg:#2a2318;
+  --W:#7a6c3f; --U:#2f5f8a; --B:#4a4550; --R:#8a4a35; --G:#3a6f4a;
+  --Wi:#f0e3b8; --Ui:#bcd9f0; --Bi:#d8d2de; --Ri:#f5c0ae; --Gi:#b6e3c2;
+  --pri:#7fc48d; --sec:#d9b463; --ter:#b3a3d6;
+}}
+*{box-sizing:border-box}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.55 var(--sans);
+  -webkit-text-size-adjust:100%}
+a{color:var(--accent)}
+.wrap{display:grid;grid-template-columns:250px minmax(0,1fr);gap:0;
+  max-width:1560px;margin:0 auto}
+nav{position:sticky;top:0;align-self:start;max-height:100vh;overflow:auto;
+  padding:22px 14px 40px;border-right:1px solid var(--line);font-size:12.5px}
+nav h1{font-size:13px;margin:0 0 4px;letter-spacing:.02em}
+nav .sub{color:var(--ink2);font-size:11px;margin:0 0 16px;line-height:1.4}
+nav ol{list-style:none;margin:0;padding:0;counter-reset:s}
+nav li{counter-increment:s}
+nav a{display:block;padding:4px 8px;border-radius:5px;text-decoration:none;
+  color:var(--ink2);border-left:2px solid transparent}
+nav a::before{content:counter(s) ". ";color:var(--line2)}
+nav a:hover{background:var(--bg3);color:var(--ink)}
+nav a.on{background:var(--accent-bg);color:var(--ink);border-left-color:var(--accent)}
+main{padding:26px 30px 120px;min-width:0}
+section{margin:0 0 46px;scroll-margin-top:16px}
+h2{font-size:19px;margin:0 0 4px;letter-spacing:-.01em}
+h2 .num{color:var(--line2);font-variant-numeric:tabular-nums;margin-right:8px}
+h3{font-size:14px;margin:26px 0 8px;letter-spacing:.02em;text-transform:uppercase;
+  color:var(--ink2)}
+.lede{color:var(--ink2);max-width:78ch;margin:0 0 18px}
+p{max-width:82ch}
+code,kbd{font-family:var(--mono);font-size:.88em;background:var(--bg3);
+  padding:1px 5px;border-radius:4px}
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px;
+  background:var(--bg2)}
+table{border-collapse:collapse;width:100%;font-size:12.5px;
+  font-variant-numeric:tabular-nums}
+th,td{padding:6px 10px;text-align:left;border-bottom:1px solid var(--line);
+  vertical-align:top}
+thead th{background:var(--bg3);font-weight:600;
+  white-space:nowrap;font-size:11.5px;text-transform:uppercase;
+  letter-spacing:.04em;color:var(--ink2)}
+/* Sticky only inside a wrapper that actually scrolls; on a page-flow table a
+   sticky header detaches from its own table and floats over the next section. */
+.tbl-wrap.scrolls thead th{position:sticky;top:0;z-index:1}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:hover{background:var(--bg3)}
+td.n,th.n{text-align:right;font-family:var(--mono)}
+.mono{font-family:var(--mono);font-size:12px}
+.dim{color:var(--ink2)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(158px,1fr));
+  gap:10px;margin:14px 0}
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:8px;
+  padding:11px 13px}
+.card b{display:block;font-size:23px;font-weight:600;letter-spacing:-.02em;
+  font-variant-numeric:tabular-nums;line-height:1.15}
+.card span{display:block;font-size:11.5px;color:var(--ink2);margin-top:3px;
+  line-height:1.35}
+.note{border-left:3px solid var(--accent);background:var(--accent-bg);
+  padding:11px 14px;border-radius:0 7px 7px 0;margin:14px 0;max-width:88ch}
+.note b{display:block;margin-bottom:3px}
+.warn{border-left-color:var(--Ri)}
+.pill{display:inline-block;padding:1px 7px;border-radius:20px;font-size:11px;
+  border:1px solid var(--line2);white-space:nowrap}
+.c{display:inline-flex;width:19px;height:19px;border-radius:50%;
+  align-items:center;justify-content:center;font-size:11px;font-weight:700;
+  font-family:var(--mono);border:1px solid rgba(0,0,0,.14)}
+.cW{background:var(--W);color:var(--Wi)} .cU{background:var(--U);color:var(--Ui)}
+.cB{background:var(--B);color:var(--Bi)} .cR{background:var(--R);color:var(--Ri)}
+.cG{background:var(--G);color:var(--Gi)}
+.t-primary{color:var(--pri);font-weight:600}
+.t-secondary{color:var(--sec);font-weight:600}
+.t-tertiary{color:var(--ter);font-weight:600}
+.bar{height:7px;border-radius:4px;background:var(--bg3);overflow:hidden;
+  min-width:60px}
+.bar i{display:block;height:100%;background:var(--line2)}
+.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:12px 0}
+input[type=search],select{font:inherit;font-size:12.5px;padding:5px 9px;
+  border:1px solid var(--line2);border-radius:6px;background:var(--bg2);
+  color:var(--ink)}
+input[type=search]{min-width:230px}
+.count{font-size:12px;color:var(--ink2);font-variant-numeric:tabular-nums}
+details{border:1px solid var(--line);border-radius:8px;background:var(--bg2);
+  padding:9px 13px;margin:9px 0}
+details>summary{cursor:pointer;font-weight:600;font-size:13px}
+details[open]>summary{margin-bottom:9px}
+pre{overflow:auto;background:var(--bg3);padding:11px;border-radius:7px;
+  font-family:var(--mono);font-size:11.5px;margin:0;line-height:1.45}
+.pipe{display:grid;gap:9px;margin:16px 0}
+.pipe .row{display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;
+  align-items:start;background:var(--bg2);border:1px solid var(--line);
+  border-radius:8px;padding:10px 13px}
+.pipe .lv{font-family:var(--mono);font-size:11px;color:var(--accent);
+  font-weight:700;letter-spacing:.04em;padding-top:2px}
+.pipe .row b{display:block;font-size:13px;margin-bottom:2px}
+.pipe .row p{margin:0;font-size:12.5px;color:var(--ink2);max-width:none}
+.pipe .row .fl{margin-top:6px;font-family:var(--mono);font-size:11px;
+  color:var(--ink2);word-break:break-word}
+.pipe .arrow{text-align:center;color:var(--line2);font-size:15px;line-height:1;
+  margin:-4px 0}
+.mx{border-collapse:collapse;font-variant-numeric:tabular-nums;font-size:12px}
+.mx th,.mx td{border:1px solid var(--line);padding:4px 8px;text-align:center}
+.mx th{background:var(--bg3)}
+.mx td.lbl{text-align:left;white-space:nowrap;font-weight:500}
+.heat{position:relative}
+.heat span{position:relative;z-index:1}
+.mech{border:1px solid var(--line);border-radius:8px;background:var(--bg2);
+  padding:10px 13px;margin-bottom:8px}
+.mech .hd{display:flex;flex-wrap:wrap;gap:8px;align-items:baseline}
+.mech .nm{font-weight:600;font-size:13px}
+.mech .ex{color:var(--ink2);font-size:12.5px;margin-top:5px;max-width:96ch}
+.mech .mt{margin-top:6px;display:flex;flex-wrap:wrap;gap:6px;font-size:11px;
+  color:var(--ink2);align-items:center}
+.chips{display:flex;gap:4px;align-items:center}
+.chip{display:inline-flex;align-items:center;gap:4px;padding:1px 6px 1px 2px;
+  border-radius:12px;border:1px solid var(--line);font-size:11px;
+  background:var(--bg3)}
+.foot{border-top:1px solid var(--line);margin-top:40px;padding-top:16px;
+  color:var(--ink2);font-size:12px}
+@media(max-width:900px){
+  .wrap{grid-template-columns:1fr}
+  nav{position:static;max-height:none;border-right:0;border-bottom:1px solid var(--line)}
+  main{padding:20px 16px 80px}
+}
+@media print{nav{display:none}.wrap{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav>
+  <h1>MCP 2021 — data dossier</h1>
+  <p class="sub" id="navsub"></p>
+  <ol id="toc"></ol>
+</nav>
+<main id="main"></main>
+</div>
+
+<script>
+const D = /*__PAYLOAD__*/null;
+const CS = ['W','U','B','R','G'];
+const CN = {W:'White',U:'Blue',B:'Black',R:'Red',G:'Green'};
+const TIER_ORDER = {primary:3, secondary:2, tertiary:1};
+
+const esc = s => String(s == null ? '' : s)
+  .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const num = n => (n == null ? '' : Number(n).toLocaleString('en-US'));
+const pct = (a,b) => b ? (100*a/b).toFixed(1)+'%' : '—';
+const dot = c => `<span class="c c${c}" title="${CN[c]}">${c}</span>`;
+const dots = v => `<span class="chips">${(typeof v === 'string' ? v.split('') : v || []).map(dot).join('')}</span>`;
+const kb = b => b >= 1024 ? (b/1024).toFixed(b>10240?0:1)+' KB' : b+' B';
+const el = (tag, html) => { const e = document.createElement(tag); e.innerHTML = html; return e; };
+
+function table(cols, rows, opts) {
+  opts = opts || {};
+  const head = '<thead><tr>' + cols.map(c =>
+    `<th scope="col" class="${c.n?'n':''}">${esc(c.h)}</th>`).join('') + '</tr></thead>';
+  const body = '<tbody>' + rows.map(r => '<tr>' + cols.map(c => {
+    // c.f returns trusted HTML the caller has already escaped; the c.k path
+    // reads a raw payload value, so it is escaped here.
+    const v = c.f ? c.f(r) : esc(r[c.k]);
+    return `<td class="${c.n?'n':''} ${c.cls||''}">${v == null ? '' : v}</td>`;
+  }).join('') + '</tr>').join('') + '</tbody>';
+  return `<div class="tbl-wrap${opts.max?' scrolls':''}"${opts.max?` style="max-height:${opts.max};overflow:auto"`:''}>
+    <table>${head}${body}</table></div>`;
+}
+
+function heat(v, max, label) {
+  const a = max ? v / max : 0;
+  const bg = `background:color-mix(in srgb, var(--accent) ${Math.round(a*55)}%, transparent)`;
+  return `<td class="heat" style="${bg}"><span>${label === undefined ? num(v) : label}</span></td>`;
+}
+
+/* ------------------------------------------------------------------ */
+const SECTIONS = [];
+const S = (id, title, build) => SECTIONS.push({id, title, build});
+
+/* 1 */
+S('orientation', 'Orientation', () => {
+  const m = D.meta;
+  return `
+  <p class="lede">Everything in <code>data/</code>, counted, cross-referenced and
+  explained in one page. This file is generated by
+  <code>tools/build_dossier.py</code> and is read-only over the frozen source
+  layer — it measures the data, it never changes it.</p>
+
+  <div class="cards">
+    <div class="card"><b>${num(D.inventory.length)}</b><span>files in <code>data/</code></span></div>
+    <div class="card"><b>${num(D.overall.peer_mechanics)}</b><span>mechanics in the runtime projection</span></div>
+    <div class="card"><b>${num(D.overall.final_peer_color_assignments)}</b><span>colour&nbsp;×&nbsp;mechanic assignments</span></div>
+    <div class="card"><b>${num(D.families.length)}</b><span>Vox navigation families</span></div>
+    <div class="card"><b>${num(D.selections.length)}</b><span>canonical colour selections</span></div>
+    <div class="card"><b>${num(D.fixtures.length)}</b><span>golden fixtures</span></div>
+  </div>
+
+  <div class="note warn"><b>Tier is a category, not a magnitude.</b>
+  ${esc(m.tier_meaning)}</div>
+
+  <div class="note"><b>Snapshot, not current state.</b> ${esc(m.caution)}</div>
+
+  <h3>Provenance</h3>
+  ${table([
+    {h:'field', k:'k'},
+    {h:'value', f:r => r.link
+      ? `<a href="${esc(r.v)}" rel="noreferrer">${esc(r.v)}</a>` : esc(r.v)},
+  ], [
+    {k:'document', v:m.document},
+    {k:'author', v:m.author},
+    {k:'snapshot date', v:m.snapshot_date},
+    {k:'source', v:m.url, link:true},
+    {k:'families are', v:m.families_are},
+    {k:'runtime generated', v:m.generated},
+    {k:'dossier generated', v:D.generated},
+  ])}`;
+});
+
+/* 2 */
+S('pipeline', 'How the files connect', () => {
+  const layers = [
+    ['L0', 'Capture', 'The article read once and written down verbatim. Nothing is interpreted at this layer; it exists so every later claim can be traced back to printed text.', ['mechanical_pie_2021.json','mechanical_pie_review.md']],
+    ['L1', 'Parse', 'Two independent readings of the same article. The <b>ability catalog</b> is where Rosewater discusses each mechanic; the <b>colour lists</b> are the fifteen summary lists. They are captured separately on purpose, because they disagree.', ['mcp2021.abilities.json','mcp2021.lists.json']],
+    ['L2', 'Reconcile', 'The two readings joined, every naming collision adjudicated, every tier stamped with the <i>basis</i> that produced it. This is the layer that turns two disagreeing documents into one defensible record.', ['mcp2021.reconciled.raw.json','mcp2021.identity_rulings.json','mcp2021.reconciled.json','mcp2021.identity_review.md','mcp2021.audit.md']],
+    ['L3', 'Taxonomy', 'A second index laid over the mechanics for navigation. Rule-driven, one canonical family per mechanic plus optional cross-links. It never feeds backward into tier, colour or label.', ['vox.families.pilot.json','vox.families.json']],
+    ['L4', 'Runtime', 'The single file the page reads. Same 216 mechanics, denormalised three ways so the UI never has to compute a join at interaction time.', ['mechanical-color-pie.runtime.json']],
+    ['L5', 'Measure &amp; freeze', 'Statistics computed over the runtime, plus eleven golden fixtures that pin specific answers. These are the regression net: if a number here moves, something upstream changed.', ['recon/mechanics-statistics.json','recon/matrices.json','recon/*.csv','fixtures/*.json','recon.md']],
+  ];
+  return `
+  <p class="lede">The directory is a one-way pipeline. Each layer is derived from
+  the one above it and nothing writes upward. Reading it in this order is the
+  fastest way to understand why a given number is what it is.</p>
+  <div class="pipe">
+  ${layers.map((L,i) => `
+    <div class="row">
+      <div class="lv">${L[0]}<br>${L[1]}</div>
+      <div><b>${L[1]}</b><p>${L[2]}</p>
+        <div class="fl">${L[3].join(' · ')}</div></div>
+    </div>
+    ${i < layers.length-1 ? '<div class="arrow">▼</div>' : ''}`).join('')}
+  </div>
+  <div class="note"><b>The one join that matters.</b> A mechanic's identity comes
+  from L2 and its family comes from L3. They are joined by the mechanic key and
+  nothing else — which is why the taxonomy can be rebuilt or rethought without
+  disturbing a single tier.</div>`;
+});
+
+/* 3 */
+S('inventory', 'File inventory', () => {
+  const rows = D.inventory;
+  const total = rows.reduce((a,r) => a + r.bytes, 0);
+  return `
+  <p class="lede">Every file in <code>data/</code>, with its layer, what it
+  holds and a short content hash so you can tell whether a copy has drifted.
+  ${rows.length} files, ${kb(total)} total.</p>
+  ${table([
+    {h:'layer', f:r => `<span class="pill">${esc(r.layer||'—')}</span>`},
+    {h:'file', f:r => `<span class="mono">${esc(r.path)}</span>`},
+    {h:'size', n:true, f:r => kb(r.bytes)},
+    {h:'holds', f:r => `<span class="dim">${esc(r.records)}</span>`},
+    {h:'sha256', f:r => `<span class="mono dim">${esc(r.sha)}</span>`},
+    {h:'what it is for', f:r => esc(r.role)},
+  ], rows)}`;
+});
+
+/* 4 */
+S('counts', 'The inventory in numbers', () => {
+  const o = D.overall, L = D.live, p = D.placement;
+  const byOwner = Object.entries(o.mechanics_by_primary_owner_count);
+  return `
+  <p class="lede">The population counts, and the places where two honest counts
+  of "the same thing" legitimately differ.</p>
+
+  <div class="cards">
+    <div class="card"><b>${num(L.catalog_records)}</b><span>ability-catalog records (L1)</span></div>
+    <div class="card"><b>${num(L.list_entries)}</b><span>colour-list entries (L1)</span></div>
+    <div class="card"><b>${num(L.source_identities)}</b><span>reconciled source identities (L2)</span></div>
+    <div class="card"><b>${num(o.peer_mechanics)}</b><span>peer mechanics (L4)</span></div>
+    <div class="card"><b>${num(o.structural_only)}</b><span>structural-only identity, excluded</span></div>
+    <div class="card"><b>${num(L.family_partition)}</b><span>family memberships (a partition)</span></div>
+    <div class="card"><b>${num(L.cross_links)}</b><span>secondary family cross-links</span></div>
+    <div class="card"><b>${num(L.conditional)}</b><span>mechanics carrying a restriction</span></div>
+    <div class="card"><b>${num(L.alias_total)}</b><span>source aliases on ${num(L.alias_records)} mechanics</span></div>
+    <div class="card"><b>${num(L.with_explanation)}</b><span>mechanics with an explanatory sentence</span></div>
+    <div class="card"><b>${num(D.registry.total_registry_records)}</b><span>display-name registry records</span></div>
+    <div class="card"><b>${num(D.registry.unique_wubrg_color_sets_represented)}</b><span>distinct colour sets behind them</span></div>
+  </div>
+
+  <div class="note"><b>Why 465, 467 and 468 are all correct.</b>
+  ${esc(p.equation)}</div>
+
+  <h3>Tier assignments</h3>
+  ${(() => {
+    const a = L.assignments, tot = a.primary + a.secondary + a.tertiary;
+    return table([
+      {h:'tier', f:r => `<span class="t-${r.t}">${r.t}</span>`},
+      {h:'assignments', n:true, f:r => num(r.v)},
+      {h:'share', n:true, f:r => pct(r.v, tot)},
+      {h:'', f:r => `<div class="bar"><i style="width:${100*r.v/tot}%"></i></div>`},
+    ], ['primary','secondary','tertiary'].map(t => ({t, v:a[t]})));
+  })()}
+
+  <h3>Mechanics by number of primary owners</h3>
+  ${table([
+    {h:'primary owners', k:'0', n:true, f:r => r[0]},
+    {h:'mechanics', n:true, f:r => num(r[1])},
+    {h:'note', f:r => r[0]==='0' ? `<span class="mono">${esc(L.zero_primary.join(', '))}</span>`
+      : r[0]==='3' ? `<span class="mono">${esc(L.three_primary.join(', '))}</span>` : ''},
+  ], byOwner)}
+
+  <h3>Colour-list capture, list by list</h3>
+  ${table([
+    {h:'list', f:r => `<span class="mono">${esc(r[0])}</span>`},
+    {h:'entries', n:true, f:r => num(r[1])},
+  ], Object.entries(L.list_sizes))}`;
+});
+
+/* 5 */
+S('provenance', 'Provenance and disagreement', () => {
+  const L = D.live, A = D.adjudications;
+  const basisRows = Object.entries(L.basis).sort((a,b) => b[1]-a[1]);
+  const tot = basisRows.reduce((a,r) => a+r[1], 0);
+  const verd = Object.entries(L.ruling_verdicts).sort((a,b) => b[1]-a[1]);
+  return `
+  <p class="lede">The most valuable thing in this directory is not the tiers —
+  it is that every tier carries a <i>basis</i>. ${num(L.basis['both-agree'])} of
+  ${num(tot)} assignments are uncontested. The remaining
+  ${num(tot - L.basis['both-agree'])} are the interesting ones, and all of them
+  are listed below by name.</p>
+
+  ${table([
+    {h:'basis', f:r => `<span class="pill">${esc(r[0])}</span>`},
+    {h:'meaning', f:r => ({
+      'both-agree':'The colour list and the ability catalog state the same tier.',
+      'ability-catalog-only':'Stated only in the catalog. The summary lists omit it.',
+      'colour-list-only':'Stated only in a summary list. The catalog omits it.',
+      'adjudicated':'The two sources contradict each other and a ruling was recorded.',
+    }[r[0]] || '')},
+    {h:'runtime peers', n:true, f:r => num(r[1])},
+    {h:'share', n:true, f:r => pct(r[1], tot)},
+    {h:'all identities', n:true, f:r => {
+      const p = D.placement.by_basis[r[0]];
+      return p === r[1] ? `<span class="dim">${num(p)}</span>` : `<b>${num(p)}</b>`;
+    }},
+  ], basisRows)}
+
+  ${(() => {
+    const diffs = basisRows.filter(r => D.placement.by_basis[r[0]] !== r[1]);
+    if (!diffs.length) return '';
+    return `<div class="note"><b>Why the last two columns differ by one.</b>
+    The <i>runtime peers</i> column counts the ${num(tot)} assignments on the
+    ${num(D.overall.peer_mechanics)} peer mechanics — the population every
+    statistic in this dossier uses. The <i>all identities</i> column counts
+    ${num(D.placement.assignments_on_all_source_identities)}, which additionally
+    includes the ${num(D.overall.structural_only)} structural-only identity (a
+    group heading, not a mechanic). The whole difference lands on
+    ${diffs.map(r => `<code>${esc(r[0])}</code>`).join(' and ')}. Neither number
+    is wrong; they count different populations, and mixing them is the single
+    easiest mistake to make with this data.</div>`;
+  })()}
+
+  <h3>All ${A.length} non-unanimous assignments <span class="dim">(runtime peers)</span></h3>
+  ${table([
+    {h:'mechanic', f:r => `<span class="mono">${esc(r.mech)}</span>`},
+    {h:'colour', f:r => dot(r.color)},
+    {h:'tier', f:r => `<span class="t-${r.tier}">${r.tier}</span>`},
+    {h:'basis', f:r => `<span class="pill">${esc(r.basis)}</span>`},
+    {h:'lists said', f:r => r.conflict ? `<span class="t-${r.conflict.colour_list_says}">${esc(r.conflict.colour_list_says)}</span>` : '<span class="dim">—</span>'},
+    {h:'catalog said', f:r => r.conflict ? `<span class="t-${r.conflict.ability_catalog_says}">${esc(r.conflict.ability_catalog_says)}</span>` : '<span class="dim">—</span>'},
+    {h:'reasoning', f:r => r.ruling ? `<span class="dim">${esc(r.ruling.mechanism)}</span><br><span class="mono dim">authority: ${esc(r.ruling.authority)}</span>` : ''},
+  ], A)}
+
+  <h3>Identity rulings</h3>
+  <p>Separately from tier disagreements, ${num(Object.keys(D.rulings).length)}
+  label collisions were adjudicated — cases where a list name and a catalog name
+  might or might not be the same mechanic. Getting these wrong would inflate or
+  deflate the mechanic count directly.</p>
+  ${table([
+    {h:'verdict', f:r => `<span class="pill">${esc(r[0])}</span>`},
+    {h:'meaning', f:r => ({
+      'same-mechanic':'One mechanic under two labels. Merged; the second label becomes an alias.',
+      'distinct':'Genuinely different mechanics that read similarly. Kept apart.',
+      'variant-split':'A catalog entry that covers several list entries. Split into variants.',
+      'canonical-target':'The record the merged aliases point at.',
+      'group-header':'A heading, not a mechanic. Structural only, excluded from counts.',
+    }[r[0]] || '')},
+    {h:'cases', n:true, f:r => num(r[1])},
+  ], verd)}
+
+  <details><summary>Every identity ruling, in full</summary>
+  ${table([
+    {h:'proposed key', f:r => `<span class="mono">${esc(r[0])}</span>`},
+    {h:'verdict', f:r => `<span class="pill">${esc(r[1].ruling)}</span>`},
+    {h:'reason', f:r => esc(r[1].reason)},
+    {h:'canonical key', f:r => `<span class="mono dim">${esc(r[1].canonical_key || '—')}</span>`},
+    {h:'aliases', f:r => `<span class="mono dim">${esc((r[1].aliases||[]).join(' · '))}</span>`},
+  ], Object.entries(D.rulings))}
+  </details>
+
+  <h3>Registry names vs mechanical identities</h3>
+  <div class="note"><b>${esc(D.registry.note)}</b></div>
+  ${table([
+    {h:'colour set', f:r => `${dots(r[0].split(''))} <span class="mono">${esc(r[0])}</span>`},
+    {h:'display names sharing it', f:r => esc(r[1].join(' · '))},
+  ], Object.entries(D.registry.color_sets_with_more_than_one_registry_name))}`;
+});
+
+/* 6 */
+S('distribution', 'Distribution and shape', () => {
+  const b = D.breadth, sig = D.signatures;
+  const maxB = Math.max(...Object.values(b).map(x => x.n));
+  const shown = sig.slice(0, 16);
+  return `
+  <p class="lede">How wide the mechanics spread across the wheel. This is the
+  shape that decides how a colour-selection UI feels: a third of the corpus is
+  mono-colour and answers instantly, and a second third is exactly two colours.</p>
+
+  <h3>Colour breadth</h3>
+  ${table([
+    {h:'colours with any access', n:true, f:r => r[0]},
+    {h:'mechanics', n:true, f:r => num(r[1].n)},
+    {h:'share of 216', n:true, f:r => r[1].pct + '%'},
+    {h:'', f:r => `<div class="bar"><i style="width:${100*r[1].n/maxB}%"></i></div>`},
+  ], Object.entries(b))}
+
+  <div class="note"><b>The non-obvious bit.</b> Breadth does not decay
+  monotonically. The sequence runs ${b['1'].n} → ${b['2'].n} → ${b['3'].n} →
+  <b>${b['4'].n}</b> at four colours, then jumps back up to <b>${b['5'].n}</b>
+  at five. Four-colour mechanics are the rarest bucket in the corpus and
+  five-colour mechanics are ${(b['5'].n/b['4'].n).toFixed(1)}× more common than
+  them. The pie prefers "one or two colours do this" or "everyone does this",
+  with a real trough at four.</div>
+
+  <h3>Exact access signatures</h3>
+  <p>${sig.length} of the 31 possible signatures actually occur. Top ${shown.length}:</p>
+  ${table([
+    {h:'signature', f:r => `${dots(r.signature.split(''))} <span class="mono">${esc(r.signature)}</span>`},
+    {h:'colours', n:true, k:'color_count'},
+    {h:'mechanics', n:true, f:r => num(r.count)},
+    {h:'', f:r => `<div class="bar"><i style="width:${100*r.count/shown[0].count}%"></i></div>`},
+  ], shown)}
+  <details><summary>All ${sig.length} signatures</summary>
+  ${table([
+    {h:'signature', f:r => `<span class="mono">${esc(r.signature)}</span>`},
+    {h:'colours', n:true, k:'color_count'},
+    {h:'mechanics', n:true, f:r => num(r.count)},
+    {h:'members', f:r => `<span class="mono dim">${esc(r.keys.join(' · '))}</span>`},
+  ], sig)}</details>`;
+});
+
+/* 7 */
+S('colors', 'Per colour', () => {
+  const pc = D.per_color;
+  const rows = CS.map(c => Object.assign({c}, pc[c]));
+  const fd = D.per_color_families;
+  return `
+  <p class="lede">Two different populations get confused constantly, so they are
+  separated here. <b>Exclusive access</b> means no other colour touches the
+  mechanic at all. <b>Unique primary owner</b> means this colour is the only
+  <i>primary</i>, while other colours may still hold secondary or tertiary
+  access. They are never merged.</p>
+
+  ${table([
+    {h:'colour', f:r => `${dot(r.c)} ${esc(r.name)}`},
+    {h:'primary', n:true, f:r => `<span class="t-primary">${r.primary}</span>`},
+    {h:'secondary', n:true, f:r => `<span class="t-secondary">${r.secondary}</span>`},
+    {h:'tertiary', n:true, f:r => `<span class="t-tertiary">${r.tertiary}</span>`},
+    {h:'reachable', n:true, f:r => `<b>${r.total_reachable}</b>`},
+    {h:'% of 216', n:true, f:r => r.reachable_pct_of_216 + '%'},
+    {h:'exclusive access', n:true, k:'globally_exclusive_access'},
+    {h:'unique primary owner', n:true, k:'globally_unique_primary_owner'},
+    {h:'conditional', n:true, k:'conditional_mechanics'},
+    {h:'primary : secondary', n:true, f:r => (r.primary/r.secondary).toFixed(2)},
+  ], rows)}
+
+  <div class="note"><b>The ratio column is where the colours actually differ.</b>
+  White and Blue run about 2.5–2.9 primaries per secondary; Black runs 1.29.
+  White owns the most territory outright, but Black is the colour most often
+  present as a <i>supporting</i> tier rather than an owner. Total reachability
+  hides this completely — Blue and Black tie at 94 reachable and are structurally
+  nothing alike.</div>
+
+  <h3>Where each colour's primary-family weight sits</h3>
+  ${(() => {
+    const famNames = D.families.map(f => f.family);
+    const max = Math.max(...CS.flatMap(c => famNames.map(f => fd[c][f] || 0)));
+    return `<div class="tbl-wrap"><table class="mx">
+      <thead><tr><th class="lbl">family</th>${CS.map(c => `<th>${dot(c)}</th>`).join('')}</tr></thead>
+      <tbody>${famNames.map(f => `<tr><td class="lbl">${esc(f)}</td>${
+        CS.map(c => heat(fd[c][f] || 0, max, (fd[c][f] || 0) || '·')).join('')}</tr>`).join('')}</tbody>
+    </table></div>`;
+  })()}
+
+  <details><summary>Exclusive-access mechanics, by colour</summary>
+  ${CS.map(c => `<h3>${CN[c]} — ${D.exclusive_keys[c].length}</h3>
+    <p class="mono dim">${esc(D.exclusive_keys[c].join(' · '))}</p>`).join('')}
+  </details>`;
+});
+
+/* 8 */
+S('families', 'The 23 families', () => {
+  const F = D.families;
+  const maxM = Math.max(...F.map(f => f.canonical_family_members));
+  const cbf = D.live.conditional_by_family;
+  return `
+  <p class="lede">The families are Vox-Mana navigation vocabulary, not
+  Rosewater's. Every mechanic has exactly one canonical family — the memberships
+  sum to ${num(D.live.family_partition)}, a clean partition — plus
+  ${num(D.live.cross_links)} secondary cross-links that exist for discovery only
+  and are deliberately allowed to overlap.</p>
+
+  ${table([
+    {h:'family', f:r => `<b>${esc(r.family)}</b>`},
+    {h:'members', n:true, f:r => `${num(r.canonical_family_members)}`},
+    {h:'', f:r => `<div class="bar"><i style="width:${100*r.canonical_family_members/maxM}%"></i></div>`},
+    {h:'cross-links in', n:true, k:'secondary_family_links'},
+    {h:'expanded', n:true, k:'expanded_family_neighborhood'},
+    {h:'conditional', n:true, f:r => `${cbf[r.family][0]} <span class="dim">/ ${cbf[r.family][1]}</span>`},
+    {h:'selections reaching it', n:true, k:'canonical_selections_reaching_family'},
+    {h:'W', n:true, f:r => r.reach.W}, {h:'U', n:true, f:r => r.reach.U},
+    {h:'B', n:true, f:r => r.reach.B}, {h:'R', n:true, f:r => r.reach.R},
+    {h:'G', n:true, f:r => r.reach.G},
+  ], F.slice().sort((a,b) => b.canonical_family_members - a.canonical_family_members))}
+
+  ${(() => {
+    const big = F.slice().sort((a,b) => b.canonical_family_members - a.canonical_family_members)[0];
+    const sp = F.map(f => {
+      const v = CS.map(c => f.reach[c]);
+      const hi = Math.max(...v), lo = Math.min(...v);
+      return {f: f.family, d: hi-lo, hiC: CS[v.indexOf(hi)], hi, loC: CS[v.indexOf(lo)], lo};
+    }).sort((a,b) => b.d - a.d);
+    const tied = sp.filter(s => s.d === sp[0].d);
+    return `<div class="note"><b>Two facts the table makes obvious.</b>
+    The distribution is extremely uneven — <code>${esc(big.family)}</code> alone is
+    ${big.canonical_family_members} of 216
+    (${pct(big.canonical_family_members,216)}), while <code>tokens</code> holds
+    exactly 1. And no family is reached evenly by all five colours: the widest
+    spread is ${sp[0].d}, held ${tied.length > 1 ? 'jointly' : 'alone'} by
+    ${tied.map(s => `<code>${esc(s.f)}</code> (${CN[s.hiC]} ${s.hi} / ${CN[s.loC]} ${s.lo})`).join(' and ')}.</div>`;
+  })()}
+
+  <h3>Family reach by colour</h3>
+  ${(() => {
+    const max = Math.max(...F.flatMap(f => CS.map(c => f.reach[c])));
+    return `<div class="tbl-wrap"><table class="mx">
+      <thead><tr><th class="lbl">family</th><th>n</th>${
+        CS.map(c => `<th>${dot(c)}</th>`).join('')}<th class="lbl">primary owners</th></tr></thead>
+      <tbody>${F.map(f => `<tr><td class="lbl">${esc(f.family)}</td>
+        <td class="dim">${f.canonical_family_members}</td>${
+        CS.map(c => heat(f.reach[c], max, f.reach[c] || '·')).join('')}
+        <td class="lbl dim">${CS.filter(c => f.prim[c]).map(c => `${dot(c)}${f.prim[c]}`).join(' ')}</td>
+      </tr>`).join('')}</tbody></table></div>`;
+  })()}
+
+  <h3>What each family means</h3>
+  ${table([
+    {h:'family', f:r => `<span class="mono">${esc(r.family)}</span>`},
+    {h:'gloss', f:r => esc(r.gloss)},
+    {h:'example assignment rule', f:r => `<span class="dim">${esc(r.rule)}</span>`},
+  ], F)}`;
+});
+
+/* 9 */
+S('selections', 'All 31 colour selections', () => {
+  const S31 = D.selections.slice().sort((a,b) =>
+    a.color_count - b.color_count || b.reachable_count - a.reachable_count);
+  const sd = D.size_dist;
+  return `
+  <p class="lede">Every non-empty subset of WUBRG, measured once. Aliases and
+  nicknames decorate these 31 rows; they never create a 32nd.</p>
+
+  <div class="note"><b>${esc(D.naming.rule)}</b></div>
+
+  ${table([
+    {h:'selection', f:r => `${dots(r.colors)} <span class="mono">${esc(r.key)}</span>`},
+    {h:'name', f:r => `<span class="dim">${esc(r.display || (Array.isArray(r.common_names) ? r.common_names[0] : r.common_names) || '')}</span>`},
+    {h:'n', n:true, k:'color_count'},
+    {h:'reachable', n:true, f:r => `<b>${r.reachable_count}</b>`},
+    {h:'primary avail.', n:true, k:'primary_available'},
+    {h:'secondary only', n:true, k:'secondary_only'},
+    {h:'tertiary only', n:true, k:'tertiary_only'},
+    {h:'unavailable', n:true, k:'unavailable_count'},
+    {h:'shared any', n:true, k:'shared_any_access'},
+    {h:'shared primary', n:true, k:'shared_primary'},
+    {h:'complementary', n:true, k:'complementary'},
+    {h:'conditional', n:true, k:'conditional_reachable'},
+    {h:'families', n:true, k:'families_reached'},
+  ], S31, {max:'620px'})}
+
+  <h3>Reachability by selection size</h3>
+  ${table([
+    {h:'size', n:true, f:r => r[0]},
+    {h:'selections', n:true, f:r => r[1].selections},
+    {h:'min', n:true, f:r => r[1].reachable_count.min},
+    {h:'max', n:true, f:r => r[1].reachable_count.max},
+    {h:'mean', n:true, f:r => r[1].reachable_count.mean},
+    {h:'median', n:true, f:r => r[1].reachable_count.median},
+    {h:'headroom left', n:true, f:r => 216 - r[1].reachable_count.max},
+  ], Object.entries(sd))}
+
+  <div class="note"><b>Diminishing returns are steep and early.</b> One colour
+  already reaches 83–104. Two reaches 132–155. By four colours the worst case is
+  190 of 216 — so the entire dramatic range of "adding a colour" happens between
+  one and three, and the fifth colour is nearly a formality. Any UI that treats
+  all five additions as equally meaningful is overselling colours four and five.</div>`;
+});
+
+/* 10 */
+S('overlap', 'Overlap and adjacency', () => {
+  const P = D.pairs, M = D.matrices;
+  const maxO = Math.max(...P.map(p => p.any_access_overlap));
+  return `
+  <p class="lede">Which colours actually share mechanical ground. Note that this
+  is measured overlap in the 2021 pie, and it does not line up with the wheel's
+  ally/enemy geometry — that is a design statement, this is a count.</p>
+
+  ${table([
+    {h:'pair', f:r => `${dots(r.pair.split(''))} <span class="mono">${esc(r.pair)}</span>`},
+    {h:'any-access overlap', n:true, f:r => num(r.any_access_overlap)},
+    {h:'', f:r => `<div class="bar"><i style="width:${100*r.any_access_overlap/maxO}%"></i></div>`},
+    {h:'shared primary', n:true, k:'shared_primary_overlap'},
+    {h:'union', n:true, k:'union_size'},
+    {h:'Jaccard', n:true, f:r => r.jaccard_any_access.toFixed(3)},
+  ], P.slice().sort((a,b) => b.any_access_overlap - a.any_access_overlap))}
+
+  <h3>Any-access overlap matrix</h3>
+  ${(() => {
+    const m = M.pair_any_access_overlap;
+    const vals = CS.flatMap(a => CS.filter(b => b!==a).map(b => m[a][b]));
+    const max = Math.max(...vals);
+    return `<div class="tbl-wrap" style="display:inline-block;width:auto">
+    <table class="mx"><thead><tr><th></th>${CS.map(c => `<th>${dot(c)}</th>`).join('')}</tr></thead>
+    <tbody>${CS.map(a => `<tr><th>${dot(a)}</th>${CS.map(b =>
+      a === b ? '<td class="dim">—</td>' : heat(m[a][b], max)).join('')}</tr>`).join('')}
+    </tbody></table></div>`;
+  })()}
+
+  <h3>Shared-primary overlap matrix</h3>
+  ${(() => {
+    const m = M.pair_shared_primary_overlap;
+    const vals = CS.flatMap(a => CS.filter(b => b!==a).map(b => m[a][b]));
+    const max = Math.max(...vals);
+    return `<div class="tbl-wrap" style="display:inline-block;width:auto">
+    <table class="mx"><thead><tr><th></th>${CS.map(c => `<th>${dot(c)}</th>`).join('')}</tr></thead>
+    <tbody>${CS.map(a => `<tr><th>${dot(a)}</th>${CS.map(b =>
+      a === b ? '<td class="dim">—</td>' : heat(m[a][b], max)).join('')}</tr>`).join('')}
+    </tbody></table></div>`;
+  })()}
+
+  ${(() => {
+    const top = P.slice().sort((a,b) => b.any_access_overlap - a.any_access_overlap)[0];
+    const anyV = P.map(p => p.any_access_overlap), spV = P.map(p => p.shared_primary_overlap);
+    return `<div class="note"><b>Shared-primary is an order of magnitude rarer
+    than shared access.</b> Any-access overlap runs ${Math.min(...anyV)}–${Math.max(...anyV)},
+    topped by <code>${esc(top.pair)}</code> at ${top.any_access_overlap}; shared-primary
+    overlap runs ${Math.min(...spV)}–${Math.max(...spV)} across the same ten pairs.
+    Two colours co-owning a mechanic outright is genuinely unusual, and a UI that
+    shows only "both have access" will read as far more redundancy than the design
+    actually contains.</div>`;
+  })()}`;
+});
+
+/* 11 */
+S('marginal', 'What adding a colour does', () => {
+  const M = D.marginal, T = D.transitions;
+  return `
+  <p class="lede">All ${M.length} base-selection + added-colour transitions.
+  This is the table behind any "what does splashing this colour get me" question.
+  A transition is a change in design ownership and access — never a change in
+  power.</p>
+
+  <div class="controls">
+    <input type="search" id="mf" aria-label="Filter marginal additions by base or added colour" placeholder="filter by base or added colour…">
+    <select id="ma" aria-label="Filter by added colour"><option value="">added: any</option>
+      ${CS.map(c => `<option value="${c}">added: ${CN[c]}</option>`).join('')}</select>
+    <span class="count" id="mc"></span>
+  </div>
+  <div id="mtbl"></div>
+
+  <h3>Tier transitions summed across all ${M.length} additions</h3>
+  ${(() => {
+    const tot = Object.values(T).reduce((a,b) => a+b, 0);
+    const same = T.same_tier_new_owner;
+    const newly = T.unavailable_to_tertiary + T.unavailable_to_secondary + T.unavailable_to_primary;
+    const upgr = T.tertiary_to_secondary + T.tertiary_to_primary + T.secondary_to_primary;
+    return table([
+      {h:'transition', f:r => esc(r[0].replace(/_/g,' '))},
+      {h:'occurrences', n:true, f:r => num(r[1])},
+      {h:'share', n:true, f:r => pct(r[1], tot)},
+      {h:'', f:r => `<div class="bar"><i style="width:${100*r[1]/Math.max(...Object.values(T))}%"></i></div>`},
+    ], Object.entries(T).sort((a,b) => b[1]-a[1]))
+    + `<p class="dim">Same-tier-new-owner is the largest single bucket
+      (${num(same)} of ${num(tot)}, ${pct(same,tot)}) — larger than the next
+      bucket, unavailable-to-primary, at ${num(T.unavailable_to_primary)}. It is
+      also ${(same/upgr).toFixed(1)}× the size of every tier upgrade among
+      already-reachable mechanics combined (${num(upgr)}). It is <i>not</i> a
+      majority of all transitions: newly-reachable transitions total
+      ${num(newly)}, so redundancy accounts for ${pct(same,tot)} of what colour
+      additions do, not most of it.</p>`;
+  })()}`;
+});
+
+/* 12 */
+S('absence', 'What each colour uniquely holds', () => {
+  return `
+  <p class="lede">The inverse view: take all five colours, remove one, and count
+  what falls out. This is the cleanest measure of a colour's irreplaceable
+  contribution, and it cross-checks exactly against the exclusive-access count.</p>
+  ${table([
+    {h:'omitted', f:r => `${dot(r.omitted)} ${CN[r.omitted]}`},
+    {h:'remaining', f:r => dots(r.selection)},
+    {h:'lost completely', n:true, f:r => `<b>${r.lost_completely}</b>`},
+    {h:'best access degraded', n:true, k:'best_access_degraded'},
+    {h:'owner lost, access kept', n:true, k:'owner_lost_access_retained'},
+    {h:'unaffected', n:true, k:'unaffected'},
+    {h:'cross-check', f:r => r.cross_check_pass
+      ? `<span class="t-primary">✓ ${r.cross_check_global_exclusive_access}</span>`
+      : '<span class="t-tertiary">mismatch</span>'},
+  ], D.absence)}
+  <div class="note"><b>Nothing is load-bearing.</b> The worst case is losing
+  ${Math.max(...D.absence.map(a=>a.lost_completely))} of 216 outright. Four
+  colours always reach at least 190. If you are looking for a "this colour is
+  essential" story in this data, it is not there.</div>`;
+});
+
+/* 13 */
+S('mechanics', 'The 216 mechanics', () => {
+  return `
+  <p class="lede">The full inventory, filterable. Each record shows its colour
+  tiers with the basis behind each one, its canonical family, any secondary
+  cross-links, whether it carries a restriction, and Rosewater's own explanation
+  where the article gives one.</p>
+  <div class="controls">
+    <input type="search" id="q" aria-label="Search mechanics by label, family or explanation" placeholder="search label, family or explanation…">
+    <select id="fc" aria-label="Filter by colour and tier"><option value="">colour: any</option>
+      ${CS.map(c => `<option value="${c}">${CN[c]}: any tier</option>`).join('')}
+      ${CS.map(c => `<option value="${c}:primary">${CN[c]}: primary</option>`).join('')}
+    </select>
+    <select id="ff" aria-label="Filter by family"><option value="">family: any</option>
+      ${D.families.map(f => `<option value="${esc(f.family)}">${esc(f.family)}</option>`).join('')}</select>
+    <select id="fx" aria-label="Filter by restriction"><option value="">restriction: any</option>
+      <option value="1">has a restriction</option>
+      <option value="0">no restriction</option></select>
+    <select id="fb" aria-label="Filter by source basis"><option value="">basis: any</option>
+      <option value="adjudicated">adjudicated</option>
+      <option value="colour-list-only">colour-list-only</option>
+      <option value="ability-catalog-only">ability-catalog-only</option></select>
+    <span class="count" id="qc"></span>
+  </div>
+  <p class="dim" style="margin-top:-4px">Legend: <b>⚑</b> marks a tier whose
+  basis is <i>not</i> both-agree — the two source readings disagreed, or only
+  one of them stated it. Hover the tier chip for the exact basis. Section 5
+  lists all ${D.adjudications.length} of them with the reasoning.</p>
+  <div id="mechlist"></div>`;
+});
+
+/* 14 */
+S('fixtures', 'Golden fixtures', () => {
+  return `
+  <p class="lede">Eleven frozen answers. These are the regression net: they pin
+  specific selections and specific adjudication cases so that any upstream drift
+  fails loudly instead of quietly changing a number in the UI.</p>
+  ${D.fixtures.map(f => `<details><summary>${esc(f.name)}</summary>
+    <pre>${esc(JSON.stringify(f.body, null, 2))}</pre></details>`).join('')}`;
+});
+
+/* 15 */
+S('findings', 'Non-obvious findings', () => {
+  const b = D.breadth, L = D.live, pc = D.per_color;
+  const F = D.families;
+
+  /* Everything below is computed from the payload, never asserted from memory.
+     An earlier draft of this section carried six hand-written claims that did
+     not survive checking; deriving them is what stops that recurring. */
+  const bRank = Object.entries(b).sort((x,y) => y[1].n - x[1].n).map(x => x[0]);
+  const smallFams = F.filter(f => f.canonical_family_members < 5);
+  const spreads = F.map(f => {
+    const v = CS.map(c => f.reach[c]);
+    const hi = Math.max(...v), lo = Math.min(...v);
+    return {f: f.family, d: hi - lo, hiC: CS[v.indexOf(hi)], hi, loC: CS[v.indexOf(lo)], lo};
+  }).sort((x,y) => y.d - x.d);
+  const topSpread = spreads.filter(s => s.d === spreads[0].d);
+  const condRates = Object.entries(L.conditional_by_family)
+    .map(([f,[c,t]]) => ({f, c, t, r: 100*c/t})).sort((x,y) => x.r - y.r);
+  const realCond = condRates.filter(x => x.t >= 5);
+  const anyOv = D.pairs.map(p => p.any_access_overlap);
+  const spOv = D.pairs.map(p => p.shared_primary_overlap);
+  const T = D.transitions;
+  const tTot = Object.values(T).reduce((a,c) => a+c, 0);
+  const tSame = T.same_tier_new_owner;
+  const tUpgr = T.tertiary_to_secondary + T.tertiary_to_primary + T.secondary_to_primary;
+  const tNew = T.unavailable_to_tertiary + T.unavailable_to_secondary + T.unavailable_to_primary;
+  const adjStale = D.adjudications.filter(a =>
+    a.ruling && /stale/i.test(a.ruling.mechanism)).length;
+  const adjUnchanged = D.adjudications.filter(a =>
+    a.ruling && /unchanged since|BOTH 2017/i.test(a.ruling.mechanism)).length;
+  const reg = D.registry;
+
+  const items = [
+    ['Colour breadth does not decay — it dips at four and rebounds at five.',
+     `The sequence is ${b['1'].n} → ${b['2'].n} → ${b['3'].n} → <b>${b['4'].n}</b> → <b>${b['5'].n}</b>. Four-colour mechanics are the single rarest bucket (${b['4'].n} of 216, ${b['4'].pct}%); five-colour mechanics are ${(b['5'].n/b['4'].n).toFixed(1)}× more common and rank ${bRank.indexOf('5')+1}${['st','nd','rd','th','th'][bRank.indexOf('5')]} of the five buckets. The design language is "one or two colours own this" or "this is universal", with a real trough between. Any visualisation implying a smooth gradient from narrow to broad misrepresents the corpus.`],
+    ['Reachability hides structure. Ratios reveal it.',
+     `Blue and Black both reach 94 mechanics and are structurally nothing alike. Blue runs ${(pc.U.primary/pc.U.secondary).toFixed(2)} primaries per secondary; Black runs ${(pc.B.primary/pc.B.secondary).toFixed(2)}. Black's presence in the pie is disproportionately as a supporting tier rather than an owner. One number says they are twins; the other says they are opposites.`],
+    ['Almost half the corpus carries a restriction.',
+     `${L.conditional} of 216 mechanics (${pct(L.conditional,216)}) are conditional. That is far too many for conditionality to work as a navigation bucket — it is a property of most records, not a category of some. It belongs as a badge on a record, which is exactly what the contract already requires.`],
+    ['The conditional rate is not uniform across families.',
+     `Ignoring families with fewer than five members, it ranges from ${realCond[0].r.toFixed(0)}% of <code>${esc(realCond[0].f)}</code> (${realCond[0].c}/${realCond[0].t}) up to ${realCond[realCond.length-1].r.toFixed(0)}% of <code>${esc(realCond[realCond.length-1].f)}</code> (${realCond[realCond.length-1].c}/${realCond[realCond.length-1].t}) — a ${(realCond[realCond.length-1].r/realCond[0].r).toFixed(1)}× spread. Restriction density is a real family-level signal and it is currently not surfaced anywhere.`],
+    ['Co-ownership is rare; shared access is common.',
+     `Any-access pair overlaps run ${Math.min(...anyOv)}–${Math.max(...anyOv)}. Shared-<i>primary</i> overlaps run ${Math.min(...spOv)}–${Math.max(...spOv)} — an order of magnitude smaller. Two colours holding the same mechanic at primary is genuinely unusual. A UI that only distinguishes "reachable / not reachable" will read as far more colour redundancy than the design contains.`],
+    ['Redundancy is the largest single thing a colour adds — but not the majority of it.',
+     `Summed across all ${D.marginal.length} additions, "same tier, new owner" occurs ${num(tSame)} times of ${num(tTot)} transitions (${pct(tSame,tTot)}). That is the largest single bucket, and ${(tSame/tUpgr).toFixed(1)}× every tier upgrade among already-reachable mechanics combined (${num(tUpgr)}). It is not, however, a majority: newly-reachable transitions total ${num(tNew)}. Adding a colour most often gives you a second way to do something you could already do — but it opens genuinely new ground nearly as often.`],
+    ['No colour is load-bearing.',
+     `Remove any single colour from WUBRG and at worst ${Math.max(...D.absence.map(a=>a.lost_completely))} of 216 mechanics are lost completely; four colours always reach at least 190. The "essential colour" narrative has no support in this snapshot.`],
+    ['The family partition is heavily skewed.',
+     `<code>${esc(F.slice().sort((x,y)=>y.canonical_family_members-x.canonical_family_members)[0].family)}</code> holds ${Math.max(...F.map(f=>f.canonical_family_members))} members; <code>tokens</code> holds 1. ${smallFams.length} families hold under five members each (${smallFams.map(f=>`<code>${esc(f.family)}</code>&nbsp;${f.canonical_family_members}`).join(', ')}). Equal-area family tiling would be visually tidy and factually misleading.`],
+    ['The two sharpest colour signatures are exact mirror images.',
+     `${topSpread.map(s => `<code>${esc(s.f)}</code> is ${CN[s.hiC]} ${s.hi} / ${CN[s.loC]} ${s.lo}`).join(' and ')} — ${topSpread.length > 1 ? `tied at a spread of ${topSpread[0].d}, the widest in the family table` : `a spread of ${topSpread[0].d}, the widest in the family table`}. ${topSpread.length === 2 && topSpread[0].hiC === topSpread[1].loC ? `The pair inverts cleanly: the colour that dominates one is the colour that is nearly absent from the other. If a single figure is going to teach someone what the colour pie means, this pair is it — either alone is only half the lesson.` : ''}`],
+    ['One mechanic has no primary owner at all.',
+     `<code>${esc(L.zero_primary.join(', '))}</code>. Every tier-derived aggregate has to survive this record, and any "who owns this" affordance needs a real empty state rather than a fallback to the strongest available tier.`],
+    ['One mechanic has three primary owners.',
+     `<code>${esc(L.three_primary.join(', '))}</code> — the maximum anywhere. Layouts that assume at most two primaries will break on exactly one record, which is the hardest kind of bug to catch by eye.`],
+    ['The sources disagree more often than the tidy count suggests.',
+     `${num(L.basis['both-agree'])} of ${num(Object.values(L.basis).reduce((a,b)=>a+b,0))} runtime assignments are unanimous, but ${D.adjudications.length} are not — ${num(L.basis.adjudicated)} of them are outright contradictions between the article's own summary lists and its own catalog. ${adjStale} of those is stale 2017 data that survived into the 2021 summary; ${adjUnchanged} more are long-standing summary-list errors that the change log shows were never corrected in either edition. The basis field is the most quietly valuable column in the whole directory.`],
+    ['Registry names are not mechanical identities.',
+     `${reg.total_registry_records} display names cover ${reg.unique_wubrg_color_sets_represented} distinct colour sets; ${reg.records_mapping_to_a_wubrg_subset} of them map to a WUBRG subset at all. ${Object.keys(reg.color_sets_with_more_than_one_registry_name).length} colour sets carry two names each. Counting names instead of sets would inflate a per-identity statistic by ${(100*(reg.records_mapping_to_a_wubrg_subset/reg.unique_wubrg_color_sets_represented-1)).toFixed(0)}% (${(100*(reg.total_registry_records/reg.unique_wubrg_color_sets_represented-1)).toFixed(0)}% if the unmappable record is counted too).`],
+    ['Colorless is unmeasured, not zero.',
+     `${esc(D.special.Colorless.reason)} The empty-selection result of 0 is an algorithmic artefact of the WUBRG projection and must never be shown as "0 mechanics".`],
+  ];
+  return `
+  <p class="lede">Things the data says that the headline numbers do not. Each
+  one is arithmetic over the accepted records — no interpretation of intent, no
+  quality claims.</p>
+  ${items.map((it,i) => `<details${i<3?' open':''}><summary>${it[0]}</summary>
+    <p>${it[1]}</p></details>`).join('')}`;
+});
+
+/* 16 */
+S('codebook', 'Codebook', () => {
+  const d = D.definitions;
+  return `
+  <p class="lede">Frozen measurement definitions. These are not stylistic
+  choices — several of them name populations that are easy to conflate, and the
+  numbers in this dossier are only comparable to each other because these hold.</p>
+  ${table([
+    {h:'term', f:r => `<span class="mono">${esc(r[0])}</span>`},
+    {h:'frozen meaning', f:r => esc(r[1])},
+  ], Object.entries(d))}
+
+  <h3>Record shape — <span class="mono">byMechanic</span></h3>
+  <pre>${esc(JSON.stringify({
+    label: 'human-readable name as printed',
+    colors: {W: {tier: 'primary | secondary | tertiary', basis: 'both-agree | adjudicated | colour-list-only | ability-catalog-only'}},
+    family: 'exactly one Vox family (canonical)',
+    families_secondary: ['zero or more cross-links, discovery only'],
+    source_aliases: ['other labels merged into this record'],
+    explanation: "Rosewater's sentence, where the article gives one",
+    has_restriction: 'boolean; the mechanic is conditional'
+  }, null, 2))}</pre>
+
+  <h3>What this dossier does not cover</h3>
+  <p>Every file in <code>data/</code> is inventoried in section 3, but not every
+  file's <i>contents</i> are reproduced here. Specifically:</p>
+  <ul>
+    <li>The four prose records — <code>mcp2021.audit.md</code>,
+      <code>mcp2021.identity_review.md</code>, <code>mechanical_pie_review.md</code>
+      and <code>recon.md</code> — are listed but not summarised. Read them directly.</li>
+    <li>The L0 capture (<code>mechanical_pie_2021.json</code>) and the pre-merge
+      join (<code>mcp2021.reconciled.raw.json</code>) are represented only by the
+      counts they feed. Their per-record contents are not shown.</li>
+    <li><code>data/recon/mechanics-statistics-recon.md</code> remains the
+      authoritative narrative report. Where this dossier quotes a figure it comes
+      from <code>mechanics-statistics.json</code>; where the two ever disagree,
+      the recon corpus wins and this file is stale — regenerate it.</li>
+    <li>Nothing here measures cards, sets, or play. The corpus is one article's
+      tier assignments and a navigation index layered on top.</li>
+  </ul>
+
+  <h3>Caveats that travel with every number here</h3>
+  <ul>
+    <li>Tiers describe design ownership and frequency. They are never a score, never summed, never compared across mechanics as one unit.</li>
+    <li>The snapshot is dated ${esc(D.meta.snapshot_date)}. Sets published since can and do override entries.</li>
+    <li>Families are Vox-Mana vocabulary layered on top for navigation. They are not Rosewater's and carry no authority.</li>
+    <li>Best access never replaces ownership: a selection reaching a mechanic at tertiary has access, not ownership.</li>
+    <li>Counts of registry display names are not counts of mechanical identities.</li>
+  </ul>`;
+});
+
+/* ------------------------------------------------------------------ render */
+const main = document.getElementById('main');
+const toc = document.getElementById('toc');
+document.getElementById('navsub').textContent =
+  D.meta.snapshot_date + ' snapshot · ' + D.inventory.length + ' files · generated ' + D.generated;
+
+SECTIONS.forEach((s, i) => {
+  const sec = document.createElement('section');
+  sec.id = s.id;
+  sec.innerHTML = `<h2><span class="num">${i+1}</span>${esc(s.title)}</h2>` + s.build();
+  main.appendChild(sec);
+  toc.appendChild(el('li', `<a href="#${s.id}">${esc(s.title)}</a>`));
+});
+main.appendChild(el('div', `<div class="foot">
+  Generated by <code>tools/build_dossier.py</code> on ${esc(D.generated)}.
+  Read-only over <code>data/</code>. Re-run the script after any change upstream.
+  Source: ${esc(D.meta.document)}, ${esc(D.meta.author)},
+  <a href="${esc(D.meta.url)}" rel="noreferrer">${esc(D.meta.url)}</a>.
+</div>`));
+
+/* mechanic browser */
+(function () {
+  const list = document.getElementById('mechlist');
+  const q = document.getElementById('q'), fc = document.getElementById('fc'),
+        ff = document.getElementById('ff'), fx = document.getElementById('fx'),
+        fb = document.getElementById('fb'), qc = document.getElementById('qc');
+  const card = m => {
+    const tiers = CS.filter(c => m.c[c]).sort((a,b) =>
+      TIER_ORDER[m.c[b][0]] - TIER_ORDER[m.c[a][0]]);
+    return `<div class="mech">
+      <div class="hd"><span class="nm">${esc(m.l)}</span>
+        <span class="chips">${tiers.map(c => {
+          const [t, basis] = m.c[c];
+          const flag = basis !== 'both-agree' ? ' ⚑' : '';
+          return `<span class="chip" title="${esc(basis)}">${dot(c)}<span class="t-${t}">${t}${flag}</span></span>`;
+        }).join('')}</span>
+      </div>
+      ${m.e ? `<div class="ex">${esc(m.e)}</div>` : ''}
+      <div class="mt">
+        <span class="pill">${esc(m.f)}</span>
+        ${m.s.map(s => `<span class="pill dim">↔ ${esc(s)}</span>`).join('')}
+        ${m.x ? '<span class="pill">conditional</span>' : ''}
+        ${m.a.length ? `<span class="dim mono">alias: ${esc(m.a.join(' · '))}</span>` : ''}
+        <span class="dim mono">${esc(m.k)}</span>
+      </div></div>`;
+  };
+  const apply = () => {
+    const s = q.value.trim().toLowerCase();
+    const [cc, ct] = (fc.value || '').split(':');
+    const fam = ff.value, xr = fx.value, bs = fb.value;
+    const out = D.mechanics.filter(m => {
+      if (s && !(m.l + ' ' + m.k + ' ' + m.f + ' ' + m.s.join(' ') + ' ' + m.e)
+        .toLowerCase().includes(s)) return false;
+      if (cc && !m.c[cc]) return false;
+      if (cc && ct && m.c[cc][0] !== ct) return false;
+      if (fam && m.f !== fam && !m.s.includes(fam)) return false;
+      if (xr === '1' && !m.x) return false;
+      if (xr === '0' && m.x) return false;
+      if (bs && !CS.some(c => m.c[c] && m.c[c][1] === bs)) return false;
+      return true;
+    });
+    qc.textContent = out.length + ' of ' + D.mechanics.length;
+    list.innerHTML = out.length ? out.map(card).join('')
+      : '<p class="dim">No mechanic matches those filters.</p>';
+  };
+  [q, fc, ff, fx, fb].forEach(e => e.addEventListener('input', apply));
+  apply();
+})();
+
+/* marginal additions */
+(function () {
+  const wrap = document.getElementById('mtbl'), mf = document.getElementById('mf'),
+        ma = document.getElementById('ma'), mc = document.getElementById('mc');
+  const apply = () => {
+    const s = mf.value.trim().toUpperCase(), a = ma.value;
+    const rows = D.marginal.filter(r =>
+      (!a || r.added === a) && (!s || (r.base + r.added + r.result).toUpperCase().includes(s)));
+    mc.textContent = rows.length + ' of ' + D.marginal.length;
+    wrap.innerHTML = table([
+      {h:'base', f:r => `${dots(r.base.split(''))} <span class="mono">${esc(r.base)}</span>`},
+      {h:'add', f:r => dot(r.added)},
+      {h:'result', f:r => `<span class="mono">${esc(r.result)}</span>`},
+      {h:'newly reachable', n:true, f:r => `<b>${r.newly_reachable}</b>`},
+      {h:'best tier improved', n:true, k:'best_tier_improved'},
+      {h:'new owner, no gain', n:true, k:'new_owner_no_improvement'},
+      {h:'unchanged', n:true, k:'unchanged'},
+      {h:'still unavailable', n:true, k:'still_unavailable'},
+    ], rows, {max:'480px'});
+  };
+  [mf, ma].forEach(e => e.addEventListener('input', apply));
+  apply();
+})();
+
+/* scrollspy */
+(function () {
+  const links = [...toc.querySelectorAll('a')];
+  const secs = SECTIONS.map(s => document.getElementById(s.id));
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const i = secs.indexOf(e.target);
+      links.forEach((a, j) => a.classList.toggle('on', i === j));
+    });
+  }, {rootMargin: '-10% 0px -80% 0px'});
+  secs.forEach(s => io.observe(s));
+})();
+</script>
+</body>
+</html>

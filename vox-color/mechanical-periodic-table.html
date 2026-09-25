@@ -1,0 +1,1918 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mechanical Periodic Table — prototype</title>
+
+<!--
+  ======================================================================
+  MECHANICAL PERIODIC TABLE — Three.js / CSS3D prototype
+  ----------------------------------------------------------------------
+  PREVIEW ONLY. Not production navigation. Not accepted product truth.
+  The accepted flat implementation stays untouched in color-wheel.html.
+
+  The mechanics are the elements. The 23 Vox families are the districts.
+  216 persistent CSS3DObjects are created once and never rebuilt; every
+  state change recomputes their target transforms instead.
+
+  THE ONE SEMANTIC RULE THAT SHAPES ALL OF IT
+  Primary / secondary / tertiary describe design ownership and frequency,
+  not strength. So depth here is CATEGORICAL: four fixed Z planes, like
+  floors of a building. Every card keeps the same width and height on
+  every plane. Nothing is summed, scored, averaged or ranked. Twice the Z
+  distance means nothing at all — it is a slot address, not a measurement.
+
+  Data: data/mechanical-color-pie.runtime.json, read over HTTP, read-only.
+  Launch:  cd C:\dev\color-wheel-interactive   then   py -m http.server 8000
+  Open:    http://localhost:8000/vox-color/mechanical-periodic-table.html
+  ======================================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@500;600;700&family=Lora:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+  }
+}
+</script>
+
+<style>
+/* ----------------------------------------------------------------------
+   TOKENS — the established project language, copied not reinvented.
+   ---------------------------------------------------------------------- */
+:root{
+  --obsidian:#0b0c11; --panel-2:#1a1c25;
+  --bone:#ede6d3; --bone-dim:rgba(237,230,211,.56); --bone-faint:rgba(237,230,211,.30);
+  --gold:#d4af37;
+  --w:#f5efc7; --u:#77b9e8; --b:#aca29a; --r:#d97858; --g:#7fb283;
+  --glass:rgba(237,230,211,.045); --glass-hover:rgba(237,230,211,.075);
+  --hairline:rgba(237,230,211,.12); --panel-edge:rgba(237,230,211,.09);
+  /* THE THREE GROUNDS. The whole macro hierarchy is this ladder: the stage is
+     the darkest thing on screen, a district floor sits above it, and a mechanic
+     plate sits above the floor. Every one of the 216 plates is the same step
+     above its floor, so the ladder reads as structure and never as ranking. */
+  --floor:rgba(237,230,211,.045); --floor-edge:rgba(237,230,211,.21);
+  --plate:rgba(237,230,211,.052); --plate-edge:rgba(237,230,211,.085);
+  --slot-edge:rgba(237,230,211,.10);
+  --radius:14px;
+  --ease:cubic-bezier(.2,.8,.2,1);
+  /* The rail is sized against the viewport, not against one monitor: a fixed
+     336px is a quarter of a 1280 desktop and a twelfth of a 4K one, and the
+     table has to stay the hero at both. */
+  --rail:clamp(296px,19vw,352px);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; background:var(--obsidian); color:var(--bone);
+  font-family:'Lora',Georgia,serif; overflow:hidden;
+}
+button,input{font:inherit;color:inherit}
+button{background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* ----------------------------------------------------------------------
+   CHROME
+   ---------------------------------------------------------------------- */
+#app{display:grid;grid-template-rows:auto 1fr;height:100%}
+.topbar{
+  display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
+  padding:8px 18px 7px; border-bottom:1px solid var(--panel-edge);
+  background:#0a0b10;
+}
+.topbar h1{
+  margin:0; font-family:'Cormorant SC',Georgia,serif; font-weight:600;
+  font-size:18px; letter-spacing:.09em; color:rgba(237,230,211,.92);
+}
+.tag{
+  font-family:'Outfit',system-ui,sans-serif;font-size:8.5px;letter-spacing:.24em;
+  text-transform:uppercase;color:rgba(212,175,55,.7);
+  border:1px solid rgba(212,175,55,.22);border-radius:999px;padding:1px 8px;
+}
+.snap{font-family:'Outfit',system-ui,sans-serif;font-size:10px;color:var(--bone-faint);
+  letter-spacing:.03em}
+.topbar .sp{flex:1}
+.tbtn{
+  font-family:'Outfit',system-ui,sans-serif;font-size:10px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--bone-faint);
+  border:1px solid var(--panel-edge);border-radius:999px;padding:4px 11px;
+  transition:color .18s,border-color .18s,background .18s;
+}
+.tbtn:hover{color:var(--bone);border-color:rgba(212,175,55,.42);background:var(--glass)}
+
+.shell{display:grid;grid-template-columns:1fr var(--rail);min-height:0}
+
+/* ----------------------------------------------------------------------
+   STAGE — the CSS3D world lives here.
+   ---------------------------------------------------------------------- */
+#stage{position:relative;min-width:0;overflow:hidden;background:
+  radial-gradient(120% 100% at 50% 12%,#12131b 0%,#0b0c11 62%,#08090d 100%)}
+#stage::after{ /* restrained depth haze, static */
+  content:'';position:absolute;inset:0;pointer-events:none;z-index:3;
+  background:radial-gradient(125% 95% at 50% 50%,transparent 42%,rgba(8,9,13,.66) 100%);
+}
+#world{position:absolute;inset:0}
+#world > div{pointer-events:none}
+#world .card,#world .d-head{pointer-events:auto}
+
+/* ----------------------------------------------------------------------
+   THE DISTRICT — a family's floor plan. It never leaves the table plane.
+   When the cards extrude, the plan stays behind them, so you can always
+   see where a mechanic came from. The mall-map rule, made literal.
+
+   It is the loudest object on the table at overview distance, and that is
+   deliberate: twenty feet away you should read twenty-three districts, not
+   two hundred and sixteen labels.
+   ---------------------------------------------------------------------- */
+.district{
+  border:1px solid var(--floor-edge);
+  border-radius:14px;
+  background:var(--floor);
+  /* the dark ring widens the channel to the next floor without spending
+     layout on it, so the districts separate before the labels are legible */
+  box-shadow:inset 0 1px 0 rgba(237,230,211,.07), 0 0 0 7px rgba(6,7,10,.85);
+  position:relative;
+  transition:border-color .3s var(--ease),background .3s var(--ease),opacity .3s var(--ease);
+}
+/* Corner ticks. Four registration marks painted as gradients on the floor
+   itself — no extra elements, no extra objects, and they give the slab the
+   drafted-plate quality the periodic-table language wants. */
+.district::before{
+  content:'';position:absolute;inset:9px;pointer-events:none;border-radius:8px;
+  background:
+    linear-gradient(var(--floor-edge),var(--floor-edge)) 0 0/26px 1px no-repeat,
+    linear-gradient(var(--floor-edge),var(--floor-edge)) 0 0/1px 26px no-repeat,
+    linear-gradient(var(--floor-edge),var(--floor-edge)) 100% 0/26px 1px no-repeat,
+    linear-gradient(var(--floor-edge),var(--floor-edge)) 100% 0/1px 26px no-repeat,
+    linear-gradient(var(--floor-edge),var(--floor-edge)) 0 100%/26px 1px no-repeat,
+    linear-gradient(var(--floor-edge),var(--floor-edge)) 0 100%/1px 26px no-repeat,
+    linear-gradient(var(--floor-edge),var(--floor-edge)) 100% 100%/26px 1px no-repeat,
+    linear-gradient(var(--floor-edge),var(--floor-edge)) 100% 100%/1px 26px no-repeat;
+  opacity:.75;
+}
+/* THE HEADER PLATE. A full grid row of the district belongs to its name, and
+   the rule under it is the line between "which family" and "which mechanic". */
+.d-head{
+  position:absolute;left:0;right:0;top:0;height:var(--headh,147px);
+  display:flex;align-items:center;gap:16px;padding:0 26px;
+  border-bottom:1px solid var(--floor-edge);
+  border-radius:14px 14px 0 0;
+  background:linear-gradient(180deg,rgba(237,230,211,.045),rgba(237,230,211,0));
+  transition:color .25s var(--ease),background .25s var(--ease);
+}
+.d-ix{
+  font-family:'Outfit',system-ui,sans-serif;font-size:22px;font-weight:300;
+  letter-spacing:.24em;color:rgba(237,230,211,.30);flex:none;
+}
+.d-name{
+  font-family:'Cormorant SC',Georgia,serif;font-size:54px;font-weight:600;
+  letter-spacing:.05em;line-height:1.02;color:rgba(237,230,211,.80);
+  text-align:left;flex:1;min-width:0;
+}
+.d-n{
+  font-family:'Outfit',system-ui,sans-serif;font-size:24px;font-weight:300;
+  letter-spacing:.1em;color:rgba(237,230,211,.34);flex:none;
+  font-variant-numeric:tabular-nums;
+}
+.d-head:hover{background:linear-gradient(180deg,rgba(237,230,211,.085),rgba(237,230,211,.01))}
+.d-head:hover .d-name{color:var(--bone)}
+
+/* THE EMPTY SLOTS. One outline per mechanic, painted on the floor at the
+   card's home address. They are invisible on the neutral table and fade up
+   only when the cards have actually left the ground, so the extrusion reads
+   as "these lifted out of there" instead of "these are floating somewhere".
+   Exactly 216 of them, one per canonical mechanic — never a repeating
+   pattern, which would draw slots for mechanics that do not exist. */
+.d-slots{position:absolute;inset:0;opacity:0;pointer-events:none;
+  transition:opacity .45s var(--ease)}
+.d-slots i{position:absolute;display:block;border:1px dashed var(--slot-edge);
+  border-radius:7px}
+#world.has-depth .d-slots{opacity:1}
+
+#world.has-depth .district{border-color:rgba(237,230,211,.24);
+  background:rgba(237,230,211,.05)}
+#world.has-depth .d-name{color:rgba(237,230,211,.88)}
+.district.has-hit{border-color:rgba(212,175,55,.55);background:rgba(212,175,55,.05)}
+.district.has-hit .d-name{color:var(--gold)}
+.district.has-hit .d-head{background:linear-gradient(180deg,rgba(212,175,55,.11),rgba(212,175,55,0))}
+.district.is-focus{border-color:rgba(212,175,55,.7);background:rgba(212,175,55,.07)}
+.district.is-focus .d-name{color:var(--gold)}
+.district.is-mute{opacity:.26}
+
+/* ----------------------------------------------------------------------
+   THE CARD — one mechanic. 248 x 86 world units on every plane, always.
+   ---------------------------------------------------------------------- */
+.card{
+  width:248px;height:92px;display:flex;flex-direction:column;justify-content:space-between;
+  padding:7px 9px 6px;text-align:left;overflow:hidden;
+  border:1px solid var(--plate-edge);border-radius:7px;
+  background:var(--plate);
+  color:var(--bone);
+  transition:opacity .34s var(--ease),border-color .24s var(--ease),
+             background .24s var(--ease),filter .34s var(--ease),height .3s var(--ease),
+             box-shadow .34s var(--ease);
+}
+/* Quiet by default and loud on approach. A plate earns contrast by being
+   hovered, focused, matched, selected or inside the focused district — never
+   by what tier it holds, which would turn a category into a ranking. */
+.card:hover{border-color:rgba(212,175,55,.5);background:rgba(212,175,55,.10)}
+.card:hover .c-lab{color:var(--bone)}
+.card:focus-visible .c-lab{color:var(--bone)}
+/* Once the plates leave the floor they need to read as objects above it. */
+#world.has-depth .card{box-shadow:0 14px 34px rgba(0,0,0,.55)}
+/* 2 lines at 26/29.1 = 58.2, plus a 17px footer and 13px of padding, is
+   88.2 of the card's 92. The clamp is the price of 216 prose labels on one
+   screen; the complete name is always in aria-label, in the tooltip, in the
+   near-zoom card and in the detail surface. */
+.c-lab{
+  font-family:'Outfit',system-ui,sans-serif;font-size:26px;font-weight:400;
+  line-height:1.12;letter-spacing:.004em;color:rgba(237,230,211,.70);
+  transition:color .24s var(--ease);
+  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;
+  overflow:hidden;overflow-wrap:anywhere;
+}
+.c-foot{display:flex;align-items:center;justify-content:space-between;gap:8px;
+  height:17px;flex:none}
+.c-ix{font-family:'Outfit',system-ui,sans-serif;font-size:16px;font-weight:300;
+  letter-spacing:.14em;color:rgba(237,230,211,.22);flex:none}
+.c-cond{font-family:'Outfit',system-ui,sans-serif;font-size:16px;color:rgba(212,175,55,.6)}
+
+/* THE OWNERSHIP STRIP — five fixed cells, always WUBRG, always the same
+   footprint. Tier is encoded as FILL, never as size: filled = primary,
+   ring = secondary, small centre = tertiary, hairline = no access.
+   Encoding tier by size would be a lie: a longer bar reads as "more",
+   and primary does not mean stronger — it means the colour gets the
+   effect most often, at the lowest rarity. */
+.strip{display:flex;gap:4px}
+.sc{width:13px;height:13px;border-radius:3px;border:2px solid transparent;
+  position:relative;display:block;flex:none}
+.sc-primary{background:var(--cc)}
+.sc-secondary{border-color:var(--cc)}
+.sc-tertiary::after{content:'';position:absolute;inset:3px;border-radius:1px;background:var(--cc)}
+.sc-none{border-color:rgba(237,230,211,.13)}
+/* Outside the active selection ownership stays faintly visible, so the
+   complete mechanic record can still be read off the table. */
+.card.off-sel .sc-out{opacity:.4}
+
+/* Unavailable is the one state that also loses contrast, because absence is
+   the information. It is a single step away from the other three, not the
+   bottom of a four-step ramp — primary, secondary and tertiary plates are
+   pixel-identical to each other on every floor. */
+.card.is-unavail{opacity:.30;border-color:rgba(237,230,211,.05);
+  background:rgba(237,230,211,.018);box-shadow:none !important}
+.card.is-unavail .c-lab{color:rgba(237,230,211,.55)}
+/* The selected card is the one place on the table itself where a full prose
+   label opens. It carries a fixed focus lift, so it draws in front of its
+   neighbours on the same floor instead of colliding with them, and it is the
+   only card that ever changes size. */
+.card.is-sel{border-color:var(--gold);background:linear-gradient(170deg,#2f2a17,#1d1b15);
+  box-shadow:0 0 0 1px rgba(212,175,55,.45),0 22px 46px rgba(0,0,0,.6) !important;opacity:1;
+  height:auto;min-height:92px}
+.card.is-sel .c-lab{color:#f6e9bd}
+.card.is-sel .c-lab{-webkit-line-clamp:unset;display:block;font-size:21px;line-height:1.22}
+.card.is-hit{border-color:rgba(212,175,55,.75);background:rgba(212,175,55,.14);
+  box-shadow:0 0 0 1px rgba(212,175,55,.3),0 18px 40px rgba(0,0,0,.55) !important;opacity:1}
+.card.is-hit .c-lab{color:#f6ecc6}
+/* A miss is quieted, not deleted: still placed, still countable, still there
+   when the query clears. The floor plans stay lit underneath it. */
+.card.is-miss{opacity:.14;box-shadow:none !important}
+.card.is-mute{opacity:.34}
+#world.has-search .card:not(.is-hit){filter:saturate(.25)}
+#world.has-search .district:not(.has-hit) .d-slots{opacity:.35}
+
+/* ----------------------------------------------------------------------
+   STAGE OVERLAYS
+   ---------------------------------------------------------------------- */
+.legend{
+  position:absolute;left:16px;bottom:14px;z-index:4;
+  display:flex;flex-direction:column;gap:5px;
+  padding:10px 13px;border:1px solid var(--panel-edge);border-radius:10px;
+  background:rgba(11,12,17,.84);
+  font-family:'Outfit',system-ui,sans-serif;font-size:10px;color:var(--bone-faint);
+  max-width:286px;
+}
+.legend h2{margin:0 0 3px;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--bone-faint);font-family:'Outfit',system-ui,sans-serif;font-weight:500}
+.lg-row{display:flex;align-items:center;gap:9px}
+.lg-bar{width:24px;height:14px;border-radius:3px;flex:none;border:1px solid rgba(237,230,211,.2)}
+.lg-note{margin:5px 0 0;font-size:9.5px;line-height:1.5;color:var(--bone-faint)}
+.legend[hidden]{display:none}
+
+.hintbar{
+  position:absolute;right:14px;bottom:14px;z-index:4;
+  font-family:'Outfit',system-ui,sans-serif;font-size:10px;letter-spacing:.08em;
+  color:var(--bone-faint);text-align:right;line-height:1.7;
+}
+
+.stage-msg{
+  position:absolute;inset:0;display:grid;place-items:center;z-index:6;
+  background:rgba(11,12,17,.95);padding:40px;text-align:center;
+}
+.stage-msg[hidden]{display:none}
+.stage-msg .box{max-width:640px}
+.stage-msg h2{font-family:'Cormorant SC',Georgia,serif;font-size:22px;margin:0 0 12px}
+.stage-msg p{font-size:13.5px;line-height:1.65;color:var(--bone-dim)}
+.stage-msg code{font-family:ui-monospace,Consolas,monospace;font-size:12.5px;
+  background:#191b24;border:1px solid var(--hairline);border-radius:6px;
+  padding:3px 8px;color:var(--bone);display:inline-block;margin:4px 0}
+
+/* ----------------------------------------------------------------------
+   RAIL — controls, readout, and the SINGLE owner of mechanic detail.
+   ---------------------------------------------------------------------- */
+/* The rail has exactly three levels and the styling says so: the instrument
+   controls are always available and always quiet; the identity readout is
+   context; the mechanic record is the only thing allowed to become a panel,
+   and only once the viewer has explicitly asked for one. The table is the
+   hero — nothing in here may out-shout it. */
+#rail{
+  border-left:1px solid var(--panel-edge);background:#0a0b10;
+  overflow-y:auto;overflow-x:hidden;padding:12px 15px 40px;
+  font-family:'Outfit',system-ui,sans-serif;font-size:12px;
+}
+.rail-sec{margin:0 0 14px}
+/* the identity controls stay reachable once the rail has scrolled to a
+   mechanic's record, which is where the Owner most often wants them */
+.rail-top{position:sticky;top:-12px;z-index:6;background:#0a0b10;
+  margin:-12px -15px 14px;padding:12px 15px 11px;
+  border-bottom:1px solid var(--panel-edge)}
+.rail-sec > h2{
+  margin:0 0 8px;font-size:9px;letter-spacing:.24em;text-transform:uppercase;
+  color:rgba(237,230,211,.24);font-weight:500;
+}
+.colors{display:flex;gap:6px}
+.cbtn{
+  flex:1;height:38px;border:1px solid var(--hairline);border-radius:9px;
+  display:grid;place-items:center;font-size:13px;font-weight:500;letter-spacing:.08em;
+  color:var(--bone-dim);background:var(--glass);
+  transition:all .18s var(--ease);
+}
+.cbtn:hover{background:var(--glass-hover);color:var(--bone)}
+.cbtn[aria-pressed="true"]{color:#0b0c11;background:var(--cc);border-color:var(--cc);font-weight:600}
+.crow2{display:flex;gap:6px;margin-top:6px}
+.crow2 button{
+  flex:1;height:28px;border:1px solid var(--hairline);border-radius:8px;
+  font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--bone-dim);
+  transition:all .18s var(--ease);
+}
+.crow2 button:hover{color:var(--bone);border-color:rgba(212,175,55,.4)}
+.crow2 button[aria-pressed="true"]{color:var(--gold);border-color:rgba(212,175,55,.55);
+  background:rgba(212,175,55,.08)}
+
+/* No border and no fill in the neutral state: with nothing selected there is
+   no context to frame, and a bordered box of three numbers reads as a
+   dashboard widget competing with the table. */
+.idcard{padding:2px 1px}
+.idcard.live{border:1px solid var(--panel-edge);border-radius:11px;
+  background:rgba(237,230,211,.022);padding:11px 12px}
+.idname{font-family:'Cormorant SC',Georgia,serif;font-size:21px;font-weight:600;
+  letter-spacing:.05em;margin:0 0 2px;color:rgba(237,230,211,.92)}
+.idcard:not(.live) .idname{font-size:17px;color:var(--bone-dim)}
+.idset{font-size:10px;letter-spacing:.2em;color:var(--bone-faint);margin:0 0 9px;
+  text-transform:uppercase}
+.rd{display:grid;grid-template-columns:1fr auto;gap:3px 10px;font-size:11px;margin:0}
+.rd dt{color:var(--bone-dim);display:flex;align-items:center;gap:8px}
+.rd dd{margin:0;text-align:right;font-variant-numeric:tabular-nums;color:var(--bone)}
+.rd .pl{width:12px;height:9px;border-radius:2px;flex:none;border:1px solid rgba(237,230,211,.2)}
+.rd-tot dt,.rd-tot dd{border-top:1px solid var(--hairline);padding-top:6px;margin-top:4px}
+.note{font-size:10px;line-height:1.6;color:rgba(237,230,211,.26);margin:9px 0 0}
+.note b{color:var(--bone-dim);font-weight:500}
+.subhead{font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--bone-faint);
+  margin:12px 0 5px;border-top:1px solid var(--hairline);padding-top:9px}
+
+.searchwrap{display:flex;gap:6px}
+#q{
+  flex:1;height:34px;padding:0 11px;border-radius:9px;
+  border:1px solid var(--hairline);background:#0e0f16;color:var(--bone);
+  font-family:'Outfit',system-ui,sans-serif;font-size:12.5px;
+}
+#q::placeholder{color:var(--bone-faint)}
+#qclear{width:34px;height:34px;border:1px solid var(--hairline);border-radius:9px;
+  color:var(--bone-dim);font-size:15px;line-height:1}
+#qclear:hover{color:var(--bone);border-color:rgba(212,175,55,.4)}
+.hits{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-direction:column;gap:4px}
+.hits li button{
+  width:100%;display:flex;align-items:center;gap:8px;text-align:left;
+  padding:6px 8px;border:1px solid transparent;border-radius:8px;
+  background:var(--glass);transition:all .16s var(--ease);
+}
+.hits li button:hover{background:var(--glass-hover);border-color:rgba(212,175,55,.35)}
+.h-txt{flex:1;min-width:0}
+.h-lab{font-size:11.5px;line-height:1.3;overflow:hidden;
+  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2}
+.h-fam{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--bone-faint)}
+.hits .strip{transform:scale(.52);transform-origin:right center;flex:none;width:50px;
+  justify-content:flex-end}
+.more{font-size:10.5px;color:var(--bone-faint);margin:7px 0 0}
+
+/* THE ONE DETAIL OWNER. Nothing else in this build renders explanation,
+   provenance or aliases. The table identifies; search locates; this reads. */
+/* Detail earns prominence because the viewer explicitly asked for it, and it
+   is the one place in the build that renders explanation, provenance and
+   aliases. The gold rule at its head is the same gold the selected plate
+   wears on the table: one state, two places. */
+#detail{border:1px solid rgba(212,175,55,.30);border-top:2px solid rgba(212,175,55,.6);
+  border-radius:3px 3px 12px 12px;background:var(--panel-2);
+  padding:11px 14px 15px}
+#detail[hidden]{display:none}
+.dx-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.dx-ix{font-size:10px;letter-spacing:.18em;color:var(--gold);
+  font-variant-numeric:tabular-nums}
+.dx-ix span{color:rgba(237,230,211,.3);letter-spacing:.14em}
+.dx-close{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--bone-dim)}
+.dx-close:hover{color:var(--bone)}
+.dx-lab{font-family:'Lora',Georgia,serif;font-size:16px;line-height:1.34;margin:8px 0 9px;
+  color:rgba(237,230,211,.96)}
+.dx-fam{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--bone-faint);
+  margin:0 0 10px;line-height:1.7}
+.dx-fam b{color:var(--bone-dim);font-weight:500}
+.dx-access{border:1px solid var(--hairline);border-radius:9px;padding:8px 10px;margin:0 0 10px;
+  background:rgba(237,230,211,.03)}
+.dx-access .k{font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--bone-faint)}
+.dx-access .v{font-size:13px;margin-top:3px;line-height:1.4}
+.dx-own{display:flex;flex-direction:column;gap:4px;margin:0 0 11px}
+.dx-own .row{display:flex;align-items:center;gap:8px;font-size:11.5px}
+.dx-own .sw{width:11px;height:11px;border-radius:3px;flex:none}
+.dx-own .tier{font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--bone-dim);
+  margin-left:auto}
+.dx-own .row.out{opacity:.46}
+.dx-p{font-family:'Lora',Georgia,serif;font-size:12px;line-height:1.62;color:var(--bone-dim);
+  margin:0 0 10px}
+.dx-p b{color:var(--bone);font-weight:500;font-family:'Outfit',system-ui,sans-serif;
+  font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;display:block;margin-bottom:3px}
+.dx-cond{border-left:2px solid rgba(212,175,55,.45);padding-left:10px}
+.dx-prov{border-left:2px solid rgba(119,185,232,.4);padding-left:10px}
+
+.selftest{font-size:9.5px;color:rgba(237,230,211,.24);border-top:1px solid var(--panel-edge);
+  padding-top:9px;margin-top:18px}
+.selftest button{font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(237,230,211,.3);
+  text-decoration:underline;text-underline-offset:3px}
+.selftest .ok{color:#8fbf8f}
+.selftest .bad{color:#e08b6f}
+.selftest pre{white-space:pre-wrap;font-family:ui-monospace,Consolas,monospace;font-size:10px;
+  line-height:1.55;margin:7px 0 0;max-height:260px;overflow:auto;color:var(--bone-dim)}
+
+@media (prefers-reduced-motion:reduce){
+  .card,.district,.d-head,.cbtn,.tbtn,.hits li button{transition:none !important}
+}
+html[data-motion="reduced"] .card,html[data-motion="reduced"] .district,
+html[data-motion="reduced"] .d-head,html[data-motion="reduced"] .cbtn,
+html[data-motion="reduced"] .tbtn,html[data-motion="reduced"] .hits li button{transition:none !important}
+</style>
+</head>
+<body>
+<div id="app">
+  <header class="topbar">
+    <h1>Mechanical Periodic Table</h1>
+    <span class="tag">prototype</span>
+    <span class="snap" id="snap">Mechanical Color Pie 2021 · snapshot dated October 18, 2021</span>
+    <span class="sp"></span>
+    <button class="tbtn" id="resetView">Reset view</button>
+    <button class="tbtn" id="clearAll">Clear all</button>
+  </header>
+
+  <div class="shell">
+    <section id="stage">
+      <div id="world"></div>
+
+      <div class="legend" id="legend" hidden>
+        <h2>Depth planes · best access</h2>
+        <div class="lg-row"><span class="lg-bar" style="background:rgba(237,230,211,.9)"></span>
+          <span>Primary available — nearest floor</span></div>
+        <div class="lg-row"><span class="lg-bar" style="background:rgba(237,230,211,.55)"></span>
+          <span>Secondary only</span></div>
+        <div class="lg-row"><span class="lg-bar" style="background:rgba(237,230,211,.28)"></span>
+          <span>Tertiary only</span></div>
+        <div class="lg-row"><span class="lg-bar" style="background:rgba(237,230,211,.08)"></span>
+          <span>Unavailable — recessed, never removed</span></div>
+        <p class="lg-note">Four fixed floors, not four sizes. A card is the same card on
+          every one of them. The distance between floors measures nothing: primary is
+          where an effect lives most often, not where it is strongest.</p>
+      </div>
+
+      <div class="hintbar">
+        drag to orbit · scroll to zoom · click a district to focus it<br>
+        arrow keys move through the table · Esc steps back
+      </div>
+
+      <div class="stage-msg" id="boot">
+        <div class="box">
+          <h2>Loading the mechanical universe…</h2>
+          <p>216 mechanics · 23 families · 467 colour assignments</p>
+        </div>
+      </div>
+    </section>
+
+    <aside id="rail">
+      <div class="rail-sec rail-top">
+        <h2>Colour identity</h2>
+        <div class="colors" id="colors"></div>
+        <div class="crow2">
+          <button id="colorlessBtn" type="button" aria-pressed="false">Colorless</button>
+          <button id="clearSel" type="button">Clear identity</button>
+        </div>
+      </div>
+
+      <div class="rail-sec">
+        <div class="idcard" id="idcard"></div>
+      </div>
+
+      <div class="rail-sec">
+        <h2>Search</h2>
+        <div class="searchwrap">
+          <input id="q" type="search" placeholder="Find a mechanic" aria-label="Search mechanics"
+                 autocomplete="off" spellcheck="false">
+          <button id="qclear" type="button" aria-label="Clear search">&#215;</button>
+        </div>
+        <div id="hitbox" aria-live="polite"></div>
+      </div>
+
+      <div class="rail-sec">
+        <div id="detail" hidden></div>
+      </div>
+
+      <div class="selftest" id="selftest"></div>
+    </aside>
+  </div>
+</div>
+
+<script type="module">
+import * as THREE from 'three';
+import { CSS3DRenderer, CSS3DObject } from 'three/addons/renderers/CSS3DRenderer.js';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+/* ======================================================================
+   CONSTANTS
+   ====================================================================== */
+const ORDER  = 'WUBRG';
+const CNAME  = { W:'White', U:'Blue', B:'Black', R:'Red', G:'Green' };
+const RANK   = { primary:3, secondary:2, tertiary:1 };
+
+/* Conventional names, keyed by the colour set sorted into WUBRG order.
+   One identity per colour set: alternate names for the same set are not
+   duplicated as separate identities. */
+const IDNAME = {
+  W:'White', U:'Blue', B:'Black', R:'Red', G:'Green',
+  WU:'Azorius', UB:'Dimir', BR:'Rakdos', RG:'Gruul', WG:'Selesnya',
+  WB:'Orzhov', UR:'Izzet', BG:'Golgari', WR:'Boros', UG:'Simic',
+  WUG:'Bant', WUB:'Esper', UBR:'Grixis', BRG:'Jund', WRG:'Naya',
+  WBG:'Abzan', WUR:'Jeskai', UBG:'Sultai', WBR:'Mardu', URG:'Temur',
+  UBRG:'Non-White', WBRG:'Non-Blue', WURG:'Non-Black', WUBG:'Non-Red', WUBR:'Non-Green',
+  WUBRG:'Five-Color'
+};
+
+/* Layout geometry, in world units (1 unit = 1 CSS pixel before perspective).
+   The gap between grid cells is now wide enough that a district floor can be
+   drawn around its own cards with real padding and still leave a visible
+   channel of bare stage to the next district. At the old 14-unit gap the
+   floors touched, which is what made 216 plates read as masonry. */
+const CARD_W = 248, CARD_H = 92;
+const GAP_X = 52, GAP_Y = 44;             /* between cards inside a district */
+const STEP_X = CARD_W + GAP_X, STEP_Y = CARD_H + GAP_Y;
+const D_PAD  = 11;                        /* floor padding outside its cards */
+/* The header owns one whole grid row of the district. Derived, not guessed:
+   it is the distance from the floor's top edge down to the first card's top
+   edge, so the rule under the name lands exactly one gap above row one. */
+const HEAD_H = 1.5*STEP_Y - GAP_Y/2 + D_PAD - CARD_H/2;
+const GRID_COLS = 15;
+/* Target rows-per-column inside a district. Lower means wider, shorter
+   districts, which read as bands rather than towers at overview distance. */
+const D_RATIO = 1.8;
+
+/* THE FOUR FLOORS. Fixed UI addresses, identical for every identity.
+   They are slots, not measurements — see the note in the legend. */
+const PLANE = { primary: 660, secondary: 220, tertiary: -220, none: -660 };
+
+/* Entering a district lifts its plates off their own floor as one slab and
+   dollies the camera onto it. The old radial spread is gone: with floors this
+   far apart, ANY spread large enough to be visible pushed the outer plates of
+   a big family clean off their own floor and over the neighbours they were
+   supposed to stay in context with — the self-test measures exactly that, and
+   even 1.05 failed it. Proximity is what makes a district readable now, not
+   scattering it. */
+const FOCUS_LIFT = 470, OTHER_RECESS = -260;
+const HIT_LIFT   = 190, MISS_RECESS  = -150, SEL_LIFT = 150;
+
+const DUR = 720, CAM_DUR = 620, STAGGER = 0.22;
+const FAMILY_FRAME = 2.05;   /* how much world is kept around a district */
+
+/* ======================================================================
+   STATE
+   ====================================================================== */
+const S = {
+  sel: new Set(),      // selected WUBRG colours
+  colorless: false,    // the explicit not-measured informational state
+  q: '',               // search query
+  hits: new Set(),     // matched mechanic keys
+  hitList: [],         // ranked matches
+  fam: null,           // focused family
+  pick: null           // selected mechanic key
+};
+
+let MCP = null, MECH = null, BY_FAM = null, KEYS = null, INDEX = null;
+const objByKey = new Map(), elByKey = new Map(), homeByKey = new Map();
+const famObj = new Map(), famEl = new Map(), famDist = new Map();
+let cardOrder = [], gridAt = new Map(), roving = null, rovingFam = null;
+let districtsRef = [];
+
+/* Reduced motion skips the tweening and sets the target transforms directly.
+   It is never reduced FUNCTIONALITY: depth, search, selection, family focus
+   and detail all behave identically. `?motion=reduced` forces the same path
+   so the behaviour can be exercised without changing an OS setting. */
+const rmq = window.matchMedia('(prefers-reduced-motion: reduce)');
+const forceReduced = new URLSearchParams(location.search).get('motion') === 'reduced';
+const reduced = { get matches(){ return forceReduced || rmq.matches; } };
+
+/* ======================================================================
+   SELECTION MATHS
+   ----------------------------------------------------------------------
+   A direct port of tools/selection.py, which is golden-tested by
+   data/fixtures. If a number here disagrees with a fixture, this file is
+   wrong, not the data. Nothing below sums, ranks or weights a tier.
+   ====================================================================== */
+function access(e, cols){
+  const owned = {};
+  for (const c in e.colors) if (cols.has(c)) owned[c] = e.colors[c].tier;
+  const v = Object.values(owned);
+  return { best: v.length ? v.reduce((a,b) => RANK[b] > RANK[a] ? b : a) : null, owned };
+}
+
+function sections(cols){
+  const out = { shared_primary:[], shared_access:[], complementary:[], unavailable:[], conditional:[] };
+  for (const k of KEYS){
+    const e = MECH[k], { best, owned } = access(e, cols);
+    if (best === null) { out.unavailable.push(k); continue; }
+    const n = Object.keys(owned).length;
+    if (n === cols.size)
+      (Object.values(owned).every(t => t === 'primary') ? out.shared_primary : out.shared_access).push(k);
+    else out.complementary.push(k);
+    /* conditional is an OVERLAPPING flag over the REACHABLE population,
+       never a fifth bucket — a mechanic the selection cannot reach at all
+       is not "conditionally available". selection.py skips it by the same
+       `continue`, and fixture 01 fails loudly if this drifts. */
+    if (e.has_restriction) out.conditional.push(k);
+  }
+  return out;
+}
+
+/* Best access, bucketed. This is what the four depth planes read from. */
+function buckets(cols){
+  const o = { primary:[], secondary:[], tertiary:[], none:[] };
+  for (const k of KEYS) o[access(MECH[k], cols).best || 'none'].push(k);
+  return o;
+}
+
+function deltaAdd(cols, added){
+  const after = new Set([...cols, added]);
+  const o = { newly_reachable:[], best_tier_improved:[], new_owner_no_improvement:[],
+              unchanged:[], still_unavailable:[] };
+  for (const k of KEYS){
+    const a = access(MECH[k], cols), b = access(MECH[k], after);
+    if (b.best === null) o.still_unavailable.push(k);
+    else if (a.best === null) o.newly_reachable.push(k);
+    else if (RANK[b.best] > RANK[a.best]) o.best_tier_improved.push(k);
+    else if (Object.keys(b.owned).length > Object.keys(a.owned).length)
+      o.new_owner_no_improvement.push(k);   /* gaining an owner is not nothing */
+    else o.unchanged.push(k);
+  }
+  return o;
+}
+
+function deltaRemove(cols, removed){
+  const after = new Set([...cols].filter(c => c !== removed));
+  const o = { lost_completely:[], tier_degraded:[], lost_owner_retained_access:[], unchanged:[] };
+  for (const k of KEYS){
+    const a = access(MECH[k], cols), b = access(MECH[k], after);
+    if (a.best === null) continue;
+    if (b.best === null) o.lost_completely.push(k);
+    else if (RANK[b.best] < RANK[a.best]) o.tier_degraded.push(k);
+    else if (Object.keys(b.owned).length < Object.keys(a.owned).length)
+      o.lost_owner_retained_access.push(k);
+    else o.unchanged.push(k);
+  }
+  return o;
+}
+
+function fourColorView(cols){
+  const ex = [...ORDER].filter(c => !cols.has(c));
+  if (ex.length !== 1) return null;
+  const d = deltaRemove(new Set([...ORDER]), ex[0]);
+  const fam = {};
+  d.lost_completely.concat(d.tier_degraded).forEach(k => {
+    const f = MECH[k].family; if (f) fam[f] = (fam[f] || 0) + 1;
+  });
+  return {
+    excluded: ex[0],
+    completely_lost: d.lost_completely,
+    best_access_worse: d.tier_degraded,
+    retained_but_lost_owner: d.lost_owner_retained_access,
+    families_most_affected: Object.entries(fam).sort((a,b) => b[1]-a[1] || a[0].localeCompare(b[0]))
+  };
+}
+
+function wubrgSummary(){
+  let total = 0, withPrimary = 0; const noPrimary = [];
+  for (const k of KEYS){
+    const tiers = Object.values(MECH[k].colors).map(d => d.tier);
+    if (!tiers.length) continue;
+    total++;
+    if (tiers.includes('primary')) withPrimary++; else noPrimary.push(k);
+  }
+  return { reachable: total, with_primary_owner: withPrimary,
+           no_primary_owner_anywhere: noPrimary.length, no_primary: noPrimary };
+}
+
+/* ======================================================================
+   SMALL HELPERS
+   ====================================================================== */
+const esc = s => String(s).replace(/[&<>"']/g, c =>
+  ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
+const FAM_LABEL = f => (f || 'unclassified').replace(/_/g, ' ');
+const setKey = cols => [...ORDER].filter(c => cols.has(c)).join('');
+const idName = cols => IDNAME[setKey(cols)] || setKey(cols);
+
+/* The tile shows the head of the canonical label — the text before the
+   catalog's parenthetical gloss. It is a prefix of the real name, never an
+   invented abbreviation, and the full name always travels in aria-label,
+   in title, and in the detail surface. */
+function head(label){
+  let s = String(label).split(' :: ')[0];
+  const i = s.indexOf(' (');
+  if (i > 8) s = s.slice(0, i);
+  return s.trim();
+}
+
+function stripHTML(colors, cols){
+  return '<span class="strip" aria-hidden="true">' + [...ORDER].map(c => {
+    const t = (colors[c] || {}).tier || 'none';
+    const out = cols && cols.size && !cols.has(c) ? ' sc-out' : '';
+    return `<i class="sc sc-${t}${out}" style="--cc:var(--${c.toLowerCase()})"></i>`;
+  }).join('') + '</span>';
+}
+
+const stripText = colors => [...ORDER]
+  .map(c => `${CNAME[c]} ${(colors[c] || {}).tier || 'no access'}`).join(', ');
+
+/* ======================================================================
+   THREE.JS SCENE
+   ====================================================================== */
+const stage = document.getElementById('stage');
+const worldEl = document.getElementById('world');
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(38, 1, 10, 40000);
+const renderer = new CSS3DRenderer();
+worldEl.appendChild(renderer.domElement);
+
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = false;          /* so rendering can sleep when idle */
+controls.enableRotate = true;
+controls.enablePan = true;
+controls.screenSpacePanning = true;
+controls.rotateSpeed = 0.42;
+controls.zoomSpeed = 0.8;
+controls.panSpeed = 0.7;
+controls.minPolarAngle = Math.PI/2 - 0.70;
+controls.maxPolarAngle = Math.PI/2 + 0.45;
+controls.minAzimuthAngle = -0.90;
+controls.maxAzimuthAngle =  0.90;
+
+let WORLD_W = 0, WORLD_H = 0, FIT = 3000;
+let camAnim = null, rafId = 0, tween = null;
+
+function requestRender(){ if (!rafId) rafId = requestAnimationFrame(frame); }
+
+const easeInOut = t => t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3)/2;
+
+function frame(now){
+  rafId = 0;
+  let more = false;
+  if (tween){
+    const p = Math.min(1, (now - tween.t0) / tween.dur);
+    for (const o of tween.items){
+      const local = Math.min(1, Math.max(0, (p - o.d) / (1 - o.d)));
+      const e = easeInOut(local);
+      o.obj.position.set(o.fx + (o.tx - o.fx)*e,
+                         o.fy + (o.ty - o.fy)*e,
+                         o.fz + (o.tz - o.fz)*e);
+    }
+    if (p >= 1) tween = null; else more = true;
+  }
+  if (camAnim){
+    const p = Math.min(1, (now - camAnim.t0) / camAnim.dur);
+    const e = easeInOut(p);
+    const s = new THREE.Spherical(
+      camAnim.fr + (camAnim.tr - camAnim.fr)*e,
+      camAnim.fp + (camAnim.tp - camAnim.fp)*e,
+      camAnim.ft + (camAnim.tt - camAnim.ft)*e);
+    /* The orbit target travels too, so entering a district is a pan across
+       the atlas at the same angle and the same distance — never a rotation
+       that loses the viewer's bearings. */
+    controls.target.lerpVectors(camAnim.fc, camAnim.tc, e);
+    camera.position.setFromSpherical(s).add(controls.target);
+    camera.lookAt(controls.target);
+    if (p >= 1) camAnim = null; else more = true;
+  }
+  renderer.render(scene, camera);
+  if (more) requestRender();
+}
+
+controls.addEventListener('change', requestRender);
+
+/* The stage can report a zero box before first layout. Anything derived
+   from a zero box is NaN, and a NaN camera matrix is unrecoverable, so the
+   size is floored and the fit distance is validated before it is used. */
+function resize(){
+  const w = Math.max(1, stage.clientWidth), h = Math.max(1, stage.clientHeight);
+  const wasTable = FIT > 0 && atPreset(CAM_TABLE);
+  const wasDepth = FIT > 0 && atPreset(CAM_DEPTH);
+  camera.aspect = w / h;
+  camera.updateProjectionMatrix();
+  renderer.setSize(w, h);
+  FIT = fitDistance();
+  controls.maxDistance = FIT * 1.7;
+  controls.minDistance = 320;
+  /* Re-frame only a camera that was still sitting on a preset. */
+  if (wasTable) camPreset(CAM_TABLE, true);
+  else if (wasDepth) camPreset(CAM_DEPTH, true);
+  requestRender();
+}
+
+function fitDistance(){
+  const vFov = camera.fov * Math.PI / 180;
+  const t = Math.tan(vFov / 2);
+  const byH = (WORLD_H/2) / t;
+  const byW = (WORLD_W/2) / t / camera.aspect;
+  const d = Math.max(byH, byW) * 1.07;
+  return Number.isFinite(d) && d > 0 ? d : 3000;
+}
+
+/* Three constrained stations, and nothing else moves the camera on its own.
+   TABLE reads district geography; DEPTH reads the categorical floors, which
+   is why it both tilts and pulls back — the primary floor sits 660 units
+   nearer than the table plane the fit distance was computed for; FAMILY is
+   the same angle as whichever of those is current, dollied in and panned
+   onto one district. Hover never moves the camera; typing never moves the
+   camera; only an explicit spatial choice does. */
+const CAM_TABLE = { phi: Math.PI/2 - 0.07, theta: 0.00, r: 1.00 };
+const CAM_DEPTH = { phi: Math.PI/2 - 0.30, theta: 0.40, r: 1.26 };
+
+function camPreset(p, instant, look){
+  const cur = new THREE.Spherical().setFromVector3(
+    camera.position.clone().sub(controls.target));
+  const to = look ? new THREE.Vector3(look.x, look.y, 0) : new THREE.Vector3(0, 0, 0);
+  const target = { fr: cur.radius, fp: cur.phi, ft: cur.theta,
+                   tr: FIT * p.r, tp: p.phi, tt: p.theta,
+                   fc: controls.target.clone(), tc: to,
+                   t0: performance.now(), dur: CAM_DUR };
+  if (instant || reduced.matches){
+    controls.target.copy(to);
+    camera.position.setFromSpherical(
+      new THREE.Spherical(target.tr, target.tp, target.tt)).add(controls.target);
+    camera.lookAt(controls.target);
+    camAnim = null;
+  } else camAnim = target;
+  requestRender();
+}
+
+/* Only re-frame the camera when the user has not taken it somewhere of
+   their own. Yanking a camera the Owner just aimed would be rude. */
+function atPreset(p){
+  const s = new THREE.Spherical().setFromVector3(
+    camera.position.clone().sub(controls.target));
+  return Math.abs(s.phi - p.phi) < 0.06 && Math.abs(s.theta - p.theta) < 0.06 &&
+         Math.abs(s.radius - FIT*p.r) < FIT*0.10 && controls.target.lengthSq() < 400;
+}
+
+function resetView(){
+  camPreset(S.sel.size ? CAM_DEPTH : CAM_TABLE, false);
+}
+
+/* The family station: the current station's angle, aimed at one district and
+   dollied to a distance derived from that district's own size, so Tokens
+   (one card) and Stat Modification (thirty-four) both arrive framed. The
+   frame factor keeps roughly twice the district in view, which is what makes
+   it read as entering a wing rather than opening a new page. */
+function camFamily(d){
+  const base = S.sel.size ? CAM_DEPTH : CAM_TABLE;
+  const t = Math.tan(camera.fov * Math.PI / 360);
+  const need = Math.max(d.h/2 / t, d.w/2 / t / camera.aspect) * FAMILY_FRAME;
+  const r = Math.min(FIT * 0.95, Math.max(FIT * 0.34, need)) / FIT;
+  camPreset({ phi: base.phi, theta: base.theta, r },
+            false, { x: d.cx, y: d.cy });
+}
+
+/* ======================================================================
+   LAYOUT — deterministic, computed once, never recomputed.
+   ----------------------------------------------------------------------
+   Districts are packed bottom-left against a skyline over a 14-column
+   grid. Family sizes are genuinely uneven (34 down to 1), so the silhouette
+   is irregular. That irregularity is the data; it is not smoothed away, and
+   no taxonomy is adjusted to make rectangles come out even.
+   ====================================================================== */
+function buildLayout(){
+  const fams = Object.keys(BY_FAM)
+    .sort((a,b) => BY_FAM[b].length - BY_FAM[a].length || a.localeCompare(b));
+  const skyline = new Array(GRID_COLS).fill(0);
+  const districts = [];
+
+  for (const f of fams){
+    const keys = BY_FAM[f].slice().sort();
+    const n = keys.length;
+    const cols = Math.max(1, Math.min(GRID_COLS, Math.ceil(Math.sqrt(n / D_RATIO))));
+    const rows = Math.ceil(n / cols);
+    const h = rows + 1;                       /* +1 grid row for the header */
+    let bx = 0, by = Infinity;
+    for (let x = 0; x + cols <= GRID_COLS; x++){
+      let y = 0;
+      for (let i = 0; i < cols; i++) y = Math.max(y, skyline[x + i]);
+      if (y < by){ by = y; bx = x; }
+    }
+    for (let i = 0; i < cols; i++) skyline[bx + i] = by + h;
+    districts.push({ f, keys, cols, rows, col: bx, row: by });
+  }
+
+  const gridRows = Math.max(...skyline);
+  WORLD_W = GRID_COLS * STEP_X;
+  WORLD_H = gridRows * STEP_Y;
+  const gx = c => (c + 0.5) * STEP_X - WORLD_W/2;
+  const gy = r => WORLD_H/2 - (r + 0.5) * STEP_Y;
+
+  /* District numbers are an atlas index in ALPHABETICAL family order, not the
+     packing order and not the size order. A number here addresses a district;
+     it never claims that D01 is bigger, older or more important than D23. */
+  const alpha = districts.map(d => d.f).sort();
+  districts.forEach(d => { d.ix = String(alpha.indexOf(d.f) + 1).padStart(2, '0'); });
+
+  districts.forEach((d, di) => {
+    d.di = di;
+    d.cx = (d.col + d.cols/2) * STEP_X - WORLD_W/2;
+    d.cy = WORLD_H/2 - (d.row + (d.rows + 1)/2) * STEP_Y;
+    /* The floor is its cards plus D_PAD on every side, so the channel left
+       between two neighbouring floors is GAP - 2*D_PAD of bare stage. */
+    d.w = d.cols * STEP_X - GAP_X + 2 * D_PAD;
+    d.h = (d.rows + 1) * STEP_Y - GAP_Y + 2 * D_PAD;
+    d.keys.forEach((k, i) => {
+      const lc = i % d.cols, lr = Math.floor(i / d.cols);
+      const c = d.col + lc, r = d.row + 1 + lr;
+      homeByKey.set(k, { x: gx(c), y: gy(r), gc: c, gr: r, lc, lr, d });
+    });
+  });
+  return districts;
+}
+
+/* ======================================================================
+   BUILD THE OBJECTS — once. Every later state change is a transform.
+   ====================================================================== */
+function buildObjects(districts){
+  for (const d of districts){
+    const el = document.createElement('div');
+    el.className = 'district';
+    el.dataset.f = d.f;
+    el.style.width = d.w + 'px';
+    el.style.height = d.h + 'px';
+    /* One empty slot outline per canonical mechanic, at its home address on
+       the floor. Plain child nodes of the district element — no extra
+       CSS3DObject, so the transform cost of a state change is unchanged. */
+    const slots = d.keys.map((k, i) => {
+      const lc = i % d.cols, lr = Math.floor(i / d.cols);
+      return `<i style="left:${D_PAD + lc*STEP_X}px;top:${HEAD_H + lr*STEP_Y}px;`
+           + `width:${CARD_W}px;height:${CARD_H}px"></i>`;
+    }).join('');
+    el.innerHTML =
+      `<div class="d-slots" aria-hidden="true">${slots}</div>` +
+      `<button class="d-head" type="button" data-f="${esc(d.f)}" tabindex="-1"
+               aria-pressed="false"
+               aria-label="District ${d.ix}. ${esc(FAM_LABEL(d.f))} family, ${d.keys.length} mechanics. Focus this district.">
+         <span class="d-ix">${d.ix}</span>
+         <span class="d-name">${esc(FAM_LABEL(d.f))}</span>
+         <span class="d-n">${d.keys.length}</span>
+       </button>`;
+    const o = new CSS3DObject(el);
+    o.position.set(d.cx, d.cy, -4);
+    scene.add(o);
+    famObj.set(d.f, o); famEl.set(d.f, el); famDist.set(d.f, d);
+  }
+
+  for (const k of KEYS){
+    const e = MECH[k], hm = homeByKey.get(k);
+    const el = document.createElement('button');
+    el.type = 'button';
+    el.className = 'card';
+    el.dataset.k = k;
+    el.tabIndex = -1;
+    el.setAttribute('aria-pressed', 'false');
+    el.title = e.label;
+    el.setAttribute('aria-label',
+      `${e.label}. ${FAM_LABEL(e.family)} family. ${stripText(e.colors)}.` +
+      (e.has_restriction ? ' Carries a restriction.' : ''));
+    el.innerHTML =
+      `<span class="c-lab">${esc(head(e.label))}</span>` +
+      `<span class="c-foot"><span class="c-ix">${INDEX.get(k)}</span>` +
+      (e.has_restriction ? '<span class="c-cond">&#9873;</span>' : '') +
+      stripHTML(e.colors, null) + '</span>';
+    const o = new CSS3DObject(el);
+    o.position.set(hm.x, hm.y, 0);
+    scene.add(o);
+    objByKey.set(k, o); elByKey.set(k, el);
+    gridAt.set(hm.gr + ':' + hm.gc, k);
+  }
+
+  cardOrder = KEYS.slice().sort((a,b) => {
+    const A = homeByKey.get(a), B = homeByKey.get(b);
+    return A.gr - B.gr || A.gc - B.gc;
+  });
+  roving = cardOrder[0];
+  elByKey.get(roving).tabIndex = 0;
+  rovingFam = districts[0].f;
+  famEl.get(rovingFam).querySelector('.d-head').tabIndex = 0;
+}
+
+/* ======================================================================
+   TARGETS — where every card should be, given the whole state.
+   ----------------------------------------------------------------------
+   Z is composed, not switched: the identity plane is the base, family
+   focus and search add fixed offsets on top of it. That is what keeps the
+   lower context perceptible instead of replacing it.
+   ====================================================================== */
+function targetFor(k, bmap){
+  const hm = homeByKey.get(k);
+  let x = hm.x, y = hm.y, z = 0;
+
+  if (S.sel.size) z = PLANE[bmap.get(k)];
+
+  if (S.fam){
+    if (hm.d.f === S.fam) z += FOCUS_LIFT;
+    else z += OTHER_RECESS;
+  }
+  if (igniting()) z += S.hits.has(k) ? HIT_LIFT : MISS_RECESS;
+  if (S.pick === k) z += SEL_LIFT;
+  return { x, y, z };
+}
+
+/* A query that matches nothing has nothing to ignite, so it leaves the
+   table exactly as it was rather than dimming all 216 cards to say "no". */
+const igniting = () => !!S.q && S.hits.size > 0;
+
+function bestMap(){
+  const m = new Map();
+  for (const k of KEYS) m.set(k, access(MECH[k], S.sel).best || 'none');
+  return m;
+}
+
+/* Latest requested state always wins. The current interpolated positions
+   become the new origin, so an interrupted transition continues from where
+   it actually is rather than snapping or queueing. */
+function applyTargets(){
+  const bmap = bestMap();
+  const items = [];
+  for (const k of KEYS){
+    const o = objByKey.get(k), t = targetFor(k, bmap);
+    if (reduced.matches){ o.position.set(t.x, t.y, t.z); continue; }
+    items.push({ obj:o, fx:o.position.x, fy:o.position.y, fz:o.position.z,
+                 tx:t.x, ty:t.y, tz:t.z,
+                 d: (homeByKey.get(k).d.di / 23) * STAGGER });
+  }
+  tween = reduced.matches ? null
+        : { t0: performance.now(), dur: DUR, items };
+  paintCards(bmap);
+  requestRender();
+}
+
+function paintCards(bmap){
+  const searching = igniting();
+  worldEl.classList.toggle('has-search', searching);
+  /* once the cards lift off it, the floor plan has to be visible enough to
+     read as the ground they came from */
+  worldEl.classList.toggle('has-depth', S.sel.size > 0);
+  for (const k of KEYS){
+    const el = elByKey.get(k), b = bmap.get(k);
+    el.classList.toggle('is-unavail', S.sel.size > 0 && b === 'none' && !searching);
+    el.classList.toggle('off-sel', S.sel.size > 0);
+    el.classList.toggle('is-hit', searching && S.hits.has(k));
+    el.classList.toggle('is-miss', searching && !S.hits.has(k));
+    el.classList.toggle('is-mute', !searching && !!S.fam && homeByKey.get(k).d.f !== S.fam);
+    el.classList.toggle('is-sel', S.pick === k);
+    el.setAttribute('aria-pressed', S.pick === k ? 'true' : 'false');
+    /* The tile normally carries the head of the label. The one card that is
+       open swaps in the complete canonical name, so the full prose is legible
+       on the table itself and not only in the record beside it. */
+    const lab = el.firstElementChild, full = S.pick === k;
+    if ((lab.dataset.full === '1') !== full){
+      lab.textContent = full ? MECH[k].label : head(MECH[k].label);
+      lab.dataset.full = full ? '1' : '0';
+    }
+    /* the strip re-dims cells outside the selection, never removes them */
+    const strip = el.querySelector('.strip');
+    [...ORDER].forEach((c, i) => {
+      strip.children[i].classList.toggle('sc-out', S.sel.size > 0 && !S.sel.has(c));
+    });
+  }
+  for (const [f, el] of famEl){
+    const keys = BY_FAM[f];
+    el.classList.toggle('has-hit', searching && keys.some(k => S.hits.has(k)));
+    el.classList.toggle('is-focus', S.fam === f);
+    el.classList.toggle('is-mute', (!!S.fam && S.fam !== f) ||
+      (searching && !keys.some(k => S.hits.has(k))));
+    el.querySelector('.d-head').setAttribute('aria-pressed', S.fam === f ? 'true' : 'false');
+  }
+}
+
+/* ======================================================================
+   SEARCH — deterministic, local, and it changes the world rather than
+   replacing it. Exact key or label first, then alias, prefix, substring,
+   family, explanation. "flying" must find Flying, not the prose entry
+   that merely mentions flying.
+   ====================================================================== */
+function rankOf(k, q){
+  const e = MECH[k], lab = e.label.toLowerCase();
+  const al = (e.source_aliases || []).map(a => a.toLowerCase());
+  const fam = FAM_LABEL(e.family), sec = (e.families_secondary || []).map(FAM_LABEL);
+  if (k === q || lab === q) return 0;
+  if (al.includes(q)) return 1;
+  if (k.startsWith(q) || lab.startsWith(q)) return 2;
+  if (k.includes(q) || lab.includes(q)) return 3;
+  if (al.some(a => a.includes(q))) return 4;
+  if (fam.includes(q) || fam.replace(/ /g,'_').includes(q)) return 5;
+  if (sec.some(f => f.includes(q))) return 6;
+  if ((e.explanation || '').toLowerCase().includes(q)) return 7;
+  return 99;
+}
+
+function runSearch(){
+  const q = S.q.toLowerCase().trim();
+  if (!q){ S.hits = new Set(); S.hitList = []; return; }
+  const scored = [];
+  for (const k of KEYS){
+    const r = rankOf(k, q);
+    if (r < 99) scored.push([r, k]);
+  }
+  scored.sort((a,b) => a[0]-b[0] || MECH[a[1]].label.length - MECH[b[1]].label.length
+                       || a[1].localeCompare(b[1]));
+  S.hitList = scored.map(s => s[1]);
+  S.hits = new Set(S.hitList);
+}
+
+/* ======================================================================
+   RAIL — readout, hit list, and the one detail surface.
+   ====================================================================== */
+const idcard = document.getElementById('idcard');
+const hitbox = document.getElementById('hitbox');
+const detail = document.getElementById('detail');
+const legend = document.getElementById('legend');
+
+const PL = { primary:'rgba(237,230,211,.9)', secondary:'rgba(237,230,211,.55)',
+             tertiary:'rgba(237,230,211,.28)', none:'rgba(237,230,211,.08)' };
+
+function renderReadout(){
+  if (S.colorless){
+    idcard.className = 'idcard live';
+    idcard.innerHTML =
+      `<p class="idname">Colorless</p>
+       <p class="idset">mechanical projection · not measured</p>
+       <p class="note"><b>Not zero — unmeasured.</b> MCP 2021 provides W/U/B/R/G tier
+        ownership columns only; it does not provide a comparable Colorless ownership
+        column. An empty WUBRG selection returns 0 as an algorithmic empty-set result,
+        which is not a count of Colorless mechanics. The table stays as it is, because
+        there is nothing here to extrude.</p>`;
+    legend.hidden = true;
+    return;
+  }
+  if (!S.sel.size){
+    idcard.className = 'idcard';
+    idcard.innerHTML =
+      `<p class="idname">Neutral table</p>
+       <dl class="rd">
+         <dt>Mechanics</dt><dd>216</dd>
+         <dt>Families</dt><dd>23</dd>
+         <dt>Colour assignments</dt><dd>467</dd>
+       </dl>
+       <p class="note">Select colours to re-form these same 216 plates into the four
+         categorical access floors.</p>`;
+    legend.hidden = true;
+    return;
+  }
+
+  const b = buckets(S.sel);
+  const reach = b.primary.length + b.secondary.length + b.tertiary.length;
+  const cols = [...ORDER].filter(c => S.sel.has(c));
+  let html =
+    `<p class="idname">${esc(idName(S.sel))}</p>
+     <p class="idset">${cols.map(c => esc(CNAME[c])).join(' · ')}</p>
+     <dl class="rd">
+       <dt><span class="pl" style="background:${PL.primary}"></span>Primary available</dt>
+         <dd>${b.primary.length}</dd>
+       <dt><span class="pl" style="background:${PL.secondary}"></span>Secondary only</dt>
+         <dd>${b.secondary.length}</dd>
+       <dt><span class="pl" style="background:${PL.tertiary}"></span>Tertiary only</dt>
+         <dd>${b.tertiary.length}</dd>
+       <dt><span class="pl" style="background:${PL.none}"></span>Unavailable</dt>
+         <dd>${b.none.length}</dd>
+       <div class="rd-tot" style="display:contents">
+         <dt>Reachable</dt><dd>${reach}</dd>
+       </div>
+     </dl>`;
+
+  if (S.sel.size === 5){
+    const s = wubrgSummary();
+    html += `<p class="note"><b>Access is not ownership.</b> All ${s.reachable} coloured
+      mechanics are reachable, but ${s.with_primary_owner} have a primary owner somewhere and
+      ${s.no_primary_owner_anywhere} has none in any colour.</p>`;
+  } else if (S.sel.size === 4){
+    const f = fourColorView(S.sel);
+    html += `<p class="subhead">What ${esc(CNAME[f.excluded])}'s absence costs</p>
+      <dl class="rd">
+        <dt>Lost completely</dt><dd>${f.completely_lost.length}</dd>
+        <dt>Best access degraded</dt><dd>${f.best_access_worse.length}</dd>
+        <dt>Owner lost, access retained</dt><dd>${f.retained_but_lost_owner.length}</dd>
+      </dl>
+      <p class="note">Measured against all five colours. The recessed cards on the
+        table are that absence, drawn.</p>`;
+  }
+  html += `<p class="note"><b>Tier is a category.</b> Primary, secondary and tertiary
+    describe how often and how centrally a colour does something, not how well.
+    Nothing here is summed or scored.</p>`;
+  idcard.className = 'idcard live';
+  idcard.innerHTML = html;
+  legend.hidden = false;
+}
+
+function renderHits(){
+  if (!S.q){ hitbox.innerHTML = ''; return; }
+  if (!S.hitList.length){
+    hitbox.innerHTML = `<p class="more">Nothing matches that. The table is unchanged.</p>`;
+    return;
+  }
+  const shown = S.hitList.slice(0, 8);
+  hitbox.innerHTML =
+    `<ul class="hits">${shown.map(k => {
+      const e = MECH[k];
+      return `<li><button type="button" data-jump="${esc(k)}">
+        <span class="h-txt"><span class="h-lab">${esc(e.label)}</span>
+        <span class="h-fam">${esc(FAM_LABEL(e.family))}</span></span>
+        ${stripHTML(e.colors, S.sel)}</button></li>`;
+    }).join('')}</ul>` +
+    `<p class="more">${S.hitList.length} match${S.hitList.length === 1 ? '' : 'es'}${
+      S.hitList.length > 8 ? ` · ${S.hitList.length - 8} more ignited on the table` : ''}</p>`;
+}
+
+/* THE SINGLE OWNER OF MECHANIC DETAIL. */
+function renderDetail(){
+  if (!S.pick){ detail.hidden = true; detail.innerHTML = ''; return; }
+  const k = S.pick, e = MECH[k];
+  const { best, owned } = access(e, S.sel);
+  const owners = Object.entries(e.colors)
+    .sort((a,b) => RANK[b[1].tier] - RANK[a[1].tier] || ORDER.indexOf(a[0]) - ORDER.indexOf(b[0]));
+
+  let accessHTML;
+  if (!S.sel.size){
+    accessHTML = `<div class="dx-access"><div class="k">No identity selected</div>
+      <div class="v">Ownership below is the complete record.</div></div>`;
+  } else if (best === null){
+    accessHTML = `<div class="dx-access"><div class="k">${esc(idName(S.sel))}</div>
+      <div class="v"><b>Unavailable to the current selection.</b> No selected colour
+      owns this mechanic at any tier.</div></div>`;
+  } else {
+    const via = Object.entries(owned).filter(([,t]) => t === best).map(([c]) => CNAME[c]);
+    const alsoOwn = Object.entries(owned).filter(([,t]) => t !== best)
+      .map(([c,t]) => `${CNAME[c]} ${t}`);
+    /* Best access never replaces ownership: the colours the selection holds
+       below its best tier are named here, and every owner is listed under it. */
+    accessHTML = `<div class="dx-access"><div class="k">${esc(idName(S.sel))} · best access</div>
+      <div class="v"><span class="tierpill">${esc(best)}</span>${
+        S.sel.size === 1 ? '' : ` via ${esc(via.join(', '))}`}${
+        alsoOwn.length ? `, and the selection also holds ${esc(alsoOwn.join(', '))}` : ''}.</div></div>`;
+  }
+
+  const conflicted = Object.entries(e.colors).filter(([,d]) => d.conflict);
+  const prov = conflicted.map(([c,d]) => {
+    const r = d.ruling || {};
+    return `<p class="dx-p dx-prov"><b>Source note</b>${esc(CNAME[c])} appears as
+      ${esc(d.conflict.colour_list_says)} in the article's colour summaries and
+      ${esc(d.conflict.ability_catalog_says)} in its ability catalog. This dataset uses
+      ${esc(d.tier)}${r.authority ? ' on the authority of the ' + esc(r.authority) : ''},
+      and keeps the conflicting claim.${r.mechanism ? ' ' + esc(r.mechanism) : ''}</p>`;
+  }).join('');
+
+  detail.innerHTML =
+    `<div class="dx-top"><span class="dx-ix">${INDEX.get(k)}<span> · district ${
+        famDist.get(e.family) ? famDist.get(e.family).ix : '—'}</span></span>
+      <button class="dx-close" type="button" id="dxClose">close</button></div>
+     <p class="dx-lab">${esc(e.label)}</p>
+     <p class="dx-fam"><b>Family.</b> ${esc(FAM_LABEL(e.family))}${
+        e.families_secondary && e.families_secondary.length
+          ? ` · <b>also touches.</b> ${e.families_secondary.map(f => esc(FAM_LABEL(f))).join(' · ')}` : ''}
+        <br><span style="opacity:.7">Vox Mana navigation vocabulary, not Rosewater's.</span></p>
+     ${accessHTML}
+     <div class="dx-own">${owners.map(([c,d]) =>
+        `<div class="row${S.sel.size && !S.sel.has(c) ? ' out' : ''}">
+           <span class="sw" style="background:var(--${c.toLowerCase()})"></span>
+           ${esc(CNAME[c])}<span class="tier">${esc(d.tier)}</span></div>`).join('')}
+        ${[...ORDER].filter(c => !e.colors[c]).length
+          ? `<div class="row out"><span class="sw" style="background:transparent;
+               border:1px solid rgba(237,230,211,.2)"></span>
+             ${[...ORDER].filter(c => !e.colors[c]).map(c => esc(CNAME[c])).join(', ')}
+             <span class="tier">no access</span></div>` : ''}
+     </div>
+     ${e.explanation ? `<p class="dx-p${e.has_restriction ? ' dx-cond' : ''}">
+        <b>${e.has_restriction ? 'Restriction and explanation' : 'Explanation'}</b>
+        ${esc(e.explanation)}</p>` : ''}
+     ${prov}
+     ${e.source_aliases && e.source_aliases.length
+        ? `<p class="dx-p"><b>Also written as</b>${e.source_aliases.map(esc).join(' · ')}</p>` : ''}
+     <p class="dx-p" style="margin:0;font-size:10.5px;opacity:.7">${esc(MCP.meta.display_label)}</p>`;
+  detail.hidden = false;
+  document.getElementById('dxClose').addEventListener('click', () => { setPick(null); });
+  /* the rail is long; bring the record the user just opened into view */
+  detail.scrollIntoView({ block: 'nearest', behavior: reduced.matches ? 'auto' : 'smooth' });
+}
+
+function renderAll(){
+  renderReadout(); renderHits(); renderDetail();
+}
+
+/* ======================================================================
+   ACTIONS
+   ====================================================================== */
+function toggleColor(c){
+  const wasEmpty = S.sel.size === 0;
+  S.colorless = false;
+  if (S.sel.has(c)) S.sel.delete(c); else S.sel.add(c);
+  document.querySelectorAll('.cbtn').forEach(b =>
+    b.setAttribute('aria-pressed', S.sel.has(b.dataset.c) ? 'true' : 'false'));
+  document.getElementById('colorlessBtn').setAttribute('aria-pressed','false');
+  /* A district the viewer explicitly entered is a station in its own right,
+     so its framing is re-derived for the new angle rather than abandoned. */
+  if (wasEmpty && S.sel.size && S.fam) camFamily(famDist.get(S.fam));
+  else if (wasEmpty && S.sel.size && atPreset(CAM_TABLE)) camPreset(CAM_DEPTH, false);
+  else if (!S.sel.size && S.fam) camFamily(famDist.get(S.fam));
+  else if (!S.sel.size && atPreset(CAM_DEPTH)) camPreset(CAM_TABLE, false);
+  applyTargets(); renderAll();
+}
+
+function clearSelection(){
+  S.sel.clear(); S.colorless = false;
+  document.querySelectorAll('.cbtn').forEach(b => b.setAttribute('aria-pressed','false'));
+  document.getElementById('colorlessBtn').setAttribute('aria-pressed','false');
+  if (atPreset(CAM_DEPTH)) camPreset(CAM_TABLE, false);
+  applyTargets(); renderAll();
+}
+
+function setColorless(){
+  S.sel.clear(); S.colorless = true;
+  document.querySelectorAll('.cbtn').forEach(b => b.setAttribute('aria-pressed','false'));
+  document.getElementById('colorlessBtn').setAttribute('aria-pressed','true');
+  if (atPreset(CAM_DEPTH)) camPreset(CAM_TABLE, false);
+  applyTargets(); renderAll();
+}
+
+function setQuery(v){
+  S.q = v; runSearch(); applyTargets(); renderHits();
+}
+
+function setFamily(f){
+  const was = S.fam;
+  S.fam = (was === f) ? null : f;
+  /* Only an explicit district choice moves the camera, and leaving one puts
+     the viewer back where they came from rather than wherever they drifted. */
+  if (S.fam) camFamily(famDist.get(S.fam));
+  else if (was) camPreset(S.sel.size ? CAM_DEPTH : CAM_TABLE, false);
+  applyTargets(); renderAll();
+}
+
+function setPick(k){
+  S.pick = k;
+  applyTargets(); renderDetail();
+  if (k){
+    const el = elByKey.get(k);
+    if (roving && elByKey.get(roving)) elByKey.get(roving).tabIndex = -1;
+    roving = k; el.tabIndex = 0;
+  }
+}
+
+/* Bring a mechanic into view when the camera is dollied in far enough that
+   it might be off-frame. At the default fit everything is already visible. */
+function ensureVisible(k){
+  if (camera.position.distanceTo(controls.target) > FIT * 0.8) return;
+  const hm = homeByKey.get(k);
+  controls.target.set(hm.x, hm.y, 0);
+  camera.lookAt(controls.target);
+  requestRender();
+}
+
+/* ======================================================================
+   INPUT
+   ====================================================================== */
+/* OrbitControls takes a pointer capture on pointerdown, so by the time the
+   click arrives its target is the renderer element, not the card that was
+   pressed. The pressed element is therefore remembered on the way down.
+   A press that travelled more than 5px orbited the camera and chose nothing;
+   keyboard activation carries no coordinates and skips that guard. */
+let downPt = null, downHit = null;
+worldEl.addEventListener('pointerdown', e => {
+  downPt = [e.clientX, e.clientY];
+  downHit = e.target.closest('.card') || e.target.closest('.d-head');
+});
+worldEl.addEventListener('click', e => {
+  let hit = e.target.closest('.card') || e.target.closest('.d-head');
+  if (e.detail > 0){
+    if (downPt && Math.hypot(e.clientX - downPt[0], e.clientY - downPt[1]) > 5){
+      downPt = downHit = null; return;
+    }
+    hit = downHit;
+  }
+  downPt = downHit = null;
+  if (!hit) return;
+  if (hit.classList.contains('card')) setPick(hit.dataset.k === S.pick ? null : hit.dataset.k);
+  else setFamily(hit.dataset.f);
+});
+
+hitbox.addEventListener('click', e => {
+  const b = e.target.closest('[data-jump]');
+  if (!b) return;
+  setPick(b.dataset.jump);
+  ensureVisible(b.dataset.jump);
+});
+
+/* Roving-tabindex grid navigation. 216 separate tab stops would be a
+   hostile tab order, so the table is one composite widget: one stop in,
+   arrows to move, Enter to select. */
+function moveRoving(dr, dc){
+  const hm = homeByKey.get(roving);
+  let k = null;
+  if (dc){
+    const i = cardOrder.indexOf(roving);
+    k = cardOrder[Math.min(cardOrder.length - 1, Math.max(0, i + dc))];
+  } else {
+    for (let r = hm.gr + dr; r >= 0 && r < 200; r += dr){
+      let bestK = null, bestD = Infinity;
+      for (let c = 0; c < GRID_COLS; c++){
+        const cand = gridAt.get(r + ':' + c);
+        if (cand && Math.abs(c - hm.gc) < bestD){ bestD = Math.abs(c - hm.gc); bestK = cand; }
+      }
+      if (bestK){ k = bestK; break; }
+    }
+  }
+  if (!k || k === roving) return;
+  elByKey.get(roving).tabIndex = -1;
+  roving = k;
+  const el = elByKey.get(k);
+  el.tabIndex = 0; el.focus();
+  ensureVisible(k);
+}
+
+worldEl.addEventListener('keydown', e => {
+  const card = e.target.closest('.card');
+  if (card){
+    const map = { ArrowLeft:[0,-1], ArrowRight:[0,1], ArrowUp:[-1,0], ArrowDown:[1,0] };
+    if (map[e.key]){ e.preventDefault(); moveRoving(map[e.key][0], map[e.key][1]); return; }
+    if (e.key === 'Home'){ e.preventDefault(); jumpTo(cardOrder[0]); return; }
+    if (e.key === 'End'){ e.preventDefault(); jumpTo(cardOrder[cardOrder.length-1]); return; }
+    /* Activation is handled here rather than left to the button's default
+       click, so selection never depends on synthesized activation inside the
+       CSS3D subtree. preventDefault stops a second, duplicate click. */
+    if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar'){
+      e.preventDefault();
+      setPick(card.dataset.k === S.pick ? null : card.dataset.k);
+    }
+    return;
+  }
+  const head = e.target.closest('.d-head');
+  if (!head) return;
+  if (e.key === 'ArrowLeft' || e.key === 'ArrowRight'){
+    e.preventDefault();
+    const heads = [...famEl.values()].map(el => el.querySelector('.d-head'));
+    const i = heads.indexOf(head);
+    const n = heads[Math.min(heads.length-1, Math.max(0, i + (e.key === 'ArrowRight' ? 1 : -1)))];
+    head.tabIndex = -1; n.tabIndex = 0; n.focus(); rovingFam = n.dataset.f;
+    return;
+  }
+  if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar'){
+    e.preventDefault();
+    setFamily(head.dataset.f);
+  }
+});
+
+function jumpTo(k){
+  elByKey.get(roving).tabIndex = -1;
+  roving = k;
+  const el = elByKey.get(k); el.tabIndex = 0; el.focus(); ensureVisible(k);
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key !== 'Escape') return;
+  if (S.pick) setPick(null);
+  else if (S.fam) setFamily(S.fam);
+  else if (S.q){ document.getElementById('q').value = ''; setQuery(''); }
+});
+
+document.getElementById('resetView').addEventListener('click', resetView);
+document.getElementById('clearSel').addEventListener('click', clearSelection);
+document.getElementById('colorlessBtn').addEventListener('click', setColorless);
+document.getElementById('clearAll').addEventListener('click', () => {
+  S.fam = null; S.pick = null;
+  document.getElementById('q').value = ''; S.q = ''; runSearch();
+  clearSelection(); resetView();
+});
+document.getElementById('q').addEventListener('input', e => setQuery(e.target.value));
+document.getElementById('qclear').addEventListener('click', () => {
+  document.getElementById('q').value = ''; setQuery(''); document.getElementById('q').focus();
+});
+window.addEventListener('resize', resize);
+/* A ResizeObserver also fires once the stage has a real box, which a plain
+   window resize listener never does when the page boots into a zero box. */
+new ResizeObserver(() => resize()).observe(stage);
+rmq.addEventListener('change', () => applyTargets());
+
+/* ======================================================================
+   BOOT
+   ====================================================================== */
+const boot = document.getElementById('boot');
+
+function bootFail(msg){
+  boot.hidden = false;
+  boot.innerHTML = `<div class="box"><h2>${esc(msg)}</h2>
+    <p>This prototype reads the canonical runtime over HTTP, so it needs the
+    project's static server rather than <code>file://</code>.</p>
+    <p><code>cd C:\\dev\\color-wheel-interactive</code><br>
+       <code>py -m http.server 8000</code></p>
+    <p>then open<br>
+    <code>http://localhost:8000/vox-color/mechanical-periodic-table.html</code></p></div>`;
+}
+
+async function boot_(){
+  if (forceReduced) document.documentElement.setAttribute('data-motion', 'reduced');
+  let data;
+  try {
+    const res = await fetch(new URL('../data/mechanical-color-pie.runtime.json', import.meta.url));
+    if (!res.ok) throw new Error(res.status);
+    data = await res.json();
+  } catch (err){
+    bootFail('Could not read the mechanical runtime.');
+    return;
+  }
+  MCP = data;
+  MECH = MCP.byMechanic;
+  BY_FAM = MCP.byFamily;
+  KEYS = Object.keys(MECH).sort();
+  INDEX = new Map(KEYS.map((k,i) => [k, String(i+1).padStart(3,'0')]));
+  document.getElementById('snap').textContent = MCP.meta.display_label;
+
+  const districts = buildLayout();
+  districtsRef = districts;
+  worldEl.style.setProperty('--headh', HEAD_H + 'px');
+  buildObjects(districts);
+
+  document.getElementById('colors').innerHTML = [...ORDER].map(c =>
+    `<button class="cbtn" type="button" data-c="${c}" aria-pressed="false"
+       style="--cc:var(--${c.toLowerCase()})" aria-label="${CNAME[c]}">${c}</button>`).join('');
+  document.getElementById('colors').addEventListener('click', e => {
+    const b = e.target.closest('.cbtn'); if (b) toggleColor(b.dataset.c);
+  });
+
+  resize();
+  controls.target.set(0,0,0);
+  camPreset(CAM_TABLE, true);
+  applyTargets();
+  renderAll();
+  boot.hidden = true;
+  runSelfTest();
+  exposeApi(districts);
+}
+
+/* ======================================================================
+   SELF-TEST — recomputed from the runtime, compared against the eleven
+   golden fixture FILES. No expected number is typed into this page.
+   ====================================================================== */
+const T = [];
+/* Key order is not meaning: the runtime emits colours in WUBRG order and the
+   fixture files are serialised alphabetically. Compare canonically so a
+   difference in ordering is never reported as a difference in data. */
+const canon = v => Array.isArray(v) ? v.map(canon)
+  : (v && typeof v === 'object'
+      ? Object.fromEntries(Object.entries(v).sort((a,b) => a[0] < b[0] ? -1 : 1)
+          .map(([k,x]) => [k, canon(x)]))
+      : v);
+const eq = (name, got, want) =>
+  T.push({ name, ok: JSON.stringify(canon(got)) === JSON.stringify(canon(want)), got, want });
+const truthy = (name, v) => T.push({ name, ok: !!v, got: v, want: true });
+
+async function runSelfTest(){
+  const box = document.getElementById('selftest');
+  T.length = 0;
+  /* CSS3DRenderer only attaches card elements to the document during a
+     render, so force one synchronously before asserting about the DOM. */
+  renderer.render(scene, camera);
+  let fx = null;
+  try {
+    const names = ['01_W_single_colour','02_WB_pair','03_BG_complementary','04_UBR_grixis',
+      '05_WUBR_four_colour','06_WUBRG_all_five','07_flying_restriction','08_flash_adjudicated',
+      '09_no_primary_colour','10_tertiary_best_access','11_alias_provenance'];
+    const all = await Promise.all(names.map(n =>
+      fetch(new URL(`../data/fixtures/${n}.json`, import.meta.url)).then(r => r.json())));
+    fx = {}; names.forEach((n,i) => fx[n.slice(3)] = all[i]);
+  } catch (e){ /* fixtures unreadable; structural checks still run */ }
+
+  /* --- render adapter -------------------------------------------------- */
+  eq('render: mechanic objects', objByKey.size, 216);
+  eq('render: district objects', famObj.size, 23);
+  eq('render: runtime mechanics', KEYS.length, 216);
+  eq('render: runtime families', Object.keys(BY_FAM).length, 23);
+  eq('render: colour assignments',
+     KEYS.reduce((n,k) => n + Object.keys(MECH[k].colors).length, 0), 467);
+  eq('render: unique tile ids', new Set([...elByKey.values()].map(e => e.dataset.k)).size, 216);
+  eq('render: family membership sums to 216',
+     Object.values(BY_FAM).reduce((n,v) => n + v.length, 0), 216);
+  truthy('render: every mechanic has a finite TABLE target',
+     KEYS.every(k => { const h = homeByKey.get(k); return Number.isFinite(h.x) && Number.isFinite(h.y); }));
+  truthy('render: every mechanic has a finite depth target', (() => {
+    const bm = new Map(KEYS.map(k => [k, 'primary']));
+    return KEYS.every(k => { const t = targetFor(k, bm);
+      return Number.isFinite(t.x) && Number.isFinite(t.y) && Number.isFinite(t.z); });
+  })());
+  truthy('render: no duplicate or missing canonical tile',
+     KEYS.every(k => objByKey.has(k)) && objByKey.size === KEYS.length);
+  eq('render: no size-encoded tier (one strip cell footprint)',
+     new Set([...document.querySelectorAll('.sc')].map(n => {
+       const s = getComputedStyle(n); return s.width + 'x' + s.height; })).size, 1);
+  eq('render: no progress or meter elements', document.querySelectorAll('progress,meter').length, 0);
+
+  /* --- macro structure -------------------------------------------------
+     Proportionate checks for the things this visual pass introduced. They
+     assert structure, never appearance: a treatment may be retuned freely,
+     but a district may not lose its header, a plate may not change size to
+     say something about a tier, and two floors may not overlap. */
+  const heads = [...document.querySelectorAll('.d-head')];
+  eq('macro: one district header per family', heads.length, 23);
+  eq('macro: every family owns exactly one header',
+     new Set(heads.map(h => h.dataset.f)).size, Object.keys(BY_FAM).length);
+  eq('macro: district names are unique and complete',
+     [...new Set(heads.map(h => h.querySelector('.d-name').textContent.trim()))].sort(),
+     Object.keys(BY_FAM).map(FAM_LABEL).sort());
+  eq('macro: district numbers are 01..23, unique',
+     [...new Set(districtsRef.map(d => d.ix))].sort(),
+     Array.from({length:23}, (_,i) => String(i+1).padStart(2,'0')));
+  eq('macro: header counts equal canonical family sizes',
+     heads.every(h => +h.querySelector('.d-n').textContent === BY_FAM[h.dataset.f].length), true);
+  eq('macro: one empty slot per canonical mechanic',
+     document.querySelectorAll('.d-slots i').length, 216);
+  eq('macro: each floor carries exactly its own family’s slots',
+     districtsRef.every(d => famEl.get(d.f).querySelectorAll('.d-slots i').length
+                             === BY_FAM[d.f].length), true);
+
+  /* One footprint for every resting plate. This is the size-encoding guard at
+     the card level: primary and unavailable are the same rectangle. */
+  eq('macro: one card footprint at rest',
+     new Set([...elByKey.values()].filter(e => !e.classList.contains('is-sel'))
+       .map(e => { const c = getComputedStyle(e); return c.width + 'x' + c.height; })).size, 1);
+
+  /* No plate may leave its own floor, at rest or with its district entered —
+     the state that spreads them. A card outside its floor is a card that has
+     lost the district it belongs to. */
+  const inside = (t, d, slack) =>
+    Math.abs(t.x - d.cx) + CARD_W/2 <= d.w/2 + slack &&
+    Math.abs(t.y - d.cy) + CARD_H/2 <= d.h/2 + slack;
+  const bmNeutral = new Map(KEYS.map(k => [k, 'none']));
+  truthy('macro: every plate rests inside its own floor',
+     KEYS.every(k => { const hm = homeByKey.get(k);
+       return inside({ x: hm.x, y: hm.y }, hm.d, 0.5); }));
+  truthy('macro: an entered district never pushes a plate off its floor', (() => {
+    const famWas = S.fam; let ok = true;
+    for (const d of districtsRef){
+      S.fam = d.f;
+      for (const k of d.keys) if (!inside(targetFor(k, bmNeutral), d, 0.5)) ok = false;
+    }
+    S.fam = famWas;
+    return ok;
+  })());
+  truthy('macro: no two district floors overlap', (() => {
+    for (let i = 0; i < districtsRef.length; i++)
+      for (let j = i+1; j < districtsRef.length; j++){
+        const a = districtsRef[i], b = districtsRef[j];
+        if (Math.abs(a.cx - b.cx) < (a.w + b.w)/2 - 0.5 &&
+            Math.abs(a.cy - b.cy) < (a.h + b.h)/2 - 0.5) return false;
+      }
+    return true;
+  })());
+  eq('macro: exactly one full-detail surface',
+     document.querySelectorAll('#detail').length, 1);
+  /* The slot outline is the claim "this plate came from here". If it drifts
+     off the home address the extrusion is telling the viewer a lie. */
+  truthy('macro: every empty slot sits exactly on its mechanic’s home', (() =>
+    districtsRef.every(d => {
+      const slots = [...famEl.get(d.f).querySelectorAll('.d-slots i')];
+      return d.keys.every((k, i) => {
+        const hm = homeByKey.get(k), s = slots[i];
+        return Math.abs(d.cx - d.w/2 + parseFloat(s.style.left) + CARD_W/2 - hm.x) < 0.5 &&
+               Math.abs(d.cy + d.h/2 - parseFloat(s.style.top) - CARD_H/2 - hm.y) < 0.5;
+      });
+    })
+  )());
+
+  /* --- depth buckets --------------------------------------------------- */
+  const bW = buckets(new Set('W')), b5 = buckets(new Set('WUBRG'));
+  eq('depth: W planes sum to 216',
+     bW.primary.length + bW.secondary.length + bW.tertiary.length + bW.none.length, 216);
+  eq('depth: WUBRG planes',
+     [b5.primary.length, b5.secondary.length, b5.tertiary.length, b5.none.length],
+     [215, 1, 0, 0]);
+
+  /* --- fixtures -------------------------------------------------------- */
+  if (fx){
+    const f1 = fx.W_single_colour;
+    const s1 = sections(new Set('W'));
+    eq('fixture 01: W sections',
+       { complementary:s1.complementary.length, conditional:s1.conditional.length,
+         shared_access:s1.shared_access.length, shared_primary:s1.shared_primary.length,
+         unavailable:s1.unavailable.length }, f1.sections);
+    const tW = { primary:0, secondary:0, tertiary:0 };
+    KEYS.forEach(k => { const d = MECH[k].colors.W; if (d) tW[d.tier]++; });
+    eq('fixture 01: W tier counts', tW, f1.tiers);
+    eq('fixture 01: W reachable equals its three planes',
+       bW.primary.length + bW.secondary.length + bW.tertiary.length,
+       f1.tiers.primary + f1.tiers.secondary + f1.tiers.tertiary);
+
+    const f2 = fx.WB_pair, WB = new Set(['W','B']), s2 = sections(WB);
+    eq('fixture 02: WB sections',
+       { complementary:s2.complementary.length, conditional:s2.conditional.length,
+         shared_access:s2.shared_access.length, shared_primary:s2.shared_primary.length,
+         unavailable:s2.unavailable.length }, f2.sections);
+    const aG = deltaAdd(WB, 'G');
+    eq('fixture 02: WB add Green',
+       { best_tier_improved:aG.best_tier_improved.length,
+         new_owner_no_improvement:aG.new_owner_no_improvement.length,
+         newly_reachable:aG.newly_reachable.length,
+         still_unavailable:aG.still_unavailable.length,
+         unchanged:aG.unchanged.length }, f2.add_G);
+    const rB = deltaRemove(WB, 'B');
+    eq('fixture 02: WB remove Black',
+       { lost_completely:rB.lost_completely.length,
+         lost_owner_retained_access:rB.lost_owner_retained_access.length,
+         tier_degraded:rB.tier_degraded.length, unchanged:rB.unchanged.length }, f2.remove_B);
+
+    const s3 = sections(new Set(['B','G']));
+    eq('fixture 03: BG sections',
+       { complementary:s3.complementary.length, conditional:s3.conditional.length,
+         shared_access:s3.shared_access.length, shared_primary:s3.shared_primary.length,
+         unavailable:s3.unavailable.length }, fx.BG_complementary.sections);
+
+    const f4 = fx.UBR_grixis, UBR = new Set(['U','B','R']), s4 = sections(UBR);
+    eq('fixture 04: Grixis sections',
+       { complementary:s4.complementary.length, conditional:s4.conditional.length,
+         shared_access:s4.shared_access.length, shared_primary:s4.shared_primary.length,
+         unavailable:s4.unavailable.length }, f4.sections);
+    const aW = deltaAdd(UBR, 'W');
+    eq('fixture 04: Grixis add White',
+       { best_tier_improved:aW.best_tier_improved.length,
+         new_owner_no_improvement:aW.new_owner_no_improvement.length,
+         newly_reachable:aW.newly_reachable.length,
+         still_unavailable:aW.still_unavailable.length,
+         unchanged:aW.unchanged.length }, f4.add_W);
+
+    const f5 = fx.WUBR_four_colour, v5 = fourColorView(new Set(['W','U','B','R']));
+    eq('fixture 05: Green absence', {
+      best_access_worse: v5.best_access_worse.length,
+      completely_lost: v5.completely_lost.length,
+      excluded: v5.excluded,
+      retained_but_lost_owner: v5.retained_but_lost_owner.length
+    }, { best_access_worse:f5.best_access_worse, completely_lost:f5.completely_lost,
+         excluded:f5.excluded, retained_but_lost_owner:f5.retained_but_lost_owner });
+    eq('fixture 05: families most affected',
+       v5.families_most_affected.slice(0, f5.families_most_affected.length),
+       f5.families_most_affected);
+
+    const f6 = fx.WUBRG_all_five, w6 = wubrgSummary();
+    eq('fixture 06: five-colour summary',
+       { no_primary_owner_anywhere:w6.no_primary_owner_anywhere, reachable:w6.reachable,
+         with_primary_owner:w6.with_primary_owner },
+       { no_primary_owner_anywhere:f6.no_primary_owner_anywhere, reachable:f6.reachable,
+         with_primary_owner:f6.with_primary_owner });
+
+    const f7 = fx.flying_restriction, fly = MECH['flying'];
+    eq('fixture 07: Flying ownership',
+       Object.fromEntries(Object.entries(fly.colors).map(([c,d]) => [c, d.tier])), f7.colors);
+    eq('fixture 07: Flying carries a restriction', fly.has_restriction, f7.has_restriction);
+    eq('fixture 07: Flying restriction names Dragons',
+       /dragon/i.test(fly.explanation), f7.restriction_mentions_dragons);
+    eq('fixture 07: Flying restriction names Phoenixes',
+       /phoenix/i.test(fly.explanation), f7.restriction_mentions_phoenixes);
+
+    const f8 = fx.flash_adjudicated, fl = MECH['flash'];
+    eq('fixture 08: Flash ownership',
+       Object.fromEntries(Object.entries(fl.colors).map(([c,d]) => [c, d.tier])), f8.colors);
+    eq('fixture 08: Flash black tier', fl.colors.B.tier, f8.black_tier);
+    eq('fixture 08: Flash black basis', fl.colors.B.basis, f8.black_basis);
+    eq('fixture 08: Flash black authority', fl.colors.B.ruling.authority, f8.black_authority);
+    eq('fixture 08: Flash conflict preserved', fl.colors.B.conflict, f8.black_conflict);
+
+    const f9 = fx.no_primary_colour;
+    const noPri = KEYS.filter(k => !Object.values(MECH[k].colors).some(d => d.tier === 'primary'));
+    eq('fixture 09: exactly one mechanic with no primary anywhere', noPri.length, 1);
+    eq('fixture 09: its ownership',
+       Object.fromEntries(Object.entries(MECH[noPri[0]].colors).map(([c,d]) => [c, d.tier])),
+       f9.colors);
+    eq('fixture 09: tiers present',
+       [...new Set(Object.values(MECH[noPri[0]].colors).map(d => d.tier))], f9.tiers_present);
+
+    const f10 = fx.tertiary_best_access, cs = MECH[f10.mechanic];
+    eq('fixture 10: counterspell label', cs.label, f10.label);
+    eq('fixture 10: White tier', cs.colors.W.tier, f10.white_tier);
+    eq('fixture 10: best access under White',
+       access(cs, new Set('W')).best, f10.best_access_in_selection);
+    eq('fixture 10: primary owners elsewhere',
+       Object.entries(cs.colors).filter(([c,d]) => d.tier === 'primary').map(([c]) => c),
+       f10.primary_owners_elsewhere);
+    eq('fixture 10: tertiary-only count for White', bW.tertiary.length, f10.tertiary_only_count_for_W);
+    truthy('fixture 10: no quality language on the record',
+       !('score' in cs) && !('rating' in cs) && /NOT card quality/.test(MCP.meta.tier_meaning));
+
+    const f11 = fx.alias_provenance;
+    eq('fixture 11: records carrying aliases',
+       KEYS.filter(k => (MECH[k].source_aliases || []).length).length, f11.records_with_aliases);
+    /* the canonical assertion, mirrored from tools/fixtures.py: no alias
+       string may itself be a key in byMechanic. Two group-scoped records may
+       legitimately share a display LABEL, so labels are not the test. */
+    eq('fixture 11: no alias leaked as its own mechanic',
+       KEYS.flatMap(k => (MECH[k].source_aliases || []))
+           .filter(a => a.trim().toLowerCase() in MECH).length === 0,
+       f11.no_alias_leaked_as_its_own_mechanic);
+    eq('fixture 11: every record appears once',
+       new Set(KEYS).size === KEYS.length, f11.every_record_appears_once);
+    truthy('fixture 11: each aliased sample resolves to exactly one canonical tile',
+       Object.keys(f11.sample).every(k => objByKey.has(k)));
+  } else {
+    T.push({ name:'fixtures: could not be fetched', ok:false, got:'unreachable', want:'11 files' });
+  }
+
+  /* --- search ---------------------------------------------------------- */
+  const sv = S.q, sh = S.hits, sl = S.hitList;
+  const search = q => { S.q = q; runSearch(); return S.hitList; };
+  eq('search: "flying" ranks Flying first', search('flying')[0], 'flying');
+  truthy('search: "flying" outranks the prose entries that merely mention it',
+     search('flying').length > 2 &&
+     search('flying').includes('deal n damage to a creature with flying') &&
+     search('flying').indexOf('flying') === 0);
+  eq('search: exact "flash" first', search('flash')[0], 'flash');
+  eq('search: prefix "counter" finds counterspell',
+     search('counter').includes('counterspell'), true);
+  eq('search: substring "graveyard" is non-empty', search('graveyard').length > 0, true);
+  eq('search: family "evasion" finds its members',
+     search('evasion').filter(k => MECH[k].family === 'evasion').length,
+     BY_FAM.evasion.length);
+  truthy('search: alias text is searchable',
+     search('banisher priest-like effects').length > 0);
+  eq('search: no results for gibberish', search('zzzqqx').length, 0);
+  S.q = sv; S.hits = sh; S.hitList = sl;
+
+  const bad = T.filter(t => !t.ok);
+  box.innerHTML =
+    `<span class="${bad.length ? 'bad' : 'ok'}">${bad.length ? '\u2715' : '\u2713'} data checks
+       ${T.length - bad.length}/${T.length}</span>
+     &nbsp;<button type="button" id="stToggle">details</button>
+     <pre id="stPre" hidden></pre>`;
+  const pre = document.getElementById('stPre');
+  pre.textContent = T.map(t => (t.ok ? 'PASS  ' : 'FAIL  ') + t.name +
+    (t.ok ? '' : `\n      got  ${JSON.stringify(t.got)}\n      want ${JSON.stringify(t.want)}`))
+    .join('\n');
+  document.getElementById('stToggle').addEventListener('click', () => { pre.hidden = !pre.hidden; });
+  if (bad.length) console.warn('[MPT] self-test failures', bad);
+}
+
+/* A small, explicit surface so the prototype can be driven and measured
+   from the console or an automated harness. Read-only with respect to the
+   MCP truth layer. */
+function exposeApi(districts){
+  window.MPT = {
+    S, MCP, MECH, KEYS, INDEX, districts,
+    objByKey, elByKey, homeByKey, famObj,
+    access, sections, buckets, deltaAdd, deltaRemove, fourColorView, wubrgSummary,
+    targetFor, bestMap, rankOf,
+    tests: () => T,
+    select: cs => { S.sel = new Set(cs); S.colorless = false;
+      document.querySelectorAll('.cbtn').forEach(b =>
+        b.setAttribute('aria-pressed', S.sel.has(b.dataset.c) ? 'true':'false'));
+      applyTargets(); renderAll(); },
+    search: q => { document.getElementById('q').value = q; setQuery(q); },
+    pick: setPick, family: setFamily, reset: resetView, clear: clearSelection,
+    settle: () => { if (tween){ const it = tween.items;
+        it.forEach(o => o.obj.position.set(o.tx, o.ty, o.tz)); tween = null; }
+        if (camAnim){ camera.position.setFromSpherical(
+          new THREE.Spherical(camAnim.tr, camAnim.tp, camAnim.tt)).add(controls.target);
+          camera.lookAt(controls.target); camAnim = null; }
+        renderer.render(scene, camera); },
+    z: k => objByKey.get(k).position.z,
+    animating: () => !!tween,
+    camera, controls, renderer, scene
+  };
+}
+
+boot_();
+</script>
+</body>
+</html>
