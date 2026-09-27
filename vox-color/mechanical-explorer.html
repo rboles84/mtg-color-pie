@@ -1,0 +1,2153 @@
+<!DOCTYPE html>
+<!--
+==============================================================================
+ MECHANICAL COLOR PIE 2021 — an interactive edition
+==============================================================================
+ Mark Rosewater's "Mechanical Color Pie 2021" (Making Magic, October 18, 2021),
+ made searchable. Vanilla HTML/CSS/JS, no framework, no build step. It reads the
+ frozen data over the project's static server:
+
+     cd C:\dev\color-wheel-interactive
+     py -m http.server 8000
+     http://localhost:8000/vox-color/mechanical-explorer.html
+
+ WHAT IS AUTHORITATIVE
+ ---------------------
+ data/mechanical-color-pie.runtime.json supplies every mechanical fact: entry
+ names, explanations, and each colour's Primary/Secondary/Tertiary placement.
+ data/mcp2021.abilities.json supplies only the article's own ORDER and
+ SUB-HEADINGS. Nothing upstream is written, and both objects are deep-frozen
+ after load.
+
+ THREE KINDS OF CONTENT, NEVER MIXED
+ -----------------------------------
+ 1. Rosewater's article: names, explanations, placements, sub-headings.
+ 2. Arithmetic computed from his placements: counts, best placement under the
+    selected colours, and compass differences. Always labelled "computed".
+ 3. Navigation metadata: the PLAYER_TERMS index, which maps slang players use
+    ("board wipe", "ramp") to article entries. Drawn from player research,
+    always labelled as a player search term, never shown as Rosewater's words.
+
+ RULES THIS FILE KEEPS
+ ---------------------
+ - Tier is a category, never a magnitude. No sum, score, rank or size.
+ - Tiers are compared only within one mechanic, across colours.
+ - Every entry keeps its complete W/U/B/R/G record visible under any lens.
+ - An absent 2021 placement is never presented as proof that no card exists.
+ - Exactly one mechanic-detail surface: #detail.
+ - No AI, no synthesized answers: search finds entries and says why.
+==============================================================================
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mechanical Color Pie 2021 — Vox Mana</title>
+<meta name="description" content="Mark Rosewater's Mechanical Color Pie 2021, searchable: every entry, explanation and color placement from the October 18, 2021 snapshot.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Almendra:wght@400;700&family=Cormorant+SC:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Lora:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<!-- Mana (andrewgioia/Mana) for mana symbols, pinned to the version voxmana.io
+     vendors. The page stays readable without it: every symbol has a letter. -->
+<link href="https://cdn.jsdelivr.net/npm/mana-font@1.18.0/css/mana.min.css" rel="stylesheet">
+
+<style>
+/* ===================================================================
+   TOKENS. --bone and the five mana colours are copied by value from the
+   shared Vox Mana system; the mana colours are data and appear only as
+   placement notation and colour identity. Ground, ink and gilt are this
+   edition's own field-guide values (Owner decision, 2026-09-27). Gilt is
+   system language: focus, selection, rules, ornament.
+   =================================================================== */
+:root{
+  --ground:#100c08; --ground-2:#17110b; --ground-3:#1e160e;
+  --bone:#ede6d3; --ink:#dccfb6; --ink-dim:#9a8768; --ink-mute:#67573f;
+  --brass:#b8934f; --brass-l:#dcbb73; --brass-q:#8e7143;
+  --rule:rgba(184,147,79,.17); --rule-s:rgba(184,147,79,.38); --hair:rgba(237,230,211,.08);
+  --w:#f5efc7; --u:#77b9e8; --b:#aca29a; --r:#d97858; --g:#7fb283;
+  --f-brand:'Cormorant SC',Georgia,serif; --f-display:'Almendra',Georgia,serif;
+  --f-read:'Lora',Georgia,serif; --f-ui:'Outfit',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --f-mono:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;
+  --ease:cubic-bezier(.2,.8,.2,1);
+  --maxw:1680px; --gut:clamp(16px,2.2vw,32px);
+  --bar-h:110px; --sheet-h:0px; --dw:400px;
+  /* Field-guide materials: a plate's paper, its corner ornaments, gilt rules. */
+  --plate:linear-gradient(180deg,#19120b,#140e08);
+  --plate-edge:rgba(184,147,79,.32);
+  --corners:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18'><g transform='translate(0 0)'><path d='M1 17V7a6 6 0 0 1 6-6h10' fill='none' stroke='%23c9a45c' stroke-width='1'/><path d='M4.5 17V8.5a4 4 0 0 1 4-4H17' fill='none' stroke='%23c9a45c' stroke-opacity='.4' stroke-width='1'/><rect x='5.3' y='5.3' width='2.4' height='2.4' transform='rotate(45 6.5 6.5)' fill='%23c9a45c'/></g></svg>") left 6px top 6px/18px no-repeat,url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18'><g transform='translate(18 0) scale(-1 1)'><path d='M1 17V7a6 6 0 0 1 6-6h10' fill='none' stroke='%23c9a45c' stroke-width='1'/><path d='M4.5 17V8.5a4 4 0 0 1 4-4H17' fill='none' stroke='%23c9a45c' stroke-opacity='.4' stroke-width='1'/><rect x='5.3' y='5.3' width='2.4' height='2.4' transform='rotate(45 6.5 6.5)' fill='%23c9a45c'/></g></svg>") right 6px top 6px/18px no-repeat,url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18'><g transform='translate(0 18) scale(1 -1)'><path d='M1 17V7a6 6 0 0 1 6-6h10' fill='none' stroke='%23c9a45c' stroke-width='1'/><path d='M4.5 17V8.5a4 4 0 0 1 4-4H17' fill='none' stroke='%23c9a45c' stroke-opacity='.4' stroke-width='1'/><rect x='5.3' y='5.3' width='2.4' height='2.4' transform='rotate(45 6.5 6.5)' fill='%23c9a45c'/></g></svg>") left 6px bottom 6px/18px no-repeat,url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18'><g transform='translate(18 18) scale(-1 -1)'><path d='M1 17V7a6 6 0 0 1 6-6h10' fill='none' stroke='%23c9a45c' stroke-width='1'/><path d='M4.5 17V8.5a4 4 0 0 1 4-4H17' fill='none' stroke='%23c9a45c' stroke-opacity='.4' stroke-width='1'/><rect x='5.3' y='5.3' width='2.4' height='2.4' transform='rotate(45 6.5 6.5)' fill='%23c9a45c'/></g></svg>") right 6px bottom 6px/18px no-repeat;
+  --orn-rule:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='11' viewBox='0 0 320 11'><defs><linearGradient id='l'><stop offset='0' stop-color='%23c9a45c' stop-opacity='0'/><stop offset='1' stop-color='%23c9a45c' stop-opacity='.85'/></linearGradient><linearGradient id='r'><stop offset='0' stop-color='%23c9a45c' stop-opacity='.85'/><stop offset='1' stop-color='%23c9a45c' stop-opacity='0'/></linearGradient></defs><rect x='0' y='5' width='144' height='1' fill='url(%23l)'/><rect x='176' y='5' width='144' height='1' fill='url(%23r)'/><circle cx='149.5' cy='5.5' r='1.2' fill='%23c9a45c'/><circle cx='170.5' cy='5.5' r='1.2' fill='%23c9a45c'/><path d='M160 .5 165 5.5 160 10.5 155 5.5Z' fill='none' stroke='%23c9a45c'/><path d='M160 3.4 162.1 5.5 160 7.6 157.9 5.5Z' fill='%23c9a45c'/></svg>");
+  --orn-rule-l:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='11' viewBox='0 0 220 11'><defs><linearGradient id='r'><stop offset='0' stop-color='%23c9a45c' stop-opacity='.85'/><stop offset='1' stop-color='%23c9a45c' stop-opacity='0'/></linearGradient></defs><path d='M6 .5 11 5.5 6 10.5 1 5.5Z' fill='none' stroke='%23c9a45c'/><path d='M6 3.4 8.1 5.5 6 7.6 3.9 5.5Z' fill='%23c9a45c'/><rect x='16' y='5' width='204' height='1' fill='url(%23r)'/></svg>");
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none !important}
+html,body{margin:0;padding:0}
+body{min-height:100vh;background:radial-gradient(120% 60% at 50% 0%,#1b140c 0%,rgba(16,12,8,0) 70%) no-repeat,var(--ground);color:var(--ink);font-family:var(--f-read);
+  -webkit-font-smoothing:antialiased;padding-bottom:var(--sheet-h)}
+body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.018'/%3E%3C/svg%3E")}
+button{font:inherit;color:inherit}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip{position:absolute;left:12px;top:-60px;z-index:100;padding:8px 14px;background:var(--brass-l);color:var(--ground);font:500 13px var(--f-ui);text-decoration:none}
+.skip:focus{top:12px}
+.wl{font-family:var(--f-mono);font-weight:500}
+.wl-W{color:var(--w)} .wl-U{color:var(--u)} .wl-B{color:var(--b)} .wl-R{color:var(--r)} .wl-G{color:var(--g)}
+/* "Computed": the mark on every number this page derives rather than reads. */
+.calc{display:inline-block;font:500 9px/1 var(--f-mono);letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-dim);border:1px solid var(--hair);padding:3px 5px 2px;vertical-align:1px;white-space:nowrap}
+/* A player search term: navigation, visibly not the article's wording. */
+.pterm{font:italic 400 1em var(--f-read);color:var(--brass-l)}
+.pterm-tag{font:italic 400 11.5px/1 var(--f-read);color:var(--brass)}
+
+/* ===================================================================
+   MASTHEAD — a title page
+   =================================================================== */
+.mast{max-width:var(--maxw);margin:0 auto;padding:clamp(30px,4.4vw,60px) var(--gut) 24px;text-align:center}
+.kicker{margin:0 0 16px;font:600 12.5px/1 var(--f-brand);letter-spacing:.34em;color:var(--brass-l)}
+.kicker span{color:var(--brass-q);padding:0 .35em}
+.mast h1{margin:0 0 14px;font:700 clamp(36px,5.2vw,70px)/1 var(--f-brand);letter-spacing:.012em;color:var(--bone)}
+.lede{margin:0 auto;max-width:60ch;font:italic 400 clamp(15px,1.25vw,17px)/1.6 var(--f-read);color:var(--ink)}
+.mast-rule{height:11px;margin:22px auto 14px;background:var(--orn-rule) center/320px 11px no-repeat}
+.snap{margin:0;font:400 13px/1.5 var(--f-read);color:var(--ink)}
+.snap a{color:var(--bone);text-decoration:underline;text-decoration-color:var(--rule-s);text-underline-offset:3px}
+.snap a:hover{text-decoration-color:var(--brass)}
+.snap a:focus-visible{outline:1.5px solid var(--brass-l);outline-offset:3px}
+.limits{margin:6px auto 0;max-width:92ch;font:italic 400 13px/1.55 var(--f-read);color:var(--ink-dim)}
+.meta{margin:12px 0 0;font:600 12.5px/1.5 var(--f-brand);letter-spacing:.14em;color:var(--ink-dim)}
+.meta b{font:500 12px var(--f-mono);color:var(--ink)}
+.meta .sep{color:var(--brass-q);padding:0 .45em}
+/* The five colour letters are one unit: never split across lines. */
+.meta-w{white-space:nowrap}
+
+/* ===================================================================
+   BAR — search, lens, view
+   =================================================================== */
+.bar{position:sticky;top:0;z-index:20;background:rgba(16,12,8,.97);border-bottom:3px double rgba(184,147,79,.45)}
+.bar-in{max-width:var(--maxw);margin:0 auto;padding:9px var(--gut) 10px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 26px}
+.bar-cap{flex:none;font:600 13px/1 var(--f-brand);letter-spacing:.12em;color:var(--brass-l)}
+.search{position:relative;flex:1 1 420px;max-width:640px;min-width:0;display:flex;align-items:center;gap:14px}
+.q-field{position:relative;flex:1;min-width:0}
+.q-ico{position:absolute;left:0;top:50%;width:14px;height:14px;transform:translateY(-50%);pointer-events:none;color:var(--brass)}
+.q{width:100%;height:38px;padding:0 8px 0 24px;background:transparent;border:0;border-bottom:1px solid rgba(184,147,79,.32);
+  border-radius:0;color:var(--bone);font:italic 400 15.5px/1 var(--f-read);transition:border-color .18s var(--ease)}
+.q:not(:placeholder-shown){font-style:normal}
+.q::placeholder{color:var(--ink-dim)}
+.search.has-q .q{padding-right:112px}
+.q:hover{border-bottom-color:rgba(220,187,115,.5)}
+.q:focus{outline:none;border-bottom-color:var(--brass-l);box-shadow:0 1px 0 var(--brass-l)}
+.q-meta{position:absolute;right:0;top:50%;transform:translateY(-50%);display:flex;align-items:center;gap:6px}
+.q-count{font:400 10.5px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);font-variant-numeric:tabular-nums;white-space:nowrap}
+.q-count.none{color:var(--r)}
+.q-clear{width:26px;height:26px;border:0;background:transparent;color:var(--ink-dim);cursor:pointer;display:grid;place-items:center;font-size:16px;line-height:1}
+.q-clear:hover{color:var(--bone)}
+.q-clear:focus-visible{outline:1.5px solid var(--brass-l);outline-offset:1px}
+
+.results{position:absolute;left:0;top:calc(100% + 8px);width:max(100%,520px);max-width:calc(100vw - 2 * var(--gut));
+  max-height:min(66vh,540px);overflow:auto;background:var(--plate);border:1px solid var(--rule-s);border-top:3px double var(--brass);
+  box-shadow:0 26px 60px rgba(0,0,0,.62);padding:0 0 4px;z-index:40;overscroll-behavior:contain;scrollbar-color:rgba(184,147,79,.3) transparent}
+/* The parse line: one piece per fact, each opened by its own gilt label,
+   wrapping by piece (no separator that could start a wrapped line). */
+.parse{display:flex;flex-wrap:wrap;align-items:baseline;gap:5px 20px;margin:0;padding:10px 14px 9px;border-bottom:1px solid var(--hair);font:400 11.5px/1.55 var(--f-ui);color:var(--ink-dim)}
+.parse b{font-weight:500;color:var(--ink)}
+.parse .lab{font:600 12.5px/1 var(--f-brand);letter-spacing:.08em;color:var(--brass-l);margin-right:8px}
+.parse .pterm{margin-right:1px}
+.parse .gone{text-decoration:line-through;text-decoration-color:var(--ink-mute)}
+.absent{margin:0;padding:8px 14px;border-bottom:1px solid var(--hair);font:italic 400 12px/1.5 var(--f-read);color:var(--ink-dim)}
+.opt{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;column-gap:16px;row-gap:2px;padding:8px 14px;cursor:pointer;border-bottom:1px solid rgba(237,230,211,.045)}
+.opt:last-child{border-bottom:0}
+.opt:hover{background:rgba(220,187,115,.04)}
+.opt[aria-selected="true"]{background:rgba(220,187,115,.08);box-shadow:inset 2px 0 0 var(--brass-l)}
+/* Long names wrap rather than truncate, so the whole article name is read. */
+.opt-l{font:400 14px/1.3 var(--f-ui);color:var(--bone);overflow-wrap:anywhere}
+/* The reason, the quoted term, the tag and the color placement are separate
+   pieces: each keeps its own space and they wrap as units, never run together. */
+.opt-w{grid-column:1;display:flex;flex-wrap:wrap;align-items:baseline;gap:3px 10px;font:400 11px/1.4 var(--f-ui);color:var(--ink-dim)}
+.opt-w > span{white-space:nowrap}
+.opt-w .why{font:600 12.5px/1 var(--f-brand);letter-spacing:.08em;color:var(--brass-l)}
+.opt-w .why.p{color:var(--brass)}
+.opt-w .pterm{font-size:12px;letter-spacing:.01em}
+/* related to a player term: set apart by a dashed rule and its own tag */
+.opt.is-rel{box-shadow:inset 1px 0 0 rgba(237,230,211,.14)}
+.opt.is-rel .opt-l{color:var(--ink)}
+.pterm-tag.rel{color:var(--ink-dim);border-bottom:1px dashed var(--ink-mute)}
+.opt-w .lensp{font:400 10px var(--f-mono);letter-spacing:.06em;color:var(--ink)}
+.opt .strip{grid-column:2;grid-row:1 / span 2}
+.res-note{margin:0;padding:9px 14px;font:italic 400 12.5px/1.45 var(--f-read);color:var(--ink-dim)}
+/* A combination name typed in search: a label that leads to the compass,
+   kept in the parse line, apart from the article's entries. */
+.name-go{height:auto;margin-left:8px}
+
+/* the lens: five mana symbols, recoloured to the page's own tokens */
+.ms-cost.ms-w{background-color:var(--w)} .ms-cost.ms-u{background-color:var(--u)}
+.ms-cost.ms-b{background-color:var(--b)} .ms-cost.ms-r{background-color:var(--r)} .ms-cost.ms-g{background-color:var(--g)}
+.lens{display:flex;align-items:center;gap:2px;flex:none;padding-left:26px;border-left:1px solid var(--rule-s)}
+.lens .bar-cap{margin-right:10px}
+.pips{display:flex;align-items:center;gap:4px}
+.pip{position:relative;display:grid;place-items:center;width:40px;height:44px;padding:0;background:none;border:0;cursor:pointer}
+.pip .ms{font-size:19px;opacity:.58;filter:grayscale(.45);transition:opacity .18s var(--ease),filter .18s var(--ease),box-shadow .18s var(--ease)}
+.pip-l{display:none;font:500 13px/1 var(--f-mono);color:var(--cc)}
+.no-mana .ms{display:none !important}
+.no-mana .pip-l,.no-mana .n-l{display:block}
+.pip:hover .ms{opacity:.9;filter:none}
+/* A chosen colour: a gilt double ring, like an engraved roundel. */
+.pip[aria-pressed="true"] .ms{opacity:1;filter:none;box-shadow:0 0 0 2px var(--ground),0 0 0 3px var(--brass-l),0 0 0 5px var(--ground),0 0 0 6px rgba(184,147,79,.5)}
+.pip[aria-pressed="true"] .pip-l{text-decoration:underline;text-decoration-color:var(--brass-l)}
+.pip:focus-visible{outline:1.5px solid var(--brass-l);outline-offset:0}
+.lens-clear,.view-b{height:28px;padding:0 4px;border:0;background:transparent;cursor:pointer;font:600 13.5px/1 var(--f-brand);letter-spacing:.08em;color:var(--ink-dim)}
+.lens-clear{margin-left:8px}
+.lens-clear:hover,.view-b:hover{color:var(--bone)}
+.lens-clear:focus-visible,.view-b:focus-visible{outline:1.5px solid var(--brass-l);outline-offset:2px}
+.view{display:flex;align-items:center;gap:6px;flex:none;padding-left:26px;border-left:1px solid var(--rule-s)}
+.view-b[aria-pressed="true"]{color:var(--bone);box-shadow:inset 0 -1px 0 var(--brass-l),inset 0 -3px 0 var(--ground),inset 0 -4px 0 var(--brass-l)}
+.lensline{flex-basis:100%;display:flex;flex-wrap:wrap;align-items:center;gap:6px 0;padding:7px 0 1px;border-top:1px solid var(--hair)}
+.lensline .who{display:inline-flex;align-items:center;gap:8px;margin-right:16px;font:400 12.5px/1.3 var(--f-ui);color:var(--ink-dim)}
+.lensline .who b{font:500 13px var(--f-mono);color:var(--bone)}
+.lensline .src{font:italic 400 11.5px var(--f-read);color:var(--ink-dim);margin-right:14px}
+.fig{position:relative;display:inline-flex;align-items:center;gap:7px;height:28px;padding:0 12px;border:0;border-left:1px solid var(--hair);
+  background:transparent;color:var(--ink-dim);cursor:pointer;font:400 12px/1 var(--f-ui);white-space:nowrap}
+.fig b{font:500 12px/1 var(--f-mono);color:var(--bone);font-variant-numeric:tabular-nums}
+.fig:hover{color:var(--bone)}
+.fig[aria-pressed="true"]{color:var(--bone)}
+.fig[aria-pressed="true"]::after{content:'';position:absolute;left:12px;right:12px;bottom:0;height:1.5px;background:var(--brass-l)}
+.fig:focus-visible{outline:1.5px solid var(--brass-l);outline-offset:1px}
+.fig:disabled{opacity:.38;cursor:default}
+.c-acc{display:block;position:relative;flex:none;width:11px;height:11px;border-radius:50%;--ac:rgba(237,230,211,.82)}
+.c-acc.b-p{background:var(--ac)} .c-acc.b-s{box-shadow:inset 0 0 0 1.25px var(--ac)}
+.c-acc.b-t::after{content:'';position:absolute;inset:3.7px;border-radius:50%;background:var(--ac)}
+.c-acc.b-n{box-shadow:inset 0 0 0 1px rgba(237,230,211,.28)}
+
+/* ===================================================================
+   STAGE
+   =================================================================== */
+.stage{max-width:var(--maxw);margin:0 auto;padding:22px var(--gut) 44px;display:grid;grid-template-columns:minmax(0,1fr);gap:0 26px;align-items:start}
+.stage.docked{grid-template-columns:minmax(0,1fr) var(--dw)}
+.wrap{min-width:0}
+/* Section heads: engraved small capitals; the key and the compass are plates. */
+/* The heading takes the free width and wraps within it; the fold control keeps
+   the right edge of its plate, open or folded, at every width. */
+.sec-h{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:baseline;gap:6px 16px;margin:0 0 12px;
+  font:600 15.5px/1.2 var(--f-brand);letter-spacing:.1em;color:var(--brass-l)}
+.sec-h small{font:400 12px/1.4 var(--f-ui);letter-spacing:0;color:var(--ink-dim)}
+#key-h::before{content:'Plate I \2014\00a0';color:var(--brass)}
+#cmp-h::before{content:'Plate II \2014\00a0';color:var(--brass)}
+.fold{border:0;background:transparent;cursor:pointer;padding:2px 0;font:600 13px/1 var(--f-brand);letter-spacing:.08em;color:var(--ink-dim)}
+.fold:hover{color:var(--bone)}
+.fold:focus-visible{outline:1.5px solid var(--brass-l);outline-offset:2px}
+
+/* --- THE KEY: how to read one entry, taught with a real one ------------ */
+.key{margin:0 0 26px;padding:24px 28px;background:var(--corners),var(--plate);box-shadow:inset 0 0 0 1px var(--plate-edge);
+  display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px 34px;align-items:start}
+.key .sec-h{grid-column:1 / -1;margin:0}
+.key.is-folded{display:block;padding-top:12px;padding-bottom:12px}
+.key.is-folded .key-body{display:none}
+.key-mini{display:none;align-items:center;gap:14px;flex-wrap:wrap;font:400 11.5px/1.3 var(--f-ui);color:var(--ink-dim)}
+.key.is-folded .key-mini{display:flex;margin-top:10px}
+.key-mini .lg{display:inline-flex;align-items:center;gap:6px}
+.key-body{display:contents}
+.spec{display:grid;gap:8px;padding-right:34px;border-right:1px solid var(--rule)}
+.spec-cap{font:600 12px/1.3 var(--f-brand);letter-spacing:.08em;color:var(--ink-dim)}
+.spec-name{font:400 15px/1.2 var(--f-ui);color:var(--bone)}
+.spec .strip{--sz:24px;--sg:30px}
+.spec-row{display:grid;grid-template-columns:repeat(5,24px);gap:30px;text-align:center}
+.spec-row.letters{font:500 10px/1 var(--f-mono)}
+.spec-row.words{font:400 9.5px/1.15 var(--f-mono);color:var(--ink-dim);width:max-content}
+.spec-row.words span{width:24px;justify-self:center;white-space:nowrap;display:flex;justify-content:center}
+.spec-row.words span.t-none{color:var(--ink-dim)}
+.defs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 30px;margin:0;max-width:780px}
+.def{display:grid;grid-template-columns:24px minmax(0,1fr);gap:4px 12px;align-items:start}
+.def .sc{--sz:20px;--cc:var(--ink);margin-top:1px}
+.def dt{margin:0;font:600 16px/1.2 var(--f-brand);letter-spacing:.02em;color:var(--bone)}
+.def dd{grid-column:2;margin:0;font:400 12.5px/1.45 var(--f-read);color:var(--ink-dim)}
+.defs-note{grid-column:1 / -1;margin:0;font:italic 400 12px/1.45 var(--f-read);color:var(--ink-dim)}
+.steps{grid-column:1 / -1;display:flex;flex-wrap:wrap;gap:8px 30px;margin:2px 0 0;padding:12px 0 0;border-top:1px solid var(--rule);list-style:none;font:400 12.5px/1.4 var(--f-ui);color:var(--ink)}
+.steps li{display:flex;align-items:baseline;gap:9px;max-width:44ch}
+.steps b{font:500 10px/1 var(--f-mono);color:var(--brass-l)}
+
+/* ===================================================================
+   IDENTITY COMPASS — 31 combinations, one size; tiles carry letters
+   and mana only. A verified name appears only in the selected-identity
+   display and in a tile's accessible name, always with colour words and
+   code.
+   =================================================================== */
+.compass{margin:0 0 28px;padding:24px 28px;background:var(--corners),var(--plate);box-shadow:inset 0 0 0 1px var(--plate-edge)}
+.compass.is-folded .cmp-body{display:none}
+.cmp-note{margin:0 0 12px;max-width:92ch;font:italic 400 12.5px/1.5 var(--f-read);color:var(--ink-dim)}
+.cmp-main{display:flex;flex-wrap:wrap;align-items:flex-start;gap:20px 40px}
+.cmp-main > .cmp-rows{flex:0 1 auto;min-width:0}
+.cmp-rows{display:grid;gap:8px}
+.cmp-row{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.cmp-row-l{width:74px;flex:none;font:600 13px/1.2 var(--f-brand);letter-spacing:.08em;color:var(--ink-dim)}
+.node{position:relative;display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
+  width:62px;height:48px;padding:0;border:0;background:linear-gradient(180deg,#1f170e,#150f09);box-shadow:inset 0 0 0 1px rgba(184,147,79,.26);cursor:pointer;
+  transition:background-color .15s var(--ease),box-shadow .15s var(--ease)}
+/* Pips keep one size on every tile. Four- and five-color tiles wrap them
+   into two rows (2+2, 3+2), still in W U B R G reading order, so every
+   symbol sits inside the unchanged tile. One pip = 1.235em of .n-pips. */
+.node .n-pips{display:flex;flex-wrap:wrap;justify-content:center;gap:1px;max-width:calc(3 * 1.235em + 2px);font-size:10.5px;line-height:1}
+.node[data-n="4"] .n-pips{max-width:calc(2 * 1.235em + 1px)}
+.node .n-l{font:500 10px/1 var(--f-mono);letter-spacing:.06em;color:var(--ink)}
+.node:hover{background:linear-gradient(180deg,#281d11,#1a130b);box-shadow:inset 0 0 0 1px rgba(220,187,115,.6)}
+/* a neighbour of the selected combination: one step away (add or remove one colour) */
+.node.is-nb{outline:1px dashed rgba(220,187,115,.7);outline-offset:-4px}
+.node[aria-pressed="true"]{background:radial-gradient(90% 90% at 50% 35%,rgba(220,187,115,.26),rgba(220,187,115,.07));
+  box-shadow:inset 0 0 0 1.5px var(--brass-l),inset 0 0 0 4px #1c150c,inset 0 0 0 5px rgba(220,187,115,.55)}
+.node[aria-pressed="true"] .n-l{color:var(--bone)}
+.node:focus-visible{outline:2px solid var(--brass-l);outline-offset:2px}
+/* THE SELECTED IDENTITY: a specimen label for the chosen colours. The
+   medallion is built from the mana colours and Mana's glyphs: a pair splits
+   on the diagonal like hybrid mana; three to five colours are equal wedges. */
+.ident{flex:1 1 360px;max-width:620px;min-width:0;display:grid;grid-template-columns:auto minmax(0,1fr);grid-template-areas:"medal head" "medal body";column-gap:24px;align-items:center;
+  padding:18px 24px 18px 18px;background:linear-gradient(180deg,#20170d,#160f09);
+  box-shadow:inset 0 0 0 1px rgba(184,147,79,.36),inset 0 0 0 4px #18110a,inset 0 0 0 5px rgba(184,147,79,.16)}
+.id-medal{--d:112px;grid-area:medal;position:relative;flex:none;width:var(--d);height:var(--d);margin:8px;border-radius:50%;background:var(--seg);isolation:isolate;
+  box-shadow:0 0 0 2px #18110a,0 0 0 3px var(--brass-l),0 0 0 6px #18110a,0 0 0 7px rgba(184,147,79,.5),0 10px 24px rgba(0,0,0,.5)}
+.id-medal > .ms{position:absolute;z-index:2;transform:translate(-50%,-50%);font-size:calc(var(--d) * var(--gs));line-height:1;color:#15120c}
+.id-medal > .id-l{position:absolute;z-index:2;transform:translate(-50%,-50%);display:none;font:500 calc(var(--d) * var(--gs) * .8)/1 var(--f-mono);color:#15120c}
+.no-mana .id-medal > .id-l{display:block}
+/* engraving: fine radial hatching and a darkened rim over the colours */
+.id-shine{position:absolute;inset:0;z-index:1;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,rgba(20,12,4,0) 58%,rgba(20,12,4,.3) 100%),repeating-conic-gradient(from 0deg,rgba(20,12,4,.12) 0deg .7deg,rgba(20,12,4,0) .7deg 4.5deg)}
+.id-head{grid-area:head;align-self:end;min-width:0}
+.id-body{grid-area:body;align-self:start;min-width:0}
+.id-kick,.id-name,.id-words,.id-count,.id-src,.id-next{margin:0}
+.id-kick{margin-bottom:8px;font:600 12.5px/1 var(--f-brand);letter-spacing:.24em;color:var(--brass-l)}
+.id-name{font:700 clamp(30px,3vw,44px)/1 var(--f-brand);letter-spacing:.01em;color:var(--bone)}
+.id-words{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px;margin-top:8px;font:italic 400 16.5px/1.3 var(--f-read);color:var(--ink)}
+.id-code{padding:4px 7px 3px;font:500 12px/1 var(--f-mono);font-style:normal;letter-spacing:.14em;color:var(--bone);box-shadow:inset 0 0 0 1px var(--rule-s)}
+.id-count{margin-top:12px;font:400 13.5px/1.45 var(--f-ui);color:var(--ink)}
+.id-count b{font:500 14px var(--f-mono);color:var(--bone)}
+.id-src{margin-top:6px;max-width:58ch;font:italic 400 12.5px/1.45 var(--f-read);color:var(--ink-dim)}
+.id-src:empty{display:none}
+.id-next{margin-top:10px;font:600 13px/1.2 var(--f-brand);letter-spacing:.06em;color:var(--brass)}
+.steps-p{margin:14px 0 0;padding-top:12px;border-top:1px solid var(--rule)}
+.steps-p h3{margin:0 0 8px;font:600 13px/1.3 var(--f-brand);letter-spacing:.1em;color:var(--brass-l)}
+.step{display:flex;flex-wrap:wrap;align-items:center;gap:4px 0;padding:5px 0;border-bottom:1px solid rgba(237,230,211,.04)}
+.step-h{display:inline-flex;align-items:center;gap:6px;min-width:160px;margin-right:6px;font:400 12.5px/1.3 var(--f-ui);color:var(--ink)}
+.step-h b{font:500 12px var(--f-mono);color:var(--bone)}
+.step-h .ms{font-size:11px}
+.go{height:28px;margin-left:10px;padding:0 2px;border:0;background:transparent;cursor:pointer;font:500 11.5px/1 var(--f-ui);color:var(--brass-l);
+  text-decoration:underline;text-decoration-color:var(--brass);text-underline-offset:4px}
+.go:hover{color:var(--bone)}
+.go:focus-visible{outline:1.5px solid var(--brass-l);outline-offset:2px}
+
+/* ===================================================================
+   THE LIST — the article's order and sub-headings, set as an index
+   =================================================================== */
+.list-cap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 20px;margin:0 0 14px;font:600 13.5px/1.4 var(--f-brand);letter-spacing:.08em;color:var(--ink-dim)}
+.list-cap b{font:500 12px var(--f-mono);color:var(--ink)}
+.spotbar{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;margin:0 0 14px;padding:9px 12px;background:rgba(184,147,79,.07);border-left:1.5px solid var(--brass-l);font:400 13px/1.45 var(--f-ui);color:var(--ink)}
+.spotbar b{font-weight:500;color:var(--bone)}
+.empty-q{margin:0 0 14px;font:italic 400 13px/1.4 var(--f-read);color:var(--ink-dim)}
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:1px 18px;align-items:start}
+.grp{grid-column:1 / -1;margin:24px 0 8px}
+.grp-h{display:flex;align-items:baseline;gap:12px;margin:0 0 8px;font:700 20px/1.2 var(--f-brand);letter-spacing:.015em;color:var(--bone)}
+.grp-h::after{content:'';flex:1;align-self:center;height:1px;background:linear-gradient(90deg,var(--rule-s),rgba(184,147,79,0))}
+.grp-h small{font:italic 400 13px/1 var(--f-read);color:var(--ink-dim)}
+.grp-in{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,288px),1fr));gap:1px 18px}
+.letter{grid-column:1 / -1;margin:14px 0 2px;font:700 22px/1 var(--f-brand);letter-spacing:.04em;color:var(--brass-l);border-bottom:1px solid var(--rule);padding-bottom:5px}
+.lo{grid-column:1 / -1;margin:22px 0 6px;padding:12px 0 6px 12px;border-left:1px dashed var(--rule-s)}
+.lo-note{margin:0 0 10px;max-width:92ch;font:italic 400 12.5px/1.5 var(--f-read);color:var(--ink-dim)}
+
+/* The index line: name, dotted leader, then the five placement slots. The
+   leader takes only spare width (it may shrink to nothing), so it never makes
+   a name wrap; names are set in the compact UI face (measured, see HANDOFF). */
+.ent{appearance:none;-webkit-appearance:none;display:grid;grid-template-columns:minmax(0,max-content) minmax(0,1fr) auto;align-items:center;gap:4px 6px;
+  width:100%;min-height:44px;margin:0;padding:7px 8px 7px 10px;background:transparent;border:0;border-radius:0;
+  box-shadow:none;color:rgba(237,230,211,.88);font:400 13.5px/1.3 var(--f-ui);text-align:left;cursor:pointer;
+  scroll-margin-top:calc(var(--stick-h,0px) + 16px);scroll-margin-bottom:calc(var(--sheet-h) + 16px);-webkit-tap-highlight-color:transparent;
+  transition:opacity .2s var(--ease),background-color .15s var(--ease),box-shadow .15s var(--ease)}
+.ent::before{content:'';grid-column:2;grid-row:1;align-self:center;height:0;border-bottom:1px dotted rgba(184,147,79,.42);transform:translateY(.4em)}
+.ent > .e-lab{grid-column:1;grid-row:1}
+.ent > .strip{grid-column:3;grid-row:1}
+.e-lab{min-width:0;overflow-wrap:anywhere}
+.e-q{color:var(--ink-dim)}
+.e-tag{display:block;margin-top:2px;font:italic 400 12px/1.2 var(--f-read);color:var(--brass)}
+.ent:hover{background:rgba(220,187,115,.055);color:var(--bone)}
+.ent:hover::before{border-bottom-color:rgba(220,187,115,.75)}
+.ent:focus-visible{outline:1.5px solid var(--brass-l);outline-offset:1px;color:var(--bone)}
+/* lens: no placement in any selected colour — steps back, never disappears;
+   its complete strip stays readable. */
+.ent.is-out{opacity:.42}
+.ent.is-out:hover,.ent.is-out:focus-visible{opacity:.85}
+/* search: matches carry a gilt rule; the rest step back, still readable */
+.ent.is-hit{background:rgba(220,187,115,.07);box-shadow:inset 2px 0 0 var(--brass);color:var(--bone);opacity:1}
+.ent.is-miss{opacity:.3}
+.ent.is-miss:hover,.ent.is-miss:focus-visible{opacity:.8}
+.ent.is-off{display:none}
+.ent.is-sel{opacity:1;background:rgba(220,187,115,.11);box-shadow:inset 2px 0 0 var(--brass-l);color:var(--bone)}
+.ent.is-sel::before{border-bottom:1px solid var(--brass-l)}
+.grp.is-empty,.letter.is-empty{display:none}
+
+/* --- PLACEMENT NOTATION ------------------------------------------------
+   Five fixed slots, always W U B R G, one footprint. Tier is FILL, never size:
+   primary = full symbol · secondary = symbol in outline · tertiary = small
+   dot · no placement = an empty socket. A gilt tick under a slot marks the
+   selected colour(s) holding this entry's best placement (computed). */
+.strip{display:inline-grid;grid-template-columns:repeat(5,var(--sz,14px));gap:var(--sg,3px);flex:none;align-items:center}
+.sc{position:relative;display:grid;place-items:center;width:var(--sz,14px);height:var(--sz,14px);border-radius:50%}
+.sc > .ms{display:block;font-size:calc(var(--sz,14px) * .64);line-height:1}
+/* Rounded to an even pixel count, so the glyph's box sits a whole number of
+   pixels inside its (whole-pixel) circle — 24→16, 20→12, 18→12, 14→8, 12→8 —
+   and the glyph and circle snap to the pixel grid together. Browsers without
+   round() keep the line above. */
+.sc > .ms{font-size:round(nearest, calc(var(--sz,14px) * .64), 2px)}
+.sc.t-p{background:var(--cc)}
+.sc.t-p > .ms{color:#15120c}
+.sc.t-s{box-shadow:inset 0 0 0 1.25px var(--cc)}
+.sc.t-s > .ms{color:var(--cc)}
+.sc.t-t > .ms,.sc.t-n > .ms{display:none}
+.sc.t-t::after{content:'';width:calc(var(--sz,14px) * .32);height:calc(var(--sz,14px) * .32);border-radius:50%;background:var(--cc)}
+.sc.t-n{box-shadow:inset 0 0 0 1px rgba(237,230,211,.16)}
+/* Optical centring of the glyphs inside Primary and Secondary circles. Each
+   glyph's box is geometrically centred; these small per-symbol offsets
+   correct where the shape's weight sits (the drop's bulb, the fireball's
+   lower-left blob, the tree). White and Black need none. Kept small on
+   purpose: measured on the page at 1x-2x, larger offsets push 18px marks
+   visibly high. Only the glyph moves; circle, tier shape, tertiary dot and
+   empty socket are untouched. */
+.sc > .ms-u{transform:translate(.02em,-.04em)}
+.sc > .ms-r{transform:translate(.04em,-.05em)}
+.sc > .ms-g{transform:translate(.03em,-.035em)}
+/* The same correction for Mana's own cost pips (colors, compass, counts line).
+   Their glyph is an inline ::before, set a little low by the font's own
+   line-height, so it needs inline-block and a slightly larger lift. */
+.ms-cost::before{display:inline-block}
+.ms-cost.ms-w::before{transform:translate(0,-.025em)}
+.ms-cost.ms-u::before{transform:translate(.03em,-.085em)}
+.ms-cost.ms-b::before{transform:translate(0,-.045em)}
+.ms-cost.ms-r::before{transform:translate(.07em,-.095em)}
+.ms-cost.ms-g::before{transform:translate(.05em,-.085em)}
+.sc.bx::before{content:'';position:absolute;left:1px;right:1px;bottom:-4px;height:1.5px;border-radius:1px;background:var(--brass-l)}
+.opt .strip{--sz:12px;--sg:2px}
+
+/* ===================================================================
+   THE DETAIL — the one mechanic-detail surface, set as a specimen plate
+   =================================================================== */
+.detail{position:relative;min-width:0;padding:30px;background:var(--corners),linear-gradient(180deg,#1b130b,#130d08);box-shadow:inset 0 0 0 1px rgba(184,147,79,.36);color:var(--ink);
+  animation:dxIn .24s var(--ease);scrollbar-color:rgba(184,147,79,.3) transparent}
+@keyframes dxIn{from{opacity:0;transform:translateY(4px)}}
+.stage.docked .detail{position:sticky;top:calc(var(--bar-h) + 16px);max-height:calc(100vh - var(--bar-h) - 32px);overflow:auto;overscroll-behavior:contain}
+.detail.sheet{position:fixed;left:0;right:0;bottom:0;margin:0 auto;width:min(760px,100%);max-height:min(58vh,640px);overflow:auto;
+  z-index:30;box-shadow:inset 0 0 0 1px rgba(184,147,79,.36),0 -20px 50px rgba(0,0,0,.6);padding-bottom:calc(22px + env(safe-area-inset-bottom));overscroll-behavior:contain}
+html.sheet-open .bar{position:relative}
+/* In the sheet, the five placement rows already carry the strip's
+   information in words, so the strip gives way; spacing tightens so that
+   Rosewater's explanation starts inside the sheet's first view (measured at
+   360 px for the five exceptional entries and the longest names). */
+.detail.sheet .dx-notation{display:none}
+.detail.sheet .dx-top{margin-bottom:8px}
+.detail.sheet .dx-title.long{font-size:22px}
+.detail.sheet .dx-title::after{margin-top:9px}
+.detail.sheet .dx-gloss{margin-top:6px;font-size:14px}
+.detail.sheet .dx-sec{margin-top:14px;padding-top:12px}
+.detail.sheet .dx-h{margin-bottom:9px}
+.detail.sheet .own{gap:3px}
+.detail.sheet .own-row{font-size:14.5px}
+.dx-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin:0 0 12px}
+.dx-where{margin:0;font:600 12.5px/1.4 var(--f-brand);letter-spacing:.1em;color:var(--ink-dim)}
+.dx-where i{font:italic 400 13px var(--f-read);letter-spacing:0;color:var(--ink)}
+.dx-close{flex:none;width:30px;height:30px;margin:-6px -6px 0 0;border:0;background:transparent;cursor:pointer;color:var(--ink-dim);font-size:18px;line-height:1;display:grid;place-items:center}
+.dx-close:hover{color:var(--bone)}
+.dx-close:focus-visible{outline:1.5px solid var(--brass-l);outline-offset:1px}
+.dx-title{margin:0;font:700 34px/1.05 var(--f-brand);letter-spacing:.01em;color:var(--bone);overflow-wrap:break-word}
+.dx-title.long{font-size:25px;line-height:1.12}
+.dx-title::after{content:'';display:block;width:220px;max-width:100%;height:11px;margin-top:14px;background:var(--orn-rule-l) left center/220px 11px no-repeat}
+.dx-gloss{margin:8px 0 0;font:italic 400 15px/1.55 var(--f-read);color:var(--ink-dim)}
+.dx-notation{display:inline-grid;gap:6px;margin:16px 0 0}
+.dx-notation .strip{--sz:24px;--sg:9px}
+.dx-letters{display:grid;grid-template-columns:repeat(5,24px);gap:9px;font:500 9.5px/1 var(--f-mono);text-align:center}
+.dx-letters i{font-style:normal}
+.dx-sec{margin-top:20px;padding-top:15px;border-top:1px solid var(--rule)}
+.dx-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 12px;font:600 13px/1 var(--f-brand);letter-spacing:.12em;color:var(--brass-l)}
+.dx-h .by{letter-spacing:.02em;font:italic 400 11.5px var(--f-read);color:var(--ink-dim)}
+.own{list-style:none;margin:0;padding:0;display:grid;gap:7px}
+.own-row{display:grid;grid-template-columns:18px auto minmax(12px,1fr) auto;align-items:baseline;gap:10px;font:400 15.5px/1.2 var(--f-read);color:var(--bone)}
+.own-row .sc{--sz:18px;align-self:center}
+.own-lead{align-self:end;margin-bottom:4px;border-bottom:1px dotted rgba(184,147,79,.34)}
+.own-t{font:italic 400 14px/1.2 var(--f-read);color:var(--ink)}
+.own-row.none{color:var(--ink-dim)} .own-row.none .own-t{color:var(--ink-dim)}
+.own-row.lensed .own-c::after{content:'selected';margin-left:8px;font:400 9px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--brass-l)}
+.dx-lens{margin:14px 0 0;padding-left:12px;border-left:1px solid var(--brass);font:400 13px/1.55 var(--f-ui);color:var(--ink)}
+.dx-lens b{font-weight:500;color:var(--bone)}
+.dx-ex{margin:0;font:400 16.5px/1.72 var(--f-read);color:var(--ink)}
+/* the explanation opens with a gilt initial, as a field guide's entry would */
+.dx-ex:not(.is-empty)::first-letter{float:left;margin:.06em .1em 0 -.02em;font:700 3.25em/.8 var(--f-display);color:var(--brass-l)}
+.dx-ex.is-empty{font-style:italic;font-size:14px;color:var(--ink-dim)}
+.dx-list{margin:0;padding:0;list-style:none;display:grid;gap:6px;font:400 13.5px/1.5 var(--f-read);color:var(--ink)}
+.dx-list li::before{content:'\2014\00A0';color:var(--brass-q)}
+.dx-note{margin:10px 0 0;font:italic 400 12.5px/1.5 var(--f-read);color:var(--ink-dim)}
+.dx-jump{border:0;background:transparent;padding:0;cursor:pointer;font:italic 400 12.5px var(--f-read);color:var(--bone);text-decoration:underline;text-decoration-color:var(--brass);text-underline-offset:3px}
+.dx-jump:focus-visible{outline:1.5px solid var(--brass-l);outline-offset:2px}
+.cardref{color:var(--bone);text-decoration:underline;text-decoration-style:dotted;text-decoration-color:var(--brass);text-underline-offset:3px}
+.cardref:hover{color:var(--brass-l)}
+.cardref:focus-visible{outline:1.5px solid var(--brass-l);outline-offset:2px}
+.peek{position:fixed;z-index:60;width:244px;pointer-events:none;border-radius:11px;box-shadow:0 18px 44px rgba(0,0,0,.6),0 0 0 1px rgba(237,230,211,.08);background:var(--ground-3)}
+.peek img{display:block;width:100%;height:auto;border-radius:11px}
+/* THE CITED CARD: a tipped-in plate after Rosewater's explanation. The full
+   card image is shown whole — never cropped, tinted or overlaid (Scryfall's
+   image rules) — with its name, printing, artist and image credit. */
+.cite{display:grid;grid-template-columns:132px minmax(0,1fr);gap:12px 16px;align-items:start;margin:18px 0 0;padding:12px;background:#120d08;box-shadow:inset 0 0 0 1px rgba(184,147,79,.3)}
+.cite-img{display:block;line-height:0;border-radius:6px}
+.cite-img:focus-visible{outline:1.5px solid var(--brass-l);outline-offset:3px}
+.cite img{display:block;width:100%;height:auto;border-radius:4.75% / 3.4%;box-shadow:0 0 0 1px rgba(0,0,0,.6),0 8px 18px rgba(0,0,0,.55)}
+.cite figcaption{display:grid;gap:3px;align-content:start;font:italic 400 13px/1.45 var(--f-read);color:var(--ink-dim)}
+.cite-k{font:600 12.5px/1.2 var(--f-brand);font-style:normal;letter-spacing:.12em;color:var(--brass-l)}
+.cite b{font:700 19px/1.15 var(--f-brand);font-style:normal;color:var(--bone)}
+.cite-c{margin-top:6px;font:400 11px/1.45 var(--f-ui);font-style:normal;color:var(--ink-dim)}
+.dx-src{margin-top:20px;padding-top:14px;border-top:1px solid var(--rule)}
+.dx-src summary{cursor:pointer;list-style:none;font:600 13px/1 var(--f-brand);letter-spacing:.12em;color:var(--ink-dim);padding:6px 0}
+.dx-src summary::-webkit-details-marker{display:none}
+.dx-src summary::before{content:'\25B8\00A0\00A0';color:var(--brass)}
+.dx-src[open] summary::before{content:'\25BE\00A0\00A0'}
+.dx-src summary:hover{color:var(--bone)}
+.dx-src summary:focus-visible{outline:1.5px solid var(--brass-l);outline-offset:2px}
+.dx-src p{margin:12px 0 0;font:400 12.5px/1.6 var(--f-ui);color:var(--ink)}
+.dx-src p .wl{margin-right:8px}
+.dx-foot{margin:22px 0 0;padding-top:12px;border-top:1px solid var(--rule);font:400 9.5px/1.6 var(--f-mono);letter-spacing:.06em;color:var(--ink-dim)}
+
+/* ===================================================================
+   FOOTER, BOOT
+   =================================================================== */
+.foot{max-width:var(--maxw);margin:0 auto;padding:14px var(--gut) 46px;border-top:3px double var(--rule-s);font:400 11.5px/1.65 var(--f-ui);color:var(--ink-dim)}
+.foot p{margin:6px 0;max-width:120ch}
+.foot .fcp{margin-top:12px;font:italic 400 12px/1.6 var(--f-read)}
+.foot .fcp a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--rule-s);text-underline-offset:3px}
+.foot .fcp a:focus-visible{outline:1.5px solid var(--brass-l);outline-offset:2px}
+.selftest{font:400 10px/1.6 var(--f-mono);letter-spacing:.04em}
+.selftest.fail{color:var(--r)}
+.selftest details{display:inline}
+.selftest summary{cursor:pointer;display:inline}
+.boot{max-width:620px;margin:40px 0;padding:20px 22px;border-left:1px solid var(--brass);background:var(--ground-2);font:400 13.5px/1.6 var(--f-ui);color:var(--ink)}
+.boot h2{margin:0 0 8px;font:500 17px/1.3 var(--f-read);color:var(--bone)}
+.boot code{font-family:var(--f-mono);font-size:12.5px;color:var(--bone)}
+
+/* ===================================================================
+   RESPONSIVE
+   =================================================================== */
+@media (max-width:1180px){ .defs{grid-template-columns:minmax(0,1fr)} }
+@media (max-width:879px){
+  /* On a narrow screen the bar holds search, colors, order and the counts
+     line; pinned, it would cover most of the viewport. It scrolls away. */
+  .bar{position:relative}
+  .key,.compass{padding:18px 12px}
+  .key{grid-template-columns:minmax(0,1fr)}
+  .spec{padding:0 0 16px;border-right:0;border-bottom:1px solid var(--rule)}
+  .spec .strip,.spec-row{--sg:26px;gap:26px}
+  .bar-in{gap:4px 14px;padding:8px var(--gut)}
+  .search{flex-basis:100%;max-width:none}
+  .lens,.view{padding-left:0;border-left:0}
+  .results{width:100%}
+  .cmp-row{gap:5px}
+  .cmp-row-l{width:100%}
+  .node{width:56px;height:46px}
+  .ident{flex-basis:100%;grid-template-areas:"medal head" "body body";column-gap:16px;padding:14px}
+  .id-medal{--d:78px}
+  .id-body{margin-top:12px}
+  .step-h{min-width:0;flex-basis:100%}
+  .detail.sheet{max-height:62vh;padding:22px 18px calc(22px + env(safe-area-inset-bottom))}
+  .dx-title{font-size:29px}
+  .cite{grid-template-columns:104px minmax(0,1fr)}
+}
+@media (prefers-reduced-motion:reduce){ *,*::before,*::after{transition:none !important;animation:none !important;scroll-behavior:auto !important} }
+[data-motion="reduced"] *,[data-motion="reduced"] *::before,[data-motion="reduced"] *::after{transition:none !important;animation:none !important;scroll-behavior:auto !important}
+</style>
+</head>
+<body>
+<a class="skip" href="#list">Skip to the entries</a>
+
+<header class="mast">
+  <p class="kicker">Vox Mana<span>·</span>An interactive edition</p>
+  <h1>Mechanical Color Pie 2021</h1>
+  <p class="lede">Mark Rosewater's article, made searchable. Every entry name, explanation and Primary / Secondary / Tertiary placement on this page comes from his snapshot. The page adds search, a color lens and computed comparisons, all labelled as such.</p>
+  <div class="mast-rule" aria-hidden="true"></div>
+  <p class="snap"><a id="snap" href="https://magic.wizards.com/en/news/making-magic/mechanical-color-pie-2021" rel="noopener">Mechanical Color Pie 2021 · snapshot dated October 18, 2021</a><span id="author"> — Mark Rosewater (with the Council of Colors)</span></p>
+  <p class="limits" id="limits"></p>
+  <p class="meta" id="meta"></p>
+</header>
+
+<div class="bar" id="bar">
+  <div class="bar-in">
+    <div class="search" id="search" role="search">
+      <label class="bar-cap" for="q">Search<span class="sr-only"> the article's entries</span></label>
+      <div class="q-field">
+        <svg class="q-ico" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+        <input class="q" id="q" type="text" inputmode="search" enterkeyhint="search" autocomplete="off" spellcheck="false"
+          placeholder="Try “board wipe”, “flash” or “red enchantment removal”"
+          role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="res-list" aria-describedby="q-count">
+        <span class="q-meta"><span class="q-count" id="q-count"></span><button class="q-clear" id="q-clear" type="button" aria-label="Clear search" hidden>×</button></span>
+      </div>
+      <div class="results" id="results" hidden>
+        <p class="parse" id="parse"></p>
+        <p class="absent" id="absent" hidden></p>
+        <div role="listbox" id="res-list" aria-label="Matching entries"></div>
+        <p class="res-note" id="res-note" hidden></p>
+      </div>
+    </div>
+    <div class="lens" role="group" aria-labelledby="lens-cap">
+      <span class="bar-cap" id="lens-cap">Colors</span>
+      <span id="pips" class="pips"></span>
+      <button class="lens-clear" type="button" data-act="clear" hidden>Clear</button>
+    </div>
+    <div class="view" role="group" aria-label="Order">
+      <span class="bar-cap">Order</span>
+      <button class="view-b" type="button" data-act="view" data-v="article" aria-pressed="true">Article</button>
+      <button class="view-b" type="button" data-act="view" data-v="az" aria-pressed="false">A–Z</button>
+    </div>
+    <div class="lensline" id="lensline" hidden></div>
+  </div>
+</div>
+
+<main class="stage" id="stage">
+  <div class="wrap" id="wrap">
+    <section class="key" id="key" aria-labelledby="key-h">
+      <p class="sec-h"><span id="key-h">How to read an entry</span><button class="fold" id="key-fold" type="button" aria-expanded="true" aria-controls="key-body">Hide key</button></p>
+      <div class="key-mini" aria-hidden="true">
+        <span class="lg"><i class="sc t-p" style="--sz:14px;--cc:var(--ink)"></i>Primary</span>
+        <span class="lg"><i class="sc t-s" style="--sz:14px;--cc:var(--ink)"></i>Secondary</span>
+        <span class="lg"><i class="sc t-t" style="--sz:14px;--cc:var(--ink)"></i>Tertiary</span>
+        <span class="lg"><i class="sc t-n" style="--sz:14px"></i>No placement</span>
+      </div>
+      <div class="key-body" id="key-body">
+        <div class="spec" id="spec" aria-hidden="true"></div>
+        <div>
+          <dl class="defs">
+            <div class="def"><i class="sc t-p" aria-hidden="true"></i><dt>Primary</dt><dd>The color that uses the ability most: highest volume, lowest rarity.</dd></div>
+            <div class="def"><i class="sc t-s" aria-hidden="true"></i><dt>Secondary</dt><dd>Appears regularly, but less often, and may carry restrictions.</dd></div>
+            <div class="def"><i class="sc t-t" aria-hidden="true"></i><dt>Tertiary</dt><dd>Occasional: not every set, often narrow.</dd></div>
+            <div class="def"><i class="sc t-n" aria-hidden="true"></i><dt>No placement</dt><dd>The 2021 article places this ability in none of that color's tiers.</dd></div>
+            <p class="defs-note">Rosewater's categories describe how often a color uses an ability in design, not how well. Five slots, always W U B R G.</p>
+          </dl>
+        </div>
+        <ol class="steps">
+          <li><b>01</b>Search in your own words; each result says why it matched.</li>
+          <li><b>02</b>Choose colors to mark the entries placed in them. Nothing is hidden.</li>
+          <li><b>03</b>Compare a color combination with its neighbors, then open the entries behind each count.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="compass" id="compass" aria-labelledby="cmp-h">
+      <p class="sec-h"><span id="cmp-h">Compare color combinations <span class="calc">computed</span></span><button class="fold" id="cmp-fold" type="button" aria-expanded="true" aria-controls="cmp-body">Hide</button></p>
+      <div class="cmp-body" id="cmp-body">
+        <p class="cmp-note">All 31 combinations of the five colors, at one size. Choose one to use it as your colors. Its one-color neighbors are outlined, and each step lists the exact entries whose placement is added, removed, or changes tier. These are counts computed from the 2021 placements, not statements by Rosewater, and a count is not a measure of strength.</p>
+        <div class="cmp-main"><div class="cmp-rows" id="cmp-rows" role="group" aria-label="Color combinations"></div>
+        <section class="ident" id="ident" aria-labelledby="id-name" hidden></section></div>
+        <div class="steps-p" id="steps-p" hidden></div>
+      </div>
+    </section>
+
+    <p class="list-cap" id="list-cap"></p>
+    <div class="spotbar" id="spotbar" hidden></div>
+    <p class="empty-q" id="empty-q" hidden></p>
+    <div class="list" id="list" role="region" tabindex="-1" aria-label="Entries" aria-describedby="list-help"></div>
+    <p class="sr-only" id="list-help">Left and right arrows move through the entries in order; up and down move between rows. Enter opens an entry. Escape steps back.</p>
+    <div class="boot" id="boot" hidden></div>
+  </div>
+  <aside class="detail" id="detail" data-detail-owner aria-labelledby="dx-title" hidden></aside>
+</main>
+
+<footer class="foot">
+  <p>Placements, entry names, sub-headings and explanations are Rosewater's, from the October 18, 2021 snapshot. Counts, best placements under selected colors and compass differences are computed by this page from those placements. Tiers are compared only within one ability, across colors; nothing is summed, scored or ranked.</p>
+  <p>Player search terms are navigation aids drawn from player research. They lead to article entries and are never Rosewater's wording. An absent 2021 placement is not evidence that no card of that color exists.</p>
+  <p class="fcp">Vox Mana’s interactive edition of the Mechanical Color Pie 2021 is unofficial Fan Content permitted under the <a href="https://company.wizards.com/en/legal/fancontentpolicy" rel="noopener">Fan Content Policy</a>. Not approved/endorsed by Wizards. Portions of the materials used are property of Wizards of the Coast. ©Wizards of the Coast LLC.</p>
+  <p class="selftest" id="selftest" aria-live="off"></p>
+</footer>
+
+<div class="sr-only" aria-live="polite" id="announce"></div>
+<div class="peek" id="peek" hidden aria-hidden="true"><img alt="" id="peek-img"></div>
+
+<script>
+(() => {
+'use strict';
+
+/* ======================================================================
+   CONSTANTS
+   ====================================================================== */
+const ORDER = ['W','U','B','R','G'];
+const CNAME = { W:'White', U:'Blue', B:'Black', R:'Red', G:'Green' };
+const RANK  = { primary:3, secondary:2, tertiary:1 };
+const TIER  = { primary:'Primary', secondary:'Secondary', tertiary:'Tertiary' };
+const MAX_RESULTS = 60;
+
+/* Colour words a player may type. A whole-word match sets the colour lens;
+   it never filters anything out. Guild, shard and wedge names are the words
+   players use for combinations in the research corpus, so they are read as
+   colour terms too. They are never displayed as labels. */
+const COLOR_WORDS = { white:'W', blue:'U', black:'B', red:'R', green:'G' };
+/* "Colorless" typed in search: say what this explorer charts, and nothing
+   about what the article does or does not discuss. */
+const COLORLESS_NOTE = 'This explorer charts the 2021 placement tiers for White, Blue, Black, Red and Green only, so it has no colorless selection and no colorless tier.';
+const COMBO_WORDS = {
+  azorius:'WU', dimir:'UB', rakdos:'BR', gruul:'RG', selesnya:'WG', orzhov:'WB', izzet:'UR', golgari:'BG', boros:'WR', simic:'UG',
+  bant:'WUG', esper:'WUB', grixis:'UBR', jund:'BRG', naya:'WRG', abzan:'WBG', jeskai:'WUR', sultai:'UBG', mardu:'WBR', temur:'URG'
+};
+/* Combination names as navigation labels (Owner decision, 2026-09-27).
+   Every one is verified against a Wizards source: Mark Rosewater, "Faction
+   Packed", Making Magic, Oct 15 2018, which lists each guild, shard and wedge
+   with its colors (corroborated per group in HANDOFF.md). A name is a label
+   for a combination, never evidence about mechanics; it is always shown with
+   the color words and the code. Four and five colors carry no name here. */
+const COMBO_NAME = Object.fromEntries(Object.entries(COMBO_WORDS).map(([w, s]) => [s, w[0].toUpperCase() + w.slice(1)]));
+const NAME_SOURCE = 'Rosewater, “Faction Packed”, Making Magic, 2018';
+const comboWords = s => [...s].map(c => CNAME[c]).join('–');
+const comboAria = s => [COMBO_NAME[s], comboWords(s), s].filter(Boolean).join(', ');
+const comboTitle = s => [COMBO_NAME[s], comboWords(s), s].filter(Boolean).join(' · ');
+
+/* Words that carry no search meaning in a player's question. Dropped words
+   are shown back to the player, struck through, so nothing is silent. */
+const STOP = new Set(('a an the and or of to in on at for with from by into about as is are was were be been do does did can could ' +
+  'should would will how what which who why when where whats there any some my me i we you your our they their it its this that these ' +
+  'those have has get gets getting deal deals dealing handle play playing run running use using want need good best better mono ' +
+  'color colors colour colours deck decks card cards way ways thing things more most much many if like vs versus').split(' '));
+
+/* ======================================================================
+   PLAYER SEARCH TERMS — navigation metadata, not Rosewater's wording.
+   ----------------------------------------------------------------------
+   Each term was counted in the Commander player corpus
+   (C:\dev\Commander_Questions_Corpus, gate-02 candidate records, counted
+   2026-09-25). `seen` is that count; `example` is one record ID. They trace
+   why a term is here and are never evidence of any placement.
+   Each term lists two kinds of entry, shown apart:
+     exact   — the entry is the effect the term names;
+     related — useful to find, but NOT the effect the term names. `relWhy`
+               says why, and every related result is labelled that way.
+   Category words ("removal", "card advantage") are deliberately absent:
+   mapping them would be a judgement about what counts, not navigation.
+   ====================================================================== */
+const PLAYER_TERMS = [
+  { terms:['board wipe','board wipes','wipe','wipes','wrath','wraths','sweeper','sweepers'], seen:'board wipe 150 · wrath 17 · sweeper 3',
+    example:'CAND-WEB-1B260ACD9F-1-583B8C27E243',
+    exact:['destroy all creatures','destroy all creatures controlled by one player'],
+    related:['destroy all creatures with power 3 or greater','direct damage, multiple targets',
+      'creature pumping, their team, one-shot :: -n/-n to their team','creature pumping, their team, ongoing :: -n/-n to their team'],
+    relWhy:'mass effects limited to big creatures, or whose reach depends on the amount of damage or −N/−N' },
+  { terms:['ramp','ramping'], seen:'ramp 338', example:'CAND-WEB-1B260ACD9F-40-5C890018C97C',
+    exact:['mana production, permanent','play extra lands/put a land from hand onto the battlefield','putting lands from hand onto the battlefield',
+      'treasure creation','untapping lands'],
+    related:['tutor for a land'],
+    relWhy:'puts a land into your hand; it adds no mana by itself' },
+  { terms:['fast mana','ritual','rituals'], seen:'fast mana / ritual 82', example:'CAND-WEB-1B260ACD9F-52-F87806058336',
+    exact:['mana production, temporary'], related:[] },
+  { terms:['stax'], seen:'stax 165', example:'CAND-WEB-1B260ACD9F-10-18B3D8A47FA9',
+    exact:[], related:['taxing','preventing actions','rules setting','meddling'],
+    relWhy:'stax is a strategy, not one ability; these are entries players associate with it' },
+  { terms:['counter magic','counterspells','counter a spell'], seen:'counter magic / counterspells 114', example:'CAND-WEB-94CBDD778E-26-81CC34C4BE21',
+    exact:['counterspell'], related:['counter target activated/triggered ability'],
+    relWhy:'counters an activated or triggered ability, not a spell' },
+  { terms:['bounce','bouncing'], seen:'bounce 47', example:'CAND-WEB-38E33B3BAA-29-0420D1647D32', exact:['return to hand'], related:[] },
+  { terms:['burn'], seen:'burn 44', example:'CAND-YT-1E919E0A43-MANUAL-LINE-003754-D127AA7FA444',
+    exact:['deal n damage to creature, planeswalker, and/or player','direct damage, multiple targets',
+      "deal n damage to a creature/planeswalker/player where n is the number of cards in your hand/your opponent's hand"], related:[] },
+  { terms:['blink','blinking'], seen:'blink 41', example:'CAND-WEB-94CBDD778E-12-754849663D40', exact:['flicker'], related:[] },
+  { terms:['steal','stealing','theft'], seen:'steal / theft 68', example:'CAND-WEB-1B260ACD9F-10-18B3D8A47FA9',
+    exact:['stealing permanents, permanently','stealing permanents, temporarily'], related:[] },
+  { terms:['recursion','recur'], seen:'recursion / recur 57', example:'CAND-WEB-1B260ACD9F-10-18B3D8A47FA9',
+    exact:['reanimation','reanimate permanent','return target card from graveyard to hand','return target artifact from graveyard to hand',
+      'return target creature from graveyard to hand','return target enchantment from graveyard to hand','return target instant from graveyard to hand',
+      'return target sorcery from graveyard to hand','return target land from graveyard to hand','cast spells from your graveyard','cast spells out of graveyard'],
+    related:[] },
+  { terms:['lifegain'], seen:'lifegain / life gain 52', example:'CAND-WEB-AB97467DB9-11-55629D6BD6D7', exact:['life gain','lifelink','drain life'], related:[] },
+  /* "Unblockable" names one effect. The others restrict blocking without
+     preventing it, so they are related, never equivalent. */
+  { terms:['unblockable'], seen:'unblockable 14', example:'CAND-YT-1E919E0A43-MANUAL-LINE-003117-F8F4CF3D1391',
+    exact:["can't be blocked"], related:['flying','menace','daunt','stalking'],
+    relWhy:'restricts which creatures can block, but the creature can still be blocked' },
+  /* "Evasion" is the rules' own category: an ability that restricts what can
+     block an attacker (Comprehensive Rules 509.1b; flying 702.9a, menace
+     702.111a). Each of these is one. */
+  { terms:['evasion'], seen:'evasion 10', example:'CAND-YT-1EE14EB54A-UGW_GXXNG-9J_53H_PZ4AAABAG-BA56FA2BF746',
+    exact:["can't be blocked",'flying','menace','daunt','stalking'], related:[] },
+  { terms:['clone','clones'], seen:'clone 20', example:'CAND-WEB-DC3E156BCA-7-AF247EE2F77F',
+    exact:['copying permanents, permanently'], related:['copying permanents, temporarily'],
+    relWhy:'the copy lasts only for a while; a clone stays a copy' },
+  { terms:['graveyard hate','gy hate','yard hate'], seen:'graveyard hate 12', example:'CAND-YT-1E919E0A43-MANUAL-LINE-006175-CA0F34819A18',
+    exact:['exiling cards from graveyard'], related:[] },
+  { terms:['anthem','anthems'], seen:'anthem 11', example:'CAND-YT-2793F02D8E-MANUAL-LINE-001590-8988DB6D5F71',
+    exact:['creature pumping, your team, ongoing :: +n/+n to your team','creature pumping, your team, ongoing :: +n/+0 to your team'], related:[] },
+  { terms:['edict','edicts'], seen:'edict 7', example:'CAND-YT-81D57E863D-UGZGAY0JBOBE6O9IDMV4AAABAG-6E4BBFAB42B4',
+    exact:['forced sacrifice :: sacrifice a creature','forced sacrifice of a creature'], related:['creature sacrifice, forced, repeatable'],
+    relWhy:'a sacrifice every turn, where an edict is a single forced sacrifice' }
+];
+
+/* SUB-HEADING CORRECTION — one, documented. The frozen file's group field
+   comes from the repository parser, which was re-run on the live article on
+   2026-09-25 and reproduces the file exactly. In the article itself all seven
+   "Return target … from graveyard to hand." entries sit under "Returning cards
+   from graveyard to hand."; the parser left the creature entry ungrouped and
+   filed the four after it under a group named after it. Headings only: no
+   entry, text or placement changes. Recorded in HANDOFF.md as a source-layer
+   follow-up. */
+const HEADING_FIX = { from:'Return target creature from graveyard to hand.', to:'Returning cards from graveyard to hand.',
+  joins:'Return target creature from graveyard to hand.' };
+
+/* The five runtime entries that match no entry in the frozen copy of the
+   article's explanations section. They are NOT all the same case (checked
+   against the published article, 2026-09-25), so each says what is true of it.
+   No explanation text is ever supplied for them: the frozen data has none. */
+const UNMATCHED_CASE = {
+  absent: { tag:'No explanation in the article', where:'In the article’s per-color lists only',
+    ex:'The article gives no explanation for this entry.',
+    note:'Rosewater places this in his per-color lists. His “All Abilities with Explanations” section has no entry for it.' },
+  'forced sacrifice of a creature': { tag:'Explained under another name', where:'Per-color list name · explained under another name',
+    ex:'The article gives no explanation under this name.',
+    note:'This is the name the per-color lists use. The article’s explanation is under a separately named entry, “Sacrifice a creature.”, beneath the sub-heading “Forced sacrifice”. The frozen data keeps the two records apart.',
+    jump:'forced sacrifice :: sacrifice a creature', jumpLabel:'Open “Sacrifice a creature.”' },
+  'creature sacrifice, forced, repeatable': { tag:'Explanation not captured', where:'Explained in the article · not captured by the frozen data',
+    ex:'The frozen 2021 data holds no explanation for this entry.',
+    note:'The published 2021 article does include an explanation entry for this ability. The parser that built the frozen data misread that entry’s label, so its explanation was not captured. It is not supplied here, because this page shows only the frozen data. The issue is recorded for source review.' }
+};
+const unmatchedCase = k => UNMATCHED_CASE[k] || UNMATCHED_CASE.absent;
+
+const $ = (s, r = document) => r.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
+const setKey = cols => ORDER.filter(c => cols.has(c)).join('');
+const cnames = cols => ORDER.filter(c => cols.has(c)).map(c => CNAME[c]);
+const listWords = a => a.length < 2 ? a.join('') : a.slice(0, -1).join(', ') + ' and ' + a[a.length - 1];
+const plural = (n, one, many) => n === 1 ? one : (many || one + 's');
+const pip = c => `<i class="ms ms-${c.toLowerCase()} ms-cost" aria-hidden="true"></i>`;
+const norm = s => String(s || '').toLowerCase().replace(/[\u2018\u2019]/g, "'").replace(/[\u201c\u201d"]/g, '')
+  .replace(/[\u2013\u2014]/g, '-').replace(/\u200b/g, '').replace(/\s+/g, ' ').trim();
+const normX = s => norm(s).replace(/[.\s]+$/, '');
+const curly = s => String(s).replace(/"([^"]*)"/g, '\u201c$1\u201d').replace(/'/g, '\u2019');
+
+const params = new URLSearchParams(location.search);
+const forceReduced = params.get('motion') === 'reduced';
+const rmq = matchMedia('(prefers-reduced-motion: reduce)');
+const reduced = () => forceReduced || rmq.matches;
+if (forceReduced) document.documentElement.setAttribute('data-motion', 'reduced');
+const behavior = () => reduced() ? 'auto' : 'smooth';
+
+/* ======================================================================
+   DATA — filled at boot, frozen after
+   ====================================================================== */
+let MCP = null, MECH = null, KEYS = null, ABIL = null;
+const REC = new Map();          // key -> derived display and search record
+let ARTICLE = [];               // [{kind:'e', k, head} | ...] in the article's order
+let LIST_ONLY = [];             // runtime keys with no explanations-section entry
+let DUPES = 0;                  // explanation entries that repeat an earlier entry
+const PT_BY_KEY = new Map();    // key -> [player term]
+
+/* ======================================================================
+   STATE — everything shown is a function of this object
+   ====================================================================== */
+const S = {
+  sel: new Set(),      // colour lens (shared with the compass)
+  selFromQuery: false, // the lens was set by colour words in the search
+  q: '', parsed: null, hits: [], hitSet: new Set(),
+  view: 'article',     // 'article' | 'az'
+  pick: null,          // the one open entry
+  spot: null           // {label, keys:Set} — an explicit "show these entries"
+};
+let listOpen = false, activeOpt = -1, dmode = null, roving = null, rovingNode = null, srcOpen = false;
+const entEl = new Map(), nodeEl = new Map();
+const listEl = $('#list'), wrapEl = $('#wrap'), stageEl = $('#stage'), detailEl = $('#detail');
+
+/* ======================================================================
+   SELECTION MATHS — a direct port of tools/selection.py, which the golden
+   fixtures test. It compares tiers only within one mechanic, across colours.
+   ====================================================================== */
+function access(e, cols){
+  const owned = {};
+  for (const c in e.colors) if (cols.has(c)) owned[c] = e.colors[c].tier;
+  const v = Object.values(owned);
+  return { best: v.length ? v.reduce((a, b) => RANK[b] > RANK[a] ? b : a) : null, owned };
+}
+function sections(cols){
+  const out = { shared_primary:[], shared_access:[], complementary:[], unavailable:[], conditional:[] };
+  for (const k of KEYS){
+    const e = MECH[k], { best, owned } = access(e, cols);
+    if (best === null){ out.unavailable.push(k); continue; }
+    const n = Object.keys(owned).length;
+    if (n === cols.size) (Object.values(owned).every(t => t === 'primary') ? out.shared_primary : out.shared_access).push(k);
+    else out.complementary.push(k);
+    if (e.has_restriction) out.conditional.push(k);   /* fixture parity only; never displayed */
+  }
+  return out;
+}
+function buckets(cols){
+  const o = { primary:[], secondary:[], tertiary:[], none:[] };
+  for (const k of KEYS) o[access(MECH[k], cols).best || 'none'].push(k);
+  return o;
+}
+function deltaAdd(cols, added){
+  const after = new Set([...cols, added]);
+  const o = { newly_reachable:[], best_tier_improved:[], new_owner_no_improvement:[], unchanged:[], still_unavailable:[] };
+  for (const k of KEYS){
+    const a = access(MECH[k], cols), b = access(MECH[k], after);
+    if (b.best === null) o.still_unavailable.push(k);
+    else if (a.best === null) o.newly_reachable.push(k);
+    else if (RANK[b.best] > RANK[a.best]) o.best_tier_improved.push(k);
+    else if (Object.keys(b.owned).length > Object.keys(a.owned).length) o.new_owner_no_improvement.push(k);
+    else o.unchanged.push(k);
+  }
+  return o;
+}
+function deltaRemove(cols, removed){
+  const after = new Set([...cols].filter(c => c !== removed));
+  const o = { lost_completely:[], tier_degraded:[], lost_owner_retained_access:[], unchanged:[] };
+  for (const k of KEYS){
+    const a = access(MECH[k], cols), b = access(MECH[k], after);
+    if (a.best === null) continue;
+    if (b.best === null) o.lost_completely.push(k);
+    else if (RANK[b.best] < RANK[a.best]) o.tier_degraded.push(k);
+    else if (Object.keys(b.owned).length < Object.keys(a.owned).length) o.lost_owner_retained_access.push(k);
+    else o.unchanged.push(k);
+  }
+  return o;
+}
+function wubrgSummary(){
+  let total = 0, withPrimary = 0; const noPrimary = [];
+  for (const k of KEYS){
+    const tiers = Object.values(MECH[k].colors).map(d => d.tier);
+    if (!tiers.length) continue;
+    total++;
+    if (tiers.includes('primary')) withPrimary++; else noPrimary.push(k);
+  }
+  return { reachable: total, with_primary_owner: withPrimary, no_primary_owner_anywhere: noPrimary.length, no_primary: noPrimary };
+}
+const memo = new Map();
+function cached(key, fn){ if (!memo.has(key)) memo.set(key, fn()); return memo.get(key); }
+
+/* The compass's wording for the fixtures' categories. Plain descriptions of
+   arithmetic on one mechanic's placements; nothing more. */
+const ADD_LABEL = { newly_reachable:'newly placed', best_tier_improved:'best placement rises', new_owner_no_improvement:'another placement, best unchanged' };
+const REM_LABEL = { lost_completely:'no longer placed', tier_degraded:'best placement falls', lost_owner_retained_access:'one placement fewer, best unchanged' };
+const BUCKET_LABEL = { primary:'best is Primary', secondary:'best is Secondary', tertiary:'best is Tertiary', none:'no placement' };
+
+/* ======================================================================
+   RECORDS AND THE ARTICLE'S ORDER
+   ====================================================================== */
+function splitLabel(label){
+  const i = label.indexOf(' (');
+  if (i > 0){
+    const rest = label.slice(i + 1);
+    if (/^\([A-Z"\u201c]/.test(rest) || /\.["\u201d]?\)\s*$/.test(rest)) return { head: label.slice(0, i), gloss: rest };
+  }
+  return { head: label, gloss: '' };
+}
+function ownText(e){
+  return ORDER.map(c => `${CNAME[c]} ${e.colors[c] ? TIER[e.colors[c].tier].toLowerCase() : 'none'}`).join(', ');
+}
+
+function buildRecords(){
+  for (const k of KEYS){
+    const e = MECH[k], { head, gloss } = splitLabel(e.label);
+    const group = k.includes(' :: ') ? k.split(' :: ')[0] : null;
+    const tail = group ? k.split(' :: ')[1] : null;
+    REC.set(k, { k, e, head, gloss, disp: head.replace(/\.$/, ''), qual: null, heading: null, ix: null, listOnly: false,
+      sKey: normX(k), sTail: tail ? normX(tail) : null, sName: normX(head), sLab: normX(e.label),
+      sAl: (e.source_aliases || []).map(normX), sEx: norm(e.explanation) });
+  }
+  /* Identical labels (one-shot / ongoing team effects) are told apart by the
+     article's own sub-heading, carried in the canonical key. */
+  const byDisp = new Map();
+  for (const r of REC.values()){ const d = normX(r.disp); if (!byDisp.has(d)) byDisp.set(d, []); byDisp.get(d).push(r); }
+  for (const g of byDisp.values()) if (g.length > 1) for (const r of g){
+    const grp = r.k.includes(' :: ') ? r.k.split(' :: ')[0] : null;
+    if (grp) r.qual = grp.split(',').pop().trim();
+  }
+  /* player terms, indexed by entry, keeping exact and related apart */
+  for (const t of PLAYER_TERMS) for (const kind of ['exact', 'related']) for (const k of t[kind]){
+    if (!PT_BY_KEY.has(k)) PT_BY_KEY.set(k, []);
+    PT_BY_KEY.get(k).push({ term: t.terms[0], kind });
+  }
+}
+
+/* Map each explanations-section entry to its runtime key: by exact label,
+   and where a label repeats, by the article sub-heading the key carries. */
+function keyForEntry(a, byLabel){
+  const c = byLabel.get(a.label) || [];
+  if (c.length <= 1) return c[0] || null;
+  const g = normX(a.group || '');
+  return c.find(k => k.includes(' :: ') && normX(k.split(' :: ')[0]) === g) || null;
+}
+function buildArticle(){
+  const byLabel = new Map();
+  for (const k of KEYS){ const l = MECH[k].label; if (!byLabel.has(l)) byLabel.set(l, []); byLabel.get(l).push(k); }
+  const seen = new Set(); ARTICLE = []; DUPES = 0;
+  ABIL.abilities.forEach(a => {
+    const k = keyForEntry(a, byLabel);
+    if (!k) return;
+    if (seen.has(k)){ DUPES++; return; }            /* the parser's repeated "-N/-N to their team" */
+    seen.add(k);
+    let head = a.group || null;
+    if (head === HEADING_FIX.from) head = HEADING_FIX.to;
+    if (!head && a.label === HEADING_FIX.joins) head = HEADING_FIX.to;
+    const r = REC.get(k);
+    r.heading = head; r.ix = ARTICLE.length;
+    ARTICLE.push(k);
+  });
+  LIST_ONLY = KEYS.filter(k => !seen.has(k)).sort((a, b) => REC.get(a).disp < REC.get(b).disp ? -1 : 1);
+  for (const k of LIST_ONLY){ const r = REC.get(k); r.listOnly = true; r.ix = ARTICLE.length + LIST_ONLY.indexOf(k); }
+  for (const r of REC.values()) r.sHead = normX(r.heading || '');
+  for (const r of REC.values()) r.sAll = [r.sLab, r.sKey, ...r.sAl, r.sHead, r.sEx].join(' | ');
+}
+const azKey = r => normX(r.disp).replace(/^["'+\-]+/, '').replace(/['"]/g, '') + ' ' + (r.qual || '');
+const AZ = () => cached('az', () => KEYS.slice().sort((a, b) => { const x = azKey(REC.get(a)), y = azKey(REC.get(b)); return x < y ? -1 : x > y ? 1 : 0; }));
+
+/* ======================================================================
+   SEARCH — deterministic, inspectable. A query is split into colour words
+   (which set the lens), dropped question words (shown back), and the words
+   that are searched. Each result carries the reason it matched.
+   ====================================================================== */
+const variants = w => [...new Set([w, w.replace(/ies$/, 'y'), w.replace(/(ss|sh|ch|x)es$/, '$1'), w.replace(/s$/, '')])].filter(Boolean);
+
+function parseQuery(raw){
+  const toks = norm(raw).replace(/[?!,;:]+/g, ' ').split(' ').map(t => t.replace(/\.+$/, '')).filter(Boolean);
+  const colours = new Set(), colourWords = [], dropped = [], words = [];
+  let colorless = false;
+  for (const t of toks){
+    const bare = t.replace(/^mono-?/, '');
+    if (COLOR_WORDS[bare]){ colours.add(COLOR_WORDS[bare]); colourWords.push(t); continue; }
+    if (COMBO_WORDS[bare]){ [...COMBO_WORDS[bare]].forEach(c => colours.add(c)); colourWords.push(t); continue; }
+    if (bare === 'colorless' || bare === 'colourless'){ colorless = true; dropped.push(t); continue; }
+    if (STOP.has(t)){ dropped.push(t); continue; }
+    words.push(t);
+  }
+  /* `full` keeps the question words and the query's own punctuation, so an
+     entry name or the article's wording typed in full ("Creature sacrifice,
+     forced, repeatable"; "…with power 3/4 or greater") still matches it. */
+  const isColour = t => { const b = t.replace(/[?!,;:.]+$/, '').replace(/^mono-?/, ''); return !!(COLOR_WORDS[b] || COMBO_WORDS[b]); };
+  const full = normX(norm(raw).split(' ').filter(t => t && !isColour(t)).join(' '));
+  return { raw, colours, colourWords, dropped, words, phrase: words.join(' '), full, colorless };
+}
+
+const STAGES = [
+  { id:'name',    why:'Entry name' },
+  { id:'prefix',  why:'Entry name' },
+  { id:'contains',why:'Entry name' },
+  { id:'article', why:'Also written in the article as' },
+  { id:'player',  why:'Player search term', player:true },
+  { id:'heading', why:'Listed under' },
+  { id:'expl',    why:'In Rosewater’s explanation' },
+  { id:'related', why:'Related to player term', player:true, related:true },
+  { id:'words',   why:'Every word appears' }
+];
+const STAGE = Object.fromEntries(STAGES.map((s, i) => [s.id, i]));
+/* A match must begin at a word boundary: "ramp" must not find "tRAMPle". */
+const RX = new Map();
+const at = (field, v) => { if (!RX.has(v)) RX.set(v, new RegExp('(^|[^a-z0-9])' + v.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))); return RX.get(v).test(field); };
+function matchRecord(r, P){
+  const words = P.words;
+  const ps = [...new Set([P.full, normX(P.phrase)].filter(Boolean))].flatMap(variants)
+    .concat(words.length > 1 ? [words.map(w => variants(w).slice(-1)[0]).join(' ')] : []);
+  const any = f => ps.some(v => f(v));
+  const termHit = t => t.terms.some(term => any(v => term === v));
+  if (any(v => r.sName === v || r.sLab === v || r.sTail === v)) return { stage:STAGE.name };
+  if (any(v => r.sName.startsWith(v) || (r.sTail && r.sTail.startsWith(v)))) return { stage:STAGE.prefix };
+  if (any(v => at(r.sLab, v) || at(r.sKey, v))) return { stage:STAGE.contains };
+  const al = r.sAl.find(a => any(v => at(a, v)));
+  if (al) return { stage:STAGE.article, note: (r.e.source_aliases || [])[r.sAl.indexOf(al)] };
+  const pt = PLAYER_TERMS.find(t => t.exact.includes(r.k) && termHit(t));
+  if (pt) return { stage:STAGE.player, note: pt.terms[0] };
+  if (r.heading && any(v => at(r.sHead, v))) return { stage:STAGE.heading, note: r.heading };
+  if (any(v => at(r.sEx, v))) return { stage:STAGE.expl };
+  /* related entries come after every entry the words match directly, and
+     always say they are related, never the effect the term names */
+  const rel = PLAYER_TERMS.find(t => t.related.includes(r.k) && termHit(t));
+  if (rel) return { stage:STAGE.related, note: rel.terms[0], relWhy: rel.relWhy };
+  if (words.length > 1 && words.every(w => variants(w).some(v => at(r.sAll, v)))) return { stage:STAGE.words };
+  return null;
+}
+function searchRank(input){
+  const P = typeof input === 'string' ? parseQuery(input) : input;
+  if (!P || !P.phrase) return [];
+  const lensOn = P.colours.size > 0;
+  const out = [];
+  for (const r of REC.values()){
+    const m = matchRecord(r, P);
+    if (m) out.push({ k: r.k, stage: m.stage, note: m.note || null, relWhy: m.relWhy || null,
+      placed: lensOn ? access(r.e, P.colours).best !== null : true });
+  }
+  /* stage first; within a stage, entries placed in the named colours first
+     (distinguished, never removed); then the article's own order */
+  out.sort((a, b) => a.stage - b.stage || (b.placed - a.placed) || REC.get(a.k).ix - REC.get(b.k).ix);
+  return out;
+}
+
+/* ======================================================================
+   BUILD — once
+   ====================================================================== */
+function stripHTML(colors){
+  return '<span class="strip" aria-hidden="true">' + ORDER.map(c => {
+    const t = (colors[c] || {}).tier;
+    return `<i class="sc t-${t ? t[0] : 'n'}" data-c="${c}" style="--cc:var(--${c.toLowerCase()})"><i class="ms ms-${c.toLowerCase()}"></i></i>`;
+  }).join('') + '</span>';
+}
+function labelHTML(r){ return esc(curly(r.disp)).replace(/\//g, '/<wbr>') + (r.qual ? `<span class="e-q"> · ${esc(r.qual)}</span>` : ''); }
+
+function buildEntries(){
+  for (const k of KEYS){
+    const r = REC.get(k);
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'ent'; b.dataset.k = k; b.tabIndex = -1;
+    b.title = r.e.label;
+    b.setAttribute('aria-pressed', 'false');
+    b.innerHTML = `<span class="e-lab">${labelHTML(r)}${r.listOnly ? `<span class="e-tag">${esc(unmatchedCase(k).tag)}</span>` : ''}</span>${stripHTML(r.e.colors)}`;
+    b._slots = [...b.querySelectorAll('.strip .sc')];
+    entEl.set(k, b);
+  }
+}
+
+/* Lay the same 216 buttons out in the chosen order. Buttons are moved, never
+   recreated, so focus and state survive a change of order. */
+function layoutList(){
+  const frag = document.createDocumentFragment();
+  if (S.view === 'article'){
+    let grp = null, grpIn = null, grpName = null;
+    for (const k of ARTICLE){
+      const r = REC.get(k);
+      if (r.heading){
+        if (r.heading !== grpName){
+          grp = document.createElement('div'); grp.className = 'grp'; grp.setAttribute('role', 'group');
+          const n = ARTICLE.filter(x => REC.get(x).heading === r.heading).length;
+          grp.innerHTML = `<h3 class="grp-h">${esc(curly(r.heading))}<small>sub-heading in the article · ${n}</small></h3><div class="grp-in"></div>`;
+          grp.setAttribute('aria-label', r.heading);
+          grpIn = grp.querySelector('.grp-in'); grpName = r.heading; frag.appendChild(grp);
+        }
+        grpIn.appendChild(entEl.get(k));
+      } else { grpName = null; frag.appendChild(entEl.get(k)); }
+    }
+    const nAbsent = LIST_ONLY.filter(k => !UNMATCHED_CASE[k]).length;
+    const lo = document.createElement('div'); lo.className = 'lo'; lo.setAttribute('role', 'group');
+    lo.setAttribute('aria-label', 'Entries with no matching explanation in the frozen data');
+    lo.innerHTML = `<h3 class="grp-h">No matching explanation in the frozen data<small>${LIST_ONLY.length} entries</small></h3>
+      <p class="lo-note">These ${LIST_ONLY.length} entries carry placements in the frozen data but match no entry in its copy of Rosewater's “All Abilities with Explanations”. They are three different cases:
+      ${nAbsent} appear only in his per-color lists and have no explanation in the article; “Forced sacrifice of a creature” is the per-color lists' name, and the article explains it under a separately named entry, linked from its record;
+      and “Creature sacrifice, forced, repeatable” is explained in the published article, but that explanation was not captured by the frozen data and is not supplied here.</p><div class="grp-in"></div>`;
+    LIST_ONLY.forEach(k => lo.querySelector('.grp-in').appendChild(entEl.get(k)));
+    frag.appendChild(lo);
+  } else {
+    let letter = null;
+    for (const k of AZ()){
+      const L = (azKey(REC.get(k))[0] || '#').toUpperCase().replace(/[^A-Z]/, '#');
+      if (L !== letter){ letter = L; const h = document.createElement('p'); h.className = 'letter'; h.textContent = L; h.setAttribute('aria-hidden', 'true'); frag.appendChild(h); }
+      frag.appendChild(entEl.get(k));
+    }
+  }
+  listEl.textContent = '';
+  listEl.appendChild(frag);
+  const first = listEl.querySelector('.ent');
+  setRoving(roving && document.contains(roving) ? roving : first);
+}
+function setRoving(el){
+  if (!el) return;
+  if (roving && roving !== el) roving.tabIndex = -1;
+  el.tabIndex = 0; roving = el;
+}
+
+function buildPips(){
+  $('#pips').innerHTML = ORDER.map(c =>
+    `<button class="pip" type="button" data-act="pip" data-c="${c}" aria-pressed="false" aria-label="${CNAME[c]}" title="${CNAME[c]}" style="--cc:var(--${c.toLowerCase()})">
+       <i class="ms ms-${c.toLowerCase()} ms-cost" aria-hidden="true"></i><span class="pip-l" aria-hidden="true">${c}</span></button>`).join('');
+}
+
+/* The compass: rows by number of colours, each row in WUBRG order. One node
+   size for all 31; tiles show letters and mana symbols only. A name appears
+   only in the selected-identity display and the accessible label. */
+const COMBOS = (() => { const out = [];
+  for (let m = 1; m < 32; m++){ const s = ORDER.filter((c, i) => m & (1 << i)).join(''); out.push(s); }
+  const pos = s => [...s].map(c => ORDER.indexOf(c));
+  return out.sort((a, b) => a.length - b.length || (pos(a).join() < pos(b).join() ? -1 : 1)); })();
+const ROW_LABEL = { 1:'One color', 2:'Two', 3:'Three', 4:'Four', 5:'Five' };
+function buildCompass(){
+  const rows = $('#cmp-rows');
+  for (let n = 1; n <= 5; n++){
+    const row = document.createElement('div'); row.className = 'cmp-row';
+    row.innerHTML = `<span class="cmp-row-l">${ROW_LABEL[n]}</span>`;
+    for (const s of COMBOS.filter(x => x.length === n)){
+      const b = document.createElement('button');
+      b.type = 'button'; b.className = 'node'; b.dataset.s = s; b.dataset.n = s.length; b.dataset.act = 'node'; b.tabIndex = -1;
+      b.setAttribute('aria-pressed', 'false');
+      b.setAttribute('aria-label', comboAria(s)); b.title = comboTitle(s);
+      b.innerHTML = `<span class="n-pips" aria-hidden="true">${[...s].map(pip).join('')}</span><span class="n-l" aria-hidden="true">${s}</span>`;
+      row.appendChild(b); nodeEl.set(s, b);
+    }
+    rows.appendChild(row);
+  }
+  rovingNode = nodeEl.get('W'); rovingNode.tabIndex = 0;
+}
+
+/* ======================================================================
+   RENDER — derive, then toggle classes
+   ====================================================================== */
+function render(){
+  const lensOn = S.sel.size > 0;
+  const key = setKey(S.sel);
+  const bk = lensOn ? cached('best:' + key, () => new Map(KEYS.map(k => [k, access(MECH[k], S.sel).best || 'none']))) : null;
+  const qOn = S.hitSet.size > 0;
+  const spot = S.spot && S.spot.keys.size ? S.spot.keys : null;
+  for (const k of KEYS){
+    const el = entEl.get(k), e = MECH[k];
+    const b = bk ? bk.get(k) : null;
+    const sel = S.pick === k;
+    el.classList.toggle('is-off', !!spot && !spot.has(k) && !sel);
+    el.classList.toggle('is-hit', qOn && S.hitSet.has(k));
+    el.classList.toggle('is-miss', qOn && !S.hitSet.has(k) && !sel);
+    el.classList.toggle('is-out', lensOn && b === 'none' && !sel);
+    el.classList.toggle('is-sel', sel);
+    el.setAttribute('aria-pressed', sel ? 'true' : 'false');
+    const tier = b && b !== 'none' ? b : null;
+    for (const sl of el._slots) sl.classList.toggle('bx', !!tier && S.sel.has(sl.dataset.c) && (e.colors[sl.dataset.c] || {}).tier === tier);
+    const sig = key + '|' + (qOn && S.hitSet.has(k));
+    if (el._sig !== sig){
+      const r = REC.get(k);
+      el.setAttribute('aria-label', `${r.e.label}${r.qual ? ' (' + r.qual + ')' : ''}${r.listOnly ? ', ' + unmatchedCase(k).tag.toLowerCase() : ''}. ${ownText(e)}.` +
+        (b ? (b === 'none' ? ` No placement in ${listWords(cnames(S.sel))}.` : ` Best placement among ${listWords(cnames(S.sel))}: ${b}, computed.`) : ''));
+      el._sig = sig;
+    }
+  }
+  /* a group whose entries are all hidden by an explicit spotlight collapses */
+  listEl.querySelectorAll('.grp,.lo').forEach(g => g.classList.toggle('is-empty', !!spot && ![...g.querySelectorAll('.ent')].some(x => !x.classList.contains('is-off'))));
+  listEl.querySelectorAll('.letter').forEach(h => { let n = h.nextElementSibling, any = false;
+    while (n && !n.classList.contains('letter')){ if (!n.classList.contains('is-off')) any = true; n = n.nextElementSibling; }
+    h.classList.toggle('is-empty', !!spot && !any); });
+
+  renderBar(lensOn, bk);
+  renderCompass();
+  renderSpot();
+  renderResults();
+  renderDetail();
+}
+
+function renderBar(lensOn, bk){
+  document.querySelectorAll('.pip').forEach(p => p.setAttribute('aria-pressed', S.sel.has(p.dataset.c) ? 'true' : 'false'));
+  document.querySelectorAll('.view-b').forEach(v => v.setAttribute('aria-pressed', String(S.view === v.dataset.v)));
+  $('.lens-clear').hidden = !lensOn;
+  const ll = $('#lensline');
+  keepFocus(ll, () => {
+    if (!lensOn){ ll.hidden = true; ll.innerHTML = ''; return; }
+    const b = cached('bk:' + setKey(S.sel), () => buckets(S.sel));
+    const placed = KEYS.length - b.none.length;
+    ll.hidden = false;
+    ll.innerHTML = `<span class="who"><span aria-hidden="true">${[...setKey(S.sel)].map(pip).join('')}</span><span><b>${placed}</b> of ${KEYS.length} entries
+        have a placement in ${esc(listWords(cnames(S.sel)))}</span><span class="calc">computed</span></span>` +
+      (S.selFromQuery ? `<span class="src">Set from your search</span>` : '') +
+      ['primary','secondary','tertiary','none'].map(t => figBtn('bucket:' + t, BUCKET_LABEL[t], b[t],
+        `<i class="c-acc b-${t[0]}" aria-hidden="true"></i>`)).join('');
+  });
+}
+/* A count that opens exactly the entries it counts. */
+function figBtn(id, label, keys, glyph){
+  const on = !!S.spot && S.spot.id === id;
+  return `<button class="fig" type="button" data-act="spot" data-id="${esc(id)}" data-fid="${esc(id)}" aria-pressed="${on}"${keys.length ? '' : ' disabled'}
+    aria-label="${esc(label)}: ${keys.length} ${plural(keys.length, 'entry', 'entries')}. Show them.">${glyph || ''}${esc(label)} <b>${keys.length}</b></button>`;
+}
+function spotFor(id){
+  const [kind, a, b] = id.split(':');
+  const key = setKey(S.sel);
+  if (kind === 'bucket'){
+    const bk = cached('bk:' + key, () => buckets(S.sel));
+    return { keys: bk[a] || [], label: `${BUCKET_LABEL[a]} in ${listWords(cnames(S.sel))}` };
+  }
+  if (kind === 'add'){
+    const d = cached('add:' + key + '+' + a, () => deltaAdd(S.sel, a));
+    return { keys: d[b] || [], label: `adding ${CNAME[a]} to ${key} → ${setKey(new Set([...S.sel, a]))}: ${ADD_LABEL[b]}` };
+  }
+  if (kind === 'rem'){
+    const d = cached('rem:' + key + '-' + a, () => deltaRemove(S.sel, a));
+    return { keys: d[b] || [], label: `removing ${CNAME[a]} from ${key} → ${setKey(new Set([...S.sel].filter(c => c !== a)))}: ${REM_LABEL[b]}` };
+  }
+  return { keys: [], label: '' };
+}
+
+function renderCompass(){
+  const key = setKey(S.sel);
+  const nb = new Set();
+  if (S.sel.size){
+    for (const c of ORDER){
+      if (!S.sel.has(c)) nb.add(setKey(new Set([...S.sel, c])));
+      else if (S.sel.size > 1) nb.add(setKey(new Set([...S.sel].filter(x => x !== c))));
+    }
+  }
+  for (const [s, b] of nodeEl){
+    b.setAttribute('aria-pressed', String(s === key));
+    b.classList.toggle('is-nb', nb.has(s));
+  }
+  renderIdent(key);
+  const sp = $('#steps-p');
+  keepFocus(sp, () => {
+    if (!S.sel.size){ sp.hidden = true; sp.innerHTML = ''; return; }
+    const adds = ORDER.filter(c => !S.sel.has(c)).map(c => {
+      const d = cached('add:' + key + '+' + c, () => deltaAdd(S.sel, c)), to = setKey(new Set([...S.sel, c]));
+      return `<div class="step"><span class="step-h">+${pip(c)}<span class="sr-only">Add ${CNAME[c]}</span><b>${key} → ${to}</b></span>${
+        Object.keys(ADD_LABEL).map(id => figBtn(`add:${c}:${id}`, ADD_LABEL[id], d[id])).join('')}<button class="go" type="button" data-act="go" data-s="${to}" data-fid="go-${to}">Choose ${to}</button></div>`;
+    }).join('');
+    const rems = S.sel.size > 1 ? ORDER.filter(c => S.sel.has(c)).map(c => {
+      const d = cached('rem:' + key + '-' + c, () => deltaRemove(S.sel, c)), to = setKey(new Set([...S.sel].filter(x => x !== c)));
+      return `<div class="step"><span class="step-h">−${pip(c)}<span class="sr-only">Remove ${CNAME[c]}</span><b>${key} → ${to}</b></span>${
+        Object.keys(REM_LABEL).map(id => figBtn(`rem:${c}:${id}`, REM_LABEL[id], d[id])).join('')}<button class="go" type="button" data-act="go" data-s="${to}" data-fid="go-${to}">Choose ${to}</button></div>`;
+    }).join('') : '';
+    sp.hidden = false;
+    sp.innerHTML = (adds ? `<h3>Add one color</h3>${adds}` : '') + (rems ? `<h3 style="margin-top:12px">Remove one color</h3>${rems}` : '') +
+      `<p class="cmp-note" style="margin:10px 0 0">For each entry, the page compares that one ability's best placement among the colors before and after the step. Select a count to show exactly those entries below.</p>`;
+  });
+}
+
+/* THE SELECTED IDENTITY: name (if Wizards has one), color words, code, mana,
+   and the same computed count as the colors line. No ability summary. */
+function medalHTML(s){
+  const cs = [...s], n = cs.length, st = n === 2 ? 225 : -180 / n;   // a pair splits on the diagonal, like hybrid mana
+  const seg = n === 1 ? `var(--${cs[0].toLowerCase()})`
+    : `conic-gradient(from ${st}deg, ${cs.map((c, i) => `var(--${c.toLowerCase()}) ${(i * 100 / n).toFixed(3)}% ${((i + 1) * 100 / n).toFixed(3)}%`).join(', ')})`;
+  const R = { 1:0, 2:24, 3:27, 4:29, 5:31 }[n], gs = { 1:.46, 2:.3, 3:.25, 4:.21, 5:.19 }[n];
+  const marks = cs.map((c, i) => {
+    const a = (st + (i + .5) * 360 / n) * Math.PI / 180, x = (50 + R * Math.sin(a)).toFixed(2), y = (50 - R * Math.cos(a)).toFixed(2);
+    return `<i class="ms ms-${c.toLowerCase()}" style="left:${x}%;top:${y}%"></i><b class="id-l" style="left:${x}%;top:${y}%">${c}</b>`;
+  }).join('');
+  return `<div class="id-medal" aria-hidden="true" data-n="${n}" style="--seg:${seg};--gs:${gs}">${marks}<span class="id-shine"></span></div>`;
+}
+function renderIdent(key){
+  const el = $('#ident');
+  if (!key){ el.hidden = true; el.innerHTML = ''; return; }
+  const name = COMBO_NAME[key], words = comboWords(key);
+  const b = cached('bk:' + key, () => buckets(S.sel)), placed = KEYS.length - b.none.length;
+  el.hidden = false;
+  el.innerHTML = `${medalHTML(key)}
+    <div class="id-head">
+      <p class="id-kick">Selected ${key.length === 1 ? 'color' : 'colors'}</p>
+      <h3 class="id-name" id="id-name">${name ? `${esc(name)}<span class="sr-only">, ${esc(words)}, ${key}</span>` : `${esc(words)}<span class="sr-only">, ${key}</span>`}</h3>
+      <p class="id-words" aria-hidden="true">${name ? `<span>${esc(words)}</span>` : ''}<span class="id-code">${key}</span></p>
+    </div>
+    <div class="id-body">
+      <p class="id-count"><b>${placed}</b> of ${KEYS.length} entries have a placement in ${esc(listWords(cnames(S.sel)))} <span class="calc">computed</span></p>
+      <p class="id-src">${name ? `“${esc(name)}” is Wizards’ name for ${esc(words)} (${esc(NAME_SOURCE)}): a label, not a claim about mechanics.`
+        : key.length > 3 ? 'No combination name is used for four or five colors.' : ''}</p>
+      <p class="id-next">One-color steps from ${key} follow below.</p>
+    </div>`;
+}
+
+function renderSpot(){
+  const bar = $('#spotbar');
+  keepFocus(bar, () => {
+    if (!S.spot){ bar.hidden = true; bar.innerHTML = ''; return; }
+    bar.hidden = false;
+    bar.innerHTML = `<span>Showing <b>${S.spot.keys.size}</b> ${plural(S.spot.keys.size, 'entry', 'entries')}: ${esc(S.spot.label)}.</span>
+      <span class="calc">computed</span><button class="go" type="button" data-act="unspot" data-fid="unspot">Show all entries</button>`;
+  });
+  const cap = $('#list-cap');
+  cap.innerHTML = S.view === 'article'
+    ? `<span><b>${ARTICLE.length}</b> entries in the article's order, under its own sub-headings · then <b>${LIST_ONLY.length}</b> from its color lists only</span><span>Select an entry for Rosewater's explanation</span>`
+    : `<span><b>${KEYS.length}</b> entries, A–Z</span><span>Select an entry for Rosewater's explanation</span>`;
+  const note = $('#empty-q');
+  const q = S.q.trim();
+  note.hidden = !(q && S.parsed && S.parsed.phrase && !S.hits.length);
+  if (!note.hidden) note.textContent = `No entry matched “${S.parsed.phrase}”. The list is unchanged.`;
+}
+
+/* Re-rendering a region must not strand keyboard focus. */
+function keepFocus(container, fn){
+  const a = document.activeElement;
+  const fid = a && container.contains(a) ? a.getAttribute('data-fid') : null;
+  fn();
+  if (fid){ const n = container.querySelector(`[data-fid="${CSS.escape(fid)}"]`); if (n) n.focus({ preventScroll:true }); }
+}
+
+/* --- search results -------------------------------------------------- */
+const qEl = $('#q'), resEl = $('#results'), resList = $('#res-list'), resNote = $('#res-note');
+function parseLine(P, hits){
+  const bits = [];
+  if (P.colourWords.length) bits.push(`<span class="lab">Colors</span><b>${esc(listWords(cnames(P.colours)))}</b> — marked, nothing hidden`);
+  for (const t of P.colourWords){
+    const w = t.toLowerCase().replace(/[?!,;:.]+$/, ''), code = COMBO_WORDS[w];
+    if (code) bits.push(`<span class="lab">Name</span><b>${esc(COMBO_NAME[code])}</b> = ${esc(comboWords(code))} · ${code}, a label for these colors
+      <button class="go name-go" type="button" data-act="name-go" data-s="${code}">Compare ${code}</button>`);
+  }
+  if (P.words.length) bits.push(`<span class="lab">Searched</span><b>${esc(P.words.join(' '))}</b>`);
+  if (P.dropped.length) bits.push(`<span class="lab">Ignored</span><span class="gone">${esc(P.dropped.join(' '))}</span>`);
+  if (P.colorless) bits.push(`<span class="lab">Colorless</span>${esc(COLORLESS_NOTE)}`);
+  /* A player term: how many entries it names, and how many are only related. */
+  const terms = new Map();
+  for (const h of hits || []){
+    const st = STAGES[h.stage]; if (!st.player) continue;
+    if (!terms.has(h.note)) terms.set(h.note, { exact:0, related:0, why:null });
+    const t = terms.get(h.note); if (st.related){ t.related++; t.why = h.relWhy; } else t.exact++;
+  }
+  for (const [term, t] of terms)
+    bits.push(`<span class="lab">Player term</span><span class="pterm">“${esc(term)}”</span>: ${t.exact} ${plural(t.exact, 'entry it names', 'entries it names')}` +
+      (t.related ? ` · ${t.related} related, not what the term names (${esc(t.why)})` : ''));
+  return bits.map(b => `<span class="pb">${b}</span>`).join('') || 'Type an ability, a player term, or a question.';
+}
+function renderResults(){
+  const q = S.q.trim(), P = S.parsed;
+  const cnt = $('#q-count');
+  cnt.textContent = q && P && P.phrase ? (S.hits.length ? `${S.hits.length} ${plural(S.hits.length, 'match', 'matches')}` : 'No matches') : '';
+  cnt.classList.toggle('none', !!(q && P && P.phrase && !S.hits.length));
+  $('#q-clear').hidden = !q;
+  $('#search').classList.toggle('has-q', !!q);
+  const open = listOpen && !!q;
+  resEl.hidden = !open;
+  qEl.setAttribute('aria-expanded', open && S.hits.length ? 'true' : 'false');
+  if (!open){ qEl.removeAttribute('aria-activedescendant'); return; }
+  const sig = q + '|' + setKey(S.sel);
+  if (resEl._sig !== sig){
+    $('#parse').innerHTML = parseLine(P, S.hits);
+    const ab = $('#absent');
+    const lensOn = P.colours.size > 0;
+    const unplaced = lensOn ? S.hits.filter(h => !h.placed).length : 0;
+    ab.hidden = !(lensOn && P.phrase);
+    ab.textContent = `${unplaced} of ${S.hits.length} ${plural(S.hits.length, 'match', 'matches')} ${unplaced === 1 ? 'has' : 'have'} no 2021 placement in ${listWords(cnames(P.colours))}. That records Rosewater's design defaults on October 18, 2021; it is not evidence that no card of that color does this.`;
+    const shown = S.hits.slice(0, MAX_RESULTS);
+    resList.innerHTML = shown.map((h, i) => {
+      const r = REC.get(h.k), st = STAGES[h.stage];
+      const note = h.note ? ` <span>${st.player ? `<span class="pterm">“${esc(h.note)}”</span>` : '“' + esc(curly(h.note)) + '”'}</span>` : '';
+      let lp = '';
+      if (lensOn){ const { best } = access(r.e, P.colours); lp = `<span class="lensp">${esc([...setKey(P.colours)].join(''))}: ${best ? TIER[best] : 'no placement'}</span>`; }
+      const tag = st.related ? ` <span class="pterm-tag rel">related · not what the term names</span>` : st.player ? ' <span class="pterm-tag">navigation aid</span>' : '';
+      return `<div class="opt${st.related ? ' is-rel' : ''}" role="option" id="opt-${i}" data-k="${esc(h.k)}" aria-selected="false"${st.related ? ` title="${esc(h.relWhy)}"` : ''}>
+        <span class="opt-l">${labelHTML(r)}</span>${stripHTML(r.e.colors)}
+        <span class="opt-w"><span class="why${st.player ? ' p' : ''}">${esc(st.why)}</span>${note}${tag}${lp}</span></div>`;
+    }).join('');
+    if (P.phrase && !S.hits.length){ resNote.hidden = false; resNote.textContent = `No entry matched “${P.phrase}”. The list is unchanged.`; }
+    else if (!P.phrase && lensOn){ resNote.hidden = false; resNote.textContent = `Colors set to ${listWords(cnames(P.colours))}. Add words to search the entries.`; }
+    else if (S.hits.length > MAX_RESULTS){ resNote.hidden = false; resNote.textContent = `${S.hits.length - MAX_RESULTS} more are marked in the list.`; }
+    else resNote.hidden = true;
+    resEl._sig = sig;
+  }
+  const opts = resList.children;
+  for (let i = 0; i < opts.length; i++) opts[i].setAttribute('aria-selected', i === activeOpt ? 'true' : 'false');
+  if (activeOpt >= 0 && opts[activeOpt]){ qEl.setAttribute('aria-activedescendant', opts[activeOpt].id); opts[activeOpt].scrollIntoView({ block:'nearest' }); }
+  else qEl.removeAttribute('aria-activedescendant');
+}
+
+/* ======================================================================
+   SCRYFALL — only to resolve the cards Rosewater names in his own text
+   ----------------------------------------------------------------------
+   Five explanations cite a card with an [autocard mvid="…"] tag. The tag is
+   never shown; if Scryfall answers, the card name after it becomes a link
+   that identifies that card. It adds no mechanical claim. If Scryfall is
+   unreachable, the text reads exactly as written, minus the tag.
+   ====================================================================== */
+const SF_API = 'https://api.scryfall.com';
+const sfCache = new Map();
+let sfTail = Promise.resolve();
+function sfGet(path){
+  if (!sfCache.has(path)){
+    const run = sfTail.then(() => fetch(SF_API + path, { headers:{ Accept:'application/json' } })).then(r => r.ok ? r.json() : null).catch(() => null);
+    sfTail = run.then(() => new Promise(res => setTimeout(res, 110)));
+    sfCache.set(path, run);
+  }
+  return sfCache.get(path);
+}
+const cardImages = c => c.image_uris || ((c.card_faces || [])[0] || {}).image_uris || {};
+function explanationHTML(text){
+  return text.split(/(\[autocard mvid="\d+"\])/).map(part => {
+    const m = /^\[autocard mvid="(\d+)"\]$/.exec(part);
+    return m ? `<span class="cardanchor" data-mvid="${m[1]}"></span>` : esc(part);
+  }).join('');
+}
+function linkCardName(anchor, card){
+  const name = String(card.name).split(' // ')[0];
+  const t = anchor.nextSibling;
+  if (!t || t.nodeType !== 3 || !t.data.toLowerCase().startsWith(name.toLowerCase())) return;
+  const a = document.createElement('a');
+  a.className = 'cardref cardlink'; a.href = card.scryfall_uri; a.target = '_blank'; a.rel = 'noopener';
+  a.dataset.peek = cardImages(card).normal || '';
+  a.textContent = t.data.slice(0, name.length);
+  a.setAttribute('aria-label', `${a.textContent}, a card Rosewater names. Opens Scryfall.`);
+  t.data = t.data.slice(name.length);
+  anchor.after(a);
+}
+function hydrateDetail(k){
+  detailEl.querySelectorAll('.cardanchor[data-mvid]').forEach(an => {
+    sfGet('/cards/multiverse/' + an.dataset.mvid).then(card => {
+      const next = an.nextElementSibling;
+      if (card && S.pick === k && an.isConnected && !(next && next.classList.contains('cardref'))){ linkCardName(an, card); addCite(card); }
+    });
+  });
+}
+function addCite(card){
+  const img = cardImages(card).normal, host = detailEl.querySelector('.dx-ex');
+  if (!img || !host || detailEl.querySelector(`.cite[data-id="${card.id}"]`)) return;
+  const name = String(card.name).split(' // ')[0], credit = card.artist ? `Illustrated by ${card.artist}` : '';
+  const f = document.createElement('figure'); f.className = 'cite'; f.dataset.id = card.id;
+  f.innerHTML = `<a class="cite-img" href="${esc(card.scryfall_uri)}" target="_blank" rel="noopener" aria-label="${esc(name)}, the card Rosewater cites${card.set_name ? `, ${esc(card.set_name)} printing` : ''}. Opens Scryfall.">
+      <img src="${esc(img)}" alt="${esc(name)}, the card${card.set_name ? `, ${esc(card.set_name)} printing` : ''}" width="488" height="680" loading="lazy" decoding="async"></a>
+    <figcaption><span class="cite-k">Card Rosewater cited</span><b>${esc(name)}</b>
+      <span>${esc(card.set_name || '')}${card.collector_number ? ` · #${esc(card.collector_number)}` : ''}</span>
+      ${credit ? `<span>${esc(credit)}</span>` : ''}
+      <span class="cite-c">Card image via Scryfall · © Wizards of the Coast. It identifies the card; the placement and explanation above are Rosewater’s.</span></figcaption>`;
+  const im = f.querySelector('img'); im.addEventListener('error', () => f.remove());
+  const after = host.parentElement.querySelector('.dx-note') || host;
+  after.after(f);
+}
+function showPeek(a){
+  const src = a.dataset.peek; if (!src) return;
+  const peek = $('#peek'), img = $('#peek-img');
+  if (img.getAttribute('src') !== src) img.src = src;
+  const r = a.getBoundingClientRect(), W = 244, H = 340;
+  let x = r.left - W - 14; if (x < 8) x = Math.min(innerWidth - W - 8, r.right + 14);
+  peek.style.left = x + 'px'; peek.style.top = Math.max(8, Math.min(innerHeight - H - 8, r.top + r.height / 2 - H / 2)) + 'px';
+  peek.hidden = false;
+}
+function hidePeek(){ $('#peek').hidden = true; }
+
+/* ======================================================================
+   THE ONE DETAIL SURFACE
+   ====================================================================== */
+function dockWidth(){ return Math.round(Math.min(440, Math.max(340, window.innerWidth * 0.26))); }
+function detailModeFor(){
+  const W = stageEl.clientWidth - 2 * parseFloat(getComputedStyle(stageEl).paddingLeft);
+  return W - dockWidth() - 26 >= 560 ? 'dock' : 'sheet';
+}
+function renderDetail(){
+  if (!S.pick){
+    detailEl.hidden = true; detailEl.innerHTML = ''; detailEl._sig = null; dmode = null;
+    stageEl.classList.remove('docked'); detailEl.classList.remove('sheet'); setSheetH(0);
+    return;
+  }
+  const mode = detailModeFor();
+  stageEl.style.setProperty('--dw', dockWidth() + 'px');
+  if (mode !== dmode || detailEl.hidden){
+    dmode = mode;
+    stageEl.classList.toggle('docked', mode === 'dock');
+    detailEl.classList.toggle('sheet', mode === 'sheet');
+  }
+  const sig = S.pick + '|' + setKey(S.sel);
+  if (detailEl._sig === sig && !detailEl.hidden) return;
+  if (detailEl._sig && detailEl._sig.split('|')[0] !== S.pick) srcOpen = false;
+  keepFocus(detailEl, () => { detailEl.innerHTML = detailHTML(S.pick); });
+  detailEl._sig = sig; detailEl.hidden = false;
+  const src = detailEl.querySelector('.dx-src');
+  if (src){ src.open = srcOpen; src.addEventListener('toggle', () => { srcOpen = src.open; }); }
+  hidePeek();
+  hydrateDetail(S.pick);
+  if (mode === 'sheet') setSheetH(detailEl.offsetHeight);
+}
+
+function detailHTML(k){
+  const r = REC.get(k), e = r.e, lensOn = S.sel.size > 0;
+  /* All five colours, always, in W U B R G order: the complete record. */
+  const rows = ORDER.map(c => {
+    const d = e.colors[c];
+    return `<li class="own-row${d ? '' : ' none'}${lensOn && S.sel.has(c) ? ' lensed' : ''}" data-c="${c}">
+      <i class="sc t-${d ? d.tier[0] : 'n'}" style="--cc:var(--${c.toLowerCase()})" aria-hidden="true"><i class="ms ms-${c.toLowerCase()}"></i></i>
+      <span class="own-c">${CNAME[c]}</span><span class="own-lead" aria-hidden="true"></span><span class="own-t">${d ? TIER[d.tier] : 'No placement'}</span></li>`;
+  }).join('');
+  let lensLine = '';
+  if (lensOn){
+    const { best, owned } = access(e, S.sel), names = listWords(cnames(S.sel));
+    if (best === null) lensLine = `No placement in ${esc(names)}. This records the 2021 article's design defaults; it is not evidence that no card of ${S.sel.size > 1 ? 'those colors' : 'that color'} does this.`;
+    else {
+      const via = ORDER.filter(c => owned[c] === best).map(c => CNAME[c]);
+      lensLine = `Best placement among ${esc(names)}: <b>${TIER[best]}</b>${S.sel.size > 1 ? ', in ' + esc(listWords(via)) : ''}.`;
+    }
+    lensLine += ' <span class="calc">computed</span>';
+  }
+  const prov = ORDER.filter(c => e.colors[c] && e.colors[c].basis !== 'both-agree').map(c => {
+    const d = e.colors[c], mark = `<span class="wl wl-${c}" aria-hidden="true">${c}</span><span class="sr-only">${CNAME[c]}: </span>`;
+    if (d.basis === 'adjudicated' && d.conflict){
+      const ru = d.ruling || {};
+      return `<p>${mark}The article's color list says ${esc(d.conflict.colour_list_says)}; its ability catalog says ${esc(d.conflict.ability_catalog_says)}.
+        This dataset uses <b>${esc(d.tier)}</b>${ru.authority ? `, on the authority of the ${esc(ru.authority)}` : ''}, and keeps the conflicting claim.${ru.mechanism ? ' ' + esc(ru.mechanism) : ''}</p>`;
+    }
+    if (d.basis === 'colour-list-only') return `<p>${mark}${esc(TIER[d.tier])} comes from the article's color list only; the explanations section does not repeat it.</p>`;
+    if (d.basis === 'ability-catalog-only') return `<p>${mark}${esc(TIER[d.tier])} comes from the explanations section only; the article's color list does not name it.</p>`;
+    return `<p>${mark}Basis: ${esc(d.basis)}.</p>`;
+  }).join('');
+  const aliases = e.source_aliases || [];
+  const pts = PT_BY_KEY.get(k) || [];
+  const ptExact = pts.filter(p => p.kind === 'exact'), ptRel = pts.filter(p => p.kind === 'related');
+  const lo = r.listOnly ? unmatchedCase(k) : null;
+  return `
+    <div class="dx-top">
+      <p class="dx-where">${lo ? esc(lo.where) : r.heading ? `Under <i>${esc(curly(r.heading))}</i>` : 'In the article’s explanations'}</p>
+      <button class="dx-close" type="button" data-act="close" data-fid="dx-close" aria-label="Close entry">×</button>
+    </div>
+    <h2 class="dx-title${r.head.length > 48 ? ' long' : ''}" id="dx-title">${esc(curly(r.head))}</h2>
+    ${r.gloss ? `<p class="dx-gloss">${esc(curly(r.gloss))}</p>` : ''}
+    <div class="dx-notation" aria-hidden="true">${stripHTML(e.colors)}<span class="dx-letters">${ORDER.map(c => `<i class="wl-${c}">${c}</i>`).join('')}</span></div>
+    <section class="dx-sec" aria-label="Placements">
+      <h3 class="dx-h">Placements <span class="by">Rosewater, 2021</span></h3>
+      <ul class="own">${rows}</ul>
+      ${lensLine ? `<p class="dx-lens">${lensLine}</p>` : ''}
+    </section>
+    <section class="dx-sec" aria-label="Explanation">
+      <h3 class="dx-h">Explanation <span class="by">Rosewater, 2021</span></h3>
+      ${e.explanation ? `<p class="dx-ex">${explanationHTML(e.explanation)}</p>`
+        : `<p class="dx-ex is-empty">${esc(lo ? lo.ex : 'The frozen 2021 data holds no explanation for this entry.')}</p>`}
+      ${lo ? `<p class="dx-note">${esc(lo.note)}${lo.jump ? ` <button class="dx-jump" type="button" data-act="jump" data-k="${esc(lo.jump)}" data-fid="dx-jump">${esc(lo.jumpLabel)}</button>` : ''}</p>` : ''}
+    </section>
+    ${aliases.length ? `<section class="dx-sec" aria-label="Also written in the article as"><h3 class="dx-h">Also written in the article as</h3>
+      <ul class="dx-list">${aliases.map(a => `<li>${esc(curly(a))}</li>`).join('')}</ul></section>` : ''}
+    ${pts.length ? `<section class="dx-sec" aria-label="Player search terms"><h3 class="dx-h">Player search terms that lead here <span class="pterm-tag">navigation aid</span></h3>
+      ${ptExact.length ? `<p class="dx-note" style="margin:0">Names this effect: ${ptExact.map(t => `<span class="pterm">“${esc(t.term)}”</span>`).join(', ')}.</p>` : ''}
+      ${ptRel.length ? `<p class="dx-note" style="margin:${ptExact.length ? '6px' : '0'} 0 0">Related, not what the term names: ${ptRel.map(t => `<span class="pterm">“${esc(t.term)}”</span>`).join(', ')}.</p>` : ''}
+      <p class="dx-note">Words players use, from player research. Not Rosewater's wording and not a claim about this entry.</p></section>` : ''}
+    ${prov ? `<details class="dx-src"><summary data-fid="dx-src">Source note</summary>${prov}</details>` : ''}
+    <p class="dx-foot">${esc(MCP.meta.display_label)}. Tier describes how often a color uses this in design, not how well.</p>`;
+}
+
+function setSheetH(h){
+  const root = document.documentElement;
+  root.style.setProperty('--sheet-h', (h || 0) + 'px');
+  root.classList.toggle('sheet-open', !!h);
+  updateStick();
+}
+function updateStick(){
+  const bar = $('#bar'), root = document.documentElement;
+  root.style.setProperty('--bar-h', bar.offsetHeight + 'px');
+  root.style.setProperty('--stick-h', getComputedStyle(bar).position === 'sticky' ? bar.offsetHeight + 'px' : '0px');
+}
+
+/* ======================================================================
+   ACTIONS
+   ====================================================================== */
+const announceEl = $('#announce');
+let announceT = 0;
+function announce(msg){ clearTimeout(announceT); announceT = setTimeout(() => { announceEl.textContent = ''; announceEl.textContent = msg; }, 60); }
+function lensSummary(){
+  if (!S.sel.size) return 'Colors cleared.';
+  const b = cached('bk:' + setKey(S.sel), () => buckets(S.sel));
+  return `${listWords(cnames(S.sel))}: ${KEYS.length - b.none.length} of ${KEYS.length} entries have a placement. Computed.`;
+}
+function setSel(cols, fromQuery){
+  S.sel = new Set(cols); S.selFromQuery = !!fromQuery && S.sel.size > 0; S.spot = null;
+  if (S.q) runSearch();
+}
+function toggleColor(c){
+  const n = new Set(S.sel); if (n.has(c)) n.delete(c); else n.add(c);
+  setSel(n, false); render(); announce(lensSummary());
+}
+function clearColors(){ setSel([], false); render(); announce(lensSummary()); }
+function chooseCombo(s){
+  setSel([...s], false);
+  const b = nodeEl.get(s); if (b){ rovingNode.tabIndex = -1; b.tabIndex = 0; rovingNode = b; }
+  render(); announce(lensSummary());
+}
+
+function runSearch(){
+  S.parsed = parseQuery(S.q);
+  /* search ranks entries placed in the lens colours first; the query's own
+     colour words take precedence while they are present */
+  const P = S.parsed;
+  if (!P.colourWords.length && S.sel.size && !S.selFromQuery) P.colours = new Set(S.sel);
+  S.hits = searchRank(P);
+  S.hitSet = new Set(S.hits.map(h => h.k));
+}
+function setQuery(v){
+  S.q = v;
+  const P = parseQuery(v);
+  if (P.colourWords.length){ S.sel = new Set(P.colours); S.selFromQuery = true; }
+  else if (S.selFromQuery){ S.sel = new Set(); S.selFromQuery = false; }
+  runSearch();
+  S.spot = null; activeOpt = -1;
+  listOpen = document.activeElement === qEl && !!v.trim();
+  render();
+  if (v.trim()) announce(S.hits.length ? `${S.hits.length} ${plural(S.hits.length, 'match', 'matches')}. First: ${REC.get(S.hits[0].k).disp}.`
+    : S.parsed.phrase ? 'No entry matched. The list is unchanged.' : '');
+}
+function setView(v){
+  if (S.view === v) return;
+  S.view = v; layoutList(); render();
+  announce(v === 'article' ? 'Article order.' : 'A to Z.');
+}
+function setSpot(id){
+  if (S.spot && S.spot.id === id){ S.spot = null; render(); return; }
+  const f = spotFor(id);
+  S.spot = { id, label: f.label, keys: new Set(f.keys) };
+  render();
+  announce(`Showing ${f.keys.length} ${plural(f.keys.length, 'entry', 'entries')}: ${f.label}.`);
+  $('#spotbar').scrollIntoView({ block:'nearest', behavior: behavior() });
+}
+function openEntry(k, opts = {}){
+  S.pick = k;
+  setRoving(entEl.get(k));
+  render();
+  entEl.get(k).scrollIntoView({ block: opts.from === 'search' ? 'center' : 'nearest', behavior: behavior() });
+  if (opts.focus) entEl.get(k).focus({ preventScroll:true });
+  announce(`${REC.get(k).disp} opened.`);
+}
+function closeEntry(restoreFocus){
+  const k = S.pick; S.pick = null; render();
+  if (restoreFocus && k) entEl.get(k).focus({ preventScroll:true });
+  announce('Entry closed.');
+}
+
+/* ======================================================================
+   EVENTS
+   ====================================================================== */
+function bindEvents(){
+  $('#bar').addEventListener('click', ev => {
+    const b = ev.target.closest('[data-act]'); if (!b) return;
+    const a = b.dataset.act;
+    if (a === 'pip') toggleColor(b.dataset.c);
+    else if (a === 'clear') clearColors();
+    else if (a === 'view') setView(b.dataset.v);
+    else if (a === 'spot') setSpot(b.dataset.id);
+  });
+  $('#compass').addEventListener('click', ev => {
+    const b = ev.target.closest('[data-act]'); if (!b) return;
+    const a = b.dataset.act;
+    if (a === 'node') chooseCombo(b.dataset.s);
+    else if (a === 'go'){ chooseCombo(b.dataset.s); nodeEl.get(b.dataset.s).focus(); }
+    else if (a === 'spot') setSpot(b.dataset.id);
+  });
+  $('#compass').addEventListener('keydown', ev => {
+    const n = ev.target.closest('.node'); if (!n || !DIRS[ev.key]) return;
+    ev.preventDefault();
+    const t = nearest(n, DIRS[ev.key], nodeEl.values());
+    if (t){ rovingNode.tabIndex = -1; t.tabIndex = 0; rovingNode = t; t.focus(); }
+  });
+  $('#spotbar').addEventListener('click', ev => { if (ev.target.closest('[data-act="unspot"]')){ S.spot = null; render(); listEl.focus({ preventScroll:true }); } });
+
+  qEl.addEventListener('input', () => setQuery(qEl.value));
+  qEl.addEventListener('focus', () => { if (S.q.trim()){ listOpen = true; renderResults(); } });
+  $('#search').addEventListener('focusout', ev => {
+    if (ev.relatedTarget && $('#search').contains(ev.relatedTarget)) return;
+    listOpen = false; activeOpt = -1; renderResults();
+  });
+  qEl.addEventListener('keydown', ev => {
+    const n = Math.min(S.hits.length, MAX_RESULTS);
+    if (ev.key === 'ArrowDown' && n){ ev.preventDefault(); listOpen = true; activeOpt = Math.min(n - 1, activeOpt + 1); renderResults(); }
+    else if (ev.key === 'ArrowUp' && n){ ev.preventDefault(); listOpen = true; activeOpt = Math.max(0, activeOpt - 1); renderResults(); }
+    else if (ev.key === 'Enter' && n){ ev.preventDefault(); choose(S.hits[Math.max(0, activeOpt)].k); }
+  });
+  resEl.addEventListener('pointerdown', ev => ev.preventDefault());
+  resEl.addEventListener('click', ev => {
+    const g = ev.target.closest('[data-act="name-go"]');
+    if (g){ listOpen = false; activeOpt = -1; renderResults(); setFolded('compass', false, false); chooseCombo(g.dataset.s);
+      const n = nodeEl.get(g.dataset.s); n.focus({ preventScroll:true }); $('#compass').scrollIntoView({ behavior:behavior(), block:'start' }); return; }
+    const o = ev.target.closest('.opt'); if (o) choose(o.dataset.k); });
+  $('#q-clear').addEventListener('click', () => { qEl.value = ''; setQuery(''); qEl.focus(); });
+
+  listEl.addEventListener('click', ev => {
+    const c = ev.target.closest('.ent'); if (!c) return;
+    const k = c.dataset.k; if (S.pick === k) closeEntry(false); else openEntry(k, {});
+  });
+  listEl.addEventListener('focusin', ev => { const c = ev.target.closest('.ent'); if (c) setRoving(c); });
+  listEl.addEventListener('keydown', onListKey);
+
+  detailEl.addEventListener('click', ev => {
+    const b = ev.target.closest('[data-act]'); if (!b) return;
+    if (b.dataset.act === 'close') closeEntry(true);
+    else if (b.dataset.act === 'jump') openEntry(b.dataset.k, { focus:true });
+  });
+  document.addEventListener('pointerover', ev => { const a = ev.target.closest && ev.target.closest('.cardlink[data-peek]'); if (a) showPeek(a); });
+  document.addEventListener('pointerout', ev => { const a = ev.target.closest && ev.target.closest('.cardlink[data-peek]'); if (a) hidePeek(); });
+  document.addEventListener('focusin', ev => { const a = ev.target.closest && ev.target.closest('.cardlink[data-peek]'); if (a) showPeek(a); else hidePeek(); });
+  window.addEventListener('scroll', hidePeek, { passive:true });
+  detailEl.addEventListener('scroll', hidePeek, { passive:true });
+
+  $('#key-fold').addEventListener('click', () => setFolded('key', !$('#key').classList.contains('is-folded'), true));
+  $('#cmp-fold').addEventListener('click', () => setFolded('compass', !$('#compass').classList.contains('is-folded'), true));
+
+  /* ONE Escape handler, one layer at a time: entry → shown counts → search. */
+  document.addEventListener('keydown', ev => {
+    if (ev.key !== 'Escape' || ev.defaultPrevented) return;
+    if (S.pick) closeEntry(detailEl.contains(document.activeElement));
+    else if (S.spot){ S.spot = null; render(); announce('Showing all entries.'); }
+    else if (S.q){ qEl.value = ''; setQuery(''); }
+    else return;
+    ev.preventDefault();
+  });
+
+  new ResizeObserver(updateStick).observe($('#bar'));
+  new ResizeObserver(() => { if (S.pick && dmode === 'sheet') setSheetH(detailEl.offsetHeight); }).observe(detailEl);
+  let rt = 0;
+  window.addEventListener('resize', () => { cancelAnimationFrame(rt); rt = requestAnimationFrame(() => { if (S.pick){ dmode = null; detailEl._sig = null; renderDetail(); } }); });
+  rmq.addEventListener('change', () => render());
+}
+function choose(k){ listOpen = false; activeOpt = -1; openEntry(k, { from:'search', focus:true }); }
+
+/* Arrow keys move spatially over what is actually on screen. */
+const DIRS = { ArrowRight:'right', ArrowLeft:'left', ArrowDown:'down', ArrowUp:'up' };
+function nearest(from, dir, pool){
+  const a = from.getBoundingClientRect(), ax = a.left + a.width / 2, ay = a.top + a.height / 2;
+  let best = null, bestScore = Infinity;
+  for (const el of pool){
+    if (el === from || el.offsetParent === null) continue;
+    const b = el.getBoundingClientRect(), dx = b.left + b.width / 2 - ax, dy = b.top + b.height / 2 - ay;
+    let main, cross;
+    if (dir === 'right'){ if (dx <= 2) continue; main = dx; cross = Math.abs(dy) < a.height / 2 ? 0 : Math.abs(dy); }
+    else if (dir === 'left'){ if (dx >= -2) continue; main = -dx; cross = Math.abs(dy) < a.height / 2 ? 0 : Math.abs(dy); }
+    else if (dir === 'down'){ if (dy <= 2) continue; main = dy; cross = Math.abs(dx) < a.width / 2 ? 0 : Math.abs(dx); }
+    else { if (dy >= -2) continue; main = -dy; cross = Math.abs(dx) < a.width / 2 ? 0 : Math.abs(dx); }
+    const score = main + cross * 2.5;
+    if (score < bestScore){ bestScore = score; best = el; }
+  }
+  return best;
+}
+function onListKey(ev){
+  const cur = ev.target.closest('.ent'); if (!cur) return;
+  const vis = [...listEl.querySelectorAll('.ent')].filter(e => e.offsetParent !== null);
+  const i = vis.indexOf(cur);
+  let n = null;
+  /* Left and Right follow reading order: sub-heading blocks break the grid's
+     rows, so a purely spatial "right" could jump diagonally. Up and Down move
+     spatially, falling back to reading order at the ends. */
+  if (ev.key === 'ArrowRight') n = vis[i + 1];
+  else if (ev.key === 'ArrowLeft') n = vis[i - 1];
+  else if (ev.key === 'ArrowDown') n = nearest(cur, 'down', vis) || vis[i + 1];
+  else if (ev.key === 'ArrowUp') n = nearest(cur, 'up', vis) || vis[i - 1];
+  else if (ev.key === 'Home') n = vis[0];
+  else if (ev.key === 'End') n = vis[vis.length - 1];
+  else return;
+  ev.preventDefault();
+  if (n){ setRoving(n); n.focus(); }
+}
+
+/* ======================================================================
+   BOOT
+   ====================================================================== */
+function deepFreeze(o){ if (o && typeof o === 'object' && !Object.isFrozen(o)){ Object.freeze(o); Object.values(o).forEach(deepFreeze); } return o; }
+function bootFail(msg){
+  const box = $('#boot'); box.hidden = false;
+  box.innerHTML = `<h2>${esc(msg)}</h2><p>This page reads the frozen 2021 data over HTTP, so it needs the project's static server rather than <code>file://</code>.</p>
+    <p><code>cd C:\\dev\\color-wheel-interactive</code><br><code>py -m http.server 8000</code></p>
+    <p>then open <code>http://localhost:8000/vox-color/mechanical-explorer.html</code></p>`;
+  $('#key').hidden = true; $('#compass').hidden = true; $('#list-cap').hidden = true;
+}
+async function getJSON(rel){ const res = await fetch(new URL(rel, location.href)); if (!res.ok) throw new Error(res.status); return res.json(); }
+async function boot(){
+  try {
+    MCP = deepFreeze(await getJSON('../data/mechanical-color-pie.runtime.json'));
+    ABIL = deepFreeze(await getJSON('../data/mcp2021.abilities.json'));
+  } catch (err){ bootFail('Could not read the frozen 2021 data.'); return; }
+  MECH = MCP.byMechanic;
+  KEYS = Object.keys(MECH).sort();
+  const snap = $('#snap');
+  snap.textContent = MCP.meta.display_label;
+  if (MCP.meta.url) snap.href = MCP.meta.url;
+  $('#author').textContent = ' — ' + MCP.meta.author;
+  $('#limits').textContent = MCP.meta.caution.replace(/\.?$/, '.') + ' An absent placement is not evidence that no card of that color exists.';
+  buildRecords();
+  buildArticle();
+  const n = KEYS.reduce((t, k) => t + Object.keys(MECH[k].colors).length, 0);
+  $('#meta').innerHTML = `<b>${KEYS.length}</b> entries<span class="sep">·</span><b>${n}</b> color placements<span class="sep">·</span>` +
+    '<span class="meta-w">' + ORDER.map(c => `<span class="wl wl-${c}">${c}</span>`).join(' ') + '</span>';
+  buildPips(); buildEntries(); buildCompass(); layoutList();
+  bindEvents(); updateStick(); render(); buildKey(); checkManaFont();
+  window.VMX = api();
+  runSelfTest();
+}
+
+/* THE KEY's specimen is a real entry chosen by rule: the shortest-named entry
+   showing all four marks at once. */
+function buildKey(){
+  const has4 = k => { const e = MECH[k], t = new Set(Object.values(e.colors).map(d => d.tier)); return t.size === 3 && Object.keys(e.colors).length < 5; };
+  const k = KEYS.filter(has4).sort((a, b) => MECH[a].label.length - MECH[b].label.length || (a < b ? -1 : 1))[0];
+  const spec = $('#spec');
+  if (!k){ spec.hidden = true; return; }
+  const e = MECH[k], r = REC.get(k);
+  spec.dataset.k = k;
+  spec.innerHTML = `<span class="spec-cap">A real entry from the article</span><span class="spec-name">${esc(curly(r.disp))}</span>${stripHTML(e.colors)}
+    <span class="spec-row letters">${ORDER.map(c => `<span class="wl-${c}">${c}</span>`).join('')}</span>
+    <span class="spec-row words">${ORDER.map(c => { const t = (e.colors[c] || {}).tier; return `<span class="${t ? '' : 't-none'}">${t ? TIER[t] : 'None'}</span>`; }).join('')}</span>`;
+  for (const t of ['primary', 'secondary', 'tertiary']){
+    const c = ORDER.find(x => (e.colors[x] || {}).tier === t), icon = $(`.def .sc.t-${t[0]}`);
+    icon.style.setProperty('--cc', `var(--${c.toLowerCase()})`);
+    icon.innerHTML = `<i class="ms ms-${c.toLowerCase()}"></i>`;
+  }
+  for (const id of ['key', 'compass']){
+    let f = false; try { f = localStorage.getItem('vmx.' + id) === 'folded'; } catch (err){ /* private mode */ }
+    setFolded(id, f, false);
+  }
+}
+function setFolded(id, folded, remember){
+  const box = $('#' + id), btn = $(id === 'key' ? '#key-fold' : '#cmp-fold');
+  box.classList.toggle('is-folded', folded);
+  btn.textContent = folded ? 'Show' + (id === 'key' ? ' key' : '') : 'Hide' + (id === 'key' ? ' key' : '');
+  btn.setAttribute('aria-expanded', String(!folded));
+  if (remember){ try { localStorage.setItem('vmx.' + id, folded ? 'folded' : 'open'); } catch (err){ /* ignore */ } }
+}
+/* If the Mana font never arrives, every symbol falls back to its letter. */
+function checkManaFont(){
+  const probe = document.querySelector('.pip .ms');
+  const test = () => document.documentElement.classList.toggle('no-mana', !probe || !/Mana/.test(getComputedStyle(probe).fontFamily));
+  test(); window.addEventListener('load', test);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(test);
+}
+
+function api(){
+  return { state:S, search:searchRank, parse:parseQuery, sections, buckets, deltaAdd, deltaRemove, wubrgSummary,
+    setQuery: v => { qEl.value = v; setQuery(v); }, toggleColor, clearColors, chooseCombo, setView, setSpot,
+    open: k => openEntry(k, {}), close: () => closeEntry(false), article: () => ARTICLE.slice(), listOnly: () => LIST_ONLY.slice(),
+    selftest: () => T };
+}
+
+/* ======================================================================
+   SELF-CHECK — behaviour, read back from the page, compared against the
+   frozen sources: the runtime, the article's entry file, the eleven
+   fixture files and the recon's 75 marginal additions, all fetched here.
+   ====================================================================== */
+const T = [];
+const canon = v => Array.isArray(v) ? v.map(canon) : (v && typeof v === 'object'
+  ? Object.fromEntries(Object.entries(v).sort((a, b) => a[0] < b[0] ? -1 : 1).map(([k, x]) => [k, canon(x)])) : v);
+const eq = (name, got, want) => T.push({ name, ok: JSON.stringify(canon(got)) === JSON.stringify(canon(want)), got, want });
+const ok = (name, v, got) => T.push({ name, ok: !!v, got: got === undefined ? v : got, want: true });
+const lens = obj => Object.fromEntries(Object.entries(obj).map(([k, v]) => [k, Array.isArray(v) ? v.length : v]));
+const visible = el => !!el && el.offsetParent !== null && getComputedStyle(el).visibility !== 'hidden';
+const shownEnts = () => [...listEl.querySelectorAll('.ent')].filter(visible);
+
+async function runSelfTest(){
+  T.length = 0;
+  const saved = { sel: new Set(S.sel), selFromQuery: S.selFromQuery, q: S.q, view: S.view, pick: S.pick, spot: S.spot };
+  const before = JSON.stringify(MCP.byMechanic);
+  S.spot = null; S.pick = null; qEl.value = ''; S.q = ''; runSearch(); S.sel = new Set(); S.selFromQuery = false;
+  if (S.view !== 'article'){ S.view = 'article'; layoutList(); }
+  render();
+
+  /* --- source order and coverage -------------------------------------- */
+  const ents = [...listEl.querySelectorAll('.ent')];
+  eq('coverage: 216 entries render, each once', [ents.length, new Set(ents.map(e => e.dataset.k)).size], [216, 216]);
+  eq('coverage: every runtime entry renders', ents.map(e => e.dataset.k).sort(), KEYS.slice().sort());
+  /* The rendered labels, read back from the page, must follow the article's
+     entry file label by label (its one repeated entry appears once). */
+  const want = ABIL.abilities.map(a => a.label);
+  const renderedMain = ents.filter(e => !e.closest('.lo')).map(e => MECH[e.dataset.k].label);
+  let wi = 0, inOrder = true;
+  for (const lab of renderedMain){ while (wi < want.length && want[wi] !== lab) wi++; if (wi === want.length){ inOrder = false; break; } wi++; }
+  ok('order: entries follow the article entry file, in sequence', inOrder && renderedMain.length === 211, renderedMain.length);
+  eq('order: 212 explanation entries = 211 distinct + 1 repeat the parser recorded', [ABIL.abilities.length, ARTICLE.length, DUPES], [212, 211, 1]);
+  const loRendered = [...listEl.querySelectorAll('.lo .ent')].map(e => e.dataset.k).sort();
+  const abLabels = new Set(ABIL.abilities.map(a => a.label));
+  eq('coverage: the color-lists-only section holds exactly the runtime entries absent from the explanations',
+     loRendered, KEYS.filter(k => !abLabels.has(MECH[k].label)).sort());
+  ok('coverage: no invented explanation for a list-only entry', LIST_ONLY.every(k => !MECH[k].explanation));
+  /* Sub-headings: the frozen groups, except the one documented correction. */
+  const heads = [...listEl.querySelectorAll('.grp')].map(g => g.getAttribute('aria-label'));
+  const frozenGroups = [...new Set(ABIL.abilities.map(a => a.group).filter(Boolean))].map(g => g === HEADING_FIX.from ? HEADING_FIX.to : g);
+  eq('headings: the article sub-headings render once each, in order', heads, [...new Set(frozenGroups)]);
+  eq('headings: the documented correction places exactly the seven "Return target … from graveyard to hand." entries',
+     [...listEl.querySelectorAll('.grp')].filter(g => g.getAttribute('aria-label') === HEADING_FIX.to).map(g => g.querySelectorAll('.ent').length), [7]);
+
+  /* --- every rendered tier equals the runtime --------------------------- */
+  let tierBad = 0;
+  for (const e of ents) for (const i of e.querySelectorAll('.strip .sc')){
+    const t = (MECH[e.dataset.k].colors[i.dataset.c] || {}).tier;
+    if (!i.classList.contains('t-' + (t ? t[0] : 'n'))) tierBad++;
+  }
+  eq('tiers: all 216 × 5 rendered placements equal the runtime', tierBad, 0);
+  ok('tiers: every strip has five slots in W U B R G order', ents.every(e => [...e.querySelectorAll('.strip .sc')].map(i => i.dataset.c).join('') === 'WUBRG'));
+  eq('tiers: one footprint for every placement mark', new Set([...listEl.querySelectorAll('.strip .sc')].map(n => { const s = getComputedStyle(n); return s.width + 'x' + s.height; })).size, 1);
+  eq('tiers: no progress or meter elements', document.querySelectorAll('progress,meter').length, 0);
+  ok('notation: each color renders its own token', ORDER.every(c => {
+    const k = KEYS.find(x => (MECH[x].colors[c] || {}).tier === 'primary');
+    const probe = document.createElement('i'); probe.style.color = `var(--${c.toLowerCase()})`; document.body.appendChild(probe);
+    const w = getComputedStyle(probe).color; probe.remove();
+    return getComputedStyle(entEl.get(k).querySelector(`.sc[data-c="${c}"]`)).backgroundColor === w; }));
+
+  /* --- removed: families, restriction marker, printed examples ------------ */
+  /* Family names are ordinary words ("combat", "removal") that also occur in
+     Rosewater's own entries, so the check is structural: no family region,
+     no family attribute, no family vocabulary. */
+  ok('removed: no family region, attribute or "family" wording on the page',
+     !document.querySelector('.fam,[data-f]') && !/\bfamil(y|ies)\b/i.test(document.body.innerText));
+  ok('removed: vox.families.json is never requested', !performance.getEntriesByType('resource').some(r => /vox\.families/.test(r.name)));
+  S.pick = 'flying'; render();
+  ok('removed: no restriction marker and no printed examples in the detail', !detailEl.querySelector('.restr,#dx-cards,.exs') && !/restriction noted|printed example/i.test(detailEl.textContent));
+
+  /* --- detail -------------------------------------------------------------- */
+  const fly = MECH.flying;
+  eq('detail: all five colors listed, with the runtime tier or "No placement"',
+     [...detailEl.querySelectorAll('.own-row')].map(r => r.dataset.c + ':' + r.querySelector('.own-t').textContent),
+     ORDER.map(c => c + ':' + (fly.colors[c] ? TIER[fly.colors[c].tier] : 'No placement')));
+  ok('detail: explanation is the runtime text, verbatim', detailEl.querySelector('.dx-ex').textContent === fly.explanation);
+  eq('detail: exactly one mechanic-detail surface', document.querySelectorAll('[data-detail-owner]').length, 1);
+  S.pick = 'lobotomy'; render();
+  ok('detail: raw [autocard] markup never reaches the page', !/\[autocard/.test(detailEl.textContent) &&
+     detailEl.querySelector('.dx-ex').textContent === MECH.lobotomy.explanation.replace(/\[autocard mvid="\d+"\]/g, ''));
+  eq('art: exactly five explanations cite a card; only they can hold a card plate',
+     KEYS.filter(k => /\[autocard mvid="\d+"\]/.test(MECH[k].explanation || '')).length, 5);
+  S.pick = 'flying'; render();
+  ok('art: an entry that cites no card has no card anchor, link or plate', !detailEl.querySelector('.cardanchor,.cardlink,.cite'));
+  S.pick = 'lobotomy'; render();
+  /* The five unmatched entries are three different cases, and say so. */
+  const absent = LIST_ONLY.filter(k => !UNMATCHED_CASE[k]);
+  eq('unmatched: exactly three entries are genuinely absent from the explanations',
+     absent, ['-n/+n (on auras)', '-n/+n (on spells)', '-n/-0 (on creatures)']);
+  ok('unmatched: the absent three say the article gives no explanation', absent.every(k => { S.pick = k; render();
+     return /gives no explanation for this entry/.test(detailEl.querySelector('.dx-ex').textContent) && /per-color lists/.test(detailEl.querySelector('.dx-note').textContent); }));
+  S.pick = 'forced sacrifice of a creature'; render();
+  ok('unmatched: "Forced sacrifice of a creature" points to its separately named explanation entry, and the link opens it',
+     /separately named entry/.test(detailEl.textContent) && detailEl.querySelector('[data-act="jump"]').dataset.k === 'forced sacrifice :: sacrifice a creature' &&
+     !!MECH['forced sacrifice :: sacrifice a creature'].explanation);
+  S.pick = 'creature sacrifice, forced, repeatable'; render();
+  ok('unmatched: "Creature sacrifice, forced, repeatable" says the published article explains it, and supplies no text',
+     /published 2021 article does include an explanation/.test(detailEl.textContent) && detailEl.querySelector('.dx-ex').classList.contains('is-empty') &&
+     !MECH['creature sacrifice, forced, repeatable'].explanation);
+  ok('unmatched: each of the five carries its own case label in the list', LIST_ONLY.every(k => entEl.get(k).querySelector('.e-tag').textContent === unmatchedCase(k).tag) &&
+     new Set(LIST_ONLY.map(k => unmatchedCase(k).tag)).size === 3);
+  S.pick = null; render();
+  ok('unmatched: each of the five is found by its full name, as an entry name',
+     LIST_ONLY.every(k => { const h = searchRank(MECH[k].label)[0]; return h && h.k === k && STAGES[h.stage].why === 'Entry name'; }));
+
+  /* --- search: reasons, aliases, colour terms, questions ------------------ */
+  eq('search: "flying" finds Flying first, by entry name', [searchRank('flying')[0].k, STAGES[searchRank('flying')[0].stage].why], ['flying', 'Entry name']);
+  /* Player terms: an entry the term names and a merely related entry are
+     never presented alike. */
+  const kindOf = (q, k) => { const h = searchRank(q).find(x => x.k === k); return h ? STAGES[h.stage].id : null; };
+  const termFor = q => PLAYER_TERMS.find(t => t.terms.includes(q));
+  ok('terms: every player-term target is a real entry, and no entry is both exact and related for one term',
+     PLAYER_TERMS.every(t => t.exact.concat(t.related).every(k => MECH[k]) && !t.exact.some(k => t.related.includes(k))));
+  ok('terms: every group with related entries says why they are related', PLAYER_TERMS.every(t => !t.related.length || !!t.relWhy));
+  ok('terms: in every group, related results rank after all exact results and are labelled related',
+     PLAYER_TERMS.every(t => { const hs = searchRank(t.terms[0]); const lastExact = Math.max(-1, ...hs.map((h, i) => t.exact.includes(h.k) ? i : -1));
+       return t.related.every(k => { const i = hs.findIndex(h => h.k === k); return i > lastExact && (STAGES[hs[i].stage].related || hs[i].stage < STAGE.player); }); }));
+  eq('terms: "unblockable" names only Can\'t be blocked; Flying and Menace are related, not equivalent',
+     ["can't be blocked", 'flying', 'menace', 'daunt', 'stalking'].map(k => kindOf('unblockable', k)), ['player', 'related', 'related', 'related', 'related']);
+  eq('terms: "evasion" names all five evasion entries (CR 509.1b)',
+     ["can't be blocked", 'flying', 'menace', 'daunt', 'stalking'].map(k => kindOf('evasion', k)), ['player', 'player', 'player', 'player', 'player']);
+  const ramp = searchRank('ramp');
+  ok('terms: "ramp" names its acceleration entries; land-to-hand tutoring is only related; never Trample',
+     termFor('ramp').exact.every(k => kindOf('ramp', k) === 'player') && kindOf('ramp', 'tutor for a land') === 'related' && !ramp.some(h => /trample/.test(h.k)),
+     ramp.map(h => h.k + ':' + STAGES[h.stage].id).join(', '));
+  ok('terms: "board wipe" names the destroy-all entries; partial and amount-bound sweeps are only related',
+     termFor('board wipe').exact.every(k => kindOf('board wipe', k) === 'player') && termFor('board wipe').related.every(k => kindOf('board wipe', k) === 'related'));
+  ok('search: an explanation-only match says so', searchRank('cantrips').some(h => h.k === 'card draw' && STAGES[h.stage].id === 'expl'));
+  eq('search: a nonsense query matches nothing', searchRank('zzqxvj').length, 0);
+  const P = parseQuery('how does mono red deal with enchantments');
+  eq('search: a question is split into colors, searched words and ignored words',
+     [setKey(P.colours), P.words, P.dropped.length > 0], ['R', ['enchantments'], true]);
+  window.VMX.setQuery('red enchantment removal');
+  ok('search: color words set the lens', setKey(S.sel) === 'R' && S.selFromQuery);
+  const ed = S.hits.find(h => h.k === 'enchantment destruction');
+  ok('gap: "red enchantment removal" still finds Enchantment destruction, which has no red placement', !!ed && !ed.placed);
+  ok('gap: that entry stays visible in the list with its full five-color strip', visible(entEl.get('enchantment destruction')) &&
+     entEl.get('enchantment destruction').querySelectorAll('.strip .sc').length === 5);
+  listOpen = true; resEl._sig = null; renderResults();
+  ok('gap: the results say an absent placement is not evidence of absence', !$('#absent').hidden && /not evidence/.test($('#absent').textContent));
+  ok('gap: the results carry no verdict, only entries and the parse', [...resList.children].every(o => o.classList.contains('opt')));
+  listOpen = false; renderResults();
+  window.VMX.setQuery('');
+  ok('search: clearing the query releases the lens it set', S.sel.size === 0);
+
+  /* --- lens: nothing disappears -------------------------------------------- */
+  for (const c of ORDER){ S.sel = new Set([c]); render(); if (shownEnts().length !== 216) break; }
+  eq('lens: under each single color all 216 entries stay visible', shownEnts().length, 216);
+  S.sel = new Set(['R']); render();
+  ok('lens: an entry with no red placement keeps its complete record', ['W','U','B','G'].every(c => entEl.get('enchantment destruction').querySelector(`.sc[data-c="${c}"]`)));
+
+  /* --- fixtures -------------------------------------------------------------- */
+  let fx = null;
+  try {
+    const names = ['01_W_single_colour','02_WB_pair','03_BG_complementary','04_UBR_grixis','05_WUBR_four_colour','06_WUBRG_all_five',
+      '07_flying_restriction','08_flash_adjudicated','09_no_primary_colour','10_tertiary_best_access','11_alias_provenance'];
+    const all = await Promise.all(names.map(n => getJSON(`../data/fixtures/${n}.json`)));
+    fx = {}; names.forEach((n, i) => fx[n.slice(3)] = all[i]);
+  } catch (e){ T.push({ name:'fixtures: all eleven files readable', ok:false, got:String(e), want:'11 files' }); }
+  if (fx){
+    const set = a => new Set(a);
+    const f1 = fx.W_single_colour, f2 = fx.WB_pair, f3 = fx.BG_complementary, f4 = fx.UBR_grixis;
+    eq('fixture 01: W sections', lens(sections(set(f1.selection))), f1.sections);
+    const bW = buckets(set(f1.selection));
+    eq('fixture 01: W tiers', { primary:bW.primary.length, secondary:bW.secondary.length, tertiary:bW.tertiary.length }, f1.tiers);
+    eq('fixture 02: WB sections', lens(sections(set(f2.selection))), f2.sections);
+    eq('fixture 02: WB + G', lens(deltaAdd(set(f2.selection), 'G')), f2.add_G);
+    eq('fixture 02: WB − B', lens(deltaRemove(set(f2.selection), 'B')), f2.remove_B);
+    eq('fixture 03: BG sections', lens(sections(set(f3.selection))), f3.sections);
+    eq('fixture 04: UBR sections', lens(sections(set(f4.selection))), f4.sections);
+    eq('fixture 04: UBR + W', lens(deltaAdd(set(f4.selection), 'W')), f4.add_W);
+    const f5 = fx.WUBR_four_colour, d5 = deltaRemove(new Set(ORDER), f5.excluded);
+    eq('fixture 05: WUBRG − G', [d5.lost_completely.length, d5.tier_degraded.length, d5.lost_owner_retained_access.length],
+       [f5.completely_lost, f5.best_access_worse, f5.retained_but_lost_owner]);
+    const f6 = fx.WUBRG_all_five, s6 = wubrgSummary();
+    eq('fixture 06: WUBRG', [s6.reachable, s6.with_primary_owner, s6.no_primary_owner_anywhere], [f6.reachable, f6.with_primary_owner, f6.no_primary_owner_anywhere]);
+    eq('fixture 07: Flying tiers', Object.fromEntries(Object.entries(fly.colors).map(([c, d]) => [c, d.tier])), fx.flying_restriction.colors);
+    const f8 = fx.flash_adjudicated, fb = MECH.flash.colors.B;
+    eq('fixture 08: Flash black adjudication', [fb.tier, fb.basis, fb.conflict, fb.ruling.authority], [f8.black_tier, f8.black_basis, f8.black_conflict, f8.black_authority]);
+    const f10 = fx.tertiary_best_access;
+    eq('fixture 10: Counterspell best placement in W', [access(MECH[f10.mechanic], set(f10.selection)).best, buckets(set(f10.selection)).tertiary.length],
+       [f10.best_access_in_selection, f10.tertiary_only_count_for_W]);
+    eq('fixture 11: records carrying article aliases', KEYS.filter(k => (MECH[k].source_aliases || []).length).length, fx.alias_provenance.records_with_aliases);
+    ok('fixture 11: article aliases are searchable', KEYS.filter(k => (MECH[k].source_aliases || []).length).every(k =>
+       MECH[k].source_aliases.every(a => searchRank(a).slice(0, 3).some(h => h.k === k))));
+
+    /* UI path: the compass drives the same arithmetic, and counts open entries */
+    S.sel = new Set(); render();
+    nodeEl.get('WB').click();
+    eq('compass: choosing WB sets the colors', setKey(S.sel), 'WB');
+    const gBtn = $('#steps-p [data-id="add:G:newly_reachable"]');
+    eq('compass: WB + G "newly placed" equals the fixture', +gBtn.querySelector('b').textContent, f2.add_G.newly_reachable);
+    gBtn.click();
+    eq('compass: that count opens exactly its entries', shownEnts().length, f2.add_G.newly_reachable);
+    ok('compass: every entry it opens is newly placed by adding G', shownEnts().every(e => access(MECH[e.dataset.k], set(['W','B'])).best === null && access(MECH[e.dataset.k], set(['W','B','G'])).best !== null));
+    $('#spotbar [data-act="unspot"]').click();
+    eq('compass: "Show all" restores all 216', shownEnts().length, 216);
+    eq('compass: WB − B counts equal the fixture', ['lost_completely','tier_degraded','lost_owner_retained_access'].map(id => +$(`#steps-p [data-id="rem:B:${id}"] b`).textContent),
+       [f2.remove_B.lost_completely, f2.remove_B.tier_degraded, f2.remove_B.lost_owner_retained_access]);
+  }
+  /* all 75 recon transitions */
+  try {
+    const csv = await (await fetch(new URL('../data/recon/marginal-additions.csv', location.href))).text();
+    const rows = csv.trim().split(/\r?\n/).slice(1).map(l => l.split(','));
+    let bad = 0;
+    for (const [base, added, , nr, bi, no, un, su] of rows){
+      const d = lens(deltaAdd(new Set(base), added));
+      if (d.newly_reachable !== +nr || d.best_tier_improved !== +bi || d.new_owner_no_improvement !== +no || d.unchanged !== +un || d.still_unavailable !== +su) bad++;
+    }
+    eq('compass: all 75 recon marginal additions reproduce', [rows.length, bad], [75, 0]);
+  } catch (e){ T.push({ name:'compass: recon marginal additions readable', ok:false, got:String(e), want:'75 rows' }); }
+  const nodes = [...nodeEl.values()];
+  eq('compass: 31 combinations, one size each', [nodes.length, new Set(nodes.map(b => Math.round(b.getBoundingClientRect().width) + 'x' + Math.round(b.getBoundingClientRect().height))).size], [31, 1]);
+  ok('compass: every mana symbol sits inside its tile, in W U B R G order', nodes.every(b => {
+    const t = b.getBoundingClientRect(), pips = [...b.querySelectorAll('.n-pips .ms')];
+    const inside = pips.every(p => { const r = p.getBoundingClientRect();
+      return !r.width || (r.left >= t.left + 1 && r.right <= t.right - 1 && r.top >= t.top + 1 && r.bottom <= t.bottom - 1); });
+    return inside && pips.map(p => p.className.match(/ms-([wubrg])\b/)[1].toUpperCase()).join('') === b.dataset.s; }),
+    nodes.filter(b => [...b.querySelectorAll('.n-pips .ms')].some(p => { const r = p.getBoundingClientRect(), t = b.getBoundingClientRect(); return r.width && (r.left < t.left + 1 || r.right > t.right - 1); })).map(b => b.dataset.s).join(', '));
+  ok('compass: tiles show color letters and symbols only, never a name', nodes.every(b => /^[WUBRG]+$/.test(b.querySelector('.n-l').textContent)) &&
+     !/azorius|dimir|rakdos|gruul|selesnya|orzhov|izzet|golgari|boros|simic|bant|esper|grixis|jund|naya|abzan|jeskai|sultai|mardu|temur/i.test(nodes.map(b => b.innerText).join(' ')));
+  ok('footer: the Wizards Fan Content notice is shown, beside the 2021 source attribution',
+     /is unofficial Fan Content permitted under the Fan Content Policy\. Not approved\/endorsed by Wizards\. Portions of the materials used are property of Wizards of the Coast\. ©Wizards of the Coast LLC\./.test($('.foot .fcp').textContent) &&
+     /Placements, entry names, sub-headings and explanations are Rosewater's/.test($('.foot').textContent) && $('#snap').href === MCP.meta.url);
+  { const P = parseQuery('colorless ramp'), line = parseLine(P, searchRank('ramp'));
+    ok('colorless: a search for it is answered with what this explorer charts, not a claim about the article',
+       P.colorless && P.words.join(' ') === 'ramp' && line.includes(esc(COLORLESS_NOTE)) && !/not measured|article (does not|never)/i.test(line) &&
+       !/colou?rless/i.test($('.foot').textContent) && nodeEl.size === 31 && ![...nodeEl.keys()].some(k => /C/.test(k))); }
+  { /* Both controls sit at one x — the plates' shared inner right edge — in
+       every open/folded combination, at whatever width the check runs. */
+    const IDS = ['key', 'compass'], x = id => $('#' + id).querySelector('.fold').getBoundingClientRect().right;
+    const edge = id => { const sec = $('#' + id), cs = getComputedStyle(sec); return sec.getBoundingClientRect().right - parseFloat(cs.paddingRight); };
+    const was = IDS.map(id => $('#' + id).classList.contains('is-folded')), seen = [];
+    for (const k of [false, true]) for (const c of [false, true]){
+      setFolded('key', k, false); setFolded('compass', c, false);
+      seen.push(IDS.every(id => Math.abs(x(id) - edge(id)) < 1.5) && Math.abs(x('key') - x('compass')) < 1.5);
+    }
+    IDS.forEach((id, i) => setFolded(id, was[i], false));
+    ok('plates: both fold controls keep one right-edge position, open and folded', seen.every(Boolean), seen); }
+  eq('names: 20 verified names, pairs and triples only, each in W U B R G order', [Object.keys(COMBO_NAME).length,
+     Object.keys(COMBO_NAME).every(k => (k.length === 2 || k.length === 3) && k === setKey(new Set(k))), Object.keys(COMBO_WORDS).length], [20, true, 20]);
+  ok('names: every tile\'s accessible name carries its color words and code; four and five colors carry no name', nodes.every(b => {
+    const s = b.dataset.s, l = b.getAttribute('aria-label');
+    return l.includes(comboWords(s)) && l.endsWith(s) && (s.length > 3 ? !COMBO_NAME[s] && l === comboWords(s) + ', ' + s : true); }));
+  { const was = new Set(S.sel), wasQ = S.selFromQuery; setSel(['W','R'], false); render();
+    const id = $('#ident'), t = id.innerText;
+    ok('identity: choosing WR shows Boros, White–Red and WR, labelled by its heading', !id.hidden && /Boros/.test(t) && /White–Red/.test(t) && /\bWR\b/.test(t) &&
+       id.getAttribute('aria-labelledby') === 'id-name' && /Boros, White–Red, WR/.test($('#id-name').textContent));
+    ok('identity: the name is attributed to its Wizards source and called a label', /Faction Packed/.test(t) && /a label, not a claim about mechanics/.test(t));
+    ok('identity: its count is the colors line\'s computed count', +id.querySelector('.id-count b').textContent === KEYS.length - buckets(new Set(['W','R'])).none.length &&
+       !!id.querySelector('.id-count .calc'));
+    setSel([...was], false); S.selFromQuery = wasQ; render(); }
+
+  /* --- keyboard and views ---------------------------------------------------- */
+  eq('keyboard: one tabbable entry and one tabbable combination', [ents.filter(e => e.tabIndex === 0).length, nodes.filter(b => b.tabIndex === 0).length], [1, 1]);
+  ok('keyboard: every entry and combination is a real button with a name', ents.every(e => e.tagName === 'BUTTON' && e.getAttribute('aria-label')) &&
+     nodes.every(b => b.tagName === 'BUTTON' && b.getAttribute('aria-label')));
+  S.view = 'az'; layoutList(); render();
+  const az = [...listEl.querySelectorAll('.ent')].map(e => azKey(REC.get(e.dataset.k)));
+  ok('view: A–Z lists all 216 in alphabetical order', az.length === 216 && az.every((v, i) => i === 0 || az[i - 1] <= v));
+  S.view = 'article'; layoutList();
+  if (reduced()) eq('motion: reduced motion removes transitions', getComputedStyle(entEl.get('flying')).transitionDuration.split(',').every(d => parseFloat(d) === 0), true);
+  ok('truth: the runtime object is unchanged and frozen', JSON.stringify(MCP.byMechanic) === before && Object.isFrozen(MECH.flying.colors));
+
+  /* restore */
+  S.sel = saved.sel; S.selFromQuery = saved.selFromQuery; S.view = saved.view; S.pick = saved.pick; S.spot = saved.spot;
+  qEl.value = saved.q; S.q = saved.q; runSearch();
+  layoutList(); render();
+  const pass = T.filter(t => t.ok).length, fail = T.filter(t => !t.ok);
+  const st = $('#selftest');
+  st.classList.toggle('fail', fail.length > 0);
+  st.innerHTML = fail.length
+    ? `<details><summary>Self-check: ${pass} of ${T.length} passed</summary> — failing: ${fail.map(t => esc(t.name)).join('; ')}</details>`
+    : `Self-check: ${pass} of ${T.length} passed, against the runtime, the article's entry file, the eleven fixtures and the recon's 75 transitions.`;
+  if (fail.length) console.warn('[mechanical-explorer] self-check failures', fail);
+}
+
+boot();
+})();
+</script>
+</body>
+</html>
