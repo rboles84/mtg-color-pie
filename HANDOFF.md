@@ -33,13 +33,12 @@ remaining fields are intentionally blank.
   legal transitions in `AGENTS.md`, the coordinating agent recorded
   `qa-passed -> complete -> idle -> dev-in-progress`; here `complete` only
   closes the superseded ledger. It is not Owner acceptance.
-- Prior story's exact uncommitted state is preserved in a recoverable
-  checkpoint: commit `d34a852` on branch `checkpoint/pure-2021-polish-unaccepted`
-  (parent `55c391e`). Its `HANDOFF.md` and `vox-color/mechanical-explorer.html`
-  match the working files byte for byte at the time of the checkpoint. `master`,
-  the index and the working tree were not changed by the checkpoint. That
-  commit holds the prior story's full ledger (acceptance, dogfood, source
-  verification, robdev/robqa reports, content and polish passes).
+- Prior story's exact uncommitted state was preserved during this story as
+  checkpoint commit `d34a852` (parent `55c391e`) on the local branch
+  `checkpoint/pure-2021-polish-unaccepted`, which was never pushed. After
+  accepting this story, the Owner deleted that branch on 2026-09-27 as no
+  longer wanted, so `d34a852` is on no branch. Baseline figures below that cite
+  `d34a852` refer to that prior state.
 - Task: **Mechanical Color Pie explorer — Magic makeover.** A presentation and
   navigation pass over the existing explorer so it reads as recognizably
   Magic, across the whole page (typography, materials, spacing, colour,
