@@ -41,15 +41,17 @@ this guide are the current operating rule.
 - The page already loads two CDN stylesheets: Google Fonts and pinned
   `mana-font@1.18.0`. The mana-font base set supplies `--b`, so changing either
   URL or the pinned version requires explicit approval. Adding a third runtime
-  dependency does too.
+  dependency does too. The Google Fonts URL is the explorer's exact family and
+  weight set (Owner approval, 2026-09-27); keep the two pages' URLs identical.
 - Do not move the five crossing coordinates. Their positions encode the
   four-colour exclusion proof. Reduce marker size if crowding is the problem.
 - Keep the app static at rest. No ambient animation, animation loop, particle
   system, or decorative motion. When reduced motion is requested, skip the
   effect rather than slowing it.
-- Preserve the fixed type roles and the glass-over-colour visual system in
-  `CONTEXT.md`. The unresolved `--g` and `--c` values are not an invitation to
-  retune them.
+- Preserve the fixed type roles and the illustrated field-guide visual system
+  in `CONTEXT.md`, which replaced glass-over-colour on 2026-10-01. Mana colours
+  are data, not decoration. The unresolved `--g` and `--c` values are not an
+  invitation to retune them.
 - Edge emphasis is carried by opacity, stroke width, and glow together so the
   rest, related, and unrelated states remain distinct without extreme alpha.
   Do not collapse this model to opacity alone.

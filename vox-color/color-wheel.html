@@ -54,6 +54,12 @@
    The method lines here are instead built from MaRo's own "the key to X is Y"
    closers in "Thank You for Being a Friend", so the structure stays canon.
 
+ LOOK
+ ----
+ The illustrated field guide shared with mechanical-explorer.html: ground,
+ grain, ink, gilt and plate materials copied by value into :root (no shared
+ stylesheet). Gilt is system language; the five mana colours are data only.
+
  MOTION
  ------
  Static at rest. No ambient animation, no rAF loop, no particles — same rules
@@ -69,194 +75,185 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Almendra:wght@400;700&family=Cormorant+SC:wght@400;500;600;700&family=Lora:wght@400;500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Almendra:wght@400;700&family=Cormorant+SC:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Lora:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
 <!-- DEPENDENCY: mana-font, pinned. Needed for the atlas tile pips. -->
 <link href="https://cdn.jsdelivr.net/npm/mana-font@1.18.0/css/mana.min.css" rel="stylesheet">
 
 <style>
   /* ===================================================================
-     TOKENS — shared with the identity directory
+     TOKENS
+     -------------------------------------------------------------------
+     FIELD GUIDE. Ground, ink, gilt and the plate materials are copied by
+     value from mechanical-explorer.html (Owner decisions 3 and 4,
+     2026-09-27): one static file each, no shared stylesheet. Gilt is
+     system language -- focus, selection, rules, ornament. The mana
+     colours are data and appear only as colour identity.
+
+     LEGACY NAMES. --obsidian, --gold, --glass, --hairline, --bone-dim,
+     --bone-faint and the rest keep their old values because Mechanics
+     mode (preview only, not edited in this story) still reads them. The
+     chrome below does not use them.
      =================================================================== */
   :root {
-    --obsidian:#0b0c11; --panel:#14151d;
-    --bone:#ede6d3; --bone-dim:rgba(237,230,211,.56); --bone-faint:rgba(237,230,211,.30);
-    --gold:#d4af37;
+    --bone:#ede6d3;
     --w:#f5efc7; --u:#77b9e8; --b:#aca29a; --r:#d97858; --g:#7fb283;
-    --glass:rgba(237,230,211,.045); --glass-hover:rgba(237,230,211,.075);
-    --hairline:rgba(237,230,211,.12); --panel-edge:rgba(237,230,211,.09);
     /* PROPOSED, still needs Rob's sign-off — carried over from the directory.
        --c sits close to --b; check Esper and Grixis rings when it is retuned. */
     --c:#b6b2a6;
-    --radius:14px;
     --ease:cubic-bezier(.2,.8,.2,1);
+
+    --ground:#100c08; --ground-2:#17110b; --ground-3:#1e160e;
+    --ink:#dccfb6; --ink-dim:#9a8768; --ink-mute:#67573f;
+    --brass:#b8934f; --brass-l:#dcbb73; --brass-q:#8e7143;
+    --rule:rgba(184,147,79,.17); --rule-s:rgba(184,147,79,.38); --hair:rgba(237,230,211,.08);
+    --f-brand:'Cormorant SC',Georgia,serif; --f-display:'Almendra',Georgia,serif;
+    --f-read:'Lora',Georgia,serif; --f-ui:'Outfit',system-ui,-apple-system,'Segoe UI',sans-serif;
+    --f-mono:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;
+    --plate:linear-gradient(180deg,#19120b,#140e08);
+    --plate-edge:rgba(184,147,79,.32);
+    --corners:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18'><g transform='translate(0 0)'><path d='M1 17V7a6 6 0 0 1 6-6h10' fill='none' stroke='%23c9a45c' stroke-width='1'/><path d='M4.5 17V8.5a4 4 0 0 1 4-4H17' fill='none' stroke='%23c9a45c' stroke-opacity='.4' stroke-width='1'/><rect x='5.3' y='5.3' width='2.4' height='2.4' transform='rotate(45 6.5 6.5)' fill='%23c9a45c'/></g></svg>") left 6px top 6px/18px no-repeat,url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18'><g transform='translate(18 0) scale(-1 1)'><path d='M1 17V7a6 6 0 0 1 6-6h10' fill='none' stroke='%23c9a45c' stroke-width='1'/><path d='M4.5 17V8.5a4 4 0 0 1 4-4H17' fill='none' stroke='%23c9a45c' stroke-opacity='.4' stroke-width='1'/><rect x='5.3' y='5.3' width='2.4' height='2.4' transform='rotate(45 6.5 6.5)' fill='%23c9a45c'/></g></svg>") right 6px top 6px/18px no-repeat,url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18'><g transform='translate(0 18) scale(1 -1)'><path d='M1 17V7a6 6 0 0 1 6-6h10' fill='none' stroke='%23c9a45c' stroke-width='1'/><path d='M4.5 17V8.5a4 4 0 0 1 4-4H17' fill='none' stroke='%23c9a45c' stroke-opacity='.4' stroke-width='1'/><rect x='5.3' y='5.3' width='2.4' height='2.4' transform='rotate(45 6.5 6.5)' fill='%23c9a45c'/></g></svg>") left 6px bottom 6px/18px no-repeat,url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18'><g transform='translate(18 18) scale(-1 -1)'><path d='M1 17V7a6 6 0 0 1 6-6h10' fill='none' stroke='%23c9a45c' stroke-width='1'/><path d='M4.5 17V8.5a4 4 0 0 1 4-4H17' fill='none' stroke='%23c9a45c' stroke-opacity='.4' stroke-width='1'/><rect x='5.3' y='5.3' width='2.4' height='2.4' transform='rotate(45 6.5 6.5)' fill='%23c9a45c'/></g></svg>") right 6px bottom 6px/18px no-repeat;
+    --orn-rule:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='11' viewBox='0 0 320 11'><defs><linearGradient id='l'><stop offset='0' stop-color='%23c9a45c' stop-opacity='0'/><stop offset='1' stop-color='%23c9a45c' stop-opacity='.85'/></linearGradient><linearGradient id='r'><stop offset='0' stop-color='%23c9a45c' stop-opacity='.85'/><stop offset='1' stop-color='%23c9a45c' stop-opacity='0'/></linearGradient></defs><rect x='0' y='5' width='144' height='1' fill='url(%23l)'/><rect x='176' y='5' width='144' height='1' fill='url(%23r)'/><circle cx='149.5' cy='5.5' r='1.2' fill='%23c9a45c'/><circle cx='170.5' cy='5.5' r='1.2' fill='%23c9a45c'/><path d='M160 .5 165 5.5 160 10.5 155 5.5Z' fill='none' stroke='%23c9a45c'/><path d='M160 3.4 162.1 5.5 160 7.6 157.9 5.5Z' fill='%23c9a45c'/></svg>");
+    --orn-rule-l:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='11' viewBox='0 0 220 11'><defs><linearGradient id='r'><stop offset='0' stop-color='%23c9a45c' stop-opacity='.85'/><stop offset='1' stop-color='%23c9a45c' stop-opacity='0'/></linearGradient></defs><path d='M6 .5 11 5.5 6 10.5 1 5.5Z' fill='none' stroke='%23c9a45c'/><path d='M6 3.4 8.1 5.5 6 7.6 3.9 5.5Z' fill='%23c9a45c'/><rect x='16' y='5' width='204' height='1' fill='url(%23r)'/></svg>");
+
+    /* legacy — read by Mechanics mode only */
+    --obsidian:#0b0c11; --panel:#14151d;
+    --bone-dim:rgba(237,230,211,.56); --bone-faint:rgba(237,230,211,.30);
+    --gold:#d4af37;
+    --glass:rgba(237,230,211,.045); --glass-hover:rgba(237,230,211,.075);
+    --hairline:rgba(237,230,211,.12); --panel-edge:rgba(237,230,211,.09);
+    --radius:14px;
+    color-scheme:dark;
   }
   * { box-sizing:border-box; }
   html,body { margin:0; padding:0; }
   body {
-    min-height:100vh; background:var(--obsidian); color:var(--bone);
-    font-family:'Lora',Georgia,serif; isolation:isolate;
+    min-height:100vh; color:var(--bone); font-family:var(--f-read); isolation:isolate;
+    background:radial-gradient(120% 60% at 50% 0%,#1b140c 0%,rgba(16,12,8,0) 70%) no-repeat,var(--ground);
+    -webkit-font-smoothing:antialiased;
   }
-
-  /* static ambient mesh, same approach as the directory */
-  /* Static ambient mesh. Six lobes: the five colours roughly where they sit on
-     the wheel, plus a warm centre. Merged from both files — the directory's
-     newer positions and the gold centre lobe, but with the third lobe restored
-     to the real --b (172,162,154). The directory had a violet there, left over
-     from before --b existed; CONTEXT lists it as an open item and the wheel had
-     already corrected it. Revert to rgba(157,139,191,.13) for the violet. */
-  .mesh {
-    position:fixed; inset:-10vmax; z-index:-1; pointer-events:none;
-    background:
-      radial-gradient(38vmax 30vmax at 18% 12%, rgba(245,239,199,.10), transparent 62%),
-      radial-gradient(40vmax 32vmax at 84% 16%, rgba(119,185,232,.13), transparent 64%),
-      radial-gradient(42vmax 34vmax at 90% 74%, rgba(172,162,154,.13), transparent 64%),
-      radial-gradient(38vmax 30vmax at 52% 96%, rgba(217,120,88,.11), transparent 62%),
-      radial-gradient(40vmax 32vmax at 10% 70%, rgba(127,178,131,.11), transparent 64%),
-      radial-gradient(60vmax 46vmax at 50% 42%, rgba(212,175,55,.045), transparent 70%),
-      var(--obsidian);
-    filter:blur(28px) saturate(1.05);
+  /* paper grain, as on the explorer: static, 1.8% */
+  body::before {
+    content:''; position:fixed; inset:0; z-index:-1; pointer-events:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.018'/%3E%3C/svg%3E");
   }
+  /* mana symbols, recoloured to the page's own tokens (the explorer does the same) */
+  .ms-cost.ms-w{background-color:var(--w)} .ms-cost.ms-u{background-color:var(--u)}
+  .ms-cost.ms-b{background-color:var(--b)} .ms-cost.ms-r{background-color:var(--r)} .ms-cost.ms-g{background-color:var(--g)}
 
-  .page { max-width:1280px; margin:0 auto; padding:clamp(28px,5vw,64px) clamp(16px,4vw,40px) 80px; }
+  .page { max-width:1280px; margin:0 auto; padding:clamp(28px,5vw,64px) clamp(16px,4vw,40px) 64px; }
 
   /* ===================================================================
-     HEADER + LAYER CONTROLS
+     MASTHEAD + CONTROLS
      =================================================================== */
-  .hero { text-align:center; margin-bottom:clamp(44px,7vw,76px); }
-  .hero-kicker {
-    font-family:'Outfit',system-ui,sans-serif; font-size:11px; letter-spacing:.26em;
-    text-transform:uppercase; color:var(--bone-faint); margin:0 0 14px;
-  }
-  .hero-title {
-    font-family:'Almendra',Georgia,serif; font-weight:700;
-    font-size:clamp(30px,5.2vw,50px); line-height:1.1; margin:0 0 16px; color:var(--bone);
-  }
-  .hero-lede { max-width:56ch; margin:0 auto; font-size:15px; line-height:1.65; color:var(--bone-dim); }
+  .hero { text-align:center; margin-bottom:clamp(24px,4vw,40px); }
+  .hero-kicker { margin:0 0 16px; font:600 12.5px/1 var(--f-brand); letter-spacing:.34em; color:var(--brass-l); }
+  .hero-kicker span { color:var(--brass-q); padding:0 .35em; }
+  .hero-title { margin:0 0 14px; font:700 clamp(36px,5.2vw,70px)/1 var(--f-brand); letter-spacing:.012em; color:var(--bone); }
+  .hero-lede { max-width:56ch; margin:0 auto; font:italic 400 clamp(15px,1.25vw,17px)/1.6 var(--f-read); color:var(--ink); }
+  .hero::after { content:''; display:block; height:11px; margin:22px auto 0; background:var(--orn-rule) center/320px 11px no-repeat; }
 
-  .layers {
-    display:flex; flex-wrap:wrap; justify-content:center; gap:8px;
-    margin:26px 0 6px;
-  }
-  .layer-btn {
-    font-family:'Outfit',system-ui,sans-serif; font-size:11.5px; font-weight:400;
-    letter-spacing:.1em; text-transform:uppercase;
-    padding:8px 15px; border-radius:999px; cursor:pointer;
-    background:var(--glass); color:var(--bone-dim);
-    border:1px solid var(--hairline);
-    -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px);
-    transition:background .25s var(--ease), color .25s var(--ease), border-color .25s var(--ease);
-  }
-  .layer-btn:hover { color:var(--bone); border-color:rgba(237,230,211,.26); }
-  .layer-btn[aria-pressed="true"] {
-    color:var(--obsidian); background:var(--gold); border-color:var(--gold); font-weight:500;
-  }
-  .layer-btn:focus-visible { outline:2px solid var(--gold); outline-offset:3px; }
-  .layer-btn[disabled] { opacity:.34; cursor:not-allowed; }
-
-  /* Not a layer toggle — it performs an action rather than switching a state
-     on, so it deliberately doesn't carry the gold aria-pressed treatment and
-     sits quieter than its neighbours. It should read as the end of the row,
-     not as a fourth layer. */
-  .clear-btn { background:transparent; border-color:transparent; color:var(--bone-faint); }
-  .clear-btn:hover { color:var(--bone); border-color:var(--hairline); }
-  .layers [hidden] { display:none; }
-
-  /* --- mode control ---------------------------------------------------
-     Explore and Combine are MODES, not toggles: exactly one is active. The
-     layer buttons below stay independent toggles, so the two rows are given
-     visibly different shapes — a joined segment here, separate pills there. */
-  .modes { display:flex; justify-content:center; margin:24px 0 4px; }
-  .mode-seg {
-    display:inline-flex; gap:3px; padding:3px; border-radius:999px;
-    background:var(--glass); border:1px solid var(--hairline);
-    -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px);
-  }
+  /* Explore and Combine are MODES, exactly one active: engraved tabs with
+     the explorer's double gilt underline. The layers below are independent
+     toggles, so they get a different shape -- a framed label with a diamond
+     that is filled when the layer is on. */
+  .modes { display:flex; justify-content:center; margin:18px 0 6px; }
+  .mode-seg { display:inline-flex; gap:22px; }
   .mode-btn {
-    font-family:'Outfit',system-ui,sans-serif; font-size:11.5px; font-weight:400;
-    letter-spacing:.1em; text-transform:uppercase;
-    padding:7px 20px; border-radius:999px; cursor:pointer;
-    background:transparent; color:var(--bone-dim); border:0;
-    transition:background .25s var(--ease), color .25s var(--ease);
+    height:34px; padding:0 4px; border:0; background:transparent; cursor:pointer;
+    font:600 16px/1 var(--f-brand); letter-spacing:.1em; color:var(--ink-dim);
+    transition:color .2s var(--ease), box-shadow .2s var(--ease);
   }
   .mode-btn:hover { color:var(--bone); }
-  .mode-btn[aria-pressed="true"] { background:var(--gold); color:var(--obsidian); font-weight:500; }
-  .mode-btn:focus-visible { outline:2px solid var(--gold); outline-offset:3px; }
-
-  /* --- combine geometry -----------------------------------------------
-     One polygon for every size: three colours make a triangle, four a
-     quadrilateral, five the pentagon. Points are written in wheel order so
-     it can never self-intersect. Gold, matching .quad — both are "a region
-     of the wheel is the answer" rather than "a line is the answer". */
-  .combo {
-    fill:rgba(212,175,55,.07); stroke:rgba(212,175,55,.42); stroke-width:1.5;
-    opacity:0; pointer-events:none; transition:opacity .3s var(--ease);
+  .mode-btn[aria-pressed="true"] {
+    color:var(--bone);
+    box-shadow:inset 0 -1px 0 var(--brass-l),inset 0 -3px 0 var(--ground),inset 0 -4px 0 var(--brass-l);
   }
-  .combo.is-shown { opacity:1; }
+  /* Focus is 2px here, not the explorer's 1.5px: Chromium floors 1.5px to
+     1px at 1x density, which is thinner than today's 2px gold. */
+  .mode-btn:focus-visible { outline:2px solid var(--brass-l); outline-offset:3px; }
 
-  /* The empty set is an identity too, so it needs somewhere to live. Shown
-     only in Combine, where "no colours" is a real answer rather than a
-     starting state. */
-  .center-mark { cursor:pointer; outline:none; }
-  .center-ring { fill:none; stroke:var(--hairline); stroke-width:1;
-                  transition:stroke .25s var(--ease); }
-  .center-dot  { fill:var(--c); opacity:.45; transform-origin:center; transform-box:fill-box;
-                  transition:opacity .3s var(--ease), transform .25s var(--ease); }
-  .center-mark:hover .center-dot, .center-mark:focus-visible .center-dot { transform:scale(1.14); }
-  .center-mark:hover .center-ring, .center-mark:focus-visible .center-ring { stroke:rgba(237,230,211,.3); }
-  .center-mark.is-rel .center-dot { opacity:1; }
-  .center-mark:focus-visible .center-ring { stroke:var(--gold); }
+  .layers { display:flex; flex-wrap:wrap; justify-content:center; gap:8px; margin:18px 0 6px; }
+  .layer-btn {
+    display:inline-flex; align-items:center; gap:9px; height:34px; padding:0 14px 0 12px; cursor:pointer;
+    font:600 14px/1 var(--f-brand); letter-spacing:.07em; color:var(--ink);
+    background:transparent; border:0; border-radius:0; box-shadow:inset 0 0 0 1px var(--rule-s);
+    transition:background .2s var(--ease), color .2s var(--ease), box-shadow .2s var(--ease);
+  }
+  .layer-btn::before {
+    content:''; flex:none; width:6px; height:6px; transform:rotate(45deg);
+    box-shadow:inset 0 0 0 1px var(--brass); transition:background .2s var(--ease);
+  }
+  .layer-btn:hover { color:var(--bone); box-shadow:inset 0 0 0 1px rgba(220,187,115,.6); }
+  .layer-btn[aria-pressed="true"] {
+    color:var(--bone); background:linear-gradient(180deg,#20170d,#160f09);
+    box-shadow:inset 0 0 0 1px var(--brass-l),inset 0 0 0 3px #18110a,inset 0 0 0 4px rgba(184,147,79,.3);
+  }
+  .layer-btn[aria-pressed="true"]::before { background:var(--brass-l); box-shadow:none; }
+  .layer-btn:focus-visible { outline:2px solid var(--brass-l); outline-offset:3px; }
+  .layer-btn[disabled] { opacity:.45; cursor:not-allowed; }
+  .layer-btn[disabled]:hover { color:var(--ink); box-shadow:inset 0 0 0 1px var(--rule-s); }
 
-  /* The layer toggles are EXPLORE's lenses — they choose which structure you
-     are reading. In Combine there is no such choice: the edges you see are
-     whichever ones your colours imply. Leaving the controls up let you switch
-     off the very geometry you were building, which is how a two-colour
-     identity ended up drawing nothing at all. */
+  /* Not a layer toggle -- it performs an action, so it has no frame and no
+     diamond and reads as the end of the row, not a fourth layer. */
+  .clear-btn { box-shadow:none; color:var(--ink-dim); padding:0 8px; }
+  .clear-btn::before { display:none; }
+  .clear-btn:hover { color:var(--bone); box-shadow:none; text-decoration:underline; text-decoration-color:var(--brass); text-underline-offset:4px; }
+  .layers [hidden] { display:none; }
+
+  /* The layer toggles are EXPLORE's lenses. In Combine the edges you see are
+     whichever ones your colours imply, so the lenses are withdrawn. */
   body.mode-combine .layers,
   body.mode-combine .layer-note { display:none; }
 
   .layer-note {
-    text-align:center; font-family:'Outfit',system-ui,sans-serif;
-    font-size:11px; color:var(--bone-faint); margin:0 0 4px; min-height:1.2em;
+    text-align:center; font:italic 400 13px/1.5 var(--f-read); color:var(--ink-dim);
+    margin:0 0 4px; min-height:1.5em;
   }
 
+  /* --- combine geometry: one polygon for every size, in wheel order, so it
+     never self-intersects. Gilt, matching .quad: a region is the answer. */
+  .combo {
+    fill:rgba(220,187,115,.06); stroke:rgba(220,187,115,.45); stroke-width:1.5;
+    opacity:0; pointer-events:none; transition:opacity .3s var(--ease);
+  }
+  .combo.is-shown { opacity:1; }
+
+  /* The empty set is an identity too; shown only in Combine. */
+  .center-mark { cursor:pointer; outline:none; }
+  .center-ring { fill:none; stroke:var(--rule-s); stroke-width:1; transition:stroke .25s var(--ease); }
+  .center-dot  { fill:var(--c); opacity:.45; transform-origin:center; transform-box:fill-box;
+                 transition:opacity .3s var(--ease), transform .25s var(--ease); }
+  .center-mark:hover .center-dot, .center-mark:focus-visible .center-dot { transform:scale(1.14); }
+  .center-mark:hover .center-ring { stroke:rgba(220,187,115,.6); }
+  .center-mark.is-rel .center-dot { opacity:1; }
+  .center-mark:focus-visible .center-ring { stroke:var(--brass-l); stroke-width:1.5; }
+
   /* ===================================================================
-     LAYOUT — wheel beside panel on wide, stacked on narrow
+     LAYOUT -- wheel beside panel on wide, stacked on narrow. Start-aligned
+     so a long panel cannot re-centre (and visibly move) the wheel.
      =================================================================== */
-  /* align-items was `center`: the grid row took the height of whichever
-     column was taller, so a long panel grew the row and re-centred the
-     wheel inside it -- the wheel visibly jumped on selection. Start-aligned,
-     the wheel's cell is its own height and the panel cannot move it. */
   .stage { display:grid; grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr); gap:clamp(16px,3vw,40px); align-items:start; }
   @media (max-width:900px) { .stage { grid-template-columns:1fr; } }
-
   .wheel-wrap { position:relative; }
   svg.wheel { width:100%; height:auto; display:block; overflow:visible; }
 
   /* ===================================================================
-     WHEEL ELEMENTS
-     All static at rest. Only opacity/stroke/scale change, and only on
-     hover, focus or selection.
+     WHEEL -- static at rest; only opacity, stroke and scale change, and
+     only on hover, focus or selection. Geometry is untouched.
      =================================================================== */
   .edge-hit { stroke:transparent; stroke-width:26; fill:none; pointer-events:stroke; }
 
-  /* --- EMPHASIS: three channels, not one -----------------------------------
-     Alpha on its own cannot carry this. Tuned in both directions it collapses:
-     rest creeps up so the mid-value colours stay legible, "lit" then has
-     nowhere left to go, and selecting a colour reads as everything ELSE
-     getting darker rather than as one structure lighting up. So emphasis is
-     split across alpha, stroke width and a glow, and no single channel has to
-     go to an extreme.
-
-     The glow is a separate blurred COPY of each line, not a filter switched on
-     and off on the line itself. Two reasons. CSS cannot interpolate
-     `filter:none` to `filter:url(#lit)` — non-interpolable values animate
-     discretely, flipping at the halfway point, which pops. And a sibling lets
-     the glow be tuned independently of the line's own alpha. The copy carries
-     the same gradient stroke, so each edge glows in its own two colours.
-     ------------------------------------------------------------------------ */
+  /* EMPHASIS: three channels -- alpha, stroke width and a glow -- so no
+     single channel has to go to an extreme. The values are today's,
+     unchanged. What changes is the glow's colour: it was a blurred copy of
+     the pair's own gradient; it is now gilt, the field guide's selection
+     language, drawn by #lit-gilt (the blurred shape of the stroke, flooded
+     brass). The line itself still carries its two mana colours as data.
+     #lit is left as it was: the vertex glows (and Mechanics' docked wheel)
+     still use it. */
   .edge-glow {
     fill:none; pointer-events:none; stroke-width:5; opacity:0;
-    filter:url(#lit);
+    filter:url(#lit-gilt);
     transition:opacity .3s var(--ease), stroke-width .3s var(--ease);
   }
   .edge-line {
@@ -266,53 +263,37 @@
   .edge.enemy .edge-line, .edge.enemy .edge-glow { stroke-dasharray:7 6; }
   .edge { cursor:pointer; outline:none; }
 
-  /* lit — selected, part of the selected structure, or under the cursor */
   .edge.is-rel .edge-line,
   .edge:hover .edge-line, .edge:focus-visible .edge-line { opacity:1; stroke-width:3.4; }
   .edge.is-rel .edge-glow,
   .edge:hover .edge-glow, .edge:focus-visible .edge-glow { opacity:.55; }
-  .edge:focus-visible .edge-hit { stroke:rgba(212,175,55,.3); }
+  .edge:focus-visible .edge-hit { stroke:rgba(220,187,115,.3); }
 
   .vertex { cursor:pointer; outline:none; }
-  .vertex-halo { fill:rgba(237,230,211,.05); stroke:var(--hairline); stroke-width:1;
-                  transition:fill .25s var(--ease), stroke .25s var(--ease); }
+  /* an engraved roundel behind each colour */
+  .vertex-halo { fill:rgba(220,187,115,.035); stroke:var(--rule-s); stroke-width:1;
+                 transition:fill .25s var(--ease), stroke .25s var(--ease); }
   .vertex-dot { transition:transform .25s var(--ease), opacity .3s var(--ease);
-                 transform-origin:center; transform-box:fill-box; }
-  /* The disc carries the colour, the glyph sits on it in the page's own
-     background colour — which is how a real mana symbol is built, and why the
-     dot could not just BE the glyph. Sized against the disc: mana-font draws
-     its circle at 1.3em, so a 40px disc wants roughly a 30px glyph.
-     pointer-events:none keeps the vertex group the click target.
-
-     dominant-baseline="central" leaves the glyph a consistent 0.022em low —
-     measured at 0.66px on every one of the five at 30px — so each carries
-     dy="-0.022em". In em rather than px so it holds if the size changes. */
+                transform-origin:center; transform-box:fill-box; }
+  /* The glyph sits on the disc in the page's own ground colour, the way a
+     mana symbol is built. dy="-0.022em" on each glyph is measured; see git. */
   .vertex-glyph {
-    font-family:'Mana'; font-size:30px; fill:var(--obsidian);
+    font-family:'Mana'; font-size:30px; fill:var(--ground);
     pointer-events:none; transform-origin:center; transform-box:fill-box;
     transition:transform .25s var(--ease), opacity .3s var(--ease);
   }
   .vertex-glow { opacity:0; pointer-events:none; filter:url(#lit);
-                  transform-origin:center; transform-box:fill-box;
-                  transition:opacity .3s var(--ease), transform .25s var(--ease); }
+                 transform-origin:center; transform-box:fill-box;
+                 transition:opacity .3s var(--ease), transform .25s var(--ease); }
   .vertex.is-rel .vertex-glow,
   .vertex:hover .vertex-glow, .vertex:focus-visible .vertex-glow { opacity:.6; }
   .vertex:hover .vertex-dot, .vertex:focus-visible .vertex-dot,
   .vertex:hover .vertex-glyph, .vertex:focus-visible .vertex-glyph,
   .vertex:hover .vertex-glow, .vertex:focus-visible .vertex-glow { transform:scale(1.14); }
-  .vertex:hover .vertex-halo, .vertex:focus-visible .vertex-halo {
-    fill:rgba(237,230,211,.09); stroke:rgba(237,230,211,.3);
-  }
-  /* --- the two faces of a colour ---------------------------------------
-     Every colour sits in exactly two alliances, so every vertex has two
-     sides: White is Restraint toward Blue and Responsibility toward Green.
-     Each arc is drawn in the ALLY's colour and occupies the half of the ring
-     that actually faces that ally, so position is the label — which is why
-     none of them carry text. The words live in the panel instead.
-
-     Revealed on selection, never standing ornament. The pairing is MaRo's,
-     from "Thank You for Being a Friend"; the split-vertex idea is the
-     structure the classic colour-wheel poster uses. */
+  .vertex:hover .vertex-halo { fill:rgba(220,187,115,.07); stroke:rgba(220,187,115,.6); }
+  .vertex:focus-visible .vertex-halo { fill:rgba(220,187,115,.07); stroke:var(--brass-l); stroke-width:1.5; }
+  /* The two faces of a colour: each arc in the ALLY's colour, on the half of
+     the ring that faces that ally. Revealed on selection, never ornament. */
   .vertex-half {
     fill:none; stroke-width:3.5; stroke-linecap:butt; opacity:0;
     pointer-events:none; transition:opacity .3s var(--ease);
@@ -320,50 +301,38 @@
   .vertex-half.is-shown { opacity:.85; }
 
   .vertex-label {
-    font-family:'Cormorant SC',Georgia,serif; font-size:23px; font-weight:600;
+    font-family:var(--f-brand); font-size:23px; font-weight:700;
     letter-spacing:.04em; fill:var(--bone); pointer-events:none;
     transition:opacity .3s var(--ease);
   }
   .vertex-goal {
-    font-family:'Outfit',system-ui,sans-serif; font-size:11.5px; font-weight:300;
-    letter-spacing:.16em; text-transform:uppercase; fill:var(--bone-faint); pointer-events:none;
+    font-family:var(--f-read); font-style:italic; font-size:14px; font-weight:400;
+    fill:var(--ink-dim); pointer-events:none;
     transition:opacity .3s var(--ease);
   }
 
   .cross { cursor:pointer; outline:none; }
   .cross-hit { fill:transparent; }
-  /* Each crossing wears its own identity: four arcs, one per included colour,
-     so you can read WUBG off the marker without clicking it. */
-  .cross-core { fill:var(--obsidian); opacity:.9; }
+  .cross-core { fill:var(--ground); opacity:.9; }
   .cross-arc { fill:none; stroke-width:3.4; stroke-linecap:butt; opacity:.7;
-                transition:opacity .3s var(--ease), stroke-width .3s var(--ease); }
-  /* Gold rather than tinted. A tinted glow would need a second copy of all
-     four arcs on every crossing, and those coordinates were solved, not drawn
-     — one source of truth for them is worth more than a colour match. Gold is
-     already the four-colour selection language anyway; see .quad. */
-  .cross-glow { fill:none; stroke:var(--gold); stroke-width:3.5; opacity:0;
-                 pointer-events:none; filter:url(#lit);
-                 transition:opacity .3s var(--ease); }
+               transition:opacity .3s var(--ease), stroke-width .3s var(--ease); }
+  /* Gilt rather than tinted: one source of truth for the solved coordinates. */
+  .cross-glow { fill:none; stroke:var(--brass-l); stroke-width:3.5; opacity:0;
+                pointer-events:none; filter:url(#lit);
+                transition:opacity .3s var(--ease); }
   .cross.is-rel .cross-arc,
   .cross:hover .cross-arc, .cross:focus-visible .cross-arc { opacity:1; stroke-width:4.4; }
   .cross.is-rel .cross-glow,
   .cross:hover .cross-glow, .cross:focus-visible .cross-glow { opacity:.7; }
   .cross-g { transition:transform .25s var(--ease); transform-origin:center; transform-box:fill-box; }
   .cross:hover .cross-g, .cross:focus-visible .cross-g { transform:scale(1.28); }
-  .cross:focus-visible .cross-core { stroke:var(--gold); stroke-width:1.5; }
+  .cross:focus-visible .cross-core { stroke:var(--brass-l); stroke-width:1.5; }
 
-  /* layer visibility */
   .layer-off { display:none; }
 
-  /* Receded, not erased. The far side of the wheel has to stay readable —
-     clicking White must not delete the blue/green structure. .22 is low enough
-     to fall properly back ONLY because the lit edges now gain width and glow;
-     with alpha as the sole channel this value was unusable, which is how the
-     old .34 got there. */
+  /* Receded, not erased -- values unchanged. */
   .wheel.has-selection .edge:not(.is-rel) .edge-line { opacity:.22; stroke-width:1.4; }
   .wheel.has-selection .edge:not(.is-rel) .edge-glow { opacity:0; }
-  /* Hovering a receded edge lifts it back to roughly rest — enough to confirm
-     it still takes clicks, not enough to compete with the lit selection. */
   .wheel.has-selection .edge:not(.is-rel):hover .edge-line,
   .wheel.has-selection .edge:not(.is-rel):focus-visible .edge-line { opacity:.45; stroke-width:2; }
   .wheel.has-selection .edge:not(.is-rel):hover .edge-glow,
@@ -374,463 +343,230 @@
   .wheel.has-selection .vertex:not(.is-rel) .vertex-label,
   .wheel.has-selection .vertex:not(.is-rel) .vertex-goal { opacity:.34; }
   .wheel.has-selection .cross:not(.is-rel) .cross-arc { opacity:.28; stroke-width:3; }
-  /* The excluded colour on a four-colour selection is pushed further back
-     still. This has to be qualified with .wheel.has-selection: unqualified it
-     scores below the dim rule above and never rendered at all. */
   .wheel.has-selection .vertex.is-excluded .vertex-dot,
   .wheel.has-selection .vertex.is-excluded .vertex-glyph { opacity:.12; }
 
-  /* --- four-colour region ------------------------------------------
-     A crossing on its own is an anonymous dot. Selecting one fills the
-     quadrilateral of the four INCLUDED vertices, so the identity reads as
-     an area of the wheel rather than a point on it. Hidden until selected. */
-  .quad { fill:rgba(212,175,55,.07); stroke:rgba(212,175,55,.4); stroke-width:1.5;
-           stroke-dasharray:5 5; opacity:0; pointer-events:none;
-           transition:opacity .3s var(--ease); }
+  /* four-colour region, hidden until selected */
+  .quad { fill:rgba(220,187,115,.06); stroke:rgba(220,187,115,.42); stroke-width:1.5;
+          stroke-dasharray:5 5; opacity:0; pointer-events:none;
+          transition:opacity .3s var(--ease); }
   .quad.is-shown { opacity:1; }
 
   /* ===================================================================
-     PANEL
+     PANEL -- a specimen plate, as the explorer's detail
      =================================================================== */
   .panel {
-    padding:26px 24px; border-radius:16px;
-    /* Bounded, and it scrolls itself. Panel content ranges from a short
-       mono entry to a conflict panel carrying a whole college, so an
-       unbounded box made the page height lurch on every click. */
+    padding:28px 28px 24px; border-radius:0; color:var(--ink);
+    /* Bounded, and it scrolls itself, so the page does not lurch per click. */
     min-height:420px; max-height:calc(100vh - 180px);
     overflow-y:auto; overscroll-behavior-y:contain;
-    /* QUIET THE SCROLLBAR. The complaint was never that the panel
-       scrolls -- it was that an opaque OS track reads as browser chrome
-       bolted onto the instrument. The transparent track is what removes
-       the stripe; the thin thumb is what keeps it grabbable. Not hidden
-       outright: not every visitor has a wheel, trackpad or touch, and a
-       pointer moved to the edge should still find a handle.
-       scrollbar-gutter:stable is deliberately NOT set -- it permanently
-       reserves the gutter, which is the same visual weight being removed. */
-    scrollbar-width:thin;
-    scrollbar-color:rgba(212,175,55,.30) transparent;
-    background:var(--glass); border:1px solid var(--hairline);
-    -webkit-backdrop-filter:blur(16px) saturate(1.3); backdrop-filter:blur(16px) saturate(1.3);
-    box-shadow:inset 0 1px 0 rgba(237,230,211,.06);
+    /* a thin gilt thumb on a transparent track: grabbable, not browser chrome */
+    scrollbar-width:thin; scrollbar-color:rgba(184,147,79,.3) transparent;
+    background:var(--corners),linear-gradient(180deg,#1b130b,#130d08);
+    box-shadow:inset 0 0 0 1px rgba(184,147,79,.36);
   }
-  .panel:hover, .panel:focus-within { scrollbar-color:rgba(212,175,55,.55) transparent; }
-  /* Fallback for engines that do not honour scrollbar-width/-color. Chrome
-     ignores these once the standard properties apply. The transparent
-     border plus background-clip is what insets the thumb from the card
-     edge, so it reads as a filament rather than a bar. */
+  .panel:hover, .panel:focus-within { scrollbar-color:rgba(220,187,115,.55) transparent; }
   .panel::-webkit-scrollbar { width:10px; }
   .panel::-webkit-scrollbar-track { background:transparent; }
   .panel::-webkit-scrollbar-thumb {
-    background:rgba(212,175,55,.30); border:3px solid transparent;
-    background-clip:content-box; border-radius:999px;
+    background:rgba(184,147,79,.3); border:3px solid transparent;
+    background-clip:content-box; border-radius:0;
   }
   .panel:hover::-webkit-scrollbar-thumb, .panel:focus-within::-webkit-scrollbar-thumb {
-    background:rgba(212,175,55,.55); background-clip:content-box;
+    background:rgba(220,187,115,.55); background-clip:content-box;
   }
-
-  /* "THERE IS MORE BELOW." A sticky pseudo-element pins to the foot of the
-     scroll box while content moves under it, so the text reads as receding
-     into the surface rather than being cut off. Negative top margin means
-     it adds no height of its own. `has-more` is set only while content
-     actually remains, so it is absent at the end and on a panel that fits.
-     It is a state, not an animation; the reduced-motion block above already
-     removes the transition with !important. */
+  /* "There is more below": a sticky fade, only while content remains. */
   .panel::after {
     content:''; display:block; position:sticky; bottom:0; height:34px;
-    margin:-34px -24px 0; pointer-events:none;
+    margin:-34px -28px 0; pointer-events:none;
     opacity:0; transition:opacity .18s linear;
-    background:linear-gradient(rgba(11,12,17,0), rgba(11,12,17,.92));
+    background:linear-gradient(rgba(19,13,8,0), rgba(19,13,8,.94));
   }
   .panel.has-more::after { opacity:1; }
-
-  /* MUST stay after `.panel`. Both selectors are a single class, so this
-     only wins on source order -- when it lived up beside the `.stage`
-     rule the bound never lifted and phones got a scroll box inside a
-     scrolling page. Below 900px the layout is one column, where a tall
-     panel is the better answer. */
+  /* MUST stay after .panel: one column below 900px, where a tall panel is
+     the better answer than a scroll box inside a scrolling page. */
   @media (max-width:900px) {
     .panel { max-height:none; min-height:0; overflow-y:visible; }
-    .panel::after { display:none; }   /* nothing is clipped, so nothing to hint at */
+    .panel::after { display:none; }
   }
-  .panel-kicker {
-    font-family:'Outfit',system-ui,sans-serif; font-size:10.5px; font-weight:500;
-    letter-spacing:.2em; text-transform:uppercase; color:var(--gold); margin:0 0 10px;
-  }
+  .panel-kicker { margin:0 0 12px; font:600 12.5px/1.2 var(--f-brand); letter-spacing:.24em; color:var(--brass-l); }
   .panel-title {
-    font-family:'Cormorant SC',Georgia,serif; font-weight:600; font-size:27px;
-    letter-spacing:.03em; margin:0 0 4px; line-height:1.2;
+    margin:0 0 6px; font:700 30px/1.1 var(--f-brand); letter-spacing:.01em; color:var(--bone);
+    overflow-wrap:break-word;
   }
-  .panel-sub {
-    font-family:'Outfit',system-ui,sans-serif; font-size:12px; font-weight:300;
-    letter-spacing:.05em; color:var(--bone-dim); margin:0 0 16px;
-  }
-  /* Alternate names. Deliberately quiet and directly under the name it
-     belongs to: this is metadata about what a thing is called, not content
-     about what it is, so it must not compete with the philosophy below it. */
-  .panel-aka {
-    font-family:'Outfit',system-ui,sans-serif; font-size:11px; font-weight:300;
-    letter-spacing:.03em; color:var(--bone-faint); margin:-10px 0 16px;
-  }
+  .panel-title::after { content:''; display:block; width:220px; max-width:100%; height:11px; margin-top:12px;
+    background:var(--orn-rule-l) left center/220px 11px no-repeat; }
+  .panel-sub { margin:10px 0 16px; font:italic 400 15px/1.5 var(--f-read); color:var(--ink-dim); }
+  /* alternate names: metadata about what a thing is called, kept quiet */
+  .panel-aka { margin:-8px 0 16px; font:italic 400 13px/1.5 var(--f-read); color:var(--ink-dim); }
 
-  .panel-body { font-size:14.5px; line-height:1.68; color:var(--bone-dim); margin:0 0 16px; }
+  .panel-body { margin:0 0 16px; font:400 15px/1.7 var(--f-read); color:var(--ink); }
   .panel-body strong { color:var(--bone); font-weight:500; }
-  /* The only direct quotation in the build. Everything else is paraphrase;
-     this earns the exception because it is the clearest statement of the
-     category error the colorless entry exists to prevent, and paraphrasing it
-     would destroy the very thing that makes it land. Reproduced exactly,
-     including Rosewater's own nested quotation marks around the phrase he is
-     quoting from his blog, and attributed in full. */
+  /* The lead paragraph opens with a gilt initial, as the explorer's entries
+     do. Only a plain lead (no inline labels) under a sub-line takes it. */
+  .panel-sub + .panel-body:not(:has(strong))::first-letter,
+  .panel-aka + .panel-body:not(:has(strong))::first-letter {
+    float:left; margin:.06em .1em 0 -.02em; font:700 3.1em/.8 var(--f-display); color:var(--brass-l);
+  }
+  /* The only direct quotation in the build, reproduced exactly and attributed. */
   .panel-quote {
-    margin:14px 0 0; padding:2px 0 2px 14px;
-    border-left:2px solid rgba(212,175,55,.35);
-    font-size:14px; line-height:1.6; color:var(--bone);
+    margin:14px 0 0; padding:2px 0 2px 14px; border-left:1px solid var(--brass);
+    font:italic 400 15px/1.6 var(--f-read); color:var(--bone);
   }
   .panel-quote cite {
-    display:block; margin-top:7px; font-style:normal;
-    font-family:'Outfit',system-ui,sans-serif; font-size:10.5px; font-weight:300;
-    letter-spacing:.02em; color:var(--bone-faint);
+    display:block; margin-top:7px; font:400 11.5px/1.5 var(--f-ui); font-style:normal; color:var(--ink-dim);
   }
 
-  /* THE STRIXHAVEN LENS. A second, narrower reading of the SAME enemy pair,
-     so it sits below the pair's own philosophy, behind a rule, in a quieter
-     key. It must read as an additional lens and never as a correction:
-     Witherbloom's life-and-death is not black-green's free will and destiny,
-     and the panel has to make that legible at a glance rather than in a note
-     nobody reaches. */
-  .panel-lens { margin:22px 0 0; padding:17px 0 0; border-top:1px solid var(--hairline); }
-  .panel-lens .panel-kicker { margin-bottom:9px; }
-  .panel-lens .panel-body { font-size:13.5px; margin:0 0 12px; }
+  /* THE STRIXHAVEN LENS: a second, narrower reading of the same enemy pair,
+     below the pair's own philosophy, behind a rule, in a quieter key. */
+  .panel-lens { margin:22px 0 0; padding:18px 0 0; border-top:1px solid var(--rule); }
+  .panel-lens .panel-kicker { margin-bottom:10px; }
+  .panel-lens .panel-body { font-size:14px; margin:0 0 12px; }
   .panel-lens .panel-body:last-of-type { margin-bottom:0; }
-  .panel-lens-name {
-    font-family:'Cormorant SC',Georgia,serif; font-weight:600; font-size:19px;
-    letter-spacing:.03em; margin:0 0 3px; line-height:1.25;
-  }
-  .panel-lens-desig {
-    font-family:'Outfit',system-ui,sans-serif; font-size:11px; font-weight:300;
-    letter-spacing:.04em; color:var(--bone-faint); margin:0 0 14px;
-  }
-  /* The two halves of the college. Bare names on purpose: these are the deans'
-     titles exactly as printed on the cards, and "Principle of X" -- the wiki's
-     grouping label -- is not sourced to Wizards, so it is not used here. */
+  .panel-lens-name { margin:0 0 3px; font:700 22px/1.2 var(--f-brand); letter-spacing:.01em; color:var(--bone); }
+  .panel-lens-desig { margin:0 0 14px; font:italic 400 13px/1.45 var(--f-read); color:var(--ink-dim); }
+  /* the deans' titles as printed on the cards */
   .poles { list-style:none; margin:0 0 13px; padding:0; display:grid; gap:7px; }
-  .pole {
-    font-family:'Outfit',system-ui,sans-serif; font-size:12px; font-weight:300;
-    letter-spacing:.02em; line-height:1.5; color:var(--bone-dim);
-  }
-  .pole strong { color:var(--bone); font-weight:500; letter-spacing:.05em; }
+  .pole { font:400 13.5px/1.5 var(--f-read); color:var(--ink); }
+  .pole strong { font:600 15px/1 var(--f-brand); letter-spacing:.04em; color:var(--bone); }
 
-  .panel-src {
-    font-family:'Outfit',system-ui,sans-serif; font-size:10.5px; font-weight:300;
-    color:var(--bone-faint); margin:18px 0 0; padding-top:12px;
-    border-top:1px solid var(--hairline);
-  }
-  /* SOURCES COLLAPSE. Two of these stack on a conflict panel now the lens is
-     there, and together they were taller than the philosophy above them. They
-     are reference material: true, needed, and not what you came to read.
-     <details> because it is native -- keyboard reachable, found by the
-     browser's own find-in-page, and it needs no JS and no animation, so
-     prefers-reduced-motion has nothing to skip. */
+  /* SOURCES: native <details>, reference material, closed by default */
+  .panel-src { margin:20px 0 0; padding-top:12px; border-top:1px solid var(--rule); font:400 12.5px/1.6 var(--f-ui); color:var(--ink); }
   .panel-src > summary {
-    letter-spacing:.14em; text-transform:uppercase; cursor:pointer;
-    list-style:none; padding:2px 0;
+    cursor:pointer; list-style:none; padding:6px 0;
+    font:600 13px/1 var(--f-brand); letter-spacing:.12em; color:var(--ink-dim);
   }
   .panel-src > summary::-webkit-details-marker { display:none; }
-  .panel-src > summary::before { content:'+ '; }
-  .panel-src[open] > summary::before { content:'− '; }
-  .panel-src > summary:hover { color:var(--bone-dim); }
-  .panel-src > summary:focus-visible { outline:2px solid var(--gold); outline-offset:3px; }
-  .panel-src > p { margin:9px 0 0; }
+  .panel-src > summary::before { content:'\25B8\00A0\00A0'; color:var(--brass); }
+  .panel-src[open] > summary::before { content:'\25BE\00A0\00A0'; }
+  .panel-src > summary:hover { color:var(--bone); }
+  .panel-src > summary:focus-visible { outline:2px solid var(--brass-l); outline-offset:2px; }
+  .panel-src > p { margin:10px 0 0; }
 
-  .panel-empty { color:var(--bone-faint); font-style:italic; }
-  /* programmatic focus target only — never reached by tabbing */
+  .panel-empty { color:var(--ink-dim); font-style:italic; }
+  /* programmatic focus target only -- never reached by tabbing */
   .panel:focus { outline:none; }
-  .panel:focus-visible { outline:2px solid var(--gold); outline-offset:3px; }
+  .panel:focus-visible { outline:2px solid var(--brass-l); outline-offset:3px; }
 
-  /* three-way perspective switch on conflict panels */
-  .views { display:flex; gap:6px; margin:0 0 14px; flex-wrap:wrap; }
+  /* conflict perspectives, and the neighbour chips that reuse them: one
+     vocabulary for "a small thing you can click inside the panel" */
+  .views { display:flex; gap:6px; margin:0 0 16px; flex-wrap:wrap; }
   .view-btn {
-    font-family:'Outfit',system-ui,sans-serif; font-size:11px; letter-spacing:.08em;
-    padding:6px 12px; border-radius:999px; cursor:pointer;
-    background:transparent; color:var(--bone-dim);
-    border:1px solid var(--hairline);
-    transition:background .2s var(--ease), color .2s var(--ease), border-color .2s var(--ease);
+    min-height:32px; padding:0 12px; cursor:pointer; border:0; border-radius:0;
+    font:400 12.5px/1 var(--f-ui); letter-spacing:.02em; color:var(--ink);
+    background:linear-gradient(180deg,#1f170e,#150f09); box-shadow:inset 0 0 0 1px rgba(184,147,79,.26);
+    transition:background .2s var(--ease), color .2s var(--ease), box-shadow .2s var(--ease);
   }
-  .view-btn:hover { color:var(--bone); }
-  .view-btn[aria-pressed="true"] { color:var(--bone); border-color:currentColor; background:rgba(237,230,211,.07); }
-  .view-btn:focus-visible { outline:2px solid var(--gold); outline-offset:2px; }
-
-  /* Neighbour chips reuse the conflict-perspective button so the page keeps one
-     vocabulary for "a small thing you can click inside the panel". */
+  .view-btn:hover { color:var(--bone); box-shadow:inset 0 0 0 1px rgba(220,187,115,.6); }
+  .view-btn[aria-pressed="true"] {
+    color:var(--bone);
+    background:radial-gradient(90% 90% at 50% 35%,rgba(220,187,115,.22),rgba(220,187,115,.06)),#150f09;
+    box-shadow:inset 0 0 0 1.5px var(--brass-l),inset 0 0 0 4px #1c150c,inset 0 0 0 5px rgba(220,187,115,.5);
+  }
+  .view-btn:focus-visible { outline:2px solid var(--brass-l); outline-offset:2px; }
   .views .nbr { display:inline-flex; align-items:center; gap:2px; }
-  .views .nbr:hover { border-color:rgba(237,230,211,.3); }
 
-  /* Mana symbols, not colour dots. mana-font is already loaded for the atlas
-     tiles, so the panel and the tiles now show the same glyphs instead of two
-     different visual languages for "this colour".
-
-     Sized in em rather than px on purpose: the same helper is used in a 27px
-     panel title and in 14.5px body text, and 0.72em keeps the symbol in
-     proportion to whatever it sits in. `ms-cost` supplies the round background
-     that makes it read as a mana symbol rather than a bare glyph. */
+  /* Mana symbols, not colour dots. Sized in em so one helper serves a 30px
+     title and 15px body; flex-centred with line-height:1 so the glyph sits
+     in its circle; vertical-align:middle self-corrects per typeface. */
   .swatch {
     font-size:.72em; margin-right:5px; vertical-align:middle;
-    /* Two separate corrections, and they fix two different things.
-
-       INSIDE the circle: mana-font gives .ms-cost a 1.3em box but a 1.35em
-       line-height, and the extra leading pushes the glyph below centre.
-       Flex-centring with line-height:1 removes it.
-
-       The circle ON the line: `middle`, and the reason is worth recording
-       because the obvious fix is wrong. The symbol was sitting ~4px below the
-       cap centre in body text. A measured em offset fixed body text exactly
-       and then broke everything else — the title went 3px high and the chip
-       did not move at all. em scales with SIZE but not across TYPEFACES, and
-       the three contexts are three different fonts (Lora, Cormorant SC,
-       Outfit) with different cap-height ratios.
-
-       `middle` is defined against the parent's own x-height, so it
-       self-corrects per font. Measured after: body and title both land within
-       ~1px of their x-height centre instead of 2-3px low.
-
-       The chip is unaffected by any of this and that is correct. `.nbr` is
-       inline-flex, so its swatch is a flex item, vertical-align does not apply
-       to it, and align-items:center already centres it on the line the way an
-       icon in a button should be. */
     display:inline-flex; align-items:center; justify-content:center; line-height:1;
   }
   .swatch::before { position:relative; left:.02em; }
 
-
   /* ===================================================================
-     ATLAS SECTION HEADER — the wheel's hero belongs to the page, so the
-     directory's own hero is demoted to a section heading here.
+     ATLAS -- the thirty-two identities, set as an index of plates
      =================================================================== */
   .atlas-head { text-align:center; margin:clamp(56px,8vw,96px) 0 clamp(28px,4vw,44px); }
-  .atlas-head h2 {
-    font-family:'Almendra',Georgia,serif; font-weight:700;
-    font-size:clamp(24px,3.4vw,34px); line-height:1.15; margin:0 0 12px; color:var(--bone);
-  }
+  .atlas-head h2 { margin:0 0 12px; font:700 clamp(28px,3.4vw,44px)/1.05 var(--f-brand); letter-spacing:.01em; color:var(--bone); }
+  .atlas-head::after { content:''; display:block; height:11px; margin:20px auto 0; background:var(--orn-rule) center/320px 11px no-repeat; }
 
-  /* ====================================================================
-     4. TIERS
-     ==================================================================== */
-  .tier { margin-bottom: clamp(44px, 6vw, 72px); }
+  /* .atlas-tier, not .tier: Mechanics mode owns a .tier badge rule (9px,
+     uppercase, nowrap, bordered) that was also landing on these sections. */
+  .atlas-tier { margin-bottom:clamp(40px,6vw,64px); }
+  .tier-head { display:flex; align-items:baseline; gap:14px; margin:0 0 18px; }
+  .tier-index { margin:0; flex:none; font:500 11px/1 var(--f-mono); letter-spacing:.14em; text-transform:uppercase; color:var(--brass); }
+  .tier-title { margin:0; flex:1 1 auto; display:flex; align-items:center; gap:14px;
+    font:700 clamp(20px,2.4vw,24px)/1.2 var(--f-brand); letter-spacing:.015em; color:var(--bone); }
+  .tier-title::after { content:''; flex:1; height:1px; background:linear-gradient(90deg,var(--rule-s),rgba(184,147,79,0)); }
+  .tier-count { margin:0; flex:none; font:italic 400 13px/1.2 var(--f-read); color:var(--ink-dim); }
 
-  .tier-head {
-    display: flex; align-items: baseline; gap: 14px;
-    padding-bottom: 12px; margin-bottom: 22px;
-    border-bottom: 1px solid var(--hairline);
-  }
-  .tier-index {
-    font-family: 'Outfit', system-ui, sans-serif;
-    font-size: 10.5px; font-weight: 500;
-    letter-spacing: .2em; text-transform: uppercase;
-    color: var(--gold); opacity: .85;
-    margin: 0; flex: none;
-  }
-  .tier-title {
-    font-family: 'Almendra', Georgia, serif;
-    font-weight: 700; font-size: clamp(19px, 2.6vw, 25px);
-    margin: 0; flex: 1 1 auto; color: var(--bone);
-  }
-  .tier-count {
-    font-family: 'Outfit', system-ui, sans-serif;
-    font-size: 11.5px; font-weight: 300;
-    color: var(--bone-faint); margin: 0; flex: none;
-  }
-
-  /* Sub-groups (allied/enemy, shards/wedges) sit inside a tier and are
-     visually subordinate to it — a label, not a second heading rule. */
-  .subgroup + .subgroup { margin-top: 26px; }
+  /* Sub-groups sit inside a tier as labels, not a second heading rule. */
+  .subgroup + .subgroup { margin-top:24px; }
   .subgroup-label {
-    font-family: 'Outfit', system-ui, sans-serif;
-    font-size: 10.5px; font-weight: 500;
-    letter-spacing: .2em; text-transform: uppercase;
-    color: var(--bone-faint);
-    margin: 0 0 12px;
-    display: flex; align-items: center; gap: 12px;
+    margin:0 0 12px; display:flex; align-items:center; gap:12px;
+    font:600 13px/1 var(--f-brand); letter-spacing:.12em; color:var(--brass-l);
   }
-  /* trailing hairline so the label reads as a divider, not a heading */
-  .subgroup-label::after {
-    content: ""; flex: 1 1 auto; height: 1px;
-    background: var(--hairline);
-  }
+  .subgroup-label::after { content:''; flex:1 1 auto; height:1px; background:var(--rule); }
 
-  /* ====================================================================
-     5. GRID
-     ==================================================================== */
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(206px, 1fr));
-    gap: 14px;
-  }
-  /* Single-tile tiers (colourless, five-colour) shouldn't stretch one tile
-     across the full width — cap them and centre. */
-  .grid.solo {
-    grid-template-columns: minmax(206px, 268px);
-    justify-content: center;
-  }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(206px,1fr)); gap:14px; }
+  /* single-tile tiers are capped and centred rather than stretched */
+  .grid.solo { grid-template-columns:minmax(206px,268px); justify-content:center; }
 
-  /* ====================================================================
-     6. TILE — the glass surface
-     ==================================================================== */
+  /* TILE: a small plate, as the explorer's compass nodes. Pointer tilt is
+     kept exactly as it was (JS writes --rx/--ry). */
   .tile {
-    position: relative;
-    display: flex; flex-direction: column; align-items: center;
-    text-align: center;
-    padding: 22px 16px 18px;
-    border-radius: var(--radius);
-    background: var(--glass);
-    border: 1px solid var(--hairline);
-    -webkit-backdrop-filter: blur(14px) saturate(1.3);
-    backdrop-filter: blur(14px) saturate(1.3);
-    /* inner top highlight — reads as a light catching the top edge of glass */
-    box-shadow:
-      inset 0 1px 0 rgba(237,230,211,.06),
-      0 1px 2px rgba(0,0,0,.3);
-    transition:
-      background .3s var(--ease),
-      border-color .3s var(--ease),
-      box-shadow .3s var(--ease),
-      transform .25s var(--ease);
-    /* set by JS on hover; harmless defaults so the CSS is valid without it */
-    --rx: 0deg;
-    --ry: 0deg;
-    transform-style: preserve-3d;
-    cursor: default;
+    position:relative; display:flex; flex-direction:column; align-items:center; text-align:center;
+    padding:22px 16px 18px; border-radius:0;
+    background:linear-gradient(180deg,#1f170e,#150f09);
+    box-shadow:inset 0 0 0 1px rgba(184,147,79,.26);
+    transition:background .3s var(--ease), box-shadow .3s var(--ease), transform .25s var(--ease);
+    --rx:0deg; --ry:0deg; transform-style:preserve-3d; cursor:default;
   }
+  /* :focus-visible rules are dormant until a tile gains a real control. */
+  .tile:hover, .tile:focus-visible {
+    background:linear-gradient(180deg,#281d11,#1a130b);
+    box-shadow:inset 0 0 0 1px rgba(220,187,115,.6),0 8px 24px rgba(0,0,0,.45);
+  }
+  .tile:focus-visible { outline:2px solid var(--brass-l); outline-offset:3px; }
+  .tile:hover { transform:perspective(760px) rotateX(var(--rx)) rotateY(var(--ry)) scale(1.035); }
+  .tile:focus-visible { transform:scale(1.035); }
 
-  /* NOTE: the :focus-visible rules below are DORMANT. The tiles are display
-     only — no click handler, nothing to open — so they no longer carry
-     tabindex="0". A focusable element that does nothing when activated is a
-     false promise: it cost keyboard users 37 stops through the atlas and paid
-     out nothing. The rules are kept rather than deleted because they become
-     correct the moment a tile gains a real <a> or <button>, which is when the
-     tiles should regain focusability. */
-  .tile:hover,
-  .tile:focus-visible {
-    background: var(--glass-hover);
-    border-color: rgba(237,230,211,.24);
-    box-shadow:
-      inset 0 1px 0 rgba(237,230,211,.1),
-      0 8px 24px rgba(0,0,0,.4);
-  }
-  .tile:focus-visible {
-    outline: 2px solid var(--gold);
-    outline-offset: 3px;
-  }
-
-  /* Pointer tilt. The transform is applied on the .tile itself and driven by
-     two custom properties JS writes; the brief's plain scale() is folded in
-     here so hover still reads as "lift" even when the tilt is 0 (touch,
-     keyboard focus, reduced motion). Kept to 3° — see head comment. */
-  .tile:hover {
-    transform: perspective(760px) rotateX(var(--rx)) rotateY(var(--ry)) scale(1.035);
-  }
-  .tile:focus-visible { transform: scale(1.035); }
-
-  /* --- identity ring -------------------------------------------------
-     Static conic-gradient, masked to an annulus. One hard-stopped arc per
-     colour, generated per-tile into the inline --ring property. */
+  /* identity ring: static conic gradient masked to a 3px annulus (data) */
   .tile-ring {
-    width: 46px; height: 46px; border-radius: 50%;
-    background: var(--ring);
-    /* mask carves the centre out, leaving a 3px band */
-    -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 3px));
-    mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 3px));
-    opacity: .58;
-    transition: opacity .3s var(--ease), filter .3s var(--ease);
+    width:46px; height:46px; border-radius:50%; background:var(--ring);
+    -webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 calc(100% - 3px));
+    mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 calc(100% - 3px));
+    opacity:.58; transition:opacity .3s var(--ease), filter .3s var(--ease);
   }
-  /* the hover reward: the ring comes up to full, nothing moves */
-  .tile:hover .tile-ring,
-  .tile:focus-visible .tile-ring {
-    opacity: 1;
-    filter: drop-shadow(0 0 6px rgba(237,230,211,.22));
-  }
+  .tile:hover .tile-ring, .tile:focus-visible .tile-ring { opacity:1; filter:drop-shadow(0 0 6px rgba(220,187,115,.25)); }
+  .tile-pips { position:absolute; top:22px; height:46px; display:flex; align-items:center; justify-content:center; gap:3px; }
+  .tile-pips .ms { font-size:11px; filter:drop-shadow(0 1px 2px rgba(0,0,0,.55)); }
+  .tile-pips:has(.ms:nth-child(4)) { gap:2px; }
+  .tile-pips:has(.ms:nth-child(4)) .ms { font-size:9px; }
+  .tile-pips:has(.ms:nth-child(5)) { gap:1.5px; }
+  .tile-pips:has(.ms:nth-child(5)) .ms { font-size:8px; }
 
-  /* --- pips ----------------------------------------------------------
-     One mana icon per colour in the identity, sitting inside the ring. */
-  .tile-pips {
-    position: absolute;
-    top: 22px; height: 46px;
-    display: flex; align-items: center; justify-content: center;
-    gap: 3px;
-  }
-  .tile-pips .ms {
-    font-size: 11px;
-    filter: drop-shadow(0 1px 2px rgba(0,0,0,.55));
-  }
-  /* Four- and five-colour identities need smaller pips to stay inside the
-     ring. :has() on the container so the whole row shrinks together — note
-     gap belongs on the container, not the icons. */
-  .tile-pips:has(.ms:nth-child(4)) { gap: 2px; }
-  .tile-pips:has(.ms:nth-child(4)) .ms { font-size: 9px; }
-  .tile-pips:has(.ms:nth-child(5)) { gap: 1.5px; }
-  .tile-pips:has(.ms:nth-child(5)) .ms { font-size: 8px; }
-
-  /* --- text ----------------------------------------------------------- */
-  .tile-name {
-    font-family: 'Cormorant SC', Georgia, serif;
-    font-weight: 600;
-    font-size: 19px;
-    letter-spacing: .04em;
-    margin: 14px 0 0;
-    color: var(--bone);
-  }
-  .tile-code {
-    font-family: 'Outfit', system-ui, sans-serif;
-    font-size: 10.5px; font-weight: 400;
-    letter-spacing: .28em;
-    color: var(--bone-faint);
-    margin: 5px 0 0;
-  }
-  .tile-sub {
-    font-family: 'Outfit', system-ui, sans-serif;
-    font-size: 11px; font-weight: 300;
-    line-height: 1.45;
-    color: var(--bone-dim);
-    margin: 8px 0 0;
-  }
-  .tile-note {
-    font-family: 'Lora', Georgia, serif;
-    font-size: 12px; line-height: 1.55;
-    color: var(--bone-faint);
-    margin: 10px 0 0;
-  }
-  /* Placeholder copy is marked in the markup AND visibly flagged here, so it
-     can't quietly ship. Remove the attribute and this rule together. */
+  .tile-name { margin:14px 0 0; font:700 19px/1.15 var(--f-brand); letter-spacing:.03em; color:var(--bone); }
+  .tile-code { margin:6px 0 0; font:500 11px/1 var(--f-mono); letter-spacing:.22em; color:var(--ink-dim); }
+  .tile-sub  { margin:8px 0 0; font:400 11.5px/1.45 var(--f-ui); color:var(--ink); }
+  .tile-note { margin:9px 0 0; font:italic 400 12.5px/1.5 var(--f-read); color:var(--ink-dim); }
+  /* placeholder copy is flagged so it cannot quietly ship */
   .tile-note[data-placeholder="true"] {
-    font-style: italic;
-    text-decoration: underline dashed rgba(212,175,55,.35);
-    text-underline-offset: 3px;
+    text-decoration:underline dashed rgba(220,187,115,.4); text-underline-offset:3px;
   }
 
-  /* ====================================================================
-     7. RESPONSIVE
-     ==================================================================== */
-  @media (max-width: 560px) {
-    .grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
-    .tile { padding: 18px 12px 15px; }
-    .tile-name { font-size: 16px; }
-    .tier-head { flex-wrap: wrap; gap: 8px 12px; }
+  @media (max-width:560px) {
+    /* keep the four lenses on two rows at 360, as today */
+    .layers { gap:6px; }
+    .layer-btn { font-size:13px; letter-spacing:.03em; gap:7px; padding:0 10px 0 9px; }
+    .grid { grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:10px; }
+    .tile { padding:18px 12px 15px; }
+    .tile-name { font-size:16.5px; }
+    .tier-head { flex-wrap:wrap; gap:8px 12px; }
   }
 
-
-  /* Five-colour hairline under the hero — the only place the full wheel
-     appears as a single continuous object. */
-  .hero-rule {
-    width: 148px; height: 2px; margin: 24px auto 0; border-radius: 2px;
-    background: linear-gradient(90deg, var(--w), var(--u), var(--b), var(--r), var(--g));
-    opacity: .75;
-  }
-
-  /* Graceful degradation: without backdrop-filter the tiles would be nearly
-     invisible over the mesh, so fall back to an opaque panel fill. */
-  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-    .tile { background: rgba(20,21,29,.82); }
-    .tile:hover, .tile:focus-visible { background: rgba(20,21,29,.92); }
-  }
-
+  /* ===================================================================
+     FOOTER
+     =================================================================== */
+  .foot { max-width:1280px; margin:0 auto; padding:14px clamp(16px,4vw,40px) 46px; border-top:3px double var(--rule-s);
+    font:400 11.5px/1.65 var(--f-ui); color:var(--ink-dim); }
+  .foot p { margin:6px 0; max-width:120ch; }
+  .foot .fcp { margin-top:12px; font:italic 400 12px/1.6 var(--f-read); }
+  .foot .fcp a { color:var(--ink); text-decoration:underline; text-decoration-color:var(--rule-s); text-underline-offset:3px; }
+  .foot .fcp a:hover { text-decoration-color:var(--brass); }
+  .foot .fcp a:focus-visible { outline:2px solid var(--brass-l); outline-offset:2px; }
   /* ====================================================================
      MECHANICS MODE
      --------------------------------------------------------------------
@@ -1388,17 +1124,14 @@
     *, *::before, *::after { animation:none !important; transition:none !important; }
     .tile:hover, .tile:focus-visible { transform:none; }
   }
-  @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))) {
-    .panel, .layer-btn { background:rgba(20,21,29,.85); }
-  }
+
 </style>
 </head>
 <body>
-<div class="mesh" aria-hidden="true"></div>
 
 <main class="page">
   <header class="hero">
-    <p class="hero-kicker">Vox Mana · Codex</p>
+    <p class="hero-kicker">Vox Mana <span>·</span> Codex</p>
     <h1 class="hero-title">The Color Wheel</h1>
     <p class="hero-lede">
       Five goals, five alliances, five conflicts, and the five identities hiding
@@ -1452,6 +1185,15 @@
                 x="-40" y="50" width="880" height="720"
                 color-interpolation-filters="sRGB">
           <feGaussianBlur stdDeviation="3.4"/>
+        </filter>
+        <!-- The field-guide glow: the stroke's own blurred shape, flooded gilt.
+             Same region as #lit, same blur; only the colour differs. -->
+        <filter id="lit-gilt" filterUnits="userSpaceOnUse"
+                x="-40" y="50" width="880" height="720"
+                color-interpolation-filters="sRGB">
+          <feGaussianBlur in="SourceAlpha" stdDeviation="3.4" result="b"/>
+          <feFlood flood-color="#dcbb73"/>
+          <feComposite in2="b" operator="in"/>
         </filter>
     <linearGradient id="grad-WU" gradientUnits="userSpaceOnUse" x1="400.0" y1="140.0" x2="647.27" y2="319.66"><stop offset="0%" stop-color="var(--w)"/><stop offset="100%" stop-color="var(--u)"/></linearGradient>
     <linearGradient id="grad-UB" gradientUnits="userSpaceOnUse" x1="647.27" y1="319.66" x2="552.82" y2="610.34"><stop offset="0%" stop-color="var(--u)"/><stop offset="100%" stop-color="var(--b)"/></linearGradient>
@@ -1734,6 +1476,10 @@
 
 </main>
 
+<footer class="foot">
+  <p class="fcp">Vox Mana’s Color Wheel is unofficial Fan Content permitted under the <a href="https://company.wizards.com/en/legal/fancontentpolicy" rel="noopener">Fan Content Policy</a>. Not approved/endorsed by Wizards. Portions of the materials used are property of Wizards of the Coast. ©Wizards of the Coast LLC.</p>
+</footer>
+
 <script>
 /* =====================================================================
    DATA — generated from the source articles, see head comment.
@@ -1999,7 +1745,7 @@ const COLLEGES = {
   }
 };
 
-const SRC_SCOPE_COLLEGE = 'Strixhaven deliberately reinterprets the five enemy pairs as academic disputes. These college conflicts are set-specific lenses, chosen to build five distinct schools of study \u2014 they do not replace the broader color-pie conflicts used elsewhere on the wheel, and two of the five differ from them outright. \u2014 Mark Rosewater, "In the Strixhaven," Parts 1 and 2, March 29 and April 5, 2021. College names, fields and the two sides of each: "Planeswalker\'s Guide to Strixhaven," April 1, 2021, and the Secrets of Strixhaven product page. Pole names are the deans\' titles as printed on the cards. Anything drawn from a vision-design handoff is labelled a design note, because those precede set design and changed after it.';
+const SRC_SCOPE_COLLEGE = 'Strixhaven deliberately reinterprets the five enemy pairs as academic disputes. These college conflicts are set-specific lenses, chosen to build five distinct schools of study \u2014 they do not replace the broader color-pie conflicts used elsewhere on the wheel, and two of the five differ from them outright. \u2014 Mark Rosewater, "In the Strixhaven," Parts 1 and 2, March 29 and April 5, 2021. College names and the two sides of each: "Planeswalker\'s Guide to Strixhaven," April 1, 2021, and the Secrets of Strixhaven product page. Fields of study: "In the Strixhaven, Part 1," March 29, 2021. Pole names are the deans\' titles as printed on the cards. Anything drawn from a vision-design handoff is labelled a design note, because those precede set design and changed after it.';
 
 const SRC_WEDGE = 'Rosewater, the 2014–15 wedge interviews — paraphrased';
 
@@ -3569,42 +3315,42 @@ const IDENTITIES = [
     produces: "In Green's account, nature takes centre stage with nothing to rein it in. Green reads the other two as a balance — enough Red that things are not too orderly, enough White that they are not too chaotic — and growth runs as far as it can.",
     src: "Mark Rosewater, \"Searching Within,\" Making Magic, November 3, 2008" },
 
-  { display:'WBG', name:'Abzan', aka:['Indatha', 'Teneb', 'Necra'], group:'wedge' , attribute:'endurance',
+  { display:'WBG', name:'Abzan', group:'wedge' , attribute:'endurance',
     expresses: "Where the other wedges focus more on creating threats, Abzan de-emphasises threats in favour of answers: it defends through the early and middle game, waits for the opponent to spend down their resources, and only then moves to win. White provides the proactive defence, Black the active defence, and Green the growth that accelerates its mana development.",
     src: "Mark Rosewater, \"We Will Survive,\" Making Magic, September 29, 2014" },
-  { display:'URW', name:'Jeskai', aka:['Raugrin', 'Numot', 'Raka'], group:'wedge' , attribute:'cunning',
+  { display:'URW', name:'Jeskai', group:'wedge' , attribute:'cunning',
     expresses: "All three aim to act in a way the opponent cannot properly anticipate, by different routes: Blue gathers knowledge of the opponent's strategy, Red keeps its intentions hard to gauge, and White takes proactive measures against threats before they arrive.",
     src: "Mark Rosewater, \"Smart Thinking,\" Making Magic, November 3, 2014" },
-  { display:'BGU', name:'Sultai', aka:['Zagoth', 'Vorosh', 'Ana'], group:'wedge' , attribute:'ruthlessness',
+  { display:'BGU', name:'Sultai', group:'wedge' , attribute:'ruthlessness',
     expresses: "The three settle on ruthlessness as the willingness to do what needs doing, while disagreeing on what that means: Black connects it to taking action to get what it wants, Blue to consciously promoting change, and Green to having the nerve to be true to its own nature. In practice, not much is off limits — cutting off resources, taking what belongs to others, and using the dead.",
     src: "Mark Rosewater, \"Whatever It Takes,\" Making Magic, February 2, 2015" },
-  { display:'RWB', name:'Mardu', aka:['Savai', 'Oros', 'Dega'], group:'wedge' , attribute:'speed',
+  { display:'RWB', name:'Mardu', group:'wedge' , attribute:'speed',
     expresses: "It tries to land hits before the opponent is ready. Red gets to the point as fast as it can; White treats an army as a tool whose speed lets it neutralise forces before they become threats; Black counts time among the resources worth denying.",
     src: "Mark Rosewater, \"Finishing First,\" Making Magic, November 17, 2014" },
-  { display:'GUR', name:'Temur', aka:['Ketria', 'Intet', 'Ceta'], group:'wedge' , attribute:'savagery',
+  { display:'GUR', name:'Temur', group:'wedge' , attribute:'savagery',
     expresses: "Each reaches savagery from a different direction: Green through accepting its animal nature and the feral side of the web of life, Red through giving in to impulse in the moment to survive, and Blue through overriding psychological limits that likely developed as protection. Mechanically, all three can support larger bodies, especially at common.",
     src: "Mark Rosewater, \"What Doesn't Kill You Makes You Stronger,\" Making Magic, February 23, 2015" },
 
   /* Commander 2016 face commanders. Historical anchors, NOT alternate
      names for the colour combination — "Atraxa" is not the formal name
      of every WUBG deck. Verified against the C16 decklists. */
-  { display:'UBRG', name:'Non-White', aka:['Glint-Eye'], group:'four',
+  { display:'UBRG', name:'Non-White', group:'four',
     commander:'Yidris, Maelstrom Wielder', deck:'Entropic Uprising',
     lens:'Chaos', lensDeck:"plays cards sight unseen off the top of the library, flips coins, and generally adds randomness",
     community:"a world where power, appetite and growth run without a shared rule to hold them to account" },
-  { display:'WBRG', name:'Non-Blue', aka:['Dune-Brood'], group:'four',
+  { display:'WBRG', name:'Non-Blue', group:'four',
     commander:'Saskia the Unyielding', deck:'Open Hostility',
     lens:'Aggression', lensDeck:"ignores table politics and tries to kill everyone as fast as it can",
     community:"conviction and action that does not wait to study the problem first" },
-  { display:'WURG', name:'Non-Black', aka:['Ink-Treader'], group:'four',
+  { display:'WURG', name:'Non-Black', group:'four',
     commander:'Kynaios and Tiro of Meletis', deck:'Stalwart Unity',
     lens:'Altruism', lensDeck:"wants everyone at the table to enjoy themselves, handing out mana, cards and tokens",
     community:"coalition and shared benefit, without private advantage as the final word" },
-  { display:'WUBG', name:'Non-Red', aka:['Witch-Maw'], group:'four',
+  { display:'WUBG', name:'Non-Red', group:'four',
     commander:"Atraxa, Praetors' Voice", deck:'Breed Lethality',
     lens:'Growth', lensDeck:"builds a heavy +1/+1 counters theme so any creature can grow into a threat",
     community:"patient accumulation, without immediate feeling as grounds to act now" },
-  { display:'WUBR', name:'Non-Green', aka:['Yore-Tiller'], group:'four',
+  { display:'WUBR', name:'Non-Green', group:'four',
     commander:'Breya, Etherium Shaper', deck:'Invent Superiority',
     lens:'Artifice', lensDeck:"draws on 'artifacts matter' cards from all four of its colours",
     community:"building and rebuilding, without inherited or natural limits treated as binding" },
@@ -3748,7 +3494,7 @@ function renderAtlas() {
         ? '<div class="subgroup"><h4 class="subgroup-label">' + esc(g.label) + '</h4>' + grid + '</div>'
         : grid;
     }).join('');
-    return '<section class="tier" aria-labelledby="tier-' + t.n + '-h">'
+    return '<section class="atlas-tier" aria-labelledby="tier-' + t.n + '-h">'
          +   '<header class="tier-head">'
          +     '<p class="tier-index">Tier ' + t.n + '</p>'
          +     '<h2 class="tier-title" id="tier-' + t.n + '-h">' + esc(t.title) + '</h2>'

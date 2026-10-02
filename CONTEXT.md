@@ -219,9 +219,23 @@ grouping label that could not be traced to Wizards.
 - Single static HTML. No build step, no framework, no npm.
 - **Static at rest.** No ambient animation, no rAF loops, no particle systems.
 - `prefers-reduced-motion` is honoured by **skipping** effects, never slowing.
-- No carved/embossed ornamental borders — wrong texture against glass.
-- Glass needs colour behind it; the static mesh exists so `backdrop-filter` has
-  something to catch.
+- **The illustrated field guide** is the look of the MTG visual pages
+  (`mechanical-explorer.html`, then `color-wheel.html`; Owner decisions
+  2026-09-27, wheel accepted 2026-10-01). A warm ground with a faint static
+  paper grain; content on plates edged in gilt, with engraved corner
+  ornaments; gilt ornamental rules; engraved small-capital controls. Each
+  page copies the tokens by value into its own `:root`. There is no shared
+  stylesheet.
+- **No glass and no ambient colour.** `backdrop-filter` and the mana-colour
+  mesh were retired together. The old embedded Mechanics mode in
+  `color-wheel.html` still uses glass; it is preview-only and was not
+  restyled.
+- **Mana colours are data.** `--w --u --b --r --g` appear only as colour
+  identity (vertices, edges, rings, pips), never as decoration. Gilt is the
+  system language: focus, selection, rules, ornament. On the wheel a lit edge
+  glows gilt; the line keeps its two colours.
+- Focus on `color-wheel.html` is a 2px gilt outline, on purpose: Chromium
+  draws the explorer's 1.5px at 1px at 1× density.
 - **The wheel is the instrument.** Playing with the wheel to see an identity is
   the interaction; clicking a card to see the wheel is backwards. An atlas→wheel
   sync was proposed and rejected on those grounds.
@@ -235,17 +249,33 @@ scriptless.
 
 ## Type stack
 
+The same on both field-guide pages.
+
 | Font | Role | Used for |
 |---|---|---|
-| Cormorant SC | Brand | wordmark, faction names |
-| Almendra | Expression | hero copy, major headings |
-| Lora | Reading | prose, educational content |
-| Outfit | Interface | nav, buttons, filters, metadata, codes |
+| Cormorant SC | Brand | titles, headings, kickers, labels, engraved controls |
+| Almendra | Display | the gilt initial only |
+| Lora | Reading | prose; ledes, glosses and notes in italic |
+| Outfit | Interface | compact UI text: chips, sub-lines, source notes, footer |
+| IBM Plex Mono | Notation | colour codes, tier index, counts |
+
+The Google Fonts URL is the same family and weight set on both pages: Almendra
+400/700, Cormorant SC 500/600/700, IBM Plex Mono 400/500, Lora 400/500/400
+italic, Outfit 300/400/500.
 
 ## Colour tokens
 
-`--obsidian #0b0c11`, `--panel #14151d`, `--bone #ede6d3`, `--gold #d4af37`,
-`--w #f5efc7`, `--u #77b9e8`, `--r #d97858`.
+Field guide, identical on both pages: `--ground #100c08` (`--ground-2
+#17110b`, `--ground-3 #1e160e`), `--ink #dccfb6`, `--ink-dim #9a8768`,
+`--ink-mute #67573f` (decoration only, below 4.5:1), `--brass #b8934f`,
+`--brass-l #dcbb73`, `--brass-q #8e7143`, `--rule`/`--rule-s` (brass at .17 and
+.38), `--plate` (`#19120b` → `#140e08`), `--plate-edge`. `--bone #ede6d3` is
+for titles. Mana data: `--w #f5efc7`, `--u #77b9e8`, `--r #d97858`.
+
+`color-wheel.html` also keeps `--obsidian #0b0c11`, `--panel #14151d`,
+`--gold #d4af37`, `--glass`, `--hairline`, `--bone-dim` and `--bone-faint` at
+their old values, because the embedded Mechanics mode reads them. The page's
+own chrome does not.
 
 `--b #aca29a` is `$ms-base-black` from mana-font 1.18.0, so the ring arc matches
 the pip inside it. Full mana-font base set: white `#f0f2c0`, blue `#b5cde3`,
