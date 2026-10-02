@@ -7,12 +7,21 @@ remaining fields are intentionally blank.
 
 ## Control
 
-- Status: `ready-for-qa` — **implemented and at Owner Review (2026-10-01).**
-  The approved prototype is promoted into `color-wheel.html`, verified (see
-  "Implementation" below) and deleted. Candidate commit `421a75c`. The
-  evidence is `robdev`'s own; `robqa` has not run an
-  independent pass. Not accepted. Transitions: `complete -> idle ->
-  dev-in-progress -> awaiting-decision -> dev-in-progress -> ready-for-qa`.
+- Status: `complete` — **Owner accepted, 2026-10-01**, at material
+  candidate `421a75c` with the HANDOFF record at `04df9a4`. The Owner's words:
+  "I manually verified the production vox-color/color-wheel.html in my normal
+  browser, including hard reload and browser Back/Forward on representative
+  deep links. The promoted field-guide treatment matches the prototype I
+  approved." Outside this acceptance: the Explore-selection → Combine bounce
+  (follow-up; it reproduces on the prior page) and
+  `mechanical-periodic-table.html` (preview-only prototype). Transitions:
+  `complete -> idle -> dev-in-progress -> awaiting-decision ->
+  dev-in-progress -> ready-for-qa -> qa-passed -> complete`. At close-out the
+  Owner chose a `robqa` pass over accepting missing QA. That pass ran in the
+  same session as development and is **not independent** (see "QA"). The
+  ledger stays at `complete` until the next task resets it to `idle`. The
+  next work (one public experience joining the Color Wheel and the explorer)
+  is to be scoped separately and is not started.
   The prior story, "Mechanical Color Pie explorer — Magic makeover", was
   accepted by the Owner on 2026-09-27 and committed as `2bf3dbf`; its full
   ledger is in git at `e060296`. Per `CLAUDE.md` (one session, one job), the
@@ -68,7 +77,7 @@ remaining fields are intentionally blank.
   "Glass needs colour behind it"), its type stack and colour tokens; and
   `AGENTS.md`'s "glass-over-colour visual system" rule and its note on the
   fonts URL. "Single static HTML" is kept.
-- Owner: the Owner, for review. `robdev` implemented.
+- Owner: the Owner (accepted). `robdev` implemented; `robqa` self-QA.
 - Task: **Colour wheel — field-guide restyle.** Bring
   `vox-color/color-wheel.html` (page ground, hero, controls, Explore and
   Combine, side panel, atlas, footer) into the illustrated field-guide system
@@ -385,12 +394,78 @@ with `?clean`.
 - The board, rail and overlays keep their glass and legacy tokens, now
   blurring a warm ground.
 
+## QA (`robqa`, 2026-10-01)
+
+**Verdict: `qa-passed`.** No blocker, major or minor defects; notes below.
+Self-QA: the same session switched from `robdev` to `robqa`, so this pass is
+**not independent**. It re-derived evidence from the acceptance criteria and
+the diff `e060296..04df9a4`, by different methods from the developer run where
+possible. Headless Edge over CDP, `file://`; old = `e060296`, new = `421a75c`.
+- **Envelope:** the diff touches only `AGENTS.md`, `CONTEXT.md`, `HANDOFF.md`
+  and `vox-color/color-wheel.html`; `04df9a4` touches only `HANDOFF.md`. Clean
+  tree.
+- **AC1 look:** no `.mesh` element. No `backdrop-filter` in the CSS outside the
+  Mechanics block. `mana-font@1.18.0` is still pinned.
+- **AC2 instrument:**
+  - Geometry: all 353 coordinate-bearing attributes of the wheel SVG are
+    unchanged. The only additions are the `#lit-gilt` filter region (`x=-40`,
+    `y=50`). The five crossing coordinates are unchanged.
+  - Mouse session, 12 of 12 steps identical old vs new: click White;
+    Conflicts toggle; W–B chord; White's view; Clear; Four-Color then
+    crossing G; Combine; W, U, R → Jeskai `#combine=WUR`; neighbour chip
+    → `#combine=WUBR`; centre → `#combine=`; Explore restores the lenses.
+  - Edge channels are identical old vs new in six states (rest, `#color=W`,
+    `#ally=WU`, `#enemy=WB`, `#four=W`, `#combine=WUR`).
+- **AC3 Mechanics:** the Mechanics CSS block (32,994 characters) is
+  byte-identical. Of the 24 changed script lines, none touches a Mechanics
+  identifier. `#mechanics=board`, `=atlas` and `=layered` give the same state
+  old and new (mode on, world shown, 23 board tiles, toggle enabled by the
+  route). At rest `#lay-mech` is `disabled`, "Mechanics — not wired".
+- **AC4 content:**
+  - The 20 removed names are absent; the five New Capenna names remain.
+  - `QUOTE_BAREFOOT` is byte-identical.
+  - The Strixhaven note credits "In the Strixhaven, Part 1" for the fields.
+  - The Fan Content notice, from "is unofficial" on, matches the explorer's
+    wording exactly.
+- **AC5 access:**
+  - Contrast from rendered pixels (1440 @2x, background = modal pixel): 17
+    roles at 5.21:1 to 12.33:1. The vertex-goal box takes in its bright
+    name, so its computed 5.24:1 stands. The receded labels remain below
+    4.5:1 under decision 3.
+  - Keyboard at 360 @2x on `#enemy=BG`: the tab order matches old except one
+    added stop (the footer link). No stop lacks a visible indicator.
+  - Reduced motion: the tile tilt does not engage (`--rx` unset, transform
+    `none`), as on old. Without it, the tilt engages identically.
+  - Google Fonts blocked and mana-font blocked at 768 (rest, `#four=W`,
+    `#combine=WUR`): no overflow, and panels render their full text.
+- **AC6:** the fonts URL equals the explorer's (string compare).
+- **AC7:** gates and `node --check` re-run after the commit; see
+  Implementation.
+- **AC8:** `CONTEXT.md` and `AGENTS.md` describe the field-guide system. The
+  remaining "glass" and "mesh" mentions are history (CONTEXT lines 13 and
+  343) or the Mechanics exception.
+- **Console:** no exception, `console.error` or failed `console.assert` on 10
+  routes, old or new.
+- **Notes (do not fail):**
+  - The Combine bounce (pre-existing, recorded in Follow-ups).
+  - Stale "not built" wording about Mechanics in the page head comment,
+    `CONTEXT.md` and `AGENTS.md` (carried follow-up).
+  - The headless file-route checks are supplemented by the Owner's own
+    browser check of hard reload and Back/Forward.
+
 ## Decisions needed
 
-- None open. At Owner Review; only the Owner marks acceptance.
+- None open. Story closed.
 
 ## Follow-ups
 
+- **Next story, to be scoped separately (not started):** bring the accepted
+  Color Wheel and the accepted Mechanical Color Pie explorer together into
+  one cohesive public experience.
+- **Periodic table housekeeping:** `mechanical-periodic-table.html` stays a
+  preview-only prototype, outside this acceptance. Moving it into a
+  prototypes folder is its own small story, because the move changes its
+  relative `../data/…` and fixture paths.
 - **Periodic table restyle to the field guide** — decided in principle
   (decision 1), deferred until the Owner has sorted Mechanics.
 - **Mechanics mode and the explorer** — the Owner is working out how Mechanics
