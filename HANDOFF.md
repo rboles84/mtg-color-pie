@@ -9,8 +9,8 @@ remaining fields are intentionally blank.
 
 - Status: `ready-for-qa` — **implemented and at Owner Review (2026-10-01).**
   The approved prototype is promoted into `color-wheel.html`, verified (see
-  "Implementation" below) and deleted. The candidate commit is recorded in
-  "Implementation". The evidence is `robdev`'s own; `robqa` has not run an
+  "Implementation" below) and deleted. Candidate commit `421a75c`. The
+  evidence is `robdev`'s own; `robqa` has not run an
   independent pass. Not accepted. Transitions: `complete -> idle ->
   dev-in-progress -> awaiting-decision -> dev-in-progress -> ready-for-qa`.
   The prior story, "Mechanical Color Pie explorer — Magic makeover", was
@@ -275,8 +275,9 @@ page passed verification. It was never committed, and the previous
 
 ## Implementation (2026-10-01, `robdev`)
 
-**Candidate commit:** recorded in the commit that follows it on `master`
-("HANDOFF: record candidate commit"). Not pushed.
+**Candidate commit:** `421a75c29b356b6420e7ebbc3dfb041f7022ee75` ("Color
+Wheel: illustrated field-guide edition") on `master`, parent `e060296`. This
+hash is recorded by the next commit. Not pushed.
 
 **Files changed:** `vox-color/color-wheel.html`, `CONTEXT.md`, `AGENTS.md`,
 `HANDOFF.md`. Deleted: `vox-color/color-wheel-prototype.html` (untracked).
