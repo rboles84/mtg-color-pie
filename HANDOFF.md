@@ -7,7 +7,14 @@ remaining fields are intentionally blank.
 
 ## Control
 
-- Status: `dev-in-progress`. Gate A, **implementation** of the approved sheet.
+- Status: `ready-for-qa`. Gate A material candidate **`a2d5eb5`**
+  (`a2d5eb552dfe123fe51db7e56ea3cbe288581809`): both pages, `CLAUDE.md`,
+  `MECHANICS-CONTRACT.md`, `CONTEXT.md` and this ledger.
+  - **Transition:** `dev-in-progress -> ready-for-qa` (`robdev`,
+    2026-10-02). No candidate-affecting edit after `a2d5eb5`. Next: an
+    independent `robqa` session on that exact commit (§18.14). Not
+    `qa-passed`, not accepted.
+- Earlier status: `dev-in-progress`. Gate A, **implementation** of the approved sheet.
   - **Transition:** `awaiting-decision -> dev-in-progress` (`robdev`,
     2026-10-02, a fresh session). The Owner approved the sheet; the Owner
     decisions are recorded under "Owner decisions (implementation)".
