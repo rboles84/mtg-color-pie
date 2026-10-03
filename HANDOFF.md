@@ -7,19 +7,26 @@ remaining fields are intentionally blank.
 
 ## Control
 
-- Status: `qa-passed` (`robqa`, narrow R6-F1 re-test, 2026-10-02). The Owner
-  accepted the revision 6 QA pass, then directed one post-QA factual
-  correction (R6-F1). See "Correction (R6-F1, post-QA)" and "QA re-test
-  (R6-F1)".
+- Status: `complete`. **Owner accepted, 2026-10-02**, at the accepted
+  planning candidate, commit `eb4f1a0`
+  (`eb4f1a0df7f7f683ec51b5546db6eaf302edf241`).
+  - **The Owner's words:** "The revision 6 product definition, including the
+    R6-F1 factual correction, is ACCEPTED. The QA evidence is sufficient."
   - **Candidate:** `PRODUCT-DEFINITION.md` revision 6 with the R6-F1 header
-    correction (sha256 `95c5224f…44fd978a`), plus this `HANDOFF.md`.
-    Revision 6 corrects D1–D5, N1 and N2 from the failed QA on revision 5.
-    See "Correction (revision 6)".
-  - **Not affected:** no product decision is open, and no correction reopens
-    one. The product definition stays decision-complete.
-  - **Next:** Owner acceptance, `qa-passed -> complete`, with no file changes
-    after acceptance. Only the Owner or the coordinating agent marks
-    `complete`. Gate A then opens in a fresh session; it has not started.
+    correction (sha256 `95c5224f…44fd978a`), plus this `HANDOFF.md` at
+    `qa-passed`. Both were committed in `eb4f1a0`; `PRODUCT-DEFINITION.md`
+    entered Git there. Revision 6 corrects D1–D5, N1 and N2 from the failed
+    QA on revision 5. See "Correction (revision 6)".
+  - **After acceptance:** `PRODUCT-DEFINITION.md` was not changed. The only
+    later commit is this `HANDOFF.md` close-out (status and hash), as in the
+    previous story.
+  - **Not affected:** no product decision is open. The product definition is
+    decision-complete.
+  - **Next:** "The Color Pie — Gate A: source-purity cleanup of both
+    instruments", exactly as `PRODUCT-DEFINITION.md` §18 defines it, starting
+    with Step 0 recon (§18.4).
+    - It runs in a fresh session and has not started.
+    - The ledger stays at `complete` until that task resets it to `idle`.
   - **Transition history:**
     - Revision 1: `complete -> idle -> dev-in-progress -> awaiting-decision`.
     - Revision 2: `-> dev-in-progress` (Owner decisions, 2026-10-01)
@@ -48,6 +55,8 @@ remaining fields are intentionally blank.
     - QA on the R6-F1 correction: `ready-for-qa -> qa-passed` (`robqa`,
       2026-10-02). Run in the correcting session on the Owner's instruction
       (see "QA re-test (R6-F1)").
+    - Acceptance: `qa-passed -> complete` (the Owner, 2026-10-02), at
+      `eb4f1a0`.
   - **No integration or product implementation has begun.**
   - The previous story, "Colour wheel — field-guide restyle", was accepted on
     2026-10-01 at `421a75c`; its ledger is in git at `7fa0e83`. It is not
