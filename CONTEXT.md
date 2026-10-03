@@ -54,9 +54,10 @@ live for a while and is fixed; there's a numeric check in the commit history.
 
 ## The identity registry
 
-32 identities in `IDENTITIES`, 5 alternate names in `ALIASES`, 37 tiles. The
-Strixhaven colleges are alternate names for identities that already exist —
-Silverquill *is* Orzhov — so they never inflate the count.
+32 identities in `IDENTITIES`, 5 Strixhaven college tiles in `ALIASES`, 37
+tiles. The colleges are Strixhaven factions shown beside the guilds, not
+alternate names for them, so they never inflate the identity count. (The
+internal name `ALIASES` is older than that correction and is kept for now.)
 
 `display` is the authoritative field: the colours in the order the faction is
 conventionally written. Jeskai is URW, not WUR. The canonical WUBRG key is

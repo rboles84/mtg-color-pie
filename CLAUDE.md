@@ -53,8 +53,9 @@ them on anything mechanics-related.
 - **Best access never replaces ownership.**
 - **No new runtime dependency, no build step, no framework.** The page runs
   from `file://`.
-- **Mechanics mode stays preview-only** — reachable by route, not enabled in
-  production navigation.
+- **Mechanics mode is retired from the Color Wheel.** Every legacy Mechanics
+  hash lands in Explore at rest, with the URL canonicalised; the preview code
+  stays, unreachable, until its retirement story.
 
 ## Change control
 

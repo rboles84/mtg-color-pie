@@ -141,6 +141,11 @@ The losing claim is never deleted. Each carries `conflict`, `basis:
 Any future conflict is `UNADJUDICATED-CONFLICT` in the audit and **blocks**
 the runtime build until ruled on. It is never resolved by the default.
 
+*Note (Gate A, V11): "catalog wins" governs only the frozen `tier` field.
+Player-facing output uses the two-reading projection (PRODUCT-DEFINITION
+§18.8–§18.9): the three unresolved placements are shown as both official
+claims.*
+
 ---
 
 ## 2. Three layers, and the wall between them
@@ -368,6 +373,9 @@ The shorter summary wording survives as a `source_alias` in every case.
    inlined by `tools/inline_runtime.py` because the app runs from `file://`
    where `fetch()` cannot read a sibling file. Reachable only via
    `#mechanics=preview` until the visual review passes.
+   *Note (Gate A, V16): superseded. Every hash the router reads as the
+   Mechanics route now lands in Explore at rest and is canonicalised; the
+   preview is unreachable.*
 8. Enable the toggle. **Not done** — awaiting owner visual review.
 
 Nothing past step 2.5 has started.

@@ -420,6 +420,37 @@ button{font:inherit;color:inherit}
 .ms-cost.ms-g::before{transform:translate(.05em,-.085em)}
 .sc.bx::before{content:'';position:absolute;left:1px;right:1px;bottom:-4px;height:1.5px;border-radius:1px;background:var(--brass-l)}
 .opt .strip{--sz:12px;--sg:2px}
+/* Two official placements in one slot (Gate A, V11). The slot keeps its one
+   footprint; each half draws the full-size tier shape of one claim, clipped to
+   its side — left: the article's color lists, right: its explanations — at the
+   same scale, so neither claim is larger or preferred. The halves are .sc-h,
+   never .sc, so a slot is still exactly one .sc. */
+.sc.dual{background:none;box-shadow:none}
+.sc-h{position:absolute;inset:0;display:grid;place-items:center;border-radius:50%}
+.sc-h.l{clip-path:inset(0 50% 0 0)}
+.sc-h.r{clip-path:inset(0 0 0 50%)}
+.sc-h > .ms{display:block;font-size:calc(var(--sz,14px) * .64);line-height:1}
+.sc-h > .ms{font-size:round(nearest, calc(var(--sz,14px) * .64), 2px)}
+.sc-h.t-p{background:var(--cc)}
+.sc-h.t-p > .ms{color:#15120c}
+.sc-h.t-s{box-shadow:inset 0 0 0 1.25px var(--cc)}
+.sc-h.t-s > .ms{color:var(--cc)}
+.sc-h.t-t > .ms{display:none}
+.sc-h.t-t::after{content:'';width:calc(var(--sz,14px) * .32);height:calc(var(--sz,14px) * .32);border-radius:50%;background:var(--cc)}
+.sc-h > .ms-u{transform:translate(.02em,-.04em)}
+.sc-h > .ms-r{transform:translate(.04em,-.05em)}
+.sc-h > .ms-g{transform:translate(.03em,-.035em)}
+.sc.dual::after{content:'';position:absolute;left:calc(50% - .5px);top:10%;bottom:10%;width:1px;background:var(--ink-dim)}
+/* The best-placement tick follows the same halves when only one reading puts
+   this colour at the best placement. */
+.sc.bx.bx-l::before{right:50%}
+.sc.bx.bx-r::before{left:50%}
+/* A count that depends on the conflicting claims: one label, one count per reading. */
+.fig-pair{display:inline-flex;flex-wrap:wrap;align-items:center;max-width:100%;border-left:1px solid var(--hair)}
+.fig-pair .fig{border-left:0;padding:0 8px}
+.fig-l{display:inline-flex;align-items:center;gap:7px;min-height:28px;padding:0 2px 0 12px;font:400 12px/1.3 var(--f-ui);color:var(--ink-dim)}
+.lens-dep,.step-dep{flex-basis:100%;margin:2px 0 4px;font:italic 400 12px/1.45 var(--f-read);color:var(--ink-dim)}
+.lens-dep .calc,.step-dep .calc{margin:4px 0 0 8px;white-space:normal;line-height:1.35}
 
 /* ===================================================================
    THE DETAIL — the one mechanic-detail surface, set as a specimen plate
@@ -557,7 +588,7 @@ html.sheet-open .bar{position:relative}
 <a class="skip" href="#list">Skip to the entries</a>
 
 <header class="mast">
-  <p class="kicker">Vox Mana<span>·</span>An interactive edition</p>
+  <p class="kicker">An interactive edition</p>
   <h1>Mechanical Color Pie 2021</h1>
   <p class="lede">Mark Rosewater's article, made searchable. Every entry name, explanation and Primary / Secondary / Tertiary placement on this page comes from his snapshot. The page adds search, a color lens and computed comparisons, all labelled as such.</p>
   <div class="mast-rule" aria-hidden="true"></div>
@@ -612,11 +643,12 @@ html.sheet-open .bar{position:relative}
         <div class="spec" id="spec" aria-hidden="true"></div>
         <div>
           <dl class="defs">
-            <div class="def"><i class="sc t-p" aria-hidden="true"></i><dt>Primary</dt><dd>The color that uses the ability most: highest volume, lowest rarity.</dd></div>
-            <div class="def"><i class="sc t-s" aria-hidden="true"></i><dt>Secondary</dt><dd>Appears regularly, but less often, and may carry restrictions.</dd></div>
+            <div class="def"><i class="sc t-p" aria-hidden="true"></i><dt>Primary</dt><dd>The color the ability is seen in most: highest volume, usually at the lowest rarity. It also tends to be the color that most often pushes the power level on effects that get pushed.</dd></div>
+            <div class="def"><i class="sc t-s" aria-hidden="true"></i><dt>Secondary</dt><dd>Appears on a somewhat regular basis, but less often than Primary and not always at as low a rarity, and may carry restrictions.</dd></div>
             <div class="def"><i class="sc t-t" aria-hidden="true"></i><dt>Tertiary</dt><dd>Occasional: not every set, often narrow.</dd></div>
             <div class="def"><i class="sc t-n" aria-hidden="true"></i><dt>No placement</dt><dd>The 2021 article places this ability in none of that color's tiers.</dd></div>
-            <p class="defs-note">Rosewater's categories describe how often a color uses an ability in design, not how well. Five slots, always W U B R G.</p>
+            <div class="def"><i class="sc dual" style="--cc:var(--w)" aria-hidden="true"><i class="sc-h l t-p"><i class="ms ms-w"></i></i><i class="sc-h r t-s"><i class="ms ms-w"></i></i></i><dt>Two placements</dt><dd>Left half: the article's color lists (“Mechanical Color Pie Lists”). Right half: its explanations (“All Abilities with Explanations”). This page shows both and does not choose.</dd></div>
+            <p class="defs-note">These are categories, not scores: this page never adds them up or turns them into a number. Five slots, always W U B R G.</p>
           </dl>
         </div>
         <ol class="steps">
@@ -651,7 +683,7 @@ html.sheet-open .bar{position:relative}
   <p>Placements, entry names, sub-headings and explanations are Rosewater's, from the October 18, 2021 snapshot. Counts, best placements under selected colors and compass differences are computed by this page from those placements. Tiers are compared only within one ability, across colors; nothing is summed, scored or ranked.</p>
   <p>Player search terms are navigation aids drawn from player research. They lead to article entries and are never Rosewater's wording. An absent 2021 placement is not evidence that no card of that color exists.</p>
   <p class="fcp">Vox Mana’s interactive edition of the Mechanical Color Pie 2021 is unofficial Fan Content permitted under the <a href="https://company.wizards.com/en/legal/fancontentpolicy" rel="noopener">Fan Content Policy</a>. Not approved/endorsed by Wizards. Portions of the materials used are property of Wizards of the Coast. ©Wizards of the Coast LLC.</p>
-  <p class="selftest" id="selftest" aria-live="off"></p>
+  <p class="selftest" id="selftest" aria-live="off" hidden></p>
 </footer>
 
 <div class="sr-only" aria-live="polite" id="announce"></div>
@@ -795,9 +827,20 @@ const UNMATCHED_CASE = {
     jump:'forced sacrifice :: sacrifice a creature', jumpLabel:'Open “Sacrifice a creature.”' },
   'creature sacrifice, forced, repeatable': { tag:'Explanation not captured', where:'Explained in the article · not captured by the frozen data',
     ex:'The frozen 2021 data holds no explanation for this entry.',
-    note:'The published 2021 article does include an explanation entry for this ability. The parser that built the frozen data misread that entry’s label, so its explanation was not captured. It is not supplied here, because this page shows only the frozen data. The issue is recorded for source review.' }
+    note:'The published 2021 article does include an explanation entry for this ability. The parser that built the frozen data misread that entry’s label, so its explanation was not captured. It is not supplied here, because this page shows only the frozen data.' }
 };
 const unmatchedCase = k => UNMATCHED_CASE[k] || UNMATCHED_CASE.absent;
+
+/* Source-note disclosure for the two conflicts the 2021 change log resolves
+   ("Mechanical Color Pie 2021 Changes", October 18, 2021), and the article's
+   own names for the one unresolved conflict listed under different wording. */
+const RESOLVED_NOTE = {
+  'flash|B': 'Secondary, from the companion article “Mechanical Color Pie 2021 Changes” (October 18, 2021), which moves Flash from “Tertiary: White, black, and red” to “Secondary: White, black, and green”. The explanations also say Secondary. The article’s color lists name Black under both Secondary and Tertiary.',
+  '+n/+n (on spells)|W': 'Primary, from the companion article “Mechanical Color Pie 2021 Changes” (October 18, 2021): its “Creature pumping” entry lists “Primary: White and green” before and after the update. The explanations also say Primary. The article’s color list says Secondary.'
+};
+const CONFLICT_NAMES = {
+  'creature pumping, your team, ongoing :: +n/+0 to your team|B': { list: 'as “+N/+0 to your team, ongoing”', catalog: 'under “Creature pumping, your team, ongoing”' }
+};
 
 const $ = (s, r = document) => r.querySelector(s);
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
@@ -909,6 +952,68 @@ function wubrgSummary(){
 const memo = new Map();
 function cached(key, fn){ if (!memo.has(key)) memo.set(key, fn()); return memo.get(key); }
 
+/* ======================================================================
+   SOURCE-AWARE PROJECTION (Gate A, V11) — the one place conflict maths lives
+   ----------------------------------------------------------------------
+   The 2021 article states three placements two ways: its color lists give
+   one tier and its explanations ("All Abilities with Explanations") another,
+   and its companion change log settles neither. Two other recorded conflicts
+   ARE settled by that change log; both readings use the resolution. So there
+   are exactly two coherent readings, built from the frozen record and its
+   recorded conflict metadata:
+     list    — the color-list claim for each unresolved placement;
+     catalog — the explanations (ability catalog) claim.
+   Every other placement is the same in both. The frozen `tier` field (the old
+   "catalog wins" adjudication) is never shown to players as a default.
+
+   BOUNDARY. The ported functions above (access, sections, buckets, deltaAdd,
+   deltaRemove) stay byte-identical, for fixture parity. The projection runs
+   those same functions over each reading's placements by binding MECH to that
+   reading for the call, and never re-implements them. Renderers contain no
+   conflict maths: they ask the projection, below, and render what it says.
+   ====================================================================== */
+const READINGS = ['list', 'catalog'];
+const READING_BY = { list:'by the color lists', catalog:'by the explanations' };
+const READING_IN = { list:'in the color lists', catalog:'in the explanations' };
+const READING_BTN = { list:'color lists', catalog:'explanations' };
+const CONFLICT_TAG = 'computed · depends on conflicting 2021 claims';
+let RMECH = null;   // { list: {key: entry}, catalog: {key: entry} }, built at boot
+function unresolved(d){ return !!(d && d.basis === 'adjudicated' && d.conflict && !/change log/i.test((d.ruling || {}).authority || '')); }
+function claimIn(d, r){ return unresolved(d) ? (r === 'list' ? d.conflict.colour_list_says : d.conflict.ability_catalog_says) : d.tier; }
+function buildReadings(){
+  RMECH = {};
+  for (const r of READINGS){
+    const m = {};
+    for (const k of KEYS){
+      const e = MECH[k];
+      if (!Object.values(e.colors).some(unresolved)){ m[k] = e; continue; }
+      const colors = {};
+      for (const c in e.colors) colors[c] = Object.assign({}, e.colors[c], { tier: claimIn(e.colors[c], r) });
+      m[k] = deepFreeze(Object.assign({}, e, { colors }));
+    }
+    RMECH[r] = Object.freeze(m);
+  }
+}
+function inReading(r, fn){ const frozen = MECH; MECH = RMECH[r]; try { return fn(); } finally { MECH = frozen; } }
+const sameKeys = (a, b) => a.length === b.length && a.every((k, i) => k === b[i]);
+const proj = {
+  /* one placement: {tier} (null for none), or {list, catalog} when the claims differ */
+  slot(d){ return unresolved(d) ? { list: claimIn(d, 'list'), catalog: claimIn(d, 'catalog') } : { tier: d ? d.tier : null }; },
+  /* best placement among `cols`, per reading; `same` when tier and owning colours agree */
+  best(k, cols){
+    const o = {};
+    for (const r of READINGS){ const { best, owned } = access(RMECH[r][k], cols); o[r] = { best, via: ORDER.filter(c => best && owned[c] === best) }; }
+    o.sameTier = o.list.best === o.catalog.best;
+    o.same = o.sameTier && o.list.via.join() === o.catalog.via.join();
+    return o;
+  },
+  buckets(cols){ return cached('pbk:' + setKey(cols), () => { const o = {}; for (const r of READINGS) o[r] = inReading(r, () => buckets(cols)); return o; }); },
+  delta(kind, cols, c){ return cached('pd:' + kind + ':' + setKey(cols) + ':' + c, () => { const o = {};
+    for (const r of READINGS) o[r] = inReading(r, () => kind === 'add' ? deltaAdd(cols, c) : deltaRemove(cols, c)); return o; }); },
+  /* the category a key falls in, per reading, for one step */
+  categoryOf(d, k){ const o = {}; for (const r of READINGS) o[r] = Object.keys(d[r]).find(id => d[r][id].includes(k)) || null; return o; }
+};
+
 /* The compass's wording for the fixtures' categories. Plain descriptions of
    arithmetic on one mechanic's placements; nothing more. */
 const ADD_LABEL = { newly_reachable:'newly placed', best_tier_improved:'best placement rises', new_owner_no_improvement:'another placement, best unchanged' };
@@ -927,7 +1032,8 @@ function splitLabel(label){
   return { head: label, gloss: '' };
 }
 function ownText(e){
-  return ORDER.map(c => `${CNAME[c]} ${e.colors[c] ? TIER[e.colors[c].tier].toLowerCase() : 'none'}`).join(', ');
+  return ORDER.map(c => { const s = proj.slot(e.colors[c]);
+    return `${CNAME[c]} ${s.list ? `${s.list} ${READING_IN.list} and ${s.catalog} ${READING_IN.catalog}` : s.tier ? TIER[s.tier].toLowerCase() : 'none'}`; }).join(', ');
 }
 
 function buildRecords(){
@@ -1069,11 +1175,14 @@ function searchRank(input){
 /* ======================================================================
    BUILD — once
    ====================================================================== */
+/* One colour's slot: a single tier mark, or both official claims in one slot. */
+function slotHTML(c, d, attrs){
+  const s = proj.slot(d), ms = `<i class="ms ms-${c.toLowerCase()}"></i>`, cc = `--cc:var(--${c.toLowerCase()})`;
+  if (s.list) return `<i class="sc dual"${attrs} style="${cc}"><i class="sc-h l t-${s.list[0]}">${ms}</i><i class="sc-h r t-${s.catalog[0]}">${ms}</i></i>`;
+  return `<i class="sc t-${s.tier ? s.tier[0] : 'n'}"${attrs} style="${cc}">${ms}</i>`;
+}
 function stripHTML(colors){
-  return '<span class="strip" aria-hidden="true">' + ORDER.map(c => {
-    const t = (colors[c] || {}).tier;
-    return `<i class="sc t-${t ? t[0] : 'n'}" data-c="${c}" style="--cc:var(--${c.toLowerCase()})"><i class="ms ms-${c.toLowerCase()}"></i></i>`;
-  }).join('') + '</span>';
+  return '<span class="strip" aria-hidden="true">' + ORDER.map(c => slotHTML(c, colors[c], ` data-c="${c}"`)).join('') + '</span>';
 }
 function labelHTML(r){ return esc(curly(r.disp)).replace(/\//g, '/<wbr>') + (r.qual ? `<span class="e-q"> · ${esc(r.qual)}</span>` : ''); }
 
@@ -1188,13 +1297,18 @@ function render(){
     el.classList.toggle('is-out', lensOn && b === 'none' && !sel);
     el.classList.toggle('is-sel', sel);
     el.setAttribute('aria-pressed', sel ? 'true' : 'false');
-    const tier = b && b !== 'none' ? b : null;
-    for (const sl of el._slots) sl.classList.toggle('bx', !!tier && S.sel.has(sl.dataset.c) && (e.colors[sl.dataset.c] || {}).tier === tier);
+    const pb = lensOn ? proj.best(k, S.sel) : null;
+    for (const sl of el._slots){
+      const c = sl.dataset.c, L = !!pb && pb.list.via.includes(c), C = !!pb && pb.catalog.via.includes(c);
+      sl.classList.toggle('bx', L || C); sl.classList.toggle('bx-l', L && !C); sl.classList.toggle('bx-r', C && !L);
+    }
     const sig = key + '|' + (qOn && S.hitSet.has(k));
     if (el._sig !== sig){
-      const r = REC.get(k);
+      const r = REC.get(k), names = listWords(cnames(S.sel));
       el.setAttribute('aria-label', `${r.e.label}${r.qual ? ' (' + r.qual + ')' : ''}${r.listOnly ? ', ' + unmatchedCase(k).tag.toLowerCase() : ''}. ${ownText(e)}.` +
-        (b ? (b === 'none' ? ` No placement in ${listWords(cnames(S.sel))}.` : ` Best placement among ${listWords(cnames(S.sel))}: ${b}, computed.`) : ''));
+        (b ? (b === 'none' ? ` No placement in ${names}.`
+          : pb.sameTier ? ` Best placement among ${names}: ${b}, computed.`
+          : ` Best placement among ${names}: ${pb.list.best} ${READING_BY.list}, ${pb.catalog.best} ${READING_BY.catalog}; computed from conflicting 2021 claims.`) : ''));
       el._sig = sig;
     }
   }
@@ -1218,15 +1332,30 @@ function renderBar(lensOn, bk){
   const ll = $('#lensline');
   keepFocus(ll, () => {
     if (!lensOn){ ll.hidden = true; ll.innerHTML = ''; return; }
-    const b = cached('bk:' + setKey(S.sel), () => buckets(S.sel));
-    const placed = KEYS.length - b.none.length;
+    const pb = proj.buckets(S.sel), b = pb.catalog;
+    const placed = KEYS.length - b.none.length;   /* placement existence: the same in both readings */
+    let dep = false;
     ll.hidden = false;
     ll.innerHTML = `<span class="who"><span aria-hidden="true">${[...setKey(S.sel)].map(pip).join('')}</span><span><b>${placed}</b> of ${KEYS.length} entries
         have a placement in ${esc(listWords(cnames(S.sel)))}</span><span class="calc">computed</span></span>` +
       (S.selFromQuery ? `<span class="src">Set from your search</span>` : '') +
-      ['primary','secondary','tertiary','none'].map(t => figBtn('bucket:' + t, BUCKET_LABEL[t], b[t],
-        `<i class="c-acc b-${t[0]}" aria-hidden="true"></i>`)).join('');
+      ['primary','secondary','tertiary','none'].map(t => {
+        const glyph = `<i class="c-acc b-${t[0]}" aria-hidden="true"></i>`;
+        if (sameKeys(pb.list[t], pb.catalog[t])) return figBtn('bucket:' + t, BUCKET_LABEL[t], b[t], glyph);
+        dep = true;
+        return figPair('bucket:' + t, BUCKET_LABEL[t], pb, t, glyph);
+      }).join('');
+    if (dep) ll.insertAdjacentHTML('beforeend', `<span class="lens-dep">Where two counts appear, the article's color lists and its explanations place an entry differently. Both are shown.<span class="calc">${CONFLICT_TAG}</span></span>`);
   });
+}
+/* A count that depends on the conflicting claims: one label, one count per
+   reading, each opening exactly the entries it counts. */
+function figPair(id, label, d, cat, glyph){
+  return `<span class="fig-pair"><span class="fig-l">${glyph || ''}${esc(label)}:</span>` + READINGS.map(r => {
+    const keys = d[r][cat] || [], fid = id + ':' + r, on = !!S.spot && S.spot.id === fid;
+    return `<button class="fig" type="button" data-act="spot" data-id="${esc(fid)}" data-fid="${esc(fid)}" aria-pressed="${on}"${keys.length ? '' : ' disabled'}
+      aria-label="${esc(label)} ${READING_BY[r]}: ${keys.length} ${plural(keys.length, 'entry', 'entries')}. Show them.">${READING_BTN[r]} <b>${keys.length}</b></button>`;
+  }).join('') + '</span>';
 }
 /* A count that opens exactly the entries it counts. */
 function figBtn(id, label, keys, glyph){
@@ -1235,19 +1364,23 @@ function figBtn(id, label, keys, glyph){
     aria-label="${esc(label)}: ${keys.length} ${plural(keys.length, 'entry', 'entries')}. Show them.">${glyph || ''}${esc(label)} <b>${keys.length}</b></button>`;
 }
 function spotFor(id){
-  const [kind, a, b] = id.split(':');
+  /* A trailing ":list" or ":catalog" names the reading of a count that
+     depends on the conflicting claims; otherwise both readings agree. */
+  const parts = id.split(':'), rd = READINGS.includes(parts[parts.length - 1]) ? parts.pop() : null;
+  const [kind, a, b] = parts, r = rd || 'catalog', dep = !!rd;
   const key = setKey(S.sel);
+  const tail = l => rd ? `${l}, ${READING_BY[rd]}` : l;
   if (kind === 'bucket'){
-    const bk = cached('bk:' + key, () => buckets(S.sel));
-    return { keys: bk[a] || [], label: `${BUCKET_LABEL[a]} in ${listWords(cnames(S.sel))}` };
+    const bk = proj.buckets(S.sel)[r];
+    return { keys: bk[a] || [], label: tail(`${BUCKET_LABEL[a]} in ${listWords(cnames(S.sel))}`), dep };
   }
   if (kind === 'add'){
-    const d = cached('add:' + key + '+' + a, () => deltaAdd(S.sel, a));
-    return { keys: d[b] || [], label: `adding ${CNAME[a]} to ${key} → ${setKey(new Set([...S.sel, a]))}: ${ADD_LABEL[b]}` };
+    const d = proj.delta('add', S.sel, a)[r];
+    return { keys: d[b] || [], label: tail(`adding ${CNAME[a]} to ${key} → ${setKey(new Set([...S.sel, a]))}: ${ADD_LABEL[b]}`), dep };
   }
   if (kind === 'rem'){
-    const d = cached('rem:' + key + '-' + a, () => deltaRemove(S.sel, a));
-    return { keys: d[b] || [], label: `removing ${CNAME[a]} from ${key} → ${setKey(new Set([...S.sel].filter(c => c !== a)))}: ${REM_LABEL[b]}` };
+    const d = proj.delta('rem', S.sel, a)[r];
+    return { keys: d[b] || [], label: tail(`removing ${CNAME[a]} from ${key} → ${setKey(new Set([...S.sel].filter(c => c !== a)))}: ${REM_LABEL[b]}`), dep };
   }
   return { keys: [], label: '' };
 }
@@ -1269,15 +1402,28 @@ function renderCompass(){
   const sp = $('#steps-p');
   keepFocus(sp, () => {
     if (!S.sel.size){ sp.hidden = true; sp.innerHTML = ''; return; }
+    /* One step's counts. A category the readings agree on is one count; one
+       they disagree on shows both, and the step names the entries that move. */
+    const stepFigs = (kind, c, LABEL) => {
+      const d = proj.delta(kind, S.sel, c), moved = new Set();
+      const figs = Object.keys(LABEL).map(id => {
+        if (sameKeys(d.list[id], d.catalog[id])) return figBtn(`${kind === 'add' ? 'add' : 'rem'}:${c}:${id}`, LABEL[id], d.catalog[id]);
+        for (const k of d.list[id].concat(d.catalog[id])) if (!(d.list[id].includes(k) && d.catalog[id].includes(k))) moved.add(k);
+        return figPair(`${kind === 'add' ? 'add' : 'rem'}:${c}:${id}`, LABEL[id], d, id);
+      }).join('');
+      const why = [...moved].sort().map(k => { const cat = proj.categoryOf(d, k);
+        return `${esc(REC.get(k).disp)} counts as “${esc(LABEL[cat.list] || cat.list)}” ${READING_BY.list} and “${esc(LABEL[cat.catalog] || cat.catalog)}” ${READING_BY.catalog}.`; }).join(' ');
+      return figs + (why ? `<p class="step-dep">${why}<span class="calc">${CONFLICT_TAG}</span></p>` : '');
+    };
     const adds = ORDER.filter(c => !S.sel.has(c)).map(c => {
-      const d = cached('add:' + key + '+' + c, () => deltaAdd(S.sel, c)), to = setKey(new Set([...S.sel, c]));
+      const to = setKey(new Set([...S.sel, c]));
       return `<div class="step"><span class="step-h">+${pip(c)}<span class="sr-only">Add ${CNAME[c]}</span><b>${key} → ${to}</b></span>${
-        Object.keys(ADD_LABEL).map(id => figBtn(`add:${c}:${id}`, ADD_LABEL[id], d[id])).join('')}<button class="go" type="button" data-act="go" data-s="${to}" data-fid="go-${to}">Choose ${to}</button></div>`;
+        stepFigs('add', c, ADD_LABEL)}<button class="go" type="button" data-act="go" data-s="${to}" data-fid="go-${to}">Choose ${to}</button></div>`;
     }).join('');
     const rems = S.sel.size > 1 ? ORDER.filter(c => S.sel.has(c)).map(c => {
-      const d = cached('rem:' + key + '-' + c, () => deltaRemove(S.sel, c)), to = setKey(new Set([...S.sel].filter(x => x !== c)));
+      const to = setKey(new Set([...S.sel].filter(x => x !== c)));
       return `<div class="step"><span class="step-h">−${pip(c)}<span class="sr-only">Remove ${CNAME[c]}</span><b>${key} → ${to}</b></span>${
-        Object.keys(REM_LABEL).map(id => figBtn(`rem:${c}:${id}`, REM_LABEL[id], d[id])).join('')}<button class="go" type="button" data-act="go" data-s="${to}" data-fid="go-${to}">Choose ${to}</button></div>`;
+        stepFigs('rem', c, REM_LABEL)}<button class="go" type="button" data-act="go" data-s="${to}" data-fid="go-${to}">Choose ${to}</button></div>`;
     }).join('') : '';
     sp.hidden = false;
     sp.innerHTML = (adds ? `<h3>Add one color</h3>${adds}` : '') + (rems ? `<h3 style="margin-top:12px">Remove one color</h3>${rems}` : '') +
@@ -1313,7 +1459,7 @@ function renderIdent(key){
     <div class="id-body">
       <p class="id-count"><b>${placed}</b> of ${KEYS.length} entries have a placement in ${esc(listWords(cnames(S.sel)))} <span class="calc">computed</span></p>
       <p class="id-src">${name ? `“${esc(name)}” is Wizards’ name for ${esc(words)} (${esc(NAME_SOURCE)}): a label, not a claim about mechanics.`
-        : key.length > 3 ? 'No combination name is used for four or five colors.' : ''}</p>
+        : key.length > 3 ? 'This page gives no combination name for four or five colors.' : ''}</p>
       <p class="id-next">One-color steps from ${key} follow below.</p>
     </div>`;
 }
@@ -1323,7 +1469,7 @@ function renderSpot(){
   keepFocus(bar, () => {
     if (!S.spot){ bar.hidden = true; bar.innerHTML = ''; return; }
     bar.hidden = false;
-    bar.innerHTML = `<span>Showing <b>${S.spot.keys.size}</b> ${plural(S.spot.keys.size, 'entry', 'entries')}: ${esc(S.spot.label)}.</span>
+    bar.innerHTML = `<span>Showing <b>${S.spot.keys.size}</b> ${plural(S.spot.keys.size, 'entry', 'entries')}: ${esc(S.spot.label)}.${S.spot.dep ? ' Depends on conflicting 2021 claims.' : ''}</span>
       <span class="calc">computed</span><button class="go" type="button" data-act="unspot" data-fid="unspot">Show all entries</button>`;
   });
   const cap = $('#list-cap');
@@ -1366,7 +1512,7 @@ function parseLine(P, hits){
   }
   for (const [term, t] of terms)
     bits.push(`<span class="lab">Player term</span><span class="pterm">“${esc(term)}”</span>: ${t.exact} ${plural(t.exact, 'entry it names', 'entries it names')}` +
-      (t.related ? ` · ${t.related} related, not what the term names (${esc(t.why)})` : ''));
+      (t.related ? ` · ${t.related} related, not what the term names` : ''));
   return bits.map(b => `<span class="pb">${b}</span>`).join('') || 'Type an ability, a player term, or a question.';
 }
 function renderResults(){
@@ -1393,9 +1539,11 @@ function renderResults(){
       const r = REC.get(h.k), st = STAGES[h.stage];
       const note = h.note ? ` <span>${st.player ? `<span class="pterm">“${esc(h.note)}”</span>` : '“' + esc(curly(h.note)) + '”'}</span>` : '';
       let lp = '';
-      if (lensOn){ const { best } = access(r.e, P.colours); lp = `<span class="lensp">${esc([...setKey(P.colours)].join(''))}: ${best ? TIER[best] : 'no placement'}</span>`; }
+      if (lensOn){ const pb = proj.best(h.k, P.colours), code = esc([...setKey(P.colours)].join(''));
+        lp = `<span class="lensp">${code}: ${pb.sameTier ? (pb.catalog.best ? TIER[pb.catalog.best] : 'no placement')
+          : `${TIER[pb.list.best]} ${READING_BY.list} · ${TIER[pb.catalog.best]} ${READING_BY.catalog}`}</span>`; }
       const tag = st.related ? ` <span class="pterm-tag rel">related · not what the term names</span>` : st.player ? ' <span class="pterm-tag">navigation aid</span>' : '';
-      return `<div class="opt${st.related ? ' is-rel' : ''}" role="option" id="opt-${i}" data-k="${esc(h.k)}" aria-selected="false"${st.related ? ` title="${esc(h.relWhy)}"` : ''}>
+      return `<div class="opt${st.related ? ' is-rel' : ''}" role="option" id="opt-${i}" data-k="${esc(h.k)}" aria-selected="false">
         <span class="opt-l">${labelHTML(r)}</span>${stripHTML(r.e.colors)}
         <span class="opt-w"><span class="why${st.player ? ' p' : ''}">${esc(st.why)}</span>${note}${tag}${lp}</span></div>`;
     }).join('');
@@ -1521,26 +1669,29 @@ function detailHTML(k){
   /* All five colours, always, in W U B R G order: the complete record. */
   const rows = ORDER.map(c => {
     const d = e.colors[c];
+    const s = proj.slot(d);
     return `<li class="own-row${d ? '' : ' none'}${lensOn && S.sel.has(c) ? ' lensed' : ''}" data-c="${c}">
-      <i class="sc t-${d ? d.tier[0] : 'n'}" style="--cc:var(--${c.toLowerCase()})" aria-hidden="true"><i class="ms ms-${c.toLowerCase()}"></i></i>
-      <span class="own-c">${CNAME[c]}</span><span class="own-lead" aria-hidden="true"></span><span class="own-t">${d ? TIER[d.tier] : 'No placement'}</span></li>`;
+      ${slotHTML(c, d, ' aria-hidden="true"')}
+      <span class="own-c">${CNAME[c]}</span><span class="own-lead" aria-hidden="true"></span><span class="own-t">${s.list
+        ? `${TIER[s.list]} ${READING_IN.list} · ${TIER[s.catalog]} ${READING_IN.catalog}` : d ? TIER[d.tier] : 'No placement'}</span></li>`;
   }).join('');
   let lensLine = '';
   if (lensOn){
-    const { best, owned } = access(e, S.sel), names = listWords(cnames(S.sel));
-    if (best === null) lensLine = `No placement in ${esc(names)}. This records the 2021 article's design defaults; it is not evidence that no card of ${S.sel.size > 1 ? 'those colors' : 'that color'} does this.`;
-    else {
-      const via = ORDER.filter(c => owned[c] === best).map(c => CNAME[c]);
-      lensLine = `Best placement among ${esc(names)}: <b>${TIER[best]}</b>${S.sel.size > 1 ? ', in ' + esc(listWords(via)) : ''}.`;
-    }
-    lensLine += ' <span class="calc">computed</span>';
+    const pb = proj.best(k, S.sel), names = listWords(cnames(S.sel)), multi = S.sel.size > 1;
+    const inC = o => multi ? ', in ' + esc(listWords(o.via.map(c => CNAME[c]))) : '';
+    if (pb.catalog.best === null) lensLine = `No placement in ${esc(names)}. This records the 2021 article's design defaults; it is not evidence that no card of ${multi ? 'those colors' : 'that color'} does this.`;
+    else if (pb.same) lensLine = `Best placement among ${esc(names)}: <b>${TIER[pb.catalog.best]}</b>${inC(pb.catalog)}.`;
+    else if (pb.sameTier) lensLine = `Best placement among ${esc(names)}: <b>${TIER[pb.catalog.best]}</b>${inC(pb.list)} ${READING_BY.list};${inC(pb.catalog).replace(/^,/, '')} ${READING_BY.catalog}.`;
+    else lensLine = `Best placement among ${esc(names)}: <b>${TIER[pb.list.best]}</b>${inC(pb.list)} ${READING_BY.list}; <b>${TIER[pb.catalog.best]}</b>${inC(pb.catalog)} ${READING_BY.catalog}.`;
+    lensLine += ` <span class="calc">${pb.same || pb.catalog.best === null ? 'computed' : CONFLICT_TAG}</span>`;
   }
   const prov = ORDER.filter(c => e.colors[c] && e.colors[c].basis !== 'both-agree').map(c => {
     const d = e.colors[c], mark = `<span class="wl wl-${c}" aria-hidden="true">${c}</span><span class="sr-only">${CNAME[c]}: </span>`;
     if (d.basis === 'adjudicated' && d.conflict){
-      const ru = d.ruling || {};
-      return `<p>${mark}The article's color list says ${esc(d.conflict.colour_list_says)}; its ability catalog says ${esc(d.conflict.ability_catalog_says)}.
-        This dataset uses <b>${esc(d.tier)}</b>${ru.authority ? `, on the authority of the ${esc(ru.authority)}` : ''}, and keeps the conflicting claim.${ru.mechanism ? ' ' + esc(ru.mechanism) : ''}</p>`;
+      const s = proj.slot(d);
+      if (!s.list) return `<p>${mark}${esc(RESOLVED_NOTE[k + '|' + c] || '')}</p>`;
+      const nm = CONFLICT_NAMES[k + '|' + c] || {};
+      return `<p>${mark}the 2021 article places this two ways. Color lists: ${TIER[s.list]}${nm.list ? ' (' + esc(nm.list) + ')' : ''}. Explanations: ${TIER[s.catalog]}${nm.catalog ? ' (' + esc(nm.catalog) + ')' : ''}. The companion change log does not mention it. This page shows both and does not choose between them.</p>`;
     }
     if (d.basis === 'colour-list-only') return `<p>${mark}${esc(TIER[d.tier])} comes from the article's color list only; the explanations section does not repeat it.</p>`;
     if (d.basis === 'ability-catalog-only') return `<p>${mark}${esc(TIER[d.tier])} comes from the explanations section only; the article's color list does not name it.</p>`;
@@ -1576,7 +1727,7 @@ function detailHTML(k){
       ${ptRel.length ? `<p class="dx-note" style="margin:${ptExact.length ? '6px' : '0'} 0 0">Related, not what the term names: ${ptRel.map(t => `<span class="pterm">“${esc(t.term)}”</span>`).join(', ')}.</p>` : ''}
       <p class="dx-note">Words players use, from player research. Not Rosewater's wording and not a claim about this entry.</p></section>` : ''}
     ${prov ? `<details class="dx-src"><summary data-fid="dx-src">Source note</summary>${prov}</details>` : ''}
-    <p class="dx-foot">${esc(MCP.meta.display_label)}. Tier describes how often a color uses this in design, not how well.</p>`;
+    <p class="dx-foot">${esc(MCP.meta.display_label)}. Placements are categories; this page never adds them up or scores them.</p>`;
 }
 
 function setSheetH(h){
@@ -1646,9 +1797,9 @@ function setView(v){
 function setSpot(id){
   if (S.spot && S.spot.id === id){ S.spot = null; render(); return; }
   const f = spotFor(id);
-  S.spot = { id, label: f.label, keys: new Set(f.keys) };
+  S.spot = { id, label: f.label, keys: new Set(f.keys), dep: !!f.dep };
   render();
-  announce(`Showing ${f.keys.length} ${plural(f.keys.length, 'entry', 'entries')}: ${f.label}.`);
+  announce(`Showing ${f.keys.length} ${plural(f.keys.length, 'entry', 'entries')}: ${f.label}.${f.dep ? ' Depends on conflicting 2021 claims.' : ''}`);
   $('#spotbar').scrollIntoView({ block:'nearest', behavior: behavior() });
 }
 function openEntry(k, opts = {}){
@@ -1792,11 +1943,13 @@ function onListKey(ev){
    BOOT
    ====================================================================== */
 function deepFreeze(o){ if (o && typeof o === 'object' && !Object.isFrozen(o)){ Object.freeze(o); Object.values(o).forEach(deepFreeze); } return o; }
+/* For developers: this page reads the frozen 2021 data over HTTP, so it needs a
+   static server rather than file:// (from the repository root,
+   `py -m http.server 8000`, then open /vox-color/mechanical-explorer.html). */
 function bootFail(msg){
   const box = $('#boot'); box.hidden = false;
-  box.innerHTML = `<h2>${esc(msg)}</h2><p>This page reads the frozen 2021 data over HTTP, so it needs the project's static server rather than <code>file://</code>.</p>
-    <p><code>cd C:\\dev\\color-wheel-interactive</code><br><code>py -m http.server 8000</code></p>
-    <p>then open <code>http://localhost:8000/vox-color/mechanical-explorer.html</code></p>`;
+  box.innerHTML = `<h2>${esc(msg)}</h2><p>Reload the page to try again.</p>`;
+  console.error('[mechanical-explorer] could not load ../data/ over HTTP; serve the repository root and open /vox-color/mechanical-explorer.html');
   $('#key').hidden = true; $('#compass').hidden = true; $('#list-cap').hidden = true;
 }
 async function getJSON(rel){ const res = await fetch(new URL(rel, location.href)); if (!res.ok) throw new Error(res.status); return res.json(); }
@@ -1804,14 +1957,15 @@ async function boot(){
   try {
     MCP = deepFreeze(await getJSON('../data/mechanical-color-pie.runtime.json'));
     ABIL = deepFreeze(await getJSON('../data/mcp2021.abilities.json'));
-  } catch (err){ bootFail('Could not read the frozen 2021 data.'); return; }
+  } catch (err){ bootFail('The 2021 data could not be loaded.'); return; }
   MECH = MCP.byMechanic;
   KEYS = Object.keys(MECH).sort();
+  buildReadings();
   const snap = $('#snap');
   snap.textContent = MCP.meta.display_label;
   if (MCP.meta.url) snap.href = MCP.meta.url;
   $('#author').textContent = ' — ' + MCP.meta.author;
-  $('#limits').textContent = MCP.meta.caution.replace(/\.?$/, '.') + ' An absent placement is not evidence that no card of that color exists.';
+  $('#limits').textContent = 'A snapshot that will continue to evolve. Per-set needs bend the default and some entries are experiments. An absent placement is not evidence that no card of that color exists.';
   buildRecords();
   buildArticle();
   const n = KEYS.reduce((t, k) => t + Object.keys(MECH[k].colors).length, 0);
@@ -1913,15 +2067,26 @@ async function runSelfTest(){
   eq('headings: the documented correction places exactly the seven "Return target … from graveyard to hand." entries',
      [...listEl.querySelectorAll('.grp')].filter(g => g.getAttribute('aria-label') === HEADING_FIX.to).map(g => g.querySelectorAll('.ent').length), [7]);
 
-  /* --- every rendered tier equals the runtime --------------------------- */
-  let tierBad = 0;
+  /* --- every rendered placement equals the source ------------------------
+     Gate A (V11): the three unresolved slots show both official claims (left
+     the color list, right the explanations) and no single tier; every other
+     slot, the two change-log-resolved ones included, equals the runtime. */
+  let tierBad = 0, duals = 0;
   for (const e of ents) for (const i of e.querySelectorAll('.strip .sc')){
-    const t = (MECH[e.dataset.k].colors[i.dataset.c] || {}).tier;
-    if (!i.classList.contains('t-' + (t ? t[0] : 'n'))) tierBad++;
+    const d = MECH[e.dataset.k].colors[i.dataset.c], t = (d || {}).tier;
+    if (i.classList.contains('dual')){
+      duals++;
+      const [l, r] = i.querySelectorAll(':scope > .sc-h');
+      if (!unresolved(d) || [...i.classList].some(x => /^t-/.test(x)) || !l || !r ||
+          !l.classList.contains('t-' + d.conflict.colour_list_says[0]) || !r.classList.contains('t-' + d.conflict.ability_catalog_says[0])) tierBad++;
+    } else if (unresolved(d) || !i.classList.contains('t-' + (t ? t[0] : 'n'))) tierBad++;
   }
-  eq('tiers: all 216 × 5 rendered placements equal the runtime', tierBad, 0);
+  eq('tiers: the 1077 single slots equal the runtime; the 3 unresolved slots show both official claims', [tierBad, duals], [0, 3]);
   ok('tiers: every strip has five slots in W U B R G order', ents.every(e => [...e.querySelectorAll('.strip .sc')].map(i => i.dataset.c).join('') === 'WUBRG'));
-  eq('tiers: one footprint for every placement mark', new Set([...listEl.querySelectorAll('.strip .sc')].map(n => { const s = getComputedStyle(n); return s.width + 'x' + s.height; })).size, 1);
+  /* The halves of a split slot are .sc-h, never .sc: they are not footprints. */
+  eq('tiers: one footprint for every placement mark', [new Set([...listEl.querySelectorAll('.strip .sc')].map(n => { const s = getComputedStyle(n); return s.width + 'x' + s.height; })).size,
+     listEl.querySelectorAll('.strip .sc').length, listEl.querySelectorAll('.strip .sc.dual').length,
+     [...listEl.querySelectorAll('.strip .sc.dual')].every(s => s.querySelectorAll(':scope > .sc-h').length === 2 && !s.querySelector('.sc'))], [1, 1080, 3, true]);
   eq('tiers: no progress or meter elements', document.querySelectorAll('progress,meter').length, 0);
   ok('notation: each color renders its own token', ORDER.every(c => {
     const k = KEYS.find(x => (MECH[x].colors[c] || {}).tier === 'primary');
@@ -2066,8 +2231,20 @@ async function runSelfTest(){
     ok('compass: every entry it opens is newly placed by adding G', shownEnts().every(e => access(MECH[e.dataset.k], set(['W','B'])).best === null && access(MECH[e.dataset.k], set(['W','B','G'])).best !== null));
     $('#spotbar [data-act="unspot"]').click();
     eq('compass: "Show all" restores all 216', shownEnts().length, 216);
-    eq('compass: WB − B counts equal the fixture', ['lost_completely','tier_degraded','lost_owner_retained_access'].map(id => +$(`#steps-p [data-id="rem:B:${id}"] b`).textContent),
-       [f2.remove_B.lost_completely, f2.remove_B.tier_degraded, f2.remove_B.lost_owner_retained_access]);
+    /* Gate A (V11): WB − B differs between the readings, so the step shows both
+       and says so. "No longer placed" never differs; the explanations reading
+       equals fixture 02 (model parity itself stays in "fixture 02: WB − B"). */
+    { const q = id => $(`#steps-p [data-id="${id}"]`), n = id => +q(id).querySelector('b').textContent;
+      const d = proj.delta('rem', set(['W','B']), 'B'), step = q('rem:B:lost_completely').closest('.step'), dep = step.querySelector('.step-dep');
+      eq('compass: WB − B shows both readings, marked as reading-dependent, one entry once',
+        [n('rem:B:lost_completely'),
+         ['tier_degraded','lost_owner_retained_access'].map(id => [n(`rem:B:${id}:list`), n(`rem:B:${id}:catalog`)]),
+         !q('rem:B:tier_degraded') && !q('rem:B:lost_owner_retained_access'),
+         !!dep && /Exiling cards from graveyard/.test(dep.textContent),
+         listEl.querySelectorAll('.ent[data-k="exiling cards from graveyard"]').length],
+        [f2.remove_B.lost_completely,
+         [[d.list.tier_degraded.length, f2.remove_B.tier_degraded], [d.list.lost_owner_retained_access.length, f2.remove_B.lost_owner_retained_access]],
+         true, true, 1]); }
   }
   /* all 75 recon transitions */
   try {

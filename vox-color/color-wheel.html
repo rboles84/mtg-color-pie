@@ -442,6 +442,9 @@
   .panel-src > summary:hover { color:var(--bone); }
   .panel-src > summary:focus-visible { outline:2px solid var(--brass-l); outline-offset:2px; }
   .panel-src > p { margin:10px 0 0; }
+  .panel-src a { color:var(--ink); text-decoration:underline; text-decoration-color:var(--rule-s); text-underline-offset:3px; }
+  .panel-src a:hover { text-decoration-color:var(--brass); }
+  .panel-src a:focus-visible { outline:2px solid var(--brass-l); outline-offset:2px; }
 
   .panel-empty { color:var(--ink-dim); font-style:italic; }
   /* programmatic focus target only -- never reached by tabbing */
@@ -1131,11 +1134,11 @@
 
 <main class="page">
   <header class="hero">
-    <p class="hero-kicker">Vox Mana <span>·</span> Codex</p>
+    <p class="hero-kicker">Interactive diagram</p>
     <h1 class="hero-title">The Color Wheel</h1>
     <p class="hero-lede">
-      Five goals, five alliances, five conflicts, and the five identities hiding
-      where the conflicts cross. One layer at a time.
+      Five goals, five alliances, five conflicts, and the five points where the
+      conflicts cross. One layer at a time.
     </p>
   </header>
 
@@ -1469,7 +1472,7 @@
     <h2 id="atlas-h">The Thirty-Two Identities</h2>
     <p class="hero-lede">
       Every combination of the five colors, from none of them to all of them.
-      Six tiers, thirty-two identities.
+      Thirty-two identities, grouped by how many colors they hold.
     </p>
   </section>
   <div id="atlas"></div>
@@ -1503,15 +1506,15 @@ const D = {
   "B": {
    "name": "Black",
    "goal": "Power",
-   "key": "Flexibility, and self-interest without apology",
+   "key": "Flexibility and selfishness",
    "blurb": "Claims to be the only color seeing the world as it actually is rather than as it should be. Didn't make the world greedy \u2014 just declines to pretend otherwise.",
-   "downside": "Its own worst enemy. A willingness to do anything includes the things that cost Black, and the risks it runs are as often against itself as against anyone else."
+   "downside": "Its own worst enemy. A willingness to do anything includes the things that cost Black, and the calculated risks it takes at times end up hurting Black."
   },
   "R": {
    "name": "Red",
    "goal": "Freedom",
    "key": "Trusting what you feel",
-   "blurb": "Holds that the answer already arrives as feeling, and the other four colors just talk over it. Measures a life by regret, not by outcome.",
+   "blurb": "Holds that the answer already arrives as feeling, and the other four colors just talk over it. Wants to look back on a fulfilled life with no regrets.",
    "downside": "Will not look past now. Red chases what it wants immediately, rarely weighs what follows, and takes advice from nobody."
   },
   "G": {
@@ -1528,7 +1531,7 @@ const D = {
    "enemy": "R",
    "blurb": "Both distrust impulse. White plans ahead for the welfare of society; blue studies, evaluates and predicts to develop individual potential. Together, they choose the ending first and plan backward from it.",
    "split": "Free will versus destiny \u2014 blue believes people can choose and shape their path; white believes people must fulfil roles that serve the group.",
-   "cost": "Preparation becomes rigidity. Because it analyses and systematises in advance, white\u2013blue is slow to respond when a problem falls outside what it anticipated. Once prepared it can act decisively; what it struggles with is improvising."
+   "cost": "Preparation becomes rigidity. Because it analyses and systematises in advance, white\u2013blue is slow to respond when a problem falls outside what it anticipated. That slowness can leave it very vulnerable to the right kind of attack."
   },
   "UB": {
    "value": "Choice",
@@ -1577,7 +1580,7 @@ const D = {
    "core": "At bottom: how a life should be conducted.",
    "views": {
     "U": "Carefulness against recklessness. Errors come from moving before you understand.",
-    "R": "Passion against indifference. Errors come from overriding what you already felt."
+    "R": "Passion against indifference."
    }
   },
   "BG": {
@@ -1587,14 +1590,14 @@ const D = {
    "core": "At bottom: how much of your life is yours to decide.",
    "views": {
     "B": "Opportunity against superstition. Nothing was written; go take it.",
-    "G": "Truth against skepticism. The pattern is real whether or not you flatter yourself."
+    "G": "Truth against skepticism."
    }
   },
   "RW": {
    "together": "By splitting the job \u2014 one half picks the goal, the other picks the tools. A moral centre willing to use whatever it believes necessary.",
    "cost": "Declaring the intent gives it away. Because red\u2013white announces what it means to do and then commits, opponents generally know exactly what is coming, which is often a real liability. When it does act, there is no hesitancy.",
    "title": "Freedom vs. Security",
-   "core": "At bottom: what a society owes the people inside it.",
+   "core": "At bottom: what is best for how we govern ourselves.",
    "views": {
     "R": "Democracy against fascism. Nobody appointed you to run my life.",
     "W": "Order against chaos. Your appetites are not worth someone else's safety."
@@ -1631,6 +1634,26 @@ const SRC_PIE   = 'Rosewater, "Pie Fights," Nov 2016 — paraphrased';
 const SRC_FRIEND= 'Rosewater, "Thank You for Being a Friend," Mar 2017 — paraphrased';
 const SRC_REV   = 'Rosewater, the 2015 "revisited" color series — paraphrased';
 const SRC_SHARD = 'Rosewater, the 2008 shard interviews — paraphrased';
+/* The pair "What it costs" and "How they work together" lines come from
+   Rosewater's 2005–06 guild articles, so each pair cites its own article. */
+const PAIR_SRC = {
+  WU: 'What it costs: Rosewater, "Slow and Steady," Making Magic, May 1, 2006 — paraphrased',
+  UB: 'What it costs: Rosewater, "Pretty Sneaky Sis," Making Magic, November 7, 2005 — paraphrased',
+  BR: 'What it costs: Rosewater, "Hedonism With Attitude," Making Magic, August 14, 2006 — paraphrased',
+  RG: 'What it costs: Rosewater, "Aaaargh!!!," Making Magic, January 30, 2006 — paraphrased',
+  GW: 'What it costs: Rosewater, "Group Think," Making Magic, October 3, 2005 — paraphrased',
+  WB: 'How they work together and What it costs: Rosewater, "Playing By Their Own Rules," Making Magic, March 27, 2006 — paraphrased',
+  UR: 'How they work together and What it costs: Rosewater, "Creative Differences," Making Magic, February 27, 2006 — paraphrased',
+  BG: 'How they work together and What it costs: Rosewater, "Life and Death," Making Magic, October 24, 2005 — paraphrased',
+  RW: 'How they work together and What it costs: Rosewater, "Disorderly Conduct," Making Magic — paraphrased',
+  GU: 'How they work together: Rosewater, "Pie Fights," November 14, 2016, and "Improving Upon Nature," Making Magic, May 29, 2006 — paraphrased · What it costs: Rosewater, "Improving Upon Nature," Making Magic, May 29, 2006 — paraphrased'
+};
+/* Titles shown as a link to the official article. */
+const PAIR_LINK = { RW: { title: 'Disorderly Conduct', href: 'https://magic.wizards.com/en/news/making-magic/disorderly-conduct-2005-12-05' } };
+function pairSrc(k) {
+  const s = esc(PAIR_SRC[k] || ''), l = PAIR_LINK[k];
+  return l ? s.replace(esc(l.title), `<a href="${esc(l.href)}" rel="noopener">${esc(l.title)}</a>`) : s;
+}
 /* Rosewater states in the pair articles that they examine the philosophy of two
    COLOURS and use the guild name as familiar shorthand. Since "Azorius" names a
    real Ravnican institution, a reader could otherwise take these for guild lore.
@@ -1644,10 +1667,10 @@ const QUOTE_BAREFOOT = {
   cite: `Mark Rosewater, "Third Time's the Charm, Part 2," Making Magic, May 27, 2024`
 };
 
-const SRC_SCOPE_FIVE = 'Five-color identity means access to all five colors. It does not by itself describe a worldview, guarantee balance between them, or require equal use of each. A card\'s color, its Commander color identity, the magic a character can wield and that character\'s philosophical alignment can overlap without being the same thing. \u2014 Mark Rosewater, "Party of Five," February 2, 2009; "Mana with All the Fixin\'s," March 23, 2009.';
-const SRC_SCOPE_NONE = 'Colorless is a game characteristic and a design space, not a faction or a school of thought. Artifacts, Eldrazi, lands and colorless commanders are different things that happen to share it. \u2014 Mark Rosewater, "Just the Artifacts, Ma\'am," February 28, 2005; "Third Time\'s the Charm, Part 2," May 27, 2024; "The Council of Colors, Revisited," August 26, 2024.';
-const SRC_SCOPE_FOUR = 'Four colours have no philosophy article of their own. These five names are deck identities the Commander 2016 design team built for those decks and described in gameplay terms \u2014 Ethan Fleischer, "Designing Commander (2016 Edition)," October 24, 2016. They are one product\'s lenses, not definitions of the colour combinations. The community line is community reading, not canon.';
-const SRC_SCOPE_WEDGE = 'These use the Khans of Tarkir clans and their attributes as Rosewater\'s set-specific lens on the five wedge combinations \u2014 one supported expression of each trio, not a universal rule. The colour paired with its two enemies is structurally isolated, but each Tarkir clan is centred on one of the two allied colours.';
+const SRC_SCOPE_FIVE = 'How it plays: Mark Rosewater, "Party of Five," February 2, 2009. What it costs: Mark Rosewater, "Mana with All the Fixin\'s," Making Magic, March 23, 2009.';
+const SRC_SCOPE_NONE = 'Mark Rosewater, "Just the Artifacts, Ma\'am," Making Magic, February 28, 2005. Generic and colorless mana, and colorless cards: Comprehensive Rules 105.2, 107.4b, 107.4c and 202.2b.';
+const SRC_SCOPE_FOUR = 'The lens names (Chaos, Aggression, Altruism, Growth, Artifice) are the identities the Commander 2016 design team gave each four-color group \u2014 Ethan Fleischer, "Designing Commander (2016 Edition)," October 24, 2016. Commanders and decks: "Commander (2016 Edition) Decklists," October 28, 2016. They are one product\'s lenses, not definitions of the colour combinations. The group names (Non-White and the rest) are this page\'s labels.';
+const SRC_SCOPE_WEDGE = 'These use the Khans of Tarkir clans and their attributes as Rosewater\'s set-specific lens on the five wedge combinations \u2014 one supported expression of each trio, not a universal rule. The colour paired with its two enemies is structurally isolated, but each Tarkir clan is centred on one of the two allied colours (Mark Rosewater, "Khan Do Attitude, Part 2," Making Magic, September 8, 2014).';
 const SRC_SCOPE_SHARD = 'Rosewater\'s shard cycle speaks through the central colour, using each Alaran shard as that colour\'s idealised world without its two enemies. These report that colour\'s subjective perspective, not a neutral definition of the trio. Bant, Esper, Grixis, Jund and Naya are Alaran shard names, not guilds.';
 const SRC_SCOPE = 'These describe the philosophy of each two-color combination; guild names are familiar shorthand, not full accounts of the Ravnican institutions.';
 
@@ -1706,7 +1729,7 @@ const COLLEGES = {
     dispute:'What is art for \u2014 to make people think, or to make people feel? And should it be carefully worked out, or raw and spontaneous?',
     poles:[
       { c:'U', name:'Perfection', gloss:'training, study, visualisation, precise technique, artistic theory' },
-      { c:'R', name:'Expression', gloss:'spontaneity, emotion and direct self-expression through elemental art' }
+      { c:'R', name:'Expression', gloss:'expressing emotional truth through fire, earth and other elements' }
     ],
     magic:'Gesture. The movement is what casts the spell.'
   },
@@ -1727,8 +1750,8 @@ const COLLEGES = {
     conflict:'Chaos vs. order',
     dispute:'Is a society shaped by the structures that pull people together \u2014 laws, religions, jobs, schools \u2014 or by their bonds to family and friends? Rules, or passions?',
     poles:[
-      { c:'W', name:'Order', gloss:'history as patterns, institutions and structures that shape a society' },
-      { c:'R', name:'Chaos', gloss:'history as people, passions and contingent events that resist orderly prediction' }
+      { c:'W', name:'Order', gloss:'uncovering and recording the past, and chronicling historical truths for posterity' },
+      { c:'R', name:'Chaos', gloss:'reckless discovery and the spirit of adventure in researching the past: the essence and emotion of history over precision or procedure' }
     ],
     magic:'Written. Spells come from writing \u2014 especially old books and scrolls.'
   },
@@ -1745,9 +1768,10 @@ const COLLEGES = {
   }
 };
 
-const SRC_SCOPE_COLLEGE = 'Strixhaven deliberately reinterprets the five enemy pairs as academic disputes. These college conflicts are set-specific lenses, chosen to build five distinct schools of study \u2014 they do not replace the broader color-pie conflicts used elsewhere on the wheel, and two of the five differ from them outright. \u2014 Mark Rosewater, "In the Strixhaven," Parts 1 and 2, March 29 and April 5, 2021. College names and the two sides of each: "Planeswalker\'s Guide to Strixhaven," April 1, 2021, and the Secrets of Strixhaven product page. Fields of study: "In the Strixhaven, Part 1," March 29, 2021. Pole names are the deans\' titles as printed on the cards. Anything drawn from a vision-design handoff is labelled a design note, because those precede set design and changed after it.';
+const SRC_SCOPE_COLLEGE = 'Strixhaven deliberately reinterprets the five enemy pairs as academic disputes \u2014 Mark Rosewater, "In the Strixhaven, Part 1," March 29, 2021. College names and the two sides of each: "Planeswalker\'s Guide to Strixhaven," April 1, 2021, and the Secrets of Strixhaven product page. Fields of study: "In the Strixhaven, Part 1," March 29, 2021. Pole names are the deans\' titles as printed on the cards. Design note: Mark Rosewater, "Strixhaven Vision Design Handoff Document, Part 1," Making Magic, April 19, 2021.';
 
 const SRC_WEDGE = 'Rosewater, the 2014–15 wedge interviews — paraphrased';
+const SRC_CAPENNA = 'New Capenna families: Mark Rosewater, "Hitting the Streets of New Capenna, Part 2," Making Magic, April 11, 2022.';
 
 const wheel = document.getElementById('wheel');
 const panel = document.getElementById('panel');
@@ -2095,7 +2119,7 @@ function showAlly(k) {
       what that opposition has in common.</p>
     <p class="panel-body"><strong>What it costs.</strong> ${esc(o.cost)}</p>
     <p class="panel-body"><strong>Where they split:</strong> ${esc(o.split)}</p>
-    <details class="panel-src"><summary>Sources &amp; scope</summary><p>${esc(SRC_FRIEND)} · ${esc(SRC_SCOPE)}</p></details>`;
+    <details class="panel-src"><summary>Sources &amp; scope</summary><p>${esc(SRC_FRIEND)} · ${pairSrc(k)} · ${esc(SRC_SCOPE)}</p></details>`;
   // the shared enemy is highlighted too — that's the whole derivation
   highlight([edgeEl(k), vtx(a), vtx(b), vtx(o.enemy),
              edgeEl(keyFor(a, o.enemy)), edgeEl(keyFor(b, o.enemy))]);
@@ -2166,8 +2190,7 @@ function showEnemy(k, view, animate) {
     <p class="panel-body"><strong>How they work together.</strong> ${esc(o.together)}</p>
     <p class="panel-body"><strong>What it costs.</strong> ${esc(o.cost)}</p>
     ${collegeBlock(k)}
-    <details class="panel-src"><summary>Sources &amp; scope</summary><p>${esc(SRC_PIE)} · Each conflict reads differently depending on
-      which side states it — the neutral summary is a third framing, not the true one.
+    <details class="panel-src"><summary>Sources &amp; scope</summary><p>${esc(SRC_PIE)} · ${pairSrc(k)} ·
       ${esc(SRC_SCOPE)}${COLLEGES[k] ? ' ' + esc(SRC_SCOPE_COLLEGE) : ''}</p></details>`;
 
   panel.querySelectorAll('.view-btn').forEach(el =>
@@ -2197,13 +2220,13 @@ function showFour(excl) {
     <p class="panel-kicker">Four-Color · Crossing</p>
     <h2 class="panel-title">${shown.map(dot).join('')}${esc(id ? id.name : 'Non-' + nm(excl))}</h2>
     <p class="panel-sub">${shown.join(' ')} · Four-color</p>
-    ${id && id.aka ? `<p class="panel-aka">Also called ${id.aka.map(esc).join(' · ')}</p>` : ''}
+    ${id && id.aka ? `<p class="panel-aka">Streets of New Capenna family in these colors: ${id.aka.map(n => 'the ' + esc(n)).join(' · ')}</p>` : ''}
 
     <p class="panel-body">This point is where two conflict chords cross. A chord pair
       intersects only when their endpoints alternate around the wheel, so every crossing
-      touches four colors and leaves exactly one out. Five crossings, five excluded
-      colors, five four-color identities — the pentagram contains the whole tier and
-      never labels it.</p>
+      touches four colors and leaves exactly one out. Five crossings, one for each
+      four-color combination. Derived from the wheel's layout, in which each color sits
+      across from its two enemies.</p>
 
     <p class="panel-body">Here the one left out is ${dot(excl)}<strong>${esc(nm(excl))}</strong>,
       the colour that wants ${esc(m.goal.toLowerCase())}, pursued through
@@ -2213,8 +2236,6 @@ function showFour(excl) {
       A deck that ${esc(id.lensDeck)}.</p>` : ''}
     ${id && id.commander ? `<p class="panel-body"><strong>Its commander:</strong>
       ${esc(id.commander)} · ${esc(id.deck)}.</p>` : ''}
-    ${id && id.community ? `<p class="panel-body"><strong>Community typically reads it as</strong>
-      ${esc(id.community)}.</p>` : ''}
 
     <details class="panel-src"><summary>Sources &amp; scope</summary><p>${esc(SRC_SCOPE_FOUR)} Geometry solved at build time.</p></details>`;
 
@@ -3336,24 +3357,19 @@ const IDENTITIES = [
      of every WUBG deck. Verified against the C16 decklists. */
   { display:'UBRG', name:'Non-White', group:'four',
     commander:'Yidris, Maelstrom Wielder', deck:'Entropic Uprising',
-    lens:'Chaos', lensDeck:"plays cards sight unseen off the top of the library, flips coins, and generally adds randomness",
-    community:"a world where power, appetite and growth run without a shared rule to hold them to account" },
+    lens:'Chaos', lensDeck:"plays cards sight unseen off the top of the library, flips coins, and generally adds randomness", },
   { display:'WBRG', name:'Non-Blue', group:'four',
     commander:'Saskia the Unyielding', deck:'Open Hostility',
-    lens:'Aggression', lensDeck:"ignores table politics and tries to kill everyone as fast as it can",
-    community:"conviction and action that does not wait to study the problem first" },
+    lens:'Aggression', lensDeck:"ignores table politics and tries to kill everyone as fast as it can", },
   { display:'WURG', name:'Non-Black', group:'four',
     commander:'Kynaios and Tiro of Meletis', deck:'Stalwart Unity',
-    lens:'Altruism', lensDeck:"wants everyone at the table to enjoy themselves, handing out mana, cards and tokens",
-    community:"coalition and shared benefit, without private advantage as the final word" },
+    lens:'Altruism', lensDeck:"wants everyone at the table to enjoy themselves, handing out mana, cards and tokens", },
   { display:'WUBG', name:'Non-Red', group:'four',
     commander:"Atraxa, Praetors' Voice", deck:'Breed Lethality',
-    lens:'Growth', lensDeck:"builds a heavy +1/+1 counters theme so any creature can grow into a threat",
-    community:"patient accumulation, without immediate feeling as grounds to act now" },
+    lens:'Growth', lensDeck:"builds a heavy +1/+1 counters theme so any creature can grow into a threat", },
   { display:'WUBR', name:'Non-Green', group:'four',
     commander:'Breya, Etherium Shaper', deck:'Invent Superiority',
-    lens:'Artifice', lensDeck:"draws on 'artifacts matter' cards from all four of its colours",
-    community:"building and rebuilding, without inherited or natural limits treated as binding" },
+    lens:'Artifice', lensDeck:"draws on 'artifacts matter' cards from all four of its colours", },
 
   { display:'WUBRG', name:'Five-Color', group:'five' },
 ];
@@ -3410,7 +3426,7 @@ function subLine(o) {
   if (o.group === 'enemy')   return 'Enemy';
   if (o.group === 'shard')   return 'Shard';
   if (o.group === 'wedge')   return 'Wedge';
-  if (o.group === 'college') return 'Enemy · also called ' + o.of;
+  if (o.group === 'college') return 'Enemy · Strixhaven college';
   if (o.group === 'four')    return o.commander + ' · ' + o.deck;
   return null;
 }
@@ -3458,7 +3474,7 @@ function tileNote(o) {
     const excl = D.order.find(c => !cols.includes(c));
     return 'Every color but ' + nm(excl) + '.';
   }
-  if (o.group === 'five')      return 'All five \u2014 every conflict now internal.';
+  if (o.group === 'five')      return 'Every color.';
   if (o.group === 'colorless') return 'No colors \u2014 not a sixth color.';
   return null;
 }
@@ -3496,7 +3512,7 @@ function renderAtlas() {
     }).join('');
     return '<section class="atlas-tier" aria-labelledby="tier-' + t.n + '-h">'
          +   '<header class="tier-head">'
-         +     '<p class="tier-index">Tier ' + t.n + '</p>'
+         +     '<p class="tier-index">' + (t.n - 1) + (t.n === 2 ? ' color' : ' colors') + '</p>'
          +     '<h2 class="tier-title" id="tier-' + t.n + '-h">' + esc(t.title) + '</h2>'
          +     '<p class="tier-count">' + esc(count) + '</p>'
          +   '</header>' + body
@@ -3606,19 +3622,18 @@ function comboBody(cols, id) {
      is watched precisely because it reaches every deck. */
   if (n === 0) return `
     <p class="panel-body"><strong>Not a sixth color, and not a sixth philosophy.</strong>
-      Rosewater's account of artifacts is that they represent the lack of one \u2014 the mage who
-      specialises in them is avoiding committing to anything. Colorless marks a card that has no
-      color; what it means comes from the card, not from the absence.</p>
+      Rosewater's account of artifacts is that they represent the lack of a philosophy, and that the
+      mage who specialises in them is avoiding sticking to much of anything.</p>
     <blockquote class="panel-quote">“${esc(QUOTE_BAREFOOT.text)}”
       <cite>${esc(QUOTE_BAREFOOT.cite)}</cite></blockquote>
     <p class="panel-body"><strong>How it plays.</strong> Generic costs mean any mage can play any
-      artifact, which is the whole point of them. Their home ground is making and fixing mana,
+      artifact, which Rosewater counts among the elements that most defined them. Their home ground is making and fixing mana,
       drawing cards, boosting creatures, being creatures, doing things no color normally does, and
       interlocking into machines.</p>
-    <p class="panel-body"><strong>What it costs.</strong> Access becomes restraint. Because a
-      colorless effect is available to every deck, granting one hands it to the color that is
-      worst at it \u2014 Rosewater's own example is that enchantment destruction on an artifact is
-      effectively given to black and red. That is why colorless design turns so heavily on rate.</p>
+    <p class="panel-body"><strong>What it costs.</strong> Access becomes restraint. Because any
+      deck can play an artifact, any ability given to artifacts is effectively given to the color
+      weakest at it \u2014 Rosewater's own example is that enchantment destruction on an artifact is
+      effectively given to black and red, which is why artifacts tend not to have it.</p>
     <p class="panel-body"><strong>Not the same thing as.</strong> Artifacts can be colored, and
       lands and other cards can be colorless. A generic cost takes any mana; {C} demands mana that
       actually has no color.</p>`;
@@ -3706,14 +3721,7 @@ function comboBody(cols, id) {
       ? `<p class="panel-body"><strong>Its commander:</strong> ${esc(id.commander)} · ${esc(id.deck)}.</p>`
       : '';
 
-    /* Labelled every time it appears. This is the dominant fan reading, it is
-       genuinely useful, and it is not canon — so it says so rather than sitting
-       alongside sourced lines as though it were one. */
-    const community = id && id.community
-      ? `<p class="panel-body"><strong>Community typically reads it as</strong> ${esc(id.community)}.</p>`
-      : '';
-
-    return absent + lens + anchor + community + composition(cols);
+    return absent + lens + anchor + composition(cols);
   }
 
   /* WUBRG. Almost all of this is DERIVED from data already verified elsewhere
@@ -3733,23 +3741,15 @@ function comboBody(cols, id) {
   const fights = Object.keys(D.enemies).map(k => esc(D.enemies[k].title)).join(' \u00b7 ');
 
   return `
-    <p class="panel-body"><strong>All five, still disagreeing.</strong> ${goals}. Holding every
-      colour does not reconcile them \u2014 it means owning the whole argument rather than settling it.</p>
-    <p class="panel-body"><strong>There is no spare name for it.</strong> Two of the obvious
-      candidates are already taken outright: perfection is Blue's goal and power is Black's, both
-      listed above. Unity leans White and harmony leans Green. Naming five colours after a value
-      tends to hand them to one of the five. What they share is not a belief — it is that nothing
-      is left outside to disagree with.</p>
+    <p class="panel-body"><strong>All five goals.</strong> ${goals}.</p>
     <p class="panel-body"><strong>How it plays.</strong> Rosewater's test for a five-colour card is
       that its breadth has to matter: an effect that would sit comfortably in one or two colours
       invites the question of why it is five-colour at all. So five-colour designs tend to reach for
       something broad or strange enough that fewer colours would not honestly describe it.</p>
     <p class="panel-body"><strong>What it costs.</strong> Access weakens the pie that gives colours
       meaning. Rosewater has said that making five-colour access too easy limits the importance of
-      the colour pie, because decks can simply reach past their own colours for what they lack.
-      Five colours are at their most distinctive when something else narrows the choices they opened.</p>
-    <p class="panel-body"><strong>Where the tension lives.</strong> Inside. Nothing sits outside this
-      identity to argue with, so all five conflicts are internal to it: ${fights}.</p>`;
+      the colour pie, because decks can simply reach past their own colours for what they lack.</p>
+    <p class="panel-body"><strong>Both sides of every conflict.</strong> ${fights}.</p>`;
 }
 
 /* Resolve any colour list to its identity. identityFor() takes a Set; this
@@ -3798,15 +3798,16 @@ function showCombo() {
     <p class="panel-kicker">Combine · ${cols.length} color${cols.length === 1 ? '' : 's'}</p>
     <h2 class="panel-title">${shown.map(dot).join('')}${esc(name)}</h2>
     <p class="panel-sub">${esc(code)}${group ? ' · ' + esc(group) : ''}</p>
-    ${id && id.aka ? `<p class="panel-aka">Also called ${id.aka.map(esc).join(' · ')}</p>` : ''}
+    ${id && id.aka ? `<p class="panel-aka">Streets of New Capenna family in these colors: ${id.aka.map(n => 'the ' + esc(n)).join(' · ')}</p>` : ''}
     ${comboBody(cols, id)}
     ${neighbourChips(cols)}
-    <details class="panel-src"><summary>Sources &amp; scope</summary><p>${cols.length === 2 ? esc(SRC_SCOPE) + ' ' : ''}${
+    <details class="panel-src"><summary>Sources &amp; scope</summary><p>${cols.length === 2 ? esc(SRC_SCOPE) + ' ' + pairSrc(pairsOf(cols).allied[0] || pairsOf(cols).enemy[0]) + ' · ' : ''}${
       cols.length === 3 && id ? esc(id.group === 'wedge' ? SRC_SCOPE_WEDGE : SRC_SCOPE_SHARD) + ' ' : ''}${
       cols.length === 4 ? esc(SRC_SCOPE_FOUR) + ' ' : ''}${
       cols.length === 0 ? esc(SRC_SCOPE_NONE) + ' ' : ''}${
       cols.length === 5 ? esc(SRC_SCOPE_FIVE) + ' ' : ''}${
-      cols.length === 3 && id && id.src ? esc(id.src) + ' · ' : ''}${cols.length > 1 ? esc(SRC_FRIEND) + ' · ' + esc(SRC_PIE) + ' · ' : ''
+      cols.length === 3 && id && id.src ? esc(id.src) + ' · ' : ''}${
+      cols.length === 3 && id && id.aka ? esc(SRC_CAPENNA) + ' · ' : ''}${cols.length > 1 ? esc(SRC_FRIEND) + ' · ' + esc(SRC_PIE) + ' · ' : ''
     }resolved from the identity registry</p></details>`;
   /* SRC_WEDGE / SRC_SHARD are deliberately NOT cited here any more. They named
      the series ("the 2014-15 wedge interviews"); each three-colour identity now
@@ -3965,13 +3966,14 @@ function applyRoute(raw) {
       return;
     }
 
+    /* Route guard (Gate A, V16). The preview Mechanics route is retired: any
+       hash this parser reads as `mechanics` lands in Explore at rest, and the
+       URL is replaced in place with the same path and query and no hash — no
+       new history entry, no hashchange, so reload and Back/Forward cannot
+       reactivate it. The preview code below stays, unreachable. */
     if (k === 'mechanics') {
-      enableMechanicsPreview();
-      // The value selects the prototype. Setting mech.proto BEFORE setMode
-      // means the first render already draws the right architecture, and the
-      // router owns the route rather than undoing it a frame later.
-      if (PROTOS.includes(v)) mech.proto = v;
-      setMode('mechanics');
+      history.replaceState(history.state, '', location.pathname + location.search);
+      setMode('explore');
       return;
     }
 
