@@ -7,7 +7,14 @@ remaining fields are intentionally blank.
 
 ## Control
 
-- Status: `ready-for-qa`. Gate A material candidate **`a2d5eb5`**
+- Status: `dev-in-progress`. Gate A **reopened before QA** to apply the
+  red-team corrections (addendum R1–R10 below).
+  - **Transition:** `ready-for-qa -> dev-in-progress` (Owner direction,
+    2026-10-04). `robqa` had not started; `a2d5eb5` is superseded, not
+    accepted. This transition is not in the `AGENTS.md` list; it is recorded
+    as the Owner's explicit decision. A new exact candidate will be frozen
+    for QA.
+- Earlier status: `ready-for-qa`. Gate A material candidate **`a2d5eb5`**
   (`a2d5eb552dfe123fe51db7e56ea3cbe288581809`): both pages, `CLAUDE.md`,
   `MECHANICS-CONTRACT.md`, `CONTEXT.md` and this ledger.
   - **Transition:** `dev-in-progress -> ready-for-qa` (`robdev`,
@@ -1361,6 +1368,72 @@ parity), all fixture/recon/frozen-data checks, and the copy regexes (1961,
 - The replacement mechanism from `file://` in a browser other than Chromium
   Edge.
 - Legibility of the split slot at 12px on a real 1x display.
+
+### Owner manual test (Rob, 2026-10-04, Edge, Windows 11; results file `gate-a-manual-results-20261004-1519.md`)
+
+- **H2, H3, H4 pass:** `file://` direct load, hard reload (Ctrl+Shift+R,
+  Ctrl+F5) and toolbar Back/Forward on `#mechanics=board` / `#mechanics=atlas`
+  in Edge. The recorded human check is done **for Chromium**.
+- **H5:** run in Opera GX, which is Chromium-based. The non-Chromium check
+  (Firefox) is **still open**.
+- **H6 pass:** split circles legible at 100% zoom on the Owner's display.
+- **H1 (control):** confirmed the old preview opens on the pre-Gate-A copy;
+  the Owner's "I don't like this view" is the reason it is retired, not a
+  defect. **J4:** N/A.
+- **J1, J2, J5 pass.** **J3: pass (Owner decision).** The Source note is
+  selective by design: it lists only colours whose placement needs
+  explanation.
+- **J6:** replaced by the red-team review of the 32 Combine panels (below).
+
+### Red-team addendum (Owner direction 2026-10-04: reopen Gate A, apply before QA)
+
+Owner direction: H1, H2, H3, M2, M3, M4 are required source-purity
+corrections; also M1, M8 and the Boros citation/date "where they can be
+corrected without introducing new interpretation"; L1 only if it can stay
+clearly page voice. No broadening beyond the findings, no new philosophy;
+re-run the full 32-panel provenance check; produce a new exact candidate.
+
+| ID | Finding | Surface | Current | Correction | Class / source |
+|---|---|---|---|---|---|
+| R1 | H1 | Combine sub-line (0 colors); atlas Colorless tile | "C · Colorless"; tile code "C" and the {C} pip | Sub-line "0 colors"; tile code "0 colors"; no pip on the Colorless tile (ring unchanged) | NEUTRAL; bare C is not a sixth identity (CR 105.2, 107.4c) |
+| R2 | H2 | Every Combine "Sources & scope"; Explore crossing drawer | "… · resolved from the identity registry"; "Geometry solved at build time." | Both removed; trailing separator dropped; the 1-color drawer, left empty, is omitted | REMOVAL (internal provenance in a source block) |
+| R3 | H3 | Combine Colorless lead | "**Not a sixth color, and not a sixth philosophy.** Rosewater's account …" | "**Artifact lens.** This panel reads colorless through Rosewater's writing on artifacts, which are traditionally colorless; it does not treat colorless as a sixth color or a sixth philosophy. Rosewater's account …" (rest unchanged) | NEUTRAL scope label + existing paraphrase ("Just the Artifacts, Ma'am" 44) |
+| R4 | M2 | Combine wedge panels (5); atlas wedge tiles (5) | "**Endurance.** Black has no ally here — it stands against both White and Green, who are allies of each other."; tile "Endurance. Black has no ally here." | Two lines: "**Pairwise structure:** Black is enemies with both White and Green, while White and Green are allied." and "**Tarkir lens:** Abzan is centered in White; its attribute is endurance." (likewise each wedge). Tile: "Tarkir lens: endurance, centered in White." | COMPUTED (structure) + OFFICIAL ("Khan Do Attitude, Part 2", MM Sep 8, 2014, 46, 50–78: Abzan W, Jeskai U, Sultai B, Mardu R, Temur G) |
+| R5 | M3 | Combine 3-color panels (10) | "**What it is made of**" | "**Pairwise relationships within this combination** — derived from its three two-color pairs." | COMPUTED (values: "Thank You for Being a Friend"; titles: "Pie Fights") |
+| R6 | M4 | Combine 3-color panels (10) | "2 allied edges and 1 conflict chord — the shape of a **shard**." (wedge: 1 / 2) | "**Color-wheel structure:** 2 allied pairings and 1 enemy pairing." (wedge: "1 allied pairing and 2 enemy pairings.") | COMPUTED. Kept as page UI: the 1-color hint "Add a second color to draw an edge." and the crossing panel's chords, already labelled derived (CW33) |
+| R7 | M8 | Combine 5-color "How it plays" | "… its breadth has to matter … So five-colour designs tend to reach for something broad or strange enough that fewer colours would not honestly describe it." | "Rosewater's test for a five-colour card is that using all five colours has to matter: an effect that would sit comfortably in one or two colours invites the question of why it is five-colour at all. So five-colour designs tend to reach for something new and grand, an ability no single colour clearly defines." | OFFICIAL paraphrase ("Party of Five", Feature Feb 2, 2009: "an ability that isn't really defined … something new and grand") |
+| R8 | L1 | Combine 4-color panels (5) | "Four colors, one left out. White is not in this conversation — the colour that wants peace, pursued through …" | "Four colors, one left out: White, the colour that wants peace, pursued through …" | COMPUTED + OFFICIAL (TY goals and methods) |
+| R9 | M9 | Boros source line | linked "Disorderly Conduct," Making Magic — undated | **No change.** "December 5, 2005" appears only in the URL slug and in search summaries; the live page prints Jan 1, 2012; Wayback CDX queries found no capture of the original 2005 page. Adding it would be inference; Owner decision 2 stands | — |
+| R10 | M1 | `qa/gate-a-combine-panels.md` note (not page copy) | "college tiles are not identities" | Red-team wording; done 2026-10-04 | — |
+
+Verified unchanged, as the red-team asks (M5–M7): the shard "In <colour>'s
+account" framing and scope note, the Tarkir set-specific scope note, the C16
+"one product's lenses" caveat.
+
+**Addendum implementation (`robdev`, 2026-10-04): R1–R8 IMPLEMENTED; R9 no
+change (by evidence); R10 done.** Only `vox-color/color-wheel.html` changed
+since `a2d5eb5` (applied by `patch_wheel2.py`, every replacement matched
+exactly; the five wedge records gain a `center` field). `ALIASES`, `aka`, the
+route guard and the explorer are untouched; the explorer is byte-identical to
+`a2d5eb5`.
+
+- **Behaviour vs `a2d5eb5`** (`wheel_dump.mjs`, 71 states): mode, hash and
+  preview state identical in all 71; 37 unique text differences, every one
+  an R1–R8 change (the atlas Colorless and wedge tiles, the crossing drawer,
+  the 32 Combine panels). No console error or failed page assertion (37
+  tiles, 32 identities).
+- **32 Combine panels:** re-extracted two ways (`#combine=` and clicking);
+  32/32 identical. `qa/gate-a-combine-panels.md` rebuilt and re-verified
+  against a third fresh read: 32/32.
+- **Provenance audit** (`provenance.py` → `qa/gate-a-combine-provenance.md`):
+  517 visible lines in 32 panels, each placed in one category: Direct 53,
+  Paraphrase 45, Derived 99, Page UI 293 (navigation chips, kickers, drawer
+  labels, page labels only), Source block 27. **UNCLASSIFIED 0.** No source
+  block contains "registry", "build time" or "Vox".
+- **Layout:** 360 @2x, 768, 1440: no overflow in the atlas or the changed
+  panels; the Colorless tile's "0 colors" fits; 37 tiles.
+- **Static:** four gates exit 0 (unchanged output); `node --check` on the
+  wheel script OK; `git diff --check` clean.
 
 ## Decisions needed
 

@@ -2237,7 +2237,7 @@ function showFour(excl) {
     ${id && id.commander ? `<p class="panel-body"><strong>Its commander:</strong>
       ${esc(id.commander)} · ${esc(id.deck)}.</p>` : ''}
 
-    <details class="panel-src"><summary>Sources &amp; scope</summary><p>${esc(SRC_SCOPE_FOUR)} Geometry solved at build time.</p></details>`;
+    <details class="panel-src"><summary>Sources &amp; scope</summary><p>${esc(SRC_SCOPE_FOUR)}</p></details>`;
 
   // Exactly two chords pass through a crossing, but "every chord that doesn't
   // contain the excluded colour" returns three — each colour sits in two of the
@@ -3336,19 +3336,19 @@ const IDENTITIES = [
     produces: "In Green's account, nature takes centre stage with nothing to rein it in. Green reads the other two as a balance — enough Red that things are not too orderly, enough White that they are not too chaotic — and growth runs as far as it can.",
     src: "Mark Rosewater, \"Searching Within,\" Making Magic, November 3, 2008" },
 
-  { display:'WBG', name:'Abzan', group:'wedge' , attribute:'endurance',
+  { display:'WBG', name:'Abzan', group:'wedge' , attribute:'endurance', center:'W',
     expresses: "Where the other wedges focus more on creating threats, Abzan de-emphasises threats in favour of answers: it defends through the early and middle game, waits for the opponent to spend down their resources, and only then moves to win. White provides the proactive defence, Black the active defence, and Green the growth that accelerates its mana development.",
     src: "Mark Rosewater, \"We Will Survive,\" Making Magic, September 29, 2014" },
-  { display:'URW', name:'Jeskai', group:'wedge' , attribute:'cunning',
+  { display:'URW', name:'Jeskai', group:'wedge' , attribute:'cunning', center:'U',
     expresses: "All three aim to act in a way the opponent cannot properly anticipate, by different routes: Blue gathers knowledge of the opponent's strategy, Red keeps its intentions hard to gauge, and White takes proactive measures against threats before they arrive.",
     src: "Mark Rosewater, \"Smart Thinking,\" Making Magic, November 3, 2014" },
-  { display:'BGU', name:'Sultai', group:'wedge' , attribute:'ruthlessness',
+  { display:'BGU', name:'Sultai', group:'wedge' , attribute:'ruthlessness', center:'B',
     expresses: "The three settle on ruthlessness as the willingness to do what needs doing, while disagreeing on what that means: Black connects it to taking action to get what it wants, Blue to consciously promoting change, and Green to having the nerve to be true to its own nature. In practice, not much is off limits — cutting off resources, taking what belongs to others, and using the dead.",
     src: "Mark Rosewater, \"Whatever It Takes,\" Making Magic, February 2, 2015" },
-  { display:'RWB', name:'Mardu', group:'wedge' , attribute:'speed',
+  { display:'RWB', name:'Mardu', group:'wedge' , attribute:'speed', center:'R',
     expresses: "It tries to land hits before the opponent is ready. Red gets to the point as fast as it can; White treats an army as a tool whose speed lets it neutralise forces before they become threats; Black counts time among the resources worth denying.",
     src: "Mark Rosewater, \"Finishing First,\" Making Magic, November 17, 2014" },
-  { display:'GUR', name:'Temur', group:'wedge' , attribute:'savagery',
+  { display:'GUR', name:'Temur', group:'wedge' , attribute:'savagery', center:'G',
     expresses: "Each reaches savagery from a different direction: Green through accepting its animal nature and the feral side of the web of life, Red through giving in to impulse in the moment to survive, and Blue through overriding psychological limits that likely developed as protection. Mechanically, all three can support larger bodies, especially at common.",
     src: "Mark Rosewater, \"What Doesn't Kill You Makes You Stronger,\" Making Magic, February 23, 2015" },
 
@@ -3466,8 +3466,7 @@ function tileNote(o) {
       const away = D.order.filter(c => !cols.includes(c));
       return nm(hinge) + ' at the centre; ' + nm(away[0]) + ' and ' + nm(away[1]) + ' absent.';
     }
-    return (o.attribute ? o.attribute.charAt(0).toUpperCase() + o.attribute.slice(1) + '. ' : '')
-         + nm(hinge) + ' has no ally here.';
+    return 'Tarkir lens: ' + o.attribute + ', centered in ' + nm(o.center) + '.';
   }
 
   if (o.group === 'four') {
@@ -3481,13 +3480,13 @@ function tileNote(o) {
 
 function tile(o) {
   const cols = o.display ? o.display.split('') : ['C'];
-  const pips = cols.map(c => '<i class="ms ms-' + c.toLowerCase() + ' ms-cost" aria-hidden="true"></i>').join('');
+  const pips = o.display ? cols.map(c => '<i class="ms ms-' + c.toLowerCase() + ' ms-cost" aria-hidden="true"></i>').join('') : '';
   const sub  = subLine(o);
   return '<article class="tile" style="--ring:' + ring(o.display) + ';">'
        +   '<span class="tile-ring" aria-hidden="true"></span>'
        +   '<span class="tile-pips" aria-hidden="true">' + pips + '</span>'
        +   '<h3 class="tile-name">' + esc(o.name) + '</h3>'
-       +   '<p class="tile-code">' + cols.join(' ') + '</p>'
+       +   '<p class="tile-code">' + (o.display ? cols.join(' ') : '0 colors') + '</p>'
        +   (sub ? '<p class="tile-sub">' + esc(sub) + '</p>' : '')
        +   (function () {
              const n = tileNote(o);
@@ -3606,7 +3605,7 @@ function composition(cols) {
   const rows = p.allied.map(k => row(k, D.allies[k].value))
         .concat(p.enemy.map(k => row(k, D.enemies[k].title)));
   if (!rows.length) return '';
-  return '<p class="panel-body"><strong>What it is made of</strong></p>' +
+  return '<p class="panel-body"><strong>Pairwise relationships within this combination</strong> \u2014 derived from its three two-color pairs.</p>' +
     '<ul class="panel-body" style="margin-top:-8px;padding-left:0;list-style:none">' +
     rows.join('') + '</ul>';
 }
@@ -3621,8 +3620,9 @@ function comboBody(cols, id) {
      colour pie's regulation. It is reviewed, it has a counsellor, and its rate
      is watched precisely because it reaches every deck. */
   if (n === 0) return `
-    <p class="panel-body"><strong>Not a sixth color, and not a sixth philosophy.</strong>
-      Rosewater's account of artifacts is that they represent the lack of a philosophy, and that the
+    <p class="panel-body"><strong>Artifact lens.</strong> This panel reads colorless through
+      Rosewater's writing on artifacts, which are traditionally colorless; it does not treat colorless
+      as a sixth color or a sixth philosophy. Rosewater's account of artifacts is that they represent the lack of a philosophy, and that the
       mage who specialises in them is avoiding sticking to much of anything.</p>
     <blockquote class="panel-quote">“${esc(QUOTE_BAREFOOT.text)}”
       <cite>${esc(QUOTE_BAREFOOT.cite)}</cite></blockquote>
@@ -3665,9 +3665,8 @@ function comboBody(cols, id) {
        shard and had it describe a world with its enemies absent. */
     const away = D.order.filter(c => !cols.includes(c));
 
-    const shape = `<p class="panel-body">${p.allied.length} allied edge${p.allied.length === 1 ? '' : 's'}
-        and ${p.enemy.length} conflict chord${p.enemy.length === 1 ? '' : 's'} \u2014 the shape of a
-        <strong>${shard ? 'shard' : 'wedge'}</strong>.</p>`;
+    const shape = `<p class="panel-body"><strong>Color-wheel structure:</strong> ${p.allied.length} allied
+        pairing${p.allied.length === 1 ? '' : 's'} and ${p.enemy.length} enemy pairing${p.enemy.length === 1 ? '' : 's'}.</p>`;
 
     /* Structural only. The earlier version editorialised here ("nothing here
        contradicts it", "tense where a shard is settled"); those were conclusions
@@ -3678,11 +3677,11 @@ function comboBody(cols, id) {
            ${dot(others[1])}${esc(nm(others[1]))}. ${away.map(dot).join('')}${esc(nm(away[0]))}
            and ${esc(nm(away[1]))} are absent \u2014 and they are exactly
            ${esc(nm(hinge))}'s own enemies.</p>`
-      : `<p class="panel-body">${id && id.attribute
-             ? `<strong>${esc(id.attribute.charAt(0).toUpperCase() + id.attribute.slice(1))}.</strong> ` : ''}${
-           dot(hinge)}<strong>${esc(nm(hinge))}</strong> has no ally here \u2014 it stands against both
-           ${dot(others[0])}${esc(nm(others[0]))} and ${dot(others[1])}${esc(nm(others[1]))},
-           who are allies of each other.</p>`;
+      : `<p class="panel-body"><strong>Pairwise structure:</strong> ${dot(hinge)}${esc(nm(hinge))} is enemies
+           with both ${dot(others[0])}${esc(nm(others[0]))} and ${dot(others[1])}${esc(nm(others[1]))},
+           while ${esc(nm(others[0]))} and ${esc(nm(others[1]))} are allied.</p>${id && id.center
+             ? `<p class="panel-body"><strong>Tarkir lens:</strong> ${esc(id.name)} is centered in
+           ${dot(id.center)}${esc(nm(id.center))}; its attribute is ${esc(id.attribute)}.</p>` : ''}`;
 
     /* The sourced line. Wedges get Tarkir's expression, shards get what the
        central colour says its world becomes. Neither invents a cost: the shard
@@ -3705,8 +3704,8 @@ function comboBody(cols, id) {
        in D.colors. It states which voice is not in the room, in that voice's
        own terms — it does NOT claim what the four remaining colours therefore
        become. That claim has no source. */
-    const absent = `<p class="panel-body">Four colors, one left out. ${dot(missing)}<strong>${esc(nm(missing))}</strong>
-        is not in this conversation — the colour that wants ${esc(m.goal.toLowerCase())},
+    const absent = `<p class="panel-body">Four colors, one left out: ${dot(missing)}<strong>${esc(nm(missing))}</strong>,
+        the colour that wants ${esc(m.goal.toLowerCase())},
         pursued through ${esc(m.key.charAt(0).toLowerCase() + m.key.slice(1))}.</p>`;
 
     /* THE OFFICIAL LENS. Fleischer described these as DECKS, in gameplay terms,
@@ -3743,9 +3742,9 @@ function comboBody(cols, id) {
   return `
     <p class="panel-body"><strong>All five goals.</strong> ${goals}.</p>
     <p class="panel-body"><strong>How it plays.</strong> Rosewater's test for a five-colour card is
-      that its breadth has to matter: an effect that would sit comfortably in one or two colours
-      invites the question of why it is five-colour at all. So five-colour designs tend to reach for
-      something broad or strange enough that fewer colours would not honestly describe it.</p>
+      that using all five colours has to matter: an effect that would sit comfortably in one or two
+      colours invites the question of why it is five-colour at all. So five-colour designs tend to
+      reach for something new and grand, an ability no single colour clearly defines.</p>
     <p class="panel-body"><strong>What it costs.</strong> Access weakens the pie that gives colours
       meaning. Rosewater has said that making five-colour access too easy limits the importance of
       the colour pie, because decks can simply reach past their own colours for what they lack.</p>
@@ -3783,6 +3782,13 @@ function neighbourChips(cols) {
   return out;
 }
 
+/* A Combine "Sources & scope" drawer holds citations and scope notes only; an
+   empty one (a single colour cites nothing) is not rendered. */
+function srcDrawer(s) {
+  s = s.replace(/(?: · | )+$/, '');
+  return s ? `<details class="panel-src"><summary>Sources &amp; scope</summary><p>${s}</p></details>` : '';
+}
+
 function showCombo() {
   const cols = D.order.filter(c => combo.has(c));
   const id   = identityFor(combo);
@@ -3792,23 +3798,23 @@ function showCombo() {
      reads U R W everywhere else on the page, including its atlas tile. The
      canonical key is for lookup; `display` is for people. */
   const shown = id && id.display ? id.display.split('') : cols;
-  const code = shown.length ? shown.join(' ') : 'C';
+  const code = shown.length ? shown.join(' ') : '0 colors';
 
   panel.innerHTML = `
     <p class="panel-kicker">Combine · ${cols.length} color${cols.length === 1 ? '' : 's'}</p>
     <h2 class="panel-title">${shown.map(dot).join('')}${esc(name)}</h2>
-    <p class="panel-sub">${esc(code)}${group ? ' · ' + esc(group) : ''}</p>
+    <p class="panel-sub">${esc(code)}${group && shown.length ? ' · ' + esc(group) : ''}</p>
     ${id && id.aka ? `<p class="panel-aka">Streets of New Capenna family in these colors: ${id.aka.map(n => 'the ' + esc(n)).join(' · ')}</p>` : ''}
     ${comboBody(cols, id)}
     ${neighbourChips(cols)}
-    <details class="panel-src"><summary>Sources &amp; scope</summary><p>${cols.length === 2 ? esc(SRC_SCOPE) + ' ' + pairSrc(pairsOf(cols).allied[0] || pairsOf(cols).enemy[0]) + ' · ' : ''}${
+    ${srcDrawer(`${cols.length === 2 ? esc(SRC_SCOPE) + ' ' + pairSrc(pairsOf(cols).allied[0] || pairsOf(cols).enemy[0]) + ' · ' : ''}${
       cols.length === 3 && id ? esc(id.group === 'wedge' ? SRC_SCOPE_WEDGE : SRC_SCOPE_SHARD) + ' ' : ''}${
       cols.length === 4 ? esc(SRC_SCOPE_FOUR) + ' ' : ''}${
       cols.length === 0 ? esc(SRC_SCOPE_NONE) + ' ' : ''}${
       cols.length === 5 ? esc(SRC_SCOPE_FIVE) + ' ' : ''}${
       cols.length === 3 && id && id.src ? esc(id.src) + ' · ' : ''}${
       cols.length === 3 && id && id.aka ? esc(SRC_CAPENNA) + ' · ' : ''}${cols.length > 1 ? esc(SRC_FRIEND) + ' · ' + esc(SRC_PIE) + ' · ' : ''
-    }resolved from the identity registry</p></details>`;
+    }`)}`;
   /* SRC_WEDGE / SRC_SHARD are deliberately NOT cited here any more. They named
      the series ("the 2014-15 wedge interviews"); each three-colour identity now
      cites the specific article and date instead, which supersedes them. Keeping
