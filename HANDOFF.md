@@ -7,7 +7,11 @@ remaining fields are intentionally blank.
 
 ## Control
 
-- Status: `ready-for-qa`. Gate A material candidate **`3355bc2`**
+- Status: `dev-in-progress`. Owner-directed **M9 amendment** (Boros date) on
+  top of `3355bc2`, before QA.
+  - **Transition:** `ready-for-qa -> dev-in-progress` (Owner direction,
+    2026-10-04). `3355bc2` is superseded by the amended candidate.
+- Earlier status: `ready-for-qa`. Gate A material candidate **`3355bc2`**
   (`3355bc299418f1cec8d73289491cb7acf9bba52c`): `a2d5eb5` plus the red-team
   addendum R1–R8 on `color-wheel.html`, and this ledger.
   - **Transition:** `dev-in-progress -> ready-for-qa` (`robdev`,
@@ -604,7 +608,7 @@ the capture banners.
 | UR cost | 1575 | same | 96–99 | "greatest weakness is its lack of focus" | `CITATION WRONG` |
 | BG together | 1584 | "Life and Death", MM 2005-10-24 | 27, 35–37 | "they both turn to the same primal forces" | `CITATION WRONG` |
 | BG cost | 1585 | same | 91–95 | "lack of pinpoint control" | `CITATION WRONG` |
-| RW together | 1594 | "Disorderly Conduct" (banner Jan 1, 2012; see new finding) | 35–38 | "One half picks the goal" | `CITATION WRONG` |
+| RW together | 1594 | "Disorderly Conduct", MM Dec 5, 2005 (date: "Three Hundred and Counting", Week #206) | 35–38 | "One half picks the goal" | `CITATION WRONG` |
 | RW cost | 1595 | same | 87–91 | "complete lack of subtlety" | `CITATION WRONG` |
 | GU together | 1604 | "Improving Upon Nature", MM 2006-05-29 | 53–56, 83–85 | "strived to improve upon nature" | `CITATION WRONG`, composite: clause 1 is "Pie Fights" 184 |
 | GU cost | 1605 | same | 105–111 | "inability to stop what its doing" | `CITATION WRONG` |
@@ -757,13 +761,11 @@ community four-colour readings (W26); five-colour and colourless prose
 Not folded into the five MCP conflicts; no resolution invented. (Now
 Decision 1, raised with the wording sheet.)
 
-- **"Disorderly Conduct" has two dates on Wizards' own page.** The live page
-  (captured 2026-10-03) and the corpus capture both print "Making Magic Jan 1,
-  2012"; the live URL slug is `disorderly-conduct-2005-12-05`, and the text
-  places it in Ravnica block, before Guildpact ("This is the last of the
-  Ravnica guild theme weeks"). V7 requires citing the RW lines (1594–1595) by
-  title and date, so the Owner must choose which date the page shows. No
-  other source in hand settles it.
+- **"Disorderly Conduct": original publication date.** V7 cites the RW lines
+  (1594–1595) by title and date. *Amended 2026-10-04:* the date is **December
+  5, 2005**, established by the official Wizards retrospective "Three Hundred and Counting" (Mark Rosewater, Making Magic, October 15, 2007), which lists "Week #206 (December 5, 2005) – “Disorderly Conduct”" as Boros Week, part four of the two-color philosophy articles. Captured
+  2026-10-04 from magic.wizards.com (scratchpad `sources/three_hundred.txt`,
+  lines 69–71).
 
 No contradiction between official sources about a Magic claim was found
 beyond those already recorded (the five MCP conflicts; Flash in two Black
@@ -1158,6 +1160,9 @@ Recorded 2026-10-02 by `robdev` from the Owner's direction for this session.
    establish a date. Link target: the live Wizards article
    `https://magic.wizards.com/en/news/making-magic/disorderly-conduct-2005-12-05`
    (Part B capture). This supersedes both options A and B below.
+   **Amended by the Owner, 2026-10-04 (M9):** the citation now shows the
+   original date, **December 5, 2005**, on the authority of "Three Hundred and Counting" (Mark Rosewater, Making Magic, October 15, 2007), which lists "Week #206 (December 5, 2005) – “Disorderly Conduct”" as Boros Week, part four of the two-color philosophy articles. Title and
+   link unchanged. The date is not taken from the URL or from search results.
 3. **V11 split slot (MC11): approved, subject to a scratch proof** (Phase 0)
    at every distinct rendered mark size. One mechanic, one W/U/B/R/G
    footprint, one slot per color; both official claims at equal weight; no
@@ -1258,7 +1263,7 @@ below), not only in source.
 | CW01–CW04 | IMPLEMENTED | Hero kicker "Interactive diagram"; lede; atlas lede; index "0 colors" … "5 colors" (internal `tier` names unchanged) |
 | CW05–CW07 | IMPLEMENTED | Black method (also flows into the computed absent voice and the Black atlas tile); Black cost; Red summary |
 | CW08–CW17 | IMPLEMENTED | WU wording + 10 source lines (`PAIR_SRC`) in the Explore allied and conflict drawers. **Also at Combine's 2-color drawer**, which renders the same 15 lines: same approved strings, second render site, no new copy |
-| CW16 | IMPLEMENTED (Owner decision 2) | `Rosewater, "Disorderly Conduct," Making Magic — paraphrased`, title linked to the live Wizards URL, no date, no date comment |
+| CW16 | IMPLEMENTED (Owner decision 2, amended by M9) | `Rosewater, "Disorderly Conduct," Making Magic, December 5, 2005 — paraphrased`, title linked to the live Wizards article; date from "Three Hundred and Counting" (Week #206) |
 | CW18–CW21 | IMPLEMENTED | Boros core; Red and Green second sentences removed; "third framing" gloss removed |
 | CW22–CW23 | IMPLEMENTED | Strixhaven scope note; the design note text unchanged, cited by CW22 |
 | CW24–CW26 | IMPLEMENTED | Prismari red, Lorehold white and red glosses |
@@ -1411,15 +1416,15 @@ re-run the full 32-panel provenance check; produce a new exact candidate.
 | R6 | M4 | Combine 3-color panels (10) | "2 allied edges and 1 conflict chord — the shape of a **shard**." (wedge: 1 / 2) | "**Color-wheel structure:** 2 allied pairings and 1 enemy pairing." (wedge: "1 allied pairing and 2 enemy pairings.") | COMPUTED. Kept as page UI: the 1-color hint "Add a second color to draw an edge." and the crossing panel's chords, already labelled derived (CW33) |
 | R7 | M8 | Combine 5-color "How it plays" | "… its breadth has to matter … So five-colour designs tend to reach for something broad or strange enough that fewer colours would not honestly describe it." | "Rosewater's test for a five-colour card is that using all five colours has to matter: an effect that would sit comfortably in one or two colours invites the question of why it is five-colour at all. So five-colour designs tend to reach for something new and grand, an ability no single colour clearly defines." | OFFICIAL paraphrase ("Party of Five", Feature Feb 2, 2009: "an ability that isn't really defined … something new and grand") |
 | R8 | L1 | Combine 4-color panels (5) | "Four colors, one left out. White is not in this conversation — the colour that wants peace, pursued through …" | "Four colors, one left out: White, the colour that wants peace, pursued through …" | COMPUTED + OFFICIAL (TY goals and methods) |
-| R9 | M9 | Boros source line | linked "Disorderly Conduct," Making Magic — undated | **No change.** "December 5, 2005" appears only in the URL slug and in search summaries; the live page prints Jan 1, 2012; Wayback CDX queries found no capture of the original 2005 page. Adding it would be inference; Owner decision 2 stands | — |
+| R9 | M9 | Boros source line (Explore conflict drawer, Combine 2-color drawer) | `Rosewater, "Disorderly Conduct," Making Magic — paraphrased` | `Rosewater, "Disorderly Conduct," Making Magic, December 5, 2005 — paraphrased` (title still links to the Wizards article) | OFFICIAL: "Three Hundred and Counting" (Mark Rosewater, Making Magic, October 15, 2007), which lists "Week #206 (December 5, 2005) – “Disorderly Conduct”" as Boros Week, part four of the two-color philosophy articles (Owner correction, 2026-10-04; verified in a live capture) |
 | R10 | M1 | `qa/gate-a-combine-panels.md` note (not page copy) | "college tiles are not identities" | Red-team wording; done 2026-10-04 | — |
 
 Verified unchanged, as the red-team asks (M5–M7): the shard "In <colour>'s
 account" framing and scope note, the Tarkir set-specific scope note, the C16
 "one product's lenses" caveat.
 
-**Addendum implementation (`robdev`, 2026-10-04): R1–R8 IMPLEMENTED; R9 no
-change (by evidence); R10 done.** Only `vox-color/color-wheel.html` changed
+**Addendum implementation (`robdev`, 2026-10-04): R1–R9 IMPLEMENTED (R9 by
+the Owner's M9 correction, candidate after `3355bc2`); R10 done.** Only `vox-color/color-wheel.html` changed
 since `a2d5eb5` (applied by `patch_wheel2.py`, every replacement matched
 exactly; the five wedge records gain a `center` field). `ALIASES`, `aka`, the
 route guard and the explorer are untouched; the explorer is byte-identical to
@@ -1443,27 +1448,21 @@ route guard and the explorer are untouched; the explorer is byte-identical to
 - **Static:** four gates exit 0 (unchanged output); `node --check` on the
   wheel script OK; `git diff --check` clean.
 
+**M9 amendment checks (vs `3355bc2`):** one source line changed in
+`color-wheel.html` (`PAIR_SRC.RW`). 71-state dump: mode, hash and preview
+state identical; exactly one text difference, the Boros source line, in its 5
+rendered places (#enemy=RW × 4 views, Combine W+R); the "Disorderly Conduct"
+link unchanged. 32 panels re-extracted (A = B, 32/32); the md re-verified
+32/32; provenance audit 517 lines, UNCLASSIFIED 0. Gates exit 0;
+`node --check` OK. Explorer unchanged.
+
 ## Decisions needed
 
 None open. (Decisions 1 and 2 below were settled by the Owner; see "Owner
 decisions (implementation)". Kept for the record.)
 
-1. **"Disorderly Conduct" citation date (CW16).** Wizards' page and banner
-   print "Making Magic Jan 1, 2012". The live URL slug is
-   `disorderly-conduct-2005-12-05`, and the text is the Ravnica-era guild
-   article ("This is the last of the Ravnica guild theme weeks"). No source in
-   hand settles it. 2005 is not inferred from the URL.
-   - **A.** Cite the visible Wizards date: `Rosewater, "Disorderly Conduct,"
-     Making Magic, January 1, 2012 — paraphrased`. It is the page's explicit
-     publication metadata.
-   - **B.** Cite with no date: `Rosewater, "Disorderly Conduct," Making Magic
-     — paraphrased`. The URL and title are kept in a code comment beside the
-     citation.
-   - **Recommendation: B.** It shows no date that the article's own content
-     contradicts, and it invents none.
-
-   This blocks only the CW16 date string; the rest of the sheet does not
-   depend on it.
+1. **"Disorderly Conduct" citation date (CW16): settled.** December 5, 2005,
+   on the authority of "Three Hundred and Counting" (Mark Rosewater, Making Magic, October 15, 2007), which lists "Week #206 (December 5, 2005) – “Disorderly Conduct”" as Boros Week, part four of the two-color philosophy articles. See R9.
 
 2. **Approve the sheet** (§18.15, stop point 2): rows CW01–CW46 and
    MC01–MC23, the MC11 slot treatment, the self-test adaptations, and the
