@@ -7,7 +7,18 @@ remaining fields are intentionally blank.
 
 ## Control
 
-- Status: `qa-passed`. Candidate **`0103e12`** passed independent `robqa`
+- Status: `complete`. **Owner accepted Gate A material candidate
+  `0103e12a51cfb9ba5bea3c8f7f42a52c22c7b595`** (2026-10-04).
+  - **Transition:** `qa-passed -> complete` (Owner acceptance, recorded by
+    the coordinating agent). Browser scope for this gate: Chromium-based
+    desktop browsers; the Edge and Opera GX coverage is sufficient; Firefox
+    is out of scope and not a blocker (Owner decision 6).
+  - **Material candidate vs evidence:** the accepted product and rule files
+    are exactly `0103e12`. Later commits (`d1a1996`, `6338cc3`, `d125b0e`
+    and this close-out) change `HANDOFF.md` only: candidate record, QA
+    evidence, scope decision and acceptance. No product change was made
+    during acceptance. No story file changes after acceptance.
+- Earlier status: `qa-passed`. Candidate **`0103e12`** passed independent `robqa`
   on its existing evidence, with H5 out of scope (Owner decision 6). It is
   **ready for Owner acceptance** (§18.15, stop point 3). It is not
   `complete` and not accepted.
