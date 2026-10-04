@@ -7,7 +7,15 @@ remaining fields are intentionally blank.
 
 ## Control
 
-- Status: `dev-in-progress`. Owner-directed **M9 amendment** (Boros date) on
+- Status: `ready-for-qa`. Gate A material candidate **`0103e12`**
+  (`0103e12a51cfb9ba5bea3c8f7f42a52c22c7b595`): `a2d5eb5` + red-team addendum
+  R1–R8 (`3355bc2`) + the M9 Boros date.
+  - **Transition:** `dev-in-progress -> ready-for-qa` (`robdev`,
+    2026-10-04). No candidate-affecting edit after `0103e12`. Next:
+    independent `robqa` on that exact commit. Open human check: **H5 in
+    Firefox** (not installed on this machine; Owner to run H2–H4 there). Not
+    `qa-passed`, not accepted.
+- Earlier status: `dev-in-progress`. Owner-directed **M9 amendment** (Boros date) on
   top of `3355bc2`, before QA.
   - **Transition:** `ready-for-qa -> dev-in-progress` (Owner direction,
     2026-10-04). `3355bc2` is superseded by the amended candidate.
