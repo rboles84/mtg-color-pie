@@ -7,7 +7,15 @@ remaining fields are intentionally blank.
 
 ## Control
 
-- Status: `dev-in-progress`. Gate A **reopened before QA** to apply the
+- Status: `ready-for-qa`. Gate A material candidate **`3355bc2`**
+  (`3355bc299418f1cec8d73289491cb7acf9bba52c`): `a2d5eb5` plus the red-team
+  addendum R1–R8 on `color-wheel.html`, and this ledger.
+  - **Transition:** `dev-in-progress -> ready-for-qa` (`robdev`,
+    2026-10-04). No candidate-affecting edit after `3355bc2`. Next: an
+    independent `robqa` session on that exact commit (§18.14). Open human
+    check: H5 in a non-Chromium browser (Firefox). Not `qa-passed`, not
+    accepted.
+- Earlier status: `dev-in-progress`. Gate A **reopened before QA** to apply the
   red-team corrections (addendum R1–R10 below).
   - **Transition:** `ready-for-qa -> dev-in-progress` (Owner direction,
     2026-10-04). `robqa` had not started; `a2d5eb5` is superseded, not
