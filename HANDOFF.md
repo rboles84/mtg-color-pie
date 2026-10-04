@@ -7,7 +7,16 @@ remaining fields are intentionally blank.
 
 ## Control
 
-- Status: `ready-for-qa`. Gate A material candidate **`0103e12`**
+- Status: `qa-blocked`. Candidate **`0103e12`** passed every check `robqa`
+  could run (no blocker, major or minor; 7 notes). **Missing evidence:** H5,
+  the V16 replacement mechanism and the MC11 split slot in a non-Chromium
+  browser (Firefox), which is not installed here. **Exact human check:** see
+  "QA (robqa, independent) — candidate 0103e12", "Blocked". When the Owner
+  records H5 as passing, `qa-blocked -> ready-for-qa` and the result is a pass
+  on this evidence; or the Owner may explicitly accept the missing evidence
+  (`qa-blocked -> complete`).
+  - **Transition:** `ready-for-qa -> qa-blocked` (`robqa`, 2026-10-04).
+- Earlier status: `ready-for-qa`. Gate A material candidate **`0103e12`**
   (`0103e12a51cfb9ba5bea3c8f7f42a52c22c7b595`): `a2d5eb5` + red-team addendum
   R1–R8 (`3355bc2`) + the M9 Boros date.
   - **Transition:** `dev-in-progress -> ready-for-qa` (`robdev`,
@@ -1463,6 +1472,312 @@ rendered places (#enemy=RW × 4 views, Combine W+R); the "Disorderly Conduct"
 link unchanged. 32 panels re-extracted (A = B, 32/32); the md re-verified
 32/32; provenance audit 517 lines, UNCLASSIFIED 0. Gates exit 0;
 `node --check` OK. Explorer unchanged.
+
+## QA (robqa, independent) — candidate 0103e12
+
+`robqa`, 2026-10-04, separate session. **Verdict: `qa-blocked`.** Nothing
+failed: no blocker, major or minor, 7 notes. The only gap is H5 (Firefox),
+which this machine cannot run.
+
+**Where and how.** HEAD `d1a1996`. `git diff 0103e12 HEAD` touches only
+`HANDOFF.md`, and `git diff --quiet 0103e12 -- vox-color` exits 0, so the
+working tree under test is the candidate. The baseline pages are `git show
+08fca75:…`, whose sha256 equals the Step 0 values (wheel `c9a7752e…05ea`,
+explorer `e5b08803…a403`).
+
+All scripts and captures are mine, in
+`%TEMP%\claude\C--dev-color-wheel-interactive\robqa-0103e12\`. I did not open
+the developer scratchpad and used nothing under `qa/`.
+
+Harness: headless Edge 154 over CDP from Node 24 built-ins, plus a Node static
+server for the explorer and for HTTP wheel probes. The wheel was also tested
+from `file://`. Viewports: 360×780 @2x (mobile), 768×1024 and 1440×900.
+
+### Results
+
+1. **Envelope: pass.** Six files changed from `08fca75` to `0103e12`: the two
+   pages, `CLAUDE.md`, `MECHANICS-CONTRACT.md`, `CONTEXT.md` and `HANDOFF.md`.
+   - `CLAUDE.md`: the Mechanics invariant only.
+   - `MECHANICS-CONTRACT.md`: +8 lines, the two permitted notes (§1 standing
+     rule; §7 step 7).
+   - `CONTEXT.md`: the identity-registry paragraph only.
+   - Untouched: `data/`, `tools/`, fixtures, `PRODUCT-DEFINITION.md`,
+     `AGENTS.md`, `docs/`, the periodic table, `build/` and `reference/`
+     (empty `--stat`). No `vox-color/index.html`.
+   - `git status --porcelain --untracked-files=all` shows only the Owner's
+     `dev.lnk`.
+2. **Gates: pass.** The four gates exit 0 ("All invariants hold", "All 53 recon
+   assertions hold").
+   - Each page has exactly one inline `<script>`, extracted for both versions
+     (candidate: wheel 249,795 chars, explorer 110,210). `node --check` passes
+     on all four.
+   - `git diff --check 08fca75 0103e12` and `git diff --check 0103e12 HEAD`:
+     clean.
+   - `access`, `sections`, `buckets`, `deltaAdd`, `deltaRemove` and
+     `wubrgSummary` are byte-identical to `08fca75` (extracted by brace
+     matching).
+3. **Sheet and addendum, in the rendered pages: pass.**
+   - **Wheel.** 68 states on each version from `file://`, compared by
+     sentence: rest, 5 colors, 5 alliances, 5 conflicts × 3 views,
+     5 crossings and all 32 Combine sets (`#combine=` to `WUBRG`). Atlas, hero
+     and footer were dumped separately.
+     - All 184 unique sentence changes and the atlas/hero changes map to
+       CW01–CW44 or R1–R9. Mode, hash and preview state are identical in all
+       68 states. Tiles: 37 on both versions.
+     - A removed-phrase scan over 63 candidate states found **0 hits** for 52
+       retired phrases (text, open drawers, `aria-label`/`title`; the hidden
+       `#world` was excluded). Among them: "Vox Mana · Codex", "Community
+       typically", "also called", "third framing", "whole tier", "no ally
+       here", "resolved from the identity registry", "Geometry solved", "What
+       it is made of", "the shape of a", "C · Colorless", "January 1, 2012".
+     - Atlas index "0 colors" … "5 colors". Colorless tile "0 colors" with 0
+       pips. Five-Color tile "Every color.". Kicker "Interactive diagram".
+   - **Explorer.**
+     - MC01–MC05: key definitions, key note, footer (216/216 detail footers)
+       and `#limits` exactly as approved.
+     - MC06–MC10: exact Source-note text for all 5 records. The
+       `ruling.mechanism` prose and "This dataset uses …" appear nowhere.
+     - MC13 accessible name, verbatim: "White primary in the color lists and
+       secondary in the explanations".
+     - MC14, MC15, MC16 and MC17 match the sheet's worked examples to the
+       character:
+       - W: color lists 61 / explanations 60 and 23 / 24; 20 and 112 single.
+       - Spotlight: "Showing 61 entries: best is Primary in White, by the
+         color lists. Depends on conflicting 2021 claims."
+       - WBRG and WG exile detail lines.
+       - "W: Primary by the color lists · Secondary by the explanations".
+       - WB−B: 50 · 13/14 · 31/30, plus the dependent-entry line.
+     - MC18: for all 7 related player terms, the parse line ends "… related,
+       not what the term names" and 0 result rows carry a `title`. On
+       `08fca75` both showed the `relWhy` text.
+     - MC20: data 404 shows "The 2021 data could not be loaded." and "Reload
+       the page to try again.", plus one `console.error`.
+     - MC21: `#selftest` is hidden and still filled. MC22: the "recorded for
+       source review" sentence is removed. MC23: "This page gives no
+       combination name for four or five colors." (WUBR and WUBRG).
+     - A removed-phrase scan over 21 explorer states found 0 hits. One
+       "anti-flying" is Rosewater's own explanation text, identical on
+       `08fca75`.
+   - **Copy checked against sources** (`verify_sources.py`, ligature-tolerant
+     search): **61/61 excerpts found.**
+     - Corpus captures: "Pie Fights", "Thank You…", the ten guild articles
+       and their banner dates (CW08–CW17), and "In the Black Revisited"
+       (`pdftotext`).
+     - Wizards pages I captured on 2026-10-04: "Just the Artifacts, Ma'am",
+       "Party of Five", "Mana with All the Fixin's", "Khan Do Attitude,
+       Part 2", the PWG to Strixhaven, "In the Strixhaven, Part 1", the
+       Strixhaven VDH Part 1, "Hitting the Streets of New Capenna, Part 2",
+       "Designing Commander (2016 Edition)", MCP 2021 and its change log.
+     - R4 centres confirmed in "Khan Do Attitude, Part 2": WBG centered in
+       white, URW in blue, BGU in black, RWB in red, GUR in green.
+     - Web search was used only to find 4 official URLs.
+   - **No player-facing change outside the sheet and addendum.** The
+     CW08–CW17 pair citations also appear in Combine's 2-color drawer: see
+     N1.
+4. **M9: pass.**
+   - The rendered Boros line reads exactly `How they work together and What
+     it costs: Rosewater, "Disorderly Conduct," Making Magic, December 5,
+     2005 — paraphrased`. It appears in 5 places: `#enemy=RW` × 4 views and
+     Combine W+R.
+   - "Disorderly Conduct" is an `<a>` to
+     `https://magic.wizards.com/en/news/making-magic/disorderly-conduct-2005-12-05`
+     (`rel=noopener`). It is reachable by Tab with a 2px solid focus ring.
+     Contrast is 12.66:1.
+   - **Date source, captured independently** 2026-10-04 in headless Edge
+     (`out/three.txt`). "Three Hundred and Counting", Making Magic, Oct 15,
+     2007, Mark Rosewater:
+     - line 67: "WEEK #206 (DECEMBER 5, 2005) – "DISORDERLY CONDUCT"";
+     - line 69: "It was Boros Week, and this is part four of my two-color
+       philosophy articles."
+   - The linked page loads, titled "Disorderly Conduct". Its byline date is
+     "Jan 1, 2012", which is why M9 does not use it.
+5. **Explorer source text preserved: pass.** Every entry was opened in both
+   versions at rest.
+   - Entry order (article and A–Z) and group headings are identical.
+   - Identical in both versions:
+     - entry names in the list: 216/216;
+     - "Also written in the article as": 21 aliases on 18 entries;
+     - explanations: 211/211, text and HTML;
+     - cited-card links;
+     - sub-headings ("where").
+   - Per-entry differences are only:
+     - the 3 MC08–MC10 detail rows;
+     - 5 Source notes;
+     - 3 resting accessible names (the ownText of the 3 unresolved records);
+     - the footer (216);
+     - the one MC22 note.
+6. **V11 independent oracle: pass, 0 mismatches.**
+   - **Oracle** (`oracle.py`). It reads `data/mechanical-color-pie.runtime.json`
+     and `data/mcp2021.reconciled.json` only. It imports, executes and copies
+     no page JS and does not use `tools/selection.py`.
+   - **Data cross-checks:**
+     - runtime = reconciled for all 216 peers;
+     - exactly 5 adjudicated placements, all 5 rulings;
+     - the 3 unresolved have authority "ability catalog" and the change-log
+       claims stated in §18.8;
+     - the catalog reading = the frozen tier field;
+     - the two readings differ in exactly those 3 placements.
+   - **Category semantics** came from MECHANICS-CONTRACT §4 and were checked
+     against the golden fixtures. "Another placement" / "one placement fewer"
+     means the added or removed color has any placement while the best tier
+     is unchanged. This reproduces fixture 02 `add_G` and `remove_B` and
+     fixture 04 `add_W` on every displayed category.
+   - **Oracle results:**
+     - reading-dependent selections **24/31**; 22 by bucket counts
+       (membership = counts) and 2 by owning colors only (WBRG, WUBRG);
+     - reading-dependent steps **24/150**, the Step 0 list exactly;
+     - every moved entry lands in a displayed category in both readings.
+   - **Page vs oracle** (`v11.mjs`, over HTTP, driven with
+     `VMX.toggleColor`/`setSpot`/`open`/`setQuery`): **0 failures** on:
+     - 6,696 entry accessible-name best clauses;
+     - 33,480 best-tick slot class checks (`bx` / `bx-l` / `bx-r`);
+     - 124 lens bucket figures (single vs paired, counts, paired
+       `aria-label`s), plus the `.lens-dep` note in exactly 22 selections;
+     - 150 steps and 450 step figures; the `.step-dep` line in exactly 24
+       steps, text matching the oracle's moved entries;
+     - 188 spotlights, each opening exactly its reading's entries, with bar
+       and announcement text checked;
+     - 217 detail best-placement lines (5 conflict records plus 2 controls
+       × 31);
+     - 154 of 155 search lens tiers. The 1 miss was the first query after
+       load, re-run separately and correct; see N5.
+   - **Base vs candidate:**
+     - 6,603/6,696 entry names identical; every difference is a conflict
+       record's ownText or a tier-differing best clause;
+     - lens lines identical in the 9 non-dependent selections;
+     - 0 step differences outside the 24 dependent steps;
+     - the compass identity text differs only in the 6 four- and five-color
+       selections (MC23).
+7. **Split slot (MC11): pass** at 360 @2x, 768 and 1440.
+   - Every dual slot has the same box as its siblings: key 20, list (article
+     and A–Z) 14, search 12, detail row 18, detail notation 24 (shown only at
+     1440; hidden at 768/360, as on HEAD).
+   - Each dual is one `.sc` with exactly two full-size `.sc-h` halves, clipped
+     `inset(0 50% 0 0)` and `inset(0 0 0 50%)`. Both halves sit inside the
+     box, with no inner `.sc` and no `t-*` on the slot.
+   - Divider: 1px, `--ink-dim`, 10%–90%.
+   - Ticks: B under B full 12px; W under WB left-half 6px; G under WG
+     right-half 6px.
+   - No horizontal overflow in 10 explorer states per viewport.
+   - **Accessibility tree:** 15 dual and half nodes, 0 exposed. The exile
+     entry's name states both claims once.
+   - Zoomed captures: `out/strip_*`, `crop_*`.
+8. **V16 route guard: pass**, `file://` and HTTP (`v16.mjs`), with fresh
+   history per probe.
+   - **Direct load:** 28/28 per origin (14 forms × with or without `?q=1`).
+     The baseline activated all 14. On the candidate:
+     - no `body.proto-on`; `#world` hidden; `#lay-mech` disabled;
+       mode `explore`; no family wording;
+     - URL = path + query with no `#` (`?q=1#mechanics=atlas` → `?q=1`);
+     - `history.length` 2, equal to a plain load; no exception.
+   - **Reload:** 28/28 per origin stay guarded, with no `#`.
+   - **In-page `hashchange`:** 5 forms per origin. +1 history entry (the
+     assignment only), no preview. Clicking `#lay-mech` does nothing.
+   - **Back/Forward:** `#color=W → #mechanics=atlas → #ally=WU`, 12 steps per
+     origin. The sequence is (none) ↔ `#color=W` ↔ (none) ↔ `#ally=WU`, with
+     no reactivation, no loop and history length constant at 4. A reload of
+     the middle entry is guarded.
+   - **Near-miss and valid links:** 8 near-miss forms plus `''`, `#color=W`,
+     `#ally=WU`, `#enemy=WB`, `#four=W`, `#combine=WUR`, `#combine=` and
+     `#%E0%A4%A`. 16/16 per origin match `08fca75` in href, hash, history,
+     preview, `#lay-mech`, mode and exceptions. The malformed hash throws
+     `URIError` on both, unchanged.
+9. **Explorer self-test: pass.**
+   - `VMX.selftest()` is 84/84; under `prefers-reduced-motion: reduce`, 85/85.
+   - With Google Fonts and jsdelivr blocked, 84/84, `no-mana` set, no
+     overflow.
+   - `#selftest` is `hidden` and still filled.
+   - A diff of `runSelfTest` (HEAD lines 1884–2147) against the candidate
+     shows changes only at the assertions at HEAD 1922, 1924 and 2069. The
+     names differ as recorded.
+10. **Behavior preservation: pass.**
+    - **Wheel, 28 scripted steps on each version:**
+      - Tab into the wheel;
+      - vertex Enter, ally Space, conflicts layer, enemy Enter and the 3
+        views;
+      - the crossing layer and a crossing by Enter;
+      - Escape, click, Clear;
+      - Combine by keyboard: centre, +W +U +B +R +G, −W, −B, a neighbour
+        chip;
+      - back to Explore, with the layer state restored.
+      - All identical to `08fca75` except the R1 sub-line "0 colors".
+    - Atlas tiles: 0 in the tab order. Receded vertex labels: computed fill
+      and opacity identical to `08fca75`, at rest and under `#color=W`.
+    - Wheel overflow: none in 8 states × 3 viewports. With CDNs blocked:
+      readable, no overflow, no exception. Reduced motion: 0 running
+      animations, as on HEAD.
+    - **Explorer, identical to `08fca75`:** list keyboard (Arrow, End, Home,
+      Enter, Escape), typed search with ArrowDown + Enter, compass "Choose
+      WB", and the 360 bottom sheet (`detail sheet`, top 296, height 484,
+      width 360, closes on Escape).
+    - **Contrast of new text:**
+      - `.fig-l`, `.lens-dep`, `.step-dep`, their `.calc`, the paired
+        buttons, key definitions, key note, `#limits` and `.dx-foot`:
+        5.6:1;
+      - detail rows, the Source note and the wheel link and drawer: 12.66:1.
+    - Console errors: none on either page in any run (apart from the
+      harness's own favicon 404). Exceptions: none, apart from the expected,
+      unchanged `URIError`.
+
+### Findings
+
+No blocker, major or minor. Notes, which never fail QA:
+
+- **N1 (note).** Combine's 2-color "Sources & scope" drawer also carries the
+  CW08–CW17 pair citations. The sheet names only the Explore drawers (2098,
+  2169). Combine renders the same `D.allies`/`D.enemies` lines, so citing them
+  there applies V7 ("correct the citations on the pair … lines"). It uses the
+  approved strings and adds no new copy, so I judge it **within the approved
+  rows**. The order there is `SRC_SCOPE <pair source> · SRC_FRIEND · SRC_PIE`.
+  - Repro: `#combine=WU`, open the drawer.
+- **N2 (note).** The MC08–MC10 Source note starts with the existing color
+  badge, then "the 2021 article places this two ways…".
+  - Screen readers get the approved "White: the 2021 article …" (the
+    `sr-only` text). Visually it reads "[W] the 2021 article …", with a
+    lowercase "the".
+  - This realisation is recorded by `robdev`.
+- **N3 (note).** A guarded load lands in the router's rest panel ("Choose a
+  color, an edge, or a crossing…"). A reload of the canonical URL shows the
+  static intro ("Choose a color for its philosophy…").
+  - HEAD behaves the same for any routed non-route hash compared with a plain
+    load. Both are Explore at rest.
+- **N4 (note, pre-existing).** Escape with focus on an in-panel control drops
+  focus to `<body>`. This affects the drawer `summary` and the new Boros
+  link. `08fca75` does the same for the `summary`.
+- **N5 (note, pre-existing; headless-only so far).** The first `setQuery`
+  after load leaves a stale parse line and the results closed. This is
+  identical on `08fca75`; the second query is correct.
+- **N6 (note).** At 14px the tertiary half-dot in the R and B dual slots is
+  about 2px wide. It is distinct in 6× captures, and the Owner's H6 passed.
+- **N7 (method).** "Another placement" / "one placement fewer" are counted
+  for any placement of the added or removed color, as fixtures 02 and 04
+  require. This is not limited to the best tier.
+
+### Blocked (cannot be performed here)
+
+- **H5: Firefox, or any non-Chromium browser.** It is not installed; only
+  Edge 154 is. Opera GX (the Owner's H5 run) is Chromium. This is the open
+  human check recorded for this candidate, and the AGENTS.md rule is "report
+  blocked, not passed", so the status is **`qa-blocked`**.
+- **Exact check for the Owner, in Firefox:**
+  1. Open `vox-color/color-wheel.html` directly from disk (`file://`) with
+     `#mechanics=board`. Confirm Explore at rest, no preview, and an address
+     bar with no `#`.
+  2. Hard reload (Ctrl+Shift+R, then Ctrl+F5). Confirm the same.
+  3. Open `#color=W`, then type `#mechanics=atlas`, then `#ally=WU` into the
+     address bar. Step the toolbar Back and Forward buttons several times.
+     Confirm the preview never appears and nothing loops.
+  4. Serve the repository root (`py -m http.server 8000`) and open
+     `/vox-color/mechanical-explorer.html`. Find "Exiling cards from
+     graveyard", "Deal N damage to a creature with flying" and "+N/+0 to your
+     team". Confirm each shows one split circle, left and right halves
+     distinct, at the size of its neighbors.
+  5. Open one of those entries. Confirm the detail row and the "Two
+     placements" key icon render the same way. (The halves use CSS `round()`
+     and `clip-path`; Firefox ≥ 118 supports both.)
+- **Not mine to claim:** the headed `file://` hard reload and toolbar
+  Back/Forward in Chromium are the Owner's H2–H4 (recorded above as passing).
+  Headless CDP reload and history navigation do not substitute for them.
 
 ## Decisions needed
 
