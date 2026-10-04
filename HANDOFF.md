@@ -7,7 +7,19 @@ remaining fields are intentionally blank.
 
 ## Control
 
-- Status: `qa-blocked`. Candidate **`0103e12`** passed every check `robqa`
+- Status: `qa-passed`. Candidate **`0103e12`** passed independent `robqa`
+  on its existing evidence, with H5 out of scope (Owner decision 6). It is
+  **ready for Owner acceptance** (§18.15, stop point 3). It is not
+  `complete` and not accepted.
+  - **Transition:** `ready-for-qa -> qa-passed` (`robqa`, 2026-10-04). See
+    the addendum at the end of "QA (robqa, independent) — candidate 0103e12".
+- Earlier status: `ready-for-qa`. Candidate **`0103e12`**; the only blocking item
+  (H5, Firefox) was removed from scope by the Owner (decision 6). Awaiting
+  `robqa`'s final status on its existing evidence.
+  - **Transition:** `qa-blocked -> ready-for-qa` (coordinating agent,
+    2026-10-04, recording Owner decision 6: the missing evidence is no
+    longer required). No product or rule file changed.
+- Earlier status: `qa-blocked`. Candidate **`0103e12`** passed every check `robqa`
   could run (no blocker, major or minor; 7 notes). **Missing evidence:** H5,
   the V16 replacement mechanism and the MC11 split slot in a non-Chromium
   browser (Firefox), which is not installed here. **Exact human check:** see
@@ -1196,6 +1208,14 @@ Recorded 2026-10-02 by `robdev` from the Owner's direction for this session.
    Combine-bounce fix, general malformed-hash fix, explorer auto-scroll work,
    data/fixture/tools change, unrelated refactor, or new framework, module or
    build tooling. Anything outside the sheet goes to Follow-ups.
+6. **Browser scope (Owner, 2026-10-04): Chromium-based desktop browsers.**
+   Chrome and Edge are sufficient for Gate A; Firefox and cross-engine parity
+   are not required. **H5 is closed as out of scope by Owner decision**: not a
+   failure and not an open defect. Firefox is not installed or tested, no
+   other engine is substituted, and no product change is made for Firefox.
+   The Chromium evidence stands as recorded: the Owner's H2–H4 and H6 in Edge
+   (and Opera GX), and `robdev`'s and `robqa`'s headless Edge 154 runs over
+   `file://` and HTTP. No separate run in Google Chrome itself is claimed.
 
 ## Implementation (Gate A, `robdev`)
 
@@ -1778,6 +1798,25 @@ No blocker, major or minor. Notes, which never fail QA:
 - **Not mine to claim:** the headed `file://` hard reload and toolbar
   Back/Forward in Chromium are the Owner's H2–H4 (recorded above as passing).
   Headless CDP reload and history navigation do not substitute for them.
+
+### Addendum (robqa, 2026-10-04): H5 out of scope, final status `qa-passed`
+
+- **Facts confirmed.** HEAD is `6338cc3`, which records this QA section and
+  changes `HANDOFF.md` only.
+  - `git diff --quiet 0103e12 HEAD -- vox-color CLAUDE.md CONTEXT.md
+    MECHANICS-CONTRACT.md AGENTS.md data tools` exits 0.
+  - The working tree differs from HEAD only in `HANDOFF.md`, plus the
+    Owner's untracked `dev.lnk`.
+  - Owner decision 6 is recorded under "Owner decisions (implementation)":
+    Chromium-based desktop browsers only, and H5 closed as out of scope.
+- **Decision.** The only blocked item was H5, and it is no longer required.
+  Every in-scope check above has Chromium evidence:
+  - my headless Edge 154 runs over `file://` and HTTP;
+  - for the headed `file://` hard reload and Back/Forward, the Owner's
+    recorded H2–H4 in Edge.
+  - There is no blocker, major or minor; N1–N7 are notes.
+- **Nothing was re-run** and no non-Chromium browser was used. Status:
+  **`qa-passed`**, ready for Owner acceptance. Not marked `complete`.
 
 ## Decisions needed
 
