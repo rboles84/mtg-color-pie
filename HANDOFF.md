@@ -7,7 +7,16 @@ remaining fields are intentionally blank.
 
 ## Control
 
-- Status: `ready-for-qa`. Gate B material candidate **`ca8873b`**
+- Status: `qa-passed`. Independent `robqa` on candidate **`ca8873b`**
+  (working tree equals it except `HANDOFF.md`, plus the untracked
+  `dev.lnk`). F1 and F2 are fixed (B10, B11), and F3's B12 conditions are
+  met. G1–G19 pass at 360 / 768 / 1440 over HTTP. There is no blocker or
+  major. One minor (F4, the off-boot focus side effect) violates no
+  criterion or ruling; there are three new notes. See "QA (robqa,
+  independent) — candidate ca8873b". Not `complete`: Owner acceptance
+  pending.
+  - **Transition:** `ready-for-qa -> qa-passed` (`robqa`, 2026-10-04).
+- Earlier status: `ready-for-qa`. Gate B material candidate **`ca8873b`**
   (`ca8873b8d004624a3dee57a57fa73ad6a76117d7`): the rework of `64b8794` under B10–B12, covering
   `vox-color/index.html`, one `AGENTS.md` line and this ledger.
   - **Transition:** `dev-in-progress -> ready-for-qa` (`robdev`,
@@ -833,6 +842,214 @@ Headless Edge `Edg/154.0.4258.53`, local HTTP, 360 @2x, 768 and 1440.
   - the instruments are unchanged (wheel `1cdbefd7…`, explorer CR-stripped
     `7a5540d2…`);
   - shell `vox-color/index.html`: 332 lines, sha256 `fc569f4c80ccde8ae8374c880797436be423121c083b3ca1acea07f8e44fa286`.
+
+## QA (robqa, independent) — candidate ca8873b
+
+**2026-10-04, `robqa`, separate session.** Started from B10–B12, the
+amended shell contract, G1–G19, `git diff 64b8794 ca8873b` and `git diff
+5252333 ca8873b`. robdev's scripts (`gateb.mjs`, `fixtest.mjs`,
+`offprobe.mjs`, `arrival.mjs`, `probe1.mjs`, `dbgfocus.mjs`) were not run,
+read or copied.
+
+### Method
+
+- **Where.** Headless Edge 154.0.4258.53 over CDP, Node v24.14.0 built-ins,
+  local HTTP on 127.0.0.1 from the repository root. Viewports 360×780 @2x
+  (mobile emulation), 768×1024 and 1440×900. Real CDP mouse and key input;
+  Back/Forward by `Page.navigateToHistoryEntry`; typed URLs by
+  `Page.navigate` (`transitionType: typed`).
+- **Scripts and captures:**
+  `…\scratchpad\robqa-ca8873b\`. `lib.mjs` and `qa1`–`qa6.mjs` are adapted
+  from the previous robqa (`robqa-64b8794`): the view is now read as
+  `is-off` + `inert` + computed `visibility:hidden` on exactly one frame;
+  G18 also checks that the off frame has the shown frame's box; qa3's
+  arrival-while-loading probe now expects B11; qa6 adds 50 and 600 ms. New:
+  `qa7.mjs` (F1, off-frame focus, AX, paint, hit test), `qa7b.mjs` (focus
+  window timing, Tab after hand-back), `qa7c.mjs` / `qa8c.mjs` / `qa3b.mjs`
+  / `qa9b.mjs` (same probe against a scratch copy of the `64b8794` shell
+  for attribution), `qa8.mjs` (F2, own delaying and streaming server),
+  `qa9.mjs` (F3 typed session, adversarial). Results are in
+  `*-results.json`, `*-errors.json`, `g6-*.json`, `f3-*.json`, `shots/`.
+- **Harness faults, not product faults** (each re-checked):
+  - qa7 "direct route, 0 ms": the coordinate click on Color Wheel was
+    computed before the web font loaded and landed on Mechanical Color Pie
+    after the header reflowed (360, 768). Re-run in qa7b with
+    `element.click()`: passes.
+  - qa8 first run counted the typed URL itself (a main-frame navigation)
+    as a "frame navigation carrying mechanics". Filtered to child-frame
+    navigations, as qa2 does: 168/168.
+  - qa3 rapid-switch check: the previous robqa's wrong expectation string
+    (`color=G` vs the full URL). The measured pattern alternates exactly,
+    and all 12 Back steps pass.
+  - qa3 G16 at 1440, one run: 20-odd `<p>` widths 28.5469 vs 28.5781 px.
+    qa3b repeated framed-vs-standalone 3× at 1440 and 768 on both shells:
+    11 of 12 runs equal; the one unequal run (21 elements) was the
+    *previous* shell at 768. A settle-timing flake, not shell-caused.
+  - qa5 (post-load explorer scroll, N2): standalone itself varies run to
+    run (360: 3357 or 3376). Pre-existing, not shell-caused.
+
+### Results
+
+| Criterion | Checks (pass/total) | Measured evidence |
+|---|---:|---|
+| G1 envelope | static, pass | `git diff ca8873b -- . ':!HANDOFF.md'` empty; `git status`: only `?? dev.lnk`. `git diff --name-status 64b8794 ca8873b`: `M AGENTS.md`, `M HANDOFF.md`, `M vox-color/index.html` (inside B10–B12). `AGENTS.md` change: one line, the parenthetical "(and watches each frame's focus, to keep focus out of the inactive one)"; minimal. No change since `5252333` in `data/`, `tools/`, either instrument, `PRODUCT-DEFINITION.md`, `MECHANICS-CONTRACT.md`, `PHYREXIA-PLAN.md`, `PROMPT.md`, `docs/`, `vox-color/build`, `vox-color/reference`, the periodic table. Hashes: `color-wheel.html` blob `5db44902…`, sha256 `1cdbefd7…` (blob = working copy); `mechanical-explorer.html` blob `f3b93da3…`, blob and CR-stripped working copy `7a5540d2…`; both = Step 0. `index.html` blob `a4732785…`, sha256 `fc569f4c…` (= robdev's). Four gates exit 0, output md5 `8b4dcf27a859ea32f31eac55632adf92` (= Step 0). `node --check` on the shell's one inline script (7,489 chars): OK. `git diff --check 64b8794 ca8873b` and `5252333 ca8873b`: clean. External URLs: only the Google Fonts preconnects and `css2?…` URL, unchanged. B1: the only markup change is the pie iframe's `hidden` → `class="is-off" inert`; title, descriptor (U+2019), nav labels and frame titles byte-identical. |
+| G2 default | 6/6 | Wheel shown at rest, explorer `src` null, URL `index.html`. |
+| G3 direct wheel route | 63/63 | 9 routes + 12 odd-but-valid routes × 3 widths: framed = standalone (hash, body classes, every `aria-pressed`, panel, every SVG `[data-key]`); URL keeps the route; `four=W%22` throws the same `SyntaxError` framed and standalone (N3). |
+| G4 direct explorer | 18/18 | Wheel `src` null, not requested; self-test 84/84 in the frame; first wheel activation +1, URL `index.html`. |
+| G5 switching | 24/24 | +1 per real switch (mouse, Enter), 0 for the current view; `aria-current` on one link; wheel `color=U` and explorer query `flying` kept. |
+| G6 Back/Forward | 6/6 (195 step checks) | 65 steps per width (49 traversals, a branch, an arrival, a reload in each view): view, frame route, URL = canonical, modeled length, title, `aria-current`, focus and announcement on view change. 0 bad steps. |
+| G7 mirroring | 3/3 (+ G6, G16, G19) | Mouse on U → `#color-wheel/color=U`, +1 (the wheel's own). |
+| G8 malformed / unknown | 132/132 | 8 malformed routes, with and without `?q=1`, on load and as arrivals from a wheel route and from the explorer; 13 unknown hashes. All at rest, `index.html[?q=1]`, no exception. |
+| G9 retired route | 426/426 (+ F2) | 14 + 8 + 15 forms and a 12-level encoding; load, reload, arrival, 5 Back + 5 Forward. No URL, entry, nav href or child-frame navigation ever carried `mechanics`. |
+| G10 lazy | 9/9 | Load requests only `color-wheel.html`; explorer requested on activation; the direct explorer route never requests the wheel. |
+| G11 focus | 15/15 core; qa7 timeline 22/42 (F4) | After every switch and view-changing traversal the shown frame is `activeElement` and its document has focus; the next Tab lands inside it (qa1, and qa7b after a hand-back). The qa7 50-sample timeline during an off boot caught the off explorer holding focus in 18 cases (measured in qa7b: 7.5–11.9 ms, once per off boot; F4); 2 failures are the harness click above. |
+| G12 off frame: tab order | 6/6 + qa7 15/30 (F4) | 150 Tab + 60 Shift+Tab per view per width (qa1) and 120 Tab + 50 Shift+Tab with the explorer shown (qa7): the off frame was never focused. Programmatic `focus()` on `#q`, `#list`, an entry, and `window.focus()` inside the off explorer, and on a vertex and `window.focus()` inside the off wheel: always handed back to the shown frame. Typing 40 ms after a grab did not reach the off explorer. A grab every 30 ms for 1 s: 0/65 samples in the off frame, ends in the shown wheel. Hit test and real click at the off explorer's search box: `frame-wheel`, explorer untouched. **But** the shown frame's focused control is not kept (15 checks: F4). |
+| G13 off frame: AX tree | 12/12 + qa7 19/21 | Main tree: exactly one iframe, the shown view's B1 title; the off frame's tree has no unignored node below its root, including an explorer that booted off (1 of 2,600+ nodes). **Paint:** a visible full-screen red overlay injected into the off explorer leaves the shell screenshot byte-identical; the same overlay in the shown wheel changes it (3/3). 2 failures are the harness click. |
+| G14 title | 9/9 (+ every G6/F3 step) | B1-composed titles on load, switch, traversal. |
+| G15 announcement | 12/12 | Empty at load; B1 string after each switch (first explorer activation 509–612 ms, later about 160 ms). |
+| G16 isolation | 23/24 (+ qa3b 11/12, flake) | Shell adds no instrument global; framed global sets = standalone; computed styles equal (649 wheel, 400 explorer elements × 23 properties); Escape in each document leaves the other alone. |
+| G17 errors | 66/66 + logs | 0 uncaught exceptions in any shell scenario (all scripts). Logs: only the mana-font "Tracking Prevention" warning and the `/favicon.ico` 404, both standalone too. No `self-check failures` warning anywhere. |
+| G18 layout | 9/9 + CSS 9/9 + resize 6/6 | Frame top = header bottom, bottom = viewport, full width; the off frame has the identical box; no overflow; shell never scrolls; CDN-blocked and reduced-motion checks pass. |
+| G19 Combine bounce | 9/9 | Framed delta = standalone (+1, hash `''`); shell adds no entry; Back → `#color-wheel/color=W`. |
+
+**Adversarial probes:** rapid 12 clicks (pattern exact, 12 Back steps
+consistent); 5 nav switches with both instruments delayed 1.5 s before
+either loaded (both frames still `about:blank` at the last switch): final
+explorer shown and focused, wheel loaded off at `color=G`, 7 entries,
+self-test 0 failures, then Back ×5 / Forward ×5 consistent (3/3 widths);
+reload on a typed-arrival entry then Back ×2 / Forward ×2 consistent;
+resize while a frame is off (1440→768, 768→400, 400→1440), then show it:
+explorer and wheel geometry and state equal standalone at the new size,
+no overflow (6/6); modified clicks, skip link, leaving and re-entering the
+shell, `file://` smoke: pass. Ten rapid keyboard Enters on the nav, no
+waits: 768 and 1440 +10 entries; at 360 two Enters were swallowed (see F4;
+qa9b shows the previous shell also loses Enters this way, while its
+explorer is shown).
+
+### Verdicts on F1–F3
+
+- **F1 (B10): fixed.** 14 off-boot scenarios × 3 widths (qa7): nav away at
+  0/20/50/100/250/400/600 ms; Back at 0/100/400 ms; nav away and Back
+  mid-boot (explorer document loaded, data fetch held 1.5 s); direct
+  `#mechanical-color-pie` then wheel at 0 ms and mid-boot. Each reads
+  "Self-check: 84 of 84 passed" from `VMX.selftest()` and `#selftest`
+  while off, with no `self-check failures` warning and no shell error.
+  Once shown, the explorer equals a standalone one at the frame size
+  (state, 216 visible entries, geometry of the first 40 entries, columns,
+  no overflow). qa6 (15/15) agrees. Attribution (qa7c): the same probe on
+  the `64b8794` shell gives 6 failures and the warning. **B10 scope:** the
+  focus guard is the smallest shell-only correction consistent with B10,
+  not lifecycle infrastructure. Keeping the off frame laid out is what
+  fixes F1, and once it is laid out Chromium lets the frame's own script
+  focus it despite `inert` (measured: the off document's `hasFocus()` is
+  true synchronously after `focus()`), so some guard is unavoidable. The
+  guard is one `focus` listener per frame window plus one load-time
+  `hasFocus()` check and a deferred hand-back. It keeps no state, reads
+  no readiness signal, and changes no loading order, persistence or
+  preload. Its side effects are F4.
+- **F2 (B11): fixed.** Wheel delayed 1.5 s (qa8, 168/168 + 3/3), 15 cases
+  × 3 widths: one arrival; three in a row; malformed; `mechanics=atlas`;
+  `%256Dechanics%3Datlas`; valid then `MECHANICS`; `mechanics=board` then
+  valid; malformed then valid; `#foo`; a repeat of the pending route; from
+  rest; `#mechanical-color-pie` (the wheel finishes off at its route);
+  explorer then wheel route; the explorer route first, then Color Wheel
+  activated and a route typed while it loads; an arrival after the wheel
+  document committed but before load (streamed). In every case the frame
+  was confirmed `about:blank` (or committed-loading) at the arrival, and
+  the last valid request wins. Rejected-last lands at rest with URL
+  `index.html`. Entries = browser navigations only (no shell duplicate).
+  `mechanics` is never in any entry, child-frame navigation, frame `src`
+  or nav href. Back to the first shell entry and Forward again is
+  consistent at every step. Back pressed while the re-pointed wheel is
+  still loading is also consistent. Attribution (qa8c): the `64b8794`
+  shell reproduces F2 exactly (frame `color=W`, entries `color=W >
+  color=W`); `ca8873b` lands `ally=WU`. See N6.
+- **F3 (B12): conditions met.** My own typed session (qa9, 15/15, 3
+  widths): load; click W; typed `ally=UB`; click R; nav explorer; query
+  `flying`; typed `enemy=WB` from the explorer; typed
+  `#mechanical-color-pie`; the same URL typed again; nav wheel; typed
+  `four=G`; Clear; typed malformed; click U; typed `mechanics=atlas`;
+  typed `combine=WUR`; nav explorer. That is 16 steps and 22 entries,
+  exactly the browser-model count (+1 per action, +1 more per typed wheel
+  route into a loaded wheel with a different route).
+  - No state lost: the explorer query survives every arrival and the
+    whole traversal.
+  - At every step and every Back/Forward position, URL = view + frame
+    route, with the right title, constant length and no `mechanics`.
+  - Back passes through all 14 distinct created states in reverse order
+    (21 positions). Forward passes through them in order and ends at the
+    last.
+  - The only extra positions are the typed-wheel-route arrival entries,
+    each showing the prior wheel route. A same-URL typed
+    `#mechanical-color-pie` adds a browser entry (N7).
+  - No corrupt or unreachable created state.
+
+### Findings
+
+- **F4 — minor (shell-caused by the B10 mechanism; no G criterion or
+  ruling violated; non-failing). An explorer booting in the off frame
+  still takes real focus, briefly and with side effects.**
+  - *Reproduction:*
+    1. Load `index.html#color-wheel/color=W`.
+    2. Activate Mechanical Color Pie, and within about 0.1–2 s return to
+       Color Wheel.
+    3. Press Tab twice, so that focus is on a wheel control (for example
+       `.mode-btn`).
+    4. Wait for the explorer's boot self-test.
+  - *Expected:* the off frame never holds focus, and the user's focus is
+    left where it was (as in `64b8794`, where the display:none frame could
+    not take focus).
+  - *Actual (qa7b, qa7c, qa9b, all widths):*
+    - The explorer's self-test calls `listEl.focus()` once. The off
+      document holds focus for 7.5–11.9 ms until the deferred hand-back. A
+      key pressed in that window goes to the off explorer (qa9b traced one
+      Enter landing there).
+    - The hand-back returns focus to the shown frame, but the wheel's
+      focused control is cleared to `BODY`. It is Chromium that clears it,
+      at the moment of the grab (read synchronously before the hand-back).
+      The ring disappears; the next Tab continues from the old position
+      (`layer-btn`).
+    - If focus was on the shell nav, it moves into the shown frame, so a
+      following Enter acts there instead of on the nav. That is why 2 of 10
+      rapid Enters were lost at 360. `64b8794` loses Enters the same way
+      while its explorer is *shown* (the pre-existing boot grab, N2).
+    - The `64b8794` shell keeps `.mode-btn` focused in step 3 but has F1.
+  - *Impact:* keyboard users only, only during the explorer's first boot,
+    and only if they leave it before boot completes. Focus never stays in
+    the invisible frame, and Tab never reaches it. G11 holds: focus is in
+    the shown frame and Tab continues inside it. The contract's "handed
+    back to the shown frame" is met. Recorded as a follow-up for the
+    Owner. Avoiding it would require remembering and restoring
+    instrument-internal focus, or changing the explorer (Gate D).
+- **N5 — note (docs precision).** `AGENTS.md` and the shell's header
+  comment say the shell reads only the wheel's hash, plus focus. It also
+  reads the wheel frame's `location.href` (`wheelPending`) and each
+  frame's `document.hasFocus()`. This is harmless and inside B10/B11's
+  spirit; wording only.
+- **N6 — note (browser model, B11).** In a re-pointed load, the original
+  load entry never showed its route (the wheel had not committed), so
+  traversal re-derives it to the landed route. Back from `ally=WU` shows
+  `ally=WU` once more, and the never-loaded `color=W` is not reachable.
+  The same happens when the arrival comes after commit but before load:
+  Chromium replaces the frame's entry there. The shell adds no entry.
+- **N7 — note (browser model, B12).** Typing the *same* shell URL again
+  (`#mechanical-color-pie` while it is shown) adds one browser entry with
+  the same state.
+- **Unchanged pre-existing (B8):**
+  - N1, the Combine bounce (G19 framed = standalone);
+  - N2, the explorer's post-load scroll and focus (framed = standalone
+    within run-to-run variance);
+  - N3, the wheel's `SyntaxError` on `four=W%22` (framed = standalone);
+  - outbound links and the dead Mechanics control (not exercised; not
+    touched by the rework).
+
+### Blocked / not verified
+
+- Not blocked. Not verified, and not required:
+  - real screen-reader speech (G13 and G15 cover the tree and the live
+    text);
+  - iOS and Firefox (B2);
+  - `file://` hard reload with toolbar Back/Forward (a human check, B4).
 
 ## Decisions needed
 
