@@ -7,7 +7,16 @@ remaining fields are intentionally blank.
 
 ## Control
 
-- Status: `ready-for-qa`. Gate C material candidate **`c4f3a96`**
+- Status: `dev-in-progress`. **Gate C, applying the Owner's post-red-team
+  clarifications (C-O9 to C-O12).** C3 now covers both outbound links.
+  - **Transition:** `ready-for-qa -> dev-in-progress` (Owner direction,
+    2026-10-05). This transition is not in the `AGENTS.md` list; it is
+    recorded as the Owner's explicit decision, as in Gates A and B.
+    - The `robqa` session started on `c4f3a96` was interrupted before it
+      recorded anything; it wrote nothing to this ledger.
+    - `c4f3a96` is superseded, not accepted. A new exact candidate will be
+      frozen for an independent `robqa`.
+- Earlier status: `ready-for-qa`. Gate C material candidate **`c4f3a96`**
   (`c4f3a9686a2fcfeee5155e42662185dd58d622df`): `vox-color/color-wheel.html`, one `AGENTS.md` line, and this
   ledger.
   - **Transition:** `dev-in-progress -> ready-for-qa` (`robdev`,
@@ -93,6 +102,38 @@ remaining fields are intentionally blank.
   Gate A/B behaviour changed.
 - **C-O7 — Out of scope:** listed under Control.
 - **C-O8 — Hard scope rule:** under Control.
+
+**Post-red-team clarifications (Owner, 2026-10-05).** Scope is not
+broadened.
+
+- **C-O9 — C3 covers exactly two links.** The Gate C outbound links are the
+  **Fan Content Policy** and **Disorderly Conduct** links (this resolves the
+  earlier Decision). Under a trusted user click, verify for each:
+  1. the destination opens outside the wheel iframe;
+  2. the wheel stays loaded in its frame;
+  3. the shell and wheel state is not replaced;
+  4. route and state are kept when the user returns;
+  5. no console or runtime error.
+  - Use the codebase's existing external-link convention. Add no
+    `noreferrer`, no referrer policy and no global link policy.
+  - Do not run a general link inventory, and change no other link.
+  - The six earlier new-tab failures were a harness issue (script clicks
+    are not trusted activation). The harness is corrected; product code is
+    not changed for it.
+- **C-O10 — C4 stays at the selector boundary.**
+  - `CSS.escape()` is acceptable there.
+  - No route parser and no sanitization framework.
+  - Valid values select exactly the same elements as before.
+  - Route strings are not rewritten.
+  - Regression coverage: the exact case plus each selector-backed family
+    (`color`, `ally`, `enemy`, `four`).
+- **C-O11 — `#%E0%A4%A` stays deferred.** It is a separate,
+  pre-selector boundary (`decodeURIComponent` in `applyHash`). It is not
+  fixed and the router is not wrapped. Report it if C4 changes it
+  unexpectedly.
+- **C-O12 — C2 is UI retirement, not dead-code cleanup.** The preview
+  implementation, unreachable code and dormant data stay. No reorganization,
+  and no Gate E.
 
 ## Step 0 recon
 
@@ -181,11 +222,13 @@ captures are in the session scratchpad (`step0c.mjs`, `out/step0c.json`).
     layout, the tab order and the accessibility tree.
   - The preview code and `layers.mech` stay. Its comment is updated to say
     it is retired.
-- **C3:** add `target="_blank"` to the Fan Content Policy link only, keeping
-  `rel="noopener"`. It is the standard way to open outside the frame, and
-  it matches the explorer's existing outbound Scryfall links. `_top` was
-  rejected: it would replace the whole product and lose the explorer's
-  state.
+- **C3** (as amended by C-O9): add `target="_blank"` to the Fan Content
+  Policy link and to the Disorderly Conduct link, keeping `rel="noopener"`.
+  - This follows the codebase's existing external-link convention: the
+    explorer's outbound Scryfall links are `target="_blank"
+    rel="noopener"`.
+  - `_top` was rejected: it would replace the whole product and lose the
+    explorer's state.
 - **C4:** in `applyRoute`, pass `CSS.escape(v)`, not `v`, to the three
   selector lookups (`vtx`, `edgeEl`, `.cross`).
   - Valid keys (`W`, `WU`, …) escape to themselves.
@@ -223,11 +266,13 @@ All in Chromium desktop (headless Edge), over local HTTP, at 360, 768 and
   from the accessibility tree, and still disabled. The other layer controls
   and the layers row behave as before. Every retired Mechanics route still
   lands in Explore at rest, with `#lay-mech` hidden.
-- **GC4 C3.**
-  - The Fan Content Policy link has `target="_blank"` and
-    `rel="noopener"`.
-  - In the shell, activating it opens a new browsing context and does not
-    navigate the wheel frame; standalone, it also opens a new context.
+- **GC4 C3** (as amended by C-O9).
+  - Exactly two outbound links, Fan Content Policy and Disorderly Conduct,
+    each with `target="_blank"` and `rel="noopener"`.
+  - Under a trusted click, from the shell and standalone, each opens one new
+    page at its URL and does not navigate the wheel.
+  - The wheel's route, state and history are unchanged after the click and
+    after returning, with no error.
   - No other link changed.
 - **GC5 C4.** `#four=W%22`, `#color=W%22`, `#ally=W%22` and `#enemy=W%22`
   throw nothing, standalone and framed, and end in the state of the
@@ -254,15 +299,21 @@ All in Chromium desktop (headless Edge), over local HTTP, at 360, 768 and
 
 **2026-10-04, the same session as Step 0, after the scope freeze.**
 
-### Changed product lines (`vox-color/color-wheel.html`, 13 added, 7 removed; sha256 `0ba17bcd3c2775574e7aa756bec7b8e4e33e1cf1587002fc0fd666bfe5343fe6`, 4110 lines)
+### Changed product lines (`vox-color/color-wheel.html` vs `b62131b`: 14 added, 8 removed; sha256 `d5389f6816334ebf9dc9dbe3cf1690dea62211b3d3867dd5574a71b7c672259c`, 4110 lines)
+
+The C-O9 rework (2026-10-05) added only the line-1656 change below to
+`c4f3a96`; everything else is as it was there.
 
 - **C2, lines 1159–1161.** The `#lay-mech` button gains `hidden` and keeps
   `disabled`. Its comment now reads "retired (Gate C). Hidden and disabled;
   the preview code it belonged to stays, unreachable, until its retirement
   story."
 - **C3, line 1484.** The footer's Fan Content Policy link gains
-  `target="_blank"`; `rel="noopener"` is kept. No other link changed. The
-  "Disorderly Conduct" link is untouched (Decisions needed).
+  `target="_blank"`; `rel="noopener"` is kept.
+- **C3, line 1656 (C-O9).** In `pairSrc`, the generated "Disorderly
+  Conduct" link gains `target="_blank"`; `rel="noopener"` is kept. It
+  renders in the RW conflict panel's sources and in the Combine RW panel.
+  No other link changed.
 - **C1, line 3639.** In `comboBody`'s colorless panel, the literal `{C}`
   becomes `<i class="ms ms-c" role="img" aria-label="colorless mana"></i>`:
   - the mana-font colorless glyph, in the inherited text colour;
@@ -292,7 +343,7 @@ it would need a new decision about what a malformed hash means.
 Headless Edge `Edg/154.0.4258.53`, local HTTP; 360×780 @2x (mobile), 768,
 1440.
 
-- **`gatec.mjs`: 81 checks, 81 passed.**
+- **`gatec.mjs` (re-run on the C-O9 tree): 129 checks, 129 passed.**
   - **GC2 (15):**
     - the glyph renders: Mana font family, a non-empty `::before`, width
       greater than 0, the colour equal to its paragraph's, no disc;
@@ -309,15 +360,30 @@ Headless Edge `Edg/154.0.4258.53`, local HTTP; 360×780 @2x (mobile), 768,
     - Tab from Alliances goes to Conflicts, then Four-Color, skipping it;
     - all 14 retired Mechanics forms land in Explore at rest, with no
       preview and `#lay-mech` hidden and disabled.
-  - **GC4 (12):**
-    - the Fan Content Policy link has `target="_blank"` and
-      `rel="noopener"`;
-    - a real mouse click opens exactly one new page at the policy URL
-      (network to `wizards.com` blocked);
-    - in the shell, the wheel frame does not navigate and stays on
-      `color-wheel.html#enemy=RW`;
-    - standalone, the wheel page stays;
-    - the "Disorderly Conduct" link is unchanged.
+  - **GC4 (60), under trusted clicks.** The clicks are CDP
+    `Input.dispatchMouseEvent` events at the centre of the link's first line
+    box, with `elementFromPoint` asserting a hit on the link.
+    - The wheel has exactly two outbound links, both `target="_blank"
+      rel="noopener"`; no other link has a `target`.
+    - Six cases, each from the shell and standalone:
+      - Fan Content Policy;
+      - Disorderly Conduct in the RW conflict panel;
+      - Disorderly Conduct in the Combine RW panel.
+
+      In every case:
+      - exactly one new page opens at the link's URL (network to
+        `wizards.com` blocked);
+      - there is no in-place navigation of the wheel frame or page;
+      - the top URL, the wheel URL, the panel text, body classes and
+        history length are identical before the click, after it, and after
+        closing the new page and returning;
+      - no console or runtime error.
+    - **Harness corrections (not product):**
+      - script `element.click()` is not a trusted activation, so popups were
+        blocked; this caused the earlier 6 failures;
+      - at 768 the Disorderly Conduct link wraps over two lines, and a
+        bounding-box click landed between them. The harness now clicks the
+        first line box.
   - **GC5 (24): the C4 regression test.** Six unsafe routes each throw
     nothing standalone, and end in exactly the state of the matching
     unknown-value route:
@@ -345,7 +411,7 @@ Headless Edge `Edg/154.0.4258.53`, local HTTP; 360×780 @2x (mobile), 768,
   passed.**
 - **Static:**
   - the four gates exit 0, with output byte-identical to Step 0;
-  - `node --check` passes on the wheel's script (250,148 chars);
+  - `node --check` passes on the wheel's script (250,164 chars);
   - `git diff --check` is clean;
   - the explorer and shell hashes match S0-1.
 
@@ -360,13 +426,8 @@ Headless Edge `Edg/154.0.4258.53`, local HTTP; 360×780 @2x (mobile), 768,
 
 ## Decisions needed
 
-- **C3 scope: the "Disorderly Conduct" link** (RW conflict sources,
-  `PAIR_LINK`, line 1652).
-  - It is a Wizards article link that, like the Fan Content Policy link,
-    navigates the wheel frame when activated inside the shell.
-  - It is not Gate C-listed (§14 predates it), so C-O3 leaves it unchanged.
-  - Applying the same one-attribute treatment needs the Owner's word. Not
-    blocking Gate C.
+None open. The C3 scope question (the Disorderly Conduct link) was settled
+by the Owner in C-O9: it is one of the two Gate C links.
 
 ## Follow-ups
 

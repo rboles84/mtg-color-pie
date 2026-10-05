@@ -1653,7 +1653,7 @@ const PAIR_SRC = {
 const PAIR_LINK = { RW: { title: 'Disorderly Conduct', href: 'https://magic.wizards.com/en/news/making-magic/disorderly-conduct-2005-12-05' } };
 function pairSrc(k) {
   const s = esc(PAIR_SRC[k] || ''), l = PAIR_LINK[k];
-  return l ? s.replace(esc(l.title), `<a href="${esc(l.href)}" rel="noopener">${esc(l.title)}</a>`) : s;
+  return l ? s.replace(esc(l.title), `<a href="${esc(l.href)}" target="_blank" rel="noopener">${esc(l.title)}</a>`) : s;
 }
 /* Rosewater states in the pair articles that they examine the philosophy of two
    COLOURS and use the guild name as familiar shorthand. Since "Azorius" names a
