@@ -7,8 +7,15 @@ remaining fields are intentionally blank.
 
 ## Control
 
-- Status: `dev-in-progress`. **Gate C, narrow F2 correction under Owner
-  rulings C-O13 and C-O14.** Not accepted.
+- Status: `ready-for-qa`. Gate C material candidate **`f9b90ec`**
+  (`f9b90ec04bb63a00ee457f092ddd3489895e0b31`): `vox-color/color-wheel.html` (C1–C4, plus the F2 correction),
+  one `AGENTS.md` line from `c4f3a96`, and this ledger.
+  - **Transition:** `dev-in-progress -> ready-for-qa` (`robdev`,
+    2026-10-05). No candidate-affecting edit after `f9b90ec`; this commit
+    changes `HANDOFF.md` only. Next: independent `robqa` on that exact
+    commit. Not `qa-passed`, not accepted.
+- Earlier status: `dev-in-progress`. **Gate C, narrow F2 correction under
+  Owner rulings C-O13 and C-O14.** Not accepted.
   - **Transition:** `qa-passed -> dev-in-progress` (Owner direction,
     2026-10-05: "Do not accept Gate C yet."). This transition is not in the
     `AGENTS.md` list; it is recorded as the Owner's explicit decision, as
