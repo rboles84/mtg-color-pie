@@ -7,8 +7,16 @@ remaining fields are intentionally blank.
 
 ## Control
 
-- Status: `dev-in-progress`. **Gate C, applying the Owner's post-red-team
-  clarifications (C-O9 to C-O12).** C3 now covers both outbound links.
+- Status: `ready-for-qa`. Gate C material candidate **`4f24c63`**
+  (`4f24c634bdf2dbbde6d887699002429e2fb902b3`): `vox-color/color-wheel.html` (C1–C4, with C3 covering both
+  links), one `AGENTS.md` line from `c4f3a96`, and this ledger.
+  - **Transition:** `dev-in-progress -> ready-for-qa` (`robdev`,
+    2026-10-05). No candidate-affecting edit after `4f24c63`; this commit
+    changes `HANDOFF.md` only. Next: independent `robqa` on that exact
+    commit. Not `qa-passed`, not accepted.
+- Earlier status: `dev-in-progress`. **Gate C, applying the Owner's
+  post-red-team clarifications (C-O9 to C-O12).** C3 now covers both
+  outbound links.
   - **Transition:** `ready-for-qa -> dev-in-progress` (Owner direction,
     2026-10-05). This transition is not in the `AGENTS.md` list; it is
     recorded as the Owner's explicit decision, as in Gates A and B.
