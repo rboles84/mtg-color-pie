@@ -7,9 +7,17 @@ remaining fields are intentionally blank.
 
 ## Control
 
-- Status: `dev-in-progress`. **The Color Pie — Gate B: integration shell.**
-  Step 0 is recorded below; implementation of `vox-color/index.html` follows
-  in this session.
+- Status: `ready-for-qa`. Gate B material candidate **`64b8794`**
+  (`64b87948647a53e873e0141967a190e60885453c`): `vox-color/index.html`
+  (new), the scoped `CLAUDE.md` / `AGENTS.md` / `CONTEXT.md` notes, and this
+  ledger.
+  - **Transition:** `dev-in-progress -> ready-for-qa` (`robdev`,
+    2026-10-04). No candidate-affecting edit after `64b8794`; this commit
+    changes `HANDOFF.md` only. Next: independent `robqa` on that exact
+    commit. Not `qa-passed`, not accepted.
+- Earlier status: `dev-in-progress`. **The Color Pie — Gate B: integration
+  shell.** Step 0 recorded below; implementation followed in the same
+  session.
   - **Transition:** `complete -> idle -> dev-in-progress` (coordinating
     agent as `robdev`, 2026-10-04, on the Owner's approval of Gate B in chat,
     recorded as decisions B1–B9 below). The ledger was reset only after the
