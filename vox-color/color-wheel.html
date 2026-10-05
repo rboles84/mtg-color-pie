@@ -1156,8 +1156,9 @@
     <button class="layer-btn" id="lay-ally"   aria-pressed="true">Alliances</button>
     <button class="layer-btn" id="lay-enemy"  aria-pressed="false">Conflicts</button>
     <button class="layer-btn" id="lay-cross"  aria-pressed="false">Four-Color</button>
-    <!-- LAYER 4: enable once the Mechanical Color Pie 2021 dataset is wired. -->
-    <button class="layer-btn" id="lay-mech" aria-pressed="false" disabled
+    <!-- LAYER 4: retired (Gate C). Hidden and disabled; the preview code it
+         belonged to stays, unreachable, until its retirement story. -->
+    <button class="layer-btn" id="lay-mech" aria-pressed="false" disabled hidden
             title="Needs the Mechanical Color Pie 2021 dataset">Mechanics — not wired</button>
     <!-- Clearing by clicking dead space works but isn't discoverable — nothing
          tells you the background is a target. This makes it a control. Present
@@ -1480,7 +1481,7 @@
 </main>
 
 <footer class="foot">
-  <p class="fcp">Vox Mana’s Color Wheel is unofficial Fan Content permitted under the <a href="https://company.wizards.com/en/legal/fancontentpolicy" rel="noopener">Fan Content Policy</a>. Not approved/endorsed by Wizards. Portions of the materials used are property of Wizards of the Coast. ©Wizards of the Coast LLC.</p>
+  <p class="fcp">Vox Mana’s Color Wheel is unofficial Fan Content permitted under the <a href="https://company.wizards.com/en/legal/fancontentpolicy" target="_blank" rel="noopener">Fan Content Policy</a>. Not approved/endorsed by Wizards. Portions of the materials used are property of Wizards of the Coast. ©Wizards of the Coast LLC.</p>
 </footer>
 
 <script>
@@ -3635,7 +3636,7 @@ function comboBody(cols, id) {
       weakest at it \u2014 Rosewater's own example is that enchantment destruction on an artifact is
       effectively given to black and red, which is why artifacts tend not to have it.</p>
     <p class="panel-body"><strong>Not the same thing as.</strong> Artifacts can be colored, and
-      lands and other cards can be colorless. A generic cost takes any mana; {C} demands mana that
+      lands and other cards can be colorless. A generic cost takes any mana; <i class="ms ms-c" role="img" aria-label="colorless mana"></i> demands mana that
       actually has no color.</p>`;
   if (n === 1) return `<p class="panel-body">One vertex. Add a second color to draw an edge.</p>`;
 
@@ -3986,9 +3987,14 @@ function applyRoute(raw) {
     setMode('explore');
     if (k === 'four') setLayer('cross', true);
     if (k === 'enemy') setLayer('enemy', true);
-    const el = k === 'color' ? vtx(v)
-             : (k === 'ally' || k === 'enemy') ? edgeEl(v)
-             : k === 'four' ? wheel.querySelector('.cross[data-key="' + v + '"]')
+    /* The value comes from the URL, so it is escaped before it meets a
+       selector (Gate C): a key such as W" would otherwise throw. Valid keys
+       escape to themselves; anything else matches nothing and takes the same
+       path as an unknown key. */
+    const sv = CSS.escape(v);
+    const el = k === 'color' ? vtx(sv)
+             : (k === 'ally' || k === 'enemy') ? edgeEl(sv)
+             : k === 'four' ? wheel.querySelector('.cross[data-key="' + sv + '"]')
              : null;
     if (el) activate(el);
   } finally {

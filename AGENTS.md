@@ -259,7 +259,7 @@ unrelated checks.
   affected, then return to Explore and confirm its prior layer state is
   restored.
 - Confirm panel updates remain announced through its polite live region, the
-  unbuilt Mechanics control remains disabled, and atlas tiles remain outside
+  unbuilt Mechanics control remains hidden and disabled, and atlas tiles remain outside
   the tab order.
 - Exercise every affected hash family, plus browser back/forward. For route
   work on the Color Wheel, explicitly verify a directly opened `file://` page;
