@@ -7,7 +7,29 @@ remaining fields are intentionally blank.
 
 ## Control
 
-- Status: `qa-passed`. Independent `robqa` on candidate **`ca8873b`**
+- Status: `complete`. **The Owner accepted Gate B material candidate
+  `ca8873b8d004624a3dee57a57fa73ad6a76117d7`** (2026-10-04).
+  - **Transition:** `qa-passed -> complete` (Owner acceptance, recorded by
+    the coordinating agent).
+  - **Acceptance scope:**
+    - Acceptance is bound to the material candidate `ca8873b` only. The
+      later commits (`804c713`, `f796ccd`, `00b4082`, `fd41dba`, `17c90d3`
+      and this close-out) are HANDOFF-only evidence and records, distinct
+      from the accepted candidate.
+    - No product change was made during acceptance, and no story file
+      changes after acceptance.
+    - **Browser scope:** Chromium-based desktop browsers (B2). Firefox,
+      Safari, iOS and cross-engine testing are not reopened.
+  - **Accepted with these follow-ups explicitly outside Gate B** (see
+    Follow-ups):
+    - raw `{C}` in the Color Wheel → Gate C;
+    - the Mechanical Color Pie `#detail` scroll-position carryover → Gate D;
+    - F4, the keyboard/focus race during the hidden explorer's first load:
+      accepted minor, deferred to Gate D (B13);
+    - `#four=W%22`, the wheel's `querySelector` SyntaxError → Gate C;
+    - the pre-Gate-B defects stay deferred.
+  - Gates C and D are not started.
+- Earlier status: `qa-passed`. Independent `robqa` on candidate **`ca8873b`**
   (working tree equals it except `HANDOFF.md`, plus the untracked
   `dev.lnk`). F1 and F2 are fixed (B10, B11), and F3's B12 conditions are
   met. G1–G19 pass at 360 / 768 / 1440 over HTTP. There is no blocker or
@@ -1128,6 +1150,11 @@ and F4 on `ca8873b` by B13.
         - the fix is the smallest correction at the existing
           entry-selection or render point;
         - no smooth scrolling and no general scroll-management system.
+  - **`#four=W%22` → Gate C** (robqa N3; Owner acceptance disposition). The
+    wheel throws `SyntaxError` in `querySelector('.cross[data-key="W""]')`
+    when routed to `four=W%22`, standalone as well as framed. The shell
+    passes the route through verbatim (B6) and neither causes nor worsens
+    it.
   - **F4 → Gate D (B13).** It is an accepted known minor. If the Mechanical
     Color Pie is left during its first load, its self-test briefly takes
     focus in the off frame, for about 8–12 ms. A key pressed in that window
