@@ -7,7 +7,14 @@ remaining fields are intentionally blank.
 
 ## Control
 
-- Status: `dev-in-progress`. **Gate B rework under Owner rulings B10–B12**
+- Status: `ready-for-qa`. Gate B material candidate **`ca8873b`**
+  (`ca8873b8d004624a3dee57a57fa73ad6a76117d7`): the rework of `64b8794` under B10–B12, covering
+  `vox-color/index.html`, one `AGENTS.md` line and this ledger.
+  - **Transition:** `dev-in-progress -> ready-for-qa` (`robdev`,
+    2026-10-04). No candidate-affecting edit after `ca8873b`; this commit
+    changes `HANDOFF.md` only. Next: independent `robqa` on that exact
+    commit. Not `qa-passed`, not accepted.
+- Earlier status: `dev-in-progress`. **Gate B rework under Owner rulings B10–B12**
   (fix F1 and F2 in the shell; amend the arrival contract for F3). Not
   accepted.
   - **Transition:** `qa-passed -> dev-in-progress` (Owner direction,
