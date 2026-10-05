@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<!--
+==============================================================================
+ THE COLOR PIE — integration shell (Gate B)
+==============================================================================
+ One header, two instruments. Each instrument is its own document in its own
+ same-origin iframe, so their CSS, globals, keyboard and Escape handlers and
+ routers never meet. This file edits neither of them, reads nothing from
+ them except the Color Wheel's hash, and writes nothing into them except a
+ validated wheel route. Spec: PRODUCT-DEFINITION.md §9 and §11; the Gate B
+ contract and Owner decisions B1–B9 are in HANDOFF.md (git history once
+ Gate B closes).
+
+ ROUTES (the shell URL is canonical)
+ -----------------------------------
+   index.html                    Color Wheel at rest
+   #color-wheel/<wheel route>    Color Wheel at that route, passed through
+                                 verbatim (e.g. #color-wheel/combine=WUR)
+   #mechanical-color-pie         Mechanical Color Pie
+
+ Anything else, a route whose percent-encoding is malformed, or a route that
+ contains the retired Mechanics route in any encoding, lands on the Color
+ Wheel at rest with the URL replaced in place. The check is syntax only:
+ valid wheel routes stay opaque and are never interpreted.
+
+ HISTORY
+ -------
+ Wheel hash changes join the tab's session history by themselves. The shell
+ never adds an entry for them; it re-derives its own URL with replaceState
+ from the wheel frame's hash on every load, hashchange and traversal. The
+ frame's hash is the truth: Chromium shares the parent's history item across
+ entries the frame creates, so the parent's stored URL can be stale after a
+ traversal. A view switch is the only thing the shell pushes.
+
+ ENVIRONMENT
+ -----------
+ HTTP only. On file:// Chromium blocks cross-frame access; the shell catches
+ that and still switches views, without URL mirroring. The standalone
+ instruments keep their own file:// behaviour. No dependency beyond the
+ instruments' own Google Fonts URL (identical, so it is shared by cache).
+==============================================================================
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Color Wheel — The Color Pie</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Almendra:wght@400;700&family=Cormorant+SC:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Lora:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  /* Field-guide tokens, copied by value from the instruments (no shared
+     stylesheet). Gilt is system language; no mana colour appears here. */
+  :root {
+    --bone:#ede6d3;
+    --ground:#100c08;
+    --ink:#dccfb6; --ink-dim:#9a8768;
+    --brass:#b8934f; --brass-l:#dcbb73;
+    --rule-s:rgba(184,147,79,.38);
+    --f-brand:'Cormorant SC',Georgia,serif; --f-read:'Lora',Georgia,serif;
+    --ease:cubic-bezier(.2,.8,.2,1);
+    color-scheme:dark;
+  }
+  * { box-sizing:border-box; }
+  /* The shell never scrolls: each instrument scrolls inside its own frame,
+     and an instrument's scrollIntoView must not move the header away. */
+  html,body { margin:0; padding:0; height:100%; overflow:hidden; }
+  body {
+    display:flex; flex-direction:column; height:100vh; height:100dvh;
+    background:var(--ground); color:var(--ink); font-family:var(--f-read);
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .shell-head {
+    flex:none; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;
+    gap:4px 28px; padding:10px clamp(16px,3vw,32px);
+    background:linear-gradient(180deg,#19120b,#140e08); border-bottom:1px solid var(--rule-s);
+  }
+  .brand { min-width:0; }
+  .brand h1 { margin:0; font:700 clamp(21px,2.1vw,26px)/1.1 var(--f-brand); letter-spacing:.02em; color:var(--bone); }
+  .brand p { margin:3px 0 0; font:italic 400 13.5px/1.4 var(--f-read); color:var(--ink-dim); }
+
+  /* Engraved tabs with the instruments' double gilt underline: one view is
+     current, as with the wheel's Explore | Combine. */
+  .views { display:flex; flex-wrap:wrap; gap:4px 22px; }
+  .views a {
+    display:inline-flex; align-items:center; height:34px; padding:0 4px; text-decoration:none;
+    font:600 15px/1 var(--f-brand); letter-spacing:.1em; color:var(--ink-dim);
+    transition:color .2s var(--ease), box-shadow .2s var(--ease);
+  }
+  .views a:hover { color:var(--bone); }
+  .views a[aria-current="page"] {
+    color:var(--bone);
+    box-shadow:inset 0 -1px 0 var(--brass-l),inset 0 -3px 0 #140e08,inset 0 -4px 0 var(--brass-l);
+  }
+  .views a:focus-visible { outline:2px solid var(--brass-l); outline-offset:3px; }
+
+  .frames { flex:1; min-height:0; }
+  .frames iframe { display:block; width:100%; height:100%; border:0; background:var(--ground); }
+  /* hidden must win: it takes the inactive frame out of the tab order and
+     the accessibility tree. */
+  .frames iframe[hidden] { display:none; }
+  .frames iframe:focus { outline:none; }
+
+  .sr-only {
+    position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+    overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+  }
+
+  @media (max-width:640px) {
+    .shell-head { justify-content:center; text-align:center; padding-top:8px; padding-bottom:6px; }
+    .views { justify-content:center; }
+  }
+  @media (prefers-reduced-motion:reduce) {
+    .views a { transition:none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="shell-head">
+  <div class="brand">
+    <h1>The Color Pie</h1>
+    <p>Explore Magic’s color philosophy and mechanical color pie.</p>
+  </div>
+  <nav class="views" aria-label="Instruments">
+    <a id="nav-wheel" href="index.html" aria-current="page">Color Wheel</a>
+    <a id="nav-pie" href="#mechanical-color-pie">Mechanical Color Pie</a>
+  </nav>
+</header>
+
+<div class="frames">
+  <iframe id="frame-wheel" name="color-wheel" title="Color Wheel"></iframe>
+  <iframe id="frame-pie" name="mechanical-color-pie" title="Mechanical Color Pie" hidden></iframe>
+</div>
+
+<p id="announce" class="sr-only" aria-live="polite" aria-atomic="true"></p>
+
+<script>
+(function () {
+  'use strict';
+
+  var WHEEL = 'wheel', PIE = 'pie';
+  var WHEEL_PREFIX = '#color-wheel/', PIE_HASH = '#mechanical-color-pie';
+  var SRC = { wheel: 'color-wheel.html', pie: 'mechanical-explorer.html' };
+  var NAME = { wheel: 'Color Wheel', pie: 'Mechanical Color Pie' };
+  var MARK = { shell: 1 };   // history.state on every entry the shell has seen
+
+  var frames = { wheel: document.getElementById('frame-wheel'), pie: document.getElementById('frame-pie') };
+  var links  = { wheel: document.getElementById('nav-wheel'),   pie: document.getElementById('nav-pie') };
+  var live = document.getElementById('announce');
+  var view = null, announceTimer = 0;
+
+  /* Syntax only (B5, B6). Rejected: a route the wheel's own
+     decodeURIComponent would throw on, or one containing the retired
+     Mechanics route at any decoding depth. Nothing else is read; a valid
+     route is passed through untouched. */
+  function validRoute(r) {
+    try { decodeURIComponent(r); } catch (e) { return false; }
+    for (var s = r, i = 0; i < 10; i++) {
+      if (/mechanics/i.test(s)) return false;
+      var n;
+      try { n = decodeURIComponent(s); } catch (e) { return true; }
+      if (n === s) return true;
+      s = n;
+    }
+    return false;   // still decoding after ten rounds: refuse rather than guess
+  }
+
+  function parse(hash) {
+    if (hash === '' || hash === '#') return { view: WHEEL, route: '' };
+    if (hash === PIE_HASH) return { view: PIE };
+    if (hash.indexOf(WHEEL_PREFIX) === 0) {
+      var r = hash.slice(WHEEL_PREFIX.length);
+      if (validRoute(r)) return { view: WHEEL, route: r };
+    }
+    return { view: WHEEL, route: '', rejected: true };
+  }
+
+  function base() { return location.pathname + location.search; }
+  function wheelUrl(route) { return base() + (route ? WHEEL_PREFIX + route : ''); }
+  function pieUrl() { return base() + PIE_HASH; }
+  function replaceUrl(url) { try { history.replaceState(MARK, '', url); } catch (e) { /* file:// */ } }
+
+  /* The wheel frame's current route, or null while it is not loaded or not
+     readable (file://, where Chromium blocks cross-frame access). */
+  function frameRoute() {
+    try {
+      var loc = frames.wheel.contentWindow.location;
+      if (loc.pathname.slice(-SRC.wheel.length) !== SRC.wheel) return null;
+      return loc.hash.replace(/^#/, '');
+    } catch (e) { return null; }
+  }
+
+  function loadWheel(route) { frames.wheel.src = SRC.wheel + (route ? '#' + route : ''); }
+
+  /* Wheel -> shell. Runs on the frame's load and hashchange and after every
+     traversal; never adds a history entry. */
+  function sync() {
+    var r = frameRoute();
+    if (r === null) return;
+    if (!validRoute(r)) r = '';
+    links.wheel.href = wheelUrl(r);
+    if (view === WHEEL) replaceUrl(wheelUrl(r));
+  }
+
+  function announce(text) {
+    clearTimeout(announceTimer);
+    live.textContent = '';
+    announceTimer = setTimeout(function () { live.textContent = text; }, 60);
+  }
+
+  /* Show one view. The other frame is hidden, which removes it from the tab
+     order and the accessibility tree. A frame gets its src on first show. */
+  function show(v, moved) {
+    var changed = v !== view;
+    view = v;
+    [WHEEL, PIE].forEach(function (k) {
+      frames[k].hidden = k !== v;
+      if (k === v) links[k].setAttribute('aria-current', 'page');
+      else links[k].removeAttribute('aria-current');
+    });
+    if (!frames[v].getAttribute('src')) {
+      if (v === WHEEL) loadWheel(''); else frames.pie.src = SRC.pie;
+    }
+    document.title = NAME[v] + ' — The Color Pie';
+    if (moved && changed) {
+      announce('Showing ' + NAME[v]);
+      frames[v].focus();
+    }
+  }
+
+  /* A shell URL arriving without a shell entry: the first load, or the
+     address bar or a link changing the hash of an open shell. A wheel frame
+     that is already loaded is moved with an ordinary hash assignment, the
+     same write the wheel makes itself. Replacing it in place would rewrite
+     the previous entry too, because Chromium shares the frame's history
+     item with it; the cost is that Back from such an arrival passes once
+     through the arrival's own entry, which shows the prior wheel route. */
+  function arrive(t, moved) {
+    if (t.view === WHEEL) {
+      var cur = frameRoute();
+      if (!frames.wheel.getAttribute('src')) loadWheel(t.route);
+      else if (cur !== null && cur !== t.route) {
+        try { frames.wheel.contentWindow.location.hash = t.route; } catch (e) { /* file:// */ }
+      }
+    } else if (!frames.pie.getAttribute('src')) {
+      frames.pie.src = SRC.pie;
+    }
+    show(t.view, moved);
+    replaceUrl(t.view === PIE ? pieUrl() : wheelUrl(t.route));
+    if (t.view === WHEEL) links.wheel.href = wheelUrl(t.route);
+  }
+
+  /* Nav: one pushed entry per real switch. Modified clicks open a new tab or
+     window as links normally do. */
+  [WHEEL, PIE].forEach(function (k) {
+    links[k].addEventListener('click', function (e) {
+      if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      e.preventDefault();
+      if (view === k) return;
+      var r = k === WHEEL ? frameRoute() : null;
+      try { history.pushState(MARK, '', k === PIE ? pieUrl() : wheelUrl(r && validRoute(r) ? r : '')); }
+      catch (e2) { /* file:// */ }
+      show(k, true);
+    });
+  });
+
+  /* Back / Forward, and same-document arrivals. The view follows the shell
+     URL; the wheel route follows the frame, re-read once the traversal has
+     reached it. */
+  window.addEventListener('popstate', function () {
+    var t = parse(location.hash);
+    if (history.state === null) { arrive(t, true); return; }
+    if (t.view === WHEEL && !frames.wheel.getAttribute('src')) loadWheel(t.route);
+    show(t.view, true);
+    setTimeout(sync, 0);
+  });
+
+  frames.wheel.addEventListener('load', function () {
+    try { frames.wheel.contentWindow.addEventListener('hashchange', sync); } catch (e) { /* file:// */ }
+    sync();
+  });
+
+  arrive(parse(location.hash), false);
+})();
+</script>
+</body>
+</html>

@@ -24,6 +24,17 @@ this guide are the current operating rule.
 - `vox-color/color-wheel.html` is the shipped app: one static HTML document
   with inline CSS and JavaScript, containing both the wheel and the 37-tile
   atlas.
+- `vox-color/index.html` is the integration shell for The Color Pie
+  (Gate B): one header and nav over two same-origin iframes holding
+  `color-wheel.html` and `mechanical-explorer.html`, which stay separate,
+  unedited documents. It reads only the wheel's hash and writes only a
+  validated route into it. Routes: `index.html` (Color Wheel at rest),
+  `#color-wheel/<wheel route>` (passed through verbatim) and
+  `#mechanical-color-pie`; anything else, malformed percent-encoding, or the
+  retired Mechanics route in any encoding lands on the Color Wheel at rest.
+  It is HTTP-served, with Chromium desktop browsers as the supported scope;
+  on `file://` it switches views but cannot mirror routes. Contract:
+  `PRODUCT-DEFINITION.md` §9 and §11.
 - `vox-color/build/` contains historical Python generators. Do not update or
   treat them as the source of truth. Only `build_wheel.py` may be run, and only
   when the user explicitly asks for a geometry re-derivation.
@@ -183,7 +194,8 @@ it has just found.
   passed is not evidence.
 - Test observable behavior in a real browser when the task affects rendering,
   interaction, routing, focus, or motion. Direct `file://` behavior matters for
-  this project, especially hash assignment.
+  the standalone Color Wheel, especially hash assignment. The integration
+  shell is verified over local HTTP.
 - Separate defects from preferences. A defect needs a concise reproduction,
   expected result, actual result, impact, and the smallest relevant evidence.
 - Use severity `blocker`, `major`, `minor`, or `note`. `blocker` and `major`
@@ -249,7 +261,8 @@ unrelated checks.
   unbuilt Mechanics control remains disabled, and atlas tiles remain outside
   the tab order.
 - Exercise every affected hash family, plus browser back/forward. For route
-  work, explicitly verify a directly opened `file://` page.
+  work on the Color Wheel, explicitly verify a directly opened `file://` page;
+  for the integration shell, verify over local HTTP.
 
 ### Geometry or wheel emphasis
 

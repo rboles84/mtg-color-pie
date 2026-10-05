@@ -32,6 +32,14 @@ Deep links are in the hash (`#combine=WUR`, `#color=W`, `#ally=WU`,
 `#enemy=WB`, `#four=W`). Hash rather than query string because the file is
 opened off disk and `pushState` to a new path is refused on `file://`.
 
+**The integration shell** — `vox-color/index.html` (Gate B, 2026-10-04)
+presents this file and `mechanical-explorer.html` together as "The Color
+Pie": one header and nav, each instrument in its own same-origin iframe,
+neither edited. The wheel's routes above are unchanged; the shell carries
+them as `#color-wheel/<route>`, with `#mechanical-color-pie` for the
+explorer. The shell is HTTP-served (Chromium desktop browsers); this file
+still runs from `file://` on its own. Contract: `PRODUCT-DEFINITION.md` §9.
+
 ---
 
 ## Why the crossings matter

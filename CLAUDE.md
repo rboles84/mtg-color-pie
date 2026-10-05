@@ -33,6 +33,7 @@ Do not read these end to end to orient yourself. This index is the orientation.
 | `MECHANICS-CONTRACT.md` | 427 | Touching mechanics data, tiers, selection semantics, or the source/taxonomy/runtime layers. The frozen contract and the gate order live here. |
 | `CONTEXT.md` | 319 | Questions about provenance, the identity registry, source hierarchy, colour tokens, or the type stack. |
 | `AGENTS.md` | 273 | Acting as `robdev` or `robqa`, or unsure what change control permits. Repository map and protected boundaries. |
+| `PRODUCT-DEFINITION.md` | 1342 | Touching the integration shell `vox-color/index.html` or planning Gates C–E. §9 is the shell's mechanism and routing contract, §11 state ownership, §17 the gate sequence. Accepted revision; not edited by later gates. |
 | `PHYREXIA-PLAN.md` | 179 | Only for the Phyrexia overlay question. Not loaded otherwise. |
 | `PROMPT.md` | 94 | Historical brief. Superseded by `HANDOFF.md`. Rarely needed. |
 
@@ -51,8 +52,9 @@ them on anything mechanics-related.
 - **Exactly one owner of mechanic detail.** No second copy in a search surface,
   popup, or drawer.
 - **Best access never replaces ownership.**
-- **No new runtime dependency, no build step, no framework.** The page runs
-  from `file://`.
+- **No new runtime dependency, no build step, no framework.** The Color
+  Wheel runs from `file://`. The integration shell `vox-color/index.html`
+  is HTTP-served and is not required to integrate on `file://` (Gate B).
 - **Mechanics mode is retired from the Color Wheel.** Every legacy Mechanics
   hash lands in Explore at rest, with the URL canonicalised; the preview code
   stays, unreachable, until its retirement story.
