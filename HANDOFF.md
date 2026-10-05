@@ -7,7 +7,13 @@ remaining fields are intentionally blank.
 
 ## Control
 
-- Status: `qa-passed`. Gate C material candidate **`4f24c63`**
+- Status: `dev-in-progress`. **Gate C, narrow F2 correction under Owner
+  rulings C-O13 and C-O14.** Not accepted.
+  - **Transition:** `qa-passed -> dev-in-progress` (Owner direction,
+    2026-10-05: "Do not accept Gate C yet."). This transition is not in the
+    `AGENTS.md` list; it is recorded as the Owner's explicit decision, as
+    before. `4f24c63` is superseded, not accepted.
+- Earlier status: `qa-passed`. Gate C material candidate **`4f24c63`**
   (`4f24c634bdf2dbbde6d887699002429e2fb902b3`) passed independent `robqa`.
   - No blocker or major. There are two non-failing minors (F1, F2) and
     three notes. See "QA (robqa, independent) — candidate 4f24c63".
@@ -149,6 +155,32 @@ broadened.
 - **C-O12 — C2 is UI retirement, not dead-code cleanup.** The preview
   implementation, unreachable code and dormant data stay. No reorganization,
   and no Gate E.
+
+**Rulings on `robqa`'s findings for `4f24c63` (Owner, 2026-10-05).**
+
+- **C-O13 — F1: accepted as a follow-up, non-blocking.** The C1 markup
+  `<i class="ms ms-c" role="img" aria-label="colorless mana"></i>` correctly
+  uses the wheel's existing mana-symbol system.
+  - The 0 px glyph without mana-font is a graceful-degradation note. Normal
+    rendering is correct and the accessible name is kept.
+  - A robust fallback belongs to a broader mana-font/fallback story. There
+    is no special fallback for this one symbol, and C1 does not change.
+- **C-O14 — F2: fix narrowly in Gate C.** It is a Gate C regression: hiding
+  the Mechanics control made the first selection wrap the layer row, a
+  roughly 40 px jump, inside a band that includes 360.
+  - **Invariant:** at 360, 768 and 1440, the first selection must not
+    introduce a new row-wrap or layout jump caused by the retirement.
+  - **The fix is the smallest `color-wheel.html` correction.** It does not:
+    - restore or expose the Mechanics control, or make it focusable or
+      accessible;
+    - redesign the toolbar;
+    - alter wheel behaviour;
+    - remove old code;
+    - refactor unrelated CSS;
+    - attempt every historical wrap threshold.
+  - Preserving layout space is acceptable only with no interactive or
+    accessibility presence. A layout correction is preferred over keeping
+    dead markup for spacing.
 
 ## Step 0 recon
 
@@ -345,6 +377,68 @@ The C-O9 rework (2026-10-05) added only the line-1656 change below to
   - `CLAUDE.md` and `CONTEXT.md`. `CONTEXT.md`'s "Button exists and is
     disabled" is still true;
   - `data/` and `tools/`.
+
+### F2 correction (C-O14, 2026-10-05)
+
+- **Measured cause** (`rowprobe.mjs`, 1 px steps):
+  - Below 398 px the three lenses fit on one line, but the lenses plus Clear
+    do not. They need 372 px of row, and the row is 366 px wide at 398.
+  - At baseline, the visible Mechanics button forced a second line at rest
+    from 336 to 397 px, and Clear later joined that line.
+  - With it hidden, the row is one line at rest in that band, and Clear's
+    first appearance wrapped it: wheel and panel +40 px.
+  - Below 336 the Four-Color button already wraps at rest, so there is no
+    jump; from 398 all four fit, so there is no jump either.
+- **Change:** 6 lines after `.layers [hidden] { display:none; }`, a
+  5-line comment plus:
+  `@media (max-width:397px) { .layers .clear-btn[hidden] { display:inline-flex; visibility:hidden; } }`.
+  - Below 398 px, the hidden Clear keeps its slot, so the second line exists
+    at rest and the first selection only reveals Clear.
+  - `visibility:hidden` keeps it invisible, unfocusable, unclickable and out
+    of the accessibility tree. It stays `hidden`; no script changed.
+  - No dead control is kept for spacing: the reserved slot belongs to Clear,
+    the live control that appears there.
+  - The Mechanics control is untouched (still `hidden`, `disabled`,
+    `display:none`).
+- **Limits, recorded:**
+  - The 397 px edge is measured with the page's own fonts (Cormorant SC). If
+    Google Fonts fails, the button widths change and the edge moves. That is
+    the same font dependence the row had before Gate C.
+  - Widths 320–335 gain the reserved slot too. They already had a two-line
+    row at rest, so their height is unchanged.
+- **Targeted evidence (`f2test.mjs`): 20 checks, 20 passed.**
+  - At 360, 768 and 1440:
+    - the Mechanics control is not displayed, still disabled, not tabbable
+      and not in the accessibility tree;
+    - the first selection shifts neither the wheel nor the panel (0 px). On
+      `4f24c63` the shift was +40 at 360, 0 at 768 and 0 at 1440;
+    - the Clear slot at rest is invisible, not tabbable and not in the
+      accessibility tree, and a real click on it does nothing;
+    - after a selection, Clear is visible and exposed. Clicking it clears
+      the selection, hides Clear again, focuses the panel and shifts
+      nothing;
+    - no overflow and no error.
+  - At 360, the layer row is 74 px at rest and after selection, equal to
+    the baseline's height there.
+  - At 768 and 1440, the layout at rest and after selection is identical to
+    `4f24c63`: every button box, the row, the wheel, the panel and the
+    document height.
+  - Sweep from 320 to 420 px in 1 px steps: no first-selection shift at any
+    width. At 398–420 the layout is identical to `4f24c63`, because the rule
+    is inactive there.
+- **Harness note:** `gatec.mjs`'s visible-layer-button probe now also
+  excludes `visibility:hidden`, so it doesn't count the invisible reserved
+  Clear at 360. This is a harness correction, not a product change.
+- **Full regression after F2:**
+  - `gatec.mjs`: 129 checks, 129 passed;
+  - `gateb.mjs`: 305 checks, 305 passed;
+  - `bracescan.mjs`: 0 raw tokens;
+  - the four gates exit 0, with output md5 `8b4dcf27…` (unchanged);
+  - `node --check` passes and `git diff --check` is clean;
+  - the explorer (`7a5540d2…`) and the shell (`fc569f4c…`) are unchanged.
+- `color-wheel.html` against `b62131b` is now 20 lines added and 8 removed,
+  4,116 lines in all, with sha256
+  `6a16bf03aa5728d6408f8e1bb0763bf641def62cdee11127b45ee4439df7726c`.
 
 ### Older URIError (C-O5)
 
@@ -753,14 +847,19 @@ by the Owner in C-O9: it is one of the two Gate C links.
 ## Follow-ups
 
 - **From Gate C `robqa` (`4f24c63`), not fixed:**
-  - **F1:** with mana-font unavailable, the C1 colorless glyph is 0 px wide,
-    and the sentence loses its subject visually. Its accessible name is
-    kept. Part of the carried "no no-mana fallback" item.
-  - **F2:** hiding `#lay-mech` moves the band of widths where the layers
-    row reflows when Clear appears.
-    - It is now 340–390 px, including 360: the wheel shifts 40 px on the
-      first selection.
-    - At the baseline it was 330, 540–560 and 640–700 px.
+  - **F1 (C-O13: accepted, deferred, non-blocking):** with mana-font
+    unavailable, the C1 colorless glyph is 0 px wide, and the sentence loses
+    its subject visually. Its accessible name is kept. It belongs with the
+    carried "no no-mana fallback" item, for a broader mana-font/fallback
+    story.
+  - **F2: fixed in Gate C (C-O14); see "F2 correction".**
+    - The baseline's other first-selection jumps (+40 at 540–560 and +42 at
+      640–700 px, measured on `b62131b`) came from the visible Mechanics
+      button.
+    - They are absent on this tree: 0 at every width from 530 to 710 px in
+      10 px steps. The F2 rule is not active there; C2's removal of the
+      button did it.
+    - Nothing was done to target them.
   - **N2:** stale developer comments at `color-wheel.html` lines 1146 and
     1787–1789. Leave them for the preview-retirement story.
   - **N3:** the amended `AGENTS.md` line is unwrapped (87 characters).

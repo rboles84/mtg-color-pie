@@ -199,6 +199,12 @@
   .clear-btn::before { display:none; }
   .clear-btn:hover { color:var(--bone); box-shadow:none; text-decoration:underline; text-decoration-color:var(--brass); text-underline-offset:4px; }
   .layers [hidden] { display:none; }
+  /* Below 398px the three lenses fit on one line but Clear does not, so its
+     first appearance wrapped the row and moved the wheel down 40px (Gate C,
+     after the retired Mechanics control stopped filling the second line).
+     There the hidden Clear keeps its slot -- invisible, so not focusable,
+     clickable or exposed -- and the first selection only reveals it. */
+  @media (max-width:397px) { .layers .clear-btn[hidden] { display:inline-flex; visibility:hidden; } }
 
   /* The layer toggles are EXPLORE's lenses. In Combine the edges you see are
      whichever ones your colours imply, so the lenses are withdrawn. */
