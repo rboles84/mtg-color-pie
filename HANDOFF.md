@@ -7,7 +7,15 @@ remaining fields are intentionally blank.
 
 ## Control
 
-- Status: `qa-passed`. Independent `robqa` on candidate **`64b8794`**
+- Status: `dev-in-progress`. **Gate B rework under Owner rulings B10–B12**
+  (fix F1 and F2 in the shell; amend the arrival contract for F3). Not
+  accepted.
+  - **Transition:** `qa-passed -> dev-in-progress` (Owner direction,
+    2026-10-04: "Do not accept Gate B yet."). This transition is not in the
+    `AGENTS.md` list; it is recorded as the Owner's explicit decision, as in
+    Gate A. `64b8794` is superseded, not accepted. A new exact candidate
+    will be frozen for an independent `robqa`.
+- Earlier status: `qa-passed`. Independent `robqa` on candidate **`64b8794`**
   (working tree's product and rule files equal to it; only `HANDOFF.md`
   differs, plus the untracked `dev.lnk`). G1–G19 pass at 360 / 768 / 1440
   over HTTP. There is no blocker or major. Three minors (F1–F3) violate no
@@ -135,7 +143,40 @@ remaining fields are intentionally blank.
   independent `robqa` on it, report the candidate and evidence, and stop for
   Owner acceptance. Do not begin Gates C, D or E.
 
-## Shell contract (derived from §9 and B1–B7; no new route semantics)
+**Rulings on `robqa`'s findings for `64b8794` (2026-10-04).** These
+authorize shell work in `vox-color/index.html` only, plus the minimum
+ledger and documentation updates to record it. Everything in B8 stays out
+of scope; `#four=W%22` stays deferred to Gate C.
+
+- **B10 — F1, fix in Gate B.** Switching away while the Mechanical Color Pie
+  is still loading must not cause its off-frame self-test to produce false
+  failures, or a shell-caused console warning. The fix is the smallest
+  shell-only correction:
+  - the explorer file is not changed;
+  - loading is not redesigned;
+  - no persistence, preload or lifecycle infrastructure is added.
+- **B11 — F2, fix in Gate B.** A syntactically valid shell route entered
+  while the Color Wheel frame is still loading must not be dropped.
+  - **Invariant:** for any valid shell route, the last valid route
+    requested by the outer URL wins once the target frame is ready.
+  - Wheel routes are not interpreted, and the Color Wheel is not edited.
+  - No generalized router or queue: only the minimum shell state.
+  - No unnecessary duplicate shell history entries.
+- **B12 — F3, accepted as a contract amendment.** The extra Back step after
+  a typed URL is accepted as Chromium joint-history behaviour, provided all
+  of these hold:
+  - no application state is lost;
+  - the shell URL and the visible frame stay consistent;
+  - Back and Forward eventually traverse the correct states;
+  - no corrupt or unreachable states are created;
+  - it is no worse than the browser history model requires.
+
+  The shell does not force exactly one Back press if that would need a
+  reload, replacing away a legitimate prior entry, editing either
+  instrument, custom history virtualization, new persistence, or
+  significant routing complexity.
+
+## Shell contract (derived from §9, B1–B7 and B10–B12; no new route semantics)
 
 | Shell URL (hash) | Shows | Canonical form published |
 |---|---|---|
@@ -157,16 +198,38 @@ remaining fields are intentionally blank.
   change. A frame hash that fails validation publishes `index.html`; the
   frame itself is not repaired.
 - **View switch** (nav activation): one `pushState`; the target frame is
-  shown (`src` set on first activation), the other gets `hidden`; focus moves
+  shown (`src` set on first activation), the other is switched off; focus moves
   to the shown frame; `document.title` updates; the polite live region
   announces the B1 string. Activating the current view adds no entry.
   Modified clicks (new tab or window) are left to the browser.
 - **Back / Forward:** the view follows the shell URL; the wheel route
   follows the frame. A view change by traversal moves focus to the shown
   frame and is announced, so focus is never left in a hidden frame.
+- **Switched off** (amended under B10): the inactive frame keeps its full
+  size and layout but is not painted (`visibility:hidden`) and is `inert`,
+  so it is out of sight, out of the tab order and out of the accessibility
+  tree. Focus that its own script takes is handed back to the shown frame.
 - **Same-document arrival** (address bar or a link to a new shell hash; the
-  entry has no shell state): routed exactly as a load, without a further
-  history entry.
+  entry has no shell state), **as amended under B12:** the requested view
+  and route take effect, with the same validation as a load. The shell
+  promises correct state traversal and URL/frame consistency, not one
+  Back press per arrival:
+  - no application state is lost;
+  - at every entry the shell URL matches the visible view and the frame's
+    route;
+  - Back and Forward eventually traverse every state the session created,
+    in order;
+  - no corrupt or unreachable state is created.
+
+  Because Chromium shares the frame's history item with the previous entry,
+  an arrival into a loaded wheel adds the browser's entry and the wheel's
+  own, so Back passes once through the arrival's entry, which shows the
+  prior wheel route. The shell does not reload, replace away a prior entry
+  or virtualize history to avoid that.
+- **Arrival while the wheel is loading** (B11): if the wheel frame's first
+  navigation has not committed, the shell re-points it at the newly
+  requested route. That replaces the pending navigation with no extra entry,
+  and the last valid route requested wins.
 - **Titles:** `Color Wheel — The Color Pie`; `Mechanical Color Pie — The
   Color Pie` (composed from B1 strings only).
 - **Lazy loading:** the routed view loads first; the other frame gets `src`
@@ -661,19 +724,120 @@ see F3.
 
 None of these blocks a G criterion.
 
+## Rework (Owner rulings B10–B12, `robdev`)
+
+**2026-10-04.** This rework is shell-only. The only product file changed is
+`vox-color/index.html`. `AGENTS.md` changes by one line, so that its account
+of what the shell reads stays true. Neither instrument changed.
+
+### F1 correction (B10)
+
+- **Cause:** the explorer runs its self-test once, at the end of its
+  asynchronous boot. Several assertions read layout (`offsetParent`, widths,
+  the fold controls' right edge). A frame switched off with `hidden`
+  (`display:none`) has no layout, so an explorer booting there failed those
+  assertions and emitted its `console.warn`.
+- **Change:**
+  - The inactive frame is now switched off with class `is-off`
+    (`visibility:hidden`) plus the `inert` attribute, instead of `hidden`.
+  - Both frames are absolutely positioned at full size in `.frames`, so the
+    off frame keeps a real layout. Its own computed visibility stays
+    `visible` (CSS does not inherit across documents), so the explorer's
+    `visible()` helper reads as it does on screen.
+- **Focus guard (needed by the change, found in rework, shell-caused):**
+  - Chromium's `inert` on an iframe does not stop script inside the frame
+    from focusing its own elements.
+  - Once laid out, the explorer booting while off moved focus to its `#list`.
+    Measured: off-frame `hasFocus()` true, the shown wheel lost focus.
+  - The shell now listens for each frame window's `focus` event (and checks
+    `hasFocus()` at the frame's load). If that frame is off, it hands focus
+    back to the shown frame on the next task. The deferral is needed because
+    the window's `focus` event fires before the element focus that caused it
+    completes; measured, an immediate hand-back was overridden.
+- **Not changed:** the explorer file; loading order or lazy loading; no
+  readiness signal is read from either instrument.
+
+### F2 correction (B11)
+
+- **Cause:** a same-document arrival while the wheel frame's first
+  navigation had not committed (`contentWindow.location` still
+  `about:blank`) took neither branch of `arrive`, so the route was dropped.
+- **Change:** a new `wheelPending()` is true when the frame has a `src` but
+  its document is still the initial `about:blank`. In that state `arrive`
+  re-sets `src` to the new route.
+  - Navigating away from the initial `about:blank` is a replacement, so no
+    history entry is added.
+  - The newest request supersedes the pending one, so the last valid route
+    requested wins.
+  - Rejected and malformed arrivals resolve to the empty route as before
+    (B5, B6), so a rejected route requested last lands at rest.
+- Once the wheel has committed, the existing hash-assignment path applies,
+  unchanged.
+
+### F3 amendment (B12)
+
+The "Same-document arrival" line of the shell contract now reads as amended
+there. No code change was needed: the behaviour robqa verified (decision 3)
+is what B12 accepts.
+
+### Verification of the rework (working tree; same harness, plus `fixtest.mjs`, `offprobe.mjs`)
+
+Headless Edge `Edg/154.0.4258.53`, local HTTP, 360 @2x, 768 and 1440.
+
+- **Targeted (`fixtest.mjs`): 144 checks, 144 passed.**
+  - **F1, 54 checks:**
+    - left after 0, 100, 250 and 600 ms, and Back during boot: the
+      self-test reads "N of N passed" while off, with no self-check warning;
+    - the off explorer's boot does not leave focus in the off frame;
+    - shown afterwards: 216 visible entries and no overflow;
+    - focus moved into the off frame by its own script is handed back.
+  - **F2, 75 checks.** The wheel response was delayed 1.5 s. Cases:
+    - one valid arrival;
+    - two arrivals, where the last wins;
+    - a malformed arrival, which lands at rest;
+    - an encoded Mechanics arrival, which lands at rest;
+    - a valid arrival followed by a Mechanics one, which lands at rest.
+
+    Each lands frame and URL at the last request. Entries equal the
+    browser's navigations only, with no extra. `mechanics` never reaches an
+    entry or the frame `src`. Back and Forward stay consistent, with no
+    exception.
+  - **F3, 15 checks:**
+    - an arrival into a loaded wheel is still +2;
+    - a typed-URL session (wheel change, typed wheel route, wheel change,
+      typed `#mechanical-color-pie`, typed wheel route):
+      - Back traverses every created state in reverse, with duplicates
+        allowed and nothing lost;
+      - Forward returns to the last state;
+      - every step's URL equals view + frame, at constant length.
+- **Off-frame probe (`offprobe.mjs`)**, explorer left at 0 and 100 ms and
+  booted while off:
+  - 40 Tab presses: 0 into the off frame;
+  - the main accessibility tree exposes only "Color Wheel";
+  - the off explorer's own tree exposes 0 non-ignored nodes out of 1,294;
+  - after boot, focus is in the wheel, not the explorer.
+- **Full regression (`gateb.mjs`, updated only to read the off state as
+  `is-off` plus `inert`, both required to agree): 305 checks, 305 passed,
+  at all three widths.** Every G criterion passes as before.
+- **Static:**
+  - the four gates exit 0, with output byte-identical to Step 0;
+  - `node --check` passes on the shell's script (7,489 chars);
+  - `git diff --check` is clean;
+  - the instruments are unchanged (wheel `1cdbefd7…`, explorer CR-stripped
+    `7a5540d2…`);
+  - shell `vox-color/index.html`: 332 lines, sha256 `fc569f4c80ccde8ae8374c880797436be423121c083b3ca1acea07f8e44fa286`.
+
 ## Decisions needed
 
-None open. For the Owner at acceptance (no blocker or major): whether F1 and
-F2 belong in Gate B (both are shell-caused and shell-fixable) or go to
-Follow-ups, and whether to accept decision 3 as an amendment to the
-"same-document arrival" contract line (F3).
+None open. `robqa`'s F1–F3 on `64b8794` were ruled by the Owner (B10–B12).
+
 
 ## Follow-ups
 
 - **Gate B (new):**
-  - A same-document arrival to a wheel route costs one redundant Back step
-    (decision 3). Gate E bridges will arrive through shell URLs; revisit
-    there if that matters.
+  - A same-document arrival into a loaded wheel costs one redundant Back
+    step. It was accepted under B12. Gate E bridges will arrive through
+    shell URLs; revisit there only if that matters.
   - `CLAUDE.md` gives `HANDOFF.md` as "~166" lines; ledgers run longer.
     Unrelated to the shell, so left alone.
 - **Carried forward unchanged from the Gate A ledger (`5252333`):**

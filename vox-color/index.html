@@ -5,11 +5,17 @@
 ==============================================================================
  One header, two instruments. Each instrument is its own document in its own
  same-origin iframe, so their CSS, globals, keyboard and Escape handlers and
- routers never meet. This file edits neither of them, reads nothing from
- them except the Color Wheel's hash, and writes nothing into them except a
- validated wheel route. Spec: PRODUCT-DEFINITION.md §9 and §11; the Gate B
- contract and Owner decisions B1–B9 are in HANDOFF.md (git history once
- Gate B closes).
+ routers never meet. This file edits neither of them. It reads only the
+ Color Wheel's hash and listens only for the wheel's hashchange and either
+ frame gaining focus; it writes nothing into them except a validated wheel
+ route. Spec: PRODUCT-DEFINITION.md §9 and §11; the Gate B contract and
+ Owner decisions B1–B12 are in HANDOFF.md (git history once Gate B
+ closes).
+
+ The inactive frame is switched off, not display:none: it stays laid out
+ (an instrument booting there runs as it would on screen), is not painted,
+ is inert, and any focus its own script takes is handed back to the shown
+ frame.
 
  ROUTES (the shell URL is canonical)
  -----------------------------------
@@ -97,11 +103,14 @@
   }
   .views a:focus-visible { outline:2px solid var(--brass-l); outline-offset:3px; }
 
-  .frames { flex:1; min-height:0; }
-  .frames iframe { display:block; width:100%; height:100%; border:0; background:var(--ground); }
-  /* hidden must win: it takes the inactive frame out of the tab order and
-     the accessibility tree. */
-  .frames iframe[hidden] { display:none; }
+  .frames { flex:1; min-height:0; position:relative; }
+  .frames iframe { position:absolute; inset:0; display:block; width:100%; height:100%; border:0; background:var(--ground); }
+  /* The inactive frame stays laid out at full size, so an instrument still
+     booting there runs exactly as it would on screen (the explorer's
+     self-test reads layout, which display:none would remove). It is not
+     painted, and `inert` (set with this class) takes it out of the tab
+     order and the accessibility tree. */
+  .frames iframe.is-off { visibility:hidden; }
   .frames iframe:focus { outline:none; }
 
   .sr-only {
@@ -133,7 +142,7 @@
 
 <div class="frames">
   <iframe id="frame-wheel" name="color-wheel" title="Color Wheel"></iframe>
-  <iframe id="frame-pie" name="mechanical-color-pie" title="Mechanical Color Pie" hidden></iframe>
+  <iframe id="frame-pie" name="mechanical-color-pie" title="Mechanical Color Pie" class="is-off" inert></iframe>
 </div>
 
 <p id="announce" class="sr-only" aria-live="polite" aria-atomic="true"></p>
@@ -196,6 +205,13 @@
 
   function loadWheel(route) { frames.wheel.src = SRC.wheel + (route ? '#' + route : ''); }
 
+  /* True while the wheel frame's first navigation has not committed yet: its
+     document is still the initial about:blank. */
+  function wheelPending() {
+    if (!frames.wheel.getAttribute('src')) return false;
+    try { return frames.wheel.contentWindow.location.href === 'about:blank'; } catch (e) { return false; }
+  }
+
   /* Wheel -> shell. Runs on the frame's load and hashchange and after every
      traversal; never adds a history entry. */
   function sync() {
@@ -212,13 +228,15 @@
     announceTimer = setTimeout(function () { live.textContent = text; }, 60);
   }
 
-  /* Show one view. The other frame is hidden, which removes it from the tab
-     order and the accessibility tree. A frame gets its src on first show. */
+  /* Show one view. The other frame is switched off (is-off + inert), which
+     removes it from sight, the tab order and the accessibility tree. A frame
+     gets its src on first show. */
   function show(v, moved) {
     var changed = v !== view;
     view = v;
     [WHEEL, PIE].forEach(function (k) {
-      frames[k].hidden = k !== v;
+      frames[k].classList.toggle('is-off', k !== v);
+      frames[k].inert = k !== v;
       if (k === v) links[k].setAttribute('aria-current', 'page');
       else links[k].removeAttribute('aria-current');
     });
@@ -238,11 +256,14 @@
      same write the wheel makes itself. Replacing it in place would rewrite
      the previous entry too, because Chromium shares the frame's history
      item with it; the cost is that Back from such an arrival passes once
-     through the arrival's own entry, which shows the prior wheel route. */
+     through the arrival's own entry, which shows the prior wheel route.
+     A wheel frame whose first navigation is still pending is re-pointed at
+     the new route instead: that replaces the pending navigation, adds no
+     entry, and the last valid route requested wins. */
   function arrive(t, moved) {
     if (t.view === WHEEL) {
       var cur = frameRoute();
-      if (!frames.wheel.getAttribute('src')) loadWheel(t.route);
+      if (!frames.wheel.getAttribute('src') || wheelPending()) loadWheel(t.route);
       else if (cur !== null && cur !== t.route) {
         try { frames.wheel.contentWindow.location.hash = t.route; } catch (e) { /* file:// */ }
       }
@@ -279,10 +300,30 @@
     setTimeout(sync, 0);
   });
 
+  /* An instrument can move focus inside its own document while its frame is
+     off (the explorer does during its first boot). The off frame is laid
+     out, so that focus would land out of sight; it is handed back to the
+     shown frame. */
+  function giveBack() {
+    try { frames[view].contentWindow.focus(); } catch (e) { /* file:// */ }
+    frames[view].focus();
+  }
+  function guardFocus(k) {
+    try {
+      var w = frames[k].contentWindow;
+      /* deferred: the window's focus event fires before the element focus
+         that caused it completes */
+      w.addEventListener('focus', function () { setTimeout(function () { if (view !== k) giveBack(); }, 0); });
+      if (view !== k && w.document.hasFocus()) giveBack();
+    } catch (e) { /* file:// */ }
+  }
+
   frames.wheel.addEventListener('load', function () {
     try { frames.wheel.contentWindow.addEventListener('hashchange', sync); } catch (e) { /* file:// */ }
+    guardFocus(WHEEL);
     sync();
   });
+  frames.pie.addEventListener('load', function () { guardFocus(PIE); });
 
   arrive(parse(location.hash), false);
 })();

@@ -27,7 +27,8 @@ this guide are the current operating rule.
 - `vox-color/index.html` is the integration shell for The Color Pie
   (Gate B): one header and nav over two same-origin iframes holding
   `color-wheel.html` and `mechanical-explorer.html`, which stay separate,
-  unedited documents. It reads only the wheel's hash and writes only a
+  unedited documents. It reads only the wheel's hash (and watches each
+  frame's focus, to keep focus out of the inactive one) and writes only a
   validated route into it. Routes: `index.html` (Color Wheel at rest),
   `#color-wheel/<wheel route>` (passed through verbatim) and
   `#mechanical-color-pie`; anything else, malformed percent-encoding, or the
