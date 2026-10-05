@@ -16,6 +16,12 @@ remaining fields are intentionally blank.
   independent) — candidate ca8873b". Not `complete`: Owner acceptance
   pending.
   - **Transition:** `ready-for-qa -> qa-passed` (`robqa`, 2026-10-04).
+  - **Owner ruling B13 (2026-10-04), recorded by the coordinating agent; no
+    status change:** F4 is accepted as a known minor limitation and
+    deferred to Gate D. It is not a Gate B blocker. No product change
+    follows. The candidate remains `ca8873b`, and `qa-passed` stands.
+    `ca8873b` is ready for Owner acceptance
+    (stop point 3).
 - Earlier status: `ready-for-qa`. Gate B material candidate **`ca8873b`**
   (`ca8873b8d004624a3dee57a57fa73ad6a76117d7`): the rework of `64b8794` under B10–B12, covering
   `vox-color/index.html`, one `AGENTS.md` line and this ledger.
@@ -191,6 +197,19 @@ of scope; `#four=W%22` stays deferred to Gate C.
   reload, replacing away a legitimate prior entry, editing either
   instrument, custom history virtualization, new persistence, or
   significant routing complexity.
+- **B13 — F4, accepted and deferred to Gate D (2026-10-04).**
+  - **Severity:** minor; accepted known limitation.
+  - **Status:** deferred to Gate D.
+  - **Gate B blocker:** no.
+  - **Basis:** it occurs only when the Mechanical Color Pie is left during
+    its first load and a key lands in the roughly 8–12 ms focus-transition
+    window. It does not corrupt shell routing, browser history, URL/frame
+    consistency, tab order or accessibility-tree isolation, and the next
+    Tab resumes from the expected place. Removing the window would need
+    instrument-specific focus coupling or explorer changes, beyond the
+    Gate B shell scope. Gate D owns explorer-specific behaviour.
+  - **No further Gate B product change:** no instrument edit, no additional
+    shell focus machinery, no broadening of Gate B.
 
 ## Shell contract (derived from §9, B1–B7 and B10–B12; no new route semantics)
 
@@ -986,6 +1005,7 @@ explorer is shown).
 
 ### Findings
 
+- **[Owner ruling B13: accepted known minor; deferred to Gate D; not a Gate B blocker.]**
 - **F4 — minor (shell-caused by the B10 mechanism; no G criterion or
   ruling violated; non-failing). An explorer booting in the off frame
   still takes real focus, briefly and with side effects.**
@@ -1053,12 +1073,19 @@ explorer is shown).
 
 ## Decisions needed
 
-None open. `robqa`'s F1–F3 on `64b8794` were ruled by the Owner (B10–B12).
+None open. `robqa`'s F1–F3 on `64b8794` were ruled by the Owner (B10–B12),
+and F4 on `ca8873b` by B13.
 
 
 ## Follow-ups
 
 - **Gate B (new):**
+  - **F4 → Gate D (B13).** It is an accepted known minor. If the Mechanical
+    Color Pie is left during its first load, its self-test briefly takes
+    focus in the off frame, for about 8–12 ms. A key pressed in that window
+    lands there, and the shown wheel loses its focus ring; the next Tab
+    resumes as expected. Reconsider it in Gate D, the explorer's own story,
+    if needed. Gate B adds no more shell focus machinery for it.
   - A same-document arrival into a loaded wheel costs one redundant Back
     step. It was accepted under B12. Gate E bridges will arrive through
     shell URLs; revisit there only if that matters.
