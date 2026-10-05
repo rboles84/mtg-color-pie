@@ -7,9 +7,16 @@ remaining fields are intentionally blank.
 
 ## Control
 
-- Status: `dev-in-progress`. **The Color Pie — Gate C: Color Wheel
-  shell-readiness cleanup.** Step 0 is recorded below and the scope is
-  frozen. Implementation follows in this session.
+- Status: `ready-for-qa`. Gate C material candidate **`c4f3a96`**
+  (`c4f3a9686a2fcfeee5155e42662185dd58d622df`): `vox-color/color-wheel.html`, one `AGENTS.md` line, and this
+  ledger.
+  - **Transition:** `dev-in-progress -> ready-for-qa` (`robdev`,
+    2026-10-04). No candidate-affecting edit after `c4f3a96`; this commit
+    changes `HANDOFF.md` only. Next: independent `robqa` on that exact
+    commit. Not `qa-passed`, not accepted.
+- Earlier status: `dev-in-progress`. **The Color Pie — Gate C: Color Wheel
+  shell-readiness cleanup.** Step 0 recorded below, scope frozen;
+  implementation followed in the same session.
   - **Transition:** `complete -> idle -> dev-in-progress` (coordinating
     agent as `robdev`, 2026-10-04, on the Owner's Gate C brief in chat,
     recorded as decisions C-O1 to C-O8 below).
