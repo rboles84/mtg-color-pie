@@ -7,7 +7,14 @@ remaining fields are intentionally blank.
 
 ## Control
 
-- Status: `ready-for-qa`. Gate C material candidate **`4f24c63`**
+- Status: `qa-passed`. Gate C material candidate **`4f24c63`**
+  (`4f24c634bdf2dbbde6d887699002429e2fb902b3`) passed independent `robqa`.
+  - No blocker or major. There are two non-failing minors (F1, F2) and
+    three notes. See "QA (robqa, independent) — candidate 4f24c63".
+  - **Transition:** `ready-for-qa -> qa-passed` (`robqa`, 2026-10-05).
+  - Next: Owner review. Not `complete` and not accepted; only the Owner or
+    the coordinating agent marks `complete`.
+- Earlier status: `ready-for-qa`. Gate C material candidate **`4f24c63`**
   (`4f24c634bdf2dbbde6d887699002429e2fb902b3`): `vox-color/color-wheel.html` (C1–C4, with C3 covering both
   links), one `AGENTS.md` line from `c4f3a96`, and this ledger.
   - **Transition:** `dev-in-progress -> ready-for-qa` (`robdev`,
@@ -432,12 +439,331 @@ Headless Edge `Edg/154.0.4258.53`, local HTTP; 360×780 @2x (mobile), 768,
 - The Fan Content Policy link now opens a new tab without saying so in its
   text. Adding that would be new copy (C-O3), so it is noted, not added.
 
+## QA (robqa, independent) — candidate 4f24c63
+
+**2026-10-05, `robqa`, separate session.** Verdict: **`qa-passed`**. No
+blocker, no major. Two minors, neither violating a criterion, ruling or
+invariant; recorded below and under Follow-ups for the Owner.
+
+### Method
+
+- Started from C-O1 to C-O12 and GC1–GC6, then the diff
+  (`git diff b62131b 4f24c63`). robdev's scripts were not run or copied.
+- Reused only `cdp.mjs` and `srv.mjs`, and, for the Gate B shell regression,
+  `qa1/qa2/qa3.mjs` from QA's own `robqa-ca8873b` (copied unchanged as
+  `gb-qa*.mjs`). Everything else is new.
+- The baseline wheel is my own `git show b62131b:vox-color/color-wheel.html`.
+  It is served by `srv.mjs` at the same URL path as the candidate, so both
+  run on the same origin, path and shell.
+- Environment: headless Edge `Edg/154`, over local HTTP and `file://`.
+  Widths 360×780 @2x (mobile), 768×1024 and 1440×900, with normal and
+  reduced motion.
+- Every route check covers direct load, in-page `hashchange` and the shell
+  (`#color-wheel/…`). Clicks are trusted CDP `Input.dispatchMouseEvent`
+  events at a point inside one of the target's client rects, confirmed with
+  `elementFromPoint`. Key presses are CDP key events.
+- Scripts and outputs are in the session scratchpad, `robqa-4f24c63\`:
+  - `reg.mjs`, `c3.mjs`, `c4.mjs`, `c12.mjs`, `brace.mjs`;
+  - `cdn.mjs`, `rowshift.mjs`, `inject.mjs`, `overflow.mjs`;
+  - `gb-qa1/2/3.mjs`;
+  - `*-results.json`, `*.log`, `shots\`.
+
+### Results
+
+| Criterion | Result | Checks |
+|---|---|---|
+| GC1 envelope | pass | static (below) |
+| GC2 / C1 | pass | 155 / 155 (+ 1 detector control) |
+| GC3 / C2 | pass | 266 / 266 |
+| GC4 / C3 | pass | 162 / 162 |
+| GC5 / C4 | pass | 1,513 / 1,513 |
+| C-O11 deferral | holds | 9 / 9 |
+| GC6 no regression | pass | 1,290 / 1,290 own; Gate B lineage 833 / 835 (the 2 are the known harness expectation error, below) |
+
+**GC1 — pass.**
+
+- **Changed paths `b62131b..4f24c63`:** `vox-color/color-wheel.html`
+  (5 hunks, +14/−8), `AGENTS.md` (1 line) and `HANDOFF.md`.
+  - `git diff 4f24c63 -- . ':!HANDOFF.md'` is empty;
+  - `git status --porcelain` shows only `?? dev.lnk`, untouched;
+  - the working-tree wheel is byte-equal to the `4f24c63` blob.
+- **Hashes:**
+  - explorer blob `f3b93da…`, sha256 `7a5540d2…`;
+  - shell blob `a473278…`, sha256 `fc569f4c…`.
+
+  Both equal S0-1 and the `b62131b` blobs: the Mechanical Color Pie and
+  the shell are byte-identical. The wheel's sha256 is `d5389f68…`, 4,110
+  lines.
+- **No new dependency:** the sorted `<script src>`/`<link href>` lists of
+  baseline and candidate are identical (md5 `2173c635…`). The `<style>`
+  blocks are identical, so no CSS or colour token was added.
+- **Four gates:** exit 0, and the output md5 is
+  `8b4dcf27a859ea32f31eac55632adf92` (`gates.txt`).
+- **Static checks:**
+  - `node --check` passes on the extracted inline script (1 script,
+    250,164 chars), and on the baseline's (249,795);
+  - `git diff --check b62131b 4f24c63` is clean.
+- **Every changed product line, read:** C2 markup and comment (1159–1161);
+  C3 `target="_blank"` on the footer link (1484) and in `pairSrc` (1656);
+  C1 glyph (3639); C4 `CSS.escape` and its comment in `applyRoute`
+  (3990–3997). Nothing else changed.
+- **C-O12:** the dormant preview code is untouched.
+  - The `MCP-RUNTIME` block md5 is identical;
+  - `enableMechanicsPreview`, `renderWorld` (15), `mcp` (98) and
+    `layers.mech` (2) occurrence counts are equal to the baseline;
+  - no hunk touches the preview code.
+- **`AGENTS.md`:** the one line ("…remains hidden and disabled…") is the
+  envelope's single foreseen line, and it is narrowly necessary. The old
+  checklist ("remains disabled") was already true at the baseline, so it
+  could not catch a C2 regression.
+
+**GC2 / C1 — pass.**
+
+- **Glyph** (`c12.mjs`), standalone and in the shell at 3 widths, 36/36:
+  - exactly one `i.ms.ms-c`, `role="img"`, `aria-label="colorless mana"`,
+    inside the "Not the same thing as" paragraph, and the baseline has none;
+  - it renders through mana-font: font-family `Mana`, `::before` U+E904,
+    a 15×15 box at 360, `document.fonts.check` true;
+  - its colour equals the paragraph's (`rgb(220, 207, 182)`), at the same
+    font size, with a transparent background and no `ms-cost` disc;
+  - the paragraph `textContent` equals the baseline's minus `{C}`, exactly.
+- **Accessibility tree** (CDP `Accessibility.getFullAXTree`, the frame's
+  tree in the shell): one `image` named "colorless mana" and no `{C}` text.
+  The baseline has `{C}` text and no such image.
+- **Screenshots** in `shots\c1_{standalone,shell}_{360@2x,768,1440}_{base,cand}.png`,
+  inspected: the diamond glyph appears in the text colour where `{C}` was.
+  At 1440 it ends a line ("mana; ◇" / "demands …").
+- **Fresh sweep** (`brace.mjs`, regex `\{[^{}\s"']{1,10}\}` over every
+  text node outside script and style, and every attribute), 64/64:
+  - wheel: all 53 states (rest, 5 colors, 5 crossings, 5 alliances, 5
+    conflicts, 32 Combine sets), plus every conflict view, with closed
+    drawers included. That is 34,667 text nodes and 112,347 attributes,
+    with **0 hits**;
+  - explorer: rest, **216 of 216** entries opened through `VMX.open`, the
+    lenses W, U, B, R, G, WU and WUBRG, and A–Z, with **0 hits** and a
+    self-test with 0 failures;
+  - detector control: the same sweep finds `{C}` in the baseline's
+    `#combine=`.
+- **No other mana rendering changed:** the `.ms` element list (class, role,
+  label, `aria-hidden`) equals the baseline in 52 of 53 states. In
+  `#combine=` it is the baseline plus the one C1 glyph (95 → 96), 53/53.
+- **CDN blocked** (`cdn.mjs`): see F1.
+
+**GC3 / C2 — pass** (`c12.mjs`).
+
+- **`#lay-mech`** (3 widths, standalone and shell, plus `file://` at 1440):
+  - `hidden`, `display:none`, a 0×0 box, still `disabled`,
+    `aria-pressed="false"`;
+  - absent from the accessibility tree, where the baseline exposes it;
+  - hidden and disabled in all 53 states by a `hashchange` walk.
+- **Tab order:** 6 Tabs and 3 Shift+Tabs from Alliances go Conflicts →
+  Four-Color → WU → UB → BR → RG and back, never `#lay-mech`. This is
+  identical to the baseline, where `disabled` already kept it out of the
+  Tab order.
+- **Other layer controls** (id, pressed, hidden, display, text, width):
+  identical to the baseline at every width.
+- **Retired routes** (154 checks): Gate A's 14 forms plus
+  `?q=1#mechanics=atlas`, at 360 and 1440, on load and by `hashchange`,
+  and on `file://`. Each lands in Explore at rest:
+  - the hash is removed in place, with no added history entry;
+  - there is no `proto-on`, and `#world` stays hidden;
+  - `#lay-mech` stays hidden and disabled;
+  - the end state equals the baseline apart from C2, with no exception.
+- **Back/Forward** over `#color=W → #mechanics=atlas → #ally=WU` equals
+  the baseline, with no preview and no loop.
+- **Shell:** `#color-wheel/mechanics=atlas` has the same outcome as the
+  baseline shell.
+- **Near-misses** (72 checks): Gate A's 8, plus `#mechanic`,
+  `#mechanicss=atlas`, `#lay-mech` and `#mech=atlas`. All are Explore with
+  no preview, equal to the baseline.
+- **No replacement feature:** the full signature (every button, every mark
+  and the panel HTML) equals the baseline in every state apart from the
+  three authorised changes (GC6).
+- Screenshots: `shots\c2_rest_*`.
+
+**GC4 / C3 (C-O9) — pass** (`c3.mjs`, 162/162).
+
+- **Network:** `*.wizards.com` is blocked browser-wide
+  (`--host-resolver-rules`, which covers popups) and per page.
+- **Cases:** Fan Content Policy (from `#four=G`); Disorderly Conduct in the
+  RW conflict panel's Sources & scope (`#enemy=RW`, drawer opened by a
+  trusted click); and Disorderly Conduct in the Combine RW panel
+  (`#combine=WR`). Each ran standalone and in the shell at 3 widths: 18
+  runs.
+- **Trusted click:** the click hit the link by `elementFromPoint` in every
+  run, and in the shell the top-level hit is `frame-wheel`. At 768 the
+  conflict link wraps over 2 lines, and the click used one line box.
+- **In every run:**
+  - exactly one new page opens, with this page as opener and the link's
+    URL;
+  - there are **no** `frameRequestedNavigation`, `frameNavigated`,
+    `frameStartedLoading` or `navigatedWithinDocument` events on the page
+    or the wheel frame;
+  - the wheel stays loaded (5 vertices, `readyState` complete);
+  - the top URL and history length, the wheel URL and history length, body
+    classes, every `aria-pressed`, the panel text, the drawer state and the
+    shell view and `aria-current` are identical before the click, after it,
+    and after closing the new page and returning to the original page;
+  - the route is kept;
+  - there are no exceptions and no console or log errors. The test server's
+    `/favicon.ico` 404 was excluded by URL, after `fav.mjs` confirmed its
+    source.
+- **Attributes:** both links are `target="_blank" rel="noopener"`, with no
+  `noreferrer`.
+- **No other link changed:** every `<a>` (href, target, rel, text) equals
+  the baseline in every GC6 state once those two `target`s are normalised
+  away.
+
+**GC5 / C4 (C-O10) — pass** (`c4.mjs`).
+
+- **Exact case `#four=W%22`** at 3 widths:
+  - throws nothing on load, by `hashchange`, on `file://`, or as
+    `#color-wheel/four=W%22` (shell load, and arrival into an open shell);
+  - its end state equals `#four=Q`'s;
+  - the URL is kept verbatim, equal to what the baseline shows.
+
+  The baseline throws `SyntaxError … '.cross[data-key="W""]' is not a
+  valid selector`.
+- **Each family** (`four`, `color`, `ally`, `enemy`) at 1440, with 35
+  unsafe values: quotes, `"` runs, `[`, `]`, `\`, `\"`, `*`, `,`, `:`,
+  `:hover`, two selector-injection strings, `'`, a backtick, `{}`, `#`,
+  `.`, a leading space, `%00`, `%0A`, ✓, 日本, 🔥, a zero-width space, 5,000
+  × `W`, 1,500 × `"` and 800 × `"]`.
+
+  All 1,420 checks pass: no exception on any path; the unknown-value
+  fallback state (`Q`/`QQ`), standalone, `hashchange`, shell and
+  `file://`; and the route string equal to the baseline's. The baseline
+  threw `SyntaxError` on 32 of these at 1440.
+- **Valid values** (all 20) and 13 safe invalid ones (`Q`, `w`, `WU`, `UW`,
+  `WW`, empty, `1`, `-`, `--`, `W%20`, ✓, `W.U`, `WUBRG`): equal to the
+  baseline on load, by `hashchange` and in the shell, covering the selected
+  marks, panel, hash and history. Valid hashes are not rewritten. 93/93.
+
+**C-O11 — the deferral holds; C4 does not change it.**
+
+- `#%E0%A4%A`, `#four=%E0%A4%A` and `#color=W%E0%A4%A` still throw
+  `URIError: URI malformed` on load and by `hashchange`, at 3 widths. The
+  message and the end state are identical to the baseline.
+- In the shell, both versions show no wheel error, because the accepted
+  Gate B shell does not pass that hash through.
+- It is not fixed, and it is not an unexpected change. 9/9.
+
+**GC6 — pass** (`reg.mjs`, 972/972).
+
+- **Comparison method:** candidate vs baseline, at 3 widths × normal and
+  reduced motion. The full signature covers:
+  - every button: pressed, disabled, hidden, display, text, title and
+    label;
+  - every wheel mark's class and pressed state;
+  - the panel HTML and text, the combo polygon, `#world`, the layer note,
+    the viewBox and atlas selection;
+  - every link, the hash, the history length, horizontal overflow and the
+    active element.
+- **Allowed differences:** only C1 (glyph ↔ `{C}`), C2 (the `#lay-mech`
+  row) and C3 (the two `target`s) are normalised away.
+- **Direct loads:** all 53 states. **By `hashchange`:** all 53 states.
+- **Trusted-mouse sequence** (33 steps):
+  - vertex, ally, face, Conflicts on, enemy RW and its views, Four-Color,
+    crossing, Clear, Escape, layer toggles;
+  - Combine from rest, the centre mark, add and remove through 1–5
+    colours, a neighbour chip, Combine RW, Explore (prior layers
+    restored);
+  - 5 Back/Forward steps.
+- **Keyboard sequence** (16 steps): Enter and Space on a vertex, an ally,
+  a crossing, an enemy and the centre mark; layer buttons; Tab; Combine
+  and Explore by Enter; Escape.
+- **Combine bounce** (`#color=W` and `#ally=RG`, then Combine, then Back):
+  identical to the baseline, so the pre-existing bug is unchanged and not
+  worsened.
+- **Errors:** 0 exceptions and 0 console errors in all 12 page runs.
+- **Overflow** (`overflow.mjs`): 0 px of horizontal overflow in all 53
+  states, with every drawer open, standalone and framed, at 3 widths:
+  318/318.
+- **Gate B shell regression** (QA lineage, unchanged):
+  - qa1 108/108 (routing, mirroring, Back/Forward, view switching, focus);
+  - qa2 666/666 (framed = standalone; malformed routes 132/132; retired
+    routes 426/426);
+  - qa3 57/59.
+
+  The 2 qa3 failures are "rapid 12 alternate nav clicks" at 1440 and 360.
+  Their detail is identical to the `robqa-ca8873b` run: this is the
+  expectation string recorded at `b62131b` as "written wrongly", and the
+  measured pattern is correct. qa3's earlier sub-pixel G16 difference did
+  not recur (24/24).
+
+### Findings
+
+- **F1 — minor (non-failing; follow-up).** With the CDN unavailable, the C1
+  glyph renders as nothing.
+  - **Repro:** `cdn.mjs`, `#combine=` with `*jsdelivr*`, `*googleapis*`
+    and `*gstatic*` blocked.
+  - **Expected:** the HANDOFF note says it "shows as a box", like other
+    wheel glyphs.
+  - **Actual:** the `<i>` is 0 px wide. The sentence reads "A generic cost
+    takes any mana; demands mana that actually has no color." The
+    baseline showed `{C}` there. Its accessible name is intact (1 image,
+    "colorless mana"), and there is no error or overflow.
+  - **Impact:** only when jsdelivr fails. It follows from C-O1 (the
+    mana-font system) and the carried "no no-mana fallback" limitation. It
+    violates no criterion. robdev's "box" description is inaccurate.
+- **F2 — minor (non-failing; follow-up).** The width band where the layers
+  row reflows has moved.
+  - **Repro:** `rowshift.mjs`, from 320 to 1000 px in 10 px steps, at rest
+    vs `#color=W` (Clear shown).
+  - **Actual:**
+    - in the candidate, at 340–390 px, which includes 360, the resting
+      row is one line (34 px) and becomes two (74 px) when Clear appears.
+      The wheel and panel shift down 40 px on the first selection and
+      back on clearing;
+    - the baseline had the same 40–42 px shift at 330, 540–560 and
+      640–700 px, which the candidate no longer has (11 → 6 of 69 widths
+      sampled).
+  - **Expected / impact:** each state, taken on its own, is identical to
+    the baseline apart from the hidden control. The behaviour class is
+    pre-existing, with fewer affected widths overall. It is a direct
+    consequence of C2 and needs no change in Gate C. The Owner may want it
+    noted for 360.
+- **N1 — note.** C4 changes the outcome of selector-injection URLs, as
+  intended (C-O4, "no guessing").
+  - In the baseline, `#ally=W%22%5D,.vertex%5Bdata-key%3D%22U` opened
+    Blue's panel, `#color=W%22%5D,…` opened White's, and
+    `#four=%22%5D,%5Bdata-key%3D%22W` opened "Non-White" (`inject.mjs`).
+  - In the candidate, all take the unknown-value fallback.
+- **N2 — note.** Developer comments in `color-wheel.html` are now stale:
+  - line 1146 says "LAYER 4 button is present but disabled";
+  - lines 1787–1789 say it "stays DISABLED in the markup until the panel
+    has had a visual review".
+
+  Neither is reader-facing. Leave them for the retirement story (C-O12).
+- **N3 — note.** The amended `AGENTS.md` line is 87 characters, the only
+  line over 80 in the file. It keeps the word "unbuilt", which is known to
+  be stale.
+
+### Blocked
+
+None in scope. As in Gates A and B, a human must check `file://` hard
+reload and Back/Forward on the standalone wheel. iOS, Firefox and real
+screen-reader speech are out of scope (C-O6/C-O8).
+
 ## Decisions needed
 
 None open. The C3 scope question (the Disorderly Conduct link) was settled
 by the Owner in C-O9: it is one of the two Gate C links.
 
 ## Follow-ups
+
+- **From Gate C `robqa` (`4f24c63`), not fixed:**
+  - **F1:** with mana-font unavailable, the C1 colorless glyph is 0 px wide,
+    and the sentence loses its subject visually. Its accessible name is
+    kept. Part of the carried "no no-mana fallback" item.
+  - **F2:** hiding `#lay-mech` moves the band of widths where the layers
+    row reflows when Clear appears.
+    - It is now 340–390 px, including 360: the wheel shifts 40 px on the
+      first selection.
+    - At the baseline it was 330, 540–560 and 640–700 px.
+  - **N2:** stale developer comments at `color-wheel.html` lines 1146 and
+    1787–1789. Leave them for the preview-retirement story.
+  - **N3:** the amended `AGENTS.md` line is unwrapped (87 characters).
 
 - **Gate D (carried from the Gate B ledger, `b62131b`; Owner-assigned):**
   - **Gate D — the explorer's detail keeps the previous entry's scroll
