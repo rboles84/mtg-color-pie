@@ -1080,6 +1080,32 @@ and F4 on `ca8873b` by B13.
 ## Follow-ups
 
 - **Gate B (new):**
+  - **Owner-reported, 2026-10-04 (videos `color wheel1/2.mp4` and
+    `mechanicalPie1.mp4`); both are instrument defects, outside Gate B, and
+    neither is caused by the shell:**
+    - **Gate C — literal `{C}` in the Color Wheel.**
+      - **Location:** `color-wheel.html:3638`, in the Combine colorless
+        panel's "Not the same thing as." paragraph, rendered as raw text.
+      - **Scope:** it is the only literal `{…}` mana code in either
+        instrument's rendered text, attributes included. The scan covered
+        the wheel at rest, all 5 colors, 5 crossings, 5 alliances, 5
+        conflicts and all 32 Combine sets, and the explorer at rest, with
+        all 216 entries opened and each single-color lens.
+      - **Fix direction:** render the mana-font colorless symbol with an
+        accessible name. The wheel's CSS has no `.ms-cost.ms-c` color rule,
+        and `--c` is still an unresolved proposed token (`CONTEXT.md`).
+    - **Gate D — the explorer's detail keeps the previous entry's scroll
+      position.**
+      - **Cause:** `renderDetail` replaces `#detail`'s contents without
+        resetting `scrollTop`.
+      - **Measured standalone, without the shell:** docked at 1440×640, and
+        as the bottom sheet at 360. Open Haste and scroll the detail to the
+        bottom, then open "Tutor" for any card: `scrollTop` stays at 141
+        (docked) and 69 (sheet), and the new title is out of view.
+      - **The shell makes it more frequent in docked mode,** because the
+        frame is shorter than the window by the header's height.
+      - **Fix direction:** reset `#detail`'s `scrollTop` when the picked
+        entry changes.
   - **F4 → Gate D (B13).** It is an accepted known minor. If the Mechanical
     Color Pie is left during its first load, its self-test briefly takes
     focus in the off frame, for about 8–12 ms. A key pressed in that window
