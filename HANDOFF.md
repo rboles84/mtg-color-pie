@@ -7,7 +7,42 @@ remaining fields are intentionally blank.
 
 ## Control
 
-- Status: `ready-for-qa`. Gate C material candidate **`f9b90ec`**
+- Status: `qa-passed`. Gate C material candidate **`f9b90ec`**
+  (`f9b90ec04bb63a00ee457f092ddd3489895e0b31`) passed QA, performed by the
+  Owner by hand (2026-10-05). Not `complete` and not accepted; Owner
+  acceptance is pending.
+  - **Transition:** `ready-for-qa -> qa-passed` (Owner manual QA, recorded by
+    the coordinating agent). The independent `robqa` session on `f9b90ec`
+    was stopped on the Owner's direction before it recorded anything. The
+    Owner's manual run stands as the QA for this candidate.
+  - **Owner manual QA:** a Chromium desktop browser, served by
+    `python -m http.server` from the repository root, at
+    `/vox-color/index.html`. **All 11 checks passed:**
+    1. **F2, 360 px:** the first wheel selection moves neither the wheel nor
+       the panel, and Clear appears on the row's second line.
+    2. **F2, 360 px:** Clear clears the selection, hides itself, and nothing
+       moves.
+    3. **F2, 360 px:** Tab through the layer row at rest goes Alliances,
+       Conflicts, Four-Color, with no invisible stop.
+    4. **F2:** no movement at 768 or 1440 px.
+    5. **C1:** the Colorless panel (`#color-wheel/combine=`) shows the
+       colorless mana symbol, not `{C}`.
+    6. **C2:** the layer row shows only Alliances, Conflicts and
+       Four-Color; no Mechanics control.
+    7. **C3:** Fan Content Policy opens in a new tab; the wheel is
+       unchanged.
+    8. **C3:** Disorderly Conduct (`#color-wheel/enemy=RW`, Sources &
+       scope) opens in a new tab; the wheel is unchanged.
+    9. **C4:** `/vox-color/index.html#color-wheel/four=W%22` loads the
+       wheel at rest, with no console error. (The first attempt 404'd only
+       because the URL left out `/vox-color/`.)
+    10. **Shell:** switching between the Color Wheel and the Mechanical
+        Color Pie, then Back and Forward, shows the right view, with a URL
+        that matches it.
+    11. **F1** remains deferred and non-blocking (C-O13).
+
+    robdev's automated evidence for `f9b90ec` is under "F2 correction".
+- Earlier status: `ready-for-qa`. Gate C material candidate **`f9b90ec`**
   (`f9b90ec04bb63a00ee457f092ddd3489895e0b31`): `vox-color/color-wheel.html` (C1–C4, plus the F2 correction),
   one `AGENTS.md` line from `c4f3a96`, and this ledger.
   - **Transition:** `dev-in-progress -> ready-for-qa` (`robdev`,
