@@ -7,7 +7,27 @@ remaining fields are intentionally blank.
 
 ## Control
 
-- Status: `qa-passed`. Gate C material candidate **`f9b90ec`**
+- Status: `complete`. **The Owner accepted Gate C material candidate
+  `f9b90ec04bb63a00ee457f092ddd3489895e0b31`** (2026-10-05).
+  - **Transition:** `qa-passed -> complete` (Owner acceptance, recorded by
+    the coordinating agent).
+  - **Acceptance scope:** bound to `f9b90ec` only.
+    - The later commits (`618ad76`, `3eecca4`, `4be65d6` and this
+      close-out) change `HANDOFF.md` only.
+    - No product change was made during acceptance, and no story file
+      changes after acceptance.
+    - Browser scope: Chromium desktop.
+  - **Accepted with these follow-ups outside Gate C:**
+    - F1, the 0 px colorless glyph without mana-font (C-O13), which belongs
+      to a broader mana-font/fallback story;
+    - the `#%E0%A4%A` `URIError` (C-O11);
+    - stale developer comments about the Mechanics button (N2);
+    - the unwrapped `AGENTS.md` line (N3);
+    - the Gate D items (the explorer `#detail` scroll, F4, explorer
+      links);
+    - all earlier carried follow-ups.
+  - Gates D and E are not started.
+- Earlier status: `qa-passed`. Gate C material candidate **`f9b90ec`**
   (`f9b90ec04bb63a00ee457f092ddd3489895e0b31`) passed QA, performed by the
   Owner by hand (2026-10-05). Not `complete` and not accepted; Owner
   acceptance is pending.
