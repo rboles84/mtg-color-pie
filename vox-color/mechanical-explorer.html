@@ -592,7 +592,7 @@ html.sheet-open .bar{position:relative}
   <h1>Mechanical Color Pie 2021</h1>
   <p class="lede">Mark Rosewater's article, made searchable. Every entry name, explanation and Primary / Secondary / Tertiary placement on this page comes from his snapshot. The page adds search, a color lens and computed comparisons, all labelled as such.</p>
   <div class="mast-rule" aria-hidden="true"></div>
-  <p class="snap"><a id="snap" href="https://magic.wizards.com/en/news/making-magic/mechanical-color-pie-2021" rel="noopener">Mechanical Color Pie 2021 · snapshot dated October 18, 2021</a><span id="author"> — Mark Rosewater (with the Council of Colors)</span></p>
+  <p class="snap"><a id="snap" href="https://magic.wizards.com/en/news/making-magic/mechanical-color-pie-2021" target="_blank" rel="noopener">Mechanical Color Pie 2021 · snapshot dated October 18, 2021</a><span id="author"> — Mark Rosewater (with the Council of Colors)</span></p>
   <p class="limits" id="limits"></p>
   <p class="meta" id="meta"></p>
 </header>
@@ -682,7 +682,7 @@ html.sheet-open .bar{position:relative}
 <footer class="foot">
   <p>Placements, entry names, sub-headings and explanations are Rosewater's, from the October 18, 2021 snapshot. Counts, best placements under selected colors and compass differences are computed by this page from those placements. Tiers are compared only within one ability, across colors; nothing is summed, scored or ranked.</p>
   <p>Player search terms are navigation aids drawn from player research. They lead to article entries and are never Rosewater's wording. An absent 2021 placement is not evidence that no card of that color exists.</p>
-  <p class="fcp">Vox Mana’s interactive edition of the Mechanical Color Pie 2021 is unofficial Fan Content permitted under the <a href="https://company.wizards.com/en/legal/fancontentpolicy" rel="noopener">Fan Content Policy</a>. Not approved/endorsed by Wizards. Portions of the materials used are property of Wizards of the Coast. ©Wizards of the Coast LLC.</p>
+  <p class="fcp">Vox Mana’s interactive edition of the Mechanical Color Pie 2021 is unofficial Fan Content permitted under the <a href="https://company.wizards.com/en/legal/fancontentpolicy" target="_blank" rel="noopener">Fan Content Policy</a>. Not approved/endorsed by Wizards. Portions of the materials used are property of Wizards of the Coast. ©Wizards of the Coast LLC.</p>
   <p class="selftest" id="selftest" aria-live="off" hidden></p>
 </footer>
 
@@ -1654,8 +1654,10 @@ function renderDetail(){
   }
   const sig = S.pick + '|' + setKey(S.sel);
   if (detailEl._sig === sig && !detailEl.hidden) return;
-  if (detailEl._sig && detailEl._sig.split('|')[0] !== S.pick) srcOpen = false;
+  const newEntry = detailEl._sig && detailEl._sig.split('|')[0] !== S.pick;
+  if (newEntry) srcOpen = false;
   keepFocus(detailEl, () => { detailEl.innerHTML = detailHTML(S.pick); });
+  if (newEntry) detailEl.scrollTop = 0;   /* a different entry opens at its top (Gate D) */
   detailEl._sig = sig; detailEl.hidden = false;
   const src = detailEl.querySelector('.dx-src');
   if (src){ src.open = srcOpen; src.addEventListener('toggle', () => { srcOpen = src.open; }); }
