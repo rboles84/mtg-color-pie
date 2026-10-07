@@ -193,8 +193,9 @@ it has just found.
   check has evidence. Evidence states what was run, where it was run, and the
   observed result, quoted or captured concretely; an assertion that a check
   passed is not evidence.
-- Test observable behavior in a real browser when the task affects rendering,
-  interaction, routing, focus, or motion. Direct `file://` behavior matters for
+- Test objective behavior (routes, DOM state, focus, console) in a real
+  browser when the task affects rendering, interaction, routing, focus, or
+  motion; appearance and feel are the Owner's call (see the robqa skill). Direct `file://` behavior matters for
   the standalone Color Wheel, especially hash assignment. The integration
   shell is verified over local HTTP.
 - Separate defects from preferences. A defect needs a concise reproduction,
@@ -219,8 +220,10 @@ full and use `git diff --no-index --check -- NUL <file>` on Windows (or
 repository's LF-to-CRLF warning is expected and is not itself a whitespace
 defect; do not disregard other whitespace output.
 
-Then select every applicable row below; these are minimums, not a reason to run
-unrelated checks.
+Then classify the change with `.claude/skills/robqa/SKILL.md` (QA-0 to QA-5)
+and apply its cost gate. The rows below are a menu, not a checklist: run only
+the items that exercise behaviour the diff changed, at the depth its class
+requires. Visual judgement goes on the Owner's checklist.
 
 ### Copy, source, or identity data
 

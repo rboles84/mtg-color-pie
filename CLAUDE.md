@@ -12,6 +12,12 @@ them with `Agent(subagent_type: "general-purpose", model: "haiku", ...)` and
 keep only the result. Do not spend the main thread's context on them. Judgement
 work — design, adjudication, anything touching the contract below — stays here.
 
+**Every `Agent` call sets `model` explicitly.** `haiku` for mechanical work,
+the `robqa` agent (Sonnet) for separate QA. Never let a subagent inherit Opus.
+QA follows `.claude/skills/robqa/SKILL.md`: classify first, cheapest checks
+that prove the change, Owner checks visuals, about 30 tool calls. Separate QA
+only for QA-4/QA-5. Development follows `.claude/skills/robdev/SKILL.md`.
+
 **Never suggest `/compact` as a cost-saving measure.** It is not one.
 Compaction re-writes the whole transcript into a fresh cache prefix: you pay a
 full cache-write for the summary and lose every warm read behind it. It exists
@@ -29,7 +35,7 @@ Do not read these end to end to orient yourself. This index is the orientation.
 
 | File | Lines | Open it when |
 |---|---:|---|
-| `HANDOFF.md` | ~166 | **Always first.** The single current-task ledger: status, owner, allowed files, acceptance criteria, open decisions. If Status is `idle`, there is no active task. |
+| `HANDOFF.md` | ~120 | **Always first.** The single current-task ledger: status, owner, allowed files, acceptance criteria, open decisions. If Status is `idle`, there is no active task. |
 | `MECHANICS-CONTRACT.md` | 427 | Touching mechanics data, tiers, selection semantics, or the source/taxonomy/runtime layers. The frozen contract and the gate order live here. |
 | `CONTEXT.md` | 319 | Questions about provenance, the identity registry, source hierarchy, colour tokens, or the type stack. |
 | `AGENTS.md` | 273 | Acting as `robdev` or `robqa`, or unsure what change control permits. Repository map and protected boundaries. |
