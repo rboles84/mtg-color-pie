@@ -10,28 +10,81 @@ each. Keep this file under ~200 lines.
 
 ## Control
 
-- Status: `idle`.
-- Last accepted: **Gate C**, candidate `f9b90ec`, accepted by the Owner
-  2026-10-05; published to `origin/master` at `02b899f`. Full ledger:
-  `docs/handoff-archive/gate-c.md`. Earlier ledgers are in git at the
-  close-out commits `b62131b` (Gate B) and `5252333` (Gate A).
-- Next (not started; needs the Owner's brief): **Gate D**, explorer
-  integration. Then Gate E, cross-links.
-- Owner:
-- Allowed files:
-- Allowed surfaces:
-- Prohibited:
-- Base commit:
-- Candidate commit:
-- robqa class (see `.claude/skills/robqa/SKILL.md`):
+- Status: `ready-for-qa`. Gate D candidate **`8d0ea25`**
+  (`8d0ea25fc50267aa57ea6de924556bc593f96524`). The agent's objective checks
+  passed; the Owner's checklist (below) is pending. Not accepted.
+  - Transitions: `idle -> dev-in-progress -> ready-for-qa` (Owner approved
+    the plan, 2026-10-06).
+- Last accepted: **Gate C**, `f9b90ec` (2026-10-05), published at `02b899f`.
+  Ledger: `docs/handoff-archive/gate-c.md`; Gates A and B in git at
+  `5252333` and `b62131b`.
+- Owner: Vox Mana. Coordinating agent: Claude (robdev, then a same-agent QA
+  phase).
+- Allowed files: `vox-color/mechanical-explorer.html`, `HANDOFF.md`.
+- Prohibited: `data/`, `tools/`, `vox-color/index.html`,
+  `vox-color/color-wheel.html`, the explorer's self-test, any other file.
+- Base commit: `dfa20bf`. Candidate commit: `8d0ea25` (explorer sha256
+  `b120fa83…`, +5/−3 lines).
+- robqa class: **QA-2** (one component's interaction), so a same-agent QA
+  phase with no subagent.
 
-## Owner decisions
+## Owner decisions (2026-10-06)
+
+- D-O1: scope is D1 (detail scroll) and D2 (the two links) only.
+- D-O2: F4 is out of scope. It stays an accepted minor, because the fix
+  would touch the protected self-test.
+- D-O3: `target="_blank"` also applies to the standalone explorer, as in
+  Gate C.
 
 ## Acceptance criteria
 
+- GD1: when the picked entry changes, `#detail` opens at `scrollTop = 0`,
+  docked and as the sheet, by mouse and by keyboard.
+- GD2: colour filtering, search, resize and same-entry re-renders cause no
+  new scroll; behaviour matches the base.
+- GD3: `#snap` and the FCP link carry `target="_blank" rel="noopener"`.
+- GD4: self-test 84/84, no console errors, gate chain green, `node --check`
+  clean.
+
 ## Implementation
 
-## QA
+- `renderDetail`: the existing "entry changed" test (where `srcOpen` resets)
+  is held in `newEntry`. After the new content is drawn,
+  `if (newEntry) detailEl.scrollTop = 0`. A resize sets `_sig = null`, so it
+  never resets.
+- Lines 595 and 685: `target="_blank"` added.
+
+## QA (same-agent phase, QA-2, candidate `8d0ea25`)
+
+- The gate chain: exit 0. `node --check` on the extracted script (1,639
+  lines): clean.
+- Headless Edge, local HTTP, `scratchpad/gated.mjs`: **11 of 11 passed.**
+  - Self-test 84/84 at both sizes.
+  - Docked 1440×640, mouse: Haste scrolled to 141, then Tutor → 0.
+  - Docked, keyboard: Tutor scrolled to 246, then Enter on Haste → 0.
+  - Sheet 360×780: the same, 69 → 0 and 356 → 0.
+  - The W filter with Haste open: 141 → 141 docked and 69 → 69 sheet, the
+    same as the base.
+  - Links: `_blank`/`noopener` on both.
+  - No console errors.
+- Base `dfa20bf`, same script: the Tutor case stays at 141 and 69 (the bug
+  reproduces); the filter results are identical.
+- Not run (cost gate): width sweeps, viewport matrices, a trusted-click
+  popup harness. Opening a new tab is on the Owner checklist.
+
+### Owner checklist (`python -m http.server` from the repo root, open `/vox-color/index.html`, then the Mechanical Color Pie)
+
+1. Open Haste, scroll its detail to the bottom, then click "Tutor" for any
+   card: the detail shows Tutor's title at the top.
+2. The same with the keyboard: Tab to an entry, press Enter. The new detail
+   starts at the top.
+3. With an entry open and scrolled, toggle a colour: same entry, no jump to
+   the top.
+4. Type in search with an entry open: no jump.
+5. Click the snapshot link (top): a new tab opens, and the explorer stays.
+6. Click "Fan Content Policy" (footer): a new tab opens, and the explorer
+   stays.
+7. Phone width (about 360 px): repeat 1 in the bottom sheet.
 
 ## Decisions needed
 
@@ -41,24 +94,11 @@ None open.
 
 Open items carried forward. Detail lives in the archived ledgers.
 
-### Gate D (Owner-assigned)
+### Gate D
 
-- **Explorer `#detail` keeps the previous entry's scroll.** `renderDetail`
-  replaces the contents without resetting `scrollTop`. Repro: Haste → scroll
-  the detail to the bottom → Tutor (docked 1440×640: stays at 141; sheet at
-  360: stays at 69). **Required behaviour (Owner ruling):**
-  - when the active entry changes, `#detail` starts at the top
-    (`scrollTop = 0`);
-  - this holds for mouse, keyboard and every other path that changes the
-    entry;
-  - filtering or searching without changing the entry causes no scroll;
-  - use the smallest fix at the existing selection or render point;
-  - no smooth scrolling and no scroll-management system.
-- **Explorer links open outside the frame** (`PRODUCT-DEFINITION.md` §14):
-  the snapshot and Fan Content Policy links.
-- **F4 (B13, accepted minor).** Leaving the Mechanical Color Pie during its
-  first load lets its self-test take focus in the off frame for about
-  8–12 ms. Fix it only if it's cheap.
+- In scope above (D1, D2). **F4 (B13)** stays an accepted minor (D-O2):
+  leaving the Mechanical Color Pie during its first load lets its self-test
+  take focus in the off frame for about 8–12 ms.
 
 ### Gate E
 
