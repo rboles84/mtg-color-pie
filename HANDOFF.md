@@ -10,11 +10,13 @@ each. Keep this file under ~200 lines.
 
 ## Control
 
-- Status: `ready-for-qa`. Gate D candidate **`8d0ea25`**
-  (`8d0ea25fc50267aa57ea6de924556bc593f96524`). The agent's objective checks
-  passed; the Owner's checklist (below) is pending. Not accepted.
+- Status: `qa-passed`. Gate D candidate **`8d0ea25`**
+  (`8d0ea25fc50267aa57ea6de924556bc593f96524`). The Owner ran the 7-item
+  checklist by hand (2026-10-07): **all 7 passed.** The agent's QA-2 checks
+  had passed (11/11). Not accepted; Owner acceptance is pending.
   - Transitions: `idle -> dev-in-progress -> ready-for-qa` (Owner approved
-    the plan, 2026-10-06).
+    the plan, 2026-10-06); `ready-for-qa -> qa-passed` (Owner manual QA,
+    recorded by the coordinating agent).
 - Last accepted: **Gate C**, `f9b90ec` (2026-10-05), published at `02b899f`.
   Ledger: `docs/handoff-archive/gate-c.md`; Gates A and B in git at
   `5252333` and `b62131b`.
