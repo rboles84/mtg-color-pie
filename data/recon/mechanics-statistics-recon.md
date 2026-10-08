@@ -78,9 +78,9 @@ into a mutually exclusive bucket.
 | final reconciled peer assignments | 467 |
 | assignments on all source identities | 468 |
 | structural-only assignments excluded | 1 |
-| both-agree assignments | 450 |
+| both-agree assignments | 451 |
 | catalog-only assignments | 7 |
-| list-only assignments | 6 |
+| list-only assignments | 5 |
 | adjudicated assignments | 5 |
 
 **Reconciliation.** raw_color_list_placements(465) is a count of LIST entries before identity merging; final_reconciled_peer_assignments(467) counts distinct (mechanic, colour) pairs after 19 identity merges, after catalog-only assignments are added, and after 1 structural-only assignment(s) are excluded. The two are different measurements of different populations and are not expected to be equal.
@@ -266,17 +266,17 @@ Canonical members total **216**, a partition of 216. Secondary cross-links total
 | card_type_affinity | 10 | 0 | 10 | 4.6% | 8 | 5 | 2 | 5 | 3 | 1 |
 | disruption | 8 | 2 | 10 | 3.7% | 0 | 2 | 6 | 3 | 0 | 4 |
 | sacrifice | 8 | 0 | 8 | 3.7% | 1 | 1 | 6 | 7 | 2 | 2 |
+| characteristic_change | 7 | 0 | 7 | 3.2% | 3 | 7 | 2 | 1 | 3 | 3 |
 | mana | 7 | 0 | 7 | 3.2% | 1 | 4 | 4 | 3 | 6 | 3 |
 | tutoring | 7 | 0 | 7 | 3.2% | 5 | 4 | 3 | 3 | 2 | 3 |
-| characteristic_change | 7 | 0 | 7 | 3.2% | 3 | 7 | 2 | 1 | 3 | 3 |
 | life | 6 | 0 | 6 | 2.8% | 4 | 1 | 6 | 1 | 2 | 4 |
 | counters | 5 | 0 | 5 | 2.3% | 2 | 3 | 3 | 2 | 3 | 1 |
 | cheat_into_play | 4 | 0 | 4 | 1.9% | 4 | 3 | 1 | 1 | 2 | 2 |
 | control | 4 | 0 | 4 | 1.9% | 2 | 3 | 1 | 0 | 1 | 2 |
-| win_condition | 3 | 0 | 3 | 1.4% | 2 | 0 | 2 | 0 | 0 | 1 |
 | copying | 3 | 0 | 3 | 1.4% | 0 | 3 | 0 | 2 | 0 | 2 |
-| theft | 3 | 0 | 3 | 1.4% | 0 | 1 | 2 | 1 | 0 | 2 |
 | rules_alteration | 3 | 0 | 3 | 1.4% | 3 | 1 | 1 | 1 | 1 | 2 |
+| theft | 3 | 0 | 3 | 1.4% | 0 | 1 | 2 | 1 | 0 | 2 |
+| win_condition | 3 | 0 | 3 | 1.4% | 2 | 0 | 2 | 0 | 0 | 1 |
 | tokens | 1 | 1 | 2 | 0.5% | 1 | 1 | 1 | 1 | 1 | 1 |
 
 ## 12. Conditionality
@@ -326,8 +326,8 @@ Audit context, not gameplay statistics.
 | mechanics carrying source aliases | 18 |
 | raw unmerged identities | 236 |
 | catalog only assignments | 7 |
-| list only assignments | 6 |
-| both agree assignments | 450 |
+| list only assignments | 5 |
+| both agree assignments | 451 |
 
 ## 15. Notable extrema
 

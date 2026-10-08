@@ -1088,11 +1088,11 @@
       "colors": {
         "B": {
           "tier": "primary",
-          "basis": "colour-list-only"
+          "basis": "both-agree"
         }
       },
       "in_lists": true,
-      "in_catalog": false
+      "in_catalog": true
     },
     "curiosity": {
       "label": "\"Curiosity\" (Whenever this creature deals combat damage to an opponent, draw a card.)",

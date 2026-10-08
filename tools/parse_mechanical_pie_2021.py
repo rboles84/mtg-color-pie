@@ -66,7 +66,21 @@ TIER_LINE = re.compile(
 # label cannot be found by looking only at strong-only paragraphs -- doing
 # that attributes all nineteen creature-pumping variants to the group header
 # "Creature pumping" and destroys the distinctions the article draws.
-LEAD_STRONG = re.compile(r"^\s*<strong>(.*?)</strong>", re.S | re.I)
+#
+# A RUN of bold elements, <strong> or <b>. One 2021 label is split across both:
+#     <b>Creature sacrifice, forced, repeatable</b><strong> (All players/...)</strong>
+# Matching <strong> alone missed it, so its tier line and explanation were filed
+# as a second "-N/-N to their team" (Story 2, reason 3).
+LEAD_STRONG = re.compile(r"^\s*((?:<(strong|b)>.*?</\2>\s*)+)", re.S | re.I)
+
+# SUB-ENTRIES MARKED UP AS TOP-LEVEL ENTRIES. Named, not inferred. In the
+# article "Return target creature from graveyard to hand." is an <hr /> plus a
+# bold paragraph, the shape of a top-level entry, between its siblings under
+# "Returning cards from graveyard to hand."; read literally it becomes a group
+# header and takes the four entries after it. The 2017 edition has the same
+# markup with a literal bullet ("• Return target creature ...") in the text:
+# a list item that lost its list markup. Reported in the audit (Story 2).
+STAYS_IN_GROUP = {"Return target creature from graveyard to hand."}
 
 # ADJUDICATIONS. The article contradicts itself in four places. Each was ruled
 # on by the user, and each agrees with the parser's standing preference for the
@@ -313,7 +327,12 @@ def parse_abilities(doc, audit):
         if tag == "li":
             continue        # a list item only ever names a label
         if lead and not TIER_LINE.search(txt):
-            group = label   # a strong-only paragraph is a group header
+            if label in STAYS_IN_GROUP and group:
+                audit.append(("source-markup",
+                              "'%s' is marked up as a top-level entry; kept under "
+                              "the sub-heading '%s'" % (label, group)))
+            else:
+                group = label   # a strong-only paragraph is a group header
         tiers_here = {}
         tier_src = {}
         for tm in TIER_LINE.finditer(txt):

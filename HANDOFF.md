@@ -10,27 +10,153 @@ each. Keep this file under ~200 lines.
 
 ## Control
 
-- Status: `idle`.
-- Last accepted: **Story 1** (retire the preview Mechanics code), `eaae957`,
-  accepted by the Owner 2026-10-08. Ledger:
-  `docs/handoff-archive/story-1.md`. Earlier ledgers:
-  `docs/handoff-archive/gate-e.md`, `gate-d.md` and `gate-c.md`; Gates A
-  and B are in git at `5252333` and `b62131b`.
-- Next: **Story 2**, the source-layer reopen (see Follow-ups). Not started;
-  start it in a fresh session.
-- Owner:
-- Allowed files:
-- Allowed surfaces:
-- Prohibited:
-- Base commit:
+- Status: `ready-for-qa`.
+- Task: **Story 2**, source-layer reopen under `MECHANICS-CONTRACT.md`
+  reason 3 (deterministic parser defect, concrete source example). Approved
+  by the Owner 2026-10-08.
+- Last accepted: **Story 1**, `eaae957` (`docs/handoff-archive/story-1.md`).
+- Owner: Vox Mana.
+- Allowed files: `tools/parse_mechanical_pie_2021.py`;
+  `data/mcp2021.abilities.json`, `mcp2021.reconciled.json`,
+  `mcp2021.reconciled.raw.json`, `mcp2021.audit.md`,
+  `mechanical-color-pie.runtime.json` (regenerated only, never hand-edited);
+  `vox-color/mechanical-explorer.html`; `MECHANICS-CONTRACT.md` (one dated
+  note); `HANDOFF.md`; `data/mcp2021.identity_rulings.json`,
+  `mcp2021.identity_review.md` (D2); `tools/recon.py`, `tools/recon_stats.py`
+  (ordering only), `data/recon/`, `data/recon.md` (regenerated, S2-O2).
+- Allowed surfaces: the explorer's article list, the creature-sacrifice
+  detail, the unmatched section and its note, and the self-check.
+- Prohibited: `data/fixtures/` and goldens, `data/vox.families*.json`,
+  `mcp2021.lists.json`, any recon value other than the two basis counts,
+  `vox-color/color-wheel.html`, `index.html`,
+  `mechanical-periodic-table.html`, every other self-check assertion.
+- Base commit: `2261c9d`.
 - Candidate commit:
-- robqa class (see `.claude/skills/robqa/SKILL.md`):
+- robqa class: **QA-4** (mechanics data). Full gate chain, then the
+  separate `robqa` agent (Sonnet).
 
 ## Owner decisions
 
+- **S2-O1.** Only the explorer self-check assertions that encode the two
+  defects may change, with the counts they imply. Listed below in Step 0.
+  Extended by D1 to the two `order:` assertions.
+- **D1–D3 (2026-10-08).** Approved as recommended.
+- **S2-O2 (2026-10-08).** Fix recon's non-deterministic ordering in this
+  story, not as a follow-up. Ordering only; no recon value may change
+  except both-agree 450 → 451 and list-only 6 → 5.
+- **D4 (2026-10-08).** Regenerating recon against today's wheel changed
+  naming values (Nephilim names dropped from 10 rows, "Chaos" on URG,
+  "Orzhov" on Non-Red). Owner: keep the 2026-09-01 names; regenerate against
+  the wheel as of `96ae609` (recon's original input); git keeps the prior
+  files as the paper trail.
+
 ## Acceptance criteria
 
+1. All seven "Return target … from graveyard to hand." entries carry
+   `group: "Returning cards from graveyard to hand."` in
+   `mcp2021.abilities.json`; no other `group` changes.
+2. "Creature sacrifice, forced, repeatable" is captured as its own catalog
+   entry with the article's explanation; the phantom second "-N/-N to their
+   team" record is gone.
+3. No tier, placement, identity count (217/216/1), merge (19), conflict
+   (5), taxonomy assignment or golden result changes. Every data diff is
+   one of those listed under Step 0, Measured rebuild.
+4. The explorer has no `HEADING_FIX` and no `UNMATCHED_CASE` entry for
+   creature sacrifice; the entry renders in article order with its
+   explanation; the unmatched section holds four entries in two cases.
+5. Only the assertions listed in Step 0 change; the self-check passes.
+6. Full gate chain passes; `node --check` on the explorer's script.
+7. `MECHANICS-CONTRACT.md` carries a dated reason-3 note.
+
 ## Implementation
+
+### Step 0 (2026-10-08)
+
+**How the parser reads the article.** It reads a saved copy of the
+article HTML given on the command line; nothing is committed. Fetched today
+with one public GET (no new access needed): 444,312 bytes, sha256
+`51017283…c47bc29898`. The untouched parser on it reproduces all four
+JSON outputs and the audit **byte for byte**.
+
+**Defect 1, source.** In the article: `<hr />`, `<p><strong>Returning
+cards from graveyard to hand.</strong></p>`, then `<li>` entries for card
+and artifact; then **`<hr />` and `<p><strong>Return target creature from
+graveyard to hand.</strong></p>`**, a top-level-entry shape; then `<li>`
+entries for enchantment, instant, land, sorcery. The parser treats every
+strong-only paragraph as a group header, so creature reset the group to
+itself (stored as `null`) and the four after it took its name. Note: the
+article's own markup gives the creature entry a top-level shape, so no
+general markup rule can file it correctly. The fix is a named one-entry
+exception in the parser (like the existing "Seconary"/"distruction"
+handling), reported in the audit. Corroborated by the 2017 edition
+(`…/mechanical-color-pie-2017-2017-06-05`): same `<hr>` + bold paragraph,
+but its text starts with a literal "•", so a bullet item that lost its
+list markup.
+
+**Defect 2, source.** `<p><b>Creature sacrifice, forced,
+repeatable</b><strong> (All players/opponents must sacrifice a creature each
+turn.)</strong></p>`, then `Primary: Black`, then "Sometimes black likes
+killing things slowly." `LEAD_STRONG` accepts only `<strong>` at the head,
+so the label was not read; the tier line and explanation were filed as a
+second "-N/-N to their team" under "Creature pumping, their team,
+ongoing" (the explorer's one "repeat the parser recorded"). It is the only
+`<b>` lead and the only multi-run lead in the catalog. Fix: accept a run of
+`<strong>`/`<b>` at the head. The 2017 edition has the same entry as
+"Abyss" with the same gloss, tier and sentence.
+
+**Measured rebuild** (scratch copy, both fixes):
+- `abilities.json`: 1 record relabelled (phantom → creature sacrifice,
+  group `null`); 5 `group` values → "Returning cards from graveyard to
+  hand." (creature from `null`, four from the creature name). 212 records.
+- `reconciled.json` and `.raw.json`: creature sacrifice B `basis`
+  `colour-list-only` → `both-agree`, `in_catalog` false → true. Tier still
+  primary. Nothing else.
+- `audit.md`: both-agree 209 → 210, list-only 6 → 5; the "-N/-N" notes say
+  2 times, not 3, and one duplicate note goes. (+1 note for the defect-1
+  exception once added.)
+- `runtime.json`: creature sacrifice basis as above, explanation "" → the
+  article's sentence. Nothing else.
+- Unchanged: `lists.json`, `vox.families.json`, all 11 goldens (fixtures
+  pass), 217/216/1, 19 merges, 5 conflicts. Gate chain passes.
+- Recon semantics: both-agree 450 → 451, list-only 6 → 5. See D2.
+
+**Assertions affected (explorer self-check).**
+- `headings:` both (lines 2155–2157): drop the `HEADING_FIX` mapping; the
+  seven-entry check reads the frozen group directly.
+- `unmatched:` 2213 (comment "five" → four), 2221–2224 (creature sacrifice:
+  replaced by "shows the article's explanation, verbatim"), 2225–2226
+  ("five" → four; case tags 3 → 2), 2228 ("five" → four).
+- `order:` 2145 (211 → 212) and 2146 (`[212, 211, 1]` → `[212, 212, 0]`):
+  see D1.
+
+### Candidate
+
+Rebuild: `parse_mechanical_pie_2021.py <article> --out data/`,
+`reconcile_identity.py`, `build_taxonomy.py` (no change), `build_runtime.py`,
+`recon_stats.py` and `recon.py` with `--html` = `git show
+96ae609:vox-color/color-wheel.html`. Every data diff matches Step 0, plus
+the audit's `source-markup` note (D3).
+
+- Criteria 1–2: `abilities.json` diff (5 groups, 1 relabel); runtime
+  explanation recovered verbatim.
+- Criterion 3: fixtures 11/11; invariants 217/216/1, 19, 5; recon
+  compared order-insensitively with HEAD: only the 450/451 and 6/5 counts
+  differ. Recon output identical under PYTHONHASHSEED 1, 2, 3.
+- Criteria 4–5: explorer self-check **84 of 84** at 1280×800 (served
+  over HTTP, cache reloaded). In a 0×0 hidden pane, HEAD and candidate both
+  fail only "plates: both fold controls…" (layout; environment).
+- Criterion 6: gate chain exit 0; `node --check` OK.
+- Criterion 7: dated note in `MECHANICS-CONTRACT.md` §1.
+
+Draft Owner checklist (server: `py -m http.server 8000` in the repo):
+1. http://localhost:8000/vox-color/mechanical-explorer.html — footer reads
+   "Self-check: 84 of 84 passed". Hard-reload first (stale cache).
+2. Same page, article order: the sub-heading "Returning cards from
+   graveyard to hand." holds seven entries, card through sorcery.
+3. Click "Creature sacrifice, forced, repeatable": the detail shows
+   "Sometimes black likes killing things slowly." It sits after "-N/-N to
+   their team", not in the bottom section.
+4. Bottom section: "4 entries", two cases.
 
 ## QA
 
@@ -78,34 +204,14 @@ Open items carried forward. Detail lives in the archived ledgers.
 - **`tools/gate.py` has no entry point.** It exits 0 having checked
   nothing; the real gates run inside `check_taxonomy.py` and
   `check_recon.py`.
-- **Story 2, queued (Owner approved 2026-10-08): source-layer reopen,
-  `MECHANICS-CONTRACT.md` reason 3.** Story 1 is accepted, so it is next,
-  in its own session.
-  - **The two parser defects.**
-    - The seven "Return target … from graveyard to hand." entries all sit
-      under "Returning cards from graveyard to hand." in the article. The
-      parser left the creature entry ungrouped and filed four others under
-      a group named after it. The explorer patches this on screen with
-      `HEADING_FIX`.
-    - The article's explanation of "Creature sacrifice, forced, repeatable"
-      was not captured, because the parser misread its label. The explorer
-      shows `UNMATCHED_CASE` text for it.
-  - **S2-O1 (Owner ruling).** The explorer self-check assertions that encode
-    these two defects may change. That covers the `headings:` and
-    `unmatched:` assertions which name the regrouped entries or the
-    uncaptured explanation, and the counts they imply (for example, five
-    unmatched entries become four). No other assertion changes. Step 0 must
-    list every assertion affected before editing.
-  - **Expected scope.**
-    - Files: `tools/parse_mechanical_pie_2021.py`, the rebuilt `data/`
-      outputs, and the explorer, to remove the two patches and show the
-      recovered explanation. `MECHANICS-CONTRACT.md` gets a dated note.
-    - Fixtures and goldens change only if the rebuild proves they must,
-      with each change explained.
-  - **Stop and ask the Owner** if the rebuild changes any tier, placement,
-    entry count other than the two defects, or golden result. Stop too if
-    the article source can't be read without new network access.
-  - **QA:** QA-4, a full gate chain and the separate `robqa` agent.
+- **Recon names vs today's wheel (Story 2, D4).** Regenerating recon
+  against the current `color-wheel.html` drops the Nephilim and community
+  names from 10 rows, puts the C16 lens "Chaos" on URG and "Orzhov" on
+  Non-Red. Recon is pinned to `96ae609`'s wheel until this is resolved.
+- **No regression test for the Story 2 defects.** `check_invariants.py`
+  could assert the seven-entry group and the creature-sacrifice explanation.
+- **Article input not archived.** Only its sha256 is recorded (copyright);
+  a future fetch may differ.
 - **Small UI items.**
   - A doubled period in an entry's accessible name ("…with flying..").
   - The explorer's 1.5 px focus outline renders at 1 px at 1x.

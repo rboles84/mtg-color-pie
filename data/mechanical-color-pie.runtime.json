@@ -1151,13 +1151,13 @@
       "colors": {
         "B": {
           "tier": "primary",
-          "basis": "colour-list-only"
+          "basis": "both-agree"
         }
       },
       "family": "removal",
       "families_secondary": [],
       "source_aliases": [],
-      "explanation": "",
+      "explanation": "Sometimes black likes killing things slowly.",
       "has_restriction": false
     },
     "curiosity": {

@@ -808,18 +808,7 @@ const PLAYER_TERMS = [
     relWhy:'a sacrifice every turn, where an edict is a single forced sacrifice' }
 ];
 
-/* SUB-HEADING CORRECTION — one, documented. The frozen file's group field
-   comes from the repository parser, which was re-run on the live article on
-   2026-09-25 and reproduces the file exactly. In the article itself all seven
-   "Return target … from graveyard to hand." entries sit under "Returning cards
-   from graveyard to hand."; the parser left the creature entry ungrouped and
-   filed the four after it under a group named after it. Headings only: no
-   entry, text or placement changes. Recorded in HANDOFF.md as a source-layer
-   follow-up. */
-const HEADING_FIX = { from:'Return target creature from graveyard to hand.', to:'Returning cards from graveyard to hand.',
-  joins:'Return target creature from graveyard to hand.' };
-
-/* The five runtime entries that match no entry in the frozen copy of the
+/* The four runtime entries that match no entry in the frozen copy of the
    article's explanations section. They are NOT all the same case (checked
    against the published article, 2026-09-25), so each says what is true of it.
    No explanation text is ever supplied for them: the frozen data has none. */
@@ -830,10 +819,7 @@ const UNMATCHED_CASE = {
   'forced sacrifice of a creature': { tag:'Explained under another name', where:'Per-color list name · explained under another name',
     ex:'The article gives no explanation under this name.',
     note:'This is the name the per-color lists use. The article’s explanation is under a separately named entry, “Sacrifice a creature.”, beneath the sub-heading “Forced sacrifice”. The frozen data keeps the two records apart.',
-    jump:'forced sacrifice :: sacrifice a creature', jumpLabel:'Open “Sacrifice a creature.”' },
-  'creature sacrifice, forced, repeatable': { tag:'Explanation not captured', where:'Explained in the article · not captured by the frozen data',
-    ex:'The frozen 2021 data holds no explanation for this entry.',
-    note:'The published 2021 article does include an explanation entry for this ability. The parser that built the frozen data misread that entry’s label, so its explanation was not captured. It is not supplied here, because this page shows only the frozen data.' }
+    jump:'forced sacrifice :: sacrifice a creature', jumpLabel:'Open “Sacrifice a creature.”' }
 };
 const unmatchedCase = k => UNMATCHED_CASE[k] || UNMATCHED_CASE.absent;
 
@@ -1081,11 +1067,9 @@ function buildArticle(){
   ABIL.abilities.forEach(a => {
     const k = keyForEntry(a, byLabel);
     if (!k) return;
-    if (seen.has(k)){ DUPES++; return; }            /* the parser's repeated "-N/-N to their team" */
+    if (seen.has(k)){ DUPES++; return; }            /* none since Story 2; kept as a guard */
     seen.add(k);
-    let head = a.group || null;
-    if (head === HEADING_FIX.from) head = HEADING_FIX.to;
-    if (!head && a.label === HEADING_FIX.joins) head = HEADING_FIX.to;
+    const head = a.group || null;
     const r = REC.get(k);
     r.heading = head; r.ix = ARTICLE.length;
     ARTICLE.push(k);
@@ -1228,9 +1212,8 @@ function layoutList(){
     const lo = document.createElement('div'); lo.className = 'lo'; lo.setAttribute('role', 'group');
     lo.setAttribute('aria-label', 'Entries with no matching explanation in the frozen data');
     lo.innerHTML = `<h3 class="grp-h">No matching explanation in the frozen data<small>${LIST_ONLY.length} entries</small></h3>
-      <p class="lo-note">These ${LIST_ONLY.length} entries carry placements in the frozen data but match no entry in its copy of Rosewater's “All Abilities with Explanations”. They are three different cases:
-      ${nAbsent} appear only in his per-color lists and have no explanation in the article; “Forced sacrifice of a creature” is the per-color lists' name, and the article explains it under a separately named entry, linked from its record;
-      and “Creature sacrifice, forced, repeatable” is explained in the published article, but that explanation was not captured by the frozen data and is not supplied here.</p><div class="grp-in"></div>`;
+      <p class="lo-note">These ${LIST_ONLY.length} entries carry placements in the frozen data but match no entry in its copy of Rosewater's “All Abilities with Explanations”. They are two different cases:
+      ${nAbsent} appear only in his per-color lists and have no explanation in the article; and “Forced sacrifice of a creature” is the per-color lists' name, and the article explains it under a separately named entry, linked from its record.</p><div class="grp-in"></div>`;
     LIST_ONLY.forEach(k => lo.querySelector('.grp-in').appendChild(entEl.get(k)));
     frag.appendChild(lo);
   } else {
@@ -2142,19 +2125,19 @@ async function runSelfTest(){
   const renderedMain = ents.filter(e => !e.closest('.lo')).map(e => MECH[e.dataset.k].label);
   let wi = 0, inOrder = true;
   for (const lab of renderedMain){ while (wi < want.length && want[wi] !== lab) wi++; if (wi === want.length){ inOrder = false; break; } wi++; }
-  ok('order: entries follow the article entry file, in sequence', inOrder && renderedMain.length === 211, renderedMain.length);
-  eq('order: 212 explanation entries = 211 distinct + 1 repeat the parser recorded', [ABIL.abilities.length, ARTICLE.length, DUPES], [212, 211, 1]);
+  ok('order: entries follow the article entry file, in sequence', inOrder && renderedMain.length === 212, renderedMain.length);
+  eq('order: 212 explanation entries, all distinct', [ABIL.abilities.length, ARTICLE.length, DUPES], [212, 212, 0]);
   const loRendered = [...listEl.querySelectorAll('.lo .ent')].map(e => e.dataset.k).sort();
   const abLabels = new Set(ABIL.abilities.map(a => a.label));
   eq('coverage: the color-lists-only section holds exactly the runtime entries absent from the explanations',
      loRendered, KEYS.filter(k => !abLabels.has(MECH[k].label)).sort());
   ok('coverage: no invented explanation for a list-only entry', LIST_ONLY.every(k => !MECH[k].explanation));
-  /* Sub-headings: the frozen groups, except the one documented correction. */
+  /* Sub-headings: the frozen groups, as the parser records them. */
   const heads = [...listEl.querySelectorAll('.grp')].map(g => g.getAttribute('aria-label'));
-  const frozenGroups = [...new Set(ABIL.abilities.map(a => a.group).filter(Boolean))].map(g => g === HEADING_FIX.from ? HEADING_FIX.to : g);
+  const frozenGroups = [...new Set(ABIL.abilities.map(a => a.group).filter(Boolean))];
   eq('headings: the article sub-headings render once each, in order', heads, [...new Set(frozenGroups)]);
-  eq('headings: the documented correction places exactly the seven "Return target … from graveyard to hand." entries',
-     [...listEl.querySelectorAll('.grp')].filter(g => g.getAttribute('aria-label') === HEADING_FIX.to).map(g => g.querySelectorAll('.ent').length), [7]);
+  eq('headings: "Returning cards from graveyard to hand." holds exactly the seven "Return target … from graveyard to hand." entries',
+     [...listEl.querySelectorAll('.grp')].filter(g => g.getAttribute('aria-label') === 'Returning cards from graveyard to hand.').map(g => g.querySelectorAll('.ent').length), [7]);
 
   /* --- every rendered placement equals the source ------------------------
      Gate A (V11): the three unresolved slots show both official claims (left
@@ -2208,7 +2191,7 @@ async function runSelfTest(){
   S.pick = 'flying'; render();
   ok('art: an entry that cites no card has no card anchor, link or plate', !detailEl.querySelector('.cardanchor,.cardlink,.cite'));
   S.pick = 'lobotomy'; render();
-  /* The five unmatched entries are three different cases, and say so. */
+  /* The four unmatched entries are two different cases, and say so. */
   const absent = LIST_ONLY.filter(k => !UNMATCHED_CASE[k]);
   eq('unmatched: exactly three entries are genuinely absent from the explanations',
      absent, ['-n/+n (on auras)', '-n/+n (on spells)', '-n/-0 (on creatures)']);
@@ -2219,13 +2202,14 @@ async function runSelfTest(){
      /separately named entry/.test(detailEl.textContent) && detailEl.querySelector('[data-act="jump"]').dataset.k === 'forced sacrifice :: sacrifice a creature' &&
      !!MECH['forced sacrifice :: sacrifice a creature'].explanation);
   S.pick = 'creature sacrifice, forced, repeatable'; render();
-  ok('unmatched: "Creature sacrifice, forced, repeatable" says the published article explains it, and supplies no text',
-     /published 2021 article does include an explanation/.test(detailEl.textContent) && detailEl.querySelector('.dx-ex').classList.contains('is-empty') &&
-     !MECH['creature sacrifice, forced, repeatable'].explanation);
-  ok('unmatched: each of the five carries its own case label in the list', LIST_ONLY.every(k => entEl.get(k).querySelector('.e-tag').textContent === unmatchedCase(k).tag) &&
-     new Set(LIST_ONLY.map(k => unmatchedCase(k).tag)).size === 3);
+  ok('unmatched: "Creature sacrifice, forced, repeatable" is in the article’s order and shows its explanation, verbatim',
+     ARTICLE.includes('creature sacrifice, forced, repeatable') && !LIST_ONLY.includes('creature sacrifice, forced, repeatable') &&
+     detailEl.querySelector('.dx-ex').textContent === MECH['creature sacrifice, forced, repeatable'].explanation &&
+     MECH['creature sacrifice, forced, repeatable'].explanation === 'Sometimes black likes killing things slowly.');
+  ok('unmatched: each of the four carries its own case label in the list', LIST_ONLY.every(k => entEl.get(k).querySelector('.e-tag').textContent === unmatchedCase(k).tag) &&
+     new Set(LIST_ONLY.map(k => unmatchedCase(k).tag)).size === 2);
   S.pick = null; render();
-  ok('unmatched: each of the five is found by its full name, as an entry name',
+  ok('unmatched: each of the four is found by its full name, as an entry name',
      LIST_ONLY.every(k => { const h = searchRank(MECH[k].label)[0]; return h && h.k === k && STAGES[h.stage].why === 'Entry name'; }));
 
   /* --- search: reasons, aliases, colour terms, questions ------------------ */

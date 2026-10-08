@@ -177,17 +177,6 @@
         "Can't win the game and opponent can't lose"
       ]
     },
-    "Creature sacrifice, forced, repeatable (All players/opponents must sacrifice a creature each turn.) || -": {
-      "proposed": "distinct",
-      "reason": "no conservative counterpart in the catalog; the list asserts tiers the catalog never discusses",
-      "ruling": "distinct",
-      "list_key": "creature sacrifice, forced, repeatable",
-      "catalog_key": null,
-      "canonical_key": null,
-      "aliases": [
-        "Creature sacrifice, forced, repeatable (All players/opponents must sacrifice a creature each turn.)"
-      ]
-    },
     "Deal N damage to a creature/player where N is the number of cards in your hand/your opponent's hand. || -": {
       "proposed": "distinct",
       "reason": "no conservative counterpart in the catalog; the list asserts tiers the catalog never discusses",

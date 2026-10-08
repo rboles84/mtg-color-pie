@@ -1045,8 +1045,8 @@
       "explanation": "Black occasionally lowers the opponent's creatures' power and toughness, usually by just -1/-1."
     },
     {
-      "label": "-N/-N to their team",
-      "group": "Creature pumping, their team, ongoing",
+      "label": "Creature sacrifice, forced, repeatable (All players/opponents must sacrifice a creature each turn.)",
+      "group": null,
       "assignments": {
         "primary": [
           "B"
@@ -2628,7 +2628,7 @@
     },
     {
       "label": "Return target creature from graveyard to hand.",
-      "group": null,
+      "group": "Returning cards from graveyard to hand.",
       "assignments": {
         "primary": [
           "B"
@@ -2645,7 +2645,7 @@
     },
     {
       "label": "Return target enchantment from graveyard to hand.",
-      "group": "Return target creature from graveyard to hand.",
+      "group": "Returning cards from graveyard to hand.",
       "assignments": {
         "primary": [
           "W"
@@ -2658,7 +2658,7 @@
     },
     {
       "label": "Return target instant from graveyard to hand.",
-      "group": "Return target creature from graveyard to hand.",
+      "group": "Returning cards from graveyard to hand.",
       "assignments": {
         "primary": [
           "U"
@@ -2675,7 +2675,7 @@
     },
     {
       "label": "Return target land from graveyard to hand.",
-      "group": "Return target creature from graveyard to hand.",
+      "group": "Returning cards from graveyard to hand.",
       "assignments": {
         "primary": [
           "G"
@@ -2688,7 +2688,7 @@
     },
     {
       "label": "Return target sorcery from graveyard to hand.",
-      "group": "Return target creature from graveyard to hand.",
+      "group": "Returning cards from graveyard to hand.",
       "assignments": {
         "primary": [
           "U"

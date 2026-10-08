@@ -643,7 +643,7 @@ def main():
             fam_secondary[f].append(k)
     assert sum(len(v) for v in fam_primary.values()) == N
     all_fams = sorted(set(fam_primary) | set(fam_secondary),
-                      key=lambda f: -len(fam_primary.get(f, [])))
+                      key=lambda f: (-len(fam_primary.get(f, [])), f))  # name breaks ties: set order varies per run
 
     fam_rows, fam_color_mx, fam_sel_mx = [], {}, {}
     for f in all_fams:

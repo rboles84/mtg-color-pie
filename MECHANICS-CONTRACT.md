@@ -91,6 +91,19 @@ mode (its preview was removed in Story 1); nothing in
 Frozen means: no further parser pass without a stated defect. Another
 extraction run is now more likely to add risk than value.
 
+*Note (Story 2, 2026-10-08, reason 3):* two parser defects fixed against the
+article HTML (fetched 2026-10-08, sha256 `51017283b25a7506ff14d7fed27681468ba845a3c7b4b9f999d145c47bc29898`;
+the unfixed parser reproduced the frozen files byte for byte from it). (1) A
+label split across `<b>` and `<strong>` was missed, so "Creature sacrifice,
+forced, repeatable" lost its catalog entry and its explanation became a
+second "-N/-N to their team"; it is now captured. (2) "Return target
+creature from graveyard to hand." is marked up as a top-level entry; it is
+kept under "Returning cards from graveyard to hand." by a named exception
+(the 2017 edition shows it as a bullet item). No tier, placement, identity,
+merge, conflict, family or golden changes; one basis moves colour-list-only →
+both-agree. `data/recon/` was regenerated against the colour wheel as of
+`96ae609`, its original input, with tie order now deterministic.
+
 ### Two counts, never one
 
 - **Source identities (217)** — everything Rosewater actually listed,
