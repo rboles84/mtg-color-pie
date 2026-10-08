@@ -2379,7 +2379,13 @@ function setRoute(r) {
   if (location.hash !== h) location.hash = h;
 }
 
-function applyHash() { applyRoute(decodeURIComponent(location.hash.replace(/^#/, ''))); }
+/* A malformed escape such as #%E0%A4%A makes decodeURIComponent throw; route
+   the raw text instead, which no route matches, so it lands in Explore. */
+function applyHash() {
+  const h = location.hash.replace(/^#/, '');
+  let raw; try { raw = decodeURIComponent(h); } catch (e) { raw = h; }
+  applyRoute(raw);
+}
 
 /* Split from applyHash so the restore logic can be exercised without touching
    location — which matters, because the only environment this file gets

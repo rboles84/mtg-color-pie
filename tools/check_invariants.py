@@ -130,6 +130,32 @@ def main():
             if x.get("basis") == "adjudicated" and not x.get("ruling", {}).get("authority"):
                 fails.append("adjudication %s/%s has no recorded authority" % (k, c))
 
+    # Story 2 regressions: two parser defects that produced plausible output.
+    # (1) "Return target creature from graveyard to hand." has a top-level
+    # shape in the article's markup and once reset the group for the four
+    # entries after it. (2) A <b> lead was not read, so "Creature sacrifice,
+    # forced, repeatable" was filed as a second "-N/-N to their team".
+    abil = need("mcp2021.abilities.json")
+    runtime = need("mechanical-color-pie.runtime.json")
+    if abil is not None:
+        grp = "Returning cards from graveyard to hand."
+        ret = sorted(a["label"] for a in abil["abilities"]
+                     if a["label"].startswith("Return target ")
+                     and a["label"].endswith(" from graveyard to hand."))
+        in_grp = sorted(a["label"] for a in abil["abilities"] if a.get("group") == grp)
+        if len(ret) != 7 or in_grp != ret:
+            fails.append("group '%s': expected the 7 return entries, got %d of %d"
+                         % (grp, len(in_grp), len(ret)))
+        else:
+            notes.append("%-24s 7 entries" % "graveyard-to-hand group")
+    if runtime is not None:
+        cs = runtime["byMechanic"].get("creature sacrifice, forced, repeatable") or {}
+        if cs.get("explanation") != "Sometimes black likes killing things slowly.":
+            fails.append("creature sacrifice, forced, repeatable: explanation missing "
+                         "or changed (%r)" % cs.get("explanation"))
+        else:
+            notes.append("%-24s explanation present" % "creature sacrifice")
+
     for n in notes:
         print("ok    %s" % n)
     if fails:
