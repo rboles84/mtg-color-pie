@@ -10,11 +10,12 @@ each. Keep this file under ~200 lines.
 
 ## Control
 
-- Status: `ready-for-qa`. **Story 1: retire the preview Mechanics code
+- Status: `qa-passed`. **Story 1: retire the preview Mechanics code
   from the Color Wheel. Brief approved by the Owner, 2026-10-08.** Candidate
   `eaae957`.
   - Transitions: `idle -> dev-in-progress` (Owner rulings S1-O1 to S1-O3);
-    `dev-in-progress -> ready-for-qa` (candidate `eaae957`).
+    `dev-in-progress -> ready-for-qa` (candidate `eaae957`);
+    `ready-for-qa -> qa-passed` (same-agent QA-3, Owner checks 1–5 passed).
 - Last accepted: **Gate E** (cross-links), E1 `e6ed5f2` + `def153a` and E2
   `360eaea`, accepted by the Owner 2026-10-08. Ledger:
   `docs/handoff-archive/gate-e.md`. Earlier ledgers:
@@ -136,6 +137,28 @@ Criteria:
 - **S1-5.** Docs above; the `CLAUDE.md` invariant now reads true.
 
 ## QA
+
+Mode: same agent, a distinct phase after the commit. Class: QA-3.
+Candidate `eaae957` against base `8efc41b`.
+- `git diff --stat 8efc41b..eaae957` → 6 paths, all in the allowed files.
+  `git diff --check` → clean.
+- Added lines in the wheel → 7. Two are code: the `layers` literal loses
+  `mech`, and `setLayer` drops its `L.grp` guard. Every `setLayer` caller
+  passes `ally`, `enemy` or `cross`, each of which has a group → safe.
+- History across an invalid route (pushing `#mechanics=layered` between
+  `#color=W` and `#enemy=WB`) → the guard rewrites that entry to the bare
+  URL, adding none. Back gives at-rest, then `#color=W`; Forward gives
+  at-rest, then `#enemy=WB`. No loop, no reactivation.
+- Keyboard: Enter on the B vertex → `#color=B`; Space on the UB edge →
+  `#ally=UB`. Clear → focus on `#panel`, Clear hidden, hash empty.
+- `#panel` is `aria-live="polite"`, `tabindex="-1"`. Atlas tiles in the tab
+  order → 0. The layer row is ally, enemy, cross, Clear.
+- Console errors → none.
+- Findings: none.
+- Owner checklist (2026-10-08): items 1–5, including `file://` hard reload
+  and Back/Forward → all passed, by the Owner, manually.
+
+Verdict: **`qa-passed`**. Awaiting Owner acceptance.
 
 ## Decisions needed
 
