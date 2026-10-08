@@ -10,88 +10,29 @@ each. Keep this file under ~200 lines.
 
 ## Control
 
-- Status: `qa-passed` — **Story 4**, two small fixes (Owner, 2026-10-08).
-- Last accepted: **Story 3** (truthful exception panel), `24393f1`,
-  accepted by the Owner 2026-10-08. Ledger:
-  `docs/handoff-archive/story-3.md`. Earlier: `story-2.md`, `story-1.md`,
-  `gate-e.md`, `gate-d.md`, `gate-c.md`; Gates A and B are in git at
-  `5252333` and `b62131b`.
-- Owner: Vox Mana.
-- Allowed files: `vox-color/color-wheel.html` (`applyHash` only),
-  `tools/check_invariants.py` (additive checks only), `HANDOFF.md`.
-- Allowed surfaces: the wheel's hash decode; the invariants report.
-- Prohibited: `data/`, taxonomy, goldens, recon, the explorer, the shell,
-  existing invariant counts.
-- Base commit: `4bd7f6a`.
-- Candidate commit: `d0b52a9`.
-- robqa class: 4a QA-3 (hash), same agent; 4b QA-4 (invariants tool),
-  separate robqa agent.
+- Status: `idle`.
+- Last accepted: **Story 4** (`URIError` guard + Story 2 regression
+  checks), `d0b52a9`, accepted by the Owner 2026-10-08. Ledger:
+  `docs/handoff-archive/story-4.md`. Earlier: `story-3.md`, `story-2.md`,
+  `story-1.md`, `gate-e.md`, `gate-d.md`, `gate-c.md`; Gates A and B are in
+  git at `5252333` and `b62131b`.
+- Next: Combine bounce recon (separate session); otherwise pick from
+  Unassigned.
+- Owner:
+- Allowed files:
+- Allowed surfaces:
+- Prohibited:
+- Base commit:
+- Candidate commit:
+- robqa class (see `.claude/skills/robqa/SKILL.md`):
 
 ## Owner decisions
 
-- Do the `URIError` fix (4a) and the Story 2 regression test (4b) together.
-- Combine bounce: recon only, in a separate session; stays Unassigned.
-- Stale frames: parked under "When ready to host".
-
 ## Acceptance criteria
-
-4a. A malformed percent-encoded hash (`#%E0%A4%A`) no longer throws; the
-    wheel lands in Explore. Valid hashes, including the `#mechanics` guard
-    and `#combine=…`, route as before.
-4b. `check_invariants.py` fails if the seven "Return target … from graveyard
-    to hand." entries are not all in the group "Returning cards from
-    graveyard to hand.", or if "Creature sacrifice, forced, repeatable" loses
-    its explanation. It passes on today's data and fails on the
-    pre-Story-2 data. No existing check or count changes.
 
 ## Implementation
 
-`d0b52a9`, +33/−1.
-- `vox-color/color-wheel.html` (+7/−1): `applyHash` wraps
-  `decodeURIComponent` in try/catch and routes the raw text on failure. No
-  route matches raw `%` text, so it falls to Explore.
-- `tools/check_invariants.py` (+26): two checks after the authority check,
-  reading `mcp2021.abilities.json` (group membership, exact 7) and
-  `mechanical-color-pie.runtime.json` `byMechanic` (exact explanation).
-
 ## QA
-
-Developer checks:
-- Gate chain: all four pass; new lines "graveyard-to-hand group 7 entries",
-  "creature sacrifice explanation present".
-- Negative test: the five inputs from `6901f7b^` → exactly the two new
-  FAILs ("got 2 of 7"; explanation `''`), exit 1.
-- `node --check` on the wheel's extracted inline script: ok.
-- Browser (port 8000): load with `#%E0%A4%A` → Explore, no console errors;
-  hashchange to it → Explore; `#mechanics` → canonicalised to no hash;
-  `#combine=WU` after the bad hash → Combine.
-
-**Owner checklist (draft):**
-1. `file://` open `vox-color/color-wheel.html#%E0%A4%A`, hard reload: Explore,
-   no error; Back/Forward behave.
-
-### robqa (separate agent) — Story 4b, QA-4, candidate `d0b52a9`
-
-Verdict: **qa-passed** (4b only; 4a is QA-3 same-agent, not re-run).
-- `git diff 4bd7f6a d0b52a9 --stat` -> only `tools/check_invariants.py` (+26)
-  and `vox-color/color-wheel.html` (+7/-1); both allowed.
-- Diff review: purely additive; no existing check, EXPECTED value or
-  output line changed.
-- Full gate chain on today's data -> all pass, exit 0; two new ok lines.
-- Pre-Story-2 inputs (`6901f7b^`, five files, scratch dir) -> both new
-  checks FAIL ("got 2 of 7"; explanation `''`), exit 1.
-- Single mutations of a copy of today's data, each exit 1, only the
-  matching check failing: one return entry moved out (6 of 7); all seven
-  moved out (0 of 7); explanation blanked; explanation changed.
-- Vacuity/extra entry: an 8th return-label entry ungrouped -> "7 of 8"; an
-  8th non-return entry added to the group -> "8 of 7". Neither passes.
-- Missing `mcp2021.abilities.json` or `mechanical-color-pie.runtime.json`
-  -> clean `FAIL missing required file`, exit 1, no traceback; the other
-  new check still runs.
-- `data/` untouched (git status clean before this edit).
-
-Findings: none. Owner checklist: unchanged from the draft above (item 1,
-4a `file://`); nothing visual for 4b.
 
 ## Decisions needed
 
