@@ -66,6 +66,40 @@ Parked until the Owner is ready to deploy; pick up as one story then.
   shows letters instead.
 - **Combine bounce** (recon in a separate session, Owner 2026-10-08). With `#color=W` in the URL, pressing Combine flips
   back to Explore a frame later. It also happens on production.
+  **Recon findings (2026-10-08, no code changed):**
+  - *Repro.* Measured at `…/color-wheel.html#color=W` (t in ms): click →
+    `setMode('combine')` 0.3 → `clearSelection()` → `setRoute(null)` 0.5 →
+    `location.hash=''` (sync, hash is `''` by 1.2) → `applyRoute('')` 3.6 →
+    `setMode('explore')` 3.6 → `hashchange` event logged 4.6. Mode is Explore
+    within ~4 ms, one task later; no timer involved.
+  - *Scope.* Standalone and inside the shell (`index.html#color-wheel/…`)
+    both bounce. Bounces on `#color=`, `#four=`, `#enemy=`, `#ally=` and even
+    `#combine=WU` (clicking Combine while already in it). Does **not** bounce
+    with no hash (`setRoute(null)` sees `'' === ''`, writes nothing). The shell
+    is not involved; its hash ends empty, as the wheel's does.
+  - *Cause* ([color-wheel.html:2320-2327](vox-color/color-wheel.html:2320),
+    [:1262](vox-color/color-wheel.html:1262),
+    [:2376-2379](vox-color/color-wheel.html:2376),
+    [:2396-2422](vox-color/color-wheel.html:2396)). `setMode` calls
+    `clearSelection()`, which ends in `setRoute(null)`. The click path is not
+    inside `applying`, so it writes `location.hash=''`; `hashchange` →
+    `applyHash` → `applyRoute('')` matches no key and falls through to
+    `setMode('explore')`. Combine's own route is only written by `renderCombo`
+    (:2307), never on entry, so nothing re-asserts `#combine=`.
+  - *Smallest fix (wheel only).* Mute route writes inside `setMode`'s clear,
+    then write the mode's own route from the click handler only:
+    `const was=applying; applying=true; try{clearSelection()}finally{applying=was}`
+    in `setMode`; handler: `setMode(m); setRoute(m==='combine' ? 'combine=' : null)`.
+    (`#combine=` is already the documented colourless form.)
+  - *Risks.* Entering Combine now pushes one `#combine=` entry (Back returns
+    to the prior selection, arguably right). `applyRoute` already runs under
+    `applying`, so Back/Forward, the `#mechanics` guard (`replaceState` then
+    `setMode('explore')`) and Story 4's `applyHash` raw fallback are unchanged
+    in path; re-test each. Explore click from Combine still ends at `''`.
+    Don't touch the Clear button's `setRoute(null)`.
+  - *QA class:* QA-3 (hash/history, wheel-only), same agent: every hash above
+    plus Back/Forward and `#mechanics`; `node --check`; `file://` hard reload
+    and Back/Forward on the Owner checklist. QA-5 only if the shell changes.
 - **`CLAUDE.md` read-order line counts** for `AGENTS.md`, `CONTEXT.md` and
   `MECHANICS-CONTRACT.md` drift by a few lines after Story 1 (story-1.md).
 - **`MECHANICS-CONTRACT.md` "Nothing past step 2.5 has started."** is stale
