@@ -10,61 +10,71 @@ each. Keep this file under ~200 lines.
 
 ## Control
 
-- Status: `idle`.
+- Status: `ready-for-owner` — **Story 5**, the Combine bounce.
 - Last accepted: **Story 4** (`URIError` guard + Story 2 regression
   checks), `d0b52a9`, accepted by the Owner 2026-10-08. Ledger:
   `docs/handoff-archive/story-4.md`. Earlier: `story-3.md`, `story-2.md`,
   `story-1.md`, `gate-e.md`, `gate-d.md`, `gate-c.md`; Gates A and B are in
   git at `5252333` and `b62131b`.
-- Next: Combine bounce recon (separate session); otherwise pick from
-  Unassigned.
-- Owner:
-- Allowed files:
-- Allowed surfaces:
-- Prohibited:
-- Base commit:
-- Candidate commit:
-- robqa class (see `.claude/skills/robqa/SKILL.md`):
+- Owner: Vox Mana.
+- Allowed files: `vox-color/color-wheel.html` (mode-button click handler),
+  `HANDOFF.md`.
+- Allowed surfaces: the wheel's mode switch and the hash it writes.
+- Prohibited: `data/`, tools, the explorer, the shell, `applyRoute`,
+  `setMode`, `clearSelection`.
+- Base commit: `487594e`.
+- Candidate commit: `b29794d`.
+- robqa class: QA-3 (routing/hash/history), same agent; the shell was
+  checked but is unchanged.
 
 ## Owner decisions
 
+- Fix the bounce in this session (Owner, 2026-10-08), from the recon below.
+
 ## Acceptance criteria
+
+1. From `#color=`, `#four=`, `#enemy=`, `#ally=`, `#combine=WU`, a
+   malformed hash and no hash, pressing Combine stays in Combine and the
+   hash is `#combine=`; pressing Explore returns to Explore with no hash.
+2. Each mode press adds at most one history entry; Back returns to the
+   prior route and mode, Forward re-enters Combine.
+3. Picking colours in Combine still writes `#combine=<set>`; Back steps
+   through the set.
+4. `#mechanics` still lands in Explore with the hash removed; Story 4's
+   malformed-hash guard still holds. Same behaviour inside the shell.
 
 ## Implementation
 
+`b29794d`, `vox-color/color-wheel.html` +9/−1, the mode-button click
+handler only. It runs `setMode` with `applying = true` (so
+`clearSelection`'s `setRoute(null)` writes nothing) and then writes the
+mode's own route once: `combine=` or no hash. Route restores
+(`applyRoute`) are unchanged; they already ran with `applying` set.
+Simpler than the recon's proposal (no change inside `setMode`).
+
 ## QA
 
-## Decisions needed
+Same-agent QA-3, browser at `http://localhost:8000`, measured:
+- Criterion 1: all seven starting hashes → Combine, `#combine=`; Explore →
+  no hash. Console clean.
+- Criterion 2: +1 history entry per press. From `#color=W`, Combine → Back
+  → `#color=W`, Explore, W selected; Forward → `#combine=`, Combine.
+- Criterion 3: picking W then U → `#combine=WU`; Back → `#combine=W`, set W.
+- Criterion 4: `#mechanics` → Explore, URL without hash; `#%E0%A4%A` →
+  Explore. Shell `index.html#color-wheel/color=W`: Combine →
+  shell `#color-wheel/combine=`, stays Combine; Back → `color=W`, Explore.
+- `node --check` on the extracted inline script: ok.
 
-None open.
+**Owner checklist:**
+1. `file://` open `vox-color/color-wheel.html#color=W`, press Combine: it
+   stays in Combine. Hard reload: still Combine. Back: Explore with W
+   selected; Forward: Combine.
+2. Same at http://localhost:8000/vox-color/index.html#color-wheel/color=W
+   (the shell): Combine stays, Back/Forward behave.
 
-## Follow-ups
+### Recon (separate session, `487594e`)
 
-Open items carried forward. Detail lives in the archived ledgers.
-
-### Accepted minors
-
-- **F4 (B13, D-O2).** Leaving the Mechanical Color Pie during its first load
-  lets its self-test take focus in the off frame for about 8–12 ms. A fix
-  would touch the protected self-test.
-- **B12 (E-D1 A).** A bridge from the explorer into an already-loaded wheel
-  costs two history entries; Back passes once through the prior wheel route.
-  Step 0 of Gate E measured that it cannot be fixed within `src` and hash.
-
-### When ready to host (Owner, 2026-10-08)
-
-Parked until the Owner is ready to deploy; pick up as one story then.
-- **Stale frames after an update.** A browser can keep serving
-  a cached instrument inside the shell's frame after the file changes; the
-  shell's own hard reload does not refresh it (seen in the Owner's E2 QA).
-  Before hosting, version the frame URLs or set cache headers.
-
-### Unassigned (each needs its own story)
-
-- **Mana-font fallback.** Without mana-font, the colorless glyph is 0 px
-  wide (Gate C F1) and the wheel's mana glyphs render as boxes; the explorer
-  shows letters instead.
-- **Combine bounce** (recon in a separate session, Owner 2026-10-08). With `#color=W` in the URL, pressing Combine flips
+With `#color=W` in the URL, pressing Combine flips
   back to Explore a frame later. It also happens on production.
   **Recon findings (2026-10-08, no code changed):**
   - *Repro.* Measured at `…/color-wheel.html#color=W` (t in ms): click →
@@ -100,6 +110,37 @@ Parked until the Owner is ready to deploy; pick up as one story then.
   - *QA class:* QA-3 (hash/history, wheel-only), same agent: every hash above
     plus Back/Forward and `#mechanics`; `node --check`; `file://` hard reload
     and Back/Forward on the Owner checklist. QA-5 only if the shell changes.
+
+## Decisions needed
+
+None open.
+
+## Follow-ups
+
+Open items carried forward. Detail lives in the archived ledgers.
+
+### Accepted minors
+
+- **F4 (B13, D-O2).** Leaving the Mechanical Color Pie during its first load
+  lets its self-test take focus in the off frame for about 8–12 ms. A fix
+  would touch the protected self-test.
+- **B12 (E-D1 A).** A bridge from the explorer into an already-loaded wheel
+  costs two history entries; Back passes once through the prior wheel route.
+  Step 0 of Gate E measured that it cannot be fixed within `src` and hash.
+
+### When ready to host (Owner, 2026-10-08)
+
+Parked until the Owner is ready to deploy; pick up as one story then.
+- **Stale frames after an update.** A browser can keep serving
+  a cached instrument inside the shell's frame after the file changes; the
+  shell's own hard reload does not refresh it (seen in the Owner's E2 QA).
+  Before hosting, version the frame URLs or set cache headers.
+
+### Unassigned (each needs its own story)
+
+- **Mana-font fallback.** Without mana-font, the colorless glyph is 0 px
+  wide (Gate C F1) and the wheel's mana glyphs render as boxes; the explorer
+  shows letters instead.
 - **`CLAUDE.md` read-order line counts** for `AGENTS.md`, `CONTEXT.md` and
   `MECHANICS-CONTRACT.md` drift by a few lines after Story 1 (story-1.md).
 - **`MECHANICS-CONTRACT.md` "Nothing past step 2.5 has started."** is stale
