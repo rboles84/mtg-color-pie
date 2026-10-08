@@ -1801,6 +1801,27 @@ function toggleColor(c){
   setSel(n, false); render(); announce(lensSummary());
 }
 function clearColors(){ setSel([], false); render(); announce(lensSummary()); }
+
+/* ARRIVAL (Gate E). #colors=<k>, with k a canonical W U B R G key of one to
+   five colours, sets the lens on load or on hashchange. It replaces the lens
+   and closes the open entry; search, order and spot are kept (E-O3). The hash
+   is read raw: anything else, including a bare or empty hash, is ignored, so
+   the page stays as it is. This file never writes its URL. An arrival that
+   comes before boot is held, and one during the self-check waits for it,
+   because the self-check restores the state it saved. */
+const colorsKey = h => { const m = /^#colors=([WUBRG]{1,5})$/.exec(h);
+  return m && m[1] === setKey(new Set(m[1])) ? m[1] : null; };
+let arrival = colorsKey(location.hash), settled = null;
+function arrive(k){
+  S.sel = new Set(k); S.selFromQuery = false; S.pick = null;
+  if (S.q) runSearch();
+  render();
+}
+window.addEventListener('hashchange', e => {
+  const k = colorsKey(new URL(e.newURL).hash);
+  if (!k) return;
+  if (settled) settled.then(() => arrive(k)); else arrival = k;
+});
 function chooseCombo(s){
   setSel([...s], false);
   const b = nodeEl.get(s); if (b){ rovingNode.tabIndex = -1; b.tabIndex = 0; rovingNode = b; }
@@ -2014,7 +2035,8 @@ async function boot(){
   buildPips(); buildEntries(); buildCompass(); layoutList();
   bindEvents(); updateStick(); render(); buildKey(); checkManaFont();
   window.VMX = api();
-  runSelfTest();
+  if (arrival) arrive(arrival);
+  settled = runSelfTest();
 }
 
 /* THE KEY's specimen is a real entry chosen by rule: the shortest-named entry
