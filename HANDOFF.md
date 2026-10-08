@@ -10,28 +10,65 @@ each. Keep this file under ~200 lines.
 
 ## Control
 
-- Status: `idle`.
+- Status: `ready-for-qa` — **Story 4**, two small fixes (Owner, 2026-10-08).
 - Last accepted: **Story 3** (truthful exception panel), `24393f1`,
   accepted by the Owner 2026-10-08. Ledger:
   `docs/handoff-archive/story-3.md`. Earlier: `story-2.md`, `story-1.md`,
   `gate-e.md`, `gate-d.md`, `gate-c.md`; Gates A and B are in git at
   `5252333` and `b62131b`.
-- Next: none queued; pick from Unassigned.
-- Owner:
-- Allowed files:
-- Allowed surfaces:
-- Prohibited:
-- Base commit:
-- Candidate commit:
-- robqa class (see `.claude/skills/robqa/SKILL.md`):
+- Owner: Vox Mana.
+- Allowed files: `vox-color/color-wheel.html` (`applyHash` only),
+  `tools/check_invariants.py` (additive checks only), `HANDOFF.md`.
+- Allowed surfaces: the wheel's hash decode; the invariants report.
+- Prohibited: `data/`, taxonomy, goldens, recon, the explorer, the shell,
+  existing invariant counts.
+- Base commit: `4bd7f6a`.
+- Candidate commit: `d0b52a9`.
+- robqa class: 4a QA-3 (hash), same agent; 4b QA-4 (invariants tool),
+  separate robqa agent.
 
 ## Owner decisions
 
+- Do the `URIError` fix (4a) and the Story 2 regression test (4b) together.
+- Combine bounce: recon only, in a separate session; stays Unassigned.
+- Stale frames: parked under "When ready to host".
+
 ## Acceptance criteria
+
+4a. A malformed percent-encoded hash (`#%E0%A4%A`) no longer throws; the
+    wheel lands in Explore. Valid hashes, including the `#mechanics` guard
+    and `#combine=…`, route as before.
+4b. `check_invariants.py` fails if the seven "Return target … from graveyard
+    to hand." entries are not all in the group "Returning cards from
+    graveyard to hand.", or if "Creature sacrifice, forced, repeatable" loses
+    its explanation. It passes on today's data and fails on the
+    pre-Story-2 data. No existing check or count changes.
 
 ## Implementation
 
+`d0b52a9`, +33/−1.
+- `vox-color/color-wheel.html` (+7/−1): `applyHash` wraps
+  `decodeURIComponent` in try/catch and routes the raw text on failure. No
+  route matches raw `%` text, so it falls to Explore.
+- `tools/check_invariants.py` (+26): two checks after the authority check,
+  reading `mcp2021.abilities.json` (group membership, exact 7) and
+  `mechanical-color-pie.runtime.json` `byMechanic` (exact explanation).
+
 ## QA
+
+Developer checks:
+- Gate chain: all four pass; new lines "graveyard-to-hand group 7 entries",
+  "creature sacrifice explanation present".
+- Negative test: the five inputs from `6901f7b^` → exactly the two new
+  FAILs ("got 2 of 7"; explanation `''`), exit 1.
+- `node --check` on the wheel's extracted inline script: ok.
+- Browser (port 8000): load with `#%E0%A4%A` → Explore, no console errors;
+  hashchange to it → Explore; `#mechanics` → canonicalised to no hash;
+  `#combine=WU` after the bad hash → Combine.
+
+**Owner checklist (draft):**
+1. `file://` open `vox-color/color-wheel.html#%E0%A4%A`, hard reload: Explore,
+   no error; Back/Forward behave.
 
 ## Decisions needed
 
@@ -50,9 +87,10 @@ Open items carried forward. Detail lives in the archived ledgers.
   costs two history entries; Back passes once through the prior wheel route.
   Step 0 of Gate E measured that it cannot be fixed within `src` and hash.
 
-### From Gate E
+### When ready to host (Owner, 2026-10-08)
 
-- **Stale frames after an update (for hosting).** A browser can keep serving
+Parked until the Owner is ready to deploy; pick up as one story then.
+- **Stale frames after an update.** A browser can keep serving
   a cached instrument inside the shell's frame after the file changes; the
   shell's own hard reload does not refresh it (seen in the Owner's E2 QA).
   Before hosting, version the frame URLs or set cache headers.
@@ -62,9 +100,7 @@ Open items carried forward. Detail lives in the archived ledgers.
 - **Mana-font fallback.** Without mana-font, the colorless glyph is 0 px
   wide (Gate C F1) and the wheel's mana glyphs render as boxes; the explorer
   shows letters instead.
-- **`URIError`.** The wheel's `applyHash` throws on a malformed
-  percent-encoded hash such as `#%E0%A4%A`.
-- **Combine bounce.** With `#color=W` in the URL, pressing Combine flips
+- **Combine bounce** (recon in a separate session, Owner 2026-10-08). With `#color=W` in the URL, pressing Combine flips
   back to Explore a frame later. It also happens on production.
 - **`CLAUDE.md` read-order line counts** for `AGENTS.md`, `CONTEXT.md` and
   `MECHANICS-CONTRACT.md` drift by a few lines after Story 1 (story-1.md).
@@ -81,8 +117,6 @@ Open items carried forward. Detail lives in the archived ledgers.
   against the current `color-wheel.html` drops the Nephilim and community
   names from 10 rows, puts the C16 lens "Chaos" on URG and "Orzhov" on
   Non-Red. Recon is pinned to `96ae609`'s wheel until this is resolved.
-- **No regression test for the Story 2 defects.** `check_invariants.py`
-  could assert the seven-entry group and the creature-sacrifice explanation.
 - **Article input not archived.** Only its sha256 is recorded (copyright);
   a future fetch may differ.
 - **Small UI items.**
