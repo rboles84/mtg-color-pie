@@ -10,10 +10,11 @@ each. Keep this file under ~200 lines.
 
 ## Control
 
-- Status: `dev-in-progress`. **Story 1: retire the preview Mechanics code
-  from the Color Wheel. Brief approved by the Owner, 2026-10-08.** Step 0 is
-  next; no product file has been edited.
-  - Transition: `idle -> dev-in-progress` (Owner rulings S1-O1 to S1-O3).
+- Status: `ready-for-qa`. **Story 1: retire the preview Mechanics code
+  from the Color Wheel. Brief approved by the Owner, 2026-10-08.** Candidate
+  `eaae957`.
+  - Transitions: `idle -> dev-in-progress` (Owner rulings S1-O1 to S1-O3);
+    `dev-in-progress -> ready-for-qa` (candidate `eaae957`).
 - Last accepted: **Gate E** (cross-links), E1 `e6ed5f2` + `def153a` and E2
   `360eaea`, accepted by the Owner 2026-10-08. Ledger:
   `docs/handoff-archive/gate-e.md`. Earlier ledgers:
@@ -27,7 +28,8 @@ each. Keep this file under ~200 lines.
   - `vox-color/color-wheel.html`;
   - `tools/inline_runtime.py`: delete it (S1-O2);
   - `CLAUDE.md`: only the invariant line "the preview code stays,
-    unreachable, until its retirement story";
+    unreachable, until its retirement story", and the "Two of these are
+    stale" paragraph (S1-O4);
   - `AGENTS.md`, `CONTEXT.md` and `MECHANICS-CONTRACT.md`: only statements
     about the preview Mechanics mode or the inlined runtime that this story
     makes false (the "Stale docs" follow-up: "Mechanics unbuilt",
@@ -39,8 +41,7 @@ each. Keep this file under ~200 lines.
   recon truth, `vox-color/index.html`, `vox-color/mechanical-explorer.html`,
   `vox-color/mechanical-periodic-table.html`, `qa/` (historical snapshots),
   `PRODUCT-DEFINITION.md`, `docs/handoff-archive/`.
-- Base commit: the commit that records this brief. Candidate commit: (none
-  yet).
+- Base commit: `8efc41b`. Candidate commit: `eaae957`.
 - robqa class: **QA-3** (the route guard and wheel routing), a same-agent
   phase, with checks inside the shell.
 
@@ -59,6 +60,10 @@ each. Keep this file under ~200 lines.
 - **S1-O3. Keep the route guard.** Every legacy `mechanics` hash still lands
   in Explore at rest with the URL canonicalised (`CLAUDE.md` invariant,
   Gate A V16), standalone and inside the shell.
+- **S1-O4 (after Step 0).** Delete the `CLAUDE.md` paragraph that calls
+  `AGENTS.md` and `CONTEXT.md` stale on Mechanics, since this story fixes
+  them. That paragraph only; nothing else in `CLAUDE.md` beyond the
+  invariant line.
 
 ## Step 0 (before any product edit)
 
@@ -87,6 +92,48 @@ each. Keep this file under ~200 lines.
   unbuilt, and the `CLAUDE.md` invariant reads true.
 
 ## Implementation
+
+**Step 0 (base `8efc41b`).** Wheel sha256 `7c6d4662…ca8ca37b2b90`, 4,150
+lines, 345,973 bytes; gate chain green; `node --check` clean.
+- Regions: head "LAYER 4" comment; TOKENS "LEGACY NAMES" note and the
+  legacy tokens (`--obsidian` … `--radius`, read only by mechanics CSS);
+  CSS 584–1136; `#lay-mech` + comment, `.proto-bar`, `.dock-cap`, `#world`;
+  JS `layers.mech`, mechanics branches in `clearSelection`, `activate`,
+  Escape and `setMode`, the `MCP-RUNTIME` block through `setProto`
+  (2343–3283), `enableMechanicsPreview` (no caller). Stale comments at
+  202–204, 263–264, 499–500 reworded or removed.
+- Deleted CSS checked against live markup and JS: no removed selector can
+  match a live element; no class-less selector was removed.
+- `tools/recon.py` reads only the `IDENTITIES`/`ALIASES` registry by regex.
+  Nothing else references `inline_runtime` or `MCP-RUNTIME` outside
+  `qa/` and the archive.
+- V16 forms (§18.10): bare `mechanics`, `mechanics=`, `=board|atlas|layered|
+  preview`, any other value, and percent-encoded forms of each. Inside the
+  shell, `index.html` `validRoute` already rejects them (unchanged).
+  `#lay-mech` is now absent rather than "disabled and unchanged" (S1-O1).
+
+**Candidate `eaae957`.**
+- `vox-color/color-wheel.html`: +7 −1,611; 2,546 lines, 149,688 bytes,
+  sha256 `e20eafc2…6fce39af`.
+- `tools/inline_runtime.py`: deleted (−45).
+- `AGENTS.md` +2 −3, `CONTEXT.md` +2 −1, `MECHANICS-CONTRACT.md` +8 −3
+  (header status, §7 steps 7–8), `CLAUDE.md` +2 −7 (invariant, S1-O4).
+
+Criteria:
+- **S1-1.** Only the route guard remains; scan for `mech`, `MCP`,
+  `renderWorld`, `world`, `proto`, `lay-mech`, legacy tokens finds nothing
+  else. Tool deleted.
+- **S1-2.** Standalone, 11 forms via `location.replace`: hash empty, path
+  kept, Explore at rest, `histDelta` 0, no `#world`, no body class, no
+  console error; direct load of `#mechanics=board` the same. Shell, 9 forms
+  (incl. `%253D`): top hash and frame hash empty, Explore at rest,
+  `histDelta` 0, no error.
+- **S1-3.** `color`, `ally`, `enemy`, `four`, `combine=WUR`, `combine=`,
+  Escape, Clear, vertex click, Back/Forward, Combine round trip restoring
+  Explore's lenses, bridge href per route, 37 atlas tiles, viewBox
+  unchanged; `#color-wheel/ally=RG` in the shell. Visuals: Owner.
+- **S1-4.** Gate chain 0/0/0/0, `tools/recon.py` 0, `node --check` clean.
+- **S1-5.** Docs above; the `CLAUDE.md` invariant now reads true.
 
 ## QA
 
@@ -124,9 +171,11 @@ Open items carried forward. Detail lives in the archived ledgers.
 - **Combine bounce.** With `#color=W` in the URL, pressing Combine flips
   back to Explore a frame later. It also happens on production.
 - **Preview Mechanics retirement:** now Story 1 (above).
+- **`CLAUDE.md` read-order line counts** for `AGENTS.md`, `CONTEXT.md` and
+  `MECHANICS-CONTRACT.md` drift by a few lines after Story 1.
+- **`MECHANICS-CONTRACT.md` "Nothing past step 2.5 has started."** is stale
+  (steps 3–5 and 7 are done); not a preview statement, so not Story 1.
 - **Stale docs.**
-  - `AGENTS.md` and `CONTEXT.md` still call Mechanics unbuilt.
-  - `MECHANICS-CONTRACT.md` header, §7 step 8 and line 373.
   - `CONTEXT.md` understates the C16 caution and dates "Absence" 10 May
     (Wizards prints May 13, 2013).
   - N3: an unwrapped line in `AGENTS.md`.
