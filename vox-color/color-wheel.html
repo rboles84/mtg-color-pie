@@ -2350,7 +2350,15 @@ function setLayer(k, on) {
   L.grp.classList.toggle('layer-off', !on);
 }
 
-modeBtns.forEach(b => b.addEventListener('click', () => setMode(b.dataset.mode)));
+/* setMode clears the selection, which would write an empty hash; that
+   hashchange then restored Explore a frame later (the Combine bounce). The
+   click writes the new mode's own route once instead. */
+modeBtns.forEach(b => b.addEventListener('click', () => {
+  const m = b.dataset.mode;
+  applying = true;
+  try { setMode(m); } finally { applying = false; }
+  setRoute(m === 'combine' ? 'combine=' : null);
+}));
 
 /* ========================================================================
    DEEP LINKS
