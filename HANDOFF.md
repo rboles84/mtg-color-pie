@@ -10,7 +10,7 @@ each. Keep this file under ~200 lines.
 
 ## Control
 
-- Status: `ready-for-qa` — **Story 4**, two small fixes (Owner, 2026-10-08).
+- Status: `qa-passed` — **Story 4**, two small fixes (Owner, 2026-10-08).
 - Last accepted: **Story 3** (truthful exception panel), `24393f1`,
   accepted by the Owner 2026-10-08. Ledger:
   `docs/handoff-archive/story-3.md`. Earlier: `story-2.md`, `story-1.md`,
@@ -69,6 +69,29 @@ Developer checks:
 **Owner checklist (draft):**
 1. `file://` open `vox-color/color-wheel.html#%E0%A4%A`, hard reload: Explore,
    no error; Back/Forward behave.
+
+### robqa (separate agent) — Story 4b, QA-4, candidate `d0b52a9`
+
+Verdict: **qa-passed** (4b only; 4a is QA-3 same-agent, not re-run).
+- `git diff 4bd7f6a d0b52a9 --stat` -> only `tools/check_invariants.py` (+26)
+  and `vox-color/color-wheel.html` (+7/-1); both allowed.
+- Diff review: purely additive; no existing check, EXPECTED value or
+  output line changed.
+- Full gate chain on today's data -> all pass, exit 0; two new ok lines.
+- Pre-Story-2 inputs (`6901f7b^`, five files, scratch dir) -> both new
+  checks FAIL ("got 2 of 7"; explanation `''`), exit 1.
+- Single mutations of a copy of today's data, each exit 1, only the
+  matching check failing: one return entry moved out (6 of 7); all seven
+  moved out (0 of 7); explanation blanked; explanation changed.
+- Vacuity/extra entry: an 8th return-label entry ungrouped -> "7 of 8"; an
+  8th non-return entry added to the group -> "8 of 7". Neither passes.
+- Missing `mcp2021.abilities.json` or `mechanical-color-pie.runtime.json`
+  -> clean `FAIL missing required file`, exit 1, no traceback; the other
+  new check still runs.
+- `data/` untouched (git status clean before this edit).
+
+Findings: none. Owner checklist: unchanged from the draft above (item 1,
+4a `file://`); nothing visual for 4b.
 
 ## Decisions needed
 
