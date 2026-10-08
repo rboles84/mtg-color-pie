@@ -515,6 +515,9 @@ html.sheet-open .bar{position:relative}
 .cardref:focus-visible{outline:1.5px solid var(--brass-l);outline-offset:2px}
 .peek{position:fixed;z-index:60;width:244px;pointer-events:none;border-radius:11px;box-shadow:0 18px 44px rgba(0,0,0,.6),0 0 0 1px rgba(237,230,211,.08);background:var(--ground-3)}
 .peek img{display:block;width:100%;height:auto;border-radius:11px}
+.dx-eg{margin:12px 0 0;font:italic 400 15px/1.5 var(--f-read);color:var(--ink-dim)}
+.dx-eg .cite-k{margin-right:6px}
+.cite.is-peek{box-shadow:inset 0 0 0 1.5px var(--brass-l)}
 /* THE CITED CARD: a tipped-in plate after Rosewater's explanation. The full
    card image is shown whole — never cropped, tinted or overlaid (Scryfall's
    image rules) — with its name, printing, artist and image credit. */
@@ -1579,10 +1582,16 @@ function sfGet(path){
   return sfCache.get(path);
 }
 const cardImages = c => c.image_uris || ((c.card_faces || [])[0] || {}).image_uris || {};
-function explanationHTML(text){
+/* Two more explanations name a card in plain text, with no tag. They resolve
+   the same way, by exact name; the text itself is untouched. */
+const NAMED_CARD = { 'return target creature from graveyard to hand':'Gravedigger', 'taxing':'Mana Leak' };
+function explanationHTML(text, k){
+  const named = NAMED_CARD[k];
   return text.split(/(\[autocard mvid="\d+"\])/).map(part => {
     const m = /^\[autocard mvid="(\d+)"\]$/.exec(part);
-    return m ? `<span class="cardanchor" data-mvid="${m[1]}"></span>` : esc(part);
+    if (m) return `<span class="cardanchor" data-mvid="${m[1]}"></span>`;
+    const i = named ? part.indexOf(named) : -1;
+    return i < 0 ? esc(part) : esc(part.slice(0, i)) + `<span class="cardanchor" data-name="${esc(named)}"></span>` + esc(part.slice(i));
   }).join('');
 }
 function linkCardName(anchor, card){
@@ -1591,45 +1600,73 @@ function linkCardName(anchor, card){
   if (!t || t.nodeType !== 3 || !t.data.toLowerCase().startsWith(name.toLowerCase())) return;
   const a = document.createElement('a');
   a.className = 'cardref cardlink'; a.href = card.scryfall_uri; a.target = '_blank'; a.rel = 'noopener';
-  a.dataset.peek = cardImages(card).normal || '';
+  a.dataset.peek = cardImages(card).normal || ''; a.dataset.cite = card.id;
   a.textContent = t.data.slice(0, name.length);
   a.setAttribute('aria-label', `${a.textContent}, a card Rosewater names. Opens Scryfall.`);
   t.data = t.data.slice(name.length);
   anchor.after(a);
 }
 function hydrateDetail(k){
-  detailEl.querySelectorAll('.cardanchor[data-mvid]').forEach(an => {
-    sfGet('/cards/multiverse/' + an.dataset.mvid).then(card => {
+  detailEl.querySelectorAll('.cardanchor').forEach(an => {
+    sfGet(an.dataset.mvid ? '/cards/multiverse/' + an.dataset.mvid : '/cards/named?exact=' + encodeURIComponent(an.dataset.name)).then(card => {
       const next = an.nextElementSibling;
       if (card && S.pick === k && an.isConnected && !(next && next.classList.contains('cardref'))){ linkCardName(an, card); addCite(card); }
     });
   });
+  if (EXAMPLE_CARD[k]) sfGet('/cards/named?exact=' + encodeURIComponent(EXAMPLE_CARD[k])).then(card => {
+    if (card && S.pick === k) addCite(card, true);
+  });
 }
-function addCite(card){
+/* Entries named after a card that Rosewater's text never names. These are the
+   Owner's picks (docs/card-examples-group2.md), shown as "Example", never as
+   his citation. */
+const EXAMPLE_CARD = {
+  'fog':'Fog', 'lure':'Lure', 'lure, limited':'Irresistible Prey', 'lhurgoyf':'Lhurgoyf',
+  'gaseous form':'Heart of Light', 'curiosity':'Combat Research', 'polymorph':'Transmogrify', 'panic':'Panic',
+  'flicker':'Flicker', 'reanimate permanent':'Sun Titan', 'reanimation':'Reanimate', 'drain life':'Drain Life' };
+function addCite(card, example){
   const img = cardImages(card).normal, host = detailEl.querySelector('.dx-ex');
   if (!img || !host || detailEl.querySelector(`.cite[data-id="${card.id}"]`)) return;
   const name = String(card.name).split(' // ')[0], credit = card.artist ? `Illustrated by ${card.artist}` : '';
   const f = document.createElement('figure'); f.className = 'cite'; f.dataset.id = card.id;
-  f.innerHTML = `<a class="cite-img" href="${esc(card.scryfall_uri)}" target="_blank" rel="noopener" aria-label="${esc(name)}, the card Rosewater cites${card.set_name ? `, ${esc(card.set_name)} printing` : ''}. Opens Scryfall.">
+  f.innerHTML = `<a class="cite-img" href="${esc(card.scryfall_uri)}" target="_blank" rel="noopener" aria-label="${esc(name)}, ${example ? 'an example card' : 'the card Rosewater cites'}${card.set_name ? `, ${esc(card.set_name)} printing` : ''}. Opens Scryfall.">
       <img src="${esc(img)}" alt="${esc(name)}, the card${card.set_name ? `, ${esc(card.set_name)} printing` : ''}" width="488" height="680" loading="lazy" decoding="async"></a>
-    <figcaption><span class="cite-k">Card Rosewater cited</span><b>${esc(name)}</b>
+    <figcaption><span class="cite-k">${example ? 'Example' : 'Card Rosewater cited'}</span><b>${esc(name)}</b>
       <span>${esc(card.set_name || '')}${card.collector_number ? ` · #${esc(card.collector_number)}` : ''}</span>
       ${credit ? `<span>${esc(credit)}</span>` : ''}
-      <span class="cite-c">Card image via Scryfall · © Wizards of the Coast. It identifies the card; the placement and explanation above are Rosewater’s.</span></figcaption>`;
+      <span class="cite-c">Card image via Scryfall · © Wizards of the Coast. ${example ? 'An example we chose; Rosewater’s text does not name it.' : 'It identifies the card; the placement and explanation above are Rosewater’s.'}</span></figcaption>`;
   const im = f.querySelector('img'); im.addEventListener('error', () => f.remove());
-  const after = host.parentElement.querySelector('.dx-note') || host;
+  let after = host.parentElement.querySelector('.dx-note') || host;
+  /* An example gets one editorial line of ours, outside his paragraph, whose
+     card name previews like a card he names. */
+  if (example && !detailEl.querySelector('.dx-eg')){
+    const p = document.createElement('p'); p.className = 'dx-eg';
+    p.innerHTML = `<span class="cite-k">Example</span> <a class="cardref cardlink" href="${esc(card.scryfall_uri)}" target="_blank" rel="noopener" data-peek="${esc(img)}" data-cite="${esc(card.id)}" aria-label="${esc(name)}, an example card we chose. Opens Scryfall.">${esc(name)}</a>`;
+    after.after(p); after = p;
+  }
   after.after(f);
 }
+/* The preview sits outside the detail panel — left, else right — so it never
+   covers the text. With no room on either side it does not float at all; the
+   card's own plate below is marked instead. */
 function showPeek(a){
   const src = a.dataset.peek; if (!src) return;
-  const peek = $('#peek'), img = $('#peek-img');
+  const peek = $('#peek'), img = $('#peek-img'), GAP = 14, M = 8;
   if (img.getAttribute('src') !== src) img.src = src;
-  const r = a.getBoundingClientRect(), W = 244, H = 340;
-  let x = r.left - W - 14; if (x < 8) x = Math.min(innerWidth - W - 8, r.right + 14);
-  peek.style.left = x + 'px'; peek.style.top = Math.max(8, Math.min(innerHeight - H - 8, r.top + r.height / 2 - H / 2)) + 'px';
   peek.hidden = false;
+  const W = peek.offsetWidth, H = img.complete && img.naturalWidth ? peek.offsetHeight : Math.round(W * 680 / 488);
+  const d = detailEl.getBoundingClientRect(), r = a.getBoundingClientRect();
+  let x = d.left - GAP - W;
+  if (x < M) x = d.right + GAP + W <= innerWidth - M ? d.right + GAP : null;
+  if (x === null || H > innerHeight - 2 * M){
+    peek.hidden = true;
+    const plate = a.dataset.cite && detailEl.querySelector(`.cite[data-id="${a.dataset.cite}"]`);
+    if (plate) plate.classList.add('is-peek');
+    return;
+  }
+  peek.style.left = x + 'px'; peek.style.top = Math.max(M, Math.min(innerHeight - H - M, r.top + r.height / 2 - H / 2)) + 'px';
 }
-function hidePeek(){ $('#peek').hidden = true; }
+function hidePeek(){ $('#peek').hidden = true; detailEl.querySelectorAll('.cite.is-peek').forEach(f => f.classList.remove('is-peek')); }
 
 /* ======================================================================
    THE ONE DETAIL SURFACE
@@ -1718,7 +1755,7 @@ function detailHTML(k){
     </section>
     <section class="dx-sec" aria-label="Explanation">
       <h3 class="dx-h">Explanation <span class="by">Rosewater, 2021</span></h3>
-      ${e.explanation ? `<p class="dx-ex">${explanationHTML(e.explanation)}</p>`
+      ${e.explanation ? `<p class="dx-ex">${explanationHTML(e.explanation, k)}</p>`
         : `<p class="dx-ex is-empty">${esc(lo ? lo.ex : 'The frozen 2021 data holds no explanation for this entry.')}</p>`}
       ${lo ? `<p class="dx-note">${esc(lo.note)}${lo.jump ? ` <button class="dx-jump" type="button" data-act="jump" data-k="${esc(lo.jump)}" data-fid="dx-jump">${esc(lo.jumpLabel)}</button>` : ''}</p>` : ''}
     </section>
@@ -1881,6 +1918,7 @@ function bindEvents(){
   document.addEventListener('pointerout', ev => { const a = ev.target.closest && ev.target.closest('.cardlink[data-peek]'); if (a) hidePeek(); });
   document.addEventListener('focusin', ev => { const a = ev.target.closest && ev.target.closest('.cardlink[data-peek]'); if (a) showPeek(a); else hidePeek(); });
   window.addEventListener('scroll', hidePeek, { passive:true });
+  window.addEventListener('resize', hidePeek);
   detailEl.addEventListener('scroll', hidePeek, { passive:true });
 
   $('#key-fold').addEventListener('click', () => setFolded('key', !$('#key').classList.contains('is-folded'), true));
