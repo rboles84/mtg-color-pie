@@ -31,7 +31,7 @@ each. Keep this file under ~200 lines.
   `vox-color/color-wheel.html`, `index.html`,
   `mechanical-periodic-table.html`, every other self-check assertion.
 - Base commit: `2261c9d`.
-- Candidate commit:
+- Candidate commit: `6901f7b`.
 - robqa class: **QA-4** (mechanics data). Full gate chain, then the
   separate `robqa` agent (Sonnet).
 
