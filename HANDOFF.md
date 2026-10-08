@@ -10,29 +10,77 @@ each. Keep this file under ~200 lines.
 
 ## Control
 
-- Status: `idle`.
+- Status: `ready-for-owner` — **Story 3**, truthful exception panel.
 - Last accepted: **Story 2** (source-layer reopen, reason 3), `6901f7b`,
   accepted by the Owner 2026-10-08. Ledger:
   `docs/handoff-archive/story-2.md`. Earlier: `story-1.md`, `gate-e.md`,
   `gate-d.md`, `gate-c.md`; Gates A and B are in git at `5252333` and
   `b62131b`.
-- Next: **Story 3**, the exception-panel copy (see Follow-ups). Approved;
-  start it in a fresh session.
-- Owner:
-- Allowed files:
-- Allowed surfaces:
-- Prohibited:
-- Base commit:
-- Candidate commit:
-- robqa class (see `.claude/skills/robqa/SKILL.md`):
+- Owner: Vox Mana.
+- Allowed files: `vox-color/mechanical-explorer.html`, `HANDOFF.md`.
+- Allowed surfaces: the explorer's bottom exception section, its four
+  entries' list tags and detail `where`/explanation/note, and the self-check
+  lines named in S3-O1.
+- Prohibited: `data/`, the Color Wheel, the shell, any other explorer copy.
+- Base commit: `14b7403`.
+- Candidate commit: `24393f1`.
+- robqa class: QA-2 (copy and links in one component), same-agent.
 
 ## Owner decisions
 
+Story 3 brief, facts, agreed copy and sources: see Follow-ups → "Story 3,
+approved" below (unchanged).
+
 ## Acceptance criteria
+
+1. Heading reads "Not explained under these names in 2021".
+2. Intro is the agreed copy, with the 2017 and 2021 Changes articles linked.
+3. The three entries are tagged "Explained in 2017; explanation dropped in
+   2021"; forced sacrifice "Explained in 2021 under “Forced sacrifice”".
+4. Detail panel for each agrees with the list: no "legacy", no reason
+   attributed, sources linked for the three, jump to "Sacrifice a creature."
+   kept for forced sacrifice.
+5. Nothing else changes; self-check passes apart from known environment-only
+   failures.
 
 ## Implementation
 
+`24393f1`, one file, +22/−17 in `vox-color/mechanical-explorer.html`.
+- `UNMATCHED_CASE` (~l.811): new tag/where/ex/note copy; `SRC_2017`,
+  `SRC_2021_CHANGES` constants; a `links` field for the three.
+- Detail note render (~l.1749): renders `links` as "Sources: …" after the
+  note. Escaped as before.
+- `.lo` section (~l.1211): heading, aria-label and agreed intro with two
+  links; the unused `nAbsent` count removed.
+- S3-O1, self-check edits (Step 0 list): (a) "the absent three say the
+  article gives no explanation" → now asserts "no explanation for this
+  entry", "2017 edition explained it", "without giving a reason" and both
+  source links; (b) "Forced sacrifice … separately named entry" → now
+  asserts "explains it as “Sacrifice a creature.” under the sub-heading
+  “Forced sacrifice”"; jump and target assertions unchanged. The tag-label
+  check (two distinct tags, list tag = case tag) needed no edit.
+
 ## QA
+
+Same-agent QA-2, browser pane at `http://localhost:8000`:
+- Self-check 83/84. The one failure, "plates: both fold controls keep one
+  right-edge position", fails identically on base `14b7403` with the
+  pane hidden (viewport 0×0); environment-only, not this change.
+- Measured: section heading, intro text, four tags; detail `where`/ex/note
+  for `-N/+N (on spells)` (both links present, correct hrefs) and forced
+  sacrifice (jump intact). Grep: no old wording left outside archives.
+- No gate chain (no data/mechanics/tools touched); `node --check` not
+  required (wheel untouched).
+
+**Owner checklist** (server running on port 8000):
+1. Open http://localhost:8000/vox-color/mechanical-explorer.html, scroll
+   the list to the bottom: heading, intro and tags read as agreed; the two
+   intro links open the Wizards 2017 and 2021 Changes pages.
+2. Click "-N/+N (on Auras)": top line, explanation line and note agree with
+   the list tag; the two "Sources" links work.
+3. Click "Forced sacrifice of a creature": note names "Forced sacrifice";
+   "Open “Sacrifice a creature.”" opens that entry.
+4. Footer self-check in a visible window: 84/84.
 
 ## Decisions needed
 
