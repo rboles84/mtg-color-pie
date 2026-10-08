@@ -37,7 +37,8 @@ presents this file and `mechanical-explorer.html` together as "The Color
 Pie": one header and nav, each instrument in its own same-origin iframe,
 neither edited. The wheel's routes above are unchanged; the shell carries
 them as `#color-wheel/<route>`, with `#mechanical-color-pie` for the
-explorer. The shell is HTTP-served (Chromium desktop browsers); this file
+explorer and `#mechanical-color-pie/colors=<WUBRG key>` for an arrival with
+a colour lens (Gate E). The shell is HTTP-served (Chromium desktop browsers); this file
 still runs from `file://` on its own. Contract: `PRODUCT-DEFINITION.md` §9.
 
 ---

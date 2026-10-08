@@ -8,9 +8,10 @@
  routers never meet. This file edits neither of them. It reads only the
  Color Wheel's hash and listens only for the wheel's hashchange and either
  frame gaining focus; it writes nothing into them except a validated wheel
- route. Spec: PRODUCT-DEFINITION.md §9 and §11; the Gate B contract and
- Owner decisions B1–B12 are in HANDOFF.md (git history once Gate B
- closes).
+ route and, for an arrival with colours, a validated colours key into the
+ explorer's hash (Gate E). Spec: PRODUCT-DEFINITION.md §9, §11 and §15; the
+ Gate B contract and Owner decisions B1–B12 are in git at b62131b, Gate E's
+ in HANDOFF.md.
 
  The inactive frame is switched off, not display:none: it stays laid out
  (an instrument booting there runs as it would on screen), is not painted,
@@ -23,6 +24,13 @@
    #color-wheel/<wheel route>    Color Wheel at that route, passed through
                                  verbatim (e.g. #color-wheel/combine=WUR)
    #mechanical-color-pie         Mechanical Color Pie
+   #mechanical-color-pie/colors=<k>
+                                 Mechanical Color Pie with the colour lens k,
+                                 a canonical W U B R G key of one to five
+                                 colours; the URL is then replaced with
+                                 #mechanical-color-pie. The explorer reads k
+                                 on arrival only, so reload and traversal
+                                 never replay it (Gate E, E-O2).
 
  Anything else, a route whose percent-encoding is malformed, or a route that
  contains the retired Mechanics route in any encoding, lands on the Color
@@ -37,6 +45,14 @@
  frame's hash is the truth: Chromium shares the parent's history item across
  entries the frame creates, so the parent's stored URL can be stale after a
  traversal. A view switch is the only thing the shell pushes.
+
+ Colours reach an explorer frame that has not loaded through its src, which
+ adds no entry. A loaded one gets them by replacing its hash, then, a task
+ later (so its hashchange fires with them), replacing it with a bare '#'.
+ Replacing in place can rewrite the frame's item in earlier entries too, but
+ every explorer item ends bare, so no entry changes. A bridge into a loaded
+ wheel still costs the browser's entry and the wheel's (B12, kept under
+ E-D1).
 
  ENVIRONMENT
  -----------
@@ -152,7 +168,7 @@
   'use strict';
 
   var WHEEL = 'wheel', PIE = 'pie';
-  var WHEEL_PREFIX = '#color-wheel/', PIE_HASH = '#mechanical-color-pie';
+  var WHEEL_PREFIX = '#color-wheel/', PIE_HASH = '#mechanical-color-pie', PIE_COLORS = PIE_HASH + '/colors=';
   var SRC = { wheel: 'color-wheel.html', pie: 'mechanical-explorer.html' };
   var NAME = { wheel: 'Color Wheel', pie: 'Mechanical Color Pie' };
   var MARK = { shell: 1 };   // history.state on every entry the shell has seen
@@ -181,6 +197,12 @@
   function parse(hash) {
     if (hash === '' || hash === '#') return { view: WHEEL, route: '' };
     if (hash === PIE_HASH) return { view: PIE };
+    /* canonical order, no repeats, one to five colours; anything else is
+       rejected like any unknown route */
+    if (hash.indexOf(PIE_COLORS) === 0) {
+      var k = hash.slice(PIE_COLORS.length);
+      if (k && /^W?U?B?R?G?$/.test(k)) return { view: PIE, colors: k };
+    }
     if (hash.indexOf(WHEEL_PREFIX) === 0) {
       var r = hash.slice(WHEEL_PREFIX.length);
       if (validRoute(r)) return { view: WHEEL, route: r };
@@ -204,6 +226,24 @@
   }
 
   function loadWheel(route) { frames.wheel.src = SRC.wheel + (route ? '#' + route : ''); }
+
+  /* Colours for the explorer (see HISTORY). Until its first load the frame
+     is (re)pointed at them, so the last colours requested win; once loaded,
+     its hash is replaced, then cleared a task later. The URLs are absolute:
+     replace() resolves a relative one against this document, not the
+     frame's, and '#' alone would load the shell into the frame. */
+  var pieLoaded = false;
+  function pieHash(h) {
+    var loc = frames.pie.contentWindow.location;
+    loc.replace(loc.href.split('#')[0] + h);
+  }
+  function sendColors(k) {
+    if (!pieLoaded) { frames.pie.src = SRC.pie + '#colors=' + k; return; }
+    try {
+      pieHash('#colors=' + k);
+      setTimeout(function () { try { pieHash('#'); } catch (e) { /* file:// */ } }, 0);
+    } catch (e) { /* file:// */ }
+  }
 
   /* True while the wheel frame's first navigation has not committed yet: its
      document is still the initial about:blank. */
@@ -267,6 +307,8 @@
       else if (cur !== null && cur !== t.route) {
         try { frames.wheel.contentWindow.location.hash = t.route; } catch (e) { /* file:// */ }
       }
+    } else if (t.colors) {
+      sendColors(t.colors);
     } else if (!frames.pie.getAttribute('src')) {
       frames.pie.src = SRC.pie;
     }
@@ -323,7 +365,13 @@
     guardFocus(WHEEL);
     sync();
   });
-  frames.pie.addEventListener('load', function () { guardFocus(PIE); });
+  /* The explorer has read any colours in its hash by now (its script runs
+     before load); clearing it keeps them out of reload and traversal. */
+  frames.pie.addEventListener('load', function () {
+    pieLoaded = true;
+    guardFocus(PIE);
+    try { if (frames.pie.contentWindow.location.hash) pieHash('#'); } catch (e) { /* file:// */ }
+  });
 
   arrive(parse(location.hash), false);
 })();

@@ -241,6 +241,11 @@
   .stage { display:grid; grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr); gap:clamp(16px,3vw,40px); align-items:start; }
   @media (max-width:900px) { .stage { grid-template-columns:1fr; } }
   .wheel-wrap { position:relative; }
+  /* the bridge to the Mechanical Color Pie (Gate E) */
+  .bridge { margin:10px 0 0; text-align:center; font:400 15px/1.5 var(--f-read); }
+  .bridge a { color:var(--brass-l); text-decoration:underline; text-decoration-color:var(--brass-q); text-underline-offset:4px; }
+  .bridge a:hover { text-decoration-color:var(--brass-l); }
+  .bridge a:focus-visible { outline:2px solid var(--brass-l); outline-offset:3px; }
   svg.wheel { width:100%; height:auto; display:block; overflow:visible; }
 
   /* ===================================================================
@@ -1446,6 +1451,7 @@
         <circle class="center-dot" cx="400" cy="400" r="7"></circle>
       </g>
       </svg>
+      <p class="bridge" id="bridge" hidden><a id="bridgeLink" href="index.html#mechanical-color-pie" target="_top">View these colors in the Mechanical Color Pie →</a></p>
     </div>
 
     <!-- tabindex="-1" so focus has somewhere to land when the Clear button
@@ -4041,7 +4047,35 @@ function enableMechanicsPreview() {
     setMode(mode === 'mechanics' ? 'explore' : 'mechanics'));
 }
 
+/* BRIDGE (Gate E) to the Mechanical Color Pie, carrying the colours on show
+   as a canonical W U B R G key and nothing else. It reads the wheel's state
+   after applyHash has run, so a route that selects nothing shows no bridge,
+   and Combine needs at least one colour. Inside the integration shell a
+   click changes only the shell's hash, a same-document navigation, so a
+   shell served at a directory URL does not reload. On its own, or where the
+   parent cannot be reached (file://), the link opens the shell. */
+const bridge = document.getElementById('bridge'), bridgeLink = document.getElementById('bridgeLink');
+function bridgeColors() {
+  if (mode === 'combine') return D.order.filter(c => combo.has(c)).join('');
+  if (mode !== 'explore' || !sel) return '';
+  const k = sel.kind === 'four' ? D.order.filter(c => c !== sel.key).join('') : sel.key;
+  return D.order.filter(c => k.includes(c)).join('');
+}
+function updateBridge() {
+  const k = bridgeColors();
+  bridge.hidden = !k;
+  bridgeLink.href = 'index.html#mechanical-color-pie/colors=' + k;
+}
+bridgeLink.addEventListener('click', e => {
+  if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+  try {
+    if (window.top !== window) { top.location.hash = 'mechanical-color-pie/colors=' + bridgeColors(); e.preventDefault(); }
+  } catch (err) { /* not reachable: the link opens the shell */ }
+});
+window.addEventListener('hashchange', updateBridge);
+
 if (location.hash.length > 1) applyHash();
+updateBridge();
 
 
 /* ======================================================================

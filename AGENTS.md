@@ -29,9 +29,12 @@ this guide are the current operating rule.
   `color-wheel.html` and `mechanical-explorer.html`, which stay separate,
   unedited documents. It reads only the wheel's hash (and watches each
   frame's focus, to keep focus out of the inactive one) and writes only a
-  validated route into it. Routes: `index.html` (Color Wheel at rest),
-  `#color-wheel/<wheel route>` (passed through verbatim) and
-  `#mechanical-color-pie`; anything else, malformed percent-encoding, or the
+  validated route into it, plus, for an arrival with colours, a validated
+  colours key into the explorer's hash (Gate E). Routes: `index.html` (Color
+  Wheel at rest), `#color-wheel/<wheel route>` (passed through verbatim),
+  `#mechanical-color-pie` and `#mechanical-color-pie/colors=<WUBRG key>`
+  (Gate E; the URL is then replaced with `#mechanical-color-pie`); anything
+  else, malformed percent-encoding, or the
   retired Mechanics route in any encoding lands on the Color Wheel at rest.
   It is HTTP-served, with Chromium desktop browsers as the supported scope;
   on `file://` it switches views but cannot mirror routes. Contract:
