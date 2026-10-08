@@ -10,77 +10,28 @@ each. Keep this file under ~200 lines.
 
 ## Control
 
-- Status: `ready-for-owner` — **Story 3**, truthful exception panel.
-- Last accepted: **Story 2** (source-layer reopen, reason 3), `6901f7b`,
+- Status: `idle`.
+- Last accepted: **Story 3** (truthful exception panel), `24393f1`,
   accepted by the Owner 2026-10-08. Ledger:
-  `docs/handoff-archive/story-2.md`. Earlier: `story-1.md`, `gate-e.md`,
-  `gate-d.md`, `gate-c.md`; Gates A and B are in git at `5252333` and
-  `b62131b`.
-- Owner: Vox Mana.
-- Allowed files: `vox-color/mechanical-explorer.html`, `HANDOFF.md`.
-- Allowed surfaces: the explorer's bottom exception section, its four
-  entries' list tags and detail `where`/explanation/note, and the self-check
-  lines named in S3-O1.
-- Prohibited: `data/`, the Color Wheel, the shell, any other explorer copy.
-- Base commit: `14b7403`.
-- Candidate commit: `24393f1`.
-- robqa class: QA-2 (copy and links in one component), same-agent.
+  `docs/handoff-archive/story-3.md`. Earlier: `story-2.md`, `story-1.md`,
+  `gate-e.md`, `gate-d.md`, `gate-c.md`; Gates A and B are in git at
+  `5252333` and `b62131b`.
+- Next: none queued; pick from Unassigned.
+- Owner:
+- Allowed files:
+- Allowed surfaces:
+- Prohibited:
+- Base commit:
+- Candidate commit:
+- robqa class (see `.claude/skills/robqa/SKILL.md`):
 
 ## Owner decisions
 
-Story 3 brief, facts, agreed copy and sources: see Follow-ups → "Story 3,
-approved" below (unchanged).
-
 ## Acceptance criteria
-
-1. Heading reads "Not explained under these names in 2021".
-2. Intro is the agreed copy, with the 2017 and 2021 Changes articles linked.
-3. The three entries are tagged "Explained in 2017; explanation dropped in
-   2021"; forced sacrifice "Explained in 2021 under “Forced sacrifice”".
-4. Detail panel for each agrees with the list: no "legacy", no reason
-   attributed, sources linked for the three, jump to "Sacrifice a creature."
-   kept for forced sacrifice.
-5. Nothing else changes; self-check passes apart from known environment-only
-   failures.
 
 ## Implementation
 
-`24393f1`, one file, +22/−17 in `vox-color/mechanical-explorer.html`.
-- `UNMATCHED_CASE` (~l.811): new tag/where/ex/note copy; `SRC_2017`,
-  `SRC_2021_CHANGES` constants; a `links` field for the three.
-- Detail note render (~l.1749): renders `links` as "Sources: …" after the
-  note. Escaped as before.
-- `.lo` section (~l.1211): heading, aria-label and agreed intro with two
-  links; the unused `nAbsent` count removed.
-- S3-O1, self-check edits (Step 0 list): (a) "the absent three say the
-  article gives no explanation" → now asserts "no explanation for this
-  entry", "2017 edition explained it", "without giving a reason" and both
-  source links; (b) "Forced sacrifice … separately named entry" → now
-  asserts "explains it as “Sacrifice a creature.” under the sub-heading
-  “Forced sacrifice”"; jump and target assertions unchanged. The tag-label
-  check (two distinct tags, list tag = case tag) needed no edit.
-
 ## QA
-
-Same-agent QA-2, browser pane at `http://localhost:8000`:
-- Self-check 83/84. The one failure, "plates: both fold controls keep one
-  right-edge position", fails identically on base `14b7403` with the
-  pane hidden (viewport 0×0); environment-only, not this change.
-- Measured: section heading, intro text, four tags; detail `where`/ex/note
-  for `-N/+N (on spells)` (both links present, correct hrefs) and forced
-  sacrifice (jump intact). Grep: no old wording left outside archives.
-- No gate chain (no data/mechanics/tools touched); `node --check` not
-  required (wheel untouched).
-
-**Owner checklist** (server running on port 8000):
-1. Open http://localhost:8000/vox-color/mechanical-explorer.html, scroll
-   the list to the bottom: heading, intro and tags read as agreed; the two
-   intro links open the Wizards 2017 and 2021 Changes pages.
-2. Click "-N/+N (on Auras)": top line, explanation line and note agree with
-   the list tag; the two "Sources" links work.
-3. Click "Forced sacrifice of a creature": note names "Forced sacrifice";
-   "Open “Sacrifice a creature.”" opens that entry.
-4. Footer self-check in a visible window: 84/84.
 
 ## Decisions needed
 
@@ -105,42 +56,6 @@ Open items carried forward. Detail lives in the archived ledgers.
   a cached instrument inside the shell's frame after the file changes; the
   shell's own hard reload does not refresh it (seen in the Owner's E2 QA).
   Before hosting, version the frame URLs or set cache headers.
-
-### Story 3, approved (Owner, 2026-10-08): truthful exception panel
-
-Start it in a fresh session. Copy and links only, in
-`vox-color/mechanical-explorer.html`: the bottom section now headed "No
-matching explanation in the frozen data". No data, Color Wheel or shell
-change; no other Mechanical Color Pie content changes.
-- **Facts (verified against the Wizards pages, 2026-10-08).**
-  - 2017 edition explains `-N/+N (on spells)` (White), `-N/+N (on Auras)`
-    (White) and `-N/-0 (on creatures)` (Blue).
-  - The 2021 Changes article, under "CHANGE TEXT, STATUS, & REMOVE SOME
-    SUBSECTIONS: Creature pumping", has all three in OLD and none in NEW, and
-    gives **no reason** for dropping them. Its "just don't get used any more"
-    sentence belongs to four *other* REMOVE SUBSECTION items (`+0/+N to your
-    team` x2, `-0/-N to their team` x2). Do not attribute it to these three.
-  - All three are still in the 2021 per-color lists, so they are not
-    "legacy". "Forced sacrifice of a creature" is in 2021's Black list and is
-    explained as "Sacrifice a creature." under "Forced sacrifice".
-- **Agreed copy.**
-  - Heading: "Not explained under these names in 2021".
-  - Intro: These four entries are in the 2021 per-color lists but have no
-    2021 explanation under the same name. Three were explained in the 2017
-    edition; the 2021 Changes article removed those explanations without
-    giving a reason. "Forced sacrifice of a creature" is explained in 2021 as
-    "Sacrifice a creature." under "Forced sacrifice."
-  - Tag for the three: "Explained in 2017; explanation dropped in 2021".
-  - Tag for forced sacrifice: "Explained in 2021 under “Forced sacrifice”".
-  - The detail panel's per-entry note and text for these entries must agree.
-- **Sources (official Wizards only).**
-  - https://magic.wizards.com/en/news/making-magic/mechanical-color-pie-2017-2017-06-05
-  - https://magic.wizards.com/en/news/making-magic/mechanical-color-pie-2021
-  - https://magic.wizards.com/en/news/making-magic/mechanical-color-pie-2021-changes
-- **S3-O1.** The self-check assertions that encode the current wording may
-  change (the three "gives no explanation" / "per-color lists" checks and
-  the tag-label checks); list each in Step 0 before editing. No other.
-- **QA:** same-agent QA-2/QA-3; Owner checks visuals.
 
 ### Unassigned (each needs its own story)
 
