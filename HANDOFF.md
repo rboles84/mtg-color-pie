@@ -10,7 +10,7 @@ each. Keep this file under ~200 lines.
 
 ## Control
 
-- Status: `ready-for-qa`.
+- Status: `qa-passed`.
 - Task: **Story 2**, source-layer reopen under `MECHANICS-CONTRACT.md`
   reason 3 (deterministic parser defect, concrete source example). Approved
   by the Owner 2026-10-08.
@@ -159,6 +159,68 @@ Draft Owner checklist (server: `py -m http.server 8000` in the repo):
 4. Bottom section: "4 entries", two cases.
 
 ## QA
+
+Mode: separate robqa agent (Sonnet). Class: QA-4. Candidate `6901f7b` on
+base `2261c9d`. Changed paths (16, incl. HANDOFF) all inside Allowed files.
+
+- Gate chain (invariants, taxonomy, recon, gate) -> exit 0, 53 recon
+  assertions hold; `fixtures.py --data data/` -> 11/11 match.
+- Fresh public GET into an empty scratch dir -> 444,305 bytes, sha256
+  `86d6ae35...8da1a4`. **Differs** from the recorded `51017283...` (444,312
+  bytes). Compared content instead (below): the parser produces the
+  candidate's data from it byte for byte, so the difference is outside what
+  the parser reads (page chrome); the recorded hash is not reproducible by a
+  later fetch (already a listed follow-up).
+- Raw HTML, both defects confirmed: `<hr />` + `<p><strong>Return target
+  creature from graveyard to hand.</strong></p>` sits between the card/artifact
+  items and enchantment..sorcery items; `<p><b>Creature sacrifice, forced,
+  repeatable</b><strong> (All players/opponents ...)</strong></p>`, then
+  `Primary: Black`, then "Sometimes black likes killing things slowly."
+  (verbatim, present).
+- Reproducibility (git archive copies, `python` from copy root): base parser
+  -> abilities, lists, reconciled.raw identical to `2261c9d` (LF-normalised;
+  working tree is CRLF). Candidate parser + `reconcile_identity.py` +
+  `build_runtime.py` -> abilities, audit, lists, reconciled, raw and runtime
+  identical to `6901f7b`. (Parser alone writes pre-identity reconciled/audit;
+  those match only after reconcile, as expected.)
+- Criterion 1-2: abilities.json diff = 1 relabel (phantom -> creature
+  sacrifice, group null) + 5 group values -> "Returning cards from graveyard
+  to hand."; nothing else.
+- Criterion 3: reconciled/raw/runtime diffs = the one basis
+  (list-only -> both-agree, in_catalog true) and explanation. identity
+  rulings loses the one creature-sacrifice "distinct" ruling; review.md counts
+  move (both 192, list-only 24, merges 23 -> 19, after-rulings 212 -> 216),
+  all D2-allowed. Recon JSON compared order-insensitively with base: only
+  both-agree 450->451 and list-only 6->5; matrices.json identical; csv/md
+  differ by row order plus those counts. `recon_stats.py --html
+  <96ae609 wheel>` under PYTHONHASHSEED 1,2,3 -> identical output, and equal
+  to the committed `data/recon/`. No fixture/golden/taxonomy file changed.
+- Criterion 4-5: explorer diff touches only HEADING_FIX removal, the creature
+  sacrifice UNMATCHED_CASE entry, the unmatched note text, and the
+  `order:` (2), `headings:` (2), `unmatched:` assertions listed in Step 0; no
+  other assertion. `HEADING_FIX` has no remaining references.
+  `node --check` on the extracted script -> OK.
+- Criterion 7: dated reason-3 note present in MECHANICS-CONTRACT.md.
+- Browser self-check: **not run** (no browser tool). Server on :8000 answers
+  200. Left to the Owner (item 1).
+
+Findings:
+- note: recorded article hash does not match a fresh fetch (see above);
+  content-level reproduction holds.
+- note: Step 0 text says D1 `order:` is "2145/2146"; matches diff. No issue.
+- minor: unmatched note reads "...and "Forced sacrifice of a creature" is the
+  per-color lists' name..." after "; and"-style join; wording slightly clunky
+  (copy only, Owner to judge visually).
+
+Verdict: **qa-passed** (browser self-check pending Owner).
+
+Owner checklist: the four draft items in the Candidate section
+(http://localhost:8000/vox-color/mechanical-explorer.html, hard-reload; start
+`py -m http.server 8000` in the repo root first): 84 of 84 passed; seven
+entries under "Returning cards from graveyard to hand."; creature sacrifice
+shows "Sometimes black likes killing things slowly." after "-N/-N to their
+team"; bottom section "4 entries", two cases. Also read the unmatched note
+wording.
 
 ## Decisions needed
 
