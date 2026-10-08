@@ -810,15 +810,18 @@ const PLAYER_TERMS = [
 
 /* The four runtime entries that match no entry in the frozen copy of the
    article's explanations section. They are NOT all the same case (checked
-   against the published article, 2026-09-25), so each says what is true of it.
+   against the Wizards pages, 2026-10-08), so each says what is true of it.
    No explanation text is ever supplied for them: the frozen data has none. */
+const SRC_2017 = 'https://magic.wizards.com/en/news/making-magic/mechanical-color-pie-2017-2017-06-05';
+const SRC_2021_CHANGES = 'https://magic.wizards.com/en/news/making-magic/mechanical-color-pie-2021-changes';
 const UNMATCHED_CASE = {
-  absent: { tag:'No explanation in the article', where:'In the article’s per-color lists only',
-    ex:'The article gives no explanation for this entry.',
-    note:'Rosewater places this in his per-color lists. His “All Abilities with Explanations” section has no entry for it.' },
-  'forced sacrifice of a creature': { tag:'Explained under another name', where:'Per-color list name · explained under another name',
-    ex:'The article gives no explanation under this name.',
-    note:'This is the name the per-color lists use. The article’s explanation is under a separately named entry, “Sacrifice a creature.”, beneath the sub-heading “Forced sacrifice”. The frozen data keeps the two records apart.',
+  absent: { tag:'Explained in 2017; explanation dropped in 2021', where:'In the 2021 per-color lists · not explained in 2021',
+    ex:'The 2021 article has no explanation for this entry.',
+    note:'This entry is in the 2021 per-color lists. The 2017 edition explained it; the 2021 Changes article removed that explanation without giving a reason.',
+    links:[['Mechanical Color Pie 2017', SRC_2017], ['Mechanical Color Pie 2021 Changes', SRC_2021_CHANGES]] },
+  'forced sacrifice of a creature': { tag:'Explained in 2021 under “Forced sacrifice”', where:'2021 per-color list name · explained under “Forced sacrifice”',
+    ex:'The 2021 article has no explanation under this name.',
+    note:'This is the name the 2021 per-color lists use. The 2021 article explains it as “Sacrifice a creature.” under the sub-heading “Forced sacrifice”. The frozen data keeps the two records apart.',
     jump:'forced sacrifice :: sacrifice a creature', jumpLabel:'Open “Sacrifice a creature.”' }
 };
 const unmatchedCase = k => UNMATCHED_CASE[k] || UNMATCHED_CASE.absent;
@@ -1208,12 +1211,12 @@ function layoutList(){
         grpIn.appendChild(entEl.get(k));
       } else { grpName = null; frag.appendChild(entEl.get(k)); }
     }
-    const nAbsent = LIST_ONLY.filter(k => !UNMATCHED_CASE[k]).length;
     const lo = document.createElement('div'); lo.className = 'lo'; lo.setAttribute('role', 'group');
-    lo.setAttribute('aria-label', 'Entries with no matching explanation in the frozen data');
-    lo.innerHTML = `<h3 class="grp-h">No matching explanation in the frozen data<small>${LIST_ONLY.length} entries</small></h3>
-      <p class="lo-note">These ${LIST_ONLY.length} entries carry placements in the frozen data but match no entry in its copy of Rosewater's “All Abilities with Explanations”. They are two different cases:
-      ${nAbsent} appear only in his per-color lists and have no explanation in the article; and “Forced sacrifice of a creature” is the per-color lists' name, and the article explains it under a separately named entry, linked from its record.</p><div class="grp-in"></div>`;
+    lo.setAttribute('aria-label', 'Not explained under these names in 2021');
+    lo.innerHTML = `<h3 class="grp-h">Not explained under these names in 2021<small>${LIST_ONLY.length} entries</small></h3>
+      <p class="lo-note">These four entries are in the 2021 per-color lists but have no 2021 explanation under the same name.
+      Three were explained in the <a href="${SRC_2017}" target="_blank" rel="noopener">2017 edition</a>; the <a href="${SRC_2021_CHANGES}" target="_blank" rel="noopener">2021 Changes article</a> removed those explanations without giving a reason.
+      “Forced sacrifice of a creature” is explained in 2021 as “Sacrifice a creature.” under “Forced sacrifice.”</p><div class="grp-in"></div>`;
     LIST_ONLY.forEach(k => lo.querySelector('.grp-in').appendChild(entEl.get(k)));
     frag.appendChild(lo);
   } else {
@@ -1744,7 +1747,7 @@ function detailHTML(k){
       <h3 class="dx-h">Explanation <span class="by">Rosewater, 2021</span></h3>
       ${e.explanation ? `<p class="dx-ex">${explanationHTML(e.explanation, k)}</p>`
         : `<p class="dx-ex is-empty">${esc(lo ? lo.ex : 'The frozen 2021 data holds no explanation for this entry.')}</p>`}
-      ${lo ? `<p class="dx-note">${esc(lo.note)}${lo.jump ? ` <button class="dx-jump" type="button" data-act="jump" data-k="${esc(lo.jump)}" data-fid="dx-jump">${esc(lo.jumpLabel)}</button>` : ''}</p>` : ''}
+      ${lo ? `<p class="dx-note">${esc(lo.note)}${lo.links ? ' Sources: ' + lo.links.map(([t, u]) => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(t)}</a>`).join(', ') + '.' : ''}${lo.jump ? ` <button class="dx-jump" type="button" data-act="jump" data-k="${esc(lo.jump)}" data-fid="dx-jump">${esc(lo.jumpLabel)}</button>` : ''}</p>` : ''}
     </section>
     ${aliases.length ? `<section class="dx-sec" aria-label="Also written in the article as"><h3 class="dx-h">Also written in the article as</h3>
       <ul class="dx-list">${aliases.map(a => `<li>${esc(curly(a))}</li>`).join('')}</ul></section>` : ''}
@@ -2195,11 +2198,13 @@ async function runSelfTest(){
   const absent = LIST_ONLY.filter(k => !UNMATCHED_CASE[k]);
   eq('unmatched: exactly three entries are genuinely absent from the explanations',
      absent, ['-n/+n (on auras)', '-n/+n (on spells)', '-n/-0 (on creatures)']);
-  ok('unmatched: the absent three say the article gives no explanation', absent.every(k => { S.pick = k; render();
-     return /gives no explanation for this entry/.test(detailEl.querySelector('.dx-ex').textContent) && /per-color lists/.test(detailEl.querySelector('.dx-note').textContent); }));
+  ok('unmatched: the absent three say 2017 explained them and 2021 dropped it without a reason, with both sources linked', absent.every(k => { S.pick = k; render();
+     const n = detailEl.querySelector('.dx-note');
+     return /no explanation for this entry/.test(detailEl.querySelector('.dx-ex').textContent) && /2017 edition explained it/.test(n.textContent) &&
+       /without giving a reason/.test(n.textContent) && [SRC_2017, SRC_2021_CHANGES].every(u => n.querySelector(`a[href="${u}"]`)); }));
   S.pick = 'forced sacrifice of a creature'; render();
-  ok('unmatched: "Forced sacrifice of a creature" points to its separately named explanation entry, and the link opens it',
-     /separately named entry/.test(detailEl.textContent) && detailEl.querySelector('[data-act="jump"]').dataset.k === 'forced sacrifice :: sacrifice a creature' &&
+  ok('unmatched: "Forced sacrifice of a creature" points to its 2021 explanation under "Forced sacrifice", and the link opens it',
+     /explains it as “Sacrifice a creature\.” under the sub-heading “Forced sacrifice”/.test(detailEl.textContent) && detailEl.querySelector('[data-act="jump"]').dataset.k === 'forced sacrifice :: sacrifice a creature' &&
      !!MECH['forced sacrifice :: sacrifice a creature'].explanation);
   S.pick = 'creature sacrifice, forced, repeatable'; render();
   ok('unmatched: "Creature sacrifice, forced, repeatable" is in the article’s order and shows its explanation, verbatim',
