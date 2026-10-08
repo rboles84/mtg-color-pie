@@ -66,8 +66,9 @@ Written before implementation on purpose. The extraction is finished and
 frozen; the open question is no longer *can we trust the data* but *what
 questions should the UI ask of it*. This document answers only the second.
 
-Status: **contract agreed, not implemented.** The Mechanics button is still
-disabled and nothing in `vox-color/color-wheel.html` reads any of this.
+Status: **contract agreed.** The Color Wheel no longer carries a Mechanics
+mode (its preview was removed in Story 1); nothing in
+`vox-color/color-wheel.html` reads any of this.
 
 ---
 
@@ -376,7 +377,11 @@ The shorter summary wording survives as a `source_alias` in every case.
    *Note (Gate A, V16): superseded. Every hash the router reads as the
    Mechanics route now lands in Explore at rest and is canonicalised; the
    preview is unreachable.*
-8. Enable the toggle. **Not done** — awaiting owner visual review.
+   *Note (Story 1, 2026-10-08): the preview, its inlined runtime and
+   `tools/inline_runtime.py` have been removed from the Color Wheel. Only the
+   route guard remains.*
+8. ~~Enable the toggle.~~ Withdrawn: the toggle was removed with the preview
+   (Story 1). Mechanics is served by the Mechanical Color Pie explorer.
 
 Nothing past step 2.5 has started.
 

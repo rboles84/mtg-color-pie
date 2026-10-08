@@ -43,11 +43,6 @@ Do not read these end to end to orient yourself. This index is the orientation.
 | `PHYREXIA-PLAN.md` | 179 | Only for the Phyrexia overlay question. Not loaded otherwise. |
 | `PROMPT.md` | 94 | Historical brief. Superseded by `HANDOFF.md`. Rarely needed. |
 
-Two of these are stale and known to be: `AGENTS.md` says the Mechanics control
-is "unbuilt" and `CONTEXT.md` calls the Mechanics overlay "not built". Both
-predate the mechanics work. Trust `HANDOFF.md` and `MECHANICS-CONTRACT.md` over
-them on anything mechanics-related.
-
 ## Hard invariants — do not relitigate
 
 - **The source layer is frozen.** `data/`, the taxonomy, the 11 fixture
@@ -62,8 +57,8 @@ them on anything mechanics-related.
   Wheel runs from `file://`. The integration shell `vox-color/index.html`
   is HTTP-served and is not required to integrate on `file://` (Gate B).
 - **Mechanics mode is retired from the Color Wheel.** Every legacy Mechanics
-  hash lands in Explore at rest, with the URL canonicalised; the preview code
-  stays, unreachable, until its retirement story.
+  hash lands in Explore at rest, with the URL canonicalised. The preview code
+  was removed in Story 1; only the route guard remains.
 
 ## Change control
 

@@ -21,7 +21,8 @@ did the shared-stylesheet extraction that had been queued as its own job.
   2. Each colour's two faces — one arc per alliance, in the ally's colour.
   3. Edges: allied pairs (pentagon) and enemy chords (star).
   4. Crossings: the five interior intersections.
-  5. Mechanics overlay — *not built.* Button exists and is disabled.
+  Mechanics is not part of the Color Wheel; it lives in the Mechanical Color
+  Pie explorer.
 - **Combine** — click colours to build a set; it resolves to one of the 32.
   The layer toggles are Explore's lenses and are hidden here; Combine owns its
   own geometry, and Explore's lens state is remembered and handed back.
