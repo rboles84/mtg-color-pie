@@ -222,6 +222,13 @@ shows "Sometimes black likes killing things slowly." after "-N/-N to their
 team"; bottom section "4 entries", two cases. Also read the unmatched note
 wording.
 
+### Owner checks (2026-10-08)
+
+Checks 1–4 passed after the browser's cached JSON was refreshed (first run
+showed 79 of 84: new page, cached old `mcp2021.abilities.json`; the
+existing "Stale frames" follow-up). Self-check 84 of 84; group shows 7;
+creature sacrifice shows its sentence; bottom section 4 entries, 2 cases.
+
 ## Decisions needed
 
 None open.
