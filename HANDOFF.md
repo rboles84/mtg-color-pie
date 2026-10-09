@@ -88,9 +88,6 @@ Parked until the Owner is ready to deploy; pick up as one story then.
   - A headless-only scroll after the explorer loads; check it in a headed
     browser.
 - **Housekeeping.**
-  - **GitHub default branch (after Story 2, Owner 2026-10-08).** Set it to
-    `master` in the repo settings; `origin/main` holds only an unrelated
-    README commit. Then `git remote set-head origin -a`.
   - Rename `ALIASES` and the shard `aka` field.
   - Commit or gitignore `docs/DATA-DOSSIER.html`.
   - **Periodic table: keep as-is (Owner, 2026-10-08).**
