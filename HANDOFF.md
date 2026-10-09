@@ -10,106 +10,28 @@ each. Keep this file under ~200 lines.
 
 ## Control
 
-- Status: `ready-for-owner` — **Story 5**, the Combine bounce.
-- Last accepted: **Story 4** (`URIError` guard + Story 2 regression
-  checks), `d0b52a9`, accepted by the Owner 2026-10-08. Ledger:
-  `docs/handoff-archive/story-4.md`. Earlier: `story-3.md`, `story-2.md`,
-  `story-1.md`, `gate-e.md`, `gate-d.md`, `gate-c.md`; Gates A and B are in
-  git at `5252333` and `b62131b`.
-- Owner: Vox Mana.
-- Allowed files: `vox-color/color-wheel.html` (mode-button click handler),
-  `HANDOFF.md`.
-- Allowed surfaces: the wheel's mode switch and the hash it writes.
-- Prohibited: `data/`, tools, the explorer, the shell, `applyRoute`,
-  `setMode`, `clearSelection`.
-- Base commit: `487594e`.
-- Candidate commit: `b29794d`.
-- robqa class: QA-3 (routing/hash/history), same agent; the shell was
-  checked but is unchanged.
+- Status: `idle`.
+- Last accepted: **Story 5** (the Combine bounce), `b29794d`, accepted by
+  the Owner 2026-10-08. Ledger: `docs/handoff-archive/story-5.md`.
+  Earlier: `story-4.md`, `story-3.md`, `story-2.md`, `story-1.md`,
+  `gate-e.md`, `gate-d.md`, `gate-c.md`; Gates A and B are in git at
+  `5252333` and `b62131b`.
+- Next: none queued; pick from Unassigned.
+- Owner:
+- Allowed files:
+- Allowed surfaces:
+- Prohibited:
+- Base commit:
+- Candidate commit:
+- robqa class (see `.claude/skills/robqa/SKILL.md`):
 
 ## Owner decisions
 
-- Fix the bounce in this session (Owner, 2026-10-08), from the recon below.
-
 ## Acceptance criteria
-
-1. From `#color=`, `#four=`, `#enemy=`, `#ally=`, `#combine=WU`, a
-   malformed hash and no hash, pressing Combine stays in Combine and the
-   hash is `#combine=`; pressing Explore returns to Explore with no hash.
-2. Each mode press adds at most one history entry; Back returns to the
-   prior route and mode, Forward re-enters Combine.
-3. Picking colours in Combine still writes `#combine=<set>`; Back steps
-   through the set.
-4. `#mechanics` still lands in Explore with the hash removed; Story 4's
-   malformed-hash guard still holds. Same behaviour inside the shell.
 
 ## Implementation
 
-`b29794d`, `vox-color/color-wheel.html` +9/−1, the mode-button click
-handler only. It runs `setMode` with `applying = true` (so
-`clearSelection`'s `setRoute(null)` writes nothing) and then writes the
-mode's own route once: `combine=` or no hash. Route restores
-(`applyRoute`) are unchanged; they already ran with `applying` set.
-Simpler than the recon's proposal (no change inside `setMode`).
-
 ## QA
-
-Same-agent QA-3, browser at `http://localhost:8000`, measured:
-- Criterion 1: all seven starting hashes → Combine, `#combine=`; Explore →
-  no hash. Console clean.
-- Criterion 2: +1 history entry per press. From `#color=W`, Combine → Back
-  → `#color=W`, Explore, W selected; Forward → `#combine=`, Combine.
-- Criterion 3: picking W then U → `#combine=WU`; Back → `#combine=W`, set W.
-- Criterion 4: `#mechanics` → Explore, URL without hash; `#%E0%A4%A` →
-  Explore. Shell `index.html#color-wheel/color=W`: Combine →
-  shell `#color-wheel/combine=`, stays Combine; Back → `color=W`, Explore.
-- `node --check` on the extracted inline script: ok.
-
-**Owner checklist:**
-1. `file://` open `vox-color/color-wheel.html#color=W`, press Combine: it
-   stays in Combine. Hard reload: still Combine. Back: Explore with W
-   selected; Forward: Combine.
-2. Same at http://localhost:8000/vox-color/index.html#color-wheel/color=W
-   (the shell): Combine stays, Back/Forward behave.
-
-### Recon (separate session, `487594e`)
-
-With `#color=W` in the URL, pressing Combine flips
-  back to Explore a frame later. It also happens on production.
-  **Recon findings (2026-10-08, no code changed):**
-  - *Repro.* Measured at `…/color-wheel.html#color=W` (t in ms): click →
-    `setMode('combine')` 0.3 → `clearSelection()` → `setRoute(null)` 0.5 →
-    `location.hash=''` (sync, hash is `''` by 1.2) → `applyRoute('')` 3.6 →
-    `setMode('explore')` 3.6 → `hashchange` event logged 4.6. Mode is Explore
-    within ~4 ms, one task later; no timer involved.
-  - *Scope.* Standalone and inside the shell (`index.html#color-wheel/…`)
-    both bounce. Bounces on `#color=`, `#four=`, `#enemy=`, `#ally=` and even
-    `#combine=WU` (clicking Combine while already in it). Does **not** bounce
-    with no hash (`setRoute(null)` sees `'' === ''`, writes nothing). The shell
-    is not involved; its hash ends empty, as the wheel's does.
-  - *Cause* ([color-wheel.html:2320-2327](vox-color/color-wheel.html:2320),
-    [:1262](vox-color/color-wheel.html:1262),
-    [:2376-2379](vox-color/color-wheel.html:2376),
-    [:2396-2422](vox-color/color-wheel.html:2396)). `setMode` calls
-    `clearSelection()`, which ends in `setRoute(null)`. The click path is not
-    inside `applying`, so it writes `location.hash=''`; `hashchange` →
-    `applyHash` → `applyRoute('')` matches no key and falls through to
-    `setMode('explore')`. Combine's own route is only written by `renderCombo`
-    (:2307), never on entry, so nothing re-asserts `#combine=`.
-  - *Smallest fix (wheel only).* Mute route writes inside `setMode`'s clear,
-    then write the mode's own route from the click handler only:
-    `const was=applying; applying=true; try{clearSelection()}finally{applying=was}`
-    in `setMode`; handler: `setMode(m); setRoute(m==='combine' ? 'combine=' : null)`.
-    (`#combine=` is already the documented colourless form.)
-  - *Risks.* Entering Combine now pushes one `#combine=` entry (Back returns
-    to the prior selection, arguably right). `applyRoute` already runs under
-    `applying`, so Back/Forward, the `#mechanics` guard (`replaceState` then
-    `setMode('explore')`) and Story 4's `applyHash` raw fallback are unchanged
-    in path; re-test each. Explore click from Combine still ends at `''`.
-    Don't touch the Clear button's `setRoute(null)`.
-  - *QA class:* QA-3 (hash/history, wheel-only), same agent: every hash above
-    plus Back/Forward and `#mechanics`; `node --check`; `file://` hard reload
-    and Back/Forward on the Owner checklist. QA-5 only if the shell changes.
 
 ## Decisions needed
 
