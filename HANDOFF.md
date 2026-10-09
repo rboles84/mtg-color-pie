@@ -96,6 +96,25 @@ Parked until the Owner is ready to deploy; pick up as one story then.
     idea to move it to a prototypes folder and restyle it is dropped.
     Record Three.js in `CONTEXT.md` only if it is ever taken into the
     product.
+- **Example cards on every entry (Owner, 2026-10-08).** The explorer already
+  shows an example card (Scryfall art, set, number, artist) on the entries
+  the Owner has done; 12 more are ready. Rolling it out to all 216 is a
+  larger story: needs recon and scoping first. Open question: whether card
+  examples live in the frozen source layer or in a separate examples file.
+- **Sourced flavour lines per colour (Owner, 2026-10-08).** Official sources
+  only (Rosewater articles, magic.wizards.com); anything unsourced is left
+  out. Backlog; needs recon and its own story.
+- **"What can my colours do" panel (Owner, 2026-10-08).** Players set their
+  colours in the existing Colors bar (no deck import for now). Design note
+  still to write: what the panel recommends, how, and why. Category counts
+  only, no scores.
+- **Share link and PNG card for a colour selection (Owner, 2026-10-08).**
+  URL is the existing hash route plus `colors=`; image is a canvas card with
+  colour name, count and source line.
+- **Ring legibility (Owner, 2026-10-08).** "No placement" rings are now
+  dashed in the explorer (`.sc.t-n`, uncommitted). Black stays `#aca29a`
+  (mana-font's own black); revisit only if it still blends in. Open: gilt
+  selection rings sit near W and R.
 - **Paused by the Owner:** the Scryfall query idea.
 - **Gate A process notes (R6-N4 to N6).**
   - State what a CRLF sha256 hashes.
