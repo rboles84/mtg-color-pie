@@ -34,7 +34,7 @@ each. Keep this file under ~200 lines.
   stop and ask); the other 7 `EXAMPLE_CARD` entries, `NAMED_CARD`, the
   autocard entries; `vox-color/mechanical-examples.json`.
 - Base commit: `ba1c285`.
-- Candidate commit:
+- Candidate commit: `689bb08`
 - robqa class (see `.claude/skills/robqa/SKILL.md`): expected QA-2 (one
   rendering fallback per page, tooling entry point, docs), same agent;
   reclassify after the pre-edit contract if the wheel change is larger.
