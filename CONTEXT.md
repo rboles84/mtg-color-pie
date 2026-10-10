@@ -191,12 +191,15 @@ grouping label that could not be traced to Wizards.
 - **Four colours have no philosophy article.** Verified, not assumed. The five
   names — Artifice, Chaos, Aggression, Altruism, Growth — come from Ethan
   Fleischer's "Designing Commander (2016 Edition)" (24 Oct 2016), NOT from
-  Rosewater, and he describes them as **decks in gameplay terms**: Artifice
-  plays "artifacts matter" cards, Chaos flips coins and plays off the top,
-  Growth is a +1/+1 counters theme. The Ravnica-guild framing came from
-  developer Ben Hayes as a challenge to the team, not as an achieved result.
-  Calling any of them "the philosophy of WUBR" overstates the source badly.
-- **Rosewater on four colours, verified verbatim** — "Absence," 10 May 2013:
+  Rosewater. The guild-style framing began as developer Ben Hayes's
+  challenge to the team, and the article reports it as **achieved** ("Here's
+  what we came up with:"), with a rationale for each group drawn from its
+  colours. Each also plays as a deck: Artifice plays "artifacts matter"
+  cards, Chaos flips coins and plays off the top, Growth is a +1/+1 counters
+  theme. They are one product team's identities for one Commander release,
+  not colour-pie philosophy; calling any of them "the philosophy of WUBR"
+  still overstates the source.
+- **Rosewater on four colours, verified verbatim** — "Absence," 13 May 2013:
   "It's nearly impossible to design four-color cards that actually feel like
   four-color cards... The biggest thing about four-color cards is the missing
   color, but you can't design about what's missing." And, importantly, the

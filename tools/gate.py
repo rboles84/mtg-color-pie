@@ -41,3 +41,12 @@ def require_source_gate(data_dir):
         print("\nSOURCE GATE FAILED. Downstream generation will not start.")
         sys.exit(1)
     print("source gate         : PASS")
+
+
+if __name__ == "__main__":
+    import argparse
+    ap = argparse.ArgumentParser(description="Run the source gate, then the taxonomy gate.")
+    ap.add_argument("--data", type=pathlib.Path, default=pathlib.Path("data"))
+    a = ap.parse_args()
+    require_source_gate(a.data)
+    require_taxonomy_gate(a.data)

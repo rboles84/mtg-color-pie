@@ -120,6 +120,14 @@
   /* mana symbols, recoloured to the page's own tokens (the explorer does the same) */
   .ms-cost.ms-w{background-color:var(--w)} .ms-cost.ms-u{background-color:var(--u)}
   .ms-cost.ms-b{background-color:var(--b)} .ms-cost.ms-r{background-color:var(--r)} .ms-cost.ms-g{background-color:var(--g)}
+  /* If the Mana font never arrives, every symbol falls back to its letter,
+     as on the explorer. The class is set by checkManaFont(). */
+  .no-mana .ms { font:500 1em/1 var(--f-mono); background:none !important; padding:0; width:auto; height:auto; }
+  .no-mana .ms::before { font:inherit; transform:none; }
+  .no-mana .ms-w::before { content:'W'; color:var(--w); } .no-mana .ms-u::before { content:'U'; color:var(--u); }
+  .no-mana .ms-b::before { content:'B'; color:var(--b); } .no-mana .ms-r::before { content:'R'; color:var(--r); }
+  .no-mana .ms-g::before { content:'G'; color:var(--g); } .no-mana .ms-c::before { content:'C'; color:var(--c); }
+  .no-mana .vertex-glyph { font:500 22px var(--f-mono); }
 
   .page { max-width:1280px; margin:0 auto; padding:clamp(28px,5vw,64px) clamp(16px,4vw,40px) 64px; }
 
@@ -2554,6 +2562,22 @@ updateBridge();
     tile.style.setProperty('--rx', '0deg');
     tile.style.setProperty('--ry', '0deg');
   }
+})();
+
+/* If the Mana font never arrives, every symbol falls back to its letter. The
+   explorer tests the computed font-family; here .vertex-glyph names 'Mana' in
+   our own CSS, so ask the font set whether a Mana face actually loaded. */
+(function checkManaFont() {
+  var fallback = function () {
+    document.documentElement.classList.add('no-mana');
+    document.querySelectorAll('.vertex-glyph').forEach(function (t) {
+      t.textContent = t.closest('.vertex').dataset.key;
+    });
+  };
+  if (!document.fonts || !document.fonts.load) return;
+  document.fonts.load('16px Mana', '').then(function (faces) {
+    if (!faces.length) fallback();
+  }, fallback);
 })();
 </script>
 </body>

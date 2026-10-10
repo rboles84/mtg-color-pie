@@ -399,7 +399,7 @@ The shorter summary wording survives as a `source_alias` in every case.
 8. ~~Enable the toggle.~~ Withdrawn: the toggle was removed with the preview
    (Story 1). Mechanics is served by the Mechanical Color Pie explorer.
 
-Nothing past step 2.5 has started.
+Steps 3–5 and 7 are done; step 8 is withdrawn.
 
 ### The gate, and why it is structural
 

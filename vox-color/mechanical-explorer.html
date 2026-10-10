@@ -1615,9 +1615,9 @@ let STORED_EXAMPLE = {};
    Owner's picks (docs/card-examples-group2.md), shown as "Example", never as
    his citation. */
 const EXAMPLE_CARD = {
-  'fog':'Fog', 'lure':'Lure', 'lure, limited':'Irresistible Prey', 'lhurgoyf':'Lhurgoyf',
+  'lure, limited':'Irresistible Prey',
   'gaseous form':'Heart of Light', 'curiosity':'Combat Research', 'polymorph':'Transmogrify', 'panic':'Panic',
-  'flicker':'Flicker', 'reanimate permanent':'Sun Titan', 'reanimation':'Reanimate', 'drain life':'Drain Life' };
+  'flicker':'Flicker', 'reanimate permanent':'Sun Titan' };
 function addCite(card, example){
   const img = cardImages(card).normal, host = detailEl.querySelector('.dx-ex');
   if (!img || !host || detailEl.querySelector(`.cite[data-id="${card.id}"]`)) return;
@@ -2091,9 +2091,13 @@ function setFolded(id, folded, remember){
 /* If the Mana font never arrives, every symbol falls back to its letter. */
 function checkManaFont(){
   const probe = document.querySelector('.pip .ms');
-  const test = () => document.documentElement.classList.toggle('no-mana', !probe || !/Mana/.test(getComputedStyle(probe).fontFamily));
+  /* The computed font-family names Mana whenever the stylesheet loads, even
+     if the font file then fails, so also ask whether a Mana face loaded. */
+  let failed = false;
+  const test = () => document.documentElement.classList.toggle('no-mana', failed || !probe || !/Mana/.test(getComputedStyle(probe).fontFamily));
   test(); window.addEventListener('load', test);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(test);
+  if (document.fonts && document.fonts.load) document.fonts.load('16px Mana', '').then(f => { failed = !f.length; test(); }, () => { failed = true; test(); });
 }
 
 function api(){

@@ -10,15 +10,15 @@ each. Keep this file under ~200 lines.
 
 ## Control
 
-- Status: `ready` — **Story 8: gate entry point, mana-font fallback and
-  small cleanups.** Set up 2026-10-10; not started.
+- Status: `candidate` — **Story 8: gate entry point, mana-font fallback and
+  small cleanups.** Implemented 2026-10-10; awaiting Owner review.
 - Last accepted: **Story 7** (classic printings for 24 examples),
   `7f28e12`, accepted by the Owner 2026-10-10. Ledger:
   `docs/handoff-archive/story-7.md`. Earlier: `story-6.md`, `story-5.md`,
   `story-4.md`, `story-3.md`, `story-2.md`, `story-1.md`, `gate-e.md`,
   `gate-d.md`, `gate-c.md`; Gates A and B are in git at `5252333` and
   `b62131b`.
-- Next: start Story 8 on the Owner's go, in a fresh session.
+- Next: Owner runs the checklist under QA; then close and archive.
 - Owner: Vox Mana.
 - Allowed files: `tools/gate.py`; `vox-color/color-wheel.html` (mana
   fallback only); `vox-color/mechanical-explorer.html` (mana fallback and
@@ -82,7 +82,60 @@ each. Keep this file under ~200 lines.
 
 ## Implementation
 
+- `tools/gate.py` (+9): `__main__` block with `--data` (default `data`); runs
+  `require_source_gate` then `require_taxonomy_gate`. The two functions are
+  unchanged.
+- `vox-color/color-wheel.html` (+24): `.no-mana` CSS gives every `.ms` its
+  letter (W U B R G C) in mono, in its colour token, no disc; a
+  `checkManaFont` IIFE at the end of the script calls
+  `document.fonts.load('16px Mana', '\uE600')` and, if no face loads, sets
+  `no-mana` and swaps the five SVG `.vertex-glyph` texts for their letters.
+  One-way: it never removes the class.
+- `vox-color/mechanical-explorer.html` (+7 −3): the five `EXAMPLE_CARD`
+  entries removed. `checkManaFont` also asks `document.fonts.load`; the
+  computed-font-family test alone did **not** fire when the stylesheet
+  loaded but the font file failed (measured, see below).
+- Docs: `CONTEXT.md` C16 caution (achieved, per-colour rationale) and
+  "Absence" 13 May 2013; `AGENTS.md` long line wrapped; `MECHANICS-CONTRACT.md`
+  line 402 now "Steps 3–5 and 7 are done; step 8 is withdrawn." (step 6 is
+  not struck in the list, so no claim is made about it); `CLAUDE.md` counts
+  456 / 363 / 295 (`HANDOFF.md` `~120` left as is).
+- The four xlsx files added unchanged.
+
+Criteria → evidence (built-in browser, scratch copies of each page served
+from `vox-color/`, deleted afterwards; "blocked" = mana CSS pointed at a dead
+port; "font fails" = a local `@font-face Mana` with a 404 src):
+
+1. `python tools/gate.py` → both PASS, exit 0. Scratch copy of `data/`
+   with a duplicated taxonomy assignment → "taxonomy gate FAILED", exit 1.
+   Real `data/` untouched. Full chain passes (53 recon assertions).
+2. Wheel, blocked: `no-mana` set; vertex glyphs read WUBRG in IBM Plex Mono;
+   `.ms` content "W"… ; Combine-at-rest `.ms-c` content "C", 9.0 px wide.
+   Wheel, font fails: `no-mana` set, glyphs WUBRG. Wheel, CDN up: no class,
+   glyphs U+E600–E604, `.ms` font Mana. Explorer, blocked: fires (before
+   and after). Explorer, font fails: did **not** fire before the change,
+   fires after. Explorer CDN up: no class; self-test 84/84 at 1440×900.
+   `node --check` on the wheel's extracted script: OK.
+3. Fog, Lure, Lhurgoyf, Reanimation, Drain Life: stored plate, 0
+   api.scryfall.com requests each. The other seven: 1 request each, plate
+   shown. Note: if `mechanical-examples.json` fails to load, those five now
+   show no plate (previously they fell back to Scryfall).
+4. As above. 5. `git diff --cached` on the xlsx: added, unmodified.
+
+Same-agent QA (QA-2). Visual look of the letter fallback not checked by
+screenshot (the pane would not render one); Owner check below.
+
 ## QA
+
+Owner checklist (start `py -m http.server 8000` in the repo root first):
+1. http://localhost:8000/vox-color/color-wheel.html — looks as before.
+2. DevTools → Network → block request domain `cdn.jsdelivr.net`, reload:
+   the five wheel vertices show W U B R G letters, no boxes; Combine with no
+   colour selected shows a "C" in the colorless sentence; tile pips show letters.
+3. Same block on http://localhost:8000/vox-color/mechanical-explorer.html —
+   letters, as before. Unblock; open Fog and Lure — stored Alpha plates.
+4. Hard reload of `vox-color/color-wheel.html` via `file://` with the block
+   on (human-only check).
 
 ## Decisions needed
 
@@ -99,13 +152,6 @@ Open items carried forward. Detail lives in the archived ledgers.
 - **Browser pane at 0×0.** In a hidden pane the self-check reports 83 of 84
   (the plates fold-control geometry check); at 1440×900 it is 84 of 84,
   before and after Story 6. Environmental, not a regression.
-
-### From Story 7
-
-- **Five `EXAMPLE_CARD` lookups now unused.** Fog, Lure, Lhurgoyf,
-  Reanimation and Drain Life have stored records that win in
-  `hydrateDetail()`; their `EXAMPLE_CARD` lines in the explorer are dead.
-  Left as is by Owner decision.
 
 ### Accepted minors
 
@@ -126,20 +172,6 @@ Parked until the Owner is ready to deploy; pick up as one story then.
 
 ### Unassigned (each needs its own story)
 
-- **Mana-font fallback.** Without mana-font, the colorless glyph is 0 px
-  wide (Gate C F1) and the wheel's mana glyphs render as boxes; the explorer
-  shows letters instead.
-- **`CLAUDE.md` read-order line counts** for `AGENTS.md`, `CONTEXT.md` and
-  `MECHANICS-CONTRACT.md` drift by a few lines after Story 1 (story-1.md).
-- **`MECHANICS-CONTRACT.md` "Nothing past step 2.5 has started."** is stale
-  (steps 3–5 and 7 are done); not a preview statement, so not Story 1.
-- **Stale docs.**
-  - `CONTEXT.md` understates the C16 caution and dates "Absence" 10 May
-    (Wizards prints May 13, 2013).
-  - N3: an unwrapped line in `AGENTS.md`.
-- **`tools/gate.py` has no entry point.** It exits 0 having checked
-  nothing; the real gates run inside `check_taxonomy.py` and
-  `check_recon.py`.
 - **Recon names vs today's wheel (Story 2, D4).** Regenerating recon
   against the current `color-wheel.html` drops the Nephilim and community
   names from 10 rows, puts the C16 lens "Chaos" on URG and "Orzhov" on

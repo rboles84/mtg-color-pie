@@ -198,8 +198,9 @@ it has just found.
   passed is not evidence.
 - Test objective behavior (routes, DOM state, focus, console) in a real
   browser when the task affects rendering, interaction, routing, focus, or
-  motion; appearance and feel are the Owner's call (see the robqa skill). Direct `file://` behavior matters for
-  the standalone Color Wheel, especially hash assignment. The integration
+  motion; appearance and feel are the Owner's call (see the robqa skill).
+  Direct `file://` behavior matters for the standalone Color Wheel,
+  especially hash assignment. The integration
   shell is verified over local HTTP.
 - Separate defects from preferences. A defect needs a concise reproduction,
   expected result, actual result, impact, and the smallest relevant evidence.

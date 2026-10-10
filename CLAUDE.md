@@ -36,9 +36,9 @@ Do not read these end to end to orient yourself. This index is the orientation.
 | File | Lines | Open it when |
 |---|---:|---|
 | `HANDOFF.md` | ~120 | **Always first.** The single current-task ledger: status, owner, allowed files, acceptance criteria, open decisions. If Status is `idle`, there is no active task. |
-| `MECHANICS-CONTRACT.md` | 427 | Touching mechanics data, tiers, selection semantics, or the source/taxonomy/runtime layers. The frozen contract and the gate order live here. |
-| `CONTEXT.md` | 319 | Questions about provenance, the identity registry, source hierarchy, colour tokens, or the type stack. |
-| `AGENTS.md` | 273 | Acting as `robdev` or `robqa`, or unsure what change control permits. Repository map and protected boundaries. |
+| `MECHANICS-CONTRACT.md` | 456 | Touching mechanics data, tiers, selection semantics, or the source/taxonomy/runtime layers. The frozen contract and the gate order live here. |
+| `CONTEXT.md` | 363 | Questions about provenance, the identity registry, source hierarchy, colour tokens, or the type stack. |
+| `AGENTS.md` | 295 | Acting as `robdev` or `robqa`, or unsure what change control permits. Repository map and protected boundaries. |
 | `PRODUCT-DEFINITION.md` | 1342 | Touching the integration shell `vox-color/index.html` or planning Gates C–E. §9 is the shell's mechanism and routing contract, §11 state ownership, §17 the gate sequence. Accepted revision; not edited by later gates. |
 | `PHYREXIA-PLAN.md` | 179 | Only for the Phyrexia overlay question. Not loaded otherwise. |
 | `PROMPT.md` | 94 | Historical brief. Superseded by `HANDOFF.md`. Rarely needed. |
