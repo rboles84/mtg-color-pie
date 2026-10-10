@@ -10,88 +10,30 @@ each. Keep this file under ~200 lines.
 
 ## Control
 
-- Status: `accepted` — **Story 6: stored example card on every entry.**
-  Owner spot-checked ~20–30 entries and approved, 2026-10-10.
-- Last accepted: **Story 5** (the Combine bounce), `b29794d`, accepted by
-  the Owner 2026-10-08. Ledger: `docs/handoff-archive/story-5.md`.
-  Earlier: `story-4.md`, `story-3.md`, `story-2.md`, `story-1.md`,
-  `gate-e.md`, `gate-d.md`, `gate-c.md`; Gates A and B are in git at
-  `5252333` and `b62131b`.
-- Next: Story 7 (printing swaps).
-- Owner: Vox Mana.
-- Allowed files: `vox-color/mechanical-explorer.html`,
-  `vox-color/mechanical-examples.json` (new), `HANDOFF.md` (ledger and
-  Follow-ups only).
-- Allowed surfaces: the explorer's detail panel (`boot()` load,
-  `hydrateDetail()`).
-- Prohibited: `data/`, the taxonomy, `vox-color/color-wheel.html`,
-  `vox-color/index.html`, every other file; `runSelfTest` and its helpers;
-  `addCite`, styling, `sfGet` and its pacing; the 12 `EXAMPLE_CARD`
-  entries, `NAMED_CARD`, the autocard entries.
-- Base commit: `4b789fb`.
-- Candidate commit: see `git log` (committed on Owner approval, 2026-10-10).
-- robqa class (see `.claude/skills/robqa/SKILL.md`): QA-2 (one
-  component's interaction; new data file is separate from the frozen source
-  layer), same agent.
+- Status: `idle`.
+- Last accepted: **Story 6** (stored example card on every entry),
+  `c3b33d1`, accepted by the Owner 2026-10-10. Ledger:
+  `docs/handoff-archive/story-6.md`. Earlier: `story-5.md`, `story-4.md`,
+  `story-3.md`, `story-2.md`, `story-1.md`, `gate-e.md`, `gate-d.md`,
+  `gate-c.md`; Gates A and B are in git at `5252333` and `b62131b`.
+- Next: none queued; pick from Unassigned.
+- Owner:
+- Allowed files:
+- Allowed surfaces:
+- Prohibited:
+- Base commit:
+- Candidate commit:
+- robqa class (see `.claude/skills/robqa/SKILL.md`):
 
 ## Owner decisions
 
-- Inputs: `docs/card-examples-mapping.md` ("## The map") and
-  `docs/card-examples-printings.json`, used as given.
-- Pick: one non-empty Example cell per entry, `random.Random(2026)`,
-  entries in # order, `rng.choice`. No ranking.
-- Examples live in a separate `vox-color/mechanical-examples.json`, not in
-  the frozen MCP data. No Scryfall API call at runtime.
-- Accepted printings as they are: Inside Information, Desperate Measures,
-  Unsparing Boltcaster.
-
 ## Acceptance criteria
-
-1. `mechanical-examples.json` has 195 entries, keys ⊂ page `button.ent`
-   keys, none in `EXAMPLE_CARD`/`NAMED_CARD`/autocard; every record
-   complete.
-2. Each new entry shows the Example line with hover preview, then the plate
-   (set, number, artist, Scryfall credit, caption), exactly like Fog, on
-   first paint and after re-render.
-3. Zero requests to api.scryfall.com when opening new entries; images from
-   cards.scryfall.io.
-4. Load failure of the examples file leaves the page working.
-5. Self-test pass count unchanged, no failures; Fog unchanged; console
-   clean; `node --check` passes; gate chain passes before and after.
 
 ## Implementation
 
-- `vox-color/mechanical-examples.json` (new, 197 lines): 195 records built
-  by a throwaway script outside the repo. Picks: 52 from Example 1, 68 from
-  Example 2, 75 from Example 3.
-- `vox-color/mechanical-explorer.html` (+8/−2): `boot()` awaits the file in
-  its own try/catch before `buildEntries()`; `hydrateDetail()` calls
-  `addCite(stored card, true)` synchronously, else the old path; one
-  self-test assertion moved from `flying` to #213 (D1).
-
 ## QA
 
-Developer run (not independent QA), working tree on `4b789fb`: self-check
-84/84 at 1440×900 standalone and in the shell; 195 keys valid; 19 new
-entries opened (incl. two-face #62/#114, few-candidate #15/#24/#36/#97,
-list-only #215/#216, mobile 375 px) all show Example line, peek and plate;
-zero api.scryfall.com requests while opening them; Fog DOM identical;
-console clean; `node --check` ok; gate chain passes before and after.
-Not obtained: screenshot (pane timed out). Owner spot-checked ~20–30
-entries: all correct.
-
-Failure-mode test (2026-10-10): examples file renamed → 404; page loads,
-216 entries, self-check 84/84; new entries show no example, nothing breaks;
-Fog, Lobotomy, Mana Leak still show; no uncaught JS errors (only the
-expected 404). File restored (sha256 unchanged) → 200, examples return.
-**PASS.**
-
 ## Decisions needed
-
-- **D1 (resolved, Owner 2026-10-09).** The protected self-test asserted
-  that `flying` has no card anchor, link or plate; `flying` (#92) now has a
-  stored plate. Owner ruling: edit that one assertion. It now picks
-  `-n/+n (on auras)` (#213, no example). No other self-test change.
 
 None open.
 
@@ -99,7 +41,7 @@ None open.
 
 Open items carried forward. Detail lives in the archived ledgers.
 
-### Story 6 notes
+### From Story 6
 
 - **`sfGet` pacing.** It waits 110 ms between calls, while Scryfall's
   `/cards/named` allows 2 per second. Not fixed (out of scope).
@@ -162,16 +104,9 @@ Parked until the Owner is ready to deploy; pick up as one story then.
     idea to move it to a prototypes folder and restyle it is dropped.
     Record Three.js in `CONTEXT.md` only if it is ever taken into the
     product.
-- **Example cards on every entry (Owner, 2026-10-08).** The explorer already
-  shows an example card (Scryfall art, set, number, artist) on the entries
-  the Owner has done; 12 more are ready. Editorial curation of examples is
-  complete (Owner, 2026-10-09): `docs/card-examples-collection.md` is the
-  accepted deliverable, with examples for 214 of 216 mechanical entries.
-  Entries 213 and 214 (`-N/+N` on Auras and on spells) remain intentionally
-  unresolved. Website integration and example placement (including whether
-  examples live in the frozen source layer or in a separate examples file)
-  remain future Owner decisions. The proposed ranking-engine repairs and
-  reprint-based tie-breaking are not authorized work.
+- **Example cards: done in Story 6** (`c3b33d1`); 214 of 216 entries show
+  one. Entries 213 and 214 stay without one. A three-card chooser is an
+  unscheduled idea.
 - **Sourced flavour lines per colour (Owner, 2026-10-08).** Official sources
   only (Rosewater articles, magic.wizards.com); anything unsourced is left
   out. Backlog; needs recon and its own story.
