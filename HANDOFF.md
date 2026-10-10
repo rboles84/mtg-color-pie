@@ -27,7 +27,7 @@ each. Keep this file under ~200 lines.
   Rosewater's own cards (the 5 autocard entries and `NAMED_CARD`); every
   entry not listed below.
 - Base commit: `ea6484c`.
-- Candidate commit:
+- Candidate commit: `7f28e12`.
 - robqa class (see `.claude/skills/robqa/SKILL.md`): QA-1 (data file for
   presentation only), same agent.
 
