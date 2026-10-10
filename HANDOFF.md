@@ -10,102 +10,33 @@ each. Keep this file under ~200 lines.
 
 ## Control
 
-- Status: `review` — **Story 7: classic printings for 24 examples.**
-  Candidate committed 2026-10-10; awaiting Owner review.
-- Last accepted: **Story 6** (stored example card on every entry),
-  `c3b33d1`, accepted by the Owner 2026-10-10. Ledger:
-  `docs/handoff-archive/story-6.md`. Earlier: `story-5.md`, `story-4.md`,
-  `story-3.md`, `story-2.md`, `story-1.md`, `gate-e.md`, `gate-d.md`,
-  `gate-c.md`; Gates A and B are in git at `5252333` and `b62131b`.
-- Next: Owner review of the Story 7 candidate.
-- Owner: Vox Mana.
-- Allowed files: `vox-color/mechanical-examples.json`, `HANDOFF.md`
-  (ledger and Follow-ups only).
-- Allowed surfaces: none in code; the page reads the stored file as is.
-- Prohibited: `vox-color/mechanical-explorer.html` and every other file;
-  `data/`, the taxonomy; `docs/card-examples-printings.json` (read only);
-  Rosewater's own cards (the 5 autocard entries and `NAMED_CARD`); every
-  entry not listed below.
-- Base commit: `ea6484c`.
-- Candidate commit: `7f28e12`.
-- robqa class (see `.claude/skills/robqa/SKILL.md`): QA-1 (data file for
-  presentation only), same agent.
+- Status: `idle`.
+- Last accepted: **Story 7** (classic printings for 24 examples),
+  `7f28e12`, accepted by the Owner 2026-10-10. Ledger:
+  `docs/handoff-archive/story-7.md`. Earlier: `story-6.md`, `story-5.md`,
+  `story-4.md`, `story-3.md`, `story-2.md`, `story-1.md`, `gate-e.md`,
+  `gate-d.md`, `gate-c.md`; Gates A and B are in git at `5252333` and
+  `b62131b`.
+- Next: none queued; pick from Unassigned.
+- Owner:
+- Allowed files:
+- Allowed surfaces:
+- Prohibited:
+- Base commit:
+- Candidate commit:
+- robqa class (see `.claude/skills/robqa/SKILL.md`):
 
 ## Owner decisions
 
-- Printing swaps only: same card, older English paper printing. No card
-  changes. Normal frame, readable text; no Japanese or specialty frames.
-- **Rosewater's own cards are excluded** (stay true to the article):
-  Demonic Tutor, Time Walk, Man-o'-War, Gravedigger.
-- The five `EXAMPLE_CARD` lookup cards move into the stored file with a
-  pinned printing (reverses Story 6's "stays out" rule). `EXAMPLE_CARD` in
-  code is left as is; the stored record wins in `hydrateDetail()`.
-- Vampire Nighthawk: Shards of Alara (its first set), not Zendikar.
-- Scryfall API lookups are allowed for this story only, one per missing
-  printing, from a throwaway script outside the repo, paced ≥ 100 ms.
-- Unchanged, already that printing: Wheel of Fortune (Alpha), Orcish
-  Lumberjack (Ice Age).
-
 ## Acceptance criteria
-
-1. These 24 entries show the named printing (set, number, artist, image):
-   - **From the stored alternatives** in `card-examples-printings.json`
-     (no lookup): Shock — Stronghold; Opt — Invasion; Dark Confidant —
-     Ravnica: City of Guilds.
-   - **Fetched, replacing an existing stored record** (16): Counterspell,
-     Giant Spider, Control Magic, Magical Hack — Alpha; Fyndhorn Elder —
-     Ice Age; Worldly Tutor — Mirage; Elvish Piper — Urza's Destiny; Snuff
-     Out, Misdirection, Arrest — Mercadian Masques; Eternal Witness — Fifth
-     Dawn; Sakura-Tribe Elder — Champions of Kamigawa; Mulldrifter, Garruk
-     Wildspeaker, Oblivion Ring — Lorwyn; Vampire Nighthawk — Shards of
-     Alara.
-   - **Fetched, new stored record** (5; `slot` 1): Fog, Lure, Drain Life —
-     Alpha; Lhurgoyf — Ice Age; Reanimate — Tempest.
-2. The file then has 200 entries; every other record is byte-identical to
-   `c3b33d1`. Same record shape; `n` is the entry number.
-3. Those 5 entries no longer call api.scryfall.com; zero API requests when
-   opening any of the 24.
-4. Self-check 84/84 at 1440×900; console clean; Fog still renders as the
-   Example line plus plate (now the Alpha printing).
-5. If a named printing does not exist in English paper, stop and ask; do
-   not substitute.
 
 ## Implementation
 
-- Changed: `vox-color/mechanical-examples.json` (+24 −19 lines: 19 records
-  replaced, 5 added in `n` order). `HANDOFF.md` (this ledger).
-- Shock, Opt, Dark Confidant: the `swap.oldest` record from
-  `card-examples-printings.json`, mapped to the stored shape.
-- 21 Scryfall lookups (`/cards/search`, `!"name" set:X lang:en
-  game:paper`, 150 ms apart) from a scratchpad script. 20 returned exactly
-  one English paper printing (all `highres_scan`, normal frame).
-- **Vampire Nighthawk: no Shards of Alara printing** (404). Stopped and
-  asked (criterion 5). Owner chose **Zendikar #116** (Jason Chan) and
-  pasted its Scryfall JSON; used as given, `?utm_source=api` stripped.
-- New records: Drain Life 83, Fog 93, Lhurgoyf 117, Lure 126, Reanimate
-  157, all `slot` 1. Entry numbers from `docs/card-examples-mapping.md`.
-
 ## QA
-
-QA-1, same agent. Browser at 1440×900, `http://localhost:8000`.
-1. All 24 entries opened: each Example plate shows the named set, number
-   and artist (Vampire Nighthawk shows Zendikar, as the Owner chose).
-2. 200 entries; git counts +24 −19, so every other line is byte-identical
-   to `c3b33d1`.
-3. Zero `api.scryfall.com` requests while opening the 24.
-4. Self-check 84 of 84; console has only the mana-font slow-network info
-   message; Fog shows the Example line and the Alpha plate (488×680).
-5. Met by stopping at Vampire Nighthawk; no substitute picked by the agent.
-
-Owner checklist: open
-`http://localhost:8000/vox-color/mechanical-explorer.html`, pick Fog,
-Counterspell and Deathtouch in the list; the plate on the right shows Alpha
-#193, Alpha #54 and Zendikar #116.
 
 ## Decisions needed
 
-None open. (Vampire Nighthawk → Zendikar, Owner 2026-10-10, replaces the
-Shards of Alara decision above.)
+None open.
 
 ## Follow-ups
 
@@ -118,6 +49,13 @@ Open items carried forward. Detail lives in the archived ledgers.
 - **Browser pane at 0×0.** In a hidden pane the self-check reports 83 of 84
   (the plates fold-control geometry check); at 1440×900 it is 84 of 84,
   before and after Story 6. Environmental, not a regression.
+
+### From Story 7
+
+- **Five `EXAMPLE_CARD` lookups now unused.** Fog, Lure, Lhurgoyf,
+  Reanimation and Drain Life have stored records that win in
+  `hydrateDetail()`; their `EXAMPLE_CARD` lines in the explorer are dead.
+  Left as is by Owner decision.
 
 ### Accepted minors
 
