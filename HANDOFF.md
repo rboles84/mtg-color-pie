@@ -98,9 +98,14 @@ Parked until the Owner is ready to deploy; pick up as one story then.
     product.
 - **Example cards on every entry (Owner, 2026-10-08).** The explorer already
   shows an example card (Scryfall art, set, number, artist) on the entries
-  the Owner has done; 12 more are ready. Rolling it out to all 216 is a
-  larger story: needs recon and scoping first. Open question: whether card
-  examples live in the frozen source layer or in a separate examples file.
+  the Owner has done; 12 more are ready. Editorial curation of examples is
+  complete (Owner, 2026-10-09): `docs/card-examples-collection.md` is the
+  accepted deliverable, with examples for 214 of 216 mechanical entries.
+  Entries 213 and 214 (`-N/+N` on Auras and on spells) remain intentionally
+  unresolved. Website integration and example placement (including whether
+  examples live in the frozen source layer or in a separate examples file)
+  remain future Owner decisions. The proposed ranking-engine repairs and
+  reprint-based tie-breaking are not authorized work.
 - **Sourced flavour lines per colour (Owner, 2026-10-08).** Official sources
   only (Rosewater articles, magic.wizards.com); anything unsourced is left
   out. Backlog; needs recon and its own story.
