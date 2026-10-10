@@ -1603,10 +1603,14 @@ function hydrateDetail(k){
       if (card && S.pick === k && an.isConnected && !(next && next.classList.contains('cardref'))){ linkCardName(an, card); addCite(card); }
     });
   });
-  if (EXAMPLE_CARD[k]) sfGet('/cards/named?exact=' + encodeURIComponent(EXAMPLE_CARD[k])).then(card => {
+  if (STORED_EXAMPLE[k]) addCite(STORED_EXAMPLE[k].card, true);
+  else if (EXAMPLE_CARD[k]) sfGet('/cards/named?exact=' + encodeURIComponent(EXAMPLE_CARD[k])).then(card => {
     if (card && S.pick === k) addCite(card, true);
   });
 }
+/* The rest of the entries carry a stored printing (mechanical-examples.json),
+   chosen from docs/card-examples-mapping.md; no Scryfall request. */
+let STORED_EXAMPLE = {};
 /* Entries named after a card that Rosewater's text never names. These are the
    Owner's picks (docs/card-examples-group2.md), shown as "Example", never as
    his citation. */
@@ -2032,6 +2036,9 @@ async function boot(){
     MCP = deepFreeze(await getJSON('../data/mechanical-color-pie.runtime.json'));
     ABIL = deepFreeze(await getJSON('../data/mcp2021.abilities.json'));
   } catch (err){ bootFail('The 2021 data could not be loaded.'); return; }
+  /* Stored example cards, kept apart from the frozen data; without them the
+     page simply shows no stored examples. */
+  try { STORED_EXAMPLE = await getJSON('mechanical-examples.json'); } catch (err){ STORED_EXAMPLE = {}; }
   MECH = MCP.byMechanic;
   KEYS = Object.keys(MECH).sort();
   buildReadings();
@@ -2191,7 +2198,7 @@ async function runSelfTest(){
      detailEl.querySelector('.dx-ex').textContent === MECH.lobotomy.explanation.replace(/\[autocard mvid="\d+"\]/g, ''));
   eq('art: exactly five explanations cite a card; only they can hold a card plate',
      KEYS.filter(k => /\[autocard mvid="\d+"\]/.test(MECH[k].explanation || '')).length, 5);
-  S.pick = 'flying'; render();
+  S.pick = '-n/+n (on auras)'; render();
   ok('art: an entry that cites no card has no card anchor, link or plate', !detailEl.querySelector('.cardanchor,.cardlink,.cite'));
   S.pick = 'lobotomy'; render();
   /* The four unmatched entries are two different cases, and say so. */
