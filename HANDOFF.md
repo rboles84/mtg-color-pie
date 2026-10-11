@@ -10,27 +10,36 @@ each. Keep this file under ~200 lines.
 
 ## Control
 
-- Status: `idle`.
+- Status: `candidate` — **Story 12: cost glyphs centred by their outline**
+  (Owner pick "B" from an A/B/C comparison, 2026-10-11).
 - Last accepted: **Story 11** (centre U, R, G cost glyphs), `9f38314`,
   accepted by the Owner 2026-10-11. Ledger:
   `docs/handoff-archive/story-11.md`. Earlier: `story-10.md`, `story-9.md`,
   `story-8.md`, `story-7.md`, `story-6.md`, `story-5.md`, `story-4.md`,
   `story-3.md`, `story-2.md`, `story-1.md`, `gate-e.md`, `gate-d.md`,
   `gate-c.md`; Gates A and B are in git at `5252333` and `b62131b`.
-- Next: none queued; pick from Unassigned.
-- Owner:
-- Allowed files:
-- Allowed surfaces:
-- Prohibited:
-- Base commit:
+- Next: Owner checks the symbols at 500%.
+- Owner: Vox Mana.
+- Allowed files: `vox-color/mechanical-explorer.html` (the `.ms-cost`
+  glyph offsets only); `HANDOFF.md`.
+- Allowed surfaces: mana cost glyphs in the lens, compass and counts line.
+- Prohibited: as Story 10.
+- Base commit: `80c2aa6`.
 - Candidate commit:
-- robqa class (see `.claude/skills/robqa/SKILL.md`):
+- robqa class (see `.claude/skills/robqa/SKILL.md`): QA-1 (CSS), same agent;
+  visuals are Owner checks.
 
 ## Owner decisions
 
 ## Acceptance criteria
 
 ## Implementation
+
+`.ms-cost.ms-*::before` offsets now centre each glyph's ink box in its
+circle: W, G −.041em up; U, B −.043em up; R also −.030em left. Measured by
+pixel-scanning a lossless 500% capture of the live counts line: every glyph
+within ±.017em (about 1px at that zoom) of centre. At 100% residual error
+is sub-pixel. Self-check 84/84 at 1440×900.
 
 ## QA
 
