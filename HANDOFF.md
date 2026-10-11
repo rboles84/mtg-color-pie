@@ -10,8 +10,8 @@ each. Keep this file under ~200 lines.
 
 ## Control
 
-- Status: `ready` — **Story 10: ring legibility, share link and PNG card.**
-  Set up 2026-10-11; not started.
+- Status: `candidate` — **Story 10: ring legibility, share link and PNG card.**
+  Candidate committed 2026-10-11; awaiting Owner checks (ring pick, card, real clipboard).
 - Last accepted: **Story 9** (small UI fixes, dossier ignore), `30f9a08`,
   accepted by the Owner 2026-10-11. Ledger:
   `docs/handoff-archive/story-9.md`. Earlier: `story-8.md`, `story-7.md`,
@@ -94,6 +94,33 @@ each. Keep this file under ~200 lines.
 
 ## Implementation
 
+robdev, 2026-10-11. One file: `vox-color/mechanical-explorer.html`
+(+83 / −1).
+
+1. **Ring (D2).** Selected pip: dark gap 2px → 3.5px, gilt ring 1px → 1.5px,
+   outer halo moved out to match. Node ring unchanged (its tile edge is
+   not adjacent to a glyph). Before/after zooms of W U B R G selected,
+   800×450 at 1:1, are with the Owner; **Owner picks**, or revert this one
+   line for D2(b).
+2. **Copy link.** `copyLink()` writes `shareURL(k)` =
+   `index.html#mechanical-color-pie/colors=<k>` resolved against
+   `location.href`; announces "Link copied". Refused → `#id-url` read-only
+   field shown, focused and selected. Checked: refusal path (pane refuses
+   clipboard) shows `http://localhost:8000/vox-color/index.html#mechanical-color-pie/colors=WR`;
+   success path (stubbed clipboard, Enter key) copies the same URL and
+   announces "Link copied". Explorer hash unchanged.
+3. **Link lands.** Fresh loads of the shell link for G, UB, WUR, UBRG, WUBRG:
+   the frame's pressed pips equal the key each time; the shell canonicalises
+   its hash to `#mechanical-color-pie` as before.
+4. **Save image.** `saveCard()` waits for the five page fonts plus Mana and
+   `document.fonts.ready`, draws 1200×630, downloads `vox-mana-<key>.png`
+   (checked: name, 1200×630, image/png). WR (Boros, glyphs) and WUBRG
+   (letters with `no-mana` forced; then glyphs) inspected. Words wrap after
+   en dashes.
+5. Counts only; no meter, no mechanic text; no new dependency.
+6. Self-check 84/84 at 1440×900 after the change; no console errors seen.
+7. Follow-ups "Ring legibility" and "Share link and PNG card" removed.
+
 ## QA
 
 ## Decisions needed
@@ -156,11 +183,4 @@ Parked until the Owner is ready to deploy; pick up as one story then.
   colours in the existing Colors bar (no deck import for now). Design note
   still to write: what the panel recommends, how, and why. Category counts
   only, no scores.
-- **Share link and PNG card for a colour selection (Owner, 2026-10-08).** In Story 10.
-  URL is the existing hash route plus `colors=`; image is a canvas card with
-  colour name, count and source line.
-- **Ring legibility (Owner, 2026-10-08).** In Story 10. "No placement"
-  rings are dashed and committed (`.sc.t-n`). Black stays `#aca29a`
-  (mana-font's own black); revisit only if it still blends in. Open: gilt
-  selection rings sit near W and R.
 - **Paused by the Owner:** the Scryfall query idea.

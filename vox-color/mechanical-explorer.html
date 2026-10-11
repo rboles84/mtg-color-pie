@@ -191,7 +191,7 @@ button{font:inherit;color:inherit}
 .no-mana .pip-l,.no-mana .n-l{display:block}
 .pip:hover .ms{opacity:.9;filter:none}
 /* A chosen colour: a gilt double ring, like an engraved roundel. */
-.pip[aria-pressed="true"] .ms{opacity:1;filter:none;box-shadow:0 0 0 2px var(--ground),0 0 0 3px var(--brass-l),0 0 0 5px var(--ground),0 0 0 6px rgba(184,147,79,.5)}
+.pip[aria-pressed="true"] .ms{opacity:1;filter:none;box-shadow:0 0 0 3.5px var(--ground),0 0 0 5px var(--brass-l),0 0 0 7px var(--ground),0 0 0 8px rgba(184,147,79,.5)}
 .pip[aria-pressed="true"] .pip-l{text-decoration:underline;text-decoration-color:var(--brass-l)}
 .pip:focus-visible{outline:2px solid var(--brass-l);outline-offset:0}
 .lens-clear,.view-b{height:28px;padding:0 4px;border:0;background:transparent;cursor:pointer;font:600 13.5px/1 var(--f-brand);letter-spacing:.08em;color:var(--ink-dim)}
@@ -323,6 +323,10 @@ button{font:inherit;color:inherit}
 .id-src{margin-top:6px;max-width:58ch;font:italic 400 12.5px/1.45 var(--f-read);color:var(--ink-dim)}
 .id-src:empty{display:none}
 .id-next{margin-top:10px;font:600 13px/1.2 var(--f-brand);letter-spacing:.06em;color:var(--brass)}
+.id-share{display:flex;flex-wrap:wrap;gap:4px 16px;margin:8px 0 0}
+.id-share .go{margin-left:0}
+.id-url{display:block;width:100%;margin-top:6px;padding:5px 7px;background:var(--ground);border:1px solid var(--rule-s);font:400 11.5px/1.3 var(--f-mono);color:var(--bone)}
+.id-url[hidden]{display:none}
 .steps-p{margin:14px 0 0;padding-top:12px;border-top:1px solid var(--rule)}
 .steps-p h3{margin:0 0 8px;font:600 13px/1.3 var(--f-brand);letter-spacing:.1em;color:var(--brass-l)}
 .step{display:flex;flex-wrap:wrap;align-items:center;gap:4px 0;padding:5px 0;border-bottom:1px solid rgba(237,230,211,.04)}
@@ -1454,7 +1458,83 @@ function renderIdent(key){
       <p class="id-src">${name ? `“${esc(name)}” is Wizards’ name for ${esc(words)} (${esc(NAME_SOURCE)}): a label, not a claim about mechanics.`
         : key.length > 3 ? 'This page gives no combination name for four or five colors.' : ''}</p>
       <p class="id-next">One-color steps from ${key} follow below.</p>
+      <p class="id-share"><button class="go" type="button" data-act="copy-link" data-fid="copy-link">Copy link</button><button class="go" type="button" data-act="save-png" data-fid="save-png">Save image</button></p>
+      <input class="id-url" id="id-url" type="text" readonly hidden aria-label="Link to ${esc(words)}, ${key}">
     </div>`;
+}
+
+/* SHARE (Story 10). The link is the shell's own route for this lens, resolved
+   against this page's URL like the wheel bridge; this page still never writes
+   its own URL. Where the clipboard is refused the link is shown, selected. */
+const shareURL = k => new URL('index.html#mechanical-color-pie/colors=' + k, location.href).href;
+function copyLink(){
+  const k = setKey(S.sel), url = shareURL(k), f = $('#id-url');
+  const show = () => { f.value = url; f.hidden = false; f.focus(); f.select(); announce('Copy the selected link.'); };
+  if (!navigator.clipboard || !navigator.clipboard.writeText) return show();
+  navigator.clipboard.writeText(url).then(() => { f.hidden = true; announce('Link copied'); }, show);
+}
+/* The card: 1200×630, drawn once the page's fonts are ready. Counts only, as
+   in the identity panel; no mechanic detail. Glyphs come from Mana's own CSS,
+   or letters when the font is missing. */
+async function saveCard(){
+  const k = setKey(S.sel); if (!k) return;
+  const fonts = ['700 64px "Cormorant SC"', '600 20px "Cormorant SC"', 'italic 400 26px Lora', '500 22px "IBM Plex Mono"', '400 24px Outfit', '40px Mana'];
+  try { await Promise.all(fonts.map(f => document.fonts.load(f))); await document.fonts.ready; } catch (err){ /* draw with fallbacks */ }
+  const W = 1200, H = 630, cv = document.createElement('canvas'); cv.width = W; cv.height = H;
+  const x = cv.getContext('2d'), css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+  const name = COMBO_NAME[k], words = comboWords(k), cs = [...k], n = cs.length;
+  const b = cached('bk:' + k, () => buckets(S.sel)), placed = KEYS.length - b.none.length;
+  const BRASS = css('--brass-l'), BONE = css('--bone'), INK = css('--ink'), DIM = css('--ink-dim'), GROUND = '#18110a';
+  let g = x.createLinearGradient(0, 0, 0, H); g.addColorStop(0, '#20170d'); g.addColorStop(1, '#100c08');
+  x.fillStyle = g; x.fillRect(0, 0, W, H);
+  x.strokeStyle = 'rgba(184,147,79,.36)'; x.lineWidth = 2; x.strokeRect(18, 18, W - 36, H - 36);
+  x.strokeStyle = 'rgba(184,147,79,.16)'; x.strokeRect(26, 26, W - 52, H - 52);
+  /* medal: the panel's geometry at 300px */
+  const cx = 250, cy = 275, D = 300, st = n === 2 ? 225 : -180 / n, rad = d => (d - 90) * Math.PI / 180;
+  [[D / 2 + 14, 'rgba(184,147,79,.5)'], [D / 2 + 12, GROUND], [D / 2 + 6, BRASS], [D / 2 + 4, GROUND]].forEach(([r, c]) => {
+    x.beginPath(); x.arc(cx, cy, r, 0, 2 * Math.PI); x.fillStyle = c; x.fill(); });
+  cs.forEach((c, i) => { x.beginPath(); x.moveTo(cx, cy);
+    x.arc(cx, cy, D / 2, n === 1 ? 0 : rad(st + i * 360 / n), n === 1 ? 2 * Math.PI : rad(st + (i + 1) * 360 / n));
+    x.closePath(); x.fillStyle = css('--' + c.toLowerCase()); x.fill(); });
+  g = x.createRadialGradient(cx, cy, D * .29, cx, cy, D / 2); g.addColorStop(0, 'rgba(20,12,4,0)'); g.addColorStop(1, 'rgba(20,12,4,.3)');
+  x.beginPath(); x.arc(cx, cy, D / 2, 0, 2 * Math.PI); x.fillStyle = g; x.fill();
+  const noMana = document.documentElement.classList.contains('no-mana');
+  const R = { 1:0, 2:24, 3:27, 4:29, 5:31 }[n], gs = { 1:.46, 2:.3, 3:.25, 4:.21, 5:.19 }[n];
+  x.fillStyle = '#15120c'; x.textAlign = 'center'; x.textBaseline = 'middle';
+  cs.forEach((c, i) => {
+    const a = (st + (i + .5) * 360 / n) * Math.PI / 180, px = cx + D * R / 100 * Math.sin(a), py = cy - D * R / 100 * Math.cos(a);
+    const glyph = getComputedStyle(document.querySelector(`.pip[data-c="${c}"] .ms`), '::before').content.replace(/^"|"$/g, '');
+    if (noMana || !glyph || glyph === 'none'){ x.font = `500 ${Math.round(D * gs * .8)}px "IBM Plex Mono", monospace`; x.fillText(c, px, py); }
+    else { x.font = `${Math.round(D * gs)}px Mana`; x.fillText(glyph, px, py); }
+  });
+  /* text column */
+  const tx = 470, tw = W - tx - 70, wrap = (s, y, lh) => { let line = '';   // breaks at spaces and after en dashes
+    for (const w of s.match(/[^ –]+[ –]?/g)){ const t = line + w;
+      if (x.measureText(t.trim()).width > tw && line){ x.fillText(line.trim(), tx, y); y += lh; line = w; } else line = t; }
+    x.fillText(line.trim(), tx, y); return y + lh; };
+  x.textAlign = 'left'; x.textBaseline = 'alphabetic';
+  x.fillStyle = BRASS; x.font = '600 20px "Cormorant SC", Georgia, serif';
+  x.letterSpacing = '5px'; x.fillText(`SELECTED ${n === 1 ? 'COLOR' : 'COLORS'}`, tx, 150); x.letterSpacing = '0px';
+  x.fillStyle = BONE; x.font = '700 64px "Cormorant SC", Georgia, serif';
+  let y = wrap(name || words, 215, 66);
+  x.font = 'italic 400 26px Lora, Georgia, serif'; x.fillStyle = INK;
+  if (name){ x.fillText(words, tx, y); }
+  const kx = name ? tx + x.measureText(words).width + 20 : tx;
+  x.font = '500 22px "IBM Plex Mono", monospace'; const kw = x.measureText(k).width + 22;
+  x.strokeStyle = 'rgba(237,230,211,.28)'; x.lineWidth = 1.5; x.strokeRect(kx, y - 26, kw, 36);
+  x.fillStyle = BONE; x.fillText(k, kx + 11, y);
+  y += 62; x.font = '400 24px Outfit, system-ui, sans-serif'; x.fillStyle = INK;
+  y = wrap(`${placed} of ${KEYS.length} entries have a placement in ${listWords(cnames(S.sel))}`, y, 32);
+  x.font = '500 14px "IBM Plex Mono", monospace'; x.fillStyle = BRASS; x.fillText('COMPUTED', tx, y - 4);
+  /* footer (D3): source line and the short Fan Content line */
+  x.textAlign = 'center'; x.font = 'italic 400 17px Lora, Georgia, serif'; x.fillStyle = DIM;
+  x.fillText('Mark Rosewater, Mechanical Color Pie 2021, October 18, 2021 · counts computed by Vox Mana', W / 2, H - 78);
+  x.fillText('Unofficial Fan Content permitted under the Fan Content Policy. Not approved/endorsed by Wizards.', W / 2, H - 52);
+  cv.toBlob(blob => {
+    const a = document.createElement('a'), u = URL.createObjectURL(blob);
+    a.href = u; a.download = `vox-mana-${k}.png`; document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(u), 1000); announce('Image saved.');
+  }, 'image/png');
 }
 
 function renderSpot(){
@@ -1911,6 +1991,8 @@ function bindEvents(){
     if (a === 'node') chooseCombo(b.dataset.s);
     else if (a === 'go'){ chooseCombo(b.dataset.s); nodeEl.get(b.dataset.s).focus(); }
     else if (a === 'spot') setSpot(b.dataset.id);
+    else if (a === 'copy-link') copyLink();
+    else if (a === 'save-png') saveCard();
   });
   $('#compass').addEventListener('keydown', ev => {
     const n = ev.target.closest('.node'); if (!n || !DIRS[ev.key]) return;
