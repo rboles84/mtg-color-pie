@@ -18,8 +18,7 @@ each. Keep this file under ~200 lines.
   `story-6.md`, `story-5.md`, `story-4.md`, `story-3.md`, `story-2.md`,
   `story-1.md`, `gate-e.md`, `gate-d.md`, `gate-c.md`; Gates A and B are in
   git at `5252333` and `b62131b`.
-- Next: Owner answers D1–D3 (or accepts the recommendations), then start
-  Story 10 in a fresh session.
+- Next: start Story 10 in a fresh session.
 - Owner: Vox Mana.
 - Allowed files: `vox-color/mechanical-explorer.html` (selection-ring CSS
   on `.pip` and `.node`; the identity panel `renderIdent` and its CSS, for
@@ -50,7 +49,7 @@ each. Keep this file under ~200 lines.
   `colors=`; the image is a canvas card with colour name, count and source
   line; counts only, no scores.
 
-### Open (recommendation first)
+### Decided (Owner, 2026-10-11: the recommendations, D1(a), D2(a), D3(a))
 
 - **D1. Link target.** (a) *Recommended:* the shell,
   `index.html#mechanical-color-pie/colors=<k>`, resolved against the
@@ -99,8 +98,8 @@ each. Keep this file under ~200 lines.
 
 ## Decisions needed
 
-D1–D3 above. Development can begin on criteria 2–5 with the
-recommendations if the Owner prefers to decide after seeing it.
+None open. D1–D3 decided: shell link, robdev proposes a ring with
+before/after zooms for the Owner to pick, source line plus Fan Content line.
 
 ## Follow-ups
 
