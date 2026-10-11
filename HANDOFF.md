@@ -10,27 +10,35 @@ each. Keep this file under ~200 lines.
 
 ## Control
 
-- Status: `idle`.
+- Status: `candidate` — **Story 11: centre U, R, G cost glyphs everywhere**
+  (the Story 10 follow-up). Owner request 2026-10-11.
 - Last accepted: **Story 10** (ring legibility, share link and PNG card),
   `c9c104e`, accepted by the Owner 2026-10-11. Ledger:
   `docs/handoff-archive/story-10.md`. Earlier: `story-9.md`, `story-8.md`,
   `story-7.md`, `story-6.md`, `story-5.md`, `story-4.md`, `story-3.md`,
   `story-2.md`, `story-1.md`, `gate-e.md`, `gate-d.md`, `gate-c.md`; Gates A
   and B are in git at `5252333` and `b62131b`.
-- Next: none queued; pick from Unassigned.
-- Owner:
-- Allowed files:
-- Allowed surfaces:
-- Prohibited:
-- Base commit:
+- Next: Owner checks the compass tiles and counts line.
+- Owner: Vox Mana.
+- Allowed files: `vox-color/mechanical-explorer.html` (the `.ms-cost`
+  glyph offsets only); `HANDOFF.md`.
+- Allowed surfaces: mana cost glyphs in the lens, compass and counts line.
+- Prohibited: as Story 10.
+- Base commit: `05f3a6f`.
 - Candidate commit:
-- robqa class (see `.claude/skills/robqa/SKILL.md`):
+- robqa class (see `.claude/skills/robqa/SKILL.md`): QA-1 (CSS), same agent;
+  visuals are Owner checks.
 
 ## Owner decisions
 
 ## Acceptance criteria
 
 ## Implementation
+
+The shared `.ms-cost.ms-u/r/g::before` rules drop their sideways nudge
+(U, G: 0; R: −.028em, its measured ink offset); vertical lifts unchanged.
+The Story 10 `.pip`-only override is removed as redundant. Computed
+transforms match in pips and compass tiles. Self-check 84/84 at 1440×900.
 
 ## QA
 
@@ -49,12 +57,6 @@ Open items carried forward. Detail lives in the archived ledgers.
 - **Browser pane at 0×0.** In a hidden pane the self-check reports 83 of 84
   (the plates fold-control geometry check); at 1440×900 it is 84 of 84,
   before and after Story 6. Environmental, not a regression.
-
-### From Story 10
-
-- **Glyph nudges elsewhere.** The shared `.ms-cost.ms-u/r/g::before` x
-  nudges (`mechanical-explorer.html` ~424–427) still shift U, R, G right in
-  the compass tiles and counts line; only the lens pips were corrected.
 
 ### Accepted minors
 
