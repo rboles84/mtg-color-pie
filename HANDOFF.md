@@ -50,14 +50,6 @@ Open items carried forward. Detail lives in the archived ledgers.
   (the plates fold-control geometry check); at 1440×900 it is 84 of 84,
   before and after Story 6. Environmental, not a regression.
 
-### From Story 8
-
-- **Five stored examples have no fallback.** Fog, Lure, Lhurgoyf,
-  Reanimation and Drain Life show no plate if `mechanical-examples.json`
-  fails to load (they used to fall back to Scryfall).
-- **`CLAUDE.md` lists `HANDOFF.md` at ~120 lines;** it runs to ~200 with a
-  live task.
-
 ### Accepted minors
 
 - **F4 (B13, D-O2).** Leaving the Mechanical Color Pie during its first load
