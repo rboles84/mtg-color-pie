@@ -10,119 +10,27 @@ each. Keep this file under ~200 lines.
 
 ## Control
 
-- Status: `candidate` — **Story 9: small UI fixes and housekeeping.**
-  Candidate `30f9a08`, 2026-10-10; awaiting same-agent QA-2 and Owner check.
-- Last accepted: **Story 8** (gate entry point, mana-font fallback,
-  cleanups), `689bb08`, accepted by the Owner 2026-10-10. Ledger:
-  `docs/handoff-archive/story-8.md`. Earlier: `story-7.md`, `story-6.md`,
-  `story-5.md`, `story-4.md`, `story-3.md`, `story-2.md`, `story-1.md`,
-  `gate-e.md`, `gate-d.md`, `gate-c.md`; Gates A and B are in git at
-  `5252333` and `b62131b`.
-- Next: Owner checklist below, then accept or return.
-- Owner: Vox Mana.
-- Allowed files: `vox-color/mechanical-explorer.html` (focus-outline CSS,
-  the code that builds the doubled-period accessible name, and the
-  post-load scroll if it reproduces); `vox-color/color-wheel.html`
-  (`.panel` max-height and `scrollbar-gutter` CSS only); `.gitignore`;
-  `HANDOFF.md`.
-- Allowed surfaces: explorer focus rings and entry accessible names;
-  wheel panel height and scrollbar gutter; explorer scroll position after
-  load.
-- Prohibited: `data/`, the taxonomy, fixtures, recon truth; every `tools/`
-  file; `vox-color/index.html`; `runSelfTest` and its helpers (if a fix
-  would change a self-test expectation, stop and ask);
-  `vox-color/mechanical-examples.json`; the `ALIASES` and `aka` names
-  (deferred, see Owner decisions); `PRODUCT-DEFINITION.md`.
-- Base commit: `edebe40`.
-- Candidate commit: `30f9a08`.
-- robqa class (see `.claude/skills/robqa/SKILL.md`): expected QA-2 (CSS
-  and one string fix across two pages, one ignore rule), same agent.
+- Status: `idle`.
+- Last accepted: **Story 9** (small UI fixes, dossier ignore), `30f9a08`,
+  accepted by the Owner 2026-10-11. Ledger:
+  `docs/handoff-archive/story-9.md`. Earlier: `story-8.md`, `story-7.md`,
+  `story-6.md`, `story-5.md`, `story-4.md`, `story-3.md`, `story-2.md`,
+  `story-1.md`, `gate-e.md`, `gate-d.md`, `gate-c.md`; Gates A and B are in
+  git at `5252333` and `b62131b`.
+- Next: none queued; pick from Unassigned.
+- Owner:
+- Allowed files:
+- Allowed surfaces:
+- Prohibited:
+- Base commit:
+- Candidate commit:
+- robqa class (see `.claude/skills/robqa/SKILL.md`):
 
 ## Owner decisions
 
-- Bundle: Unassigned "Small UI items" (all five), "Commit or gitignore
-  `docs/DATA-DOSSIER.html`", and the "Gate A process notes" (Owner,
-  2026-10-10).
-- `docs/DATA-DOSSIER.html` is gitignored, not committed. The file stays on
-  disk.
-- The `ALIASES` / `aka` rename is **deferred** to the "Recon names vs
-  today's wheel" story: `tools/recon.py` and `tools/recon_stats.py` parse
-  those names from the wheel source, and that story reopens recon anyway.
-- The Gate A process notes (R6-N4 to N6) are **retired**: Gate A is closed
-  and their target, `PRODUCT-DEFINITION.md`, is not edited by later gates.
-  Detail stays in `docs/handoff-archive/gate-c.md` ~line 969.
-
 ## Acceptance criteria
 
-1. **Accessible name.** No explorer entry's accessible name contains a
-   doubled period ("..", other than a real ellipsis); measured across all
-   216 entries in the browser. The visible text is unchanged.
-2. **Focus outline.** The explorer's 1.5 px focus outlines render as a
-   visible, even ring at 1x (e.g. 2 px, or a value that does not round
-   down to 1 px); measured computed width. Colour and offset unchanged.
-3. **`.panel` max-height.** The wheel's panel no longer relies on the
-   hard-coded `calc(100vh - 180px)` alone: at 1440×900 and 1280×720 the
-   panel's content is reachable (scrolls inside or fits), and the mobile
-   rule at line ~388 still applies. Measure panel height and overflow at
-   both sizes.
-4. **Scrollbar gutter.** `scrollbar-gutter:stable` is back on the wheel;
-   switching between a short and a long view causes no horizontal layout
-   shift (measure a fixed element's x before and after).
-5. **Post-load scroll.** In a headed browser at 1440×900, load the
-   explorer fresh: record `scrollY` and the focused element after ~2 s. If
-   it stays at 0, record "not reproduced" and change nothing. If it
-   scrolls, fix it at its source without touching the self-test, or stop
-   and ask if the cause is in the self-test.
-6. **Dossier.** `docs/DATA-DOSSIER.html` is in `.gitignore`;
-   `git status` no longer lists it; the file is still on disk.
-7. Self-checks unchanged (explorer 84/84 at 1440×900); `node --check` on
-   the wheel's extracted script.
-8. On commit, remove "Small UI items" and the dossier line from
-   Follow-ups.
-
 ## Implementation
-
-Changed files (`30f9a08`, +22/−17):
-- `vox-color/mechanical-explorer.html` (16/16): 15 `outline:1.5px` focus
-  rules → `2px`; the entry aria-label head (label, qual, tag) drops one
-  trailing period (lookbehind keeps a real "...") before `. `.
-- `vox-color/color-wheel.html` (+3/−1): `.panel` keeps the `vh` cap as a
-  fallback, then `max-height:max(420px, calc(100dvh - 180px))`;
-  `scrollbar-gutter:stable` added back on `.panel` (where `3a4d951` had it).
-- `.gitignore` (+3): `docs/DATA-DOSSIER.html`. The file was already tracked
-  (since `55c391e`), so it was also untracked with `git rm --cached`; it is
-  still on disk and `tools/build_dossier.py` regenerates it.
-
-Criteria → evidence (in-app browser, measured):
-1. 36 of 216 names had ".." before; 0 of 216 after (hard reload). Example:
-   "…graveyard/exile. White none, …". Visible text unchanged.
-2. Keyboard-focused `.ent` (`:focus-visible` true): computed outline
-   `2px solid rgb(220,187,115)`, offset `1px` (unchanged colour/offset).
-   All 16 focus-visible outline rules read 2px.
-3. 1440×900: panel 420 (rest) → 720 capped, content 1189, scrolls inside.
-   1280×720: 540 capped, content 1189, scrollTop reaches the end.
-   375 wide: `max-height:none`, `min-height:0`, `overflow-y:visible` (the
-   mobile rule still wins).
-4. Gutter `stable`; panel kicker right edge 1275 (1440) / 1187 (1280) in
-   both the short rest view and the long `#enemy=WB` view: no shift.
-5. Fresh load at 1440×900 (new URL, no restore): after 2 s `scrollY` 0,
-   focus on `#list`. **Not reproduced**; no change made.
-6. Ignore rule in place; `git status` clean; file on disk.
-7. Explorer self-check 84 of 84 at 1440×900; `node --check` on the wheel's
-   extracted script: OK. Gate chain not run (no data/mechanics/tools touched).
-
-Judgement call for the Owner: criterion 3's "not the hard-coded calc alone"
-is met by `dvh` plus an explicit floor; the 180 px offset itself is kept
-(no sticky header to measure against; the panel sits ~419 px down the
-page). A sticky panel would be a separate change.
-
-Draft Owner checklist (server: `py -m http.server 8000` in the repo root):
-- http://localhost:8000/vox-color/color-wheel.html — click White, then an
-  enemy pair: the panel's text does not jump sideways when its scrollbar
-  appears; the gutter is reserved even on the short view (looks OK?).
-- http://localhost:8000/vox-color/mechanical-explorer.html — Tab into the
-  entry list: the focus ring is an even 2 px gilt ring.
-- `file://` hard reload and back/forward on both pages (human-only check).
 
 ## QA
 
