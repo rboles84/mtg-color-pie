@@ -10,15 +10,15 @@ each. Keep this file under ~200 lines.
 
 ## Control
 
-- Status: `ready` — **Story 9: small UI fixes and housekeeping.** Set up
-  2026-10-10; not started.
+- Status: `candidate` — **Story 9: small UI fixes and housekeeping.**
+  Candidate `30f9a08`, 2026-10-10; awaiting same-agent QA-2 and Owner check.
 - Last accepted: **Story 8** (gate entry point, mana-font fallback,
   cleanups), `689bb08`, accepted by the Owner 2026-10-10. Ledger:
   `docs/handoff-archive/story-8.md`. Earlier: `story-7.md`, `story-6.md`,
   `story-5.md`, `story-4.md`, `story-3.md`, `story-2.md`, `story-1.md`,
   `gate-e.md`, `gate-d.md`, `gate-c.md`; Gates A and B are in git at
   `5252333` and `b62131b`.
-- Next: start Story 9 on the Owner's go, in a fresh session.
+- Next: Owner checklist below, then accept or return.
 - Owner: Vox Mana.
 - Allowed files: `vox-color/mechanical-explorer.html` (focus-outline CSS,
   the code that builds the doubled-period accessible name, and the
@@ -34,7 +34,7 @@ each. Keep this file under ~200 lines.
   `vox-color/mechanical-examples.json`; the `ALIASES` and `aka` names
   (deferred, see Owner decisions); `PRODUCT-DEFINITION.md`.
 - Base commit: `edebe40`.
-- Candidate commit:
+- Candidate commit: `30f9a08`.
 - robqa class (see `.claude/skills/robqa/SKILL.md`): expected QA-2 (CSS
   and one string fix across two pages, one ignore rule), same agent.
 
@@ -82,6 +82,48 @@ each. Keep this file under ~200 lines.
 
 ## Implementation
 
+Changed files (`30f9a08`, +22/−17):
+- `vox-color/mechanical-explorer.html` (16/16): 15 `outline:1.5px` focus
+  rules → `2px`; the entry aria-label head (label, qual, tag) drops one
+  trailing period (lookbehind keeps a real "...") before `. `.
+- `vox-color/color-wheel.html` (+3/−1): `.panel` keeps the `vh` cap as a
+  fallback, then `max-height:max(420px, calc(100dvh - 180px))`;
+  `scrollbar-gutter:stable` added back on `.panel` (where `3a4d951` had it).
+- `.gitignore` (+3): `docs/DATA-DOSSIER.html`. The file was already tracked
+  (since `55c391e`), so it was also untracked with `git rm --cached`; it is
+  still on disk and `tools/build_dossier.py` regenerates it.
+
+Criteria → evidence (in-app browser, measured):
+1. 36 of 216 names had ".." before; 0 of 216 after (hard reload). Example:
+   "…graveyard/exile. White none, …". Visible text unchanged.
+2. Keyboard-focused `.ent` (`:focus-visible` true): computed outline
+   `2px solid rgb(220,187,115)`, offset `1px` (unchanged colour/offset).
+   All 16 focus-visible outline rules read 2px.
+3. 1440×900: panel 420 (rest) → 720 capped, content 1189, scrolls inside.
+   1280×720: 540 capped, content 1189, scrollTop reaches the end.
+   375 wide: `max-height:none`, `min-height:0`, `overflow-y:visible` (the
+   mobile rule still wins).
+4. Gutter `stable`; panel kicker right edge 1275 (1440) / 1187 (1280) in
+   both the short rest view and the long `#enemy=WB` view: no shift.
+5. Fresh load at 1440×900 (new URL, no restore): after 2 s `scrollY` 0,
+   focus on `#list`. **Not reproduced**; no change made.
+6. Ignore rule in place; `git status` clean; file on disk.
+7. Explorer self-check 84 of 84 at 1440×900; `node --check` on the wheel's
+   extracted script: OK. Gate chain not run (no data/mechanics/tools touched).
+
+Judgement call for the Owner: criterion 3's "not the hard-coded calc alone"
+is met by `dvh` plus an explicit floor; the 180 px offset itself is kept
+(no sticky header to measure against; the panel sits ~419 px down the
+page). A sticky panel would be a separate change.
+
+Draft Owner checklist (server: `py -m http.server 8000` in the repo root):
+- http://localhost:8000/vox-color/color-wheel.html — click White, then an
+  enemy pair: the panel's text does not jump sideways when its scrollbar
+  appears; the gutter is reserved even on the short view (looks OK?).
+- http://localhost:8000/vox-color/mechanical-explorer.html — Tab into the
+  entry list: the focus ring is an even 2 px gilt ring.
+- `file://` hard reload and back/forward on both pages (human-only check).
+
 ## QA
 
 ## Decisions needed
@@ -126,15 +168,7 @@ Parked until the Owner is ready to deploy; pick up as one story then.
   Non-Red. Recon is pinned to `96ae609`'s wheel until this is resolved.
 - **Article input not archived.** Only its sha256 is recorded (copyright);
   a future fetch may differ.
-- **Small UI items.**
-  - A doubled period in an entry's accessible name ("…with flying..").
-  - The explorer's 1.5 px focus outline renders at 1 px at 1x.
-  - The hard-coded `.panel` max-height.
-  - Re-add `scrollbar-gutter:stable` to the wheel.
-  - A headless-only scroll after the explorer loads; check it in a headed
-    browser.
 - **Housekeeping.**
-  - Commit or gitignore `docs/DATA-DOSSIER.html`.
   - **Periodic table: keep as-is (Owner, 2026-10-08).**
     `vox-color/mechanical-periodic-table.html` stays in place and unchanged,
     preserved for possible future work on its look and feel. The earlier
