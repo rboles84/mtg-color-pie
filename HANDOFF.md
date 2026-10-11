@@ -10,25 +10,75 @@ each. Keep this file under ~200 lines.
 
 ## Control
 
-- Status: `idle`.
+- Status: `ready` — **Story 9: small UI fixes and housekeeping.** Set up
+  2026-10-10; not started.
 - Last accepted: **Story 8** (gate entry point, mana-font fallback,
   cleanups), `689bb08`, accepted by the Owner 2026-10-10. Ledger:
   `docs/handoff-archive/story-8.md`. Earlier: `story-7.md`, `story-6.md`,
   `story-5.md`, `story-4.md`, `story-3.md`, `story-2.md`, `story-1.md`,
   `gate-e.md`, `gate-d.md`, `gate-c.md`; Gates A and B are in git at
   `5252333` and `b62131b`.
-- Next: none queued; pick from Unassigned.
-- Owner:
-- Allowed files:
-- Allowed surfaces:
-- Prohibited:
-- Base commit:
+- Next: start Story 9 on the Owner's go, in a fresh session.
+- Owner: Vox Mana.
+- Allowed files: `vox-color/mechanical-explorer.html` (focus-outline CSS,
+  the code that builds the doubled-period accessible name, and the
+  post-load scroll if it reproduces); `vox-color/color-wheel.html`
+  (`.panel` max-height and `scrollbar-gutter` CSS only); `.gitignore`;
+  `HANDOFF.md`.
+- Allowed surfaces: explorer focus rings and entry accessible names;
+  wheel panel height and scrollbar gutter; explorer scroll position after
+  load.
+- Prohibited: `data/`, the taxonomy, fixtures, recon truth; every `tools/`
+  file; `vox-color/index.html`; `runSelfTest` and its helpers (if a fix
+  would change a self-test expectation, stop and ask);
+  `vox-color/mechanical-examples.json`; the `ALIASES` and `aka` names
+  (deferred, see Owner decisions); `PRODUCT-DEFINITION.md`.
+- Base commit: `edebe40`.
 - Candidate commit:
-- robqa class (see `.claude/skills/robqa/SKILL.md`):
+- robqa class (see `.claude/skills/robqa/SKILL.md`): expected QA-2 (CSS
+  and one string fix across two pages, one ignore rule), same agent.
 
 ## Owner decisions
 
+- Bundle: Unassigned "Small UI items" (all five), "Commit or gitignore
+  `docs/DATA-DOSSIER.html`", and the "Gate A process notes" (Owner,
+  2026-10-10).
+- `docs/DATA-DOSSIER.html` is gitignored, not committed. The file stays on
+  disk.
+- The `ALIASES` / `aka` rename is **deferred** to the "Recon names vs
+  today's wheel" story: `tools/recon.py` and `tools/recon_stats.py` parse
+  those names from the wheel source, and that story reopens recon anyway.
+- The Gate A process notes (R6-N4 to N6) are **retired**: Gate A is closed
+  and their target, `PRODUCT-DEFINITION.md`, is not edited by later gates.
+  Detail stays in `docs/handoff-archive/gate-c.md` ~line 969.
+
 ## Acceptance criteria
+
+1. **Accessible name.** No explorer entry's accessible name contains a
+   doubled period ("..", other than a real ellipsis); measured across all
+   216 entries in the browser. The visible text is unchanged.
+2. **Focus outline.** The explorer's 1.5 px focus outlines render as a
+   visible, even ring at 1x (e.g. 2 px, or a value that does not round
+   down to 1 px); measured computed width. Colour and offset unchanged.
+3. **`.panel` max-height.** The wheel's panel no longer relies on the
+   hard-coded `calc(100vh - 180px)` alone: at 1440×900 and 1280×720 the
+   panel's content is reachable (scrolls inside or fits), and the mobile
+   rule at line ~388 still applies. Measure panel height and overflow at
+   both sizes.
+4. **Scrollbar gutter.** `scrollbar-gutter:stable` is back on the wheel;
+   switching between a short and a long view causes no horizontal layout
+   shift (measure a fixed element's x before and after).
+5. **Post-load scroll.** In a headed browser at 1440×900, load the
+   explorer fresh: record `scrollY` and the focused element after ~2 s. If
+   it stays at 0, record "not reproduced" and change nothing. If it
+   scrolls, fix it at its source without touching the self-test, or stop
+   and ask if the cause is in the self-test.
+6. **Dossier.** `docs/DATA-DOSSIER.html` is in `.gitignore`;
+   `git status` no longer lists it; the file is still on disk.
+7. Self-checks unchanged (explorer 84/84 at 1440×900); `node --check` on
+   the wheel's extracted script.
+8. On commit, remove "Small UI items" and the dossier line from
+   Follow-ups.
 
 ## Implementation
 
@@ -69,8 +119,9 @@ Parked until the Owner is ready to deploy; pick up as one story then.
 
 ### Unassigned (each needs its own story)
 
-- **Recon names vs today's wheel (Story 2, D4).** Regenerating recon
-  against the current `color-wheel.html` drops the Nephilim and community
+- **Recon names vs today's wheel (Story 2, D4).** Includes the deferred
+  `ALIASES` / `aka` rename (the recon tools parse those names).
+  Regenerating recon against the current `color-wheel.html` drops the Nephilim and community
   names from 10 rows, puts the C16 lens "Chaos" on URG and "Orzhov" on
   Non-Red. Recon is pinned to `96ae609`'s wheel until this is resolved.
 - **Article input not archived.** Only its sha256 is recorded (copyright);
@@ -83,7 +134,6 @@ Parked until the Owner is ready to deploy; pick up as one story then.
   - A headless-only scroll after the explorer loads; check it in a headed
     browser.
 - **Housekeeping.**
-  - Rename `ALIASES` and the shard `aka` field.
   - Commit or gitignore `docs/DATA-DOSSIER.html`.
   - **Periodic table: keep as-is (Owner, 2026-10-08).**
     `vox-color/mechanical-periodic-table.html` stays in place and unchanged,
@@ -109,7 +159,3 @@ Parked until the Owner is ready to deploy; pick up as one story then.
   (mana-font's own black); revisit only if it still blends in. Open: gilt
   selection rings sit near W and R.
 - **Paused by the Owner:** the Scryfall query idea.
-- **Gate A process notes (R6-N4 to N6).**
-  - State what a CRLF sha256 hashes.
-  - Classify self-test lines 1924 and 1944.
-  - §18.13 also excludes delegating to `tools/selection.py`.
