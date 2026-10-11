@@ -358,7 +358,9 @@
     padding:28px 28px 24px; border-radius:0; color:var(--ink);
     /* Bounded, and it scrolls itself, so the page does not lurch per click. */
     min-height:420px; max-height:calc(100vh - 180px);
-    overflow-y:auto; overscroll-behavior-y:contain;
+    /* dvh tracks mobile browser toolbars; the cap never drops below the floor */
+    max-height:max(420px, calc(100dvh - 180px));
+    overflow-y:auto; overscroll-behavior-y:contain; scrollbar-gutter:stable;
     /* a thin gilt thumb on a transparent track: grabbable, not browser chrome */
     scrollbar-width:thin; scrollbar-color:rgba(184,147,79,.3) transparent;
     background:var(--corners),linear-gradient(180deg,#1b130b,#130d08);
