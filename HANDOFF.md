@@ -33,7 +33,7 @@ each. Keep this file under ~200 lines.
   arrival and bridge code (`colorsKey`, `arrive`, `wheelRoute`) beyond
   reading them; `PRODUCT-DEFINITION.md`.
 - Base commit: `473c0b0`.
-- Candidate commit: `2febeef`
+- Candidate commit: `c9c104e`
 - robqa class (see `.claude/skills/robqa/SKILL.md`): expected QA-3 (a
   generated URL that must land through the shell's existing route), same
   agent; ring and card visuals are Owner checks.
