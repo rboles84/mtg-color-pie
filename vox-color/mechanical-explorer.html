@@ -425,6 +425,11 @@ button{font:inherit;color:inherit}
 .ms-cost.ms-b::before{transform:translate(0,-.045em)}
 .ms-cost.ms-r::before{transform:translate(.07em,-.095em)}
 .ms-cost.ms-g::before{transform:translate(.05em,-.085em)}
+/* In the larger lens pips the sideways nudge reads as off-centre inside the
+   selection ring; measured ink is centred in the box except Red's (+.028em). */
+.pip .ms-cost.ms-u::before{transform:translate(0,-.085em)}
+.pip .ms-cost.ms-r::before{transform:translate(-.028em,-.095em)}
+.pip .ms-cost.ms-g::before{transform:translate(0,-.085em)}
 .sc.bx::before{content:'';position:absolute;left:1px;right:1px;bottom:-4px;height:1.5px;border-radius:1px;background:var(--brass-l)}
 .opt .strip{--sz:12px;--sg:2px}
 /* Two official placements in one slot (Gate A, V11). The slot keeps its one
@@ -1498,6 +1503,8 @@ async function saveCard(){
     x.closePath(); x.fillStyle = css('--' + c.toLowerCase()); x.fill(); });
   g = x.createRadialGradient(cx, cy, D * .29, cx, cy, D / 2); g.addColorStop(0, 'rgba(20,12,4,0)'); g.addColorStop(1, 'rgba(20,12,4,.3)');
   x.beginPath(); x.arc(cx, cy, D / 2, 0, 2 * Math.PI); x.fillStyle = g; x.fill();
+  x.fillStyle = 'rgba(20,12,4,.12)';   // the panel's engraving: a .7° line every 4.5°
+  for (let a = 0; a < 360; a += 4.5){ x.beginPath(); x.moveTo(cx, cy); x.arc(cx, cy, D / 2, rad(a), rad(a + .7)); x.closePath(); x.fill(); }
   const noMana = document.documentElement.classList.contains('no-mana');
   const R = { 1:0, 2:24, 3:27, 4:29, 5:31 }[n], gs = { 1:.46, 2:.3, 3:.25, 4:.21, 5:.19 }[n];
   x.fillStyle = '#15120c'; x.textAlign = 'center'; x.textBaseline = 'middle';

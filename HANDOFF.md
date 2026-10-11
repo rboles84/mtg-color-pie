@@ -121,6 +121,11 @@ robdev, 2026-10-11. One file: `vox-color/mechanical-explorer.html`
 6. Self-check 84/84 at 1440×900 after the change; no console errors seen.
 7. Follow-ups "Ring legibility" and "Share link and PNG card" removed.
 
+Owner review round 1 (2026-10-11): ring kept; copy link and image work.
+Fixes: lens pips U, R, G drop the sideways nudge (`.pip`-scoped override;
+pixel-scanned ink is centred except Red, +.028em, now corrected); the card
+medal gains the panel's radial hatching. Self-check 84/84 at 1440×900.
+
 ## QA
 
 ## Decisions needed
@@ -139,6 +144,12 @@ Open items carried forward. Detail lives in the archived ledgers.
 - **Browser pane at 0×0.** In a hidden pane the self-check reports 83 of 84
   (the plates fold-control geometry check); at 1440×900 it is 84 of 84,
   before and after Story 6. Environmental, not a regression.
+
+### From Story 10
+
+- **Glyph nudges elsewhere.** The shared `.ms-cost.ms-u/r/g::before` x
+  nudges (`mechanical-explorer.html` ~424–427) still shift U, R, G right in
+  the compass tiles and counts line; only the lens pips were corrected.
 
 ### Accepted minors
 
