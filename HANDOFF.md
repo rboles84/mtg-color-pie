@@ -25,7 +25,7 @@ each. Keep this file under ~200 lines.
 - Allowed surfaces: mana cost glyphs in the lens, compass and counts line.
 - Prohibited: as Story 10.
 - Base commit: `05f3a6f`.
-- Candidate commit:
+- Candidate commit: `9f38314`
 - robqa class (see `.claude/skills/robqa/SKILL.md`): QA-1 (CSS), same agent;
   visuals are Owner checks.
 
