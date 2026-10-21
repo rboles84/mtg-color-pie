@@ -10,8 +10,11 @@ each. Keep this file under ~200 lines.
 
 ## Control
 
-- Status: `ready` — **Story 14: publish on GitHub Pages.** Set up
-  2026-10-20; not started.
+- Status: `dev-in-progress` — **Story 14: prepare GitHub Pages
+  publication (local only).** Re-scoped by the Owner 2026-10-20: prepare
+  and verify the exact package locally; Codex publishes afterwards. The
+  task ends **locally prepared; publication and live verification
+  pending.** Hosting is not complete until the live check passes.
 - Last accepted: **Story 12** (cost glyphs centred by their outline),
   `1b2a1d2`, accepted by the Owner 2026-10-11. Ledger:
   `docs/handoff-archive/story-12.md`. Earlier: `story-11.md`, `story-10.md`,
@@ -19,89 +22,79 @@ each. Keep this file under ~200 lines.
   `story-4.md`, `story-3.md`, `story-2.md`, `story-1.md`, `gate-e.md`,
   `gate-d.md`, `gate-c.md`; Gates A and B are in git at `5252333` and
   `b62131b`.
-- Next: Story 15 (README, LICENSE, NOTICE), docs only. Can run before or
-  after Story 14; it touches none of Story 14's files except as listed there.
+- Next: Codex publishes (see Publication steps); then Story 15 (README,
+  LICENSE, NOTICE).
 - Owner: Vox Mana.
-- Allowed files: `.github/workflows/pages.yml` (new); `index.html` and
-  `404.html` at the repo root (new); `vox-color/favicon.svg` (new);
-  `vox-color/index.html` (frame version token, `<head>` meta and favicon
-  link); `vox-color/color-wheel.html` and `vox-color/mechanical-explorer.html`
-  (`<head>` meta and favicon link, and dev-server comments only);
-  `HANDOFF.md`.
-- Allowed surfaces: the deploy; the site entry; the shell's frame `src`
-  (version query only); page `<head>`s.
-- Prohibited: `data/`, `tools/`, the taxonomy, fixtures, recon (frozen
-  source layer; the deploy copies them, never edits them). Any self-test
-  assertion or the self-test's run condition (`PRODUCT-DEFINITION.md` §415:
-  it keeps running for QA). `vox-color/mechanical-periodic-table.html`.
-  Minifying, bundling or any transformation other than the version stamp.
-- Base commit: `168d578`.
+- Branch: `master`. Base commit: `25e4c5c`.
+- Allowed files: `.github/workflows/pages.yml` (new);
+  `.github/pages/package.py` (new: allowlist, stamp, verify);
+  `index.html` at the repo root (new); `vox-color/index.html` (frame
+  loading URLs only); `.gitignore` (`_site/`); `HANDOFF.md`.
+- Allowed surfaces: the deploy workflow; the publication package; the site
+  entry; the shell's frame loading URLs.
+- Prohibited: `data/`, `tools/`, taxonomy, fixtures, recon (frozen;
+  copied, never edited); both instruments; the self-test; fonts and
+  dependency URLs; visual design; `mechanical-periodic-table.html`.
+  Pushing, publishing, GitHub settings, repo rename, DNS, Vox Mana's site.
+  Minifying, bundling, crawlers, service workers, versioning of JSON.
 - Candidate commit:
-- robqa class (see `.claude/skills/robqa/SKILL.md`): QA-4 (touches the
-  shell's frame `src`, which is cross-frame integration) → separate robqa,
-  then Owner checks on the live URL.
+- robqa class (see `.claude/skills/robqa/SKILL.md`): QA-5 (shell
+  integration and release) → separate robqa.
 
 ## Owner decisions
 
-- **O1 (2026-10-20).** Host on GitHub Pages from a **public** repo; the
-  deploy is a GitHub Actions workflow publishing only the runtime files.
-- **O2 (2026-10-20).** Code licence **MIT** (Story 15). Wizards content and
-  Scryfall images are attributed in a NOTICE, not covered by MIT.
-- **O3 (2026-10-20).** **Do not publish** the periodic table (it stays in
-  the repo, unchanged, per the 2026-10-08 housekeeping decision).
-- **O4 (2026-10-20).** The workflow copies files and stamps one version
-  token; it is not a build step. The Color Wheel still runs from `file://`.
-- **O5 (2026-10-20).** Publish the fixtures and recon CSV (21 KB) so the
-  explorer's self-test passes on the live site. No self-test code changes.
-- **O6 (2026-10-20).** No content-security policy, no `robots.txt`, no
-  self-hosted fonts in this story (red-team: low value, high breakage).
-  Fonts are a follow-up only if Lighthouse flags them.
+- **O1 (2026-10-20).** Public repo; GitHub Pages via a GitHub Actions
+  workflow publishing only the runtime files.
+- **O2 (2026-10-20).** Code licence MIT (Story 15, not this story).
+- **O3 (2026-10-20).** Do not publish the periodic table.
+- **O4 (2026-10-20, re-scope).** Local preparation only. Codex publishes,
+  runs the live check, and adds the Color Pie link below Apocrypha on Vox
+  Mana's homepage. No push, settings, rename or DNS in this story.
+- **O5 (2026-10-20, re-scope).** Publish by an explicit allowlist, not by
+  exclusion. Keep `vox-color/` and sibling `data/`; no flattening.
+- **O6 (2026-10-20, re-scope).** Deferred: 404 page, favicon, meta and
+  social tags, CSP, fonts, Lighthouse targets, comment removal.
+
+## Technical decisions
 
 ## Acceptance criteria
 
-1. **Gates in CI.** On push to `master` (and manual run) the workflow runs
-   the full gate chain and `node --check` on each instrument's extracted
-   script; any failure stops the deploy.
-2. **Published by exclusion.** `_site/` holds `vox-color/` minus `build/`,
-   `reference/` and `mechanical-periodic-table.html`; `data/` holds
-   `mechanical-color-pie.runtime.json`, `mcp2021.abilities.json`,
-   `fixtures/` and `recon/marginal-additions.csv`, nothing else; root
-   `index.html` and `404.html`. No `tools/`, `docs/`, `.claude/`, Markdown
-   or agent files are served.
-3. **Path check.** The workflow serves `_site/` locally and requests every
-   path the shell and both instruments load; a missing file fails the
-   deploy.
-4. **Entry keeps the hash.** Root `index.html` forwards to
-   `vox-color/index.html` with `location.hash` intact (script, with a
-   plain link fallback); `/#mechanical-color-pie/colors=WU` lands on that
-   route.
-5. **Stale frames fixed** (hosting follow-up, 2026-10-08). The shell loads
-   each instrument as `<file>.html?v=<token>`; locally the token is `dev`,
-   the workflow stamps the commit sha. Hash routing, bridges, share links
-   and Back/Forward behave as before.
-6. **Head.** Each served page has a description, Open Graph and Twitter
-   card tags, and the favicon. No visible change to any page.
-7. **Dev comments.** Comments naming `localhost:8000` or the dev server are
-   removed from served files, except developer notes the self-test or
-   `bootFail` messages rely on.
-8. **Live check (Owner).** On the Pages URL: shell switching, deep links,
-   bridges both ways, Back/Forward, phone width, Scryfall images, explorer
-   self-check passes (console or `VMX.selftest()`), Fan Content lines
-   present, Lighthouse phone and desktop recorded here.
-9. Gates pass before and after; self-check unchanged at 1440×900.
+1. **One workflow** on the release branch `master` (push and manual run),
+   standard Pages actions; validation (gate chain, `node --check` of every
+   shipped inline script, package verification over HTTP) must pass before
+   the deploy job can run.
+2. **Explicit package.** `_site/` holds exactly: root `index.html`;
+   `vox-color/{index.html, color-wheel.html, mechanical-explorer.html,
+   mechanical-examples.json}`; `data/{mechanical-color-pie.runtime.json,
+   mcp2021.abilities.json}`, the eleven `data/fixtures/*.json`,
+   `data/recon/marginal-additions.csv`. Inventory checked against the
+   runtime references. Every file other than the stamped shell is
+   byte-identical to source. `_site/` is not committed.
+3. **Root entry** forwards to `vox-color/index.html` relatively, keeping
+   query and hash, with `location.replace` (no Back loop) and a plain-link
+   fallback.
+4. **Versioned frames.** Every instrument load from the shell uses
+   `<file>?v=<rev>`; the canonical names used by `frameRoute()` stay bare.
+   Unstamped source loads bare names (behaviour unchanged); the package
+   stamps the commit sha. Routes, bridges, focus/inert, share links and
+   history unchanged.
+5. **Local package verified over HTTP:** resources resolve with expected
+   content; excluded files 404; root entry keeps deep-link state; both
+   instruments work in the shell; wheel and mechanics deep links; bridges,
+   reload, Back/Forward, keyboard and focus; frames load the stamped
+   revision; explorer self-check passes at 1440×900.
 
 ## Implementation
 
 ## QA
 
+## Publication steps (for Codex)
+
 ## Decisions needed
 
-- **D1. Repo name** (Owner, before go-live). The address is
+- **D1. Repo name** (Owner, before publication). The address is
   `rboles84.github.io/<repo>/`; renaming after launch breaks shared links.
-  Current: `mtg-visual-helpers`. Development can start without it (all
-  paths are relative); the live check (AC 8) waits for it.
-- **Owner one-time step:** repo Settings → Pages → Source: "GitHub
-  Actions". Needed before the first deploy.
+  Current: `mtg-visual-helpers`. Nothing in the package depends on it.
 
 ## Follow-ups
 
