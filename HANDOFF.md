@@ -5,7 +5,7 @@ in `f54d1ec:HANDOFF.md` (candidate `c80be0b`, separate QA `e8c5ef6`).
 
 ## Control
 
-- Status: `ready-for-qa` - Story 14 publication phase, authorized 2026-10-20.
+- Status: `qa-passed` - Story 14 publication phase, authorized 2026-10-20.
 - Owner: Vox Mana. Branch: `master`. Publication-fix base: `f54d1ec`.
 - Last accepted product: Story 12 (`1b2a1d2`); local Story 14 preparation passed QA.
 - Outcome: apply the two review corrections and host the current Color Pie on Pages.
@@ -17,7 +17,7 @@ in `f54d1ec:HANDOFF.md` (candidate `c80be0b`, separate QA `e8c5ef6`).
 - Protected: all 19 publication files, the shell and both instruments, frozen data,
   existing deep links, cross-frame bridges, focus/history behavior and self-tests.
 - QA class: QA-5 release; separate QA on the committed correction candidate.
-- Candidate: this implementation commit; bind QA to its exact SHA from git.
+- Correction candidate: `3ea5f2445ede0fba9d7315cd37bdd792a2731d57`.
 
 ## Owner decisions
 
@@ -88,12 +88,24 @@ in `f54d1ec:HANDOFF.md` (candidate `c80be0b`, separate QA `e8c5ef6`).
 
 ## QA
 
-Pending separate QA of the correction candidate. Claude's earlier local QA remains
-recorded at `f54d1ec:HANDOFF.md`; it is not public-hosting evidence.
+Separate QA-5 agent PASS at `3ea5f2445ede0fba9d7315cd37bdd792a2731d57`, base
+`f54d1ec`. Available Codex model used; Claude Sonnet unavailable.
+
+- Candidate diff: only the two publishing files and this ledger, within envelope;
+  `git diff --check` passed. Runtime source files unchanged from the prior base.
+- Workflow ordering and `needs: build` verified; official upgraded actions support
+  Node 24. Existing Python 3.12/Node 22 check tools retained.
+- `python .github/pages/package.py --rev 3ea5f2445ede --verify` -> PASS: exactly
+  19 expected files, four inline scripts syntax-clean (including root entry),
+  19 correct HTTP responses and 12 excluded paths return 404.
+- Clean tracked tree; generated `_site/` ignored. No blocker/major/minor findings.
+- This verdict covers local corrections only; public hosting is checked below.
 
 ## Publication
 
-Pending. Intended address: `https://rboles84.github.io/mtg-color-pie/`.
+- Owner confirmed Pages source is now GitHub Actions (2026-10-20).
+- Next: push this ledger and the QA-passed correction, observe build/deploy, then
+  verify `https://rboles84.github.io/mtg-color-pie/`.
 
 ## Owner review
 
