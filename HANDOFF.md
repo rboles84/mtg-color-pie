@@ -1,285 +1,108 @@
 # Active handoff
 
-This is the single current-task ledger for `robdev`, `robqa`, and the
-coordinating agent. Keep the headings and replace the field values for each
-task. When Status is `idle`, the task fields are intentionally blank.
-
-**Closing a task:** move the full ledger to `docs/handoff-archive/<gate>.md`,
-reset this file to `idle`, and carry only open follow-ups forward, one line
-each. Keep this file under ~200 lines.
+Single current-task ledger. Prior Story 14 local-preparation evidence is preserved
+in `f54d1ec:HANDOFF.md` (candidate `c80be0b`, separate QA `e8c5ef6`).
 
 ## Control
 
-- Status: `qa-passed` — **Story 14: prepare GitHub Pages
-  publication (local only).** Re-scoped by the Owner 2026-10-20: prepare
-  and verify the exact package locally; Codex publishes afterwards. The
-  task ends **locally prepared; publication and live verification
-  pending.** Hosting is not complete until the live check passes.
-- Last accepted: **Story 12** (cost glyphs centred by their outline),
-  `1b2a1d2`, accepted by the Owner 2026-10-11. Ledger:
-  `docs/handoff-archive/story-12.md`. Earlier: `story-11.md`, `story-10.md`,
-  `story-9.md`, `story-8.md`, `story-7.md`, `story-6.md`, `story-5.md`,
-  `story-4.md`, `story-3.md`, `story-2.md`, `story-1.md`, `gate-e.md`,
-  `gate-d.md`, `gate-c.md`; Gates A and B are in git at `5252333` and
-  `b62131b`.
-- Next: Codex publishes (see Publication steps); then Story 15 (README,
-  LICENSE, NOTICE).
-- Owner: Vox Mana.
-- Branch: `master`. Base commit: `25e4c5c`.
-- Allowed files: `.github/workflows/pages.yml` (new);
-  `.github/pages/package.py` (new: allowlist, stamp, verify);
-  `index.html` at the repo root (new); `vox-color/index.html` (frame
-  loading URLs only); `.gitignore` (`_site/`); `HANDOFF.md`.
-- Allowed surfaces: the deploy workflow; the publication package; the site
-  entry; the shell's frame loading URLs.
-- Prohibited: `data/`, `tools/`, taxonomy, fixtures, recon (frozen;
-  copied, never edited); both instruments; the self-test; fonts and
-  dependency URLs; visual design; `mechanical-periodic-table.html`.
-  Pushing, publishing, GitHub settings, repo rename, DNS, Vox Mana's site.
-  Minifying, bundling, crawlers, service workers, versioning of JSON.
-- Candidate commit: `c80be0b` (`c80be0b23c67`).
-- robqa class (see `.claude/skills/robqa/SKILL.md`): QA-5 (shell
-  integration and release) → separate robqa.
-
-**Hand-off to Codex (2026-10-20).** Story 14 is **locally prepared;
-publication and live verification pending.** Hosting is not complete and
-the Owner has not accepted. Branch `master`; started at `25e4c5c` (story
-set-up), base for the code change `20fdd16`, candidate `c80be0b`, QA
-`e8c5ef6`, this note is the final ledger commit (`git log -1`). Nothing is
-pushed. The QA gap on `?q=1` surviving the root entry is covered by
-developer evidence (`/_site/?x=1#…` → `…/vox-color/index.html?x=1#…`).
-Next: the Publication steps below, then the live smoke check, then Owner
-acceptance.
+- Status: `ready-for-qa` - Story 14 publication phase, authorized 2026-10-20.
+- Owner: Vox Mana. Branch: `master`. Publication-fix base: `f54d1ec`.
+- Last accepted product: Story 12 (`1b2a1d2`); local Story 14 preparation passed QA.
+- Outcome: apply the two review corrections and host the current Color Pie on Pages.
+- Allowed files: `.github/workflows/pages.yml`, `.github/pages/package.py`, `HANDOFF.md`.
+- Allowed operations: update the local origin to the Owner-renamed public repository,
+  commit/push `master`, enable Pages with GitHub Actions, and verify public hosting.
+- Non-goals: product/layout/routing changes, data/tools/fixtures edits, new runtime
+  dependencies, repository/DNS changes, README/LICENSE/NOTICE work, Vox Mana edits.
+- Protected: all 19 publication files, the shell and both instruments, frozen data,
+  existing deep links, cross-frame bridges, focus/history behavior and self-tests.
+- QA class: QA-5 release; separate QA on the committed correction candidate.
+- Candidate: this implementation commit; bind QA to its exact SHA from git.
 
 ## Owner decisions
 
-- **O1 (2026-10-20).** Public repo; GitHub Pages via a GitHub Actions
-  workflow publishing only the runtime files.
-- **O2 (2026-10-20).** Code licence MIT (Story 15, not this story).
-- **O3 (2026-10-20).** Do not publish the periodic table.
-- **O4 (2026-10-20, re-scope).** Local preparation only. Codex publishes,
-  runs the live check, and adds the Color Pie link below Apocrypha on Vox
-  Mana's homepage. No push, settings, rename or DNS in this story.
-- **O5 (2026-10-20, re-scope).** Publish by an explicit allowlist, not by
-  exclusion. Keep `vox-color/` and sibling `data/`; no flattening.
-- **O6 (2026-10-20, re-scope).** Deferred: 404 page, favicon, meta and
-  social tags, CSP, fonts, Lighthouse targets, comment removal.
+- 2026-10-20: Owner renamed the repository to `rboles84/mtg-color-pie` and made it
+  public; connector confirmed visibility public and default branch `master`.
+- Owner explicitly authorized both review fixes and GitHub Pages publication.
+  This supersedes the earlier local-only restriction for this publication phase.
+- Continue publishing only the existing 19-file allowlist. Do not publish the
+  periodic table. Retain `vox-color/` and sibling `data/`.
+- Keep code licensing work (MIT), README and NOTICE in Story 15. Existing deferrals
+  stand: 404 page, favicon, metadata/social tags, CSP, fonts and Lighthouse work.
+- The Vox Mana homepage link below Apocrypha follows live verification and Owner
+  review; it is a separate change in the Vox Mana repository.
 
 ## Technical decisions
 
-- **T1. Package script** `.github/pages/package.py` (stdlib only) holds
-  the allowlist, stamps, and verifies. One script serves CI and local
-  preview, so both check the same thing.
-- **T2. Stamp.** The shell carries `var REV = '';`; the package replaces
-  that one string with the revision (CI: first 12 of `GITHUB_SHA`).
-  `load(k)` returns `SRC[k]` plus `?v=<rev>` when REV is set. `SRC` stays
-  bare, so `frameRoute()`'s pathname comparison is untouched. Unstamped
-  source behaves exactly as before. `v` is unused by both instruments (the
-  explorer reads only `motion`; the wheel keeps `location.search`).
-- **T3. Root entry** uses `location.replace` plus a `<noscript>` refresh
-  and a plain link. Pages serves the repo root, so `/` reaches it.
-- **T4. Workflow.** `build` (checkout, setup-python 3.12, setup-node 22,
-  gate chain, package `--verify`, upload-pages-artifact@v3) → `deploy`
-  (deploy-pages@v4) with `needs: build`. No `configure-pages` step: it is
-  not needed for upload or deploy and fails before Pages is enabled.
-- **T5. Local preview** reuses the existing `static` server: the package
-  sits at `/_site/`, which also mimics a Pages project subpath.
+- Upgrade the five first-party action references to current Node 24-compatible
+  releases verified from their official action metadata. The Python 3.12 and
+  Node 22 tools used to run the checks remain unchanged.
+- Add the root `index.html` to the existing script syntax-check list. No new
+  verifier, test framework or product changes.
+- Enable Pages source GitHub Actions before pushing. The push triggers publication;
+  manually dispatch only if no run starts.
 
 ## Acceptance criteria
 
-1. **One workflow** on the release branch `master` (push and manual run),
-   standard Pages actions; validation (gate chain, `node --check` of every
-   shipped inline script, package verification over HTTP) must pass before
-   the deploy job can run.
-2. **Explicit package.** `_site/` holds exactly: root `index.html`;
-   `vox-color/{index.html, color-wheel.html, mechanical-explorer.html,
-   mechanical-examples.json}`; `data/{mechanical-color-pie.runtime.json,
-   mcp2021.abilities.json}`, the eleven `data/fixtures/*.json`,
-   `data/recon/marginal-additions.csv`. Inventory checked against the
-   runtime references. Every file other than the stamped shell is
-   byte-identical to source. `_site/` is not committed.
-3. **Root entry** forwards to `vox-color/index.html` relatively, keeping
-   query and hash, with `location.replace` (no Back loop) and a plain-link
-   fallback.
-4. **Versioned frames.** Every instrument load from the shell uses
-   `<file>?v=<rev>`; the canonical names used by `frameRoute()` stay bare.
-   Unstamped source loads bare names (behaviour unchanged); the package
-   stamps the commit sha. Routes, bridges, focus/inert, share links and
-   history unchanged.
-5. **Local package verified over HTTP:** resources resolve with expected
-   content; excluded files 404; root entry keeps deep-link state; both
-   instruments work in the shell; wheel and mechanics deep links; bridges,
-   reload, Back/Forward, keyboard and focus; frames load the stamped
-   revision; explorer self-check passes at 1440×900.
+1. Workflow action references support GitHub's current action runtime; `build`
+   still runs the gate chain and package verifier before `deploy` can run.
+2. Package verification checks all four shipped inline scripts, including root
+   `index.html`, with exactly the unchanged 19-file allowlist and 12 exclusions.
+3. Separate QA inspects the exact committed correction candidate and scope.
+4. GitHub Pages build and deploy succeed for the pushed candidate on `master`.
+5. Public root and wheel/mechanics deep links work below `/mtg-color-pie/`; query
+   state survives the root entry and frames use the deployed revision token.
+   Check navigation, bridges, reload, Back/Forward, keyboard/focus, and console.
+6. Excluded paths return 404; verify the explorer self-check where browser tools
+   allow it, loaded example images, and a focused phone-width check.
+
+## Proportionate test plan
+
+- Run the existing package verifier once after the corrections (four scripts,
+  inventory and HTTP checks). Inspect diff and whitespace; no viewport matrix.
+- The existing gate chain will run in GitHub CI before deployment; data and tools
+  are unchanged, so do not duplicate broad regression runs locally.
+- Independent QA covers the two corrections; prior product behavior keeps its
+  baseline certification. Public browser smoke verifies the hosting boundary.
 
 ## Implementation
 
-Base `20fdd16` (ledger re-scope; Story 14 opened at `25e4c5c`), candidate
-`c80be0b`. `git diff --stat 20fdd16..c80be0b`:
-
-```
- .github/pages/package.py    | 163 +++
- .github/workflows/pages.yml |  49 +++
- .gitignore                  |   3 +
- index.html                  |  16 +++
- vox-color/index.html        |  14 ++--
- 5 files changed, 241 insertions(+), 4 deletions(-)
-```
-
-All inside the envelope. No change to `data/`, `tools/`, the instruments,
-fonts or dependency URLs.
-
-**Publication inventory (19 files).** `index.html`;
-`vox-color/{index.html, color-wheel.html, mechanical-explorer.html,
-mechanical-examples.json}`; `data/{mechanical-color-pie.runtime.json,
-mcp2021.abilities.json}`; `data/fixtures/01…11*.json`;
-`data/recon/marginal-additions.csv`. Checked against the runtime references:
-the explorer fetches the two `data/` JSON files, `mechanical-examples.json`,
-the eleven fixtures and the CSV; the wheel and shell fetch no local files.
-
-**Developer checks (local, not QA):**
-- Gate chain before (base) and after (candidate): all four exit 0.
-- `py .github/pages/package.py --rev c80be0b23c67 --verify` → `inventory: 19
-  files, byte-identical (shell stamped v=c80be0b23c67)`; `node --check: 3
-  inline scripts clean`; `http: 19 paths 200 with expected bytes; 12
-  excluded paths 404`; `package: PASS`.
-- Browser pane, stamped package at `http://localhost:8000/_site/`, 1440×900,
-  pane visible (dev ran with stamp `localtest1`, same code):
-  - `/_site/?x=1#mechanical-color-pie/colors=WU` → shell
-    `…/vox-color/index.html?x=1#mechanical-color-pie`, explorer selection
-    `WU`, frame `mechanical-explorer.html?v=localtest1`.
-  - Explorer self-check **84/84**. (83/84 while the pane was hidden at 0×0,
-    the known plates-geometry environmental case; unpackaged source gave
-    the same 83/84 then.)
-  - `/_site/#color-wheel/ally=WU` → wheel frame
-    `color-wheel.html?v=localtest1#ally=WU`. In-frame `#enemy=WB` → shell
-    URL and nav link follow (route sync works with the query).
-  - Nav to Pie pushes one entry, focus `frame-pie`, wheel inert; Back →
-    wheel `enemy=WB`, focus `frame-wheel`, pie inert; Forward → Pie.
-  - Wheel bridge → Pie with `WB`; explorer bridge
-    `index.html#color-wheel/enemy=WB` → wheel at `enemy=WB`; share URL
-    resolves to `…/vox-color/index.html#mechanical-color-pie/colors=WB`.
-  - Reload on `#color-wheel/enemy=WB` keeps the route with a stamped frame.
-  - Keyboard: Tab to the Pie nav link, Enter → Pie shown, focus in frame,
-    announcement "Showing Mechanical Color Pie". Console: no errors.
-- Not run: workflow YAML lint (no linter installed); the workflow itself
-  (runs only on GitHub).
-
-**Expected robqa class:** QA-5, separate.
-
-**Local preview, to reproduce:**
-1. `py .github/pages/package.py --rev localtest --verify`
-2. `py -m http.server 8000` from the repo root (or the `static` launch
-   config).
-3. Open `http://localhost:8000/_site/` and deep links such as
-   `http://localhost:8000/_site/#mechanical-color-pie/colors=WU`.
+- `.github/workflows/pages.yml`: five references updated (checkout/setup-python/
+  setup-node v7, upload-pages-artifact/deploy-pages v5); five added/five removed
+  lines. All declare Node 24 directly or through upload-artifact v7.
+- `.github/pages/package.py`: root index added to SCRIPTS; one added/one removed
+  line. The 19-file allowlist, verifier logic and runtime bytes are unchanged.
+- `HANDOFF.md`: publication envelope, evidence and current Owner decisions;
+  earlier detailed evidence remains in `f54d1ec:HANDOFF.md`.
+- Local origin now `https://github.com/rboles84/mtg-color-pie.git`.
+- `python .github/pages/package.py --rev publishcheck --verify` -> PASS: 19 exact
+  files, four scripts syntax-clean, 19 HTTP paths with expected bytes, 12 excluded
+  paths return 404. Local Python 3.14; CI uses the existing Python 3.12 selection.
+- `git diff --check` -> exit 0; only expected LF/CRLF notices.
+- `git ls-remote origin refs/heads/master` -> `12f48625d22e64f391d1bba7492bd74811f18135`;
+  this is the existing origin/master baseline. No unrelated remote work observed.
+- Gate chain deferred to the already-required GitHub build, since this correction
+  does not change the data or tools it protects.
+- Separate QA uses an available Codex agent; Claude Sonnet is not available in
+  this host. Independence and the repository QA criteria remain required.
 
 ## QA
 
-Separate robqa, class QA-5, candidate `c80be0b23c67`, base `20fdd16`. All
-evidence is **local** (headless Edge DOM dumps and scripts on
-`http://localhost:8000`); nothing here shows public hosting works.
+Pending separate QA of the correction candidate. Claude's earlier local QA remains
+recorded at `f54d1ec:HANDOFF.md`; it is not public-hosting evidence.
 
-- Binding: `git diff --stat 20fdd16..c80be0b` → 5 files (package.py,
-  pages.yml, .gitignore, index.html, vox-color/index.html), all in Allowed
-  files; no `data/`, `tools/` or instrument change. `git status --porcelain`
-  clean.
-- Criterion 4 diff: `load(k)` adds `?v=REV` only when REV is set; used by
-  `loadWheel`, `sendColors` (pre-load), `show()` first show and `arrive()`
-  plain pie. No other `.src =` in the shell. `frameRoute()` still compares
-  bare `SRC.wheel` (line 229). Source has `REV = ''`.
-- Gate chain (repo root) → exit 0 (recon 53 assertions hold; source and
-  taxonomy PASS).
-- `package.py --rev c80be0b23c67 --verify` → 19 files byte-identical,
-  `node --check` 3 scripts clean, 19 paths 200, 12 excluded 404, PASS.
-  `find _site -type f` lists exactly the 19 files of criterion 2; periodic
-  table, reference/, build/, docs, tools, agent files absent.
-  `git check-ignore _site/index.html` → ignored.
-- Headless Edge DOM dump (local):
-  - `/_site/` → wheel src `color-wheel.html?v=c80be0b23c67`, pie `is-off`
-    and `inert`, `aria-current` on wheel link, nav hrefs under
-    `/_site/vox-color/` (root entry forwarded).
-  - `/_site/#color-wheel/ally=WU` → wheel `...?v=c80be0b23c67#ally=WU`,
-    pie off and inert.
-  - `/_site/#mechanical-color-pie/colors=WU` → pie
-    `mechanical-explorer.html?v=c80be0b23c67#colors=WU`, wheel off and
-    inert, `aria-current` on pie link, title Mechanical Color Pie.
-  - `/_site/?q=1#mechanical-color-pie` → pie shown, stamped src. The query
-    itself is not observable in the dump (shell URL not dumped); left to the
-    Owner.
-  - Unstamped `/vox-color/index.html#color-wheel/ally=WU` → wheel src
-    `color-wheel.html#ally=WU`, no `?v`.
-- Workflow read: `build` runs checkout, python 3.12, node 22, gate chain,
-  package `--verify`, then upload-pages-artifact@v3; `deploy` has
-  `needs: build`, environment github-pages, deploy-pages@v4. Triggers push to
-  master and workflow_dispatch. Permissions contents read, pages write,
-  id-token write. Concurrency group no-cancel.
+## Publication
 
-Findings:
-- note: action majors (checkout@v4, setup-python@v5, setup-node@v4,
-  upload-pages-artifact@v3, deploy-pages@v4) cannot be verified offline.
-- note: workflow YAML never linted or run; first run happens on GitHub.
-- note: `?q=1` pass-through not observable in headless DOM dump.
-- No blocker, major or minor.
+Pending. Intended address: `https://rboles84.github.io/mtg-color-pie/`.
 
-Verdict: **qa-passed.** Every criterion checkable here passes. Remaining gaps
-are the interactive browser checks (Back/Forward, bridges, keyboard/focus,
-explorer self-check 84/84), which the developer evidenced in a real browser
-pane and this environment cannot drive; they are Owner checks, not marked
-passed by QA. Public hosting is not claimed.
+## Owner review
 
-Owner checklist (first run `py .github/pages/package.py --rev localtest
---verify`, then `py -m http.server 8000` from the repo root):
-1. `http://localhost:8000/_site/` → Color Wheel shows; shell URL ends
-   `/_site/vox-color/index.html`.
-2. `http://localhost:8000/_site/?q=1#mechanical-color-pie` → Pie shows; shell
-   URL keeps `?q=1`.
-3. Same page, press Back once → leaves the site, no bounce through `/_site/`.
-4. `http://localhost:8000/_site/#mechanical-color-pie/colors=WU` → W and U
-   selected.
-5. `http://localhost:8000/_site/#color-wheel/ally=WU` → wheel on WU ally.
-6. Nav Wheel to Pie, Back, Forward → one entry each, focus follows frame.
-7. Wheel bridge to Pie, explorer bridge to wheel → colours carry over.
-8. Reload on a wheel route → route kept.
-9. Keyboard: Tab to Pie link, Enter → Pie shown, focus in frame.
-10. DevTools Network → frames request `...html?v=localtest`.
-11. Explorer console at 1440x900: `VMX.selftest().filter(t => !t.ok)` → `[]`.
-12. `http://localhost:8000/_site/vox-color/mechanical-periodic-table.html` →
-   404.
-
-## Publication steps (for Codex)
-
-Not done in this story. In order:
-1. Owner settles D1 (repo name). If renaming: GitHub → Settings → General,
-   then `git remote set-url origin <new url>`.
-2. Push `master` (includes `.github/workflows/pages.yml`).
-3. GitHub → Settings → Pages → Build and deployment → Source: **GitHub
-   Actions**.
-4. Actions → **Pages** → Run workflow on `master` (or the push triggers
-   it). `build` must pass before `deploy` runs. If an action major is
-   reported deprecated, bump that major only.
-5. Public smoke check on `https://rboles84.github.io/<repo>/`:
-   - `/` lands on `/vox-color/index.html`, showing the Color Wheel.
-   - `/#mechanical-color-pie/colors=WU` → Mechanical Color Pie with W and
-     U selected; Back leaves the site (no bounce through `/`).
-   - `/#color-wheel/ally=WU` → wheel on the WU ally route.
-   - Frame URLs carry `?v=<first 12 of the deployed sha>` (DevTools →
-     Network).
-   - In the console of the explorer frame, `VMX.selftest().filter(t =>
-     !t.ok)` is `[]` at a desktop window size.
-   - Wheel bridge → Pie, explorer bridge → wheel, Back/Forward between.
-   - `/vox-color/mechanical-periodic-table.html`, `/HANDOFF.md`,
-     `/tools/gate.py` return 404.
-   - Scryfall card images load; the Fan Content lines are present.
-   - A phone-width check of both views.
-6. Record the results here; the Owner then accepts. Then add the Color Pie
-   link below Apocrypha on Vox Mana's homepage (outside this repo).
+After live checks, confirm the published Color Pie looks as intended. Standalone
+`file://` history remains a prior Owner check and is unaffected by these fixes.
 
 ## Decisions needed
 
-- **D1. Repo name** (Owner, before publication). The address is
-  `rboles84.github.io/<repo>/`; renaming after launch breaks shared links.
-  Current: `mtg-visual-helpers`. Nothing in the package depends on it.
+None. Repository name/public visibility and publication are authorized.
 
 ## Follow-ups
 

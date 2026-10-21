@@ -46,7 +46,7 @@ FILES = [
 
 SHELL = 'vox-color/index.html'
 STAMP = "var REV = '';"
-SCRIPTS = ['vox-color/index.html', 'vox-color/color-wheel.html',
+SCRIPTS = ['index.html', 'vox-color/index.html', 'vox-color/color-wheel.html',
            'vox-color/mechanical-explorer.html']
 
 # Must not be served: a sample of what sits beside the allowlisted files.
