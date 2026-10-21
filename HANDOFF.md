@@ -4,6 +4,7 @@
 
 - Status: `ready-for-qa`.
 - Owner: Vox Mana. Branch: `master`. Base: `fe828ae2be4a02277941f710dad19b304f5d47f3`.
+- Candidate: `e013149585ada761313e6717840a1ff67b865b1c`.
 - Outcome: host The Color Pie shell at the clean site root for `colorpie.voxmana.io`,
   without exposing `/vox-color/index.html` as the canonical entry.
 - Allowed files: `index.html`, `vox-color/index.html`, `vox-color/color-wheel.html`,
