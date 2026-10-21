@@ -10,7 +10,7 @@ each. Keep this file under ~200 lines.
 
 ## Control
 
-- Status: `ready-for-qa` — **Story 14: prepare GitHub Pages
+- Status: `qa-passed` — **Story 14: prepare GitHub Pages
   publication (local only).** Re-scoped by the Owner 2026-10-20: prepare
   and verify the exact package locally; Codex publishes afterwards. The
   task ends **locally prepared; publication and live verification
@@ -165,6 +165,77 @@ the eleven fixtures and the CSV; the wheel and shell fetch no local files.
    `http://localhost:8000/_site/#mechanical-color-pie/colors=WU`.
 
 ## QA
+
+Separate robqa, class QA-5, candidate `c80be0b23c67`, base `20fdd16`. All
+evidence is **local** (headless Edge DOM dumps and scripts on
+`http://localhost:8000`); nothing here shows public hosting works.
+
+- Binding: `git diff --stat 20fdd16..c80be0b` → 5 files (package.py,
+  pages.yml, .gitignore, index.html, vox-color/index.html), all in Allowed
+  files; no `data/`, `tools/` or instrument change. `git status --porcelain`
+  clean.
+- Criterion 4 diff: `load(k)` adds `?v=REV` only when REV is set; used by
+  `loadWheel`, `sendColors` (pre-load), `show()` first show and `arrive()`
+  plain pie. No other `.src =` in the shell. `frameRoute()` still compares
+  bare `SRC.wheel` (line 229). Source has `REV = ''`.
+- Gate chain (repo root) → exit 0 (recon 53 assertions hold; source and
+  taxonomy PASS).
+- `package.py --rev c80be0b23c67 --verify` → 19 files byte-identical,
+  `node --check` 3 scripts clean, 19 paths 200, 12 excluded 404, PASS.
+  `find _site -type f` lists exactly the 19 files of criterion 2; periodic
+  table, reference/, build/, docs, tools, agent files absent.
+  `git check-ignore _site/index.html` → ignored.
+- Headless Edge DOM dump (local):
+  - `/_site/` → wheel src `color-wheel.html?v=c80be0b23c67`, pie `is-off`
+    and `inert`, `aria-current` on wheel link, nav hrefs under
+    `/_site/vox-color/` (root entry forwarded).
+  - `/_site/#color-wheel/ally=WU` → wheel `...?v=c80be0b23c67#ally=WU`,
+    pie off and inert.
+  - `/_site/#mechanical-color-pie/colors=WU` → pie
+    `mechanical-explorer.html?v=c80be0b23c67#colors=WU`, wheel off and
+    inert, `aria-current` on pie link, title Mechanical Color Pie.
+  - `/_site/?q=1#mechanical-color-pie` → pie shown, stamped src. The query
+    itself is not observable in the dump (shell URL not dumped); left to the
+    Owner.
+  - Unstamped `/vox-color/index.html#color-wheel/ally=WU` → wheel src
+    `color-wheel.html#ally=WU`, no `?v`.
+- Workflow read: `build` runs checkout, python 3.12, node 22, gate chain,
+  package `--verify`, then upload-pages-artifact@v3; `deploy` has
+  `needs: build`, environment github-pages, deploy-pages@v4. Triggers push to
+  master and workflow_dispatch. Permissions contents read, pages write,
+  id-token write. Concurrency group no-cancel.
+
+Findings:
+- note: action majors (checkout@v4, setup-python@v5, setup-node@v4,
+  upload-pages-artifact@v3, deploy-pages@v4) cannot be verified offline.
+- note: workflow YAML never linted or run; first run happens on GitHub.
+- note: `?q=1` pass-through not observable in headless DOM dump.
+- No blocker, major or minor.
+
+Verdict: **qa-passed.** Every criterion checkable here passes. Remaining gaps
+are the interactive browser checks (Back/Forward, bridges, keyboard/focus,
+explorer self-check 84/84), which the developer evidenced in a real browser
+pane and this environment cannot drive; they are Owner checks, not marked
+passed by QA. Public hosting is not claimed.
+
+Owner checklist (first run `py .github/pages/package.py --rev localtest
+--verify`, then `py -m http.server 8000` from the repo root):
+1. `http://localhost:8000/_site/` → Color Wheel shows; shell URL ends
+   `/_site/vox-color/index.html`.
+2. `http://localhost:8000/_site/?q=1#mechanical-color-pie` → Pie shows; shell
+   URL keeps `?q=1`.
+3. Same page, press Back once → leaves the site, no bounce through `/_site/`.
+4. `http://localhost:8000/_site/#mechanical-color-pie/colors=WU` → W and U
+   selected.
+5. `http://localhost:8000/_site/#color-wheel/ally=WU` → wheel on WU ally.
+6. Nav Wheel to Pie, Back, Forward → one entry each, focus follows frame.
+7. Wheel bridge to Pie, explorer bridge to wheel → colours carry over.
+8. Reload on a wheel route → route kept.
+9. Keyboard: Tab to Pie link, Enter → Pie shown, focus in frame.
+10. DevTools Network → frames request `...html?v=localtest`.
+11. Explorer console at 1440x900: `VMX.selftest().filter(t => !t.ok)` → `[]`.
+12. `http://localhost:8000/_site/vox-color/mechanical-periodic-table.html` →
+   404.
 
 ## Publication steps (for Codex)
 
