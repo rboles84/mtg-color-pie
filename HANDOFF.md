@@ -41,6 +41,16 @@ each. Keep this file under ~200 lines.
 - robqa class (see `.claude/skills/robqa/SKILL.md`): QA-5 (shell
   integration and release) → separate robqa.
 
+**Hand-off to Codex (2026-10-20).** Story 14 is **locally prepared;
+publication and live verification pending.** Hosting is not complete and
+the Owner has not accepted. Branch `master`; started at `25e4c5c` (story
+set-up), base for the code change `20fdd16`, candidate `c80be0b`, QA
+`e8c5ef6`, this note is the final ledger commit (`git log -1`). Nothing is
+pushed. The QA gap on `?q=1` surviving the root entry is covered by
+developer evidence (`/_site/?x=1#…` → `…/vox-color/index.html?x=1#…`).
+Next: the Publication steps below, then the live smoke check, then Owner
+acceptance.
+
 ## Owner decisions
 
 - **O1 (2026-10-20).** Public repo; GitHub Pages via a GitHub Actions
