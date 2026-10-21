@@ -10,7 +10,7 @@ each. Keep this file under ~200 lines.
 
 ## Control
 
-- Status: `dev-in-progress` — **Story 14: prepare GitHub Pages
+- Status: `ready-for-qa` — **Story 14: prepare GitHub Pages
   publication (local only).** Re-scoped by the Owner 2026-10-20: prepare
   and verify the exact package locally; Codex publishes afterwards. The
   task ends **locally prepared; publication and live verification
@@ -37,7 +37,7 @@ each. Keep this file under ~200 lines.
   dependency URLs; visual design; `mechanical-periodic-table.html`.
   Pushing, publishing, GitHub settings, repo rename, DNS, Vox Mana's site.
   Minifying, bundling, crawlers, service workers, versioning of JSON.
-- Candidate commit:
+- Candidate commit: `c80be0b` (`c80be0b23c67`).
 - robqa class (see `.claude/skills/robqa/SKILL.md`): QA-5 (shell
   integration and release) → separate robqa.
 
@@ -56,6 +56,24 @@ each. Keep this file under ~200 lines.
   social tags, CSP, fonts, Lighthouse targets, comment removal.
 
 ## Technical decisions
+
+- **T1. Package script** `.github/pages/package.py` (stdlib only) holds
+  the allowlist, stamps, and verifies. One script serves CI and local
+  preview, so both check the same thing.
+- **T2. Stamp.** The shell carries `var REV = '';`; the package replaces
+  that one string with the revision (CI: first 12 of `GITHUB_SHA`).
+  `load(k)` returns `SRC[k]` plus `?v=<rev>` when REV is set. `SRC` stays
+  bare, so `frameRoute()`'s pathname comparison is untouched. Unstamped
+  source behaves exactly as before. `v` is unused by both instruments (the
+  explorer reads only `motion`; the wheel keeps `location.search`).
+- **T3. Root entry** uses `location.replace` plus a `<noscript>` refresh
+  and a plain link. Pages serves the repo root, so `/` reaches it.
+- **T4. Workflow.** `build` (checkout, setup-python 3.12, setup-node 22,
+  gate chain, package `--verify`, upload-pages-artifact@v3) → `deploy`
+  (deploy-pages@v4) with `needs: build`. No `configure-pages` step: it is
+  not needed for upload or deploy and fails before Pages is enabled.
+- **T5. Local preview** reuses the existing `static` server: the package
+  sits at `/_site/`, which also mimics a Pages project subpath.
 
 ## Acceptance criteria
 
@@ -86,9 +104,95 @@ each. Keep this file under ~200 lines.
 
 ## Implementation
 
+Base `20fdd16` (ledger re-scope; Story 14 opened at `25e4c5c`), candidate
+`c80be0b`. `git diff --stat 20fdd16..c80be0b`:
+
+```
+ .github/pages/package.py    | 163 +++
+ .github/workflows/pages.yml |  49 +++
+ .gitignore                  |   3 +
+ index.html                  |  16 +++
+ vox-color/index.html        |  14 ++--
+ 5 files changed, 241 insertions(+), 4 deletions(-)
+```
+
+All inside the envelope. No change to `data/`, `tools/`, the instruments,
+fonts or dependency URLs.
+
+**Publication inventory (19 files).** `index.html`;
+`vox-color/{index.html, color-wheel.html, mechanical-explorer.html,
+mechanical-examples.json}`; `data/{mechanical-color-pie.runtime.json,
+mcp2021.abilities.json}`; `data/fixtures/01…11*.json`;
+`data/recon/marginal-additions.csv`. Checked against the runtime references:
+the explorer fetches the two `data/` JSON files, `mechanical-examples.json`,
+the eleven fixtures and the CSV; the wheel and shell fetch no local files.
+
+**Developer checks (local, not QA):**
+- Gate chain before (base) and after (candidate): all four exit 0.
+- `py .github/pages/package.py --rev c80be0b23c67 --verify` → `inventory: 19
+  files, byte-identical (shell stamped v=c80be0b23c67)`; `node --check: 3
+  inline scripts clean`; `http: 19 paths 200 with expected bytes; 12
+  excluded paths 404`; `package: PASS`.
+- Browser pane, stamped package at `http://localhost:8000/_site/`, 1440×900,
+  pane visible (dev ran with stamp `localtest1`, same code):
+  - `/_site/?x=1#mechanical-color-pie/colors=WU` → shell
+    `…/vox-color/index.html?x=1#mechanical-color-pie`, explorer selection
+    `WU`, frame `mechanical-explorer.html?v=localtest1`.
+  - Explorer self-check **84/84**. (83/84 while the pane was hidden at 0×0,
+    the known plates-geometry environmental case; unpackaged source gave
+    the same 83/84 then.)
+  - `/_site/#color-wheel/ally=WU` → wheel frame
+    `color-wheel.html?v=localtest1#ally=WU`. In-frame `#enemy=WB` → shell
+    URL and nav link follow (route sync works with the query).
+  - Nav to Pie pushes one entry, focus `frame-pie`, wheel inert; Back →
+    wheel `enemy=WB`, focus `frame-wheel`, pie inert; Forward → Pie.
+  - Wheel bridge → Pie with `WB`; explorer bridge
+    `index.html#color-wheel/enemy=WB` → wheel at `enemy=WB`; share URL
+    resolves to `…/vox-color/index.html#mechanical-color-pie/colors=WB`.
+  - Reload on `#color-wheel/enemy=WB` keeps the route with a stamped frame.
+  - Keyboard: Tab to the Pie nav link, Enter → Pie shown, focus in frame,
+    announcement "Showing Mechanical Color Pie". Console: no errors.
+- Not run: workflow YAML lint (no linter installed); the workflow itself
+  (runs only on GitHub).
+
+**Expected robqa class:** QA-5, separate.
+
+**Local preview, to reproduce:**
+1. `py .github/pages/package.py --rev localtest --verify`
+2. `py -m http.server 8000` from the repo root (or the `static` launch
+   config).
+3. Open `http://localhost:8000/_site/` and deep links such as
+   `http://localhost:8000/_site/#mechanical-color-pie/colors=WU`.
+
 ## QA
 
 ## Publication steps (for Codex)
+
+Not done in this story. In order:
+1. Owner settles D1 (repo name). If renaming: GitHub → Settings → General,
+   then `git remote set-url origin <new url>`.
+2. Push `master` (includes `.github/workflows/pages.yml`).
+3. GitHub → Settings → Pages → Build and deployment → Source: **GitHub
+   Actions**.
+4. Actions → **Pages** → Run workflow on `master` (or the push triggers
+   it). `build` must pass before `deploy` runs. If an action major is
+   reported deprecated, bump that major only.
+5. Public smoke check on `https://rboles84.github.io/<repo>/`:
+   - `/` lands on `/vox-color/index.html`, showing the Color Wheel.
+   - `/#mechanical-color-pie/colors=WU` → Mechanical Color Pie with W and
+     U selected; Back leaves the site (no bounce through `/`).
+   - `/#color-wheel/ally=WU` → wheel on the WU ally route.
+   - Frame URLs carry `?v=<first 12 of the deployed sha>` (DevTools →
+     Network).
+   - In the console of the explorer frame, `VMX.selftest().filter(t =>
+     !t.ok)` is `[]` at a desktop window size.
+   - Wheel bridge → Pie, explorer bridge → wheel, Back/Forward between.
+   - `/vox-color/mechanical-periodic-table.html`, `/HANDOFF.md`,
+     `/tools/gate.py` return 404.
+   - Scryfall card images load; the Fan Content lines are present.
+   - A phone-width check of both views.
+6. Record the results here; the Owner then accepts. Then add the Color Pie
+   link below Apocrypha on Vox Mana's homepage (outside this repo).
 
 ## Decisions needed
 
