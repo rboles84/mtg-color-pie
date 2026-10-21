@@ -163,6 +163,35 @@ Owner checklist:
   Coordinator is publishing that unchanged material candidate with its ledger evidence.
   Public deployment, HTTPS provisioning and live smoke remain pending.
 
+### Public deployment verification
+
+- Deployed revision: `7a0d19e427e7f5473a9b9b09a575187ddf89db0e`; the product remains
+  byte-equivalent to engineering candidate `e013149585ada761313e6717840a1ff67b865b1c`.
+- GitHub Actions run `39544184074`: build and deploy both success. The build ran the
+  full existing gate chain and package verification before publishing.
+- Public CNAME resolves to `rboles84.github.io`. HTTPS `https://colorpie.voxmana.io/`
+  returned 200 with normal certificate validation and revision stamp `7a0d19e427e7`.
+- Four changed public HTML documents matched the exact deployed Git bytes (root
+  shell with its expected stamp).
+- CUA Chromium public smoke: mechanical WU arrival retained the query, selected
+  Azorius / White–Blue / WU, and passed the explorer self-check 84/84; both instrument
+  bridges retained the clean root and loaded the deployed stamped frames.
+- The old GitHub Pages URL ending `/mtg-color-pie/vox-color/index.html#color-wheel/ally=WU`
+  reached `https://colorpie.voxmana.io/#color-wheel/ally=WU`. The clean root opens the
+  Color Wheel directly without `/vox-color/index.html`.
+- Owner appearance and policy-assigned file checks remain separately listed above.
+
+### Git accounting
+
+Base: `fe828ae2be4a02277941f710dad19b304f5d47f3`. Material candidate:
+`e013149585ada761313e6717840a1ff67b865b1c`. Git name-status yields 9 material paths:
+`.github/pages/package.py`, `AGENTS.md`, `CONTEXT.md`, `HANDOFF.md`,
+`PRODUCT-DEFINITION.md`, `index.html`, `vox-color/color-wheel.html`,
+`vox-color/index.html`, and `vox-color/mechanical-explorer.html`. Post-candidate
+commits change only `HANDOFF.md`; final branch scope remains these same 9 paths.
+The coordinator commits this publication evidence with `[skip ci]`, retaining the
+already verified deployed artifact and frame revision.
+
 ## Archived Story 14 publication ledger
 
 The completed ledger follows verbatim for repository-local preservation. Git history
