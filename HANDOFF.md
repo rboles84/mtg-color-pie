@@ -2,7 +2,7 @@
 
 ## Control
 
-- Status: `ready-for-qa`.
+- Status: `qa-passed`.
 - Owner: Vox Mana. Branch: `master`. Base: `fe828ae2be4a02277941f710dad19b304f5d47f3`.
 - Candidate: `e013149585ada761313e6717840a1ff67b865b1c`.
 - Outcome: host The Color Pie shell at the clean site root for `colorpie.voxmana.io`,
@@ -75,11 +75,93 @@
 
 ## QA
 
-Independent RobQA pending on the committed candidate. Focused journeys: root wheel
-route and query preservation; direct root `index.html` HTTP canonicalization; legacy
-`/vox-color/index.html` replace with query/hash; wheel↔explorer bridges; copied explorer
-share link; reload and Back/Forward; active frame focus/inert state; direct standalone
-wheel and explorer pages; both custom-root and GitHub-project-subpath deployment bases.
+Verdict: `qa-passed` for the exact local engineering candidate
+`e013149585ada761313e6717840a1ff67b865b1c` over base
+`fe828ae2be4a02277941f710dad19b304f5d47f3`. Separate QA-5 RobQA used the
+available Codex Sol medium route; the repository-preferred Claude Sonnet route is not
+available on this host. Public HTTPS publication and Owner acceptance remain separate.
+
+Independent source and package evidence:
+
+- `git diff --stat fe828ae2be4a02277941f710dad19b304f5d47f3..e013149585ada761313e6717840a1ff67b865b1c`
+  → nine allowed paths, 498 insertions and 404 deletions; no path escaped the declared
+  envelope. `git diff --check` on the same range → exit 0.
+- `git diff --quiet e013149585ada761313e6717840a1ff67b865b1c..HEAD --` across the
+  eight material/document paths → exact match; only the later handoff-evidence commit
+  differs from the frozen candidate.
+- `python .github\pages\package.py --rev e013149585ada761313e6717840a1ff67b865b1c
+  --out C:\dev\color-wheel-interactive\_site-qa-cleanroot-e013149 --verify` → PASS:
+  exactly 19 allowlisted files, root shell stamped with the full candidate, four inline
+  scripts syntax-clean, 19 HTTP paths returned expected bytes, and 12 exclusions 404.
+  The absolute output was confirmed inside the repository and absent before the run;
+  it was removed afterward and final `git status --short --branch --untracked-files=all`
+  showed only `master...origin/master [ahead 2]`.
+- Static `System.Uri` resolution from `https://colorpie.voxmana.io/` and
+  `https://rboles84.github.io/mtg-color-pie/` → frames stayed below each deployment
+  base; legacy, wheel/explorer bridge and copied-share targets resolved through that
+  base's root `index.html`; `frameRoute()`'s `vox-color/color-wheel.html` suffix matched
+  in both forms. Source inspection confirmed the same relative targets.
+- The broader data/tools gate chain was not rerun: no data, mechanics, fixtures,
+  selection semantics or producer changed, and the package verifier exercises the
+  changed release boundary. This satisfies the RobQA cost gate.
+
+Coordinator-attributed Chromium evidence on an independently rebuilt, verifier-PASS
+package stamped with the full candidate:
+
+- Nested base `http://127.0.0.1:51121/_site/`: an arrival at
+  `?q=1#mechanical-color-pie/colors=WU` consumed the colour arrival into the bare pie
+  route, retained `?q=1`, showed Azorius / White–Blue / WU, reported self-check 84/84,
+  and loaded the stamped explorer frame. The inactive wheel was inert, hidden and
+  still lazy-unloaded.
+- Pie→Wheel and Wheel→Pie controls produced root shell routes, preserved the query,
+  showed the expected White & Blue state, kept candidate-stamped frame URLs, and
+  focused the active frame. Enter on the shell nav, Back, Forward and reload retained
+  the expected view, route, active/off state and revision.
+- `/_site/index.html?keep=1#color-wheel/ally=WU` replaced to the clean directory URL.
+  The legacy `/_site/vox-color/index.html?legacy=1#mechanical-color-pie/colors=WU`
+  preserved query and state, then Back returned directly to the earlier clean-root
+  wheel entry without a legacy or `index.html` bounce.
+- Standalone HTTP wheel and explorer documents loaded their existing states and data.
+  Their actual bridge controls returned to nested-root shell routes. The explorer's
+  Copy link produced
+  `http://127.0.0.1:51121/_site/index.html#mechanical-color-pie/colors=WU`, which the
+  shell canonicalizes on arrival.
+- True-root `http://127.0.0.1:51122/` repeated direct `index.html` and legacy replace
+  behavior with query/hash preservation and no Back bounce. The actual wheel Clear
+  control synchronized the shell from `#color-wheel/ally=WU` to `/?keep=1`, proving
+  prefixed frame-path recognition. Enter on Mechanical Color Pie focused `frame-pie`;
+  DOM state was wheel `inert=true` / off and pie `inert=false` / active.
+- The known source-less `MutationObserver.observe` TypeError appeared again on shell
+  loads. It has no source or stack, the changed code adds no observer, standalone and
+  functional checks passed, and there is no changed causal evidence; attribution
+  remains unavailable. An attempted unrelated SVG activation locator timed out, so no
+  geometry claim is made from it; route sync was instead proved with the actual Clear
+  control.
+
+Findings: no blocker, major or minor defect. The source-less console message is a note,
+not evidence of a candidate regression.
+
+Owner checklist:
+
+1. Open the published `https://colorpie.voxmana.io/` and confirm certificate, clean-root
+   address, both views, candidate revision and no hosting-only failures.
+2. Judge the shell and both instruments at the Owner's preferred desktop and phone
+   sizes; appearance, spacing and motion remain Owner decisions.
+3. From standalone `file://` wheel and explorer pages, use the changed bridge/share
+   paths and confirm root `index.html` opens; perform the policy-assigned hard reload
+   and Back/Forward check.
+4. After accepting this candidate, review the separate Vox Mana homepage-link change;
+   it is outside this repository and this QA verdict.
+
+## Clean-root publication
+
+- Coordinator: /root. The Owner explicitly requested setup and hosting at
+  `colorpie.voxmana.io` plus the separate Vox Mana homepage entry on 2026-10-20.
+- Owner confirmed the GitHub Pages custom-domain setting and Porkbun CNAME setup.
+  Public DNS resolves `colorpie.voxmana.io` to `rboles84.github.io`.
+- Independent engineering QA passed material candidate `e013149585ada761313e6717840a1ff67b865b1c`.
+  Coordinator is publishing that unchanged material candidate with its ledger evidence.
+  Public deployment, HTTPS provisioning and live smoke remain pending.
 
 ## Archived Story 14 publication ledger
 
