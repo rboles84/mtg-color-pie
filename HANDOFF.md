@@ -1,7 +1,91 @@
 # Active handoff
 
-Single current-task ledger. Prior Story 14 local-preparation evidence is preserved
-in `f54d1ec:HANDOFF.md` (candidate `c80be0b`, separate QA `e8c5ef6`).
+## Control
+
+- Status: `ready-for-qa`.
+- Owner: Vox Mana. Branch: `master`. Base: `fe828ae2be4a02277941f710dad19b304f5d47f3`.
+- Outcome: host The Color Pie shell at the clean site root for `colorpie.voxmana.io`,
+  without exposing `/vox-color/index.html` as the canonical entry.
+- Allowed files: `index.html`, `vox-color/index.html`, `vox-color/color-wheel.html`,
+  `vox-color/mechanical-explorer.html`, `.github/pages/package.py`, `AGENTS.md`,
+  `CONTEXT.md`, `PRODUCT-DEFINITION.md`, `HANDOFF.md`.
+- Non-goals: DNS/GitHub Pages settings, CNAME, Vox Mana changes, data/tools/fixtures,
+  new dependencies/frameworks/APIs, visual redesign, instrument refactors, new shell
+  wrappers, and Owner acceptance or independent QA.
+- Protected: exact frame isolation, history/focus/inert behavior, revision stamping,
+  existing instrument routes and local-file support, `../data/` resolution, legacy
+  shared deep links, and the exact package allowlist.
+- QA class: QA-5 shell/release; separate independent RobQA on the committed candidate.
+
+## Owner decisions
+
+- 2026-10-20: the user authorized clean-root Color Pie hosting and a separate Vox
+  Mana homepage link. DNS, GitHub settings, browser QA and push stay with the coordinator.
+- Keep the existing 19-file Pages allowlist and no CNAME file; the custom domain is
+  configured outside this repository.
+
+## Technical decisions
+
+- Root `index.html` becomes the one authoritative shell, retaining the two persistent
+  same-origin frames. `vox-color/index.html` becomes only a relative `replace()` to
+  `../index.html`, preserving query and hash for old links at either deployment base
+  path. HTTP `index.html` requests replace to `./`; file URLs retain that filename.
+- Frame paths are document-relative (`vox-color/...`); standalone bridges and generated
+  share links use `../index.html`. Package stamping moves to root while its file
+  allowlist remains unchanged.
+
+## Acceptance criteria
+
+1. Root `/` is the canonical shell, with both frames loading and revision-stamped.
+2. `vox-color/index.html` redirects to `../index.html`, preserving query/hash and
+   adding no history entry; HTTP root `index.html` canonically replaces to `./`; direct
+   instrument documents still work.
+3. Wheel/explorer bridges and explorer copied share URLs resolve to canonical root
+   routes from standalone documents and keep their in-shell behavior.
+4. Package verification stamps root shell, syntax-checks all four shipped scripts,
+   and retains exactly its 19-file allowlist and exclusions.
+5. Documentation names root as canonical and old shell URL as legacy.
+
+## Proportionate test plan
+
+- Inspect final diff/stat/status and whitespace. Run the package verifier once with a
+  bounded `_site` path under this repository. No data/tools gate chain: they are unchanged.
+- Independent RobQA and coordinator browser journeys cover routing, history, focus and
+  public hosting.
+
+## Implementation
+
+- Root `index.html` now contains the unchanged shell behavior with frame sources
+  relocated to `vox-color/`; `vox-color/index.html` is a minimal legacy replace to the
+  actual root filename. HTTP direct root filenames replace to the clean directory URL;
+  file URLs retain `index.html`. Wheel/explorer standalone bridge and copied-share
+  targets now resolve to root. Package revision stamping targets root; its 19-file
+  allowlist is unchanged.
+- Updated the three location-contract documents and retained the completed Story 14
+  ledger below this task's active packet.
+- Developer verification: `python .github\\pages\\package.py --rev cleanroot --out
+  C:\\dev\\color-wheel-interactive\\_site-cleanroot --verify` → PASS: 19 exact files,
+  four inline scripts syntax-clean, 19 HTTP paths with expected bytes, 12 excluded
+  paths 404. `node -e` URL-resolution check → canonical frame and bridge URLs resolve
+  under both `https://colorpie.voxmana.io/` and the GitHub project subpath.
+- No data, mechanics, tools, or workflow changed; the broader gate chain is not
+  proportionate. Final Git diff/stat/status review is confined to the nine allowed
+  files; `git diff --check` passed (only expected LF/CRLF notices).
+
+## QA
+
+Independent RobQA pending on the committed candidate. Focused journeys: root wheel
+route and query preservation; direct root `index.html` HTTP canonicalization; legacy
+`/vox-color/index.html` replace with query/hash; wheel↔explorer bridges; copied explorer
+share link; reload and Back/Forward; active frame focus/inert state; direct standalone
+wheel and explorer pages; both custom-root and GitHub-project-subpath deployment bases.
+
+## Archived Story 14 publication ledger
+
+The completed ledger follows verbatim for repository-local preservation. Git history
+remains its archive: `fe828ae2be4a02277941f710dad19b304f5d47f3:HANDOFF.md`.
+
+# Story 14 publication ledger
 
 ## Control
 

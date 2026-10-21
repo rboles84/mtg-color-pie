@@ -4,7 +4,7 @@
     python .github/pages/package.py --rev <sha> --verify   # build, then check
 
 The package is an explicit allowlist (FILES): nothing else is published.
-Every file is copied byte for byte except the shell, whose `var REV = '';`
+Every file is copied byte for byte except the root shell, whose `var REV = '';`
 is stamped with the revision so the shell loads each instrument as
 `<file>?v=<rev>`. --verify syntax-checks each shipped inline script with
 `node --check`, serves the package over local HTTP, and confirms every
@@ -44,7 +44,7 @@ FILES = [
     'data/recon/marginal-additions.csv',
 ]
 
-SHELL = 'vox-color/index.html'
+SHELL = 'index.html'
 STAMP = "var REV = '';"
 SCRIPTS = ['index.html', 'vox-color/index.html', 'vox-color/color-wheel.html',
            'vox-color/mechanical-explorer.html']

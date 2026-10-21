@@ -1343,7 +1343,7 @@ function renderBar(lensOn, bk){
         dep = true;
         return figPair('bucket:' + t, BUCKET_LABEL[t], pb, t, glyph);
       }).join('') +
-      `<a class="bridge" data-fid="bridge" href="index.html#color-wheel/${wheelRoute(setKey(S.sel))}" target="_top">Open these colors on the Color Wheel →</a>`;
+      `<a class="bridge" data-fid="bridge" href="../index.html#color-wheel/${wheelRoute(setKey(S.sel))}" target="_top">Open these colors on the Color Wheel →</a>`;
     if (dep) ll.insertAdjacentHTML('beforeend', `<span class="lens-dep">Where two counts appear, the article's color lists and its explanations place an entry differently. Both are shown.<span class="calc">${CONFLICT_TAG}</span></span>`);
   });
 }
@@ -1468,7 +1468,7 @@ function renderIdent(key){
 /* SHARE (Story 10). The link is the shell's own route for this lens, resolved
    against this page's URL like the wheel bridge; this page still never writes
    its own URL. Where the clipboard is refused the link is shown, selected. */
-const shareURL = k => new URL('index.html#mechanical-color-pie/colors=' + k, location.href).href;
+const shareURL = k => new URL('../index.html#mechanical-color-pie/colors=' + k, location.href).href;
 function copyLink(){
   const k = setKey(S.sel), url = shareURL(k), f = $('#id-url');
   const show = () => { f.value = url; f.hidden = false; f.focus(); f.select(); announce('Copy the selected link.'); };

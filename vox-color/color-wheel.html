@@ -2484,7 +2484,7 @@ function bridgeColors() {
 function updateBridge() {
   const k = bridgeColors();
   bridge.hidden = !k;
-  bridgeLink.href = 'index.html#mechanical-color-pie/colors=' + k;
+  bridgeLink.href = '../index.html#mechanical-color-pie/colors=' + k;
 }
 bridgeLink.addEventListener('click', e => {
   if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;

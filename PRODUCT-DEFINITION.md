@@ -498,7 +498,7 @@ Both claims are placements, so these come out the same either way.
 
 **A shell document with two persistent, lazily loaded same-origin iframes.**
 
-**Files.** `vox-color/index.html` is new. It is static, with inline CSS and
+**Files.** Root `index.html` is the canonical shell. It is static, with inline CSS and
 JS and field-guide tokens copied by value, and adds no new dependency. The
 instruments stay where they are and are framed by relative URL, so the
 explorer's `../data/` path is unchanged.
@@ -576,7 +576,7 @@ make are listed in §14.
 **Separately navigated instrument documents under one identical shared
 header.** Under this fallback:
 - The header (title + nav) is copied by value into both instruments.
-- `index.html` forwards to `color-wheel.html`, keeping the hash.
+- `vox-color/index.html` forwards to the root shell, keeping query and hash.
 - Cross-document View Transitions may soften page loads.
 
 **What it costs:**
@@ -728,7 +728,7 @@ links open outside the frame.
 | Gate | Story | Changes | Gate passes when |
 |---|---|---|---|
 | **A** | Source-purity cleanup | Both instruments: copy, citations, the two-reading projection (V11), the route guard (V16), reader-facing internal text. Docs for the invariant change | §18 acceptance met; independent robqa; Owner acceptance |
-| **B** | Integration shell | New `vox-color/index.html` only | Routing, Back/Forward, focus and isolation scripted; 360 / 768 / 1440; iOS human check (else fall back, §10) |
+| **B** | Integration shell | Root `index.html` only | Routing, Back/Forward, focus and isolation scripted; 360 / 768 / 1440; iOS human check (else fall back, §10) |
 | **C** | Color Wheel in the shell | `color-wheel.html`: hide the dead control; the outbound link | Every wheel route and Combine behaves as standalone, inside the frame and through shell URLs |
 | **D** | Mechanical Color Pie in the shell | `mechanical-explorer.html`: outbound links only | Self-test passes in the frame; search, lens, compass and detail scripted; sticky bar and sheet at 3 widths |
 | **E** | Explicit cross-links | Explorer route, then bridges | Later; separate Owner scope |

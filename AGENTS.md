@@ -24,13 +24,15 @@ this guide are the current operating rule.
 - `vox-color/color-wheel.html` is the shipped app: one static HTML document
   with inline CSS and JavaScript, containing both the wheel and the 37-tile
   atlas.
-- `vox-color/index.html` is the integration shell for The Color Pie
-  (Gate B): one header and nav over two same-origin iframes holding
+- `index.html` is the canonical integration shell for The Color Pie (Gate B).
+  Its legacy `vox-color/index.html` entry preserves shared URLs by redirecting
+  to the relative root, keeping query and hash. The shell is one header and
+  nav over two same-origin iframes holding
   `color-wheel.html` and `mechanical-explorer.html`, which stay separate,
   unedited documents. It reads only the wheel's hash (and watches each
   frame's focus, to keep focus out of the inactive one) and writes only a
   validated route into it, plus, for an arrival with colours, a validated
-  colours key into the explorer's hash (Gate E). Routes: `index.html` (Color
+  colours key into the explorer's hash (Gate E). Routes: `/` (Color
   Wheel at rest), `#color-wheel/<wheel route>` (passed through verbatim),
   `#mechanical-color-pie` and `#mechanical-color-pie/colors=<WUBRG key>`
   (Gate E; the URL is then replaced with `#mechanical-color-pie`); anything

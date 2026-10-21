@@ -33,7 +33,8 @@ Deep links are in the hash (`#combine=WUR`, `#color=W`, `#ally=WU`,
 `#enemy=WB`, `#four=W`). Hash rather than query string because the file is
 opened off disk and `pushState` to a new path is refused on `file://`.
 
-**The integration shell** — `vox-color/index.html` (Gate B, 2026-10-04)
+**The integration shell** — root `index.html` (Gate B, 2026-10-04; clean-root
+hosting, 2026-10-20)
 presents this file and `mechanical-explorer.html` together as "The Color
 Pie": one header and nav, each instrument in its own same-origin iframe,
 neither edited. The wheel's routes above are unchanged; the shell carries
