@@ -170,6 +170,12 @@
   var WHEEL = 'wheel', PIE = 'pie';
   var WHEEL_PREFIX = '#color-wheel/', PIE_HASH = '#mechanical-color-pie', PIE_COLORS = PIE_HASH + '/colors=';
   var SRC = { wheel: 'color-wheel.html', pie: 'mechanical-explorer.html' };
+  /* Deployment revision. The Pages package stamps the commit sha here so a
+     browser fetches each instrument afresh after an update; unstamped, the
+     frames load the bare names. SRC stays bare: frameRoute() compares it
+     with the frame's pathname. */
+  var REV = '';
+  function load(k) { return SRC[k] + (REV ? '?v=' + REV : ''); }
   var NAME = { wheel: 'Color Wheel', pie: 'Mechanical Color Pie' };
   var MARK = { shell: 1 };   // history.state on every entry the shell has seen
 
@@ -225,7 +231,7 @@
     } catch (e) { return null; }
   }
 
-  function loadWheel(route) { frames.wheel.src = SRC.wheel + (route ? '#' + route : ''); }
+  function loadWheel(route) { frames.wheel.src = load(WHEEL) + (route ? '#' + route : ''); }
 
   /* Colours for the explorer (see HISTORY). Until its first load the frame
      is (re)pointed at them, so the last colours requested win; once loaded,
@@ -238,7 +244,7 @@
     loc.replace(loc.href.split('#')[0] + h);
   }
   function sendColors(k) {
-    if (!pieLoaded) { frames.pie.src = SRC.pie + '#colors=' + k; return; }
+    if (!pieLoaded) { frames.pie.src = load(PIE) + '#colors=' + k; return; }
     try {
       pieHash('#colors=' + k);
       setTimeout(function () { try { pieHash('#'); } catch (e) { /* file:// */ } }, 0);
@@ -281,7 +287,7 @@
       else links[k].removeAttribute('aria-current');
     });
     if (!frames[v].getAttribute('src')) {
-      if (v === WHEEL) loadWheel(''); else frames.pie.src = SRC.pie;
+      if (v === WHEEL) loadWheel(''); else frames.pie.src = load(PIE);
     }
     document.title = NAME[v] + ' — The Color Pie';
     if (moved && changed) {
@@ -310,7 +316,7 @@
     } else if (t.colors) {
       sendColors(t.colors);
     } else if (!frames.pie.getAttribute('src')) {
-      frames.pie.src = SRC.pie;
+      frames.pie.src = load(PIE);
     }
     show(t.view, moved);
     replaceUrl(t.view === PIE ? pieUrl() : wheelUrl(t.route));

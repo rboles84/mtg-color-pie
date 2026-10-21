@@ -1,0 +1,49 @@
+# Publish The Color Pie to GitHub Pages.
+# Validation (gate chain, package build, node --check, HTTP check) runs in
+# `build`; `deploy` runs only if it passes. The package is the explicit
+# allowlist in .github/pages/package.py; nothing else is published.
+# Needs repo Settings -> Pages -> Source: "GitHub Actions".
+name: Pages
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Gate chain
+        run: python tools/check_invariants.py && python tools/check_taxonomy.py && python tools/check_recon.py && python tools/gate.py
+      - name: Build and verify package
+        run: python .github/pages/package.py --rev "${GITHUB_SHA::12}" --verify
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
