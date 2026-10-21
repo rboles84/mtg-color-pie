@@ -5,7 +5,7 @@ in `f54d1ec:HANDOFF.md` (candidate `c80be0b`, separate QA `e8c5ef6`).
 
 ## Control
 
-- Status: `qa-passed` - Story 14 publication phase, authorized 2026-10-20.
+- Status: `qa-passed` - Story 14 published and live-verified; Owner visual review pending.
 - Owner: Vox Mana. Branch: `master`. Publication-fix base: `f54d1ec`.
 - Last accepted product: Story 12 (`1b2a1d2`); local Story 14 preparation passed QA.
 - Outcome: apply the two review corrections and host the current Color Pie on Pages.
@@ -103,13 +103,42 @@ Separate QA-5 agent PASS at `3ea5f2445ede0fba9d7315cd37bdd792a2731d57`, base
 
 ## Publication
 
-- Owner confirmed Pages source is now GitHub Actions (2026-10-20).
-- Next: push this ledger and the QA-passed correction, observe build/deploy, then
-  verify `https://rboles84.github.io/mtg-color-pie/`.
+- Public site: https://rboles84.github.io/mtg-color-pie/
+- Owner enabled Pages source GitHub Actions, then Codex pushed `master`.
+- Deployed commit: `92d91c1036223911057f8f752685e7331c221aaa` (only ledger changed
+  after correction candidate `3ea5f24`). Frame revision: `92d91c103622`.
+- Workflow: https://github.com/rboles84/mtg-color-pie/actions/runs/39537989625
+  Build job `119018991151` and deploy job `119019051839`: completed/success.
+- CI source, taxonomy and fixture gates PASS; all 53 recon assertions hold.
+  Package: 19 exact files, four syntax-clean scripts, 19 HTTP paths correct,
+  12 excluded paths 404; all upgraded actions executed successfully.
+- Public HTTP verification: all 19 files match `git show 92d91c1:<path>` byte for
+  byte, except the expected shell revision stamp. Periodic table, HANDOFF.md
+  and tools/gate.py return 404 from the Pages site.
+- Live Chromium browser at 1440x900: root forwards to `/vox-color/index.html`;
+  `/?q=1#mechanical-color-pie/colors=WU` keeps `?q=1` and selects White/Blue.
+  The arrival color hash is consumed as designed; Back skips the root redirect.
+- Public `/#color-wheel/ally=WU`, including reload: White & Blue panel and stamped
+  wheel frame. Mechanics-to-wheel and wheel-to-mechanics bridges carry WU.
+  Nav, Enter activation, Back and Forward select the correct view, focus the
+  active frame and leave the inactive frame inert. Both frames carry the revision.
+- Explorer self-check: 84/84 at desktop; also 84/84 in the 360x800 smoke check.
+  Both phone views render with no document horizontal overflow (shell 360px,
+  frame content 345px). Visual judgement remains the Owner's.
+- Flying entry loads its Wind Drake example from Scryfall (complete, naturalWidth
+  488px); both Fan Content notices present.
+- Console note: the Codex in-app shell captured a source-less MutationObserver
+  `observe` TypeError. A fresh standalone wheel tab had no warnings/errors.
+  Separate QA inspected the sole application observer: a null panel would fail
+  earlier at addEventListener, while downstream routing/bridges demonstrably run.
+  Attribution is unavailable; all functional smoke checks passed. Do not claim a
+  fully clean shell console or change product code based on this untraced message.
+- This final evidence-only commit uses `[skip ci]`; it does not change the
+  deployed runtime or trigger a second deployment just to publish this ledger.
 
 ## Owner review
 
-After live checks, confirm the published Color Pie looks as intended. Standalone
+Confirm the published Color Pie looks as intended before the separate Vox Mana link change. Standalone
 `file://` history remains a prior Owner check and is unaffected by these fixes.
 
 ## Decisions needed
