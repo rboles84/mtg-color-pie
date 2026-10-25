@@ -39,6 +39,7 @@ FILES = [
     'vox-color/mechanical-explorer.html',
     'vox-color/mechanical-examples.json',
     'data/mechanical-color-pie.runtime.json',
+    'data/mechanics-supplement.v1.json',
     'data/mcp2021.abilities.json',
     *[f'data/fixtures/{n}.json' for n in FIXTURES],
     'data/recon/marginal-additions.csv',
@@ -50,7 +51,9 @@ SCRIPTS = ['index.html', 'vox-color/index.html', 'vox-color/color-wheel.html',
            'vox-color/mechanical-explorer.html']
 
 # Must not be served: a sample of what sits beside the allowlisted files.
-EXCLUDED = ['vox-color/mechanical-periodic-table.html',
+EXCLUDED = ['docs/mechanics-transfer/manifest.json', 'docs/mechanics-transfer/sources.json',
+            'docs/mechanics-transfer/REPORT.md', 'tools/transfer_mechanics.mjs',
+            'tools/check_supplement_browser.mjs', 'vox-color/mechanical-periodic-table.html',
             'vox-color/reference/current-weave-annotated.html',
             'vox-color/build/build_wheel.py', 'data/recon.md',
             'data/mcp2021.reconciled.json', 'tools/gate.py',
