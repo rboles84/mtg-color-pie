@@ -6,7 +6,7 @@ Coordinator closes the earlier clean-root publication task administratively: `qa
 
 ## Control
 
-- Status: `dev-in-progress` (`idle -> dev-in-progress`).
+- Status: `ready-for-qa` (`dev-in-progress -> ready-for-qa`).
 - Owner: Vox Mana; coordinator: /root, acting under target RobDev contract.
 - Base: `2ca9ad6f61ca047470518126ee69da718acf76fa`; local branch: `codex/supplemental-mechanic-search`.
 - Outcome: add the trusted deck explorer accepted mechanic records to the existing Mechanical Color Pie search and sole detail owner, preserving the frozen 2021 product.
@@ -88,3 +88,7 @@ Use the locally packaged shell at `http://127.0.0.1:8016/#mechanical-color-pie` 
 6. Judge typography, density, citations, provenance disclosures and focus visibility at preferred desktop and phone widths. Article/A–Z still represents only216 frozen2021 entries. Existing wheel file:// review remains outstanding from the prior task, not accepted here.
 
 Independent QA has not yet run. Candidate will be committed and bound below before `ready-for-qa`.
+
+## Candidate binding
+
+Material candidate: 67c603d029eefcc0e7d6fe4d63b03f998a203cd5. Base: 2ca9ad6f61ca047470518126ee69da718acf76fa. The nine-path committed diff has 40,257 insertions / 406 deletions, mostly deterministic JSON evidence. Subsequent commits may change only this ledger unless independent QA returns a recorded defect. Owner acceptance remains pending; no publication authorization.
