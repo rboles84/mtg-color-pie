@@ -6,7 +6,7 @@ Coordinator closes the earlier clean-root publication task administratively: `qa
 
 ## Control
 
-- Status: `ready-for-qa` (`dev-in-progress -> ready-for-qa`).
+- Status: `qa-passed` (`ready-for-qa -> qa-passed`), independent QA on material candidate `67c603d029eefcc0e7d6fe4d63b03f998a203cd5`.
 - Owner: Vox Mana; coordinator: /root, acting under target RobDev contract.
 - Base: `2ca9ad6f61ca047470518126ee69da718acf76fa`; local branch: `codex/supplemental-mechanic-search`.
 - Outcome: add the trusted deck explorer accepted mechanic records to the existing Mechanical Color Pie search and sole detail owner, preserving the frozen 2021 product.
@@ -50,7 +50,7 @@ None currently. New supplemental transport and integration are expressly authori
 
 ## Implementation / QA
 
-Pending. No candidate or QA PASS yet.
+Completed engineering evidence and the independent QA verdict are recorded below. Owner review remains pending.
 
 ## Follow-ups carried forward
 
@@ -87,8 +87,36 @@ Use the locally packaged shell at `http://127.0.0.1:8016/#mechanical-color-pie` 
 5. Inspect Kinfall, Affinitycycling, Hero's Reward, Actualize and Jump. Expect source-specific status/limitations, playtest/designer/archive/card-specific attribution, no universal invented definitions.
 6. Judge typography, density, citations, provenance disclosures and focus visibility at preferred desktop and phone widths. Article/A–Z still represents only216 frozen2021 entries. Existing wheel file:// review remains outstanding from the prior task, not accepted here.
 
-Independent QA has not yet run. Candidate will be committed and bound below before `ready-for-qa`.
+Independent QA result follows. Owner acceptance and publication remain pending.
 
 ## Candidate binding
 
 Material candidate: 67c603d029eefcc0e7d6fe4d63b03f998a203cd5. Base: 2ca9ad6f61ca047470518126ee69da718acf76fa. The nine-path committed diff has 40,257 insertions / 406 deletions, mostly deterministic JSON evidence. Subsequent commits may change only this ledger unless independent QA returns a recorded defect. Owner acceptance remains pending; no publication authorization.
+
+## Independent RobQA — 2026-10-25
+
+- Mode: separate agent; QA-4 mechanic transfer/search integration. Local Claude Sonnet route unavailable; independent Codex Sol medium fallback. Candidate `67c603d029eefcc0e7d6fe4d63b03f998a203cd5` over base `2ca9ad6f61ca047470518126ee69da718acf76fa`; inspected HEAD `89a6cfb1ab1a010bff9ffd024ee6c6172739f4bf` as ledger-only follow-up before this report. Verdict: **`qa-passed`**. No blocker, major, or acceptance-violating minor findings. No product/source edits, commit, remote operation, or publication by QA.
+- Scope binding: `git diff --stat` and `git diff --name-only base..candidate` showed exactly the nine allowed paths; 40,257 insertions / 406 deletions, primarily deterministic evidence JSON. `git diff --check base..candidate` produced no whitespace errors. `git status --porcelain` showed only intentionally untracked `_site-supplement/` before this ledger edit. I inspected the changed explorer search/detail/load paths, transfer reconstruction and manifest, browser harness, report, package allowlist, and representative payload records rather than adopting the developer report as QA evidence.
+- `node tools/transfer_mechanics.mjs --check --source C:/dev/mtg-deck-explorer` -> exit 0: 296 vocabulary + 32 shortlist + 20 variants + 42 catalog gaps = 390; 19 mapped, 371 supplemental, zero excluded; 374 separate discovery records; 787 unique CR clauses; payload SHA-256 `4557644a977efdd3a7db122cfb8a2810eb81ea2cddfcd7b69f16174fdd0f96c3`. The check reproduced snapshots/outputs, pinned source revision and protected target/source hashes. No source research, live provider queries, or external verification was rerun.
+- Independent payload/manifest assertions -> exit 0: all six narrowly reviewed records retain status, verified scope and limits with `definitionVerified: false`; 19 mapped records have 19 distinct destinations; all 374 discovery records link to accepted IDs; 127 snapshots; no ranking arrays populated and no recipe expression used as a record name. Inspection confirmed Ward and Treasure remain separate from qualified or action identities. The transfer code reconstructs generated vocabulary/gaps from owning audit/specs and checks their bytes against projected views. The manifest keeps discovery query hashes separate from runtime records.
+- Required frozen mechanics chain: `python tools/check_invariants.py` -> exit 0, 217 source identities / 216 projections; `python tools/check_taxonomy.py` -> exit 0, pilot 30 of 216 with zero miscellaneous; `python tools/check_recon.py` -> exit 0, all 53 assertions and golden fixtures; `python tools/gate.py` -> exit 0, source/taxonomy PASS. No frozen generator was run.
+- Resolved package target exactly `C:\dev\color-wheel-interactive\_site-supplement` before replacement. `python .github/pages/package.py --rev 67c603d029eefcc0e7d6fe4d63b03f998a203cd5 --out C:/dev/color-wheel-interactive/_site-supplement --verify` -> exit 0: 20 exact byte-identical files, four inline scripts syntax-clean, 20 expected HTTP paths 200, 17 development exclusions 404, stamped shell revision is the full material candidate SHA. The same bounded output had first passed with `localreview`; the final package replaces that local review stamp.
+- `node tools/check_supplement_browser.mjs --root _site-supplement --playwright C:/Users/obake/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright` -> exit 0 in real Edge over local HTTP: 780/780 accepted-name checks without a lens and with White; 84/84 existing selfchecks; 216 2021 entries remain 212 article + 4 list-only. Training mouse/keyboard, lens change, no five ranking slots and focus return; mouse/keyboard result overflow; mapped Flash retains five 2021 rows plus transferred text; Exiling cards from graveyard retains conflicting White claims/source note. Missing, malformed JSON, malformed record, and unsupported schema each visibly report unavailable while Flying's 2021 detail remains usable. Packaged shell opens Training with `?v=67c603d029eefcc0e7d6fe4d63b03f998a203cd5`. The packaged Edge harness was rerun after the final stamp and retained the same full PASS result. Page and application console errors were empty; only the unchanged `/favicon.ico` 404 appeared as a resource note.
+- Extra focused Edge probe with an intercepted supplement -> exit 0: HTML-looking qualification text appears as literal text, creates no image and executes no handler; a `javascript:` source URL rejects the supplement, announces unavailability, and leaves Flying detail usable. This directly checks escaping and link validation beyond the supplied harness.
+- Findings: **note** — the local server's baseline `/favicon.ico` 404 is outside application behavior. No QA defect. Visual appearance and standalone wheel `file://` hard reload/history remain Owner checks, not an engineering PASS claim.
+
+### Owner checklist (appearance and carried review)
+
+1. At the locally served packaged shell `http://127.0.0.1:8016/#mechanical-color-pie`, search Training before and after selecting White. Confirm the detail reads clearly, shows sourced rules and unassigned rankings, and has no blank color slots.
+2. Open Training with mouse and keyboard; change the lens, then close/Escape. Confirm one readable detail surface and visible focus returning to search.
+3. Search ability; page forward/back and select a later result. Confirm page controls, count text and focus are understandable at desktop and phone widths.
+4. Search Flash and Mill; inspect the separate transferred evidence beneath their 2021 detail. Inspect Exiling cards from graveyard for the retained White conflict and source note.
+5. Inspect Kinfall, Landship, Affinitycycling, Hero's Reward, Actualize, Covercast and Jump. Confirm card/playtest/designer/archive scope, dates and limitations are legible without implying a mechanic-wide definition or ranking.
+6. Judge typography, density, citation links, provenance disclosures and focus visibility. Confirm the article/A–Z list still represents only the frozen 216; complete the previously outstanding standalone wheel `file://` hard reload/Back/Forward review separately.
+
+## Final local Git and review-server accounting
+
+- Material candidate remains `67c603d029eefcc0e7d6fe4d63b03f998a203cd5` on `codex/supplemental-mechanic-search`, base `2ca9ad6f61ca047470518126ee69da718acf76fa`. Subsequent binding/QA commits change only `HANDOFF.md`; all eight non-ledger candidate paths remain exact.
+- Total branch scope: the nine paths listed in Control. Material includes explorer, explicit package allowlist, supplemental payload, transfer producer, focused browser checker, transfer manifest, compressed snapshots, reproducibility report and ledger. No frozen target or trusted source/query changes.
+- `_site-supplement/` is the intentionally untracked local 20-file review package, stamped with the full material candidate. It is not part of Git material scope. Local server PID `41068` serves only that package, bound to `127.0.0.1:8016`; shell and supplemental payload return HTTP200. To stop this review helper: `Stop-Process -Id 41068` after confirming it is still this Python server.
+- No push, merge, publication, deployment trigger or hosting change occurred. Engineering status remains `qa-passed`; Owner acceptance and visual review remain pending.
