@@ -38,6 +38,7 @@ FILES = [
     'vox-color/color-wheel.html',
     'vox-color/mechanical-explorer.html',
     'vox-color/mechanical-examples.json',
+    'vox-color/mechanical-supplement-examples.json',
     'data/mechanical-color-pie.runtime.json',
     'data/mechanics-supplement.v1.json',
     'data/mechanics-supplement-scope.v1.json',

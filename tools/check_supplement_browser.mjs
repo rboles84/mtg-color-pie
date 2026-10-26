@@ -14,10 +14,12 @@ const {chromium}=createRequire(import.meta.url)(modulePath);
 const payload=JSON.parse(fs.readFileSync(path.join(root,'data/mechanics-supplement.v1.json'),'utf8'));
 assert.equal(payload.schemaVersion,1); assert.equal(payload.records.length,390);
 const scope=JSON.parse(fs.readFileSync(path.join(root,'data/mechanics-supplement-scope.v1.json'),'utf8'));
+const examples=JSON.parse(fs.readFileSync(path.join(root,'vox-color/mechanical-supplement-examples.json'),'utf8'));
 const sha256=text=>createHash('sha256').update(text).digest('hex');
 assert.equal(scope.schemaVersion,1);assert.equal(scope.records.length,390);
 assert.equal(scope.payloadCanonicalSha256,sha256(JSON.stringify(payload)));
 assert.equal(scope.payloadSha256,sha256(fs.readFileSync(path.join(root,'data/mechanics-supplement.v1.json'))));
+assert.equal(examples.schemaVersion,1);assert.equal(examples.records.length,358);
 const server=http.createServer((req,res)=>{
   const pathname=decodeURIComponent(new URL(req.url,'http://localhost').pathname);
   const file=path.resolve(root,'.'+pathname+(pathname.endsWith('/')?'index.html':''));
@@ -39,6 +41,7 @@ try {
   await page.goto(base+'/vox-color/mechanical-explorer.html');
   await page.waitForFunction(()=>window.VMX?.supplemental().status!=='loading');
   assert.equal(await page.evaluate(()=>VMX.supplemental().status),'ready',await page.locator('#supplement-status').innerText());
+  await page.waitForFunction(()=>document.querySelector('#supplement-status').textContent.includes('358 selected supplemental card examples are available.'));
   await page.waitForFunction(()=>document.querySelector('#selftest').textContent.includes('84 of 84 passed'));
   pass('baseline self-checks',84);
   const results=await page.evaluate(records=>{
@@ -121,6 +124,15 @@ try {
       (k.startsWith('deck:')&&document.querySelectorAll('#detail .own-row').length!==0);
   }),expectedKeys);
   assert.deepEqual(opened,[]);await page.evaluate(()=>VMX.close());
+  const renderedExamples=await page.evaluate(records=>records.map(record=>{
+    VMX.open(record.key);const detail=document.querySelector('#detail'), figure=detail.querySelector(`.cite[data-id="${record.card.id}"]`);
+    return {key:record.key,title:detail.querySelector('#dx-title')?.textContent,example:detail.querySelector('.dx-eg')?.textContent,caption:figure?.querySelector('.cite-c')?.textContent,image:figure?.querySelector('img')?.getAttribute('src'),alt:figure?.querySelector('img')?.getAttribute('alt')};
+  }),examples.records);
+  for(const record of renderedExamples){
+    assert.equal(record.example?.startsWith('Example'),true,record.key);assert.equal(record.caption?.endsWith('An example card.'),true,record.key);assert.ok(record.image?.startsWith('https://cards.scryfall.io/'),record.key);
+  }
+  await page.evaluate(()=>VMX.close());
+  pass('all 358 optional supplemental examples render through the existing safe card plate with supplemental-only neutral caption',renderedExamples.length);
   assert.equal(await page.evaluate(mathSnapshot),beforeViews);
   pass('A–Z all 587 unique destinations, alphabetical within audited scope groups; 371 rows outside every tested lens/spotlight; immutable maths',true);
   const trainingRow=page.locator('#list .ent').filter({hasText:'Training'}).filter({hasText:'Rankings unassigned'});
@@ -419,6 +431,21 @@ try {
     assert.deepEqual(failures,[]);
     pass('supplement failure: '+kind,{status:'unavailable',legacyUsable:true,atomic2021Only:true});await p.close();
   }
+  const noExamples=await browser.newPage();const noExampleErrors=[];noExamples.on('pageerror',e=>noExampleErrors.push(e.message));
+  await noExamples.route('**/vox-color/mechanical-supplement-examples.json',route=>route.fulfill({status:404,body:'missing'}));
+  await noExamples.goto(base+'/vox-color/mechanical-explorer.html');
+  await noExamples.waitForFunction(()=>window.VMX?.supplemental().status==='ready'&&document.querySelector('#supplement-status').textContent.includes('Supplemental card examples are unavailable'));
+  await noExamples.locator('[data-v="az"]').click();assert.equal(await noExamples.locator('#list .ent').count(),587);
+  await noExamples.evaluate(()=>VMX.open('deck:vocabulary:training'));
+  assert.equal(await noExamples.locator('#detail #dx-title').innerText(),'Training');assert.equal(await noExamples.locator('#detail .cite').count(),0);
+  assert.deepEqual(noExampleErrors,[]);pass('optional example transport failure preserves all supplemental browse/search/scope evidence and withholds only plates',true);await noExamples.close();
+  const collision=JSON.parse(JSON.stringify(examples)), protectedRecord=payload.records.find(record=>record.name==='Actualize'), protectedScope=scopedById.get(protectedRecord.id);
+  collision.records[0]={...collision.records[0],key:protectedRecord.id,sourceRecordId:protectedRecord.id,scopeGroup:protectedScope.group};
+  const protectedCollision=await browser.newPage();await protectedCollision.route('**/vox-color/mechanical-supplement-examples.json',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify(collision)}));
+  await protectedCollision.goto(base+'/vox-color/mechanical-explorer.html');
+  await protectedCollision.waitForFunction(()=>window.VMX?.supplemental().status==='ready'&&document.querySelector('#supplement-status').textContent.includes('Supplemental card examples are unavailable'));
+  await protectedCollision.locator('[data-v="az"]').click();assert.equal(await protectedCollision.locator('#list .ent').count(),587);await protectedCollision.close();
+  pass('protected named-card-evidence destination collision rejects optional transport without reducing supplemental availability',true);
   // Delay only the additive fetch: A–Z can be cached and switched before it arrives.
   const delayed=await browser.newPage();let releaseSupplement;
   const released=new Promise(resolve=>{releaseSupplement=resolve;});

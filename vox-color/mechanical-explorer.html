@@ -887,6 +887,9 @@ const PT_BY_KEY = new Map();    // key -> [player term]
 /* Supplemental search and evidence never enter MECH, KEYS or placement maths. */
 const SUPPLEMENT = { status:'loading', records:[], revision:null, groups:[] };
 const SUP_BY_KEY = new Map(), SUP_NAMES = new Map(), SUP_SCOPE = new Map();
+/* Optional plates are isolated from the accepted supplemental evidence. */
+const SUP_EXAMPLES = { status:'loading', byKey:new Map() };
+const SUP_EXAMPLE_NAMED_EVIDENCE = new Set(['Actualize','Affinitycycling','Covercast','Eminence','Hellbent','Join forces','Jump','Kinfall','Landship','Parade!','Tempting offer','Threshold','Underdog']);
 let resultPage = 0, searchReturn = false;
 
 /* ======================================================================
@@ -1768,6 +1771,8 @@ function hydrateDetail(k){
   else if (EXAMPLE_CARD[k]) sfGet('/cards/named?exact=' + encodeURIComponent(EXAMPLE_CARD[k])).then(card => {
     if (card && S.pick === k) addCite(card, true);
   });
+  const supplemental = SUP_EXAMPLES.byKey.get(k);
+  if (supplemental && S.pick === k) addCite(supplemental, true, true);
 }
 /* The rest of the entries carry a stored printing (mechanical-examples.json),
    chosen from docs/card-examples-mapping.md; no Scryfall request. */
@@ -1779,24 +1784,25 @@ const EXAMPLE_CARD = {
   'lure, limited':'Irresistible Prey',
   'gaseous form':'Heart of Light', 'curiosity':'Combat Research', 'polymorph':'Transmogrify', 'panic':'Panic',
   'flicker':'Flicker', 'reanimate permanent':'Sun Titan' };
-function addCite(card, example){
-  const img = cardImages(card).normal, host = detailEl.querySelector('.dx-ex');
+function addCite(card, example, supplementalExample = false){
+  const img = cardImages(card).normal, host = detailEl.querySelector('.dx-ex') || (supplementalExample && detailEl.querySelector('.supp-evidence'));
   if (!img || !host || detailEl.querySelector(`.cite[data-id="${card.id}"]`)) return;
-  const name = String(card.name).split(' // ')[0], credit = card.artist ? `Illustrated by ${card.artist}` : '';
+  const name = card.display_name || String(card.name).split(' // ')[0], credit = card.artist ? `Illustrated by ${card.artist}` : '';
   const f = document.createElement('figure'); f.className = 'cite'; f.dataset.id = card.id;
   f.innerHTML = `<a class="cite-img" href="${esc(card.scryfall_uri)}" target="_blank" rel="noopener" aria-label="${esc(name)}, ${example ? 'an example card' : 'the card Rosewater cites'}${card.set_name ? `, ${esc(card.set_name)} printing` : ''}. Opens Scryfall.">
       <img src="${esc(img)}" alt="${esc(name)}, the card${card.set_name ? `, ${esc(card.set_name)} printing` : ''}" width="488" height="680" loading="lazy" decoding="async"></a>
     <figcaption><span class="cite-k">${example ? 'Example' : 'Card Rosewater cited'}</span><b>${esc(name)}</b>
       <span>${esc(card.set_name || '')}${card.collector_number ? ` · #${esc(card.collector_number)}` : ''}</span>
       ${credit ? `<span>${esc(credit)}</span>` : ''}
-      <span class="cite-c">Card image via Scryfall · © Wizards of the Coast. ${example ? 'An example we chose; Rosewater’s text does not name it.' : 'It identifies the card; the placement and explanation above are Rosewater’s.'}</span></figcaption>`;
+      <span class="cite-c">Card image via Scryfall · © Wizards of the Coast. ${example ? (supplementalExample ? 'An example card.' : 'An example we chose; Rosewater’s text does not name it.') : 'It identifies the card; the placement and explanation above are Rosewater’s.'}</span></figcaption>`;
   const im = f.querySelector('img'); im.addEventListener('error', () => f.remove());
-  let after = host.parentElement.querySelector('.dx-note') || host;
+  const outsideSupplementEvidence = supplementalExample;
+  let after = outsideSupplementEvidence ? detailEl.querySelector('.supp-evidence') : host.parentElement.querySelector('.dx-note') || host;
   /* An example gets one editorial line of ours, outside his paragraph, whose
      card name previews like a card he names. */
   if (example && !detailEl.querySelector('.dx-eg')){
     const p = document.createElement('p'); p.className = 'dx-eg';
-    p.innerHTML = `<span class="cite-k">Example</span> <a class="cardref cardlink" href="${esc(card.scryfall_uri)}" target="_blank" rel="noopener" data-peek="${esc(img)}" data-cite="${esc(card.id)}" aria-label="${esc(name)}, an example card we chose. Opens Scryfall.">${esc(name)}</a>`;
+    p.innerHTML = `<span class="cite-k">Example</span> <a class="cardref cardlink" href="${esc(card.scryfall_uri)}" target="_blank" rel="noopener" data-peek="${esc(img)}" data-cite="${esc(card.id)}" aria-label="${esc(name)}, ${supplementalExample ? 'an example card' : 'an example card we chose'}. Opens Scryfall.">${esc(name)}</a>`;
     after.after(p); after = p;
   }
   after.after(f);
@@ -1945,6 +1951,31 @@ function supplementalDetailHTML(k){
     <h2 class="dx-title${r.head.length > 48 ? ' long' : ''}" id="dx-title">${esc(r.head)}</h2>
     ${records.map(a => supplementalRecordHTML(a)).join('')}`;
 }
+async function loadSupplementExamples(data, scopes, status){
+  try {
+    const examples = await getJSON('mechanical-supplement-examples.json');
+    const object = value => value !== null && typeof value === 'object' && !Array.isArray(value);
+    if (!examples || examples.schemaVersion !== 1 || !/^[a-f0-9]{64}$/.test(examples.sourceSnapshotSha256 || '') || !Array.isArray(examples.records) || examples.records.length !== 358) throw new Error('Unsupported examples schema');
+    const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(JSON.stringify(data)));
+    const payloadHash = [...new Uint8Array(digest)].map(n => n.toString(16).padStart(2,'0')).join('');
+    if (examples.supplementPayloadCanonicalSha256 !== payloadHash) throw new Error('Examples payload mismatch');
+    const source = new Map(data.records.map(record => [record.target2021 || record.id, record]));
+    const classifications = new Map(scopes.records.map(record => [record.id, record]));
+    const keys = new Set(), byKey = new Map();
+    for (const record of examples.records){
+      const sourceRecord = source.get(record?.key), classification = sourceRecord && classifications.get(sourceRecord.id), card = record?.card;
+      if (!sourceRecord || sourceRecord.target2021 || SUP_EXAMPLE_NAMED_EVIDENCE.has(sourceRecord.name) || !classification || keys.has(record.key) || record.sourceRecordId !== sourceRecord.id || record.scopeGroup !== classification.group || !object(card) || !/^[0-9a-f-]{36}$/i.test(card.id || '') || ![card.name, card.display_name, card.set_name, card.collector_number, card.artist, card.scryfall_uri, card.image_uris?.normal].every(value => typeof value === 'string' && value) || !/^https:\/\/scryfall\.com\//.test(card.scryfall_uri) || !/^https:\/\/cards\.scryfall\.io\//.test(card.image_uris.normal)) throw new Error('Malformed supplemental example');
+      keys.add(record.key); byKey.set(record.key, deepFreeze(card));
+    }
+    SUP_EXAMPLES.byKey = byKey; SUP_EXAMPLES.status = 'ready';
+    status.textContent += ` ${byKey.size} selected supplemental card examples are available.`;
+  } catch (err){
+    SUP_EXAMPLES.byKey = new Map(); SUP_EXAMPLES.status = 'unavailable';
+    status.textContent += ' Supplemental card examples are unavailable; accepted evidence remains available.';
+    console.warn('[mechanical-explorer] supplemental examples unavailable:', err.message);
+  }
+  detailEl._sig = null; render();
+}
 async function loadSupplement(){
   const status = $('#supplement-status');
   try {
@@ -2002,6 +2033,7 @@ async function loadSupplement(){
     SUPPLEMENT.status = 'ready';
     const supplemental = SUPPLEMENT.records.filter(a => !a.target2021).length;
     status.textContent = `${data.records.length} accepted source records available in search and A–Z: ${supplemental} supplemental records and ${data.records.length - supplemental} mapped to existing 2021 entries. Supplemental records do not enter the 2021 color calculations.`;
+    loadSupplementExamples(data, scopes, status);
   } catch (err){
     SUPPLEMENT.status = 'unavailable';
     status.textContent = 'Supplemental mechanic records and scope classifications are unavailable. The 2021 catalog and its search remain available. Reload the page to try again.';
@@ -2042,7 +2074,7 @@ function renderDetail(){
   const src = detailEl.querySelector('.dx-src');
   if (src){ src.open = srcOpen; src.addEventListener('toggle', () => { srcOpen = src.open; }); }
   hidePeek();
-  if (!REC.get(S.pick).supplemental) hydrateDetail(S.pick);
+  hydrateDetail(S.pick);
   if (mode === 'sheet') setSheetH(detailEl.offsetHeight);
 }
 
