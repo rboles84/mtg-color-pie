@@ -1,7 +1,7 @@
 # Active handoff — supplemental mana symbols and example inventory
 
 ## Control
-- Status: `dev-in-progress`.
+- Status: `ready-for-qa`.
 - Base: `1050352cc259d87c160d97a430c969dc9e08616f`; existing branch reused.
 - Prior polish: Owner says looks good and confirms 2021 preservation. Coordinator closes that reviewed scope `qa-passed -> complete -> idle`; this new requested scope starts `idle -> dev-in-progress`. Publication remains on hold. Prior ledger archived in Git at base.
 - Outcome: render sourced brace mana symbols in supplemental evidence, including Firebending {R}; inventory every A–Z destination for missing Example cards and deliver editable Excel for Owner picks, without adding unverified examples.
@@ -32,3 +32,5 @@ None pending. New card selections belong to Owner workbook input; existing accep
 - Separate inventory browser verification examined all587 destinations,200 actual storedplates,7articlecitationstubs,371supplemental noExamples. All external requests intercepted; no provider requests; no errors. Namedlookup coverage is configured, live resolution not revalidated. Inventory joins compared to owning records and renderer twice; source IDs and input hashes retained externally.
 - Workbook: `C:/Users/obake/.codex/visualizations/2026/10/25/01a1751f-1749-77f3-82dc-fe73a2fd134c/outputs/example-review/mechanic-example-review.xlsx`. Need a card373 editable rows; All entries587 audit rows. Existing card evidence/category/source references/limitations retained. Amber input fields for name/link/printing/notes. Tables/filter headers and frozen headers exported; summary/status formulas tested empty -> name only -> name+link then reset blank. Artifact Tool inspect/error scan/recalculate/export and both-sheet rendered review PASS. No choices imported or new examples invented.
 - Owner checklist: open local candidate, search Firebending (red symbol) and Extort (hybrid), inspect inline readability; confirm Flash original2021 and Pestermite intact. In workbook fill Your pick and Scryfall card link, optionally printing/notes; do not change entry keys. No publication.
+
+- Exact product candidate: `8caa2b9795f3ae5234921772b8516abac2c3f623` over base1050352. Package verified20 files/4scripts/20HTTP200/17excluded404 with full candidate stamp. Product edits stopped. Independent QA4 requested, including packaged19-group browser checks and workbook/inventory reconciliation. Local review: http://127.0.0.1:8016/?review=8caa2b9#mechanical-color-pie.
