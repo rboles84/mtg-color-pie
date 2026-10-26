@@ -2,7 +2,7 @@
 
 ## Control and prior disposition
 
-- Status: `dev-in-progress`.
+- Status: `ready-for-qa` (`dev-in-progress -> ready-for-qa`).
 - Owner direction: expand A–Z to all587 distinct entries; Article remains2021-only; supplemental rankings remain unassigned and excluded from every calculation. Correct the reported decorative initials on supplemental rule numbers and the placement notice; verify existing displayed facts against pinned records. Build/test locally, no publishing.
 - Prior search-only engineering phase: `qa-passed -> complete -> idle`, closed administratively by coordinator as superseded scope, NOT Owner visual acceptance. Full prior ledger retained at `63fc313f2ff72c7f03a542e90e5e938ebe817861:HANDOFF.md`. This revision starts `idle -> dev-in-progress`; earlier appearance/standalone file checks remain unaccepted. Existing branch is reused.
 - Revision base: `63fc313f2ff72c7f03a542e90e5e938ebe817861`; branch: `codex/supplemental-mechanic-search`. Original transfer material candidate `67c603d029eefcc0e7d6fe4d63b03f998a203cd5` remains the unchanged data authority for this UI revision.
@@ -53,3 +53,9 @@ Open updated local `http://127.0.0.1:8016/#mechanical-color-pie` after reload.
 2. Select White: Training remains visible, labeled Supplemental/Rankings unassigned; placement counts say2021.
 3. Open Training at desktop/narrow width: intact702.149a/b/c and normal “No sourced…” text; check readability. Source wording unchanged.
 4. Open/close with mouse and Enter/Space; switch Article while Training is open, then close. Expect one detail surface and visible, sensible focus. Original Flash detail remains intact.
+
+## Exact candidate and packaged development evidence
+
+Material revision candidate `80fb23baa9a043ca2350a48004dc31bb82f99878`, base `63fc313f2ff72c7f03a542e90e5e938ebe817861`; three allowed paths,188 insertions/130 deletions (ledger reset included). Followup commits change ledger only.
+
+`python .github/pages/package.py --rev 80fb23baa9a043ca2350a48004dc31bb82f99878 --out C:/dev/color-wheel-interactive/_site-supplement --verify` -> PASS20 exact files/four syntax-clean scripts/20 HTTP paths/17 exclusions404. Resolved output path verified before bounded replacement. Packaged Edge harness rerun -> all15groups PASS, same full developer coverage above, shell frame stamp matches material SHA. Local8016 server serves this rebuilt package. Coordinator captured and inspected Training detail at1440x1000 from actual package: rule numbers702.149a/b/c remain intact at normal scale; “No sourced” no longer has a floating capital. Screenshot is OS-temp evidence `C:/Users/obake/AppData/Local/Temp/color-pie-training-80fb23b.png`; Owner appearance judgment remains pending. No product bytes changed after commit.
