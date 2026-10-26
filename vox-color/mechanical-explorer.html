@@ -353,8 +353,6 @@ button{font:inherit;color:inherit}
 .grp-h small{font:italic 400 13px/1 var(--f-read);color:var(--ink-dim)}
 .grp-in{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,288px),1fr));gap:1px 18px}
 .letter{grid-column:1 / -1;margin:14px 0 2px;font:700 22px/1 var(--f-brand);letter-spacing:.04em;color:var(--brass-l);border-bottom:1px solid var(--rule);padding-bottom:5px}
-.grp[data-scope="special-material"] > .grp-in{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}
-.grp[data-scope="special-material"] > .grp-in > .grp{grid-column:auto;min-width:0}
 .lo{grid-column:1 / -1;margin:22px 0 6px;padding:12px 0 6px 12px;border-left:1px dashed var(--rule-s)}
 .lo-note{margin:0 0 10px;max-width:92ch;font:italic 400 12.5px/1.5 var(--f-read);color:var(--ink-dim)}
 
@@ -604,7 +602,6 @@ html.sheet-open .bar{position:relative}
   .detail.sheet{max-height:62vh;padding:22px 18px calc(22px + env(safe-area-inset-bottom))}
   .dx-title{font-size:29px}
   .cite{grid-template-columns:104px minmax(0,1fr)}
-  .grp[data-scope="special-material"] > .grp-in{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){ *,*::before,*::after{transition:none !important;animation:none !important;scroll-behavior:auto !important} }
 [data-motion="reduced"] *,[data-motion="reduced"] *::before,[data-motion="reduced"] *::after{transition:none !important;animation:none !important;scroll-behavior:auto !important}
@@ -1253,6 +1250,10 @@ function buildEntries(){
 function layoutList(){
   const focused = listEl.contains(document.activeElement) ? document.activeElement : null;
   const frag = document.createDocumentFragment();
+  for (const [k, el] of entEl){
+    const r = REC.get(k), tag = el.querySelector('.e-tag');
+    if (r.supplemental && tag) tag.textContent = `${r.scope.evidenceLabel} · Rankings unassigned`;
+  }
   if (S.view === 'article'){
     let grp = null, grpIn = null, grpName = null;
     for (const k of ARTICLE){
@@ -1277,15 +1278,17 @@ function layoutList(){
     LIST_ONLY.forEach(k => lo.querySelector('.grp-in').appendChild(entEl.get(k)));
     frag.appendChild(lo);
   } else {
-    const sectionFor = (id, label, description, keys) => {
+    const sectionFor = (id, label, description, keys, includeLetters = true, compactRankings = false) => {
       const section = document.createElement('section'); section.className = 'grp'; section.dataset.scope = id;
       section.setAttribute('aria-label', label);
       section.innerHTML = `<h3 class="grp-h">${esc(label)}<small>${keys.length} ${plural(keys.length, 'entry', 'entries')}</small></h3>${description ? `<p class="lo-note">${esc(description)}</p>` : ''}<div class="grp-in"></div>`;
       const entries = section.querySelector('.grp-in'); let letter = null;
       for (const k of keys){
-        const L = (azKey(REC.get(k))[0] || '#').toUpperCase().replace(/[^A-Z]/, '#');
-        if (L !== letter){ letter = L; const h = document.createElement('p'); h.className = 'letter'; h.textContent = L; h.setAttribute('aria-hidden', 'true'); entries.appendChild(h); }
-        entries.appendChild(entEl.get(k));
+        const r = REC.get(k), L = (azKey(r)[0] || '#').toUpperCase().replace(/[^A-Z]/, '#');
+        if (includeLetters && L !== letter){ letter = L; const h = document.createElement('p'); h.className = 'letter'; h.textContent = L; h.setAttribute('aria-hidden', 'true'); entries.appendChild(h); }
+        const entry = entEl.get(k);
+        if (compactRankings && r.supplemental) entry.querySelector('.e-tag').textContent = r.scope.evidenceLabel;
+        entries.appendChild(entry);
       }
       return section;
     };
@@ -1296,11 +1299,11 @@ function layoutList(){
     if (specialKeys.length){
       const special = document.createElement('section'); special.className = 'grp'; special.dataset.scope = 'special-material';
       special.setAttribute('aria-label', 'Special material');
-      special.innerHTML = `<h3 class="grp-h">Special material<small>${specialKeys.length} entries</small></h3><div class="grp-in"></div>`;
+      special.innerHTML = `<h3 class="grp-h">Special material<small>${specialKeys.length} entries</small></h3><p class="lo-note">Rankings unassigned</p><div class="grp-in"></div>`;
       const specialIn = special.querySelector('.grp-in');
       for (const group of specialGroups){
         const keys = specialKeys.filter(k => REC.get(k).scope.group === group.id);
-        if (keys.length) specialIn.appendChild(sectionFor(group.id, group.label, group.description, keys));
+        if (keys.length) specialIn.appendChild(sectionFor(group.id, group.label, group.description, keys, false, true));
       }
       frag.appendChild(special);
     }

@@ -103,15 +103,18 @@ try {
   assert.deepEqual(specialGroups.map(group=>[group.id,group.label]),expectedSpecial.map(group=>[group.id,group.label]));
   for(const [i,group] of specialGroups.entries()){assert.deepEqual([...group.keys].sort(),expectedSpecial[i].keys.sort());assert.equal(group.count,group.keys.length+' '+(group.keys.length===1?'entry':'entries'));}
   assert.equal(specialGroups.flatMap(group=>group.keys).length,44);
-  for(const [width,columns] of [[1440,2],[360,1]]){
+  for(const [width,columns] of [[1440,1],[360,1]]){
     await page.setViewportSize({width,height:900});
-    const geometry=await page.evaluate(()=>{const wrapper=document.querySelector('#list > .grp[data-scope="special-material"] > .grp-in'),children=[...wrapper.children].filter(e=>e.classList.contains('grp')),box=wrapper.getBoundingClientRect();return {columns:new Set(children.map(e=>Math.round(e.getBoundingClientRect().left))).size,wrapper:Math.round(box.width),children:children.map(e=>Math.round(e.getBoundingClientRect().width)),overflow:document.documentElement.scrollWidth<=innerWidth};});
-    assert.equal(geometry.columns,columns,`${width}px special columns`);assert.ok(geometry.children.every(value=>value<=geometry.wrapper),JSON.stringify(geometry));assert.equal(geometry.overflow,true,JSON.stringify(geometry));
+    const geometry=await page.evaluate(()=>{const wrapper=document.querySelector('#list > .grp[data-scope="special-material"] > .grp-in'),children=[...wrapper.children].filter(e=>e.classList.contains('grp')),box=wrapper.getBoundingClientRect();return {columns:new Set(children.map(e=>Math.round(e.getBoundingClientRect().left))).size,wrapper:Math.round(box.width),children:children.map(e=>Math.round(e.getBoundingClientRect().width)),letters:children.reduce((n,e)=>n+e.querySelectorAll('.letter').length,0),mainLetters:document.querySelectorAll('#list > .grp[data-scope="main"] .letter').length,overflow:document.documentElement.scrollWidth<=innerWidth};});
+    assert.equal(geometry.columns,columns,`${width}px special columns`);assert.ok(geometry.children.every(value=>value===geometry.wrapper),JSON.stringify(geometry));assert.equal(geometry.letters,0);assert.ok(geometry.mainLetters>0);assert.equal(geometry.overflow,true,JSON.stringify(geometry));
   }
   await page.setViewportSize({width:1440,height:900});
-  const abandon=page.locator('#list .ent[data-k="deck:catalog-gaps:abandon"]');await abandon.click();assert.equal(await detail.locator('#dx-title').innerText(),'Abandon');
+  const specialTags=await page.evaluate(()=>[...document.querySelectorAll('#list > .grp[data-scope="special-material"] .ent')].map(entry=>({key:entry.dataset.k,tag:entry.querySelector('.e-tag')?.textContent})));
+  assert.equal(await page.locator('#list > .grp[data-scope="special-material"] > .lo-note').count(),1);assert.equal(await page.locator('#list > .grp[data-scope="special-material"] > .lo-note').innerText(),'Rankings unassigned');
+  assert.deepEqual(specialTags.map(entry=>entry.tag),specialTags.map(entry=>scopedById.get(entry.key).evidenceLabel));
+  const abandon=page.locator('#list .ent[data-k="deck:catalog-gaps:abandon"]');await abandon.click();assert.equal(await detail.locator('#dx-title').innerText(),'Abandon');assert.match(await detail.innerText(),/Rankings unassigned/);
   const openGeometry=await page.evaluate(()=>{const wrapper=document.querySelector('#list > .grp[data-scope="special-material"] > .grp-in'),children=[...wrapper.children].filter(e=>e.classList.contains('grp'));return {columns:new Set(children.map(e=>Math.round(e.getBoundingClientRect().left))).size,overflow:document.documentElement.scrollWidth<=innerWidth};});
-  assert.deepEqual(openGeometry,{columns:2,overflow:true});await detail.locator('[data-act="close"]').click();assert.equal(await abandon.evaluate(e=>document.activeElement===e),true);
+  assert.deepEqual(openGeometry,{columns:1,overflow:true});await detail.locator('[data-act="close"]').click();assert.equal(await abandon.evaluate(e=>document.activeElement===e),true);
   await page.evaluate(()=>{window.__azFlying=document.querySelector('#list .ent[data-k="flying"]');window.__azFlying.focus();});
   await page.evaluate(()=>{VMX.setView('article');VMX.setView('az');});
   assert.equal(await page.evaluate(()=>document.querySelector('#list .ent[data-k="flying"]')===window.__azFlying&&document.activeElement===window.__azFlying),true);
@@ -120,12 +123,12 @@ try {
   const supplementalKeys=payload.records.filter(r=>!r.target2021).map(r=>r.id);
   for(const code of ['W','WB','WUBR','WUBRG']){
     await page.evaluate(code=>VMX.chooseCombo(code),code);
-    const failures=await page.evaluate(keys=>keys.filter(k=>{
+    const failures=await page.evaluate(({keys,specialKeys})=>{const special=new Set(specialKeys);return keys.filter(k=>{
       const e=[...document.querySelectorAll('#list .ent')].find(e=>e.dataset.k===k);
       return !e||e.classList.contains('is-out')||e.classList.contains('is-off')||e.querySelector('.strip')||
         getComputedStyle(e).display==='none'||getComputedStyle(e).opacity!=='1'||
-        !e.textContent.includes('Rankings unassigned')||!e.getAttribute('aria-label').includes('Rankings unassigned');
-    }),supplementalKeys);
+        (!special.has(k)&&!e.textContent.includes('Rankings unassigned'))||!e.getAttribute('aria-label').includes('Rankings unassigned');
+    });},{keys:supplementalKeys,specialKeys:specialRecords.map(record=>record.id)});
     assert.deepEqual(failures,[],code);
   }
   await page.evaluate(()=>{VMX.chooseCombo('W');VMX.setSpot('bucket:primary');});

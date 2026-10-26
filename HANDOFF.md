@@ -1,4 +1,20 @@
-# Active handoff — Special material two-column correction
+# Active handoff — Special material full-width compact sections
+
+## Control
+- Status: `ready-for-qa` (`qa-passed -> complete -> idle -> dev-in-progress -> ready-for-qa`) for this Owner-approved revised presentation. Product edits stop pending independent RobQA; this is not Owner acceptance, publication authorization, or integration.
+- Owner finding: the two-column categories have unequal heights and repeated letter dividers; their masonry-like scan is not the intended Special material presentation. Reproduced at local 1440 px from the supplied screenshot: two category columns with repeated alphabet dividers and repeated per-entry `Rankings unassigned` tags.
+- Exact envelope: `HANDOFF.md`, `vox-color/mechanical-explorer.html`, `tools/check_supplement_browser.mjs`. Main A–Z 543 and Article 216 remain unchanged. All 44 special entries retain their category order, category heading/count/short existing description, alphabetical order, scope/evidence labels, details, qualifications, examples, source text, search behavior, and unknown ranking in detail.
+- Plan: remove the prior Special-only two-column CSS; use existing full-width category sections and their responsive entry grids; suppress letter dividers only for special categories; render `Rankings unassigned` once as a neutral Special material note while retaining every record's evidence label. Verify layout, rankings presentation, identity/focus/detail behavior, partitions, package, and focused Edge cases.
+
+## RobDev implementation report
+- Changed behavior: removed the rejected Special-only two-column override. The six existing category sections now reuse the normal full-width group layout, while their existing responsive entry grids continue to fill available width. `layoutList()` suppresses letter dividers only for those Special categories, restores the ordinary supplemental tag before each render, then shows each Special entry's existing evidence label without a repeated rank suffix. A single neutral `Rankings unassigned` note sits below the Special material heading; the detailed record still states its unassigned ranking.
+- Protected behavior: main A–Z remains 543 entries with letters; Article remains 216. All 44 Special records retain their existing category order, scoped descriptions, alphabetical sequence, button identity, evidence labels, details, examples, search behavior, source text, and unknown rank detail. No data, examples, ranking math, search classification, route, dependency, or package allowlist changed.
+- Developer evidence: `node --check tools\\check_supplement_browser.mjs` PASS; `python tools\\gate.py` PASS (source and taxonomy); focused real-Edge `node tools\\check_supplement_browser.mjs --root _site-supplement --playwright C:\\Users\\obake\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\node_modules\\playwright` exit 0. The focused browser check proves one full-width Special column at 1440 px and 360 px with no overflow, six category groups/44 records/no Special letters, retained main letters, one Special rank note, exact evidence labels, detail rank text, pointer close/focus restoration, preserved Flying identity/focus, 543/44/587 partition, Article 216, and existing example/detail behavior. `git diff --check` PASS (expected LF/CRLF warnings only).
+- RobQA handoff: independently verify the narrow Special-only DOM/CSS presentation change, including full-width category geometry at wide/open-detail and narrow widths, the once-only list rank note versus retained detail rank, evidence labels, keyboard/focus return, and the unchanged 543/44/587/216 partition. Owner retains appearance judgment; no visual acceptance, integration, or publication is claimed.
+
+---
+
+# Prior handoff — Special material two-column correction
 
 ## Control
 - Status: `qa-passed` (`qa-passed -> complete -> idle -> dev-in-progress -> ready-for-qa -> qa-passed`) for this Owner-found same-task layout correction. This engineering verdict does not infer Owner visual acceptance, publication permission, integration, or acceptance of the prior layout.
