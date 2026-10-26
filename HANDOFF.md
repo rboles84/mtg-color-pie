@@ -1,13 +1,17 @@
 # Active handoff — Special material instant jump
 
 ## Control
-- Status: `ready-for-qa` (`qa-passed -> complete -> idle -> dev-in-progress -> ready-for-qa`) for the Owner-requested one-line motion adjustment. Product edits stop pending Owner interaction/visual QA; this is not acceptance, publication authorization, or integration.
+- Status: `qa-passed` (`qa-passed -> complete -> idle -> dev-in-progress -> ready-for-qa -> qa-passed`) for the Owner-requested one-line motion adjustment. Owner interaction/visual QA passed for local candidate `0a4a86f2df6a53c4f4366e90f358768dc330abb4`. Publication remains on hold; no integration is authorized.
 - Exact envelope: `HANDOFF.md`, `vox-color/mechanical-explorer.html`. Change only `jumpSpecial` to use `scrollIntoView` behavior `auto`, matching `jumpMain`; no harness, data, examples, calculations, memberships, focus ownership, package allowlist, route/hash, dependency, publication, push, merge, or hosting change is authorized.
 - Verification: inspect the exact two-file diff and whitespace, then safely resolve/rebuild the existing local preview with package syntax/content verification. Commit a local `ready-for-qa` Owner-pending candidate; no browser suite or independent QA is claimed.
 
 ## RobDev implementation report
 - Changed behavior: `jumpSpecial` now uses the same instantaneous `scrollIntoView` behavior as `jumpMain`. Its existing sticky-clear margin, heading focus, roving first Special entry, route, and selected-detail semantics are otherwise untouched.
 - Developer evidence: exact diff is one product line plus this ledger; `git diff --check` reports only the expected LF/CRLF warning. Package verification is run against the resolved existing preview path after commit. Per Owner direction, no browser suite, independent QA, or acceptance claim is made.
+
+## Owner QA — 2026-10-26
+- Owner confirmed that both instant jumps work and requested marking QA passed. This records the Owner's interaction/visual acceptance of local candidate `0a4a86f2df6a53c4f4366e90f358768dc330abb4`; it is not a new independent engineering QA claim.
+- Everything remains local. No publication, push, merge, deployment, or hosting change is authorized. Product files are unchanged by this ledger update.
 
 ---
 
