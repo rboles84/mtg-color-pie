@@ -348,7 +348,7 @@ button{font:inherit;color:inherit}
 .empty-q{margin:0 0 14px;font:italic 400 13px/1.4 var(--f-read);color:var(--ink-dim)}
 .list{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:1px 18px;align-items:start}
 .grp{grid-column:1 / -1;margin:24px 0 8px}
-.grp-h{display:flex;align-items:baseline;gap:12px;margin:0 0 8px;font:700 20px/1.2 var(--f-brand);letter-spacing:.015em;color:var(--bone)}
+.grp-h{display:flex;align-items:baseline;gap:12px;margin:0 0 8px;font:700 20px/1.2 var(--f-brand);letter-spacing:.015em;color:var(--bone);scroll-margin-top:calc(var(--stick-h,0px) + 16px)}
 .grp-h::after{content:'';flex:1;align-self:center;height:1px;background:linear-gradient(90deg,var(--rule-s),rgba(184,147,79,0))}
 .grp-h small{font:italic 400 13px/1 var(--f-read);color:var(--ink-dim)}
 .grp-in{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,288px),1fr));gap:1px 18px}
@@ -1252,7 +1252,7 @@ function layoutList(){
   const frag = document.createDocumentFragment();
   for (const [k, el] of entEl){
     const r = REC.get(k), tag = el.querySelector('.e-tag');
-    if (r.supplemental && tag) tag.textContent = `${r.scope.evidenceLabel} · Rankings unassigned`;
+    if (r.supplemental && tag){ tag.hidden = false; tag.textContent = `${r.scope.evidenceLabel} · Rankings unassigned`; }
   }
   if (S.view === 'article'){
     let grp = null, grpIn = null, grpName = null;
@@ -1278,32 +1278,34 @@ function layoutList(){
     LIST_ONLY.forEach(k => lo.querySelector('.grp-in').appendChild(entEl.get(k)));
     frag.appendChild(lo);
   } else {
-    const sectionFor = (id, label, description, keys, includeLetters = true, compactRankings = false) => {
+    const sectionFor = (id, label, description, keys, includeLetters = true, compactRankings = false, headingAction = null) => {
       const section = document.createElement('section'); section.className = 'grp'; section.dataset.scope = id;
       section.setAttribute('aria-label', label);
       section.innerHTML = `<h3 class="grp-h">${esc(label)}<small>${keys.length} ${plural(keys.length, 'entry', 'entries')}</small></h3>${description ? `<p class="lo-note">${esc(description)}</p>` : ''}<div class="grp-in"></div>`;
+      if (headingAction){ const button = document.createElement('button'); button.type = 'button'; button.className = 'go'; button.dataset.act = headingAction.act; button.textContent = headingAction.label; button.setAttribute('aria-label', headingAction.aria); section.querySelector('.grp-h').appendChild(button); }
       const entries = section.querySelector('.grp-in'); let letter = null;
       for (const k of keys){
         const r = REC.get(k), L = (azKey(r)[0] || '#').toUpperCase().replace(/[^A-Z]/, '#');
         if (includeLetters && L !== letter){ letter = L; const h = document.createElement('p'); h.className = 'letter'; h.textContent = L; h.setAttribute('aria-hidden', 'true'); entries.appendChild(h); }
         const entry = entEl.get(k);
-        if (compactRankings && r.supplemental) entry.querySelector('.e-tag').textContent = r.scope.evidenceLabel;
+        if (compactRankings && r.supplemental){ const tag = entry.querySelector('.e-tag'); const redundant = (r.scope.group === 'card-specific' && r.scope.evidenceLabel === 'Card-specific flavor word') || (r.scope.group === 'preview' && r.scope.evidenceLabel === 'Official mechanic reference') || (r.scope.group === 'designer' && r.scope.evidenceLabel === 'Designer card example'); tag.hidden = redundant; if (!redundant) tag.textContent = r.scope.evidenceLabel; }
         entries.appendChild(entry);
       }
       return section;
     };
-    const ordinary = AZ().filter(k => { const r = REC.get(k); return !r.supplemental || r.scope.group === 'rules' || r.scope.group === 'ability-words'; });
-    frag.appendChild(sectionFor('main', 'A–Z', 'Mechanical Color Pie 2021, rules-backed entries, and official ability words · alphabetical order', ordinary));
+    const specialLabels = { digital:'Digital / Alchemy', preview:'Official previews', playtest:'Playtest', designer:'Designer-only' };
     const specialGroups = SUPPLEMENT.groups.filter(group => !['rules','ability-words'].includes(group.id));
     const specialKeys = AZ().filter(k => { const r = REC.get(k); return r.supplemental && !['rules','ability-words'].includes(r.scope.group); });
+    const ordinary = AZ().filter(k => { const r = REC.get(k); return !r.supplemental || r.scope.group === 'rules' || r.scope.group === 'ability-words'; });
+    frag.appendChild(sectionFor('main', 'A–Z', 'Mechanical Color Pie 2021, rules-backed entries, and official ability words · alphabetical order', ordinary, true, false, specialKeys.length ? { act:'jump-special', label:`Special material · ${specialKeys.length}`, aria:`Jump to ${specialKeys.length} Special material entries` } : null));
     if (specialKeys.length){
       const special = document.createElement('section'); special.className = 'grp'; special.dataset.scope = 'special-material';
       special.setAttribute('aria-label', 'Special material');
-      special.innerHTML = `<h3 class="grp-h">Special material<small>${specialKeys.length} entries</small></h3><p class="lo-note">Rankings unassigned</p><div class="grp-in"></div>`;
+      special.innerHTML = `<h3 class="grp-h" id="special-material-heading" tabindex="-1">Special material<small>${specialKeys.length} entries</small></h3><p class="lo-note">Rankings unassigned</p><div class="grp-in"></div>`;
       const specialIn = special.querySelector('.grp-in');
       for (const group of specialGroups){
         const keys = specialKeys.filter(k => REC.get(k).scope.group === group.id);
-        if (keys.length) specialIn.appendChild(sectionFor(group.id, group.label, group.description, keys, false, true));
+        if (keys.length) specialIn.appendChild(sectionFor(group.id, specialLabels[group.id] || group.label, group.description, keys, false, true));
       }
       frag.appendChild(special);
     }
@@ -2273,6 +2275,14 @@ function setView(v){
   S.view = v; layoutList(); render();
   announce(v === 'article' ? 'Article order.' : 'A to Z.');
 }
+function jumpSpecial(){
+  const special = listEl.querySelector('.grp[data-scope="special-material"]'), heading = special?.querySelector(':scope > .grp-h'), first = special?.querySelector('.ent');
+  if (!heading || !first) return;
+  setRoving(first);
+  heading.scrollIntoView({ block:'start', behavior:behavior() });
+  heading.focus({ preventScroll:true });
+  announce('Special material.');
+}
 function setSpot(id){
   if (S.spot && S.spot.id === id){ S.spot = null; render(); return; }
   const f = spotFor(id);
@@ -2363,6 +2373,7 @@ function bindEvents(){
   $('#q-clear').addEventListener('click', () => { qEl.value = ''; setQuery(''); qEl.focus(); });
 
   listEl.addEventListener('click', ev => {
+    if (ev.target.closest('[data-act="jump-special"]')){ jumpSpecial(); return; }
     const c = ev.target.closest('.ent'); if (!c) return;
     const k = c.dataset.k; if (S.pick === k) closeEntry(false); else openEntry(k, {});
   });
@@ -2468,7 +2479,7 @@ async function boot(){
   snap.textContent = MCP.meta.display_label;
   if (MCP.meta.url) snap.href = MCP.meta.url;
   $('#author').textContent = ' — ' + MCP.meta.author;
-  $('#limits').textContent = 'A snapshot that will continue to evolve. Per-set needs bend the default and some entries are experiments. An absent placement is not evidence that no card of that color exists.';
+  $('#limits').textContent = 'The color pie evolves; this page preserves the 2021 snapshot. Per-set needs bend the default and some entries are experiments. An absent placement is not evidence that no card of that color exists.';
   buildRecords();
   buildArticle();
   const n = KEYS.reduce((t, k) => t + Object.keys(MECH[k].colors).length, 0);

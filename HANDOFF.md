@@ -1,4 +1,20 @@
-# Active handoff — Special material full-width compact sections
+# Active handoff — Special material bounded polish
+
+## Control
+- Status: `ready-for-qa` (`qa-passed -> complete -> idle -> dev-in-progress -> ready-for-qa`) for the Owner-approved four refinements. Product edits stop pending independent RobQA; this is not Owner acceptance, publication authorization, or integration.
+- Exact envelope: `HANDOFF.md`, `vox-color/mechanical-explorer.html`, `tools/check_supplement_browser.mjs`. No data, examples, calculations, search classification, routes, package allowlist, dependencies, publication, push, merge, hosting, or redesign is authorized.
+- Requested outcome: present shorter Special-only category labels, suppress only category-redundant Special entry subtext while retaining meaningful distinctions, add a dynamic Special-material jump control from the main A–Z heading with focus-safe in-list navigation, and replace the approved limits opening sentence. Main A–Z 543, Article 216, all 44 Special records/categories/order, scope data/detail/search attribution, examples, and the once-only Special ranking note remain protected.
+- Applied presentation rule: hide only `Card-specific flavor word` under card-specific labels (15), `Official mechanic reference` under official previews (2), and `Designer card example` under designer-only (1); retain the other 26 labels, including all Digital, Special-format, Playtest, and card-specific-evidence distinctions.
+
+## RobDev implementation report
+- Changed behavior: A–Z locally maps only the four approved Special headings to `Digital / Alchemy`, `Official previews`, `Playtest`, and `Designer-only`; the retained card-specific and special-format/Un-set labels/descriptions remain data-owned. The 18 exactly category-redundant Special list tags are visually omitted only in this Special presentation; all other Special tags, every main-list tag, search attribution, and details retain their existing data-backed text. The A–Z heading exposes a dynamic `Special material · 44` control only when the Special section exists. It reuses list delegation, scroll behavior, and roving focus to focus the un-obscured Special heading and make its first entry the next Tab stop without opening or changing a detail. The limits opening sentence now uses the approved 2021 snapshot wording.
+- Protected behavior: data/source/example blobs are byte-identical to the baseline; main A–Z stays 543 with its existing labels and letters, Article stays 216, and all 44 Special keys/category order/descriptions/qualifications/details/search/source examples and the once-only ranking note remain unchanged. No math, route/hash handling, dependency, package allowlist, or generated transport changed.
+- Developer evidence: `node --check tools\\check_supplement_browser.mjs` PASS; `python tools\\gate.py` PASS (source and taxonomy); local preview package PASS (22 byte-identical files, four inline scripts, 22 expected HTTP 200, 19 excluded 404); local Edge harness exit 0. Focused assertions cover all four shorter headings; the deterministic 18-hidden/26-retained tag rule; main 543/Special 44/all 587/Article 216; desktop and 360 px heading jump focus, sticky-bar clearance, next-Tab Special entry, unchanged route, and no overflow; unavailable/late supplement states with no premature jump; preserved rank detail, examples, focus, and approved limits text. `git diff --check` PASS (expected LF/CRLF warnings only); `git diff --quiet HEAD -- data vox-color/mechanical-examples.json vox-color/mechanical-supplement-examples.json` confirms protected blobs unchanged.
+- RobQA handoff: independently inspect this exact presentation-only candidate for the four bounded outcomes, particularly visible special-label exceptions and keyboard jump/roving behavior at wide and narrow widths. Owner retains the appearance judgment; no Owner acceptance, integration, or publication is claimed.
+
+---
+
+# Prior handoff — Special material full-width compact sections
 
 ## Control
 - Status: `qa-passed` (`qa-passed -> complete -> idle -> dev-in-progress -> ready-for-qa -> qa-passed`) for this Owner-approved revised presentation. This engineering verdict does not infer Owner visual acceptance, publication authorization, integration, or acceptance of either prior layout.

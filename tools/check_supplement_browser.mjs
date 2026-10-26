@@ -99,7 +99,8 @@ try {
   assert.equal(sortedGroups[0].keys.length,543);assert.equal(sortedGroups[0].count,'543 entries');assert.ok(sortedGroups[0].sorted.every((v,i)=>i===0||sortedGroups[0].sorted[i-1]<=v),'main A–Z order');
   assert.equal(sortedGroups[1].count,'44 entries');
   const specialGroups=await page.evaluate(()=>[...document.querySelectorAll('#list > .grp[data-scope="special-material"] > .grp-in > .grp')].map(group=>({id:group.dataset.scope,label:group.getAttribute('aria-label'),count:group.querySelector('h3 small').textContent,keys:[...group.querySelectorAll(':scope > .grp-in > .ent')].map(e=>e.dataset.k)})));
-  const expectedSpecial=scope.groups.filter(group=>!['rules','ability-words'].includes(group.id)).map(group=>({id:group.id,label:group.label,keys:specialRecords.filter(r=>scopedById.get(r.id).group===group.id).map(r=>r.id)})).filter(group=>group.keys.length);
+  const specialPresentationLabels={digital:'Digital / Alchemy',preview:'Official previews',playtest:'Playtest',designer:'Designer-only'};
+  const expectedSpecial=scope.groups.filter(group=>!['rules','ability-words'].includes(group.id)).map(group=>({id:group.id,label:specialPresentationLabels[group.id]||group.label,keys:specialRecords.filter(r=>scopedById.get(r.id).group===group.id).map(r=>r.id)})).filter(group=>group.keys.length);
   assert.deepEqual(specialGroups.map(group=>[group.id,group.label]),expectedSpecial.map(group=>[group.id,group.label]));
   for(const [i,group] of specialGroups.entries()){assert.deepEqual([...group.keys].sort(),expectedSpecial[i].keys.sort());assert.equal(group.count,group.keys.length+' '+(group.keys.length===1?'entry':'entries'));}
   assert.equal(specialGroups.flatMap(group=>group.keys).length,44);
@@ -109,9 +110,18 @@ try {
     assert.equal(geometry.columns,columns,`${width}px special columns`);assert.ok(geometry.children.every(value=>value===geometry.wrapper),JSON.stringify(geometry));assert.equal(geometry.letters,0);assert.ok(geometry.mainLetters>0);assert.equal(geometry.overflow,true,JSON.stringify(geometry));
   }
   await page.setViewportSize({width:1440,height:900});
-  const specialTags=await page.evaluate(()=>[...document.querySelectorAll('#list > .grp[data-scope="special-material"] .ent')].map(entry=>({key:entry.dataset.k,tag:entry.querySelector('.e-tag')?.textContent})));
+  const routeBeforeJump=await page.evaluate(()=>location.href);
+  const jump=page.locator('#list > .grp[data-scope="main"] [data-act="jump-special"]');assert.equal(await jump.innerText(),'Special material · 44');
+  await jump.focus();await jump.press('Enter');
+  const jumped=await page.evaluate(()=>{const heading=document.querySelector('#special-material-heading'),bar=document.querySelector('#bar'),first=document.querySelector('#list > .grp[data-scope="special-material"] .ent'),box=heading.getBoundingClientRect(),barBox=bar.getBoundingClientRect();return {focused:document.activeElement===heading,unobscured:box.top>=barBox.bottom,firstSpecial:first?.dataset.k,route:location.href};});
+  assert.equal(jumped.focused,true);assert.equal(jumped.unobscured,true,JSON.stringify(jumped));assert.ok(jumped.firstSpecial);assert.equal(jumped.route,routeBeforeJump);await page.keyboard.press('Tab');assert.equal(await page.evaluate(()=>document.activeElement?.dataset.k),jumped.firstSpecial);
+  await page.setViewportSize({width:360,height:900});await jump.focus();await jump.press('Enter');
+  const narrowJump=await page.evaluate(()=>{const heading=document.querySelector('#special-material-heading'),bar=document.querySelector('#bar'),box=heading.getBoundingClientRect(),barBox=bar.getBoundingClientRect();return {focused:document.activeElement===heading,unobscured:box.top>=barBox.bottom,overflow:document.documentElement.scrollWidth<=innerWidth};});
+  assert.deepEqual(narrowJump,{focused:true,unobscured:true,overflow:true});await page.setViewportSize({width:1440,height:900});
+  const specialTags=await page.evaluate(()=>[...document.querySelectorAll('#list > .grp[data-scope="special-material"] .ent')].map(entry=>({key:entry.dataset.k,tag:entry.querySelector('.e-tag')?.textContent,hidden:entry.querySelector('.e-tag')?.hidden})));
   assert.equal(await page.locator('#list > .grp[data-scope="special-material"] > .lo-note').count(),1);assert.equal(await page.locator('#list > .grp[data-scope="special-material"] > .lo-note').innerText(),'Rankings unassigned');
-  assert.deepEqual(specialTags.map(entry=>entry.tag),specialTags.map(entry=>scopedById.get(entry.key).evidenceLabel));
+  const redundantSpecialTag=scopeRecord=>(scopeRecord.group==='card-specific'&&scopeRecord.evidenceLabel==='Card-specific flavor word')||(scopeRecord.group==='preview'&&scopeRecord.evidenceLabel==='Official mechanic reference')||(scopeRecord.group==='designer'&&scopeRecord.evidenceLabel==='Designer card example');
+  assert.equal(specialTags.filter(entry=>entry.hidden).length,18);assert.deepEqual(specialTags.map(entry=>entry.hidden),specialTags.map(entry=>redundantSpecialTag(scopedById.get(entry.key))));assert.deepEqual(specialTags.filter(entry=>!entry.hidden).map(entry=>entry.tag),specialTags.filter(entry=>!entry.hidden).map(entry=>scopedById.get(entry.key).evidenceLabel));
   const abandon=page.locator('#list .ent[data-k="deck:catalog-gaps:abandon"]');await abandon.click();assert.equal(await detail.locator('#dx-title').innerText(),'Abandon');assert.match(await detail.innerText(),/Rankings unassigned/);
   const openGeometry=await page.evaluate(()=>{const wrapper=document.querySelector('#list > .grp[data-scope="special-material"] > .grp-in'),children=[...wrapper.children].filter(e=>e.classList.contains('grp'));return {columns:new Set(children.map(e=>Math.round(e.getBoundingClientRect().left))).size,overflow:document.documentElement.scrollWidth<=innerWidth};});
   assert.deepEqual(openGeometry,{columns:1,overflow:true});await detail.locator('[data-act="close"]').click();assert.equal(await abandon.evaluate(e=>document.activeElement===e),true);
@@ -120,6 +130,7 @@ try {
   assert.equal(await page.evaluate(()=>document.querySelector('#list .ent[data-k="flying"]')===window.__azFlying&&document.activeElement===window.__azFlying),true);
   assert.match(await page.locator('#list-cap').innerText(),/587.*216.*2021.*371.*supplemental/);
   assert.match(await page.locator('#meta').innerText(),/216.*2021 entries.*2021 color placements/);
+  assert.equal(await page.locator('#limits').innerText(),'The color pie evolves; this page preserves the 2021 snapshot. Per-set needs bend the default and some entries are experiments. An absent placement is not evidence that no card of that color exists.');
   const supplementalKeys=payload.records.filter(r=>!r.target2021).map(r=>r.id);
   for(const code of ['W','WB','WUBR','WUBRG']){
     await page.evaluate(code=>VMX.chooseCombo(code),code);
@@ -440,6 +451,7 @@ try {
     assert.equal(await p.locator('#list .ent').count(),216);
     await p.locator('[data-v="az"]').click();assert.equal(await p.locator('#list .ent').count(),216);
     assert.equal(await p.locator('#list > .grp').count(),1);
+    assert.equal(await p.locator('[data-act="jump-special"]').count(),0);
     await p.locator('#q').fill('Training');assert.equal(await p.evaluate(()=>VMX.state.hits.length),0);
     await p.locator('#q').fill('Flying');await p.locator('#q').press('Enter');
     assert.equal(await p.locator('#detail #dx-title').innerText(),'Flying');
@@ -471,10 +483,12 @@ try {
   await delayed.waitForFunction(()=>document.querySelector('#selftest').textContent.includes('84 of 84 passed'));
   const beforeLoad=await delayed.evaluate(mathSnapshot);
   await delayed.locator('[data-v="az"]').click();assert.equal(await delayed.locator('#list .ent').count(),216);
+  assert.equal(await delayed.locator('[data-act="jump-special"]').count(),0);
   await delayed.locator('[data-v="article"]').click();await delayed.locator('[data-v="az"]').click();
   const preLoadRow=delayed.locator('#list .ent[data-k="flying"]');await preLoadRow.focus();
   releaseSupplement();await delayed.waitForFunction(()=>VMX.supplemental().status==='ready');
   assert.equal(await delayed.locator('#list .ent').count(),587);
+  assert.equal(await delayed.locator('[data-act="jump-special"]').innerText(),'Special material · 44');
   assert.equal(await preLoadRow.evaluate(e=>document.activeElement===e),true);
   assert.equal(await delayed.evaluate(mathSnapshot),beforeLoad);
   await delayed.locator('[data-v="article"]').click();assert.equal(await delayed.locator('#list .ent').count(),216);
