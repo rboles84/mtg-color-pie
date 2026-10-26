@@ -513,6 +513,11 @@ html.sheet-open .bar{position:relative}
 .dx-ex{margin:0;font:400 16.5px/1.72 var(--f-read);color:var(--ink)}
 /* the explanation opens with a gilt initial, as a field guide's entry would */
 .dx-ex:not(.is-empty):not(.is-supplemental)::first-letter{float:left;margin:.06em .1em 0 -.02em;font:700 3.25em/.8 var(--f-display);color:var(--brass-l)}
+.supp-rules .dx-ex{white-space:pre-wrap}
+.supp-rules .dx-ex + .dx-ex{margin-top:1.1em}
+.supp-rule-number{font:500 .78em/1.4 var(--f-mono);color:var(--ink-dim);white-space:nowrap}
+.supp-quote{margin:12px 0 0;white-space:pre-wrap}
+.supp-citation{overflow-wrap:anywhere}
 .dx-ex.is-empty{font-style:italic;font-size:14px;color:var(--ink-dim)}
 .dx-list{margin:0;padding:0;list-style:none;display:grid;gap:6px;font:400 13.5px/1.5 var(--f-read);color:var(--ink)}
 .dx-list li::before{content:'\2014\00A0';color:var(--brass-q)}
@@ -694,7 +699,7 @@ html.sheet-open .bar{position:relative}
 </main>
 
 <footer class="foot">
-  <p>Placements, entry names, sub-headings and explanations are Rosewater's, from the October 18, 2021 snapshot. Counts, best placements under selected colors and compass differences are computed by this page from those placements. Tiers are compared only within one ability, across colors; nothing is summed, scored or ranked.</p>
+  <p>In the 2021 catalog, placements, entry names, sub-headings and explanations are Rosewater's, from the October 18, 2021 snapshot. Supplemental rules and references are attributed separately to their cited sources. Counts, best placements under selected colors and compass differences are computed by this page from those placements. Tiers are compared only within one ability, across colors; nothing is summed, scored or ranked.</p>
   <p>Player search terms are navigation aids drawn from player research. They lead to article entries and are never Rosewater's wording. An absent 2021 placement is not evidence that no card of that color exists.</p>
   <p class="fcp">Vox Mana’s interactive edition of the Mechanical Color Pie 2021 is unofficial Fan Content permitted under the <a href="https://company.wizards.com/en/legal/fancontentpolicy" target="_blank" rel="noopener">Fan Content Policy</a>. Not approved/endorsed by Wizards. Portions of the materials used are property of Wizards of the Coast. ©Wizards of the Coast LLC.</p>
   <p class="selftest" id="selftest" aria-live="off" hidden></p>
@@ -1825,65 +1830,77 @@ function validateSupplementLinks(value, field = ''){
   if (value && typeof value === 'object'){ Object.entries(value).forEach(([k,v]) => validateSupplementLinks(v,k)); return; }
   if (typeof value === 'string' && (/url$/i.test(field) || /^https?:\/\//i.test(value)) && !supplementalURL(value)) throw new Error('Unsupported supplemental source link');
 }
-const SUP_LABELS = {
-  sourceId:'Original source ID', population:'Accepted population', category:'Source category',
-  rule:'Direct rule number', number:'Rule number', text:'Rule text', rulesSource:'Comprehensive Rules source',
-  sourceUrl:'Source URL', sourceSha256:'Source SHA-256', sha256:'SHA-256', url:'Source URL',
-  definitionVerified:'General definition verified', referenceKind:'Evidence kind', generalReference:'General reference',
-  cardOracleIds:'Card Oracle IDs', oracleId:'Oracle ID', uniqueCards:'Unique cards', searchUrl:'Stored source search URL',
-  verifiedOn:'Verified on', checkedOn:'Checked on', acceptedLimitations:'Accepted limitations',
-  sourceProviderCategory:'Source provider category', providerCategory:'Provider category',
-  sourceCategory:'Source category', sourceCategories:'Source categories', reviewStatus:'Review status',
-  evidenceScope:'Evidence scope', reviewedAt:'Reviewed at', reviewReason:'Review reason',
-  reference:'Accepted reference', source:'Source', supportingSource:'Supporting source', playtest:'Playtest scope',
-  quote:'Stored source excerpt', summary:'Stored source summary', qualifications:'Status and qualifications'
-};
-function supplementalLabel(k){
-  return SUP_LABELS[k] || k.replace(/([a-z0-9])([A-Z])/g,'$1 $2').replace(/[_-]/g,' ').replace(/^./,c => c.toUpperCase());
+/* Presentation selects player-facing evidence explicitly. Transport metadata stays
+   in the unchanged payload and audit artifacts, outside the detail DOM. */
+function supplementalDate(value){
+  return new Date(value + 'T00:00:00Z').toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric', timeZone:'UTC' });
 }
-function supplementalAttribution(raw){
-  if (raw.startsWith('https://web.archive.org/')) return 'Archived Wizards source';
-  if (raw.startsWith('https://www.youtube.com/')) return 'Designer video source';
-  if (new URL(raw).hostname === 'scryfall.com') return 'Scryfall source';
-  return 'Wizards of the Coast source';
+function supplementalCitation(source, publishedOn, author){
+  if (!source || !supplementalURL(source.url)) return '';
+  const publisher = source.publisher || (new URL(source.url).hostname === 'scryfall.com' ? 'Scryfall' : 'Wizards of the Coast');
+  const byline = author && author !== publisher ? `${author} · ${publisher}` : publisher;
+  const date = publishedOn ? supplementalDate(publishedOn) : source.verifiedOn ? `checked ${supplementalDate(source.verifiedOn)}` : '';
+  return `<p class="dx-note supp-citation"><a href="${esc(source.url)}" target="_blank" rel="noopener noreferrer">${esc(source.title)}</a> · ${esc(byline)}${date ? ' · ' + esc(date) : ''}</p>`;
 }
-function supplementalValueHTML(value){
-  if (value === null || value === undefined) return '<span>Not recorded</span>';
-  if (Array.isArray(value)) return value.length ? '<ul class="dx-list">' + value.map(v => `<li>${supplementalValueHTML(v)}</li>`).join('') + '</ul>' : '<span>None recorded</span>';
-  if (typeof value === 'object'){
-    const technical = k => /sha256$/i.test(k) || ['oracleId','cardOracleIds','artifacts','file'].includes(k);
-    const field = ([k,v]) => `<div class="dx-note"><b>${esc(supplementalLabel(k))}</b>: ${supplementalValueHTML(v)}</div>`;
-    const entries = Object.entries(value), provenance = entries.filter(([k]) => technical(k));
-    return entries.filter(([k]) => !technical(k)).map(field).join('') + (provenance.length ? `<details class="dx-src"><summary>Source record metadata</summary>${provenance.map(field).join('')}</details>` : '');
+function supplementalSources(a){
+  const ref = a.reference, review = a.qualifications.acceptedSourceReview, locator = review && review.locator || {};
+  const seen = new Set(), citations = [];
+  const add = (source, publishedOn, author) => {
+    if (!source || !supplementalURL(source.url)) return;
+    const canonical = new URL(source.url);
+    if (canonical.hostname === 'www.youtube.com') canonical.searchParams.delete('t');
+    if (canonical.pathname.endsWith('/card-image-gallery')) canonical.search = '';
+    if (seen.has(canonical.href)) return;
+    seen.add(canonical.href); citations.push(supplementalCitation(source, publishedOn, author));
+  };
+  if (ref){ add(ref.source, locator.publishedOn, locator.author); add(ref.supportingSource); }
+  const titles = {
+    'mystery-booster-playtest-card-artists-2019-11-11':'Mystery Booster Playtest Card Artists',
+    'mystery-booster-release-notes-2019-11-11':'Mystery Booster Release Notes',
+    'alchemy-reality-fracture-spellbook':'Alchemy: Reality Fracture Spellbook',
+    'announcements-may-11-2026':'MTG Arena Announcements · May 11, 2026'
+  };
+  if (review) for (const evidence of review.evidence || []){
+    const url = evidence.finalUrl || evidence.url;
+    add({ url, title:titles[new URL(url).pathname.split('/').pop()] || 'Official card image gallery', verifiedOn:evidence.retrievedAt && evidence.retrievedAt.slice(0,10) });
   }
-  if (typeof value === 'boolean') return value ? 'Yes' : 'No';
-  const text = String(value), url = supplementalURL(text);
-  if (url) return `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(supplementalAttribution(url))}</a> <span style="overflow-wrap:anywhere">${esc(text)}</span>`;
-  return `<span style="white-space:pre-wrap;overflow-wrap:anywhere">${esc(text)}</span>`;
+  if (locator.imageUrl) add({ url:locator.imageUrl, title:`${locator.card} · official card image` });
+  return citations.join('');
 }
-function supplementalRecordHTML(a){
-  return `<section class="dx-sec" aria-label="${esc(a.name)} supplemental evidence">
-    <h3 class="dx-h">${esc(a.name)} <span class="by">Supplemental evidence</span></h3>
-    <p class="dx-note">Accepted population: ${esc(a.population)} · Source category: ${esc(a.category)}</p>
-    ${a.aliases.length ? `<p class="dx-note">Accepted aliases: ${a.aliases.map(esc).join(', ')}</p>` : ''}
-    ${a.rule ? `<p class="dx-note">Direct rule number: ${esc(a.rule)}</p>` : ''}
-    ${a.clauses.map(c => `<p class="dx-ex is-supplemental" style="white-space:pre-wrap"><b>${esc(c.number)}</b> ${esc(c.text)}</p>`).join('')}
-    ${a.rulesSource ? `<div class="dx-note"><b>${a.clauses.length ? 'Comprehensive Rules source' : 'Stored rules snapshot metadata (no quoted rule in this record)'}</b>${supplementalValueHTML(a.rulesSource)}</div>` : ''}
-    ${a.reference ? `<div class="dx-note"><b>Accepted reference</b>${supplementalValueHTML(a.reference)}</div>` : ''}
-    <div class="dx-note"><b>Status and qualifications</b>${supplementalValueHTML(a.qualifications)}</div>
-    <details class="dx-src"><summary>Record provenance</summary><p>Original source ID: ${esc(a.sourceId)}</p></details>
-  </section>`;
+function supplementalRecordHTML(a, mapped = false){
+  const ref = a.reference, review = a.qualifications.acceptedSourceReview, locator = review && review.locator || {};
+  const kind = ref && ref.referenceKind;
+  const example = kind && /card-example/.test(kind) || ref && ref.source && ref.source.kind === 'card-example' || ref && ref.generalReference;
+  const heading = kind === 'designer-card-example' ? 'Designer card example' : kind === 'archived-mechanic-discussion' ? 'Archived design discussion' : kind === 'playtest-card-example' ? 'Playtest card example' : example ? 'Card example' : 'Reference';
+  const excerpts = [...new Set([ref && ref.quote, ref && ref.summary, review && review.exactExcerpt].filter(Boolean))];
+  const rules = a.clauses.length ? `<section class="dx-sec supp-rules" aria-label="${mapped ? 'Supplemental rules' : 'Rules'}"><h3 class="dx-h">${mapped ? 'Supplemental rules' : 'Rules'}</h3>
+    ${a.clauses.map(c => `<p class="dx-ex is-supplemental"><b class="supp-rule-number">${esc(c.number)}</b> ${esc(c.text)}</p>`).join('')}
+    <p class="dx-note supp-citation"><a href="${esc(supplementalURL(a.rulesSource.sourceUrl))}" target="_blank" rel="noopener noreferrer">Wizards Comprehensive Rules · ${esc(supplementalDate(a.rulesSource.date))}</a></p></section>` : '';
+  const reference = ref && ref.source ? `<section class="dx-sec supp-reference" aria-label="${mapped ? 'Supplemental reference' : heading}"><h3 class="dx-h">${mapped ? 'Supplemental ' + heading.toLowerCase() : heading}</h3>
+    ${ref.source.section ? `<p class="dx-note">${esc(ref.source.section)}</p>` : ''}
+    ${example ? '<p class="dx-note">Card-specific evidence; this is not a general definition.</p>' : ''}
+    ${ref.generalReference ? '<p class="dx-note">The numbered rule describes flavor words as a group.</p>' : ''}
+    ${a.category === 'ability word' && a.clauses.length ? '<p class="dx-note">The numbered rule describes ability words as a group.</p>' : ''}
+    ${excerpts.map(text => `<blockquote class="dx-ex is-supplemental supp-quote">${esc(text)}</blockquote>`).join('')}
+    ${!a.clauses.length && !excerpts.length ? '<p class="dx-note">No definition text is reproduced in this reference.</p>' : ''}
+    ${supplementalSources(a)}</section>` : '';
+  const scope = review || ref && (ref.definitionVerified === false || ref.playtest) ? `<section class="dx-sec supp-scope" aria-label="Scope and limitations"><h3 class="dx-h">Scope and limitations</h3>
+    ${ref && ref.definitionVerified === false || review && review.officialGeneralDefinitionVerified === false ? '<p class="dx-note">A general definition has not been verified.</p>' : ''}
+    ${review && review.verifiedScope ? `<p class="dx-note">${esc(review.verifiedScope)}</p>` : ''}
+    ${review && review.limits ? `<p class="dx-note">${esc(review.limits)}</p>` : ''}
+    ${locator.artist ? `<p class="dx-note">${esc(locator.card)} · Artist: ${esc(locator.artist)}</p>` : ''}
+    ${ref && ref.playtest ? `<p class="dx-note">Playtest card: ${esc(ref.playtest.card)}.${ref.playtest.commander === 'not_legal' ? ' Not legal in Commander.' : ''}${ref.playtest.checkedOn ? ' Checked ' + esc(supplementalDate(ref.playtest.checkedOn)) + '.' : ''}</p>` : ''}</section>` : '';
+  return `<div class="supp-evidence">${rules}${reference}${scope}</div>`;
 }
 function supplementEvidenceHTML(k){
-  const records = SUP_BY_KEY.get(k) || [];
-  return records.length ? `<section class="dx-sec" aria-label="Supplemental source evidence"><h3 class="dx-h">Supplemental source evidence</h3><p class="dx-note">Separate accepted sources are reproduced below with their recorded scope and qualifications. They do not change the 2021 placements or settle its conflicts.</p>${records.map(supplementalRecordHTML).join('')}</section>` : '';
+  return (SUP_BY_KEY.get(k) || []).map(a => supplementalRecordHTML(a, true)).join('');
 }
 function supplementalDetailHTML(k){
-  const r = REC.get(k);
-  return `<div class="dx-top"><p class="dx-where">Supplemental mechanic record</p><button class="dx-close" type="button" data-act="close" data-fid="dx-close" aria-label="Close entry">×</button></div>
+  const r = REC.get(k), records = SUP_BY_KEY.get(k) || [], category = records[0] && records[0].category;
+  return `<div class="dx-top"><p class="dx-where">Supplemental${category ? ' · ' + esc(category) : ' reference'}</p><button class="dx-close" type="button" data-act="close" data-fid="dx-close" aria-label="Close entry">×</button></div>
     <h2 class="dx-title${r.head.length > 48 ? ' long' : ''}" id="dx-title">${esc(r.head)}</h2>
-    <section class="dx-sec" aria-label="Recorded placements"><h3 class="dx-h">Recorded placements</h3><p class="dx-ex is-supplemental">No sourced Primary/Secondary/Tertiary assignment is recorded.</p><p class="dx-note">This supplemental record is outside the frozen 2021 catalog and its color lens calculations.</p></section>
-    ${(SUP_BY_KEY.get(k) || []).map(supplementalRecordHTML).join('')}`;
+    <p class="dx-note" aria-describedby="supp-ranking-note">Rankings unassigned</p><p class="sr-only" id="supp-ranking-note">No sourced Primary/Secondary/Tertiary assignment is recorded. This is unknown ranking, not an absent 2021 placement; supplemental evidence stays outside the 2021 color calculations.</p>
+    ${records.map(a => supplementalRecordHTML(a)).join('')}`;
 }
 async function loadSupplement(){
   const status = $('#supplement-status');
@@ -2654,7 +2671,7 @@ async function runSelfTest(){
      !/azorius|dimir|rakdos|gruul|selesnya|orzhov|izzet|golgari|boros|simic|bant|esper|grixis|jund|naya|abzan|jeskai|sultai|mardu|temur/i.test(nodes.map(b => b.innerText).join(' ')));
   ok('footer: the Wizards Fan Content notice is shown, beside the 2021 source attribution',
      /is unofficial Fan Content permitted under the Fan Content Policy\. Not approved\/endorsed by Wizards\. Portions of the materials used are property of Wizards of the Coast\. ©Wizards of the Coast LLC\./.test($('.foot .fcp').textContent) &&
-     /Placements, entry names, sub-headings and explanations are Rosewater's/.test($('.foot').textContent) && $('#snap').href === MCP.meta.url);
+     /In the 2021 catalog, placements, entry names, sub-headings and explanations are Rosewater's/.test($('.foot').textContent) && $('#snap').href === MCP.meta.url);
   { const P = parseQuery('colorless ramp'), line = parseLine(P, searchRank('ramp'));
     ok('colorless: a search for it is answered with what this explorer charts, not a claim about the article',
        P.colorless && P.words.join(' ') === 'ramp' && line.includes(esc(COLORLESS_NOTE)) && !/not measured|article (does not|never)/i.test(line) &&

@@ -123,7 +123,7 @@ try {
       numberFloat:e.querySelector('b')?getComputedStyle(e.querySelector('b'),'::first-letter').float:'none',
       width:e.scrollWidth,clientWidth:e.clientWidth
     })));
-    assert.deepEqual(typography.map(p=>p.text),['No sourced Primary/Secondary/Tertiary assignment is recorded.',...training.clauses.map(c=>c.number+' '+c.text)]);
+    assert.deepEqual(typography.map(p=>p.text),training.clauses.map(c=>c.number+' '+c.text));
     assert.ok(typography.every(p=>p.firstFloat==='none'&&p.numberFloat==='none'&&p.firstSize===p.size&&p.width<=p.clientWidth+1),JSON.stringify(typography));
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
   }
@@ -144,6 +144,80 @@ try {
   assert.equal(await page.locator('#list .ent[data-k="flying"]').evaluate(e=>document.activeElement===e),true);
   await page.locator('[data-v="article"]').click();
   pass('browse mouse, Enter/Space, focus/view fallback, exact Training clauses, drop caps and desktop/360px overflow',true);
+  const evidenceCheck=await page.evaluate(records=>{
+    const failures=[];
+    for(const a of records){
+      VMX.open(a.target2021||a.id);
+      const host=document.querySelector('#detail'), scope=host.querySelector('.supp-evidence');
+      const text=scope?.textContent||'', ref=a.reference, review=a.qualifications.acceptedSourceReview;
+      const clauses=[...host.querySelectorAll('.supp-rules .dx-ex')].map(p=>p.textContent);
+      if(JSON.stringify(clauses)!==JSON.stringify(a.clauses.map(c=>c.number+' '+c.text)))failures.push(a.name+': clauses');
+      const excerpts=[...new Set([ref?.quote,ref?.summary,review?.exactExcerpt].filter(Boolean))];
+      if(JSON.stringify([...host.querySelectorAll('.supp-reference blockquote')].map(p=>p.textContent))!==JSON.stringify(excerpts))failures.push(a.name+': excerpts');
+      for(const value of [review?.verifiedScope,review?.limits,ref?.source?.title,ref?.source?.section,ref?.supportingSource?.title].filter(Boolean)){
+        if(!text.includes(value))failures.push(a.name+': missing '+value);
+      }
+      if(ref?.definitionVerified===false&&!text.includes('A general definition has not been verified.'))failures.push(a.name+': missing definition limitation');
+      if(ref?.playtest&&!text.includes('Not legal in Commander.'))failures.push(a.name+': playtest scope');
+      if(/https?:\/\/|sha-?256|Original source ID|Accepted population|Source category|Provider categor|Record provenance|None recorded|Source record metadata|Stored rules snapshot/i.test(text))failures.push(a.name+': backend text');
+      if(/[a-f0-9]{64}|[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}/i.test(scope?.innerHTML||''))failures.push(a.name+': technical value');
+      if(scope?.querySelector('details'))failures.push(a.name+': hidden metadata');
+      const links=[...scope.querySelectorAll('a')], canonical=raw=>{
+        const u=new URL(raw);if(u.hostname==='www.youtube.com')u.searchParams.delete('t');
+        if(u.pathname.endsWith('/card-image-gallery'))u.search='';return u.href;
+      };
+      if(new Set(links.map(a=>canonical(a.href))).size!==links.length)failures.push(a.name+': duplicate citation');
+      for(const url of [a.clauses.length&&a.rulesSource.sourceUrl,ref?.source?.url,ref?.supportingSource?.url,
+        ...(review?.evidence||[]).map(e=>e.finalUrl||e.url),review?.locator?.imageUrl].filter(Boolean)){
+        if(!links.some(link=>canonical(link.href)===canonical(url)))failures.push(a.name+': missing citation');
+      }
+      if(!a.target2021){
+        if(host.querySelectorAll('h2').length!==1||!host.querySelector('.dx-where').textContent.includes(a.category)||host.querySelector('.dx-top').textContent.includes('mechanic record')||!host.textContent.includes('Rankings unassigned'))failures.push(a.name+': heading/status');
+        if(!host.querySelector('#supp-ranking-note')?.textContent.includes('No sourced Primary/Secondary/Tertiary assignment is recorded.'))failures.push(a.name+': accessible unknown ranking');
+      }
+    }
+    VMX.close();return {records:records.length,failures};
+  },payload.records);
+  assert.deepEqual(evidenceCheck.failures,[]);
+  pass('all 390 evidence records: exact rules/excerpts/scopes, meaningful deduplicated citations, no backend metadata in detail DOM',evidenceCheck);
+  for(const name of ['Attach','Bargain']){
+    const record=payload.records.find(r=>r.name===name);
+    for(const width of [1440,360]){
+      await page.setViewportSize({width,height:900});await page.evaluate(k=>VMX.open(k),record.id);
+      const presentation=await detail.locator('.supp-rules .dx-ex').evaluateAll(rows=>rows.map((e,i)=>({
+        text:e.textContent,margin:parseFloat(getComputedStyle(e).marginTop),
+        gap:i?e.getBoundingClientRect().top-rows[i-1].getBoundingClientRect().bottom:null,
+        float:getComputedStyle(e,'::first-letter').float,numberFloat:getComputedStyle(e.querySelector('.supp-rule-number'),'::first-letter').float,
+        size:getComputedStyle(e).fontSize,first:getComputedStyle(e,'::first-letter').fontSize,
+        fits:e.scrollWidth<=e.clientWidth+1
+      })));
+      assert.deepEqual(presentation.map(p=>p.text),record.clauses.map(c=>c.number+' '+c.text));
+      assert.ok(presentation.every((p,i)=>p.float==='none'&&p.numberFloat==='none'&&p.first===p.size&&p.fits&&(!i||p.gap>=16&&p.margin>=16)),JSON.stringify(presentation));
+      assert.equal(await detail.locator('.supp-rules .supp-citation a').count(),1);
+      assert.equal(await detail.locator('.supp-rules .supp-citation a').innerText(),'Wizards Comprehensive Rules · September 25, 2026');
+      assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+    }
+  }
+  await page.setViewportSize({width:1440,height:900});await page.evaluate(()=>VMX.close());
+  const scopeExpectations={
+    Jump:['Card-specific evidence','Cid, Freeflier Pilot'],
+    Affinitycycling:['Designer card example','Gavin Verhey','February 20, 2023','not a Wizards Comprehensive Rules definition'],
+    "Hero's Reward":['Archived design discussion','Sam Stoddard','Wizards (archived)','October 25, 2013','Hydra-specific'],
+    Kinfall:['Playtest card example','Scryfall','Mystery Booster Playtest Card Artists','Not legal in Commander','An official definition or original official card image was not verified.'],
+    Landship:['Playtest card example','Scryfall','Not legal in Commander','An official definition or original official card image was not verified.'],
+    Actualize:['Card example','Etali, Primal Garden','No formal mechanic-wide definition was verified.'],
+    Covercast:['Card example','Summitfest Closing Ceremony','Those wiki claims remain unverified.'],
+    Specialize:['MTG Arena Announcements, June 22, 2022','Alchemy Horizons'],
+    Assimilate:['A First Look','No definition text is reproduced in this reference.']
+  };
+  for(const [name,expected] of Object.entries(scopeExpectations)){
+    const record=payload.records.find(r=>r.name===name);await page.evaluate(k=>VMX.open(k),record.id);
+    const text=await detail.innerText();for(const value of expected)assert.ok(text.includes(value),name+': '+value);
+  }
+  assert.match(await page.locator('.foot').innerText(),/In the 2021 catalog.*Supplemental rules and references are attributed separately/);
+  await page.evaluate(()=>VMX.close());
+  pass('Attach/Bargain paragraph separation at desktop/360px; narrow references retain publisher, date and limitations; footer scoped',true);
+
   await q.fill('Training');await page.locator('#res-list .opt').first().click();
   await detail.waitFor({state:'visible'});
   assert.equal(await detail.locator('#dx-title').innerText(),'Training');
