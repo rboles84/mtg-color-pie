@@ -1278,10 +1278,11 @@ function layoutList(){
     LIST_ONLY.forEach(k => lo.querySelector('.grp-in').appendChild(entEl.get(k)));
     frag.appendChild(lo);
   } else {
-    const sectionFor = (id, label, description, keys, includeLetters = true, compactRankings = false, headingAction = null) => {
+    const sectionFor = (id, label, description, keys, includeLetters = true, compactRankings = false, headingAction = null, headingId = null) => {
       const section = document.createElement('section'); section.className = 'grp'; section.dataset.scope = id;
       section.setAttribute('aria-label', label);
       section.innerHTML = `<h3 class="grp-h">${esc(label)}<small>${keys.length} ${plural(keys.length, 'entry', 'entries')}</small></h3>${description ? `<p class="lo-note">${esc(description)}</p>` : ''}<div class="grp-in"></div>`;
+      if (headingId){ const heading = section.querySelector('.grp-h'); heading.id = headingId; heading.tabIndex = -1; }
       if (headingAction){ const button = document.createElement('button'); button.type = 'button'; button.className = 'go'; button.dataset.act = headingAction.act; button.textContent = headingAction.label; button.setAttribute('aria-label', headingAction.aria); section.querySelector('.grp-h').appendChild(button); }
       const entries = section.querySelector('.grp-in'); let letter = null;
       for (const k of keys){
@@ -1297,11 +1298,12 @@ function layoutList(){
     const specialGroups = SUPPLEMENT.groups.filter(group => !['rules','ability-words'].includes(group.id));
     const specialKeys = AZ().filter(k => { const r = REC.get(k); return r.supplemental && !['rules','ability-words'].includes(r.scope.group); });
     const ordinary = AZ().filter(k => { const r = REC.get(k); return !r.supplemental || r.scope.group === 'rules' || r.scope.group === 'ability-words'; });
-    frag.appendChild(sectionFor('main', 'A–Z', 'Mechanical Color Pie 2021, rules-backed entries, and official ability words · alphabetical order', ordinary, true, false, specialKeys.length ? { act:'jump-special', label:`Special material · ${specialKeys.length}`, aria:`Jump to ${specialKeys.length} Special material entries` } : null));
+    frag.appendChild(sectionFor('main', 'A–Z', 'Mechanical Color Pie 2021, rules-backed entries, and official ability words · alphabetical order', ordinary, true, false, specialKeys.length ? { act:'jump-special', label:`Special material · ${specialKeys.length}`, aria:`Jump to ${specialKeys.length} Special material entries` } : null, 'az-heading'));
     if (specialKeys.length){
       const special = document.createElement('section'); special.className = 'grp'; special.dataset.scope = 'special-material';
       special.setAttribute('aria-label', 'Special material');
       special.innerHTML = `<h3 class="grp-h" id="special-material-heading" tabindex="-1">Special material<small>${specialKeys.length} entries</small></h3><p class="lo-note">Rankings unassigned</p><div class="grp-in"></div>`;
+      const returnTop = document.createElement('button'); returnTop.type = 'button'; returnTop.className = 'go'; returnTop.dataset.act = 'jump-main'; returnTop.textContent = 'Return to top'; returnTop.setAttribute('aria-label', 'Return to top of A–Z entries'); special.querySelector('.grp-h').appendChild(returnTop);
       const specialIn = special.querySelector('.grp-in');
       for (const group of specialGroups){
         const keys = specialKeys.filter(k => REC.get(k).scope.group === group.id);
@@ -2283,6 +2285,14 @@ function jumpSpecial(){
   heading.focus({ preventScroll:true });
   announce('Special material.');
 }
+function jumpMain(){
+  const main = listEl.querySelector('.grp[data-scope="main"]'), heading = main?.querySelector(':scope > .grp-h'), first = main?.querySelector('.ent');
+  if (!heading || !first) return;
+  setRoving(first);
+  heading.scrollIntoView({ block:'start', behavior:'auto' });
+  heading.focus({ preventScroll:true });
+  announce('A to Z.');
+}
 function setSpot(id){
   if (S.spot && S.spot.id === id){ S.spot = null; render(); return; }
   const f = spotFor(id);
@@ -2374,6 +2384,7 @@ function bindEvents(){
 
   listEl.addEventListener('click', ev => {
     if (ev.target.closest('[data-act="jump-special"]')){ jumpSpecial(); return; }
+    if (ev.target.closest('[data-act="jump-main"]')){ jumpMain(); return; }
     const c = ev.target.closest('.ent'); if (!c) return;
     const k = c.dataset.k; if (S.pick === k) closeEntry(false); else openEntry(k, {});
   });

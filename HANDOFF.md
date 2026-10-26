@@ -1,4 +1,19 @@
-# Active handoff — Special material bounded polish
+# Active handoff — Special material return navigation
+
+## Control
+- Status: `ready-for-qa` (`qa-passed -> complete -> idle -> dev-in-progress -> ready-for-qa`) for this Owner-approved navigation-only refinement. Product edits stop pending independent RobQA; this is not Owner acceptance, publication authorization, or integration.
+- Exact envelope: `HANDOFF.md`, `vox-color/mechanical-explorer.html`, `tools/check_supplement_browser.mjs`. No data, examples, calculations, routes/hash behavior, memberships, selected-detail state, package allowlist, dependencies, publication, push, merge, hosting, or unrelated presentation change is authorized.
+- Requested outcome: add a matching `go`-style `Return to top` control beside the Special material heading. It must scroll to the main A–Z heading clear of the sticky bar, focus that heading, set the first main entry as the roving tab stop, preserve the URL and selected detail, and leave the existing Special jump's next-Tab order as Return then the first Special entry. Verify pointer and keyboard round trips at desktop/360 px, reduced motion, no overflow, and protected membership.
+
+## RobDev implementation report
+- Changed behavior: the existing dynamic A–Z/Special headings now have reciprocal navigation. `Return to top` is a matching `go` control beside the Special heading, with the label-in-name `Return to top of A–Z entries`. It uses the existing list delegation and roving owner: return sets the first main entry roving, instantly scrolls the `A–Z` heading clear of the sticky bar, and focuses that heading without changing the selected detail or URL. The existing Special jump remains motion-aware; its heading now tabs first to Return, then to the first Special entry. The main heading similarly tabs to its existing Special jump, then the first main entry.
+- Protected behavior: all 543/44/587/216 memberships, list labels, source/scope data, examples, ranking/math, detail content/state, route/hash handling, and existing Special presentation remain unchanged. Data and example blobs are unchanged; no new dependency, route, data transport, or styling system was added.
+- Developer evidence: `node --check tools\\check_supplement_browser.mjs` PASS; local package PASS (22 byte-identical files, four inline scripts, 22 expected HTTP 200, 19 excluded 404); local Edge regression exit 0. Targeted assertions cover visible/accessibility label, pointer and keyboard reciprocal round trip, sticky-bar-clear desktop/360 px focus landings, Tab/roving order, retained selected Abandon detail and URL, no overflow, reduced-motion `auto` behavior, no premature control before late/unavailable supplement, and protected list partitions. `git diff --check` is clean apart from expected LF/CRLF warnings.
+- RobQA handoff: independently verify only the new reciprocal navigation control and its focus/roving/scroll behavior at wide and narrow widths, including reduced motion and unchanged selected detail/URL. Owner retains appearance judgment; no acceptance, integration, or publication is claimed.
+
+---
+
+# Prior handoff — Special material bounded polish
 
 ## Control
 - Status: `qa-passed` (`qa-passed -> complete -> idle -> dev-in-progress -> ready-for-qa -> qa-passed`) for the Owner-approved four refinements. This engineering verdict does not infer Owner visual acceptance, publication authorization, or integration.
