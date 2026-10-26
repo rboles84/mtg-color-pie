@@ -54,6 +54,96 @@ try {
   pass('all accepted names and approved aliases, no lens and White lens',results);
   const training=payload.records.find(r=>r.name==='Training');assert.ok(training);
   const q=page.locator('#q'), detail=page.locator('#detail');
+  const original=JSON.parse(fs.readFileSync(path.join(root,'data/mechanical-color-pie.runtime.json'),'utf8')).byMechanic;
+  const expectedKeys=[...Object.keys(original),...payload.records.filter(r=>!r.target2021).map(r=>r.id)];
+  assert.equal(new Set(expectedKeys).size,587);
+  const mathSnapshot=()=>{
+    const result={};
+    for(const code of ['W','WB','UBR','WUBR','WUBRG']){
+      const cols=new Set(code);
+      result[code]={sections:VMX.sections(cols),buckets:VMX.buckets(cols),
+        add:VMX.deltaAdd(cols,[...'WUBRG'].find(c=>!cols.has(c))||'W'),remove:VMX.deltaRemove(cols,code[0])};
+    }
+    return JSON.stringify({result,summary:VMX.wubrgSummary()});
+  };
+  const beforeViews=await page.evaluate(mathSnapshot);
+  await page.locator('[data-v="az"]').click();
+  const browse=await page.evaluate(()=>{
+    const rows=[...document.querySelectorAll('#list .ent')];
+    return {keys:rows.map(e=>e.dataset.k),tabbable:rows.filter(e=>e.tabIndex===0).length};
+  });
+  assert.equal(browse.keys.length,587);assert.equal(new Set(browse.keys).size,587);
+  assert.deepEqual([...browse.keys].sort(),expectedKeys.sort());assert.equal(browse.tabbable,1);
+  // Titles include glosses; the visible label plus qualifier is the index's sort key.
+  const sorted=await page.evaluate(()=>[...document.querySelectorAll('#list .ent')].map(e=>{
+    const label=e.querySelector('.e-lab').cloneNode(true);
+    label.querySelectorAll('.e-tag,.e-q').forEach(e=>e.remove());
+    return label.textContent.toLowerCase().replace(/[\u2018\u2019]/g,"'")
+      .replace(/[\u201c\u201d"]/g,'').replace(/[\u2013\u2014]/g,'-').replace(/\u200b/g,'').replace(/\s+/g,' ').trim()
+      .replace(/[.\s]+$/,'').replace(/^["'+\-]+/,'').replace(/['"]/g,'')+' '+(e.querySelector('.e-q')?.textContent.replace(/^ · /,'')||'');
+  }));
+  assert.ok(sorted.every((v,i)=>i===0||sorted[i-1]<=v));
+  assert.match(await page.locator('#list-cap').innerText(),/587.*216.*2021.*371.*supplemental/);
+  assert.match(await page.locator('#meta').innerText(),/216.*2021 entries.*2021 color placements/);
+  const supplementalKeys=payload.records.filter(r=>!r.target2021).map(r=>r.id);
+  for(const code of ['W','WB','WUBR','WUBRG']){
+    await page.evaluate(code=>VMX.chooseCombo(code),code);
+    const failures=await page.evaluate(keys=>keys.filter(k=>{
+      const e=[...document.querySelectorAll('#list .ent')].find(e=>e.dataset.k===k);
+      return !e||e.classList.contains('is-out')||e.classList.contains('is-off')||e.querySelector('.strip')||
+        getComputedStyle(e).display==='none'||getComputedStyle(e).opacity!=='1'||
+        !e.textContent.includes('Supplemental · Rankings unassigned')||!e.getAttribute('aria-label').includes('Rankings unassigned');
+    }),supplementalKeys);
+    assert.deepEqual(failures,[],code);
+  }
+  await page.evaluate(()=>{VMX.chooseCombo('W');VMX.setSpot('bucket:primary');});
+  assert.equal(await page.locator('#list .ent.is-off').evaluateAll(rows=>rows.some(e=>e.dataset.k.startsWith('deck:'))),false);
+  assert.match(await page.locator('#spotbar').innerText(),/Supplemental entries remain visible/);
+  await page.evaluate(()=>{VMX.clearColors();VMX.setQuery('');});
+  const opened=await page.evaluate(keys=>keys.filter(k=>{
+    VMX.open(k);
+    return VMX.state.pick!==k||document.querySelectorAll('[data-detail-owner]').length!==1||document.querySelector('#detail').hidden||
+      (k.startsWith('deck:')&&document.querySelectorAll('#detail .own-row').length!==0);
+  }),expectedKeys);
+  assert.deepEqual(opened,[]);await page.evaluate(()=>VMX.close());
+  assert.equal(await page.evaluate(mathSnapshot),beforeViews);
+  pass('A–Z all 587 unique sorted destinations; 371 rows outside every tested lens/spotlight; immutable maths',true);
+  const trainingRow=page.locator('#list .ent').filter({hasText:'Training'}).filter({hasText:'Rankings unassigned'});
+  await trainingRow.click();assert.equal(await detail.locator('#dx-title').innerText(),'Training');
+  await detail.locator('[data-act="close"]').click();assert.equal(await trainingRow.evaluate(e=>e===document.activeElement),true);
+  await trainingRow.press('Enter');assert.equal(await detail.locator('#dx-title').innerText(),'Training');
+  await detail.locator('[data-act="close"]').focus();await page.keyboard.press('Escape');
+  assert.equal(await trainingRow.evaluate(e=>e===document.activeElement),true);
+  await trainingRow.press('Space');assert.equal(await detail.locator('#dx-title').innerText(),'Training');
+  for(const width of [1440,360]){
+    await page.setViewportSize({width,height:900});
+    const typography=await detail.locator('.dx-ex').evaluateAll(paragraphs=>paragraphs.map(e=>({
+      text:e.textContent,firstFloat:getComputedStyle(e,'::first-letter').float,
+      firstSize:getComputedStyle(e,'::first-letter').fontSize,size:getComputedStyle(e).fontSize,
+      numberFloat:e.querySelector('b')?getComputedStyle(e.querySelector('b'),'::first-letter').float:'none',
+      width:e.scrollWidth,clientWidth:e.clientWidth
+    })));
+    assert.deepEqual(typography.map(p=>p.text),['No sourced Primary/Secondary/Tertiary assignment is recorded.',...training.clauses.map(c=>c.number+' '+c.text)]);
+    assert.ok(typography.every(p=>p.firstFloat==='none'&&p.numberFloat==='none'&&p.firstSize===p.size&&p.width<=p.clientWidth+1),JSON.stringify(typography));
+    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+  }
+  await page.setViewportSize({width:1440,height:900});
+  await page.locator('[data-v="article"]').click();
+  assert.equal(await page.locator('#list .ent').count(),216);
+  assert.equal(await detail.locator('#dx-title').innerText(),'Training');
+  await detail.locator('[data-act="close"]').click();
+  assert.equal(await page.locator('[data-v="article"]').evaluate(e=>document.activeElement===e),true);
+  assert.equal(await page.evaluate(mathSnapshot),beforeViews);
+  await page.locator('#list .ent[data-k="flying"]').click();
+  const decorative=await detail.locator('[aria-label="Explanation"] .dx-ex').evaluate(e=>({
+    float:getComputedStyle(e,'::first-letter').float,first:parseFloat(getComputedStyle(e,'::first-letter').fontSize),size:parseFloat(getComputedStyle(e).fontSize)
+  }));
+  assert.equal(decorative.float,'left');assert.ok(decorative.first>decorative.size*3);
+  await page.locator('[data-v="az"]').click();assert.equal(await detail.locator('#dx-title').innerText(),'Flying');
+  await detail.locator('[data-act="close"]').click();
+  assert.equal(await page.locator('#list .ent[data-k="flying"]').evaluate(e=>document.activeElement===e),true);
+  await page.locator('[data-v="article"]').click();
+  pass('browse mouse, Enter/Space, focus/view fallback, exact Training clauses, drop caps and desktop/360px overflow',true);
   await q.fill('Training');await page.locator('#res-list .opt').first().click();
   await detail.waitFor({state:'visible'});
   assert.equal(await detail.locator('#dx-title').innerText(),'Training');
@@ -91,7 +181,9 @@ try {
   assert.match(await detail.innerText(),/Supplemental/i);
   const flash=payload.records.find(r=>r.name==='Flash');
   assert.ok((await detail.innerText()).includes(flash.clauses[0].text));
-  pass('mapped Flash retains 2021 plus transferred text',true);
+  await detail.locator('[data-act="close"]').click();
+  assert.equal(await page.locator('#list .ent[data-k="flash"]').evaluate(e=>document.activeElement===e),true);
+  pass('mapped Flash retains 2021 plus transferred text and original list focus return',true);
   await page.evaluate(()=>VMX.open('exiling cards from graveyard'));
   assert.match(await detail.innerText(),/Primary in the color lists · Secondary in the explanations/);
   await detail.locator('.dx-src summary').click();
@@ -118,6 +210,23 @@ try {
     assert.deepEqual(failures,[]);
     pass('supplement failure: '+kind,{status:'unavailable',legacyUsable:true});await p.close();
   }
+  // Delay only the additive fetch: A–Z can be cached and switched before it arrives.
+  const delayed=await browser.newPage();let releaseSupplement;
+  const released=new Promise(resolve=>{releaseSupplement=resolve;});
+  await delayed.route('**/data/mechanics-supplement.v1.json',async route=>{await released;await route.continue();});
+  await delayed.goto(base+'/vox-color/mechanical-explorer.html');
+  await delayed.waitForFunction(()=>document.querySelector('#selftest').textContent.includes('84 of 84 passed'));
+  const beforeLoad=await delayed.evaluate(mathSnapshot);
+  await delayed.locator('[data-v="az"]').click();assert.equal(await delayed.locator('#list .ent').count(),216);
+  await delayed.locator('[data-v="article"]').click();await delayed.locator('[data-v="az"]').click();
+  const preLoadRow=delayed.locator('#list .ent[data-k="flying"]');await preLoadRow.focus();
+  releaseSupplement();await delayed.waitForFunction(()=>VMX.supplemental().status==='ready');
+  assert.equal(await delayed.locator('#list .ent').count(),587);
+  assert.equal(await preLoadRow.evaluate(e=>document.activeElement===e),true);
+  assert.equal(await delayed.evaluate(mathSnapshot),beforeLoad);
+  await delayed.locator('[data-v="article"]').click();assert.equal(await delayed.locator('#list .ent').count(),216);
+  await delayed.locator('[data-v="az"]').click();assert.equal(await delayed.locator('#list .ent').count(),587);
+  pass('late supplemental fetch invalidates cached A–Z, preserves focus and maths, Article stays 216',true);await delayed.close();
   // The actual packaged shell must load the same packaged explorer and revision.
   await page.goto(base+'/#mechanical-color-pie');
   const frame=page.frameLocator('#frame-pie');

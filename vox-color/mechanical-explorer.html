@@ -512,7 +512,7 @@ html.sheet-open .bar{position:relative}
 .dx-lens b{font-weight:500;color:var(--bone)}
 .dx-ex{margin:0;font:400 16.5px/1.72 var(--f-read);color:var(--ink)}
 /* the explanation opens with a gilt initial, as a field guide's entry would */
-.dx-ex:not(.is-empty)::first-letter{float:left;margin:.06em .1em 0 -.02em;font:700 3.25em/.8 var(--f-display);color:var(--brass-l)}
+.dx-ex:not(.is-empty):not(.is-supplemental)::first-letter{float:left;margin:.06em .1em 0 -.02em;font:700 3.25em/.8 var(--f-display);color:var(--brass-l)}
 .dx-ex.is-empty{font-style:italic;font-size:14px;color:var(--ink-dim)}
 .dx-list{margin:0;padding:0;list-style:none;display:grid;gap:6px;font:400 13.5px/1.5 var(--f-read);color:var(--ink)}
 .dx-list li::before{content:'\2014\00A0';color:var(--brass-q)}
@@ -1095,7 +1095,7 @@ function buildArticle(){
   for (const r of REC.values()) r.sAll = [r.sLab, r.sKey, ...r.sAl, r.sHead, r.sEx].join(' | ');
 }
 const azKey = r => normX(r.disp).replace(/^["'+\-]+/, '').replace(/['"]/g, '') + ' ' + (r.qual || '');
-const AZ = () => cached('az', () => KEYS.slice().sort((a, b) => { const x = azKey(REC.get(a)), y = azKey(REC.get(b)); return x < y ? -1 : x > y ? 1 : 0; }));
+const AZ = () => cached('az', () => [...REC.keys()].sort((a, b) => { const x = azKey(REC.get(a)), y = azKey(REC.get(b)); return x < y ? -1 : x > y ? 1 : 0; }));
 
 /* ======================================================================
    SEARCH — deterministic, inspectable. A query is split into colour words
@@ -1218,21 +1218,23 @@ function stripHTML(colors){
 function labelHTML(r){ return esc(curly(r.disp)).replace(/\//g, '/<wbr>') + (r.qual ? `<span class="e-q"> · ${esc(r.qual)}</span>` : ''); }
 
 function buildEntries(){
-  for (const k of KEYS){
-    const r = REC.get(k);
+  for (const [k, r] of REC){
+    if (entEl.has(k)) continue;
     const b = document.createElement('button');
     b.type = 'button'; b.className = 'ent'; b.dataset.k = k; b.tabIndex = -1;
-    b.title = r.e.label;
+    b.title = r.supplemental ? r.head : r.e.label;
     b.setAttribute('aria-pressed', 'false');
-    b.innerHTML = `<span class="e-lab">${labelHTML(r)}${r.listOnly ? `<span class="e-tag">${esc(unmatchedCase(k).tag)}</span>` : ''}</span>${stripHTML(r.e.colors)}`;
+    b.innerHTML = `<span class="e-lab">${labelHTML(r)}${r.supplemental ? '<span class="e-tag">Supplemental · Rankings unassigned</span>' : r.listOnly ? `<span class="e-tag">${esc(unmatchedCase(k).tag)}</span>` : ''}</span>${r.supplemental ? '' : stripHTML(r.e.colors)}`;
     b._slots = [...b.querySelectorAll('.strip .sc')];
     entEl.set(k, b);
   }
 }
 
-/* Lay the same 216 buttons out in the chosen order. Buttons are moved, never
+/* Lay the existing buttons out in the chosen order, with supplemental entries
+   included only in A–Z. Buttons are moved, never
    recreated, so focus and state survive a change of order. */
 function layoutList(){
+  const focused = listEl.contains(document.activeElement) ? document.activeElement : null;
   const frag = document.createDocumentFragment();
   if (S.view === 'article'){
     let grp = null, grpIn = null, grpName = null;
@@ -1269,6 +1271,7 @@ function layoutList(){
   listEl.appendChild(frag);
   const first = listEl.querySelector('.ent');
   setRoving(roving && document.contains(roving) ? roving : first);
+  if (focused) (visible(focused) ? focused : document.querySelector(`.view-b[data-v="${S.view}"]`)).focus({ preventScroll:true });
 }
 function setRoving(el){
   if (!el) return;
@@ -1342,6 +1345,17 @@ function render(){
       el._sig = sig;
     }
   }
+  /* Supplemental rankings are unknown, so a placement lens or computed
+     spotlight cannot treat them as absent. Search highlighting stays distinct. */
+  for (const [k, el] of entEl){
+    const r = REC.get(k); if (!r.supplemental) continue;
+    const sel = S.pick === k;
+    el.classList.toggle('is-hit', qOn && S.hitSet.has(k));
+    el.classList.toggle('is-miss', qOn && !S.hitSet.has(k) && !sel);
+    el.classList.toggle('is-sel', sel);
+    el.setAttribute('aria-pressed', String(sel));
+    el.setAttribute('aria-label', `${r.head}. Supplemental. Rankings unassigned. Outside the 2021 color calculations.`);
+  }
   /* a group whose entries are all hidden by an explicit spotlight collapses */
   listEl.querySelectorAll('.grp,.lo').forEach(g => g.classList.toggle('is-empty', !!spot && ![...g.querySelectorAll('.ent')].some(x => !x.classList.contains('is-off'))));
   listEl.querySelectorAll('.letter').forEach(h => { let n = h.nextElementSibling, any = false;
@@ -1366,7 +1380,7 @@ function renderBar(lensOn, bk){
     const placed = KEYS.length - b.none.length;   /* placement existence: the same in both readings */
     let dep = false;
     ll.hidden = false;
-    ll.innerHTML = `<span class="who"><span aria-hidden="true">${[...setKey(S.sel)].map(pip).join('')}</span><span><b>${placed}</b> of ${KEYS.length} entries
+    ll.innerHTML = `<span class="who"><span aria-hidden="true">${[...setKey(S.sel)].map(pip).join('')}</span><span><b>${placed}</b> of ${KEYS.length} 2021 entries
         have a placement in ${esc(listWords(cnames(S.sel)))}</span><span class="calc">computed</span></span>` +
       (S.selFromQuery ? `<span class="src">Set from your search</span>` : '') +
       ['primary','secondary','tertiary','none'].map(t => {
@@ -1578,13 +1592,13 @@ function renderSpot(){
   keepFocus(bar, () => {
     if (!S.spot){ bar.hidden = true; bar.innerHTML = ''; return; }
     bar.hidden = false;
-    bar.innerHTML = `<span>Showing <b>${S.spot.keys.size}</b> ${plural(S.spot.keys.size, 'entry', 'entries')}: ${esc(S.spot.label)}.${S.spot.dep ? ' Depends on conflicting 2021 claims.' : ''}</span>
+    bar.innerHTML = `<span>Showing <b>${S.spot.keys.size}</b> 2021 ${plural(S.spot.keys.size, 'entry', 'entries')}: ${esc(S.spot.label)}.${S.spot.dep ? ' Depends on conflicting 2021 claims.' : ''}${S.view === 'az' && SUPPLEMENT.status === 'ready' ? ' Supplemental entries remain visible outside this 2021 calculation.' : ''}</span>
       <span class="calc">computed</span><button class="go" type="button" data-act="unspot" data-fid="unspot">Show all entries</button>`;
   });
   const cap = $('#list-cap');
   cap.innerHTML = S.view === 'article'
     ? `<span><b>${ARTICLE.length}</b> entries in the article's order, under its own sub-headings · then <b>${LIST_ONLY.length}</b> from its color lists only</span><span>Select an entry for Rosewater's explanation</span>`
-    : `<span><b>${KEYS.length}</b> entries, A–Z</span><span>Select an entry for Rosewater's explanation</span>`;
+    : `<span><b>${REC.size}</b> entries, A–Z · <b>${KEYS.length}</b> from 2021 · <b>${REC.size - KEYS.length}</b> supplemental</span><span>Select an entry for its explanation or attributed evidence</span>`;
   const note = $('#empty-q');
   const q = S.q.trim();
   note.hidden = !(q && S.parsed && S.parsed.phrase && !S.hits.length);
@@ -1853,7 +1867,7 @@ function supplementalRecordHTML(a){
     <p class="dx-note">Accepted population: ${esc(a.population)} · Source category: ${esc(a.category)}</p>
     ${a.aliases.length ? `<p class="dx-note">Accepted aliases: ${a.aliases.map(esc).join(', ')}</p>` : ''}
     ${a.rule ? `<p class="dx-note">Direct rule number: ${esc(a.rule)}</p>` : ''}
-    ${a.clauses.map(c => `<p class="dx-ex" style="white-space:pre-wrap"><b>${esc(c.number)}</b> ${esc(c.text)}</p>`).join('')}
+    ${a.clauses.map(c => `<p class="dx-ex is-supplemental" style="white-space:pre-wrap"><b>${esc(c.number)}</b> ${esc(c.text)}</p>`).join('')}
     ${a.rulesSource ? `<div class="dx-note"><b>${a.clauses.length ? 'Comprehensive Rules source' : 'Stored rules snapshot metadata (no quoted rule in this record)'}</b>${supplementalValueHTML(a.rulesSource)}</div>` : ''}
     ${a.reference ? `<div class="dx-note"><b>Accepted reference</b>${supplementalValueHTML(a.reference)}</div>` : ''}
     <div class="dx-note"><b>Status and qualifications</b>${supplementalValueHTML(a.qualifications)}</div>
@@ -1868,7 +1882,7 @@ function supplementalDetailHTML(k){
   const r = REC.get(k);
   return `<div class="dx-top"><p class="dx-where">Supplemental mechanic record</p><button class="dx-close" type="button" data-act="close" data-fid="dx-close" aria-label="Close entry">×</button></div>
     <h2 class="dx-title${r.head.length > 48 ? ' long' : ''}" id="dx-title">${esc(r.head)}</h2>
-    <section class="dx-sec" aria-label="Recorded placements"><h3 class="dx-h">Recorded placements</h3><p class="dx-ex">No sourced Primary/Secondary/Tertiary assignment is recorded.</p><p class="dx-note">This supplemental record is outside the frozen 2021 catalog and its color lens calculations.</p></section>
+    <section class="dx-sec" aria-label="Recorded placements"><h3 class="dx-h">Recorded placements</h3><p class="dx-ex is-supplemental">No sourced Primary/Secondary/Tertiary assignment is recorded.</p><p class="dx-note">This supplemental record is outside the frozen 2021 catalog and its color lens calculations.</p></section>
     ${(SUP_BY_KEY.get(k) || []).map(supplementalRecordHTML).join('')}`;
 }
 async function loadSupplement(){
@@ -1905,9 +1919,12 @@ async function loadSupplement(){
         if (!SUP_NAMES.get(key).some(x => x.k === k && x.alias === alias)) SUP_NAMES.get(key).push({k,name,alias});
       }
     }
+    memo.delete('az');
+    buildEntries();
+    if (S.view === 'az') layoutList();
     SUPPLEMENT.status = 'ready';
     const supplemental = SUPPLEMENT.records.filter(a => !a.target2021).length;
-    status.textContent = `${data.records.length} accepted source records available in search: ${supplemental} supplemental records and ${data.records.length - supplemental} mapped to existing 2021 entries. Supplemental records do not enter the 2021 color calculations.`;
+    status.textContent = `${data.records.length} accepted source records available in search and A–Z: ${supplemental} supplemental records and ${data.records.length - supplemental} mapped to existing 2021 entries. Supplemental records do not enter the 2021 color calculations.`;
   } catch (err){
     SUPPLEMENT.status = 'unavailable';
     status.textContent = 'Supplemental mechanic records are unavailable. The 2021 catalog and its search remain available. Reload the page to try again.';
@@ -2139,21 +2156,25 @@ function setSpot(id){
 }
 function openEntry(k, opts = {}){
   if (!REC.has(k)) return;
-  searchReturn = !!REC.get(k).supplemental;
+  searchReturn = opts.from === 'search' && !!REC.get(k).supplemental;
   S.pick = k;
   const entry = entEl.get(k);
-  if (entry) setRoving(entry);
+  if (visible(entry)) setRoving(entry);
   render();
-  if (entry) entry.scrollIntoView({ block:opts.from === 'search' ? 'center' : 'nearest', behavior:behavior() });
+  if (visible(entry)) entry.scrollIntoView({ block:opts.from === 'search' ? 'center' : 'nearest', behavior:behavior() });
   if (opts.focus){
-    const focus = searchReturn ? detailEl.querySelector('.dx-close') : entry;
+    const focus = REC.get(k).supplemental || !visible(entry) ? detailEl.querySelector('.dx-close') : entry;
     if (focus) focus.focus({ preventScroll:true });
   }
   announce(`${REC.get(k).disp} opened.`);
 }
 function closeEntry(restoreFocus){
   const k = S.pick, backToSearch = searchReturn; S.pick = null; render();
-  if (restoreFocus && k){ const el = backToSearch ? qEl : entEl.get(k); if (el) el.focus({ preventScroll:true }); }
+  if (restoreFocus && k){
+    const entry = entEl.get(k);
+    const el = backToSearch ? qEl : visible(entry) ? entry : document.querySelector(`.view-b[data-v="${S.view}"]`);
+    if (el) el.focus({ preventScroll:true });
+  }
   announce('Entry closed.');
 }
 function pageResults(dir){
@@ -2324,7 +2345,7 @@ async function boot(){
   buildRecords();
   buildArticle();
   const n = KEYS.reduce((t, k) => t + Object.keys(MECH[k].colors).length, 0);
-  $('#meta').innerHTML = `<b>${KEYS.length}</b> entries<span class="sep">·</span><b>${n}</b> color placements<span class="sep">·</span>` +
+  $('#meta').innerHTML = `<b>${KEYS.length}</b> 2021 entries<span class="sep">·</span><b>${n}</b> 2021 color placements<span class="sep">·</span>` +
     '<span class="meta-w">' + ORDER.map(c => `<span class="wl wl-${c}">${c}</span>`).join(' ') + '</span>';
   buildPips(); buildEntries(); buildCompass(); layoutList();
   bindEvents(); updateStick(); render(); buildKey(); checkManaFont();
