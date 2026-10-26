@@ -518,6 +518,10 @@ html.sheet-open .bar{position:relative}
 .supp-rule-number{font:500 .78em/1.4 var(--f-mono);color:var(--ink-dim);white-space:nowrap}
 .supp-quote{margin:12px 0 0;white-space:pre-wrap}
 .supp-citation{overflow-wrap:anywhere}
+.supp-symbol{display:inline-block;white-space:nowrap}
+.supp-symbol .ms{display:none;font-size:.9em;vertical-align:baseline}
+.supp-mana-ready .supp-symbol .ms{display:inline-block}
+.supp-mana-ready .supp-symbol-text{display:none}
 .dx-ex.is-empty{font-style:italic;font-size:14px;color:var(--ink-dim)}
 .dx-list{margin:0;padding:0;list-style:none;display:grid;gap:6px;font:400 13.5px/1.5 var(--f-read);color:var(--ink)}
 .dx-list li::before{content:'\2014\00A0';color:var(--brass-q)}
@@ -1830,6 +1834,24 @@ function validateSupplementLinks(value, field = ''){
   if (value && typeof value === 'object'){ Object.entries(value).forEach(([k,v]) => validateSupplementLinks(v,k)); return; }
   if (typeof value === 'string' && (/url$/i.test(field) || /^https?:\/\//i.test(value)) && !supplementalURL(value)) throw new Error('Unsupported supplemental source link');
 }
+/* Same token meanings and Mana class names as the owning source renderer;
+   only tokens present in the accepted supplemental evidence are supported. */
+const SUP_MANA = {
+  '0':['0','0 generic mana'], '1':['1','1 generic mana'], '2':['2','2 generic mana'],
+  '3':['3','3 generic mana'], '5':['5','5 generic mana'], '6':['6','6 generic mana'],
+  W:['w','One white mana'], U:['u','One blue mana'], G:['g','One green mana'], R:['r','One red mana'],
+  'W/B':['wb','One white or black mana'], T:['tap','Tap'], X:['x','X generic mana']
+};
+function supplementalTextHTML(value){
+  let html = '', cursor = 0;
+  for (const match of value.matchAll(/\{[^{}\r\n]+\}/g)){
+    html += esc(value.slice(cursor, match.index));
+    const symbol = Object.hasOwn(SUP_MANA, match[0].slice(1,-1)) ? SUP_MANA[match[0].slice(1,-1)] : null;
+    html += symbol ? `<span class="supp-symbol" role="img" aria-label="${esc(symbol[1])}" title="${esc(symbol[1])}"><i class="ms ms-cost ms-${symbol[0]}" aria-hidden="true"></i><span class="supp-symbol-text" aria-hidden="true">${esc(match[0])}</span></span>` : esc(match[0]);
+    cursor = match.index + match[0].length;
+  }
+  return html + esc(value.slice(cursor));
+}
 /* Presentation selects player-facing evidence explicitly. Transport metadata stays
    in the unchanged payload and audit artifacts, outside the detail DOM. */
 function supplementalDate(value){
@@ -1874,14 +1896,14 @@ function supplementalRecordHTML(a, mapped = false){
   const heading = kind === 'designer-card-example' ? 'Designer card example' : kind === 'archived-mechanic-discussion' ? 'Archived design discussion' : kind === 'playtest-card-example' ? 'Playtest card example' : example ? 'Card example' : 'Reference';
   const excerpts = [...new Set([ref && ref.quote, ref && ref.summary, review && review.exactExcerpt].filter(Boolean))];
   const rules = a.clauses.length ? `<section class="dx-sec supp-rules" aria-label="${mapped ? 'Supplemental rules' : 'Rules'}"><h3 class="dx-h">${mapped ? 'Supplemental rules' : 'Rules'}</h3>
-    ${a.clauses.map(c => `<p class="dx-ex is-supplemental"><b class="supp-rule-number">${esc(c.number)}</b> ${esc(c.text)}</p>`).join('')}
+    ${a.clauses.map(c => `<p class="dx-ex is-supplemental"><b class="supp-rule-number">${esc(c.number)}</b> ${supplementalTextHTML(c.text)}</p>`).join('')}
     <p class="dx-note supp-citation"><a href="${esc(supplementalURL(a.rulesSource.sourceUrl))}" target="_blank" rel="noopener noreferrer">Wizards Comprehensive Rules · ${esc(supplementalDate(a.rulesSource.date))}</a></p></section>` : '';
   const reference = ref && ref.source ? `<section class="dx-sec supp-reference" aria-label="${mapped ? 'Supplemental reference' : heading}"><h3 class="dx-h">${mapped ? 'Supplemental ' + heading.toLowerCase() : heading}</h3>
     ${ref.source.section ? `<p class="dx-note">${esc(ref.source.section)}</p>` : ''}
     ${example ? '<p class="dx-note">Card-specific evidence; this is not a general definition.</p>' : ''}
     ${ref.generalReference ? '<p class="dx-note">The numbered rule describes flavor words as a group.</p>' : ''}
     ${a.category === 'ability word' && a.clauses.length ? '<p class="dx-note">The numbered rule describes ability words as a group.</p>' : ''}
-    ${excerpts.map(text => `<blockquote class="dx-ex is-supplemental supp-quote">${esc(text)}</blockquote>`).join('')}
+    ${excerpts.map(text => `<blockquote class="dx-ex is-supplemental supp-quote">${supplementalTextHTML(text)}</blockquote>`).join('')}
     ${!a.clauses.length && !excerpts.length ? '<p class="dx-note">No definition text is reproduced in this reference.</p>' : ''}
     ${supplementalSources(a)}</section>` : '';
   const scope = review || ref && (ref.definitionVerified === false || ref.playtest) ? `<section class="dx-sec supp-scope" aria-label="Scope and limitations"><h3 class="dx-h">Scope and limitations</h3>
@@ -2405,11 +2427,14 @@ function checkManaFont(){
   const probe = document.querySelector('.pip .ms');
   /* The computed font-family names Mana whenever the stylesheet loads, even
      if the font file then fails, so also ask whether a Mana face loaded. */
-  let failed = false;
-  const test = () => document.documentElement.classList.toggle('no-mana', failed || !probe || !/Mana/.test(getComputedStyle(probe).fontFamily));
+  let failed = false, supplementFontReady = false;
+  const test = () => {
+    document.documentElement.classList.toggle('no-mana', failed || !probe || !/Mana/.test(getComputedStyle(probe).fontFamily));
+    document.documentElement.classList.toggle('supp-mana-ready', supplementFontReady && !document.documentElement.classList.contains('no-mana'));
+  };
   test(); window.addEventListener('load', test);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(test);
-  if (document.fonts && document.fonts.load) document.fonts.load('16px Mana', '').then(f => { failed = !f.length; test(); }, () => { failed = true; test(); });
+  if (document.fonts && document.fonts.load) document.fonts.load('16px Mana', '').then(f => { failed = !f.length; supplementFontReady = !!f.length; test(); }, () => { failed = true; test(); });
 }
 
 function api(){

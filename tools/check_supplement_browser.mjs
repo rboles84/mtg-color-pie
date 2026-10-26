@@ -144,8 +144,14 @@ try {
   assert.equal(await page.locator('#list .ent[data-k="flying"]').evaluate(e=>document.activeElement===e),true);
   await page.locator('[data-v="article"]').click();
   pass('browse mouse, Enter/Space, focus/view fallback, exact Training clauses, drop caps and desktop/360px overflow',true);
-  const evidenceCheck=await page.evaluate(records=>{
-    const failures=[];
+  const expectedSymbols={
+    '0':['0','0 generic mana'],'1':['1','1 generic mana'],'2':['2','2 generic mana'],
+    '3':['3','3 generic mana'],'5':['5','5 generic mana'],'6':['6','6 generic mana'],
+    W:['w','One white mana'],U:['u','One blue mana'],G:['g','One green mana'],R:['r','One red mana'],
+    'W/B':['wb','One white or black mana'],T:['tap','Tap'],X:['x','X generic mana']
+  };
+  const evidenceCheck=await page.evaluate(({records,symbols})=>{
+    const failures=[],seenTokens=new Set();let symbolCount=0;
     for(const a of records){
       VMX.open(a.target2021||a.id);
       const host=document.querySelector('#detail'), scope=host.querySelector('.supp-evidence');
@@ -154,6 +160,15 @@ try {
       if(JSON.stringify(clauses)!==JSON.stringify(a.clauses.map(c=>c.number+' '+c.text)))failures.push(a.name+': clauses');
       const excerpts=[...new Set([ref?.quote,ref?.summary,review?.exactExcerpt].filter(Boolean))];
       if(JSON.stringify([...host.querySelectorAll('.supp-reference blockquote')].map(p=>p.textContent))!==JSON.stringify(excerpts))failures.push(a.name+': excerpts');
+      const tokens=[...a.clauses.map(c=>c.text),...excerpts].flatMap(text=>[...text.matchAll(/\{[^{}\r\n]+\}/g)].map(m=>m[0]));
+      const rendered=[...host.querySelectorAll('.supp-symbol')];
+      if(JSON.stringify(rendered.map(n=>n.textContent))!==JSON.stringify(tokens))failures.push(a.name+': symbol tokens');
+      for(const node of rendered){
+        const token=node.textContent.slice(1,-1),expected=symbols[token];seenTokens.add(token);symbolCount++;
+        if(!expected||node.getAttribute('role')!=='img'||node.getAttribute('aria-label')!==expected[1]||
+          !node.querySelector('.ms-'+expected[0])||node.querySelector('i').getAttribute('aria-hidden')!=='true'||
+          node.querySelector('.supp-symbol-text').getAttribute('aria-hidden')!=='true')failures.push(a.name+': symbol semantics '+token);
+      }
       for(const value of [review?.verifiedScope,review?.limits,ref?.source?.title,ref?.source?.section,ref?.supportingSource?.title].filter(Boolean)){
         if(!text.includes(value))failures.push(a.name+': missing '+value);
       }
@@ -176,9 +191,10 @@ try {
         if(!host.querySelector('#supp-ranking-note')?.textContent.includes('No sourced Primary/Secondary/Tertiary assignment is recorded.'))failures.push(a.name+': accessible unknown ranking');
       }
     }
-    VMX.close();return {records:records.length,failures};
-  },payload.records);
+    VMX.close();return {records:records.length,symbolCount,tokens:[...seenTokens].sort(),failures};
+  },{records:payload.records,symbols:expectedSymbols});
   assert.deepEqual(evidenceCheck.failures,[]);
+  assert.deepEqual(evidenceCheck.tokens,Object.keys(expectedSymbols).sort());
   pass('all 390 evidence records: exact rules/excerpts/scopes, meaningful deduplicated citations, no backend metadata in detail DOM',evidenceCheck);
   for(const name of ['Attach','Bargain']){
     const record=payload.records.find(r=>r.name===name);
@@ -217,6 +233,55 @@ try {
   assert.match(await page.locator('.foot').innerText(),/In the 2021 catalog.*Supplemental rules and references are attributed separately/);
   await page.evaluate(()=>VMX.close());
   pass('Attach/Bargain paragraph separation at desktop/360px; narrow references retain publisher, date and limitations; footer scoped',true);
+  const firebending=payload.records.find(r=>r.name==='Firebending');
+  await q.fill('Firebending');await q.press('Enter');
+  const redSymbol=detail.getByRole('img',{name:'One red mana',exact:true});
+  assert.equal(await redSymbol.count(),1);assert.equal(await redSymbol.textContent(),'{R}');
+  await page.evaluate(()=>document.fonts.ready);
+  const fontState=await redSymbol.evaluate(e=>({
+    ready:document.documentElement.classList.contains('supp-mana-ready'),
+    glyph:getComputedStyle(e.querySelector('.ms')).display,fallback:getComputedStyle(e.querySelector('.supp-symbol-text')).display,
+    content:getComputedStyle(e.querySelector('.ms'),'::before').content,
+    family:getComputedStyle(e.querySelector('.ms')).fontFamily,
+    color:getComputedStyle(e.querySelector('.ms')).backgroundColor
+  }));
+  assert.equal(fontState.ready,true,JSON.stringify(fontState));
+  assert.notEqual(fontState.glyph,'none');assert.equal(fontState.fallback,'none');
+  assert.match(fontState.family,/Mana/);assert.notEqual(fontState.content,'none');assert.equal(fontState.color,'rgb(217, 120, 88)');
+  assert.deepEqual(await detail.locator('.supp-rules .dx-ex').allTextContents(),firebending.clauses.map(c=>c.number+' '+c.text));
+  for(const [name,label,glyph] of [['Extort','One white or black mana','wb'],['Outlast','Tap','tap'],['Food','2 generic mana','2'],['Ravenous','X generic mana','x']]){
+    const record=payload.records.find(r=>r.name===name);await page.evaluate(k=>VMX.open(k),record.target2021||record.id);
+    const symbol=detail.getByRole('img',{name:label,exact:true});assert.equal(await symbol.count(),1);
+    assert.equal(await symbol.locator('.ms-'+glyph).count(),1);
+  }
+  await page.evaluate(()=>VMX.open('flying'));
+  assert.equal(await detail.locator('[aria-label="Explanation"] .supp-symbol').count(),0);
+  await page.evaluate(()=>VMX.close());
+  pass('sourced Firebending red, hybrid, tap, generic and X glyphs accessible; original 2021 explanation unchanged',fontState);
+  const hostile='{UNKNOWN} {__proto__} {constructor} {R" onmouseover="window.symbolInjected=true} <img src=x onerror="window.symbolInjected=true"> & "quoted"';
+  const synthetic=JSON.parse(JSON.stringify(payload));
+  const syntheticFire=synthetic.records.find(r=>r.name==='Firebending');
+  syntheticFire.clauses[0].text+=' '+hostile;
+  const noFont=await browser.newPage();const noFontErrors=[];noFont.on('pageerror',e=>noFontErrors.push(e.message));
+  await noFont.route('**/*',route=>route.request().resourceType()==='font'?route.abort():route.continue());
+  await noFont.route('**/data/mechanics-supplement.v1.json',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify(synthetic)}));
+  await noFont.goto(base+'/vox-color/mechanical-explorer.html');
+  await noFont.waitForFunction(()=>window.VMX?.supplemental().status==='ready');
+  await noFont.evaluate(()=>document.fonts.ready);
+  await noFont.evaluate(k=>VMX.open(k),syntheticFire.id);
+  assert.deepEqual(await noFont.locator('#detail .supp-rules .dx-ex').allTextContents(),syntheticFire.clauses.map(c=>c.number+' '+c.text));
+  assert.equal(await noFont.locator('#detail .supp-symbol').count(),1);
+  const fallback=await noFont.locator('#detail .supp-symbol').evaluate(e=>({
+    glyph:getComputedStyle(e.querySelector('.ms')).display,fallback:getComputedStyle(e.querySelector('.supp-symbol-text')).display,
+    literal:e.querySelector('.supp-symbol-text').innerText,label:e.getAttribute('aria-label')
+  }));
+  assert.equal(fallback.glyph,'none');assert.notEqual(fallback.fallback,'none');assert.equal(fallback.literal,'{R}');assert.equal(fallback.label,'One red mana');
+  assert.equal(await noFont.locator('#detail .supp-rules img, #detail .supp-rules script, #detail .supp-rules [onmouseover]').count(),0);
+  assert.equal(await noFont.evaluate(()=>!!window.symbolInjected),false);assert.deepEqual(noFontErrors,[]);
+  assert.ok((await noFont.locator('#detail .supp-rules .dx-ex').first().innerText()).includes(hostile));
+  await noFont.close();
+  pass('blocked Mana font keeps literal accessible fallback; unknown/prototype/hostile tokens stay escaped text',fallback);
+
 
   await q.fill('Training');await page.locator('#res-list .opt').first().click();
   await detail.waitFor({state:'visible'});
