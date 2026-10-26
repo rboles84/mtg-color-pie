@@ -5,6 +5,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import http from 'node:http';
 import assert from 'node:assert/strict';
+import {createHash} from 'node:crypto';
 import {createRequire} from 'node:module';
 const args=process.argv.slice(2), option=(name,fallback)=>args.includes(name)?args[args.indexOf(name)+1]:fallback;
 const root=path.resolve(option('--root','.'));
@@ -12,6 +13,11 @@ const modulePath=option('--playwright',process.env.PLAYWRIGHT_PATH||'playwright'
 const {chromium}=createRequire(import.meta.url)(modulePath);
 const payload=JSON.parse(fs.readFileSync(path.join(root,'data/mechanics-supplement.v1.json'),'utf8'));
 assert.equal(payload.schemaVersion,1); assert.equal(payload.records.length,390);
+const scope=JSON.parse(fs.readFileSync(path.join(root,'data/mechanics-supplement-scope.v1.json'),'utf8'));
+const sha256=text=>createHash('sha256').update(text).digest('hex');
+assert.equal(scope.schemaVersion,1);assert.equal(scope.records.length,390);
+assert.equal(scope.payloadCanonicalSha256,sha256(JSON.stringify(payload)));
+assert.equal(scope.payloadSha256,sha256(fs.readFileSync(path.join(root,'data/mechanics-supplement.v1.json'))));
 const server=http.createServer((req,res)=>{
   const pathname=decodeURIComponent(new URL(req.url,'http://localhost').pathname);
   const file=path.resolve(root,'.'+pathname+(pathname.endsWith('/')?'index.html':''));
@@ -75,14 +81,23 @@ try {
   assert.equal(browse.keys.length,587);assert.equal(new Set(browse.keys).size,587);
   assert.deepEqual([...browse.keys].sort(),expectedKeys.sort());assert.equal(browse.tabbable,1);
   // Titles include glosses; the visible label plus qualifier is the index's sort key.
-  const sorted=await page.evaluate(()=>[...document.querySelectorAll('#list .ent')].map(e=>{
+  const sortedGroups=await page.evaluate(()=>[...document.querySelectorAll('#list > .grp')].map(group=>({id:group.dataset.scope,label:group.getAttribute('aria-label'),count:group.querySelector('h3 small').textContent,keys:[...group.querySelectorAll('.ent')].map(e=>e.dataset.k),sorted:[...group.querySelectorAll('.ent')].map(e=>{
     const label=e.querySelector('.e-lab').cloneNode(true);
     label.querySelectorAll('.e-tag,.e-q').forEach(e=>e.remove());
     return label.textContent.toLowerCase().replace(/[\u2018\u2019]/g,"'")
       .replace(/[\u201c\u201d"]/g,'').replace(/[\u2013\u2014]/g,'-').replace(/\u200b/g,'').replace(/\s+/g,' ').trim()
       .replace(/[.\s]+$/,'').replace(/^["'+\-]+/,'').replace(/['"]/g,'')+' '+(e.querySelector('.e-q')?.textContent.replace(/^ · /,'')||'');
-  }));
-  assert.ok(sorted.every((v,i)=>i===0||sorted[i-1]<=v));
+  })})));
+  const newRecords=payload.records.filter(r=>!r.target2021), scopedById=new Map(scope.records.map(r=>[r.id,r]));
+  const expectedGroups=[{id:'2021',label:'Mechanical Color Pie 2021',keys:Object.keys(original)},...scope.groups.map(group=>({
+    id:group.id,label:group.label,keys:newRecords.filter(r=>scopedById.get(r.id).group===group.id).map(r=>r.id)
+  })).filter(group=>group.keys.length)];
+  assert.deepEqual(sortedGroups.map(g=>[g.id,g.label]),expectedGroups.map(g=>[g.id,g.label]));
+  for(const [i,group] of sortedGroups.entries()){
+    assert.deepEqual([...group.keys].sort(),expectedGroups[i].keys.sort());
+    assert.equal(group.count,group.keys.length+' '+(group.keys.length===1?'entry':'entries'));
+    assert.ok(group.sorted.every((v,i)=>i===0||group.sorted[i-1]<=v),group.id);
+  }
   assert.match(await page.locator('#list-cap').innerText(),/587.*216.*2021.*371.*supplemental/);
   assert.match(await page.locator('#meta').innerText(),/216.*2021 entries.*2021 color placements/);
   const supplementalKeys=payload.records.filter(r=>!r.target2021).map(r=>r.id);
@@ -92,7 +107,7 @@ try {
       const e=[...document.querySelectorAll('#list .ent')].find(e=>e.dataset.k===k);
       return !e||e.classList.contains('is-out')||e.classList.contains('is-off')||e.querySelector('.strip')||
         getComputedStyle(e).display==='none'||getComputedStyle(e).opacity!=='1'||
-        !e.textContent.includes('Supplemental · Rankings unassigned')||!e.getAttribute('aria-label').includes('Rankings unassigned');
+        !e.textContent.includes('Rankings unassigned')||!e.getAttribute('aria-label').includes('Rankings unassigned');
     }),supplementalKeys);
     assert.deepEqual(failures,[],code);
   }
@@ -107,7 +122,7 @@ try {
   }),expectedKeys);
   assert.deepEqual(opened,[]);await page.evaluate(()=>VMX.close());
   assert.equal(await page.evaluate(mathSnapshot),beforeViews);
-  pass('A–Z all 587 unique sorted destinations; 371 rows outside every tested lens/spotlight; immutable maths',true);
+  pass('A–Z all 587 unique destinations, alphabetical within audited scope groups; 371 rows outside every tested lens/spotlight; immutable maths',true);
   const trainingRow=page.locator('#list .ent').filter({hasText:'Training'}).filter({hasText:'Rankings unassigned'});
   await trainingRow.click();assert.equal(await detail.locator('#dx-title').innerText(),'Training');
   await detail.locator('[data-act="close"]').click();assert.equal(await trainingRow.evaluate(e=>e===document.activeElement),true);
@@ -150,12 +165,20 @@ try {
     W:['w','One white mana'],U:['u','One blue mana'],G:['g','One green mana'],R:['r','One red mana'],
     'W/B':['wb','One white or black mana'],T:['tap','Tap'],X:['x','X generic mana']
   };
-  const evidenceCheck=await page.evaluate(({records,symbols})=>{
+  const evidenceCheck=await page.evaluate(({records,symbols,scopes,groups})=>{
+    const classifications=new Map(scopes.map(r=>[r.id,r])),groupLabels=new Map(groups.map(g=>[g.id,g.label]));
     const failures=[],seenTokens=new Set();let symbolCount=0;
     for(const a of records){
       VMX.open(a.target2021||a.id);
       const host=document.querySelector('#detail'), scope=host.querySelector('.supp-evidence');
       const text=scope?.textContent||'', ref=a.reference, review=a.qualifications.acceptedSourceReview;
+      const classification=classifications.get(a.id), upfront=host.querySelector('.supp-classification');
+      const statusInNote=/\bdefinition\b/i.test(classification.scopeNote)&&/\b(?:no|not|unverified)\b/i.test(classification.scopeNote);
+      const visibleQualifications=classification.qualifications.filter(text=>text!=='General definition unverified'||!statusInNote);
+      if(!upfront||![classification.scopeNote,...visibleQualifications].every(text=>upfront.textContent.includes(text)))failures.push(a.name+': upfront scope');
+      if(statusInNote&&(upfront.querySelectorAll('li').length!==visibleQualifications.length||text.includes('A general definition has not been verified.')))failures.push(a.name+': repeated generated definition warning');
+      const type=a.target2021?upfront.querySelector('h3'):host.querySelector('.dx-where');
+      if(!type?.textContent.includes(classification.evidenceLabel)||!type?.textContent.includes(groupLabels.get(classification.group)))failures.push(a.name+': scope type');
       const clauses=[...host.querySelectorAll('.supp-rules .dx-ex')].map(p=>p.textContent);
       if(JSON.stringify(clauses)!==JSON.stringify(a.clauses.map(c=>c.number+' '+c.text)))failures.push(a.name+': clauses');
       const excerpts=[...new Set([ref?.quote,ref?.summary,review?.exactExcerpt].filter(Boolean))];
@@ -172,7 +195,7 @@ try {
       for(const value of [review?.verifiedScope,review?.limits,ref?.source?.title,ref?.source?.section,ref?.supportingSource?.title].filter(Boolean)){
         if(!text.includes(value))failures.push(a.name+': missing '+value);
       }
-      if(ref?.definitionVerified===false&&!text.includes('A general definition has not been verified.'))failures.push(a.name+': missing definition limitation');
+      if(ref?.definitionVerified===false&&!statusInNote&&!text.includes('General definition unverified')&&!text.includes('A general definition has not been verified.'))failures.push(a.name+': missing definition limitation');
       if(ref?.playtest&&!text.includes('Not legal in Commander.'))failures.push(a.name+': playtest scope');
       if(/https?:\/\/|sha-?256|Original source ID|Accepted population|Source category|Provider categor|Record provenance|None recorded|Source record metadata|Stored rules snapshot/i.test(text))failures.push(a.name+': backend text');
       if(/[a-f0-9]{64}|[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}/i.test(scope?.innerHTML||''))failures.push(a.name+': technical value');
@@ -187,15 +210,46 @@ try {
         if(!links.some(link=>canonical(link.href)===canonical(url)))failures.push(a.name+': missing citation');
       }
       if(!a.target2021){
-        if(host.querySelectorAll('h2').length!==1||!host.querySelector('.dx-where').textContent.includes(a.category)||host.querySelector('.dx-top').textContent.includes('mechanic record')||!host.textContent.includes('Rankings unassigned'))failures.push(a.name+': heading/status');
+        if(host.querySelectorAll('h2').length!==1||!host.querySelector('.dx-where').textContent.includes(classification.evidenceLabel)||host.querySelector('.dx-top').textContent.includes('mechanic record')||!host.textContent.includes('Rankings unassigned'))failures.push(a.name+': heading/status');
         if(!host.querySelector('#supp-ranking-note')?.textContent.includes('No sourced Primary/Secondary/Tertiary assignment is recorded.'))failures.push(a.name+': accessible unknown ranking');
       }
     }
     VMX.close();return {records:records.length,symbolCount,tokens:[...seenTokens].sort(),failures};
-  },{records:payload.records,symbols:expectedSymbols});
+  },{records:payload.records,symbols:expectedSymbols,scopes:scope.records,groups:scope.groups});
   assert.deepEqual(evidenceCheck.failures,[]);
   assert.deepEqual(evidenceCheck.tokens,Object.keys(expectedSymbols).sort());
   pass('all 390 evidence records: exact rules/excerpts/scopes, meaningful deduplicated citations, no backend metadata in detail DOM',evidenceCheck);
+  const searchScopes=await page.evaluate(({records,scopes,groups})=>{
+    const byId=new Map(scopes.map(r=>[r.id,r])),labels=new Map(groups.map(g=>[g.id,g.label])),failures=[];
+    document.querySelector('#q').focus();
+    for(const record of records){
+      VMX.setQuery(record.name);
+      const option=[...document.querySelectorAll('#res-list .opt')].find(e=>e.dataset.k===(record.target2021||record.id));
+      const badge=option?.querySelector('.scope-badge');
+      if(!option||(record.target2021?(badge||!option.querySelector('.strip')):badge?.textContent!==labels.get(byId.get(record.id).group)))failures.push(record.name);
+    }
+    VMX.setQuery('');return failures;
+  },{records:payload.records,scopes:scope.records,groups:scope.groups});
+  assert.deepEqual(searchScopes,[]);
+  for(const [name,group] of [['Affinitycycling','designer'],['Legacy','playtest'],['Underdog','playtest'],['Kinfall','playtest'],['Actualize','digital'],['Covercast','digital'],['Jump','card-specific'],['Parade!','card-specific'],["Hero's Reward",'special'],['Augment','special']]){
+    const record=payload.records.find(r=>r.name===name),audit=scopedById.get(record.id);
+    assert.equal(audit.group,group,name);
+    for(const width of [1440,360]){
+      await page.setViewportSize({width,height:900});await page.evaluate(k=>VMX.open(k),record.id);
+      const upfront=detail.locator('.supp-classification');
+      const visibleScope=await upfront.evaluate(e=>{
+        const box=e.getBoundingClientRect(),detail=e.closest('#detail').getBoundingClientRect();
+        return {text:e.textContent,visible:box.top>=detail.top&&box.bottom<=detail.bottom,fit:e.scrollWidth<=e.clientWidth+1};
+      });
+      assert.ok(visibleScope.visible&&visibleScope.fit,name+' '+width+': '+JSON.stringify(visibleScope));
+      assert.ok(visibleScope.text.includes(audit.scopeNote));
+      assert.ok((await detail.locator('.dx-where').innerText()).includes(scope.groups.find(g=>g.id===group).label));
+      assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+    }
+  }
+  await page.setViewportSize({width:1440,height:900});await page.evaluate(()=>VMX.close());
+  pass('all 390 search scopes; critical playtest/designer/digital/card/special types and complete upfront scope visible desktop/360px',true);
+
   for(const name of ['Attach','Bargain']){
     const record=payload.records.find(r=>r.name===name);
     for(const width of [1440,360]){
@@ -262,9 +316,11 @@ try {
   const synthetic=JSON.parse(JSON.stringify(payload));
   const syntheticFire=synthetic.records.find(r=>r.name==='Firebending');
   syntheticFire.clauses[0].text+=' '+hostile;
+  const syntheticScope={...scope,payloadSha256:sha256(JSON.stringify(synthetic)),payloadCanonicalSha256:sha256(JSON.stringify(synthetic))};
   const noFont=await browser.newPage();const noFontErrors=[];noFont.on('pageerror',e=>noFontErrors.push(e.message));
   await noFont.route('**/*',route=>route.request().resourceType()==='font'?route.abort():route.continue());
   await noFont.route('**/data/mechanics-supplement.v1.json',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify(synthetic)}));
+  await noFont.route('**/data/mechanics-supplement-scope.v1.json',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify(syntheticScope)}));
   await noFont.goto(base+'/vox-color/mechanical-explorer.html');
   await noFont.waitForFunction(()=>window.VMX?.supplemental().status==='ready');
   await noFont.evaluate(()=>document.fonts.ready);
@@ -332,22 +388,36 @@ try {
   // No new browser-executed data-fetch path is exercised by supplemental detail.
   assert.deepEqual(errors,[]);const applicationConsoleErrors=consoleErrors.filter(e=>!e.url?.endsWith('/favicon.ico'));
   assert.deepEqual(applicationConsoleErrors,[]);pass('application page and console errors',{errors,applicationConsoleErrors,existingFavicon404:consoleErrors.filter(e=>e.url?.endsWith('/favicon.ico'))});
-  for(const [kind,response] of [
-    ['missing',{status:404,body:'missing'}],
-    ['malformed',{status:200,body:'{'}],
-    ['malformed record',{status:200,body:JSON.stringify({...payload,records:[{...payload.records[0],reference:42},...payload.records.slice(1)]})}],
-    ['unsupported schema',{status:200,body:JSON.stringify({...payload,schemaVersion:999})}],
+  const scopeBody=edit=>{const value=JSON.parse(JSON.stringify(scope));edit(value);return JSON.stringify(value);};
+  for(const [kind,resource,response] of [
+    ['missing','mechanics-supplement.v1.json',{status:404,body:'missing'}],
+    ['malformed','mechanics-supplement.v1.json',{status:200,body:'{'}],
+    ['malformed record','mechanics-supplement.v1.json',{status:200,body:JSON.stringify({...payload,records:[{...payload.records[0],reference:42},...payload.records.slice(1)]})}],
+    ['unsupported schema','mechanics-supplement.v1.json',{status:200,body:JSON.stringify({...payload,schemaVersion:999})}],
+    ['scope missing','mechanics-supplement-scope.v1.json',{status:404,body:'missing'}],
+    ['scope malformed','mechanics-supplement-scope.v1.json',{status:200,body:'{'}],
+    ['scope unsupported schema','mechanics-supplement-scope.v1.json',{status:200,body:scopeBody(s=>{s.schemaVersion=999;})}],
+    ['scope payload mismatch','mechanics-supplement-scope.v1.json',{status:200,body:scopeBody(s=>{s.payloadCanonicalSha256='0'.repeat(64);})}],
+    ['scope source ID mismatch','mechanics-supplement-scope.v1.json',{status:200,body:scopeBody(s=>{s.records[0].sourceId+='-wrong';})}],
+    ['scope duplicate record','mechanics-supplement-scope.v1.json',{status:200,body:scopeBody(s=>{s.records[1]=s.records[0];})}],
+    ['scope unknown group','mechanics-supplement-scope.v1.json',{status:200,body:scopeBody(s=>{s.records[0].group='unknown';})}],
   ]) {
     const p=await browser.newPage();const failures=[];p.on('pageerror',e=>failures.push(e.message));
-    await p.route('**/data/mechanics-supplement.v1.json',route=>route.fulfill({...response,contentType:'application/json'}));
+    await p.route('**/data/'+resource,route=>route.fulfill({...response,contentType:'application/json'}));
     await p.goto(base+'/vox-color/mechanical-explorer.html');
     await p.waitForFunction(()=>window.VMX?.supplemental().status==='unavailable');
-    assert.match(await p.locator('#supplement-status').innerText(),/unavailable/i);
+    assert.match(await p.locator('#supplement-status').innerText(),/scope classifications are unavailable/i);
+    assert.equal(await p.evaluate(()=>VMX.supplemental().records.length),0);
+    assert.equal(await p.locator('#list .ent').count(),216);
+    await p.locator('[data-v="az"]').click();assert.equal(await p.locator('#list .ent').count(),216);
+    assert.equal(await p.locator('#list > .grp').count(),1);
+    await p.locator('#q').fill('Training');assert.equal(await p.evaluate(()=>VMX.state.hits.length),0);
     await p.locator('#q').fill('Flying');await p.locator('#q').press('Enter');
     assert.equal(await p.locator('#detail #dx-title').innerText(),'Flying');
     assert.equal(await p.locator('#detail .own-row').count(),5);
+    assert.equal(await p.locator('#detail .supp-evidence').count(),0);
     assert.deepEqual(failures,[]);
-    pass('supplement failure: '+kind,{status:'unavailable',legacyUsable:true});await p.close();
+    pass('supplement failure: '+kind,{status:'unavailable',legacyUsable:true,atomic2021Only:true});await p.close();
   }
   // Delay only the additive fetch: A–Z can be cached and switched before it arrives.
   const delayed=await browser.newPage();let releaseSupplement;

@@ -518,6 +518,8 @@ html.sheet-open .bar{position:relative}
 .supp-rule-number{font:500 .78em/1.4 var(--f-mono);color:var(--ink-dim);white-space:nowrap}
 .supp-quote{margin:12px 0 0;white-space:pre-wrap}
 .supp-citation{overflow-wrap:anywhere}
+.scope-badge{white-space:normal;max-width:26ch;line-height:1.35}
+.supp-classification .dx-list{margin-top:10px}
 .supp-symbol{display:inline-block;white-space:nowrap}
 .supp-symbol .ms{display:none;font-size:.9em;vertical-align:baseline}
 .supp-mana-ready .supp-symbol .ms{display:inline-block}
@@ -883,8 +885,8 @@ let LIST_ONLY = [];             // runtime keys with no explanations-section ent
 let DUPES = 0;                  // explanation entries that repeat an earlier entry
 const PT_BY_KEY = new Map();    // key -> [player term]
 /* Supplemental search and evidence never enter MECH, KEYS or placement maths. */
-const SUPPLEMENT = { status:'loading', records:[], revision:null };
-const SUP_BY_KEY = new Map(), SUP_NAMES = new Map();
+const SUPPLEMENT = { status:'loading', records:[], revision:null, groups:[] };
+const SUP_BY_KEY = new Map(), SUP_NAMES = new Map(), SUP_SCOPE = new Map();
 let resultPage = 0, searchReturn = false;
 
 /* ======================================================================
@@ -1233,7 +1235,7 @@ function buildEntries(){
     b.type = 'button'; b.className = 'ent'; b.dataset.k = k; b.tabIndex = -1;
     b.title = r.supplemental ? r.head : r.e.label;
     b.setAttribute('aria-pressed', 'false');
-    b.innerHTML = `<span class="e-lab">${labelHTML(r)}${r.supplemental ? '<span class="e-tag">Supplemental · Rankings unassigned</span>' : r.listOnly ? `<span class="e-tag">${esc(unmatchedCase(k).tag)}</span>` : ''}</span>${r.supplemental ? '' : stripHTML(r.e.colors)}`;
+    b.innerHTML = `<span class="e-lab">${labelHTML(r)}${r.supplemental ? `<span class="e-tag">${esc(r.scope.evidenceLabel)} · Rankings unassigned</span>` : r.listOnly ? `<span class="e-tag">${esc(unmatchedCase(k).tag)}</span>` : ''}</span>${r.supplemental ? '' : stripHTML(r.e.colors)}`;
     b._slots = [...b.querySelectorAll('.strip .sc')];
     entEl.set(k, b);
   }
@@ -1269,11 +1271,20 @@ function layoutList(){
     LIST_ONLY.forEach(k => lo.querySelector('.grp-in').appendChild(entEl.get(k)));
     frag.appendChild(lo);
   } else {
-    let letter = null;
-    for (const k of AZ()){
-      const L = (azKey(REC.get(k))[0] || '#').toUpperCase().replace(/[^A-Z]/, '#');
-      if (L !== letter){ letter = L; const h = document.createElement('p'); h.className = 'letter'; h.textContent = L; h.setAttribute('aria-hidden', 'true'); frag.appendChild(h); }
-      frag.appendChild(entEl.get(k));
+    const groups = [{ id:'2021', label:'Mechanical Color Pie 2021', description:'October 18, 2021 snapshot · alphabetical order' }, ...SUPPLEMENT.groups];
+    for (const group of groups){
+      const keys = AZ().filter(k => group.id === '2021' ? !REC.get(k).supplemental : REC.get(k).supplemental && REC.get(k).scope.group === group.id);
+      if (!keys.length) continue;
+      const section = document.createElement('section'); section.className = 'grp'; section.dataset.scope = group.id;
+      section.setAttribute('aria-label', group.label);
+      section.innerHTML = `<h3 class="grp-h">${esc(group.label)}<small>${keys.length} ${plural(keys.length, 'entry', 'entries')}</small></h3><p class="lo-note">${esc(group.description)}</p><div class="grp-in"></div>`;
+      const entries = section.querySelector('.grp-in'); let letter = null;
+      for (const k of keys){
+        const L = (azKey(REC.get(k))[0] || '#').toUpperCase().replace(/[^A-Z]/, '#');
+        if (L !== letter){ letter = L; const h = document.createElement('p'); h.className = 'letter'; h.textContent = L; h.setAttribute('aria-hidden', 'true'); entries.appendChild(h); }
+        entries.appendChild(entEl.get(k));
+      }
+      frag.appendChild(section);
     }
   }
   listEl.textContent = '';
@@ -1363,7 +1374,7 @@ function render(){
     el.classList.toggle('is-miss', qOn && !S.hitSet.has(k) && !sel);
     el.classList.toggle('is-sel', sel);
     el.setAttribute('aria-pressed', String(sel));
-    el.setAttribute('aria-label', `${r.head}. Supplemental. Rankings unassigned. Outside the 2021 color calculations.`);
+    el.setAttribute('aria-label', `${r.head}. Supplemental. ${r.scope.evidenceLabel}. ${r.scope.scopeNote} Rankings unassigned. Outside the 2021 color calculations.`);
   }
   /* a group whose entries are all hidden by an explicit spotlight collapses */
   listEl.querySelectorAll('.grp,.lo').forEach(g => g.classList.toggle('is-empty', !!spot && ![...g.querySelectorAll('.ent')].some(x => !x.classList.contains('is-off'))));
@@ -1607,7 +1618,7 @@ function renderSpot(){
   const cap = $('#list-cap');
   cap.innerHTML = S.view === 'article'
     ? `<span><b>${ARTICLE.length}</b> entries in the article's order, under its own sub-headings · then <b>${LIST_ONLY.length}</b> from its color lists only</span><span>Select an entry for Rosewater's explanation</span>`
-    : `<span><b>${REC.size}</b> entries, A–Z · <b>${KEYS.length}</b> from 2021 · <b>${REC.size - KEYS.length}</b> supplemental</span><span>Select an entry for its explanation or attributed evidence</span>`;
+    : `<span><b>${REC.size}</b> entries, A–Z by source scope · <b>${KEYS.length}</b> from 2021 · <b>${REC.size - KEYS.length}</b> supplemental</span><span>Select an entry for its explanation or attributed evidence</span>`;
   const note = $('#empty-q');
   const q = S.q.trim();
   note.hidden = !(q && S.parsed && S.parsed.phrase && !S.hits.length);
@@ -1682,7 +1693,7 @@ function renderResults(){
       if (r.supplemental) lp = '<span class="lensp">No sourced Primary/Secondary/Tertiary assignment is recorded</span>';
       const tag = st.related ? ` <span class="pterm-tag rel">related · not what the term names</span>` : st.player ? ' <span class="pterm-tag">navigation aid</span>' : '';
       return `<div class="opt${st.related ? ' is-rel' : ''}" role="option" id="opt-${offset + i}" data-k="${esc(h.k)}" aria-selected="false">
-        <span class="opt-l">${labelHTML(r)}</span>${r.supplemental ? '<span class="calc">supplemental</span>' : stripHTML(r.e.colors)}
+        <span class="opt-l">${labelHTML(r)}</span>${r.supplemental ? `<span class="calc scope-badge">${esc(scopeGroupLabel(r.scope))}</span>` : stripHTML(r.e.colors)}
         <span class="opt-w"><span class="why${st.player ? ' p' : ''}">${esc(st.why)}</span>${note}${tag}${lp}</span></div>`;
     }).join('');
     if (P.phrase && !S.hits.length){ resNote.hidden = false; resNote.textContent = `No entry matched “${P.phrase}”. The list is unchanged.`; }
@@ -1889,8 +1900,18 @@ function supplementalSources(a){
   if (locator.imageUrl) add({ url:locator.imageUrl, title:`${locator.card} · official card image` });
   return citations.join('');
 }
+function scopeGroupLabel(scope){ return SUPPLEMENT.groups.find(group => group.id === scope.group).label; }
+function scopeNotesUnverifiedDefinition(scope){ return /\bdefinition\b/i.test(scope.scopeNote) && /\b(?:no|not|unverified)\b/i.test(scope.scopeNote); }
+function supplementalClassificationHTML(scope, mapped){
+  const qualifications = scope.qualifications.filter(text => text !== 'General definition unverified' || !scopeNotesUnverifiedDefinition(scope));
+  return `<${mapped ? 'section' : 'div'} class="${mapped ? 'dx-sec ' : ''}supp-classification" aria-label="Supplemental evidence scope">
+    ${mapped ? `<h3 class="dx-h">Supplemental evidence · ${esc(scopeGroupLabel(scope))} · ${esc(scope.evidenceLabel)}</h3>` : ''}
+    <p class="dx-note">${esc(scope.scopeNote)}</p>${qualifications.length ? `<ul class="dx-list">${qualifications.map(text => `<li>${esc(text)}</li>`).join('')}</ul>` : ''}
+    </${mapped ? 'section' : 'div'}>`;
+}
 function supplementalRecordHTML(a, mapped = false){
   const ref = a.reference, review = a.qualifications.acceptedSourceReview, locator = review && review.locator || {};
+  const classification = SUP_SCOPE.get(a.id), upfront = new Set([classification.scopeNote, ...classification.qualifications]);
   const kind = ref && ref.referenceKind;
   const example = kind && /card-example/.test(kind) || ref && ref.source && ref.source.kind === 'card-example' || ref && ref.generalReference;
   const heading = kind === 'designer-card-example' ? 'Designer card example' : kind === 'archived-mechanic-discussion' ? 'Archived design discussion' : kind === 'playtest-card-example' ? 'Playtest card example' : example ? 'Card example' : 'Reference';
@@ -1907,27 +1928,27 @@ function supplementalRecordHTML(a, mapped = false){
     ${!a.clauses.length && !excerpts.length ? '<p class="dx-note">No definition text is reproduced in this reference.</p>' : ''}
     ${supplementalSources(a)}</section>` : '';
   const scope = review || ref && (ref.definitionVerified === false || ref.playtest) ? `<section class="dx-sec supp-scope" aria-label="Scope and limitations"><h3 class="dx-h">Scope and limitations</h3>
-    ${ref && ref.definitionVerified === false || review && review.officialGeneralDefinitionVerified === false ? '<p class="dx-note">A general definition has not been verified.</p>' : ''}
-    ${review && review.verifiedScope ? `<p class="dx-note">${esc(review.verifiedScope)}</p>` : ''}
-    ${review && review.limits ? `<p class="dx-note">${esc(review.limits)}</p>` : ''}
+    ${(ref && ref.definitionVerified === false || review && review.officialGeneralDefinitionVerified === false) && !scopeNotesUnverifiedDefinition(classification) && !classification.qualifications.includes('General definition unverified') ? '<p class="dx-note">A general definition has not been verified.</p>' : ''}
+    ${review && review.verifiedScope && !upfront.has(review.verifiedScope) ? `<p class="dx-note">${esc(review.verifiedScope)}</p>` : ''}
+    ${review && review.limits && !upfront.has(review.limits) ? `<p class="dx-note">${esc(review.limits)}</p>` : ''}
     ${locator.artist ? `<p class="dx-note">${esc(locator.card)} · Artist: ${esc(locator.artist)}</p>` : ''}
     ${ref && ref.playtest ? `<p class="dx-note">Playtest card: ${esc(ref.playtest.card)}.${ref.playtest.commander === 'not_legal' ? ' Not legal in Commander.' : ''}${ref.playtest.checkedOn ? ' Checked ' + esc(supplementalDate(ref.playtest.checkedOn)) + '.' : ''}</p>` : ''}</section>` : '';
-  return `<div class="supp-evidence">${rules}${reference}${scope}</div>`;
+  return `<div class="supp-evidence">${supplementalClassificationHTML(classification, mapped)}
+    ${!mapped ? '<p class="dx-note" aria-describedby="supp-ranking-note">Rankings unassigned</p><p class="sr-only" id="supp-ranking-note">No sourced Primary/Secondary/Tertiary assignment is recorded. This is unknown ranking, not an absent 2021 placement; supplemental evidence stays outside the 2021 color calculations.</p>' : ''}${rules}${reference}${scope}</div>`;
 }
 function supplementEvidenceHTML(k){
   return (SUP_BY_KEY.get(k) || []).map(a => supplementalRecordHTML(a, true)).join('');
 }
 function supplementalDetailHTML(k){
-  const r = REC.get(k), records = SUP_BY_KEY.get(k) || [], category = records[0] && records[0].category;
-  return `<div class="dx-top"><p class="dx-where">Supplemental${category ? ' · ' + esc(category) : ' reference'}</p><button class="dx-close" type="button" data-act="close" data-fid="dx-close" aria-label="Close entry">×</button></div>
+  const r = REC.get(k), records = SUP_BY_KEY.get(k) || [];
+  return `<div class="dx-top"><p class="dx-where">Supplemental · ${esc(scopeGroupLabel(r.scope))} · ${esc(r.scope.evidenceLabel)}</p><button class="dx-close" type="button" data-act="close" data-fid="dx-close" aria-label="Close entry">×</button></div>
     <h2 class="dx-title${r.head.length > 48 ? ' long' : ''}" id="dx-title">${esc(r.head)}</h2>
-    <p class="dx-note" aria-describedby="supp-ranking-note">Rankings unassigned</p><p class="sr-only" id="supp-ranking-note">No sourced Primary/Secondary/Tertiary assignment is recorded. This is unknown ranking, not an absent 2021 placement; supplemental evidence stays outside the 2021 color calculations.</p>
     ${records.map(a => supplementalRecordHTML(a)).join('')}`;
 }
 async function loadSupplement(){
   const status = $('#supplement-status');
   try {
-    const data = await getJSON('../data/mechanics-supplement.v1.json');
+    const [data, scopes] = await Promise.all([getJSON('../data/mechanics-supplement.v1.json'), getJSON('../data/mechanics-supplement-scope.v1.json')]);
     if (!data || data.schemaVersion !== 1 || !data.source || !/^[a-f0-9]{40}$/.test(data.source.revision) || !Array.isArray(data.populations) || !Array.isArray(data.records) || data.records.length !== 390) throw new Error('Unsupported supplemental schema');
     const expected = { vocabulary:296, shortlist:32, variants:20, 'catalog-gaps':42 };
     const populations = new Map();
@@ -1945,13 +1966,30 @@ async function loadSupplement(){
       populations.set(a.population,populations.get(a.population) + 1);
     }
     if ([...populations].some(([id,count]) => count !== expected[id])) throw new Error('Incomplete supplemental population');
-    /* Validation finishes before the additive index is mutated. */
+    /* Scope policy is bound to the parsed payload before either index changes. */
+    const nonempty = value => typeof value === 'string' && !!value.trim();
+    if (!scopes || scopes.schemaVersion !== 1 || typeof scopes.payloadSha256 !== 'string' || !/^[a-f0-9]{64}$/.test(scopes.payloadSha256) || typeof scopes.payloadCanonicalSha256 !== 'string' || !/^[a-f0-9]{64}$/.test(scopes.payloadCanonicalSha256) || !Array.isArray(scopes.groups) || !scopes.groups.length || !Array.isArray(scopes.records) || scopes.records.length !== data.records.length) throw new Error('Unsupported supplemental scope schema');
+    const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(JSON.stringify(data)));
+    if ([...new Uint8Array(digest)].map(n => n.toString(16).padStart(2,'0')).join('') !== scopes.payloadCanonicalSha256) throw new Error('Supplemental scope payload mismatch');
+    const groups = new Set();
+    for (const group of scopes.groups){
+      if (!group || !nonempty(group.id) || group.id === '2021' || groups.has(group.id) || !nonempty(group.label) || !nonempty(group.description)) throw new Error('Malformed supplemental scope group');
+      groups.add(group.id);
+    }
+    const classified = new Map(), byId = new Map(data.records.map(a => [a.id,a]));
+    for (const record of scopes.records){
+      if (!record || !byId.has(record.id) || classified.has(record.id) || record.sourceId !== byId.get(record.id).sourceId || !groups.has(record.group) || !nonempty(record.evidenceLabel) || !nonempty(record.scopeNote) || !Array.isArray(record.qualifications) || !record.qualifications.every(nonempty) || !['ordinary','scoped-review','hold'].includes(record.examplePolicy) || !Array.isArray(record.basis) || !record.basis.length || !record.basis.every(item => item && nonempty(item.field) && nonempty(item.detail))) throw new Error('Malformed supplemental scope record');
+      classified.set(record.id,record);
+    }
+    /* Validation finishes before the additive indexes are mutated. */
     SUPPLEMENT.records = deepFreeze(data.records); SUPPLEMENT.revision = data.source.revision;
+    SUPPLEMENT.groups = deepFreeze(scopes.groups);
+    for (const [id, record] of classified) SUP_SCOPE.set(id,deepFreeze(record));
     for (const a of SUPPLEMENT.records){
       const k = a.target2021 || a.id;
       if (!SUP_BY_KEY.has(k)) SUP_BY_KEY.set(k, []);
       SUP_BY_KEY.get(k).push(a);
-      if (!REC.has(k)) REC.set(k, { k, supplemental:true, head:a.name, disp:a.name, qual:null, ix:KEYS.length + SUP_BY_KEY.size });
+      if (!REC.has(k)) REC.set(k, { k, supplemental:true, scope:classified.get(a.id), head:a.name, disp:a.name, qual:null, ix:KEYS.length + SUP_BY_KEY.size });
       for (const [name,alias] of [[a.name,false],...a.aliases.map(n => [n,true])]){
         const key = normX(name);
         if (!SUP_NAMES.has(key)) SUP_NAMES.set(key, []);
@@ -1966,7 +2004,7 @@ async function loadSupplement(){
     status.textContent = `${data.records.length} accepted source records available in search and A–Z: ${supplemental} supplemental records and ${data.records.length - supplemental} mapped to existing 2021 entries. Supplemental records do not enter the 2021 color calculations.`;
   } catch (err){
     SUPPLEMENT.status = 'unavailable';
-    status.textContent = 'Supplemental mechanic records are unavailable. The 2021 catalog and its search remain available. Reload the page to try again.';
+    status.textContent = 'Supplemental mechanic records and scope classifications are unavailable. The 2021 catalog and its search remain available. Reload the page to try again.';
     console.warn('[mechanical-explorer] supplemental records unavailable:', err.message);
   }
   if (S.q) runSearch();
