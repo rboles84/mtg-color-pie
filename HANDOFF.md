@@ -1,4 +1,17 @@
-# Active handoff — Special material return navigation
+# Active handoff — Special material instant jump
+
+## Control
+- Status: `ready-for-qa` (`qa-passed -> complete -> idle -> dev-in-progress -> ready-for-qa`) for the Owner-requested one-line motion adjustment. Product edits stop pending Owner interaction/visual QA; this is not acceptance, publication authorization, or integration.
+- Exact envelope: `HANDOFF.md`, `vox-color/mechanical-explorer.html`. Change only `jumpSpecial` to use `scrollIntoView` behavior `auto`, matching `jumpMain`; no harness, data, examples, calculations, memberships, focus ownership, package allowlist, route/hash, dependency, publication, push, merge, or hosting change is authorized.
+- Verification: inspect the exact two-file diff and whitespace, then safely resolve/rebuild the existing local preview with package syntax/content verification. Commit a local `ready-for-qa` Owner-pending candidate; no browser suite or independent QA is claimed.
+
+## RobDev implementation report
+- Changed behavior: `jumpSpecial` now uses the same instantaneous `scrollIntoView` behavior as `jumpMain`. Its existing sticky-clear margin, heading focus, roving first Special entry, route, and selected-detail semantics are otherwise untouched.
+- Developer evidence: exact diff is one product line plus this ledger; `git diff --check` reports only the expected LF/CRLF warning. Package verification is run against the resolved existing preview path after commit. Per Owner direction, no browser suite, independent QA, or acceptance claim is made.
+
+---
+
+# Prior handoff — Special material return navigation
 
 ## Control
 - Status: `qa-passed` (`qa-passed -> complete -> idle -> dev-in-progress -> ready-for-qa -> qa-passed`) for this Owner-approved navigation-only refinement. This engineering verdict does not infer Owner visual acceptance, publication authorization, or integration.
