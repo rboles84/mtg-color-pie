@@ -84,7 +84,7 @@ try {
   assert.equal(browse.keys.length,587);assert.equal(new Set(browse.keys).size,587);
   assert.deepEqual([...browse.keys].sort(),expectedKeys.sort());assert.equal(browse.tabbable,1);
   // Titles include glosses; the visible label plus qualifier is the index's sort key.
-  const sortedGroups=await page.evaluate(()=>[...document.querySelectorAll('#list > .grp')].map(group=>({id:group.dataset.scope,label:group.getAttribute('aria-label'),count:group.querySelector('h3 small').textContent,keys:[...group.querySelectorAll('.ent')].map(e=>e.dataset.k),sorted:[...group.querySelectorAll('.ent')].map(e=>{
+  const sortedGroups=await page.evaluate(()=>[...document.querySelectorAll('#list > .grp')].map(group=>({id:group.dataset.scope,label:group.getAttribute('aria-label'),count:group.querySelector('h3 small').textContent,keys:[...group.querySelectorAll(':scope > .grp-in > .ent')].map(e=>e.dataset.k),sorted:[...group.querySelectorAll(':scope > .grp-in > .ent')].map(e=>{
     const label=e.querySelector('.e-lab').cloneNode(true);
     label.querySelectorAll('.e-tag,.e-q').forEach(e=>e.remove());
     return label.textContent.toLowerCase().replace(/[\u2018\u2019]/g,"'")
@@ -92,15 +92,20 @@ try {
       .replace(/[.\s]+$/,'').replace(/^["'+\-]+/,'').replace(/['"]/g,'')+' '+(e.querySelector('.e-q')?.textContent.replace(/^ · /,'')||'');
   })})));
   const newRecords=payload.records.filter(r=>!r.target2021), scopedById=new Map(scope.records.map(r=>[r.id,r]));
-  const expectedGroups=[{id:'2021',label:'Mechanical Color Pie 2021',keys:Object.keys(original)},...scope.groups.map(group=>({
-    id:group.id,label:group.label,keys:newRecords.filter(r=>scopedById.get(r.id).group===group.id).map(r=>r.id)
-  })).filter(group=>group.keys.length)];
-  assert.deepEqual(sortedGroups.map(g=>[g.id,g.label]),expectedGroups.map(g=>[g.id,g.label]));
-  for(const [i,group] of sortedGroups.entries()){
-    assert.deepEqual([...group.keys].sort(),expectedGroups[i].keys.sort());
-    assert.equal(group.count,group.keys.length+' '+(group.keys.length===1?'entry':'entries'));
-    assert.ok(group.sorted.every((v,i)=>i===0||group.sorted[i-1]<=v),group.id);
-  }
+  const ordinaryRecords=newRecords.filter(r=>['rules','ability-words'].includes(scopedById.get(r.id).group));
+  const specialRecords=newRecords.filter(r=>!['rules','ability-words'].includes(scopedById.get(r.id).group));
+  assert.deepEqual(sortedGroups.map(g=>[g.id,g.label]),[['main','A–Z'],['special-material','Special material']]);
+  assert.deepEqual([...sortedGroups[0].keys].sort(),[...Object.keys(original),...ordinaryRecords.map(r=>r.id)].sort());
+  assert.equal(sortedGroups[0].keys.length,543);assert.equal(sortedGroups[0].count,'543 entries');assert.ok(sortedGroups[0].sorted.every((v,i)=>i===0||sortedGroups[0].sorted[i-1]<=v),'main A–Z order');
+  assert.equal(sortedGroups[1].count,'44 entries');
+  const specialGroups=await page.evaluate(()=>[...document.querySelectorAll('#list > .grp[data-scope="special-material"] > .grp-in > .grp')].map(group=>({id:group.dataset.scope,label:group.getAttribute('aria-label'),count:group.querySelector('h3 small').textContent,keys:[...group.querySelectorAll(':scope > .grp-in > .ent')].map(e=>e.dataset.k)})));
+  const expectedSpecial=scope.groups.filter(group=>!['rules','ability-words'].includes(group.id)).map(group=>({id:group.id,label:group.label,keys:specialRecords.filter(r=>scopedById.get(r.id).group===group.id).map(r=>r.id)})).filter(group=>group.keys.length);
+  assert.deepEqual(specialGroups.map(group=>[group.id,group.label]),expectedSpecial.map(group=>[group.id,group.label]));
+  for(const [i,group] of specialGroups.entries()){assert.deepEqual([...group.keys].sort(),expectedSpecial[i].keys.sort());assert.equal(group.count,group.keys.length+' '+(group.keys.length===1?'entry':'entries'));}
+  assert.equal(specialGroups.flatMap(group=>group.keys).length,44);
+  await page.evaluate(()=>{window.__azFlying=document.querySelector('#list .ent[data-k="flying"]');window.__azFlying.focus();});
+  await page.evaluate(()=>{VMX.setView('article');VMX.setView('az');});
+  assert.equal(await page.evaluate(()=>document.querySelector('#list .ent[data-k="flying"]')===window.__azFlying&&document.activeElement===window.__azFlying),true);
   assert.match(await page.locator('#list-cap').innerText(),/587.*216.*2021.*371.*supplemental/);
   assert.match(await page.locator('#meta').innerText(),/216.*2021 entries.*2021 color placements/);
   const supplementalKeys=payload.records.filter(r=>!r.target2021).map(r=>r.id);
@@ -134,7 +139,7 @@ try {
   await page.evaluate(()=>VMX.close());
   pass('all 358 optional supplemental examples render through the existing safe card plate with supplemental-only neutral caption',renderedExamples.length);
   assert.equal(await page.evaluate(mathSnapshot),beforeViews);
-  pass('A–Z all 587 unique destinations, alphabetical within audited scope groups; 371 rows outside every tested lens/spotlight; immutable maths',true);
+  pass('A–Z main 543 alphabetical ordinary entries, then 44 scoped Special material entries; all 587 unique and outside every tested lens/spotlight; immutable maths',true);
   const trainingRow=page.locator('#list .ent').filter({hasText:'Training'}).filter({hasText:'Rankings unassigned'});
   await trainingRow.click();assert.equal(await detail.locator('#dx-title').innerText(),'Training');
   await detail.locator('[data-act="close"]').click();assert.equal(await trainingRow.evaluate(e=>e===document.activeElement),true);

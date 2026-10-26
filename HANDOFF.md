@@ -1,4 +1,22 @@
-# Active handoff — selected supplemental card examples
+# Active handoff — A–Z ordinary and special-material ordering
+
+## Control
+- Status: `dev-in-progress` (`qa-passed -> complete -> idle` for the prior selected-examples candidate, then `idle -> dev-in-progress` for this new Owner-authorized task). This administrative disposition does not infer Owner visual acceptance, publication permission, integration, or any new approval of the prior candidate.
+- Base/current branch: `b220e00` on `codex/supplemental-mechanic-search`; exact envelope: `HANDOFF.md`, `vox-color/mechanical-explorer.html`, `tools/check_supplement_browser.mjs`.
+- Outcome: A–Z presents one alphabetical main list of 543 entries (216 2021 + 265 rules-backed + 62 official ability words), followed by 44 Special material entries under their existing source-scope categories (card-specific 17, digital 10, special 10, preview 2, playtest 4, designer 1). Article remains 216.
+- Locked behavior: data/source/runtime/example transports, all detail/evidence/citation/example content, 2021 presentation, conflicts, unknown rankings, calculations, search classifications, keyboard/focus behavior, dependencies, packaging, and routes remain unchanged. No new file, source decision, visual redesign, publishing, push, merge, or hosting.
+- Plan: reparent existing entry buttons only in `layoutList()` using the existing A–Z sort; preserve scope badges/details. Verify the 543/44 partition and order, all 587 unique keys, Article 216, button identity/focus across views, representative ordinary/supplemental/special detail and example behavior, and frozen/package/browser checks.
+
+## RobDev implementation report
+- Status: `ready-for-qa` (`dev-in-progress -> ready-for-qa`). Product edits stop pending independent RobQA; this is not Owner acceptance, publication authorization, or integration.
+- A–Z now moves existing buttons into one 543-entry `A–Z` section (all 2021, rules-backed, and official ability-word entries), then a 44-entry `Special material` wrapper retaining the existing scoped categories and descriptions. No button markup, detail, scope badge, example, source, calculation, or search behavior changed.
+- Changed files: `HANDOFF.md`, `vox-color/mechanical-explorer.html`, `tools/check_supplement_browser.mjs`. `_site-supplement/` is generated preview output only.
+- Developer evidence: `node --check tools\\check_supplement_browser.mjs` PASS; `python tools\\gate.py` PASS (source and taxonomy gates); `git diff --check` PASS (expected LF/CRLF warnings only); `python .github\\pages\\package.py --rev az543 --out C:\\dev\\color-wheel-interactive\\_site-supplement --verify` PASS (22 byte-identical files, 4 inline scripts, 22 HTTP 200, 19 excluded 404); focused real-Edge `node tools\\check_supplement_browser.mjs --root _site-supplement --playwright C:\\Users\\obake\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\node_modules\\playwright` exit 0. The browser harness confirms 543 sorted main + 44 scoped tail + 587 unique entries, Article 216, preserved original button identity/focus across Article/A–Z for Flying, unchanged lens/spotlight math, ordinary/supplemental/special detail behavior, and existing example plates.
+- RobQA focus: independently check the 543/44 partition and source-category headings, button reparenting/focus across views, Article 216 and all detail/example behavior. Owner judges hierarchy/readability; no visual acceptance is inferred.
+
+---
+
+# Prior handoff — selected supplemental card examples
 
 ## Control
 - Status: `qa-passed` (`qa-passed -> complete -> idle` for the prior scope-audit candidate, then `idle -> dev-in-progress -> ready-for-qa -> qa-passed` for this Owner-authorized task). The coordinator made the administrative prior transition only; neither that transition nor this engineering verdict infers Owner visual acceptance, publication permission, or integration.

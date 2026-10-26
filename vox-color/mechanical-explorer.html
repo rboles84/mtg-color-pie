@@ -1274,20 +1274,32 @@ function layoutList(){
     LIST_ONLY.forEach(k => lo.querySelector('.grp-in').appendChild(entEl.get(k)));
     frag.appendChild(lo);
   } else {
-    const groups = [{ id:'2021', label:'Mechanical Color Pie 2021', description:'October 18, 2021 snapshot · alphabetical order' }, ...SUPPLEMENT.groups];
-    for (const group of groups){
-      const keys = AZ().filter(k => group.id === '2021' ? !REC.get(k).supplemental : REC.get(k).supplemental && REC.get(k).scope.group === group.id);
-      if (!keys.length) continue;
-      const section = document.createElement('section'); section.className = 'grp'; section.dataset.scope = group.id;
-      section.setAttribute('aria-label', group.label);
-      section.innerHTML = `<h3 class="grp-h">${esc(group.label)}<small>${keys.length} ${plural(keys.length, 'entry', 'entries')}</small></h3><p class="lo-note">${esc(group.description)}</p><div class="grp-in"></div>`;
+    const sectionFor = (id, label, description, keys) => {
+      const section = document.createElement('section'); section.className = 'grp'; section.dataset.scope = id;
+      section.setAttribute('aria-label', label);
+      section.innerHTML = `<h3 class="grp-h">${esc(label)}<small>${keys.length} ${plural(keys.length, 'entry', 'entries')}</small></h3>${description ? `<p class="lo-note">${esc(description)}</p>` : ''}<div class="grp-in"></div>`;
       const entries = section.querySelector('.grp-in'); let letter = null;
       for (const k of keys){
         const L = (azKey(REC.get(k))[0] || '#').toUpperCase().replace(/[^A-Z]/, '#');
         if (L !== letter){ letter = L; const h = document.createElement('p'); h.className = 'letter'; h.textContent = L; h.setAttribute('aria-hidden', 'true'); entries.appendChild(h); }
         entries.appendChild(entEl.get(k));
       }
-      frag.appendChild(section);
+      return section;
+    };
+    const ordinary = AZ().filter(k => { const r = REC.get(k); return !r.supplemental || r.scope.group === 'rules' || r.scope.group === 'ability-words'; });
+    frag.appendChild(sectionFor('main', 'A–Z', 'Mechanical Color Pie 2021, rules-backed entries, and official ability words · alphabetical order', ordinary));
+    const specialGroups = SUPPLEMENT.groups.filter(group => !['rules','ability-words'].includes(group.id));
+    const specialKeys = AZ().filter(k => { const r = REC.get(k); return r.supplemental && !['rules','ability-words'].includes(r.scope.group); });
+    if (specialKeys.length){
+      const special = document.createElement('section'); special.className = 'grp'; special.dataset.scope = 'special-material';
+      special.setAttribute('aria-label', 'Special material');
+      special.innerHTML = `<h3 class="grp-h">Special material<small>${specialKeys.length} entries</small></h3><div class="grp-in"></div>`;
+      const specialIn = special.querySelector('.grp-in');
+      for (const group of specialGroups){
+        const keys = specialKeys.filter(k => REC.get(k).scope.group === group.id);
+        if (keys.length) specialIn.appendChild(sectionFor(group.id, group.label, group.description, keys));
+      }
+      frag.appendChild(special);
     }
   }
   listEl.textContent = '';
@@ -1621,7 +1633,7 @@ function renderSpot(){
   const cap = $('#list-cap');
   cap.innerHTML = S.view === 'article'
     ? `<span><b>${ARTICLE.length}</b> entries in the article's order, under its own sub-headings · then <b>${LIST_ONLY.length}</b> from its color lists only</span><span>Select an entry for Rosewater's explanation</span>`
-    : `<span><b>${REC.size}</b> entries, A–Z by source scope · <b>${KEYS.length}</b> from 2021 · <b>${REC.size - KEYS.length}</b> supplemental</span><span>Select an entry for its explanation or attributed evidence</span>`;
+    : `<span><b>${REC.size}</b> entries, A–Z · <b>${KEYS.length}</b> from 2021 · <b>${REC.size - KEYS.length}</b> supplemental</span><span>Select an entry for its explanation or attributed evidence</span>`;
   const note = $('#empty-q');
   const q = S.q.trim();
   note.hidden = !(q && S.parsed && S.parsed.phrase && !S.hits.length);
