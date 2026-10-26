@@ -103,6 +103,15 @@ try {
   assert.deepEqual(specialGroups.map(group=>[group.id,group.label]),expectedSpecial.map(group=>[group.id,group.label]));
   for(const [i,group] of specialGroups.entries()){assert.deepEqual([...group.keys].sort(),expectedSpecial[i].keys.sort());assert.equal(group.count,group.keys.length+' '+(group.keys.length===1?'entry':'entries'));}
   assert.equal(specialGroups.flatMap(group=>group.keys).length,44);
+  for(const [width,columns] of [[1440,2],[360,1]]){
+    await page.setViewportSize({width,height:900});
+    const geometry=await page.evaluate(()=>{const wrapper=document.querySelector('#list > .grp[data-scope="special-material"] > .grp-in'),children=[...wrapper.children].filter(e=>e.classList.contains('grp')),box=wrapper.getBoundingClientRect();return {columns:new Set(children.map(e=>Math.round(e.getBoundingClientRect().left))).size,wrapper:Math.round(box.width),children:children.map(e=>Math.round(e.getBoundingClientRect().width)),overflow:document.documentElement.scrollWidth<=innerWidth};});
+    assert.equal(geometry.columns,columns,`${width}px special columns`);assert.ok(geometry.children.every(value=>value<=geometry.wrapper),JSON.stringify(geometry));assert.equal(geometry.overflow,true,JSON.stringify(geometry));
+  }
+  await page.setViewportSize({width:1440,height:900});
+  const abandon=page.locator('#list .ent[data-k="deck:catalog-gaps:abandon"]');await abandon.click();assert.equal(await detail.locator('#dx-title').innerText(),'Abandon');
+  const openGeometry=await page.evaluate(()=>{const wrapper=document.querySelector('#list > .grp[data-scope="special-material"] > .grp-in'),children=[...wrapper.children].filter(e=>e.classList.contains('grp'));return {columns:new Set(children.map(e=>Math.round(e.getBoundingClientRect().left))).size,overflow:document.documentElement.scrollWidth<=innerWidth};});
+  assert.deepEqual(openGeometry,{columns:2,overflow:true});await detail.locator('[data-act="close"]').click();assert.equal(await abandon.evaluate(e=>document.activeElement===e),true);
   await page.evaluate(()=>{window.__azFlying=document.querySelector('#list .ent[data-k="flying"]');window.__azFlying.focus();});
   await page.evaluate(()=>{VMX.setView('article');VMX.setView('az');});
   assert.equal(await page.evaluate(()=>document.querySelector('#list .ent[data-k="flying"]')===window.__azFlying&&document.activeElement===window.__azFlying),true);

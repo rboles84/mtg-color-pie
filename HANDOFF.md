@@ -1,4 +1,22 @@
-# Active handoff — A–Z ordinary and special-material ordering
+# Active handoff — Special material two-column correction
+
+## Control
+- Status: `dev-in-progress` (`qa-passed -> complete -> idle -> dev-in-progress`) for this Owner-found same-task layout correction. The administrative disposition does not infer Owner visual acceptance, publication permission, integration, or acceptance of the prior layout.
+- Owner finding: at desktop widths the 44-entry Special material tail stacks all six category groups vertically and leaves the right half of its wrapper unused. Reproduced against `http://127.0.0.1:8016/vox-color/mechanical-explorer.html` at 1440 px: wrapper width 1,377 px; all six direct groups each measured 1,377 px because global `.grp { grid-column: 1 / -1 }` spans the wrapper grid.
+- Exact envelope: `HANDOFF.md`, `vox-color/mechanical-explorer.html`, `tools/check_supplement_browser.mjs`. The 543-entry main A–Z section and Article 216 remain unchanged; the 44 special entries keep their existing categories, labels, ordering, details, examples, scope, math, and search behavior.
+- Plan: apply a Special-wrapper-only grid override for two direct category columns at wide widths and one narrow column at the existing responsive threshold, without new visual language or global group changes. Verify desktop/narrow geometry, no overflow, all prior partition/identity/detail/example behavior, package, and focused Edge checks.
+
+## RobDev implementation report
+- Status: `ready-for-qa` (`dev-in-progress -> ready-for-qa`). Product edits stop pending independent RobQA; this is not Owner acceptance, publication authorization, or integration.
+- Cause/fix: the nested category groups inherited `.grp { grid-column: 1 / -1 }`, so all six occupied the entire 1,377 px Special wrapper. A scoped wrapper rule now creates two `minmax(0, 1fr)` columns at wide widths and overrides only its direct child groups to `grid-column: auto`; the existing 879 px responsive breakpoint returns that wrapper to one column. No global group/list rule or content changed.
+- Reproduced repair at 1440 px: the six groups occupy two 679 px columns at x=32 and x=729 with no document overflow. Wide open-detail and 360 px narrow checks preserve two/one columns respectively, no overflow, semantic DOM category order, special-entry click/close focus, 543 main entries, 44 special entries, 587 unique entries, and Article 216.
+- Changed files: `HANDOFF.md`, `vox-color/mechanical-explorer.html`, `tools/check_supplement_browser.mjs`. `_site-supplement/` is generated preview output only.
+- Developer evidence: `node --check tools\\check_supplement_browser.mjs` PASS; `python tools\\gate.py` PASS; `python .github\\pages\\package.py --rev specialcols --out C:\\dev\\color-wheel-interactive\\_site-supplement --verify` PASS (22 byte-identical files, four inline scripts, 22 HTTP 200, 19 excluded 404); focused real-Edge `node tools\\check_supplement_browser.mjs --root _site-supplement --playwright C:\\Users\\obake\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\node_modules\\playwright` exit 0; `git diff --check` PASS (expected LF/CRLF warnings only). No data/source regeneration or broad visual matrix was run.
+- RobQA focus: confirm wide two-column/narrow one-column Special geometry and containment, special-entry focus/detail behavior, and unchanged 543/44/587/216 partitions. Owner judges visual balance only.
+
+---
+
+# Prior handoff — A–Z ordinary and special-material ordering
 
 ## Control
 - Status: `qa-passed` (`qa-passed -> complete -> idle` for the prior selected-examples candidate, then `idle -> dev-in-progress -> ready-for-qa -> qa-passed` for this Owner-authorized task). Neither the administrative prior transition nor this engineering verdict infers Owner visual acceptance, publication permission, or integration.
