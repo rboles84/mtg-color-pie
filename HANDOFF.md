@@ -2,7 +2,7 @@
 
 ## Control
 
-- Status: `dev-in-progress`.
+- Status: `ready-for-qa`.
 - Base: `e28eb7986554e542ff12d5686287b4c58b98a213`; branch `codex/supplemental-mechanic-search` reused.
 - Prior engineering phase disposition: coordinator `qa-passed -> complete -> idle` administratively closes superseded A–Z presentation scope, NOT Owner appearance acceptance. Full record archived in Git at base:HANDOFF.md. New requested polish starts `idle -> dev-in-progress`.
 - Owner requests less crowded Attach/Bargain details, no end-user hashes/internal metadata, less repeated/backend text. Existing no-publication instruction persists.
@@ -31,7 +31,7 @@ None. Owner explicitly authorized this UI metadata/text polish. Meaningful sourc
 
 ## Implementation / QA
 
-Pending. Prior UI candidate80fb23b remains source of unchanged behavior until this revision is certified.
+Local product candidate: `4e8c34df51e92392ccdc148bb2a5bba4f1fe3496`, base `e28eb7986554e542ff12d5686287b4c58b98a213`. Product edits stopped. Independent QA-4 requested.
 
 ## Carried follow-ups
 
@@ -44,3 +44,5 @@ Prior Owner appearance and standalone wheel file:// checks remain unaccepted; ol
 - Post-change check_invariants.py, check_taxonomy.py, check_recon.py (53 assertions), gate.py: PASS. Transfer --check --source C:/dev/mtg-deck-explorer: PASS; unchanged payload SHA256 4557644a977efdd3a7db122cfb8a2810eb81ea2cddfcd7b69f16174fdd0f96c3. Syntax and diff whitespace pass.
 - Audit data, source text, qualifications, frozen 2021 and source/query files unchanged. No research or publication.
 - Draft Owner checklist: open local review; inspect Attach and Bargain paragraph spacing at normal/narrow width, concise headings and single dated citation; inspect Kinfall for retained narrow scope; open Flash for original 2021 detail plus separate supplemental evidence. Appearance remains Owner-pending.
+
+- Exact-candidate package: PASS, 20 byte-identical files, 4 clean inline scripts, 20 HTTP200 /17 excluded404; full candidate revision stamped. Packaged real Edge harness PASS all17groups, including 390 evidence checks,780 searches,84 selfchecks; no application console errors. Local URL http://127.0.0.1:8016/?review=4e8c34d#mechanical-color-pie.
