@@ -41,6 +41,7 @@ try {
   await page.goto(base+'/vox-color/mechanical-explorer.html');
   await page.waitForFunction(()=>window.VMX?.supplemental().status!=='loading');
   assert.equal(await page.evaluate(()=>VMX.supplemental().status),'ready',await page.locator('#supplement-status').innerText());
+  await page.waitForFunction(()=>VMX.assessments().status==='ready');
   await page.waitForFunction(()=>document.querySelector('#supplement-status').textContent.includes('358 selected supplemental card examples are available.'));
   await page.waitForFunction(()=>document.querySelector('#selftest').textContent.includes('84 of 84 passed'));
   pass('baseline self-checks',84);
@@ -125,10 +126,10 @@ try {
   assert.deepEqual(narrowJump,{focused:true,unobscured:true,overflow:true});await returnTop.focus();await returnTop.press('Enter');assert.equal(await page.evaluate(()=>document.activeElement?.id),'az-heading');assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);await page.setViewportSize({width:1440,height:900});
   await page.emulateMedia({reducedMotion:'reduce'});await page.evaluate(()=>{window.__jumpScroll=[];const scroll=Element.prototype.scrollIntoView;Element.prototype.scrollIntoView=function(options){window.__jumpScroll.push(options);return scroll.call(this,options);};});await jump.focus();await jump.press('Enter');assert.equal(await page.evaluate(()=>window.__jumpScroll.at(-1)?.behavior),'auto');await returnTop.focus();await returnTop.press('Enter');assert.equal(await page.evaluate(()=>window.__jumpScroll.at(-1)?.behavior),'auto');await page.emulateMedia({reducedMotion:'no-preference'});
   const specialTags=await page.evaluate(()=>[...document.querySelectorAll('#list > .grp[data-scope="special-material"] .ent')].map(entry=>({key:entry.dataset.k,tag:entry.querySelector('.e-tag')?.textContent,hidden:entry.querySelector('.e-tag')?.hidden})));
-  assert.equal(await page.locator('#list > .grp[data-scope="special-material"] > .lo-note').count(),1);assert.equal(await page.locator('#list > .grp[data-scope="special-material"] > .lo-note').innerText(),'Rankings unassigned');
+  assert.equal(await page.locator('#list > .grp[data-scope="special-material"] > .lo-note').count(),1);assert.equal(await page.locator('#list > .grp[data-scope="special-material"] > .lo-note').innerText(),'Supplemental evidence and derived provisional assessments');
   const redundantSpecialTag=scopeRecord=>(scopeRecord.group==='card-specific'&&scopeRecord.evidenceLabel==='Card-specific flavor word')||(scopeRecord.group==='preview'&&scopeRecord.evidenceLabel==='Official mechanic reference')||(scopeRecord.group==='designer'&&scopeRecord.evidenceLabel==='Designer card example');
   assert.equal(specialTags.filter(entry=>entry.hidden).length,18);assert.deepEqual(specialTags.map(entry=>entry.hidden),specialTags.map(entry=>redundantSpecialTag(scopedById.get(entry.key))));assert.deepEqual(specialTags.filter(entry=>!entry.hidden).map(entry=>entry.tag),specialTags.filter(entry=>!entry.hidden).map(entry=>scopedById.get(entry.key).evidenceLabel));
-  const abandon=page.locator('#list .ent[data-k="deck:catalog-gaps:abandon"]');await abandon.click();assert.equal(await detail.locator('#dx-title').innerText(),'Abandon');assert.match(await detail.innerText(),/Rankings unassigned/);await returnTop.click();assert.equal(await detail.locator('#dx-title').innerText(),'Abandon');
+  const abandon=page.locator('#list .ent[data-k="deck:catalog-gaps:abandon"]');await abandon.click();assert.equal(await detail.locator('#dx-title').innerText(),'Abandon');assert.match(await detail.innerText(),/Rules action · Not ranked/);await returnTop.click();assert.equal(await detail.locator('#dx-title').innerText(),'Abandon');
   const openGeometry=await page.evaluate(()=>{const wrapper=document.querySelector('#list > .grp[data-scope="special-material"] > .grp-in'),children=[...wrapper.children].filter(e=>e.classList.contains('grp'));return {columns:new Set(children.map(e=>Math.round(e.getBoundingClientRect().left))).size,overflow:document.documentElement.scrollWidth<=innerWidth};});
   assert.deepEqual(openGeometry,{columns:1,overflow:true});await detail.locator('[data-act="close"]').click();assert.equal(await abandon.evaluate(e=>document.activeElement===e),true);
   await page.evaluate(()=>{window.__azFlying=document.querySelector('#list .ent[data-k="flying"]');window.__azFlying.focus();});
@@ -142,9 +143,10 @@ try {
     await page.evaluate(code=>VMX.chooseCombo(code),code);
     const failures=await page.evaluate(({keys,specialKeys})=>{const special=new Set(specialKeys);return keys.filter(k=>{
       const e=[...document.querySelectorAll('#list .ent')].find(e=>e.dataset.k===k);
+      const assessed=VMX.assessments().records.find(r=>r.id===k), status=assessed?(assessed.kind==='rules'?'Rules action':'Scryfall-derived'):'Rankings unassigned';
       return !e||e.classList.contains('is-out')||e.classList.contains('is-off')||e.querySelector('.strip')||
         getComputedStyle(e).display==='none'||getComputedStyle(e).opacity!=='1'||
-        (!special.has(k)&&!e.textContent.includes('Rankings unassigned'))||!e.getAttribute('aria-label').includes('Rankings unassigned');
+        (!special.has(k)&&!e.textContent.includes(status))||!e.getAttribute('aria-label').includes(status);
     });},{keys:supplementalKeys,specialKeys:specialRecords.map(record=>record.id)});
     assert.deepEqual(failures,[],code);
   }
@@ -256,8 +258,9 @@ try {
         if(!links.some(link=>canonical(link.href)===canonical(url)))failures.push(a.name+': missing citation');
       }
       if(!a.target2021){
-        if(host.querySelectorAll('h2').length!==1||!host.querySelector('.dx-where').textContent.includes(classification.evidenceLabel)||host.querySelector('.dx-top').textContent.includes('mechanic record')||!host.textContent.includes('Rankings unassigned'))failures.push(a.name+': heading/status');
-        if(!host.querySelector('#supp-ranking-note')?.textContent.includes('No sourced Primary/Secondary/Tertiary assignment is recorded.'))failures.push(a.name+': accessible unknown ranking');
+        const assessed=VMX.assessments().records.find(r=>r.id===a.id), status=assessed?(assessed.kind==='rules'?'Rules action':'Scryfall-derived'):'Rankings unassigned';
+        if(host.querySelectorAll('h2').length!==1||!host.querySelector('.dx-where').textContent.includes(classification.evidenceLabel)||host.querySelector('.dx-top').textContent.includes('mechanic record')||!host.textContent.includes(status))failures.push(a.name+': heading/status');
+        if(!assessed&&!host.querySelector('#supp-ranking-note')?.textContent.includes('No sourced Primary/Secondary/Tertiary assignment is recorded.'))failures.push(a.name+': accessible unknown ranking');
       }
     }
     VMX.close();return {records:records.length,symbolCount,tokens:[...seenTokens].sort(),failures};

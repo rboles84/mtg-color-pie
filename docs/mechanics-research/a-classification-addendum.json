@@ -1,0 +1,176 @@
+{
+  "type": "local_research_classification_addendum",
+  "created_utc": "2026-10-27T05:18:29.514049+00:00",
+  "applies_to": "Five exceptional A entries; read alongside the original 24-entry research packet. This supersedes only classification wording and the noted Abandon prose error. Original packet remains preserved as reviewed history.",
+  "application_status": "Research only; app, 2021 and Absorb unchanged. No runtime schema/category implemented.",
+  "precedence": "User accepted Colorless / Outside the Five Colors treatment for Annihilator. Other classifications are analyst proposals grounded in the cited facts.",
+  "access_limitations": "Fandom Activate page and both Wizards articles were readable. Fandom Abandon, Attach and Unknown Event list returned 402 in this browser lookup; supplied excerpts were treated as leads and checked against accessible original sources or saved Scryfall card facts.",
+  "sources": {
+    "scryfall_enforcermite": {
+      "url": "https://scryfall.com/card/unk/CA06b/sojourners-enforcermite",
+      "evidence_file": "../sources/affinitycycling/review-input.json",
+      "role": "card facts; not official P/S/T"
+    },
+    "wizards_activate": {
+      "url": "https://magic.wizards.com/en/news/making-magic/evergreen-eggs-ham-2015-06-08",
+      "published": "2015-06-08",
+      "role": "primary source for vocabulary history and generic action scope",
+      "paraphrase": "The Sixth Edition rules standardized the term Activate for the pre-existing concept of activated abilities. The same article describes Attach as shared vocabulary used by Equipment and Auras."
+    },
+    "wizards_attach_2017": {
+      "url": "https://magic.wizards.com/en/news/making-magic/mechanical-color-pie-2017-2017-06-05",
+      "published": "2017-06-05",
+      "role": "explicit historical color placement for narrower named effect",
+      "source_heading": "Moving enchantments/counters",
+      "explicit_placement": {
+        "U": "Primary"
+      },
+      "paraphrase": "The article puts moving enchantments/counters in blue. Its Equipment comment is a statement from 2017, not a claim verified for the current card pool."
+    },
+    "wizards_archenemy": {
+      "url": "https://magic.wizards.com/en/formats/archenemy",
+      "role": "primary source for abandoning ongoing schemes",
+      "paraphrase": "An ongoing scheme remains active until abandoned, then goes on the bottom of the scheme deck."
+    },
+    "scryfall_abandon": {
+      "evidence_file": "query-receipts.json",
+      "role": "fresh query comparison; raw responses and SHA-256 receipts saved",
+      "query": "t:scheme o:abandon include:extras",
+      "matching_schemes": 20
+    }
+  },
+  "records": [
+    {
+      "mechanic": "Affinitycycling",
+      "classification": "Colorless / Outside the Five Colors",
+      "outside_five_colors": {
+        "primary": "Colorless",
+        "secondary": null,
+        "tertiary": null
+      },
+      "wubrg_placements": {
+        "W": null,
+        "U": null,
+        "B": null,
+        "R": null,
+        "G": null
+      },
+      "label": "Scryfall-derived assessment - provisional; playtest-only",
+      "confidence": "low",
+      "rationale": "The supplied Sojourner's Enforcermite text matches the saved Scryfall record: generic {6}, colorless artifact creature, Affinity for Affinity and Affinitycycling {2}. Its 6/6 statistics and Frog Myr Salamander type line are retained in the raw record. The one observed Affinitycycling design supplies a colorless home, not W/U/B/R/G tiers. Colorless Primary is a sparse-sample convention, not a published color-pie rule.",
+      "sources": [
+        "scryfall_enforcermite"
+      ],
+      "wiki_reference": "https://mtg.fandom.com/wiki/Unknown_Event/2023_list_of_event_cards"
+    },
+    {
+      "mechanic": "Abandon",
+      "classification": "Special-format rules action / Archenemy schemes",
+      "outside_five_colors": {
+        "primary": null,
+        "secondary": null,
+        "tertiary": null
+      },
+      "wubrg_placements": {
+        "W": null,
+        "U": null,
+        "B": null,
+        "R": null,
+        "G": null
+      },
+      "label": "Verified rules scope; P/S/T not applicable",
+      "rationale": "This is the action used by ongoing schemes. Colorless schemes are evidence of a special game-object operation, not a reason to rank it like a colored spell effect. The default fulloracle search returned Kobayashi Maru Scenario (Abandon Ship mode label) and Reckless Abandon (self-name), neither a use of the scheme action. Adding include:extras returns the 20 schemes plus those two false positives; filtering t:scheme yields the 20 relevant designs.",
+      "examples": [
+        "Because I Have Willed It",
+        "Bow to My Command"
+      ],
+      "sources": [
+        "wizards_archenemy",
+        "scryfall_abandon"
+      ],
+      "correction_to_prior_report": "The earlier Abandon page incorrectly called Kobayashi Maru Scenario a future scheme preview. It is a blue Enchantment with an Abandon Ship mode label and was correctly excluded by the original ledger; this addendum corrects the prose.",
+      "wiki_reference": "https://mtg.fandom.com/wiki/Abandon"
+    },
+    {
+      "mechanic": "Activate",
+      "classification": "Universal rules action / not a color-pie effect",
+      "outside_five_colors": {
+        "primary": null,
+        "secondary": null,
+        "tertiary": null
+      },
+      "wubrg_placements": {
+        "W": null,
+        "U": null,
+        "B": null,
+        "R": null,
+        "G": null
+      },
+      "label": "Official history and rules vocabulary; P/S/T not applicable",
+      "rationale": "Activate describes using an activated ability, not the effect that ability produces. It is not an ability newly created in Sixth Edition; the standardized vocabulary was introduced then. A tap ability producing mana and an activated damage ability share this rules action but require separate effect-level analysis. Do not interpret rules-neutral as five Primary placements or as Colorless Primary.",
+      "sources": [
+        "wizards_activate"
+      ],
+      "wiki_reference": "https://mtg.fandom.com/wiki/Activate"
+    },
+    {
+      "mechanic": "Annihilator",
+      "classification": "Colorless / Outside the Five Colors",
+      "outside_five_colors": {
+        "primary": "Colorless",
+        "secondary": null,
+        "tertiary": null
+      },
+      "wubrg_placements": {
+        "W": null,
+        "U": null,
+        "B": null,
+        "R": null,
+        "G": null
+      },
+      "label": "Owner-directed classification; Scryfall-derived rationale",
+      "confidence": "strong colorless home; exact category is a project classification",
+      "rationale": "Adopt the user's stated Primary Colorless, Secondary None, Tertiary None. The prior screened population is dominated by colorless native uses and grants. A five-color playtest grant does not establish independent colored tiers. Colorless is a separate classification, not a sixth Magic color and not a synonym for the {C} mana symbol.",
+      "evidence_file": "../sources/annihilator/review-input.json"
+    },
+    {
+      "mechanic": "Attach",
+      "classification": "Generic rules action, with linked effect-specific color-pie evidence",
+      "outside_five_colors": {
+        "primary": null,
+        "secondary": null,
+        "tertiary": null
+      },
+      "wubrg_placements": {
+        "W": null,
+        "U": null,
+        "B": null,
+        "R": null,
+        "G": null
+      },
+      "label": "Generic action unranked; narrower effect explicitly sourced",
+      "rationale": "Preserve the distinction between the generic Attach action and moving already attached enchantments. The 2017 article provides explicit Blue Primary evidence for its named Moving enchantments/counters category. Record that evidence alongside Attach rather than expanding the claim to every Equip or Aura-attachment action. Counter movement is also not itself the rules action of attaching a permanent.",
+      "related_effects": [
+        {
+          "name": "Moving enchantments/counters",
+          "placements": {
+            "W": null,
+            "U": "Primary",
+            "B": null,
+            "R": null,
+            "G": null
+          },
+          "label": "Explicit Wizards placement - 2017 scope",
+          "source": "wizards_attach_2017",
+          "mapping": "related effect; not an identity merge or blanket assignment for Attach",
+          "target2021": null
+        }
+      ],
+      "sources": [
+        "wizards_attach_2017",
+        "wizards_activate"
+      ],
+      "wiki_reference": "https://mtg.fandom.com/wiki/Attach"
+    }
+  ]
+}

@@ -1,0 +1,2809 @@
+{
+  "schemaVersion": 1,
+  "researchDate": "2026-10-26",
+  "supplementCanonicalSha256": "467835fcfa96c096d4a6c5956465c4043b093c5e4a64ad8b79c5c48a88e8bd0b",
+  "sourceBindings": [
+    {
+      "path": "docs/mechanics-research/a-assessments-source.json",
+      "sha256": "522bd8f6f185f8a412d69a229157624d8bc9c409baa4452d9e3c93ee2ba81558"
+    },
+    {
+      "path": "docs/mechanics-research/absorb-assessment-source.json",
+      "sha256": "7db5bfc78e8488112263ba5f9d0b132bcc1603fbc1a0bc9e41a2a9a5b6e4d46c"
+    },
+    {
+      "path": "docs/mechanics-research/a-classification-addendum.json",
+      "sha256": "b4929faf3986b70708dfc97632eabd91746d6bd015497eaf1fad680cdccaae1e"
+    }
+  ],
+  "records": [
+    {
+      "id": "deck:catalog-gaps:abandon",
+      "name": "Abandon",
+      "scope": "Special-format rules action / Archenemy schemes",
+      "confidence": "Not applicable to the general rules action",
+      "placements": {
+        "W": null,
+        "U": null,
+        "B": null,
+        "R": null,
+        "G": null
+      },
+      "rationale": {
+        "W": "No independent W placement is assigned; see the classification and rationale below.",
+        "U": "No independent U placement is assigned; see the classification and rationale below.",
+        "B": "No independent B placement is assigned; see the classification and rationale below.",
+        "R": "No independent R placement is assigned; see the classification and rationale below.",
+        "G": "No independent G placement is assigned; see the classification and rationale below."
+      },
+      "summary": "This is the action used by ongoing schemes. Colorless schemes are evidence of a special game-object operation, not a reason to rank it like a colored spell effect. The default fulloracle search returned Kobayashi Maru Scenario (Abandon Ship mode label) and Reckless Abandon (self-name), neither a use of the scheme action. Adding include:extras returns the 20 schemes plus those two false positives; filtering t:scheme yields the 20 relevant designs.",
+      "limitations": [
+        "Search t:scheme o:abandon include:extras to see the 20 relevant scheme designs. The default search excludes schemes and finds unrelated word matches."
+      ],
+      "citationCards": [
+        {
+          "name": "Because I Have Willed It",
+          "url": "https://scryfall.com/card/oe01/1%E2%98%85/because-i-have-willed-it?utm_source=api"
+        },
+        {
+          "name": "Bow to My Command",
+          "url": "https://scryfall.com/card/oe01/3%E2%98%85/bow-to-my-command?utm_source=api"
+        },
+        {
+          "name": "Dark Wings Bring Your Downfall",
+          "url": "https://scryfall.com/card/dsc/332/dark-wings-bring-your-downfall?utm_source=api"
+        },
+        {
+          "name": "Fear My Authority",
+          "url": "https://scryfall.com/card/dsc/333/fear-my-authority?utm_source=api"
+        },
+        {
+          "name": "I Am Duskmourn",
+          "url": "https://scryfall.com/card/dsc/334/i-am-duskmourn?utm_source=api"
+        },
+        {
+          "name": "I Am Untouchable",
+          "url": "https://scryfall.com/card/dsc/336/i-am-untouchable?utm_source=api"
+        },
+        {
+          "name": "I Bask in Your Silent Awe",
+          "url": "https://scryfall.com/card/oarc/15%E2%98%85/i-bask-in-your-silent-awe?utm_source=api"
+        },
+        {
+          "name": "I Know All, I See All",
+          "url": "https://scryfall.com/card/oarc/18%E2%98%85/i-know-all-i-see-all?utm_source=api"
+        },
+        {
+          "name": "Imprison This Insolent Wretch",
+          "url": "https://scryfall.com/card/dci/58/imprison-this-insolent-wretch?utm_source=api"
+        },
+        {
+          "name": "Mine Is the Only Truth",
+          "url": "https://scryfall.com/card/dsc/340/mine-is-the-only-truth?utm_source=api"
+        },
+        {
+          "name": "My Champion Stands Supreme",
+          "url": "https://scryfall.com/card/dsc/341/my-champion-stands-supreme?utm_source=api"
+        },
+        {
+          "name": "My Forces Are Innumerable",
+          "url": "https://scryfall.com/card/oe01/11%E2%98%85/my-forces-are-innumerable?utm_source=api"
+        },
+        {
+          "name": "My Laughter Echoes",
+          "url": "https://scryfall.com/card/dsc/344/my-laughter-echoes?utm_source=api"
+        },
+        {
+          "name": "My Tendrils Run Deep",
+          "url": "https://scryfall.com/card/dsc/345/my-tendrils-run-deep?utm_source=api"
+        },
+        {
+          "name": "My Undead Horde Awakens",
+          "url": "https://scryfall.com/card/oarc/29%E2%98%85/my-undead-horde-awakens?utm_source=api"
+        },
+        {
+          "name": "Nature Shields Its Own",
+          "url": "https://scryfall.com/card/oarc/32%E2%98%85/nature-shields-its-own?utm_source=api"
+        },
+        {
+          "name": "Nothing Can Stop Me Now",
+          "url": "https://scryfall.com/card/oarc/33%E2%98%85/nothing-can-stop-me-now?utm_source=api"
+        },
+        {
+          "name": "Reality Is Mine to Control",
+          "url": "https://scryfall.com/card/dsc/354/reality-is-mine-to-control?utm_source=api"
+        },
+        {
+          "name": "The Very Soil Shall Shake",
+          "url": "https://scryfall.com/card/oarc/41%E2%98%85/the-very-soil-shall-shake?utm_source=api"
+        },
+        {
+          "name": "You Cannot Hide from Me",
+          "url": "https://scryfall.com/card/dsc/360/you-cannot-hide-from-me?utm_source=api"
+        }
+      ],
+      "researchRecordId": "deck:vocabulary:abandon",
+      "label": "Rules action - not ranked",
+      "researchDate": "2026-10-26",
+      "kind": "rules",
+      "classification": "Special-format rules action / Archenemy schemes",
+      "outsidePrimary": null,
+      "relatedEffects": [],
+      "sources": [
+        {
+          "title": "Wizards: Archenemy",
+          "url": "https://magic.wizards.com/en/formats/archenemy"
+        }
+      ],
+      "queryUrl": "https://scryfall.com/search?q=t%3Ascheme%20o%3Aabandon%20include%3Aextras"
+    },
+    {
+      "id": "deck:catalog-gaps:absorb",
+      "name": "Absorb",
+      "scope": "Exact Absorb keyword and explicit native grants; one observed white design.",
+      "confidence": "low-to-moderate",
+      "placements": {
+        "W": "Primary",
+        "U": null,
+        "B": null,
+        "R": null,
+        "G": null
+      },
+      "rationale": {
+        "W": "Primary is my provisional best-fit judgment: the only observed native source is a monowhite common that deliberately grants Absorb. White is therefore the best-supported home in this evidence set. Designer history also places the precursor armor designs in white. This supports a proposed home, not proof of a broad established tier.",
+        "U": "No native blue Absorb source was found in the exact-word Scryfall population. Absorbing Man is a substring false positive, not the Absorb keyword. No secondary or tertiary assignment is justified.",
+        "B": "No native black Absorb source was found. A black Sliver receiving Absorb from Lymph Sliver is granted access from a white source, not evidence of native black ownership.",
+        "R": "No native red Absorb source was found. Receiving the granted ability, copying a card, or lacking observed cards does not establish a red tier.",
+        "G": "No native green Absorb source was found. General toughness, resilience, or damage-prevention similarities are not enough to assign this exact keyword a tier."
+      },
+      "summary": "Lymph Sliver supports white as a provisional home. Two printings represent one design.",
+      "limitations": [
+        "One unique card is a very small sample. Two printings do not supply two independent color decisions.",
+        "Observed exclusivity supports white as a proposed home but does not prove whether R&D would classify it primary, secondary or tertiary.",
+        "Unassigned means not established by this evidence, not unavailable, colorless, zero access or a prohibition.",
+        "The classification concerns the exact keyword Absorb, not the counterspell named Absorb, general damage prevention, copying, or all potential recipients of a granted ability.",
+        "Absorb being scarce across all Magic does not automatically make it tertiary in its only demonstrated color.",
+        "Reassess after a new native design in another color, explicit designer tier guidance, or evidence of a deliberate color-pie exception."
+      ],
+      "citationCards": [
+        {
+          "name": "Lymph Sliver",
+          "url": "https://scryfall.com/card/tsr/25/lymph-sliver"
+        }
+      ],
+      "label": "Scryfall-derived assessment - provisional",
+      "researchDate": "2026-10-26",
+      "kind": "derived",
+      "classification": "Provisional color placements",
+      "outsidePrimary": null,
+      "relatedEffects": [],
+      "sources": [
+        {
+          "title": "Future Sight Design Handoff Document",
+          "url": "https://magic.wizards.com/en/news/making-magic/future-sight-design-handoff-document-2021-05-17"
+        }
+      ],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAbsorb%5Cb/%20include%3Aextras"
+    },
+    {
+      "id": "deck:catalog-gaps:activate",
+      "name": "Activate",
+      "scope": "Universal rules action / not a color-pie effect",
+      "confidence": "Not applicable to the general rules action",
+      "placements": {
+        "W": null,
+        "U": null,
+        "B": null,
+        "R": null,
+        "G": null
+      },
+      "rationale": {
+        "W": "No independent W placement is assigned; see the classification and rationale below.",
+        "U": "No independent U placement is assigned; see the classification and rationale below.",
+        "B": "No independent B placement is assigned; see the classification and rationale below.",
+        "R": "No independent R placement is assigned; see the classification and rationale below.",
+        "G": "No independent G placement is assigned; see the classification and rationale below."
+      },
+      "summary": "Activate describes using an activated ability, not the effect that ability produces. It is not an ability newly created in Sixth Edition; the standardized vocabulary was introduced then. A tap ability producing mana and an activated damage ability share this rules action but require separate effect-level analysis. Do not interpret rules-neutral as five Primary placements or as Colorless Primary.",
+      "limitations": [],
+      "citationCards": [],
+      "researchRecordId": "deck:vocabulary:activate",
+      "label": "Rules action - not ranked",
+      "researchDate": "2026-10-26",
+      "kind": "rules",
+      "classification": "Universal rules action / not a color-pie effect",
+      "outsidePrimary": null,
+      "relatedEffects": [],
+      "sources": [
+        {
+          "title": "Evergreen Eggs & Ham (2015)",
+          "url": "https://magic.wizards.com/en/news/making-magic/evergreen-eggs-ham-2015-06-08"
+        }
+      ],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbActivate%5Cb/%20include%3Aextras"
+    },
+    {
+      "id": "deck:catalog-gaps:actualize",
+      "name": "Actualize",
+      "scope": "Four native designs in a single Arena-only digital set: blue 2, green 1, colorless 1.",
+      "confidence": "low",
+      "placements": {
+        "W": null,
+        "U": "Primary",
+        "B": null,
+        "R": null,
+        "G": "Secondary"
+      },
+      "rationale": {
+        "W": "No native use or explicit grant in this color was found in the screened sample; leave unassigned rather than infer access from related effects.",
+        "U": "Crux of the Theory and Echogoyfs are two distinct monoblue native designs, the largest colored cluster. Propose Primary within this digital sample, without claiming a broad established policy.",
+        "B": "No native use or explicit grant in this color was found in the screened sample; leave unassigned rather than infer access from related effects.",
+        "R": "No native use or explicit grant in this color was found in the screened sample; leave unassigned rather than infer access from related effects.",
+        "G": "Etali, Primal Garden is a direct monogreen native example. Propose Secondary relative to the two blue designs; one of three colored designs is meaningful access, not evidence of a settled exceptional-only rule."
+      },
+      "summary": "Blue is the tentative lead; green has direct but smaller representation. Both judgments are fragile in this tiny digital sample.",
+      "limitations": [
+        "All four observed cards are digital. Willbound Quill is colorless. These proposals do not establish paper or Commander availability, and more cards could readily change the ordering."
+      ],
+      "citationCards": [
+        {
+          "name": "Crux of the Theory",
+          "url": "https://scryfall.com/card/yfra/5/crux-of-the-theory?utm_source=api"
+        },
+        {
+          "name": "Echogoyfs",
+          "url": "https://scryfall.com/card/yfra/6/echogoyfs?utm_source=api"
+        },
+        {
+          "name": "Etali, Primal Garden",
+          "url": "https://scryfall.com/card/yfra/15/etali-primal-garden?utm_source=api"
+        },
+        {
+          "name": "Willbound Quill",
+          "url": "https://scryfall.com/card/yfra/30/willbound-quill?utm_source=api"
+        }
+      ],
+      "researchRecordId": "deck:vocabulary:actualize",
+      "label": "Scryfall-derived assessment - provisional",
+      "researchDate": "2026-10-26",
+      "kind": "derived",
+      "classification": "Provisional color placements",
+      "outsidePrimary": null,
+      "relatedEffects": [],
+      "sources": [],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbActualize%5Cb/%20include%3Aextras"
+    },
+    {
+      "id": "deck:vocabulary:adamant",
+      "name": "Adamant",
+      "scope": "Named ability word; 15 monocolored designs plus three colorless designs.",
+      "confidence": "moderate",
+      "placements": {
+        "W": "Primary",
+        "U": "Primary",
+        "B": "Primary",
+        "R": "Primary",
+        "G": "Primary"
+      },
+      "rationale": {
+        "W": "White has three distinct monocolored native Adamant designs, matching every other color. The balanced distribution supports equal access rather than a forced ranking.",
+        "U": "Blue has three distinct monocolored native Adamant designs, matching every other color. The balanced distribution supports equal access rather than a forced ranking.",
+        "B": "Black has three distinct monocolored native Adamant designs, matching every other color. The balanced distribution supports equal access rather than a forced ranking.",
+        "R": "Red has three distinct monocolored native Adamant designs, matching every other color. The balanced distribution supports equal access rather than a forced ranking.",
+        "G": "Green has three distinct monocolored native Adamant designs, matching every other color. The balanced distribution supports equal access rather than a forced ranking."
+      },
+      "summary": "Treat all five colors as co-primary for this deliberately balanced monocolor reward mechanic.",
+      "limitations": [
+        "Equal Primary is an analyst convention for balanced five-color access. A colorless card rewarding a chosen color is not five additional colored designs."
+      ],
+      "citationCards": [
+        {
+          "name": "Ardenvale Paladin",
+          "url": "https://scryfall.com/card/eld/4/ardenvale-paladin?utm_source=api"
+        },
+        {
+          "name": "Cauldron's Gift",
+          "url": "https://scryfall.com/card/eld/83/cauldrons-gift?utm_source=api"
+        },
+        {
+          "name": "Clockwork Servant",
+          "url": "https://scryfall.com/card/eld/216/clockwork-servant?utm_source=api"
+        },
+        {
+          "name": "Desecrate Reality",
+          "url": "https://scryfall.com/card/cmm/714/desecrate-reality?utm_source=api"
+        },
+        {
+          "name": "Embereth Paladin",
+          "url": "https://scryfall.com/card/eld/121/embereth-paladin?utm_source=api"
+        },
+        {
+          "name": "Foreboding Fruit",
+          "url": "https://scryfall.com/card/eld/88/foreboding-fruit?utm_source=api"
+        },
+        {
+          "name": "Garenbrig Paladin",
+          "url": "https://scryfall.com/card/eld/157/garenbrig-paladin?utm_source=api"
+        },
+        {
+          "name": "Henge Walker",
+          "url": "https://scryfall.com/card/eld/221/henge-walker?utm_source=api"
+        },
+        {
+          "name": "Locthwain Paladin",
+          "url": "https://scryfall.com/card/eld/93/locthwain-paladin?utm_source=api"
+        },
+        {
+          "name": "Once and Future",
+          "url": "https://scryfall.com/card/eld/168/once-and-future?utm_source=api"
+        },
+        {
+          "name": "Outmuscle",
+          "url": "https://scryfall.com/card/eld/170/outmuscle?utm_source=api"
+        },
+        {
+          "name": "Rally for the Throne",
+          "url": "https://scryfall.com/card/eld/25/rally-for-the-throne?utm_source=api"
+        },
+        {
+          "name": "Searing Barrage",
+          "url": "https://scryfall.com/card/eld/140/searing-barrage?utm_source=api"
+        },
+        {
+          "name": "Silverflame Ritual",
+          "url": "https://scryfall.com/card/eld/30/silverflame-ritual?utm_source=api"
+        },
+        {
+          "name": "Slaying Fire",
+          "url": "https://scryfall.com/card/eld/143/slaying-fire?utm_source=api"
+        },
+        {
+          "name": "Turn into a Pumpkin",
+          "url": "https://scryfall.com/card/eld/69/turn-into-a-pumpkin?utm_source=api"
+        },
+        {
+          "name": "Unexplained Vision",
+          "url": "https://scryfall.com/card/eld/70/unexplained-vision?utm_source=api"
+        },
+        {
+          "name": "Vantress Paladin",
+          "url": "https://scryfall.com/card/eld/72/vantress-paladin?utm_source=api"
+        }
+      ],
+      "label": "Scryfall-derived assessment - provisional",
+      "researchDate": "2026-10-26",
+      "kind": "derived",
+      "classification": "Provisional color placements",
+      "outsidePrimary": null,
+      "relatedEffects": [],
+      "sources": [],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAdamant%5Cb/%20include%3Aextras"
+    },
+    {
+      "id": "deck:vocabulary:adapt",
+      "name": "Adapt",
+      "scope": "Native Adapt actions across the saved card population, with face colors applied to Jetfire.",
+      "confidence": "moderate",
+      "placements": {
+        "W": "Tertiary",
+        "U": "Secondary",
+        "B": "Secondary",
+        "R": null,
+        "G": "Primary"
+      },
+      "rationale": {
+        "W": "Knighted Myr is the lone monowhite native design. Its direct but isolated access supports a provisional Tertiary placement.",
+        "U": "Pteramander, Skatewing Spy and Skitter Eel provide repeated monoblue examples; Jetfire adds a native blue face. These and joint GU cards support recurring Secondary use.",
+        "B": "Etherium Pteramander and Fetid Gargantua are among four monoblack native designs, with BG designs adding joint evidence. This is enough recurring independent use for Secondary.",
+        "R": "No native use or explicit grant in this color was found in the screened sample; leave unassigned rather than infer access from related effects.",
+        "G": "Seven monogreen native designs, including Incubation Druid, Growth-Chamber Guardian and Evolution Witness, plus several joint green designs make green the strongest sustained home."
+      },
+      "summary": "Green leads; blue and black have recurring independent use; white has one narrow native example.",
+      "limitations": [
+        "Multicolor examples supplement the independent monocolor evidence; they are not separate proof for each color. The proposals concern Adapt itself, not all +1/+1-counter effects."
+      ],
+      "citationCards": [
+        {
+          "name": "Aeromunculus",
+          "url": "https://scryfall.com/card/rna/152/aeromunculus?utm_source=api"
+        },
+        {
+          "name": "Basking Broodscale",
+          "url": "https://scryfall.com/card/mh3/145/basking-broodscale?utm_source=api"
+        },
+        {
+          "name": "Benthic Biomancer",
+          "url": "https://scryfall.com/card/lcc/145/benthic-biomancer?utm_source=api"
+        },
+        {
+          "name": "Cursed Wombat",
+          "url": "https://scryfall.com/card/mh3/181/cursed-wombat?utm_source=api"
+        },
+        {
+          "name": "Dreamdrinker Vampire",
+          "url": "https://scryfall.com/card/mh3/88/dreamdrinker-vampire?utm_source=api"
+        },
+        {
+          "name": "Emperor of Bones",
+          "url": "https://scryfall.com/card/mh3/90/emperor-of-bones?utm_source=api"
+        },
+        {
+          "name": "Etherium Pteramander",
+          "url": "https://scryfall.com/card/mh3/92/etherium-pteramander?utm_source=api"
+        },
+        {
+          "name": "Evolution Witness",
+          "url": "https://scryfall.com/card/mh3/151/evolution-witness?utm_source=api"
+        },
+        {
+          "name": "Expanding Ooze",
+          "url": "https://scryfall.com/card/mh3/184/expanding-ooze?utm_source=api"
+        },
+        {
+          "name": "Fetid Gargantua",
+          "url": "https://scryfall.com/card/mh3/94/fetid-gargantua?utm_source=api"
+        },
+        {
+          "name": "Growth-Chamber Guardian",
+          "url": "https://scryfall.com/card/rna/128/growth-chamber-guardian?utm_source=api"
+        },
+        {
+          "name": "Hydra Trainer",
+          "url": "https://scryfall.com/card/mh3/159/hydra-trainer?utm_source=api"
+        },
+        {
+          "name": "Incubation Druid",
+          "url": "https://scryfall.com/card/moc/302/incubation-druid?utm_source=api"
+        },
+        {
+          "name": "Jetfire, Ingenious Scientist // Jetfire, Air Guardian",
+          "url": "https://scryfall.com/card/bot/3/jetfire-ingenious-scientist-jetfire-air-guardian?utm_source=api"
+        },
+        {
+          "name": "Knighted Myr",
+          "url": "https://scryfall.com/card/cmm/36/knighted-myr?utm_source=api"
+        },
+        {
+          "name": "Pteramander",
+          "url": "https://scryfall.com/card/otc/109/pteramander?utm_source=api"
+        },
+        {
+          "name": "Sauroform Hybrid",
+          "url": "https://scryfall.com/card/clu/173/sauroform-hybrid?utm_source=api"
+        },
+        {
+          "name": "Scuttlegator",
+          "url": "https://scryfall.com/card/clu/206/scuttlegator?utm_source=api"
+        },
+        {
+          "name": "Sharktocrab",
+          "url": "https://scryfall.com/card/rvr/222/sharktocrab?utm_source=api"
+        },
+        {
+          "name": "Skatewing Spy",
+          "url": "https://scryfall.com/card/rna/52/skatewing-spy?utm_source=api"
+        },
+        {
+          "name": "Skitter Eel",
+          "url": "https://scryfall.com/card/clu/98/skitter-eel?utm_source=api"
+        },
+        {
+          "name": "Temperamental Oozewagg",
+          "url": "https://scryfall.com/card/mh3/172/temperamental-oozewagg?utm_source=api"
+        },
+        {
+          "name": "Trollbred Guardian",
+          "url": "https://scryfall.com/card/rna/148/trollbred-guardian?utm_source=api"
+        },
+        {
+          "name": "Unruly Krasis",
+          "url": "https://scryfall.com/card/clu/50/unruly-krasis?utm_source=api"
+        },
+        {
+          "name": "Zegana, Utopian Speaker",
+          "url": "https://scryfall.com/card/lcc/298/zegana-utopian-speaker?utm_source=api"
+        }
+      ],
+      "label": "Scryfall-derived assessment - provisional",
+      "researchDate": "2026-10-26",
+      "kind": "derived",
+      "classification": "Provisional color placements",
+      "outsidePrimary": null,
+      "relatedEffects": [],
+      "sources": [],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAdapt%5Cb/%20include%3Aextras"
+    },
+    {
+      "id": "deck:vocabulary:addendum",
+      "name": "Addendum",
+      "scope": "Ten native Addendum designs: white 5, blue 3, joint WU 2.",
+      "confidence": "moderate",
+      "placements": {
+        "W": "Primary",
+        "U": "Secondary",
+        "B": null,
+        "R": null,
+        "G": null
+      },
+      "rationale": {
+        "W": "Five monowhite native designs provide the largest independent cluster, and two WU designs reinforce the white-blue setting. Propose Primary by density, not an exclusive right.",
+        "U": "Three monoblue native designs plus two joint WU designs establish recurring blue access. Propose Secondary relative to white; co-primary would also be plausible for a guild-scoped reading.",
+        "B": "No native use or explicit grant in this color was found in the screened sample; leave unassigned rather than infer access from related effects.",
+        "R": "No native use or explicit grant in this color was found in the screened sample; leave unassigned rather than infer access from related effects.",
+        "G": "No native use or explicit grant in this color was found in the screened sample; leave unassigned rather than infer access from related effects."
+      },
+      "summary": "White is the lead in this sample, with blue a substantial recurring second home.",
+      "limitations": [
+        "The difference between White Primary and Blue Secondary is an interpretive weighting of a small guild-focused sample, not an official hierarchy."
+      ],
+      "citationCards": [
+        {
+          "name": "Arrester's Admonition",
+          "url": "https://scryfall.com/card/rna/31/arresters-admonition?utm_source=api"
+        },
+        {
+          "name": "Arrester's Zeal",
+          "url": "https://scryfall.com/card/rvr/4/arresters-zeal?utm_source=api"
+        },
+        {
+          "name": "Code of Constraint",
+          "url": "https://scryfall.com/card/clu/83/code-of-constraint?utm_source=api"
+        },
+        {
+          "name": "Contractual Safeguard",
+          "url": "https://scryfall.com/card/ncc/14/contractual-safeguard?utm_source=api"
+        },
+        {
+          "name": "Emergency Powers",
+          "url": "https://scryfall.com/card/rna/169/emergency-powers?utm_source=api"
+        },
+        {
+          "name": "Precognitive Perception",
+          "url": "https://scryfall.com/card/rna/45/precognitive-perception?utm_source=api"
+        },
+        {
+          "name": "Sentinel's Mark",
+          "url": "https://scryfall.com/card/rna/20/sentinels-mark?utm_source=api"
+        },
+        {
+          "name": "Sphinx's Insight",
+          "url": "https://scryfall.com/card/rna/209/sphinxs-insight?utm_source=api"
+        },
+        {
+          "name": "Summary Judgment",
+          "url": "https://scryfall.com/card/rvr/27/summary-judgment?utm_source=api"
+        },
+        {
+          "name": "Unbreakable Formation",
+          "url": "https://scryfall.com/card/rvr/32/unbreakable-formation?utm_source=api"
+        }
+      ],
+      "label": "Scryfall-derived assessment - provisional",
+      "researchDate": "2026-10-26",
+      "kind": "derived",
+      "classification": "Provisional color placements",
+      "outsidePrimary": null,
+      "relatedEffects": [],
+      "sources": [],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAddendum%5Cb/%20include%3Aextras"
+    },
+    {
+      "id": "deck:vocabulary:affinity",
+      "name": "Affinity",
+      "scope": "Named Affinity for all qualifying objects, including explicit grants; special, digital and preview examples remain qualified.",
+      "confidence": "moderate",
+      "placements": {
+        "W": "Secondary",
+        "U": "Primary",
+        "B": "Tertiary",
+        "R": "Secondary",
+        "G": "Tertiary"
+      },
+      "rationale": {
+        "W": "Eleven monowhite sources include Angelic Observer, Argivian Phalanx and Pearl-Ear, Imperial Advisor. Repeated native forms and a grant support Secondary across creature and Aura-related applications.",
+        "U": "Twenty-four monoblue sources include Thoughtcast, Broodstar and Emry, Lurker of the Loch. This is the largest independent cluster with multiple native spells and grant sources: Primary.",
+        "B": "Demonic Junker, Refurbished Familiar and Scales of Shale give three monoblack sources. Numerous joint-color cards do not erase the smaller independent branch; propose Tertiary.",
+        "R": "Eleven monored sources, including Chiss-Goria, Furnace Dragon and Oxidda Finisher, establish recurring native/grant access: Secondary. Omniclown adds qualified special-set evidence but does not drive the tier.",
+        "G": "Five monogreen sources, including Bartz and Boko and Polliwallop, show real but smaller independent access across specific object types. Tertiary is a provisional relative weighting, not a ban on additional uses."
+      },
+      "summary": "Blue has the deepest independent population; white and red recur broadly; black and green form smaller branches.",
+      "limitations": [
+        "Current saved Oracle text explicitly names Affinity on several older cards once worded as plain cost reduction; use current facts, not historical recollection. Borg Cube is a preview; Thoughtcast has older printings despite a future representative reprint. Colorless designs, special/acorn/playtest sources and the digital Grand Goatnapper are retained without treating them as ordinary colored policy."
+      ],
+      "citationCards": [
+        {
+          "name": "Allies at Last",
+          "url": "https://scryfall.com/card/tla/164/allies-at-last?utm_source=api"
+        },
+        {
+          "name": "Angelic Observer",
+          "url": "https://scryfall.com/card/snc/1/angelic-observer?utm_source=api"
+        },
+        {
+          "name": "Argivian Phalanx",
+          "url": "https://scryfall.com/card/dmu/5/argivian-phalanx?utm_source=api"
+        },
+        {
+          "name": "Assert Authority",
+          "url": "https://scryfall.com/card/mrd/30/assert-authority?utm_source=api"
+        },
+        {
+          "name": "Banish to Another Universe",
+          "url": "https://scryfall.com/card/who/13/banish-to-another-universe?utm_source=api"
+        },
+        {
+          "name": "Banquet Guests",
+          "url": "https://scryfall.com/card/ltc/47/banquet-guests?utm_source=api"
+        },
+        {
+          "name": "Bartz and Boko",
+          "url": "https://scryfall.com/card/fin/175/bartz-and-boko?utm_source=api"
+        },
+        {
+          "name": "Blinkmoth Infusion",
+          "url": "https://scryfall.com/card/5dn/25/blinkmoth-infusion?utm_source=api"
+        },
+        {
+          "name": "Borg Cube",
+          "url": "https://scryfall.com/card/trk/227/borg-cube?utm_source=api"
+        },
+        {
+          "name": "Brine Giant",
+          "url": "https://scryfall.com/card/thb/44/brine-giant?utm_source=api"
+        },
+        {
+          "name": "Broodstar",
+          "url": "https://scryfall.com/card/hop/8/broodstar?utm_source=api"
+        },
+        {
+          "name": "Cantankerous Keepers",
+          "url": "https://scryfall.com/card/hob/122/cantankerous-keepers?utm_source=api"
+        },
+        {
+          "name": "Chiss-Goria, Forge Tyrant",
+          "url": "https://scryfall.com/card/onc/25/chiss-goria-forge-tyrant?utm_source=api"
+        },
+        {
+          "name": "Chromescale Drake",
+          "url": "https://scryfall.com/card/dst/20/chromescale-drake?utm_source=api"
+        },
+        {
+          "name": "Claws Out",
+          "url": "https://scryfall.com/card/fdn/6/claws-out?utm_source=api"
+        },
+        {
+          "name": "Demonic Junker",
+          "url": "https://scryfall.com/card/dft/83/demonic-junker?utm_source=api"
+        },
+        {
+          "name": "Don & Raph, Hard Science",
+          "url": "https://scryfall.com/card/tmt/144/don-&-raph-hard-science?utm_source=api"
+        },
+        {
+          "name": "Dross Golem",
+          "url": "https://scryfall.com/card/dst/119/dross-golem?utm_source=api"
+        },
+        {
+          "name": "Emry, Lurker of the Loch",
+          "url": "https://scryfall.com/card/eoc/71/emry-lurker-of-the-loch?utm_source=api"
+        },
+        {
+          "name": "Ethersworn Sphinx",
+          "url": "https://scryfall.com/card/mh2/195/ethersworn-sphinx?utm_source=api"
+        },
+        {
+          "name": "Frogmite",
+          "url": "https://scryfall.com/card/mm2/215/frogmite?utm_source=api"
+        },
+        {
+          "name": "Frogmyr Enforcer",
+          "url": "https://scryfall.com/card/mh3/120/frogmyr-enforcer?utm_source=api"
+        },
+        {
+          "name": "Furnace Dragon",
+          "url": "https://scryfall.com/card/dst/62/furnace-dragon?utm_source=api"
+        },
+        {
+          "name": "Furnace Hellkite",
+          "url": "https://scryfall.com/card/mh3/121/furnace-hellkite?utm_source=api"
+        },
+        {
+          "name": "Gate Colossus",
+          "url": "https://scryfall.com/card/fdn/675/gate-colossus?utm_source=api"
+        },
+        {
+          "name": "Gearseeker Serpent",
+          "url": "https://scryfall.com/card/dft/43/gearseeker-serpent?utm_source=api"
+        },
+        {
+          "name": "Goldwardens' Gambit",
+          "url": "https://scryfall.com/card/onc/13/goldwardens-gambit?utm_source=api"
+        },
+        {
+          "name": "Hellspur Brute",
+          "url": "https://scryfall.com/card/otj/127/hellspur-brute?utm_source=api"
+        },
+        {
+          "name": "Icebreaker Kraken",
+          "url": "https://scryfall.com/card/khm/63/icebreaker-kraken?utm_source=api"
+        },
+        {
+          "name": "Imskir Iron-Eater",
+          "url": "https://scryfall.com/card/mh3/189/imskir-iron-eater?utm_source=api"
+        },
+        {
+          "name": "Into Thin Air",
+          "url": "https://scryfall.com/card/5dn/33/into-thin-air?utm_source=api"
+        },
+        {
+          "name": "Junk Winder",
+          "url": "https://scryfall.com/card/mkc/107/junk-winder?utm_source=api"
+        },
+        {
+          "name": "Krang, Master Mind",
+          "url": "https://scryfall.com/card/tmt/43/krang-master-mind?utm_source=api"
+        },
+        {
+          "name": "Lens Flare",
+          "url": "https://scryfall.com/card/mh2/20/lens-flare?utm_source=api"
+        },
+        {
+          "name": "Leonardo, Worldly Warrior",
+          "url": "https://scryfall.com/card/tmc/101/leonardo-worldly-warrior?utm_source=api"
+        },
+        {
+          "name": "Memnarchitect",
+          "url": "https://scryfall.com/card/unk/RU02/memnarchitect?utm_source=api"
+        },
+        {
+          "name": "Memory Guardian",
+          "url": "https://scryfall.com/card/dft/49/memory-guardian?utm_source=api"
+        },
+        {
+          "name": "Millicent, Restless Revenant",
+          "url": "https://scryfall.com/card/voc/1/millicent-restless-revenant?utm_source=api"
+        },
+        {
+          "name": "Mycosynth Golem",
+          "url": "https://scryfall.com/card/5dn/137/mycosynth-golem?utm_source=api"
+        },
+        {
+          "name": "Mycosynthwave",
+          "url": "https://scryfall.com/card/pssc/8/mycosynthwave?utm_source=api"
+        },
+        {
+          "name": "Myr Enforcer",
+          "url": "https://scryfall.com/card/mm2/224/myr-enforcer?utm_source=api"
+        },
+        {
+          "name": "Nahiri, Forged in Fury",
+          "url": "https://scryfall.com/card/mat/36/nahiri-forged-in-fury?utm_source=api"
+        },
+        {
+          "name": "Omniclown Colossus // Pie-roclasm",
+          "url": "https://scryfall.com/card/unf/116/omniclown-colossus-pie-roclasm?utm_source=api"
+        },
+        {
+          "name": "Oxidda Finisher",
+          "url": "https://scryfall.com/card/one/143/oxidda-finisher?utm_source=api"
+        },
+        {
+          "name": "Oxidda Golem",
+          "url": "https://scryfall.com/card/jvc/46/oxidda-golem?utm_source=api"
+        },
+        {
+          "name": "Panther Robot",
+          "url": "https://scryfall.com/card/msc/113/panther-robot?utm_source=api"
+        },
+        {
+          "name": "Pearl-Ear, Imperial Advisor",
+          "url": "https://scryfall.com/card/soc/160/pearl-ear-imperial-advisor?utm_source=api"
+        },
+        {
+          "name": "Phyrexian Broodstar",
+          "url": "https://scryfall.com/card/unk/RU08/phyrexian-broodstar?utm_source=api"
+        },
+        {
+          "name": "Plated Onslaught",
+          "url": "https://scryfall.com/card/one/29/plated-onslaught?utm_source=api"
+        },
+        {
+          "name": "Polliwallop",
+          "url": "https://scryfall.com/card/blb/189/polliwallop?utm_source=api"
+        },
+        {
+          "name": "Quicksilver Behemoth",
+          "url": "https://scryfall.com/card/dst/30/quicksilver-behemoth?utm_source=api"
+        },
+        {
+          "name": "Qumulox",
+          "url": "https://scryfall.com/card/mm2/54/qumulox?utm_source=api"
+        },
+        {
+          "name": "Razor Golem",
+          "url": "https://scryfall.com/card/dst/137/razor-golem?utm_source=api"
+        },
+        {
+          "name": "Reality Heist",
+          "url": "https://scryfall.com/card/neo/75/reality-heist?utm_source=api"
+        },
+        {
+          "name": "Rebel Salvo",
+          "url": "https://scryfall.com/card/one/144/rebel-salvo?utm_source=api"
+        },
+        {
+          "name": "Refurbished Familiar",
+          "url": "https://scryfall.com/card/mh3/105/refurbished-familiar?utm_source=api"
+        },
+        {
+          "name": "Riders of the Mark",
+          "url": "https://scryfall.com/card/ltr/827/riders-of-the-mark?utm_source=api"
+        },
+        {
+          "name": "Saheeli, the Gifted",
+          "url": "https://scryfall.com/card/c18/44/saheeli-the-gifted?utm_source=api"
+        },
+        {
+          "name": "Salt Road Packbeast",
+          "url": "https://scryfall.com/card/tdm/23/salt-road-packbeast?utm_source=api"
+        },
+        {
+          "name": "Sami, Wildcat Captain",
+          "url": "https://scryfall.com/card/eoe/226/sami-wildcat-captain?utm_source=api"
+        },
+        {
+          "name": "Sapling Nursery",
+          "url": "https://scryfall.com/card/ecl/192/sapling-nursery?utm_source=api"
+        },
+        {
+          "name": "Scale of Chiss-Goria",
+          "url": "https://scryfall.com/card/mrd/236/scale-of-chiss-goria?utm_source=api"
+        },
+        {
+          "name": "Scales of Shale",
+          "url": "https://scryfall.com/card/blb/110/scales-of-shale?utm_source=api"
+        },
+        {
+          "name": "Sky-Blessed Samurai",
+          "url": "https://scryfall.com/card/neo/37/sky-blessed-samurai?utm_source=api"
+        },
+        {
+          "name": "Slag Strider",
+          "url": "https://scryfall.com/card/mh2/141/slag-strider?utm_source=api"
+        },
+        {
+          "name": "Sojourner's Companion",
+          "url": "https://scryfall.com/card/mh2/235/sojourners-companion?utm_source=api"
+        },
+        {
+          "name": "Sojourner's Enforcermite",
+          "url": "https://scryfall.com/card/unk/CA06b/sojourners-enforcermite?utm_source=api"
+        },
+        {
+          "name": "Somber Hoverguard",
+          "url": "https://scryfall.com/card/mm2/57/somber-hoverguard?utm_source=api"
+        },
+        {
+          "name": "Spire Golem",
+          "url": "https://scryfall.com/card/jvc/16/spire-golem?utm_source=api"
+        },
+        {
+          "name": "Steelfin Whale",
+          "url": "https://scryfall.com/card/mh2/65/steelfin-whale?utm_source=api"
+        },
+        {
+          "name": "Tangle Golem",
+          "url": "https://scryfall.com/card/dst/151/tangle-golem?utm_source=api"
+        },
+        {
+          "name": "Tezzeret, Master of the Bridge",
+          "url": "https://scryfall.com/card/war/275/tezzeret-master-of-the-bridge?utm_source=api"
+        },
+        {
+          "name": "The Circle of Loyalty",
+          "url": "https://scryfall.com/card/dmc/98/the-circle-of-loyalty?utm_source=api"
+        },
+        {
+          "name": "The Crafter",
+          "url": "https://scryfall.com/card/unk/RR66/the-crafter?utm_source=api"
+        },
+        {
+          "name": "The Dalek Emperor",
+          "url": "https://scryfall.com/card/who/120/the-dalek-emperor?utm_source=api"
+        },
+        {
+          "name": "The Grand Goatnapper",
+          "url": "https://scryfall.com/card/yecl/20/the-grand-goatnapper?utm_source=api"
+        },
+        {
+          "name": "Thought Monitor",
+          "url": "https://scryfall.com/card/eoc/79/thought-monitor?utm_source=api"
+        },
+        {
+          "name": "Thoughtcast",
+          "url": "https://scryfall.com/card/trc/444/thoughtcast?utm_source=api"
+        },
+        {
+          "name": "Thrumming Hivepool",
+          "url": "https://scryfall.com/card/eoe/247/thrumming-hivepool?utm_source=api"
+        },
+        {
+          "name": "Tomik, Wielder of Law",
+          "url": "https://scryfall.com/card/soc/333/tomik-wielder-of-law?utm_source=api"
+        },
+        {
+          "name": "Tooth of Chiss-Goria",
+          "url": "https://scryfall.com/card/mrd/264/tooth-of-chiss-goria?utm_source=api"
+        },
+        {
+          "name": "Travel the Overworld",
+          "url": "https://scryfall.com/card/fin/82/travel-the-overworld?utm_source=api"
+        },
+        {
+          "name": "Urza, Chief Artificer",
+          "url": "https://scryfall.com/card/brc/2/urza-chief-artificer?utm_source=api"
+        },
+        {
+          "name": "Utrom Monitor",
+          "url": "https://scryfall.com/card/tmc/113/utrom-monitor?utm_source=api"
+        },
+        {
+          "name": "Valkyrie Aerial Unit",
+          "url": "https://scryfall.com/card/fin/84/valkyrie-aerial-unit?utm_source=api"
+        },
+        {
+          "name": "Voyage Home",
+          "url": "https://scryfall.com/card/dft/227/voyage-home?utm_source=api"
+        },
+        {
+          "name": "Witherbloom, the Balancer",
+          "url": "https://scryfall.com/card/sos/245/witherbloom-the-balancer?utm_source=api"
+        }
+      ],
+      "label": "Scryfall-derived assessment - provisional",
+      "researchDate": "2026-10-26",
+      "kind": "derived",
+      "classification": "Provisional color placements",
+      "outsidePrimary": null,
+      "relatedEffects": [],
+      "sources": [],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAffinity%5Cb/%20include%3Aextras"
+    },
+    {
+      "id": "deck:catalog-gaps:affinitycycling",
+      "name": "Affinitycycling",
+      "scope": "Colorless / Outside the Five Colors",
+      "confidence": "low",
+      "placements": {
+        "W": null,
+        "U": null,
+        "B": null,
+        "R": null,
+        "G": null
+      },
+      "rationale": {
+        "W": "No independent W placement is assigned; see the classification and rationale below.",
+        "U": "No independent U placement is assigned; see the classification and rationale below.",
+        "B": "No independent B placement is assigned; see the classification and rationale below.",
+        "R": "No independent R placement is assigned; see the classification and rationale below.",
+        "G": "No independent G placement is assigned; see the classification and rationale below."
+      },
+      "summary": "Sojourner's Enforcermite is the sole observed Affinitycycling design and is colorless. Primary Colorless is a provisional home based on that small playtest sample; no W/U/B/R/G tiers are assigned.",
+      "limitations": [
+        "Playtest-only evidence. This is not an official color-pie ranking or an ordinary format-availability claim."
+      ],
+      "citationCards": [
+        {
+          "name": "Sojourner's Enforcermite",
+          "url": "https://scryfall.com/card/unk/CA06b/sojourners-enforcermite?utm_source=api"
+        }
+      ],
+      "researchRecordId": "deck:vocabulary:affinitycycling",
+      "label": "Scryfall-derived assessment - provisional",
+      "researchDate": "2026-10-26",
+      "kind": "colorless",
+      "classification": "Colorless / Outside the Five Colors",
+      "outsidePrimary": "Colorless",
+      "relatedEffects": [],
+      "sources": [
+        {
+          "title": "Sojourner's Enforcermite",
+          "url": "https://scryfall.com/card/unk/CA06b/sojourners-enforcermite"
+        }
+      ],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAffinitycycling%5Cb/%20include%3Aextras"
+    },
+    {
+      "id": "deck:vocabulary:afflict",
+      "name": "Afflict",
+      "scope": "Named Afflict keyword and explicit grants; distinct from the broader 2021 blocked-damage effect.",
+      "confidence": "moderate",
+      "placements": {
+        "W": null,
+        "U": "Tertiary",
+        "B": "Primary",
+        "R": "Primary",
+        "G": null
+      },
+      "rationale": {
+        "W": "No native use or explicit grant in this color was found in the screened sample; leave unassigned rather than infer access from related effects.",
+        "U": "Two monoblue native designs form a much narrower branch than black/red. Propose Tertiary for relative frequency within this keyword sample, with limited confidence in the exact boundary.",
+        "B": "Five monoblack sources, including the tribal grant on Lazotep Sliver, give the largest independent cluster. Native use and explicit granting support Primary.",
+        "R": "Four monored native sources make red a comparably substantial home alongside black. Their close density supports co-primary rather than forcing a ranking from a one-card difference.",
+        "G": "No native use or explicit grant in this color was found in the screened sample; leave unassigned rather than infer access from related effects."
+      },
+      "summary": "Black and red are the principal observed homes; blue has a small native branch.",
+      "limitations": [
+        "Colorless grants such as Dagger of the Worthy and Cyberman Patrol do not assign the keyword to every color that can receive it. No 2021 placement or identity mapping is inherited."
+      ],
+      "citationCards": [
+        {
+          "name": "Ammit Eternal",
+          "url": "https://scryfall.com/card/hou/57/ammit-eternal?utm_source=api"
+        },
+        {
+          "name": "Ancestral Hot Dog Minotaur",
+          "url": "https://scryfall.com/card/sunf/23/ancestral-hot-dog-minotaur?utm_source=api"
+        },
+        {
+          "name": "Cyberman Patrol",
+          "url": "https://scryfall.com/card/who/174/cyberman-patrol?utm_source=api"
+        },
+        {
+          "name": "Dagger of the Worthy",
+          "url": "https://scryfall.com/card/hou/160/dagger-of-the-worthy?utm_source=api"
+        },
+        {
+          "name": "Eternal of Harsh Truths",
+          "url": "https://scryfall.com/card/hou/34/eternal-of-harsh-truths?utm_source=api"
+        },
+        {
+          "name": "Frontline Devastator",
+          "url": "https://scryfall.com/card/hou/93/frontline-devastator?utm_source=api"
+        },
+        {
+          "name": "Khenra Eternal",
+          "url": "https://scryfall.com/card/hou/66/khenra-eternal?utm_source=api"
+        },
+        {
+          "name": "Lazotep Sliver",
+          "url": "https://scryfall.com/card/cmm/733/lazotep-sliver?utm_source=api"
+        },
+        {
+          "name": "Lost Monarch of Ifnir",
+          "url": "https://scryfall.com/card/drc/11/lost-monarch-of-ifnir?utm_source=api"
+        },
+        {
+          "name": "Manticore Eternal",
+          "url": "https://scryfall.com/card/hou/103/manticore-eternal?utm_source=api"
+        },
+        {
+          "name": "Merciless Eternal",
+          "url": "https://scryfall.com/card/hou/71/merciless-eternal?utm_source=api"
+        },
+        {
+          "name": "Neheb, the Eternal",
+          "url": "https://scryfall.com/card/mkc/158/neheb-the-eternal?utm_source=api"
+        },
+        {
+          "name": "Spellweaver Eternal",
+          "url": "https://scryfall.com/card/hou/46/spellweaver-eternal?utm_source=api"
+        },
+        {
+          "name": "Wildfire Eternal",
+          "url": "https://scryfall.com/card/hou/109/wildfire-eternal?utm_source=api"
+        }
+      ],
+      "label": "Scryfall-derived assessment - provisional",
+      "researchDate": "2026-10-26",
+      "kind": "derived",
+      "classification": "Provisional color placements",
+      "outsidePrimary": null,
+      "relatedEffects": [],
+      "sources": [],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAfflict%5Cb/%20include%3Aextras"
+    },
+    {
+      "id": "deck:vocabulary:afterlife",
+      "name": "Afterlife",
+      "scope": "Twelve native/grant designs: white 5, black 3, joint WB 4.",
+      "confidence": "moderate",
+      "placements": {
+        "W": "Primary",
+        "U": null,
+        "B": "Secondary",
+        "R": null,
+        "G": null
+      },
+      "rationale": {
+        "W": "Five monowhite examples, including Tithe Taker, Ministrant of Obligation and Indebted Spirit, establish the broadest independent branch. Indebted Spirit also grants the ability: Primary.",
+        "U": "No native use or explicit grant in this color was found in the screened sample; leave unassigned rather than infer access from related effects.",
+        "B": "Debtors' Transport, Orzhov Enforcer and Orzhov Racketeers establish three native monoblack designs; four WB sources reinforce the shared setting. Propose Secondary relative to white.",
+        "R": "No native use or explicit grant in this color was found in the screened sample; leave unassigned rather than infer access from related effects.",
+        "G": "No native use or explicit grant in this color was found in the screened sample; leave unassigned rather than infer access from related effects."
+      },
+      "summary": "White leads the independent designs, while black has recurring native access and strong joint support.",
+      "limitations": [
+        "A white-and-black Spirit token does not make each source card both colors. Afterlife Insurance is a joint WB grant; count it once. White/black tier separation is a sample-based judgment, not a published guild hierarchy."
+      ],
+      "citationCards": [
+        {
+          "name": "Afterlife Insurance",
+          "url": "https://scryfall.com/card/clu/23/afterlife-insurance?utm_source=api"
+        },
+        {
+          "name": "Debtors' Transport",
+          "url": "https://scryfall.com/card/rvr/72/debtors-transport?utm_source=api"
+        },
+        {
+          "name": "Imperious Oligarch",
+          "url": "https://scryfall.com/card/rna/184/imperious-oligarch?utm_source=api"
+        },
+        {
+          "name": "Indebted Spirit",
+          "url": "https://scryfall.com/card/mh3/31/indebted-spirit?utm_source=api"
+        },
+        {
+          "name": "Knight of Sorrows",
+          "url": "https://scryfall.com/card/rna/14/knight-of-sorrows?utm_source=api"
+        },
+        {
+          "name": "Knight of the Last Breath",
+          "url": "https://scryfall.com/card/moc/331/knight-of-the-last-breath?utm_source=api"
+        },
+        {
+          "name": "Ministrant of Obligation",
+          "url": "https://scryfall.com/card/rvr/23/ministrant-of-obligation?utm_source=api"
+        },
+        {
+          "name": "Orzhov Enforcer",
+          "url": "https://scryfall.com/card/rvr/87/orzhov-enforcer?utm_source=api"
+        },
+        {
+          "name": "Orzhov Racketeers",
+          "url": "https://scryfall.com/card/clu/117/orzhov-racketeers?utm_source=api"
+        },
+        {
+          "name": "Seraph of the Scales",
+          "url": "https://scryfall.com/card/clu/208/seraph-of-the-scales?utm_source=api"
+        },
+        {
+          "name": "Syndicate Messenger",
+          "url": "https://scryfall.com/card/clu/75/syndicate-messenger?utm_source=api"
+        },
+        {
+          "name": "Tithe Taker",
+          "url": "https://scryfall.com/card/rna/27/tithe-taker?utm_source=api"
+        }
+      ],
+      "label": "Scryfall-derived assessment - provisional",
+      "researchDate": "2026-10-26",
+      "kind": "derived",
+      "classification": "Provisional color placements",
+      "outsidePrimary": null,
+      "relatedEffects": [],
+      "sources": [],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAfterlife%5Cb/%20include%3Aextras"
+    },
+    {
+      "id": "deck:vocabulary:aftermath",
+      "name": "Aftermath",
+      "scope": "27 split designs; derive the Aftermath-bearing face color from its mana cost when face colors are absent.",
+      "confidence": "moderate",
+      "placements": {
+        "W": "Primary",
+        "U": "Primary",
+        "B": "Primary",
+        "R": "Primary",
+        "G": "Primary"
+      },
+      "rationale": {
+        "W": "White has 5 Aftermath-bearing faces. The near-balanced distribution across the mechanic supports Primary, without crediting the unrelated first half's colors.",
+        "U": "Blue has 5 Aftermath-bearing faces. The near-balanced distribution across the mechanic supports Primary, without crediting the unrelated first half's colors.",
+        "B": "Black has 5 Aftermath-bearing faces. The near-balanced distribution across the mechanic supports Primary, without crediting the unrelated first half's colors.",
+        "R": "Red has 7 Aftermath-bearing faces. The near-balanced distribution across the mechanic supports Primary, without crediting the unrelated first half's colors.",
+        "G": "Green has 5 Aftermath-bearing faces. The near-balanced distribution across the mechanic supports Primary, without crediting the unrelated first half's colors."
+      },
+      "summary": "All five colors have comparable independent Aftermath-face representation, so propose co-primary access.",
+      "limitations": [
+        "Scryfall split-face objects omit colors here; attribution explicitly derives W/U/B/R/G from each relevant face's mana symbols. The count is 27 designs, not 54 card halves. A seven-versus-five difference does not justify forcing red above the balanced five-color pattern."
+      ],
+      "citationCards": [
+        {
+          "name": "Appeal // Authority",
+          "url": "https://scryfall.com/card/hou/152/appeal-authority?utm_source=api"
+        },
+        {
+          "name": "Claim // Fame",
+          "url": "https://scryfall.com/card/hou/150/claim-fame?utm_source=api"
+        },
+        {
+          "name": "Commit // Memory",
+          "url": "https://scryfall.com/card/lcc/147/commit-memory?utm_source=api"
+        },
+        {
+          "name": "Consign // Oblivion",
+          "url": "https://scryfall.com/card/hou/149/consign-oblivion?utm_source=api"
+        },
+        {
+          "name": "Cut // Ribbons",
+          "url": "https://scryfall.com/card/akh/223/cut-ribbons?utm_source=api"
+        },
+        {
+          "name": "Destined // Lead",
+          "url": "https://scryfall.com/card/akh/217/destined-lead?utm_source=api"
+        },
+        {
+          "name": "Driven // Despair",
+          "url": "https://scryfall.com/card/hou/157/driven-despair?utm_source=api"
+        },
+        {
+          "name": "Dusk // Dawn",
+          "url": "https://scryfall.com/card/mkc/61/dusk-dawn?utm_source=api"
+        },
+        {
+          "name": "Failure // Comply",
+          "url": "https://scryfall.com/card/akh/221/failure-comply?utm_source=api"
+        },
+        {
+          "name": "Farm // Market",
+          "url": "https://scryfall.com/card/c19/192/farm-market?utm_source=api"
+        },
+        {
+          "name": "Grind // Dust",
+          "url": "https://scryfall.com/card/hou/155/grind-dust?utm_source=api"
+        },
+        {
+          "name": "Heaven // Earth",
+          "url": "https://scryfall.com/card/otc/230/heaven-earth?utm_source=api"
+        },
+        {
+          "name": "Indulge // Excess",
+          "url": "https://scryfall.com/card/ncc/46/indulge-excess?utm_source=api"
+        },
+        {
+          "name": "Insult // Injury",
+          "url": "https://scryfall.com/card/akh/213/insult-injury?utm_source=api"
+        },
+        {
+          "name": "Leave // Chance",
+          "url": "https://scryfall.com/card/hou/153/leave-chance?utm_source=api"
+        },
+        {
+          "name": "Mouth // Feed",
+          "url": "https://scryfall.com/card/akh/214/mouth-feed?utm_source=api"
+        },
+        {
+          "name": "Never // Return",
+          "url": "https://scryfall.com/card/akh/212/never-return?utm_source=api"
+        },
+        {
+          "name": "Onward // Victory",
+          "url": "https://scryfall.com/card/akh/218/onward-victory?utm_source=api"
+        },
+        {
+          "name": "Prepare // Fight",
+          "url": "https://scryfall.com/card/akh/220/prepare-fight?utm_source=api"
+        },
+        {
+          "name": "Rags // Riches",
+          "url": "https://scryfall.com/card/akh/222/rags-riches?utm_source=api"
+        },
+        {
+          "name": "Reason // Believe",
+          "url": "https://scryfall.com/card/hou/154/reason-believe?utm_source=api"
+        },
+        {
+          "name": "Reduce // Rubble",
+          "url": "https://scryfall.com/card/akh/216/reduce-rubble?utm_source=api"
+        },
+        {
+          "name": "Refuse // Cooperate",
+          "url": "https://scryfall.com/card/c19/199/refuse-cooperate?utm_source=api"
+        },
+        {
+          "name": "Road // Ruin",
+          "url": "https://scryfall.com/card/mh2/212/road-ruin?utm_source=api"
+        },
+        {
+          "name": "Spring // Mind",
+          "url": "https://scryfall.com/card/akh/219/spring-mind?utm_source=api"
+        },
+        {
+          "name": "Start // Finish",
+          "url": "https://scryfall.com/card/akh/215/start-finish?utm_source=api"
+        },
+        {
+          "name": "Struggle // Survive",
+          "url": "https://scryfall.com/card/moc/339/struggle-survive?utm_source=api"
+        }
+      ],
+      "label": "Scryfall-derived assessment - provisional",
+      "researchDate": "2026-10-26",
+      "kind": "derived",
+      "classification": "Provisional color placements",
+      "outsidePrimary": null,
+      "relatedEffects": [],
+      "sources": [],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAftermath%5Cb/%20include%3Aextras"
+    },
+    {
+      "id": "deck:vocabulary:airbend",
+      "name": "Airbend",
+      "scope": "Avatar mechanic; 13 native designs after excluding the four-color Avatar Aang reward card.",
+      "confidence": "moderate for white; low for blue",
+      "placements": {
+        "W": "Primary",
+        "U": "Tertiary",
+        "B": null,
+        "R": null,
+        "G": null
+      },
+      "rationale": {
+        "W": "Ten monowhite sources such as Airbending Lesson, Airbender's Reversal and Appa, Steadfast Guardian dominate the population. Swift Savior adds joint WU evidence: Primary.",
+        "U": "Whirlwind Technique directly airbends two creatures, so blue access is real. It is the sole monoblue native source, with Swift Savior only joint WU evidence; propose Tertiary.",
+        "B": "No native use or explicit grant in this color was found in the screened sample; leave unassigned rather than infer access from related effects.",
+        "R": "No native use or explicit grant in this color was found in the screened sample; leave unassigned rather than infer access from related effects.",
+        "G": "No native use or explicit grant in this color was found in the screened sample; leave unassigned rather than infer access from related effects."
+      },
+      "summary": "White is the clear home; blue has one independent native spell and joint white-blue access.",
+      "limitations": [
+        "Avatar Aang rewards airbending but does not perform or grant it, so it is excluded. Avatar Yangchen's mechanic-bearing back face has empty colors in the saved API; its white front is retained as casting context, not silently substituted into the face-color count. The proposed blue tier is not an official set-design placement."
+      ],
+      "citationCards": [
+        {
+          "name": "Aang, Airbending Master",
+          "url": "https://scryfall.com/card/tle/74/aang-airbending-master?utm_source=api"
+        },
+        {
+          "name": "Aang, Swift Savior // Aang and La, Ocean's Fury",
+          "url": "https://scryfall.com/card/tla/204/aang-swift-savior-aang-and-la-oceans-fury?utm_source=api"
+        },
+        {
+          "name": "Aang, the Last Airbender",
+          "url": "https://scryfall.com/card/tla/4/aang-the-last-airbender?utm_source=api"
+        },
+        {
+          "name": "Airbender Ascension",
+          "url": "https://scryfall.com/card/tla/6/airbender-ascension?utm_source=api"
+        },
+        {
+          "name": "Airbender's Reversal",
+          "url": "https://scryfall.com/card/tla/7/airbenders-reversal?utm_source=api"
+        },
+        {
+          "name": "Airbending Lesson",
+          "url": "https://scryfall.com/card/tla/8/airbending-lesson?utm_source=api"
+        },
+        {
+          "name": "Appa, Loyal Sky Bison",
+          "url": "https://scryfall.com/card/tla/9/appa-loyal-sky-bison?utm_source=api"
+        },
+        {
+          "name": "Appa, Steadfast Guardian",
+          "url": "https://scryfall.com/card/tla/10/appa-steadfast-guardian?utm_source=api"
+        },
+        {
+          "name": "Avatar's Wrath",
+          "url": "https://scryfall.com/card/tla/12/avatars-wrath?utm_source=api"
+        },
+        {
+          "name": "Glider Staff",
+          "url": "https://scryfall.com/card/tla/22/glider-staff?utm_source=api"
+        },
+        {
+          "name": "Monk Gyatso",
+          "url": "https://scryfall.com/card/tle/81/monk-gyatso?utm_source=api"
+        },
+        {
+          "name": "The Legend of Yangchen // Avatar Yangchen",
+          "url": "https://scryfall.com/card/tla/27/the-legend-of-yangchen-avatar-yangchen?utm_source=api"
+        },
+        {
+          "name": "Whirlwind Technique",
+          "url": "https://scryfall.com/card/tle/100/whirlwind-technique?utm_source=api"
+        }
+      ],
+      "label": "Scryfall-derived assessment - provisional",
+      "researchDate": "2026-10-26",
+      "kind": "derived",
+      "classification": "Provisional color placements",
+      "outsidePrimary": null,
+      "relatedEffects": [],
+      "sources": [],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAirbend%5Cb/%20include%3Aextras"
+    },
+    {
+      "id": "deck:vocabulary:alliance",
+      "name": "Alliance",
+      "scope": "24 native ability-word designs after excluding two unrelated name hits.",
+      "confidence": "moderate",
+      "placements": {
+        "W": "Primary",
+        "U": null,
+        "B": null,
+        "R": "Primary",
+        "G": "Secondary"
+      },
+      "rationale": {
+        "W": "Six monowhite sources such as Boss's Chauffeur, Rumor Gatherer and Lita, Little Orphan Amphibian show repeated native use across releases: Primary.",
+        "U": "Galadriel, Light of Valinor is joint GWU evidence. A single three-color design does not isolate blue ownership, so leave blue unassigned.",
+        "B": "No independent native or grant source in this color supports a placement in this sample; leave unassigned.",
+        "R": "Nine monored sources, including Devilish Valet, Witty Roastmaster and Raphael, Most Attitude, form the largest independent cluster with varied triggers: Primary.",
+        "G": "Five monogreen sources, including Gala Greeters, Attended Socialite and Venom Connoisseur, establish recurring access. Propose Secondary relative to white/red, not an exceptional-only tier."
+      },
+      "summary": "White and red are the strongest recurring homes; green is well established at a smaller density.",
+      "limitations": [
+        "Back-Alley Gardener is digital. Multicolor Galadriel supports the mechanic's breadth but does not independently establish a blue tier. The exact Primary/Secondary boundary is a qualitative sample judgment."
+      ],
+      "citationCards": [
+        {
+          "name": "Attended Socialite",
+          "url": "https://scryfall.com/card/snc/133/attended-socialite?utm_source=api"
+        },
+        {
+          "name": "Back-Alley Gardener",
+          "url": "https://scryfall.com/card/ysnc/17/back-alley-gardener?utm_source=api"
+        },
+        {
+          "name": "Boss's Chauffeur",
+          "url": "https://scryfall.com/card/ncc/13/bosss-chauffeur?utm_source=api"
+        },
+        {
+          "name": "Celebrity Fencer",
+          "url": "https://scryfall.com/card/snc/7/celebrity-fencer?utm_source=api"
+        },
+        {
+          "name": "Devilish Valet",
+          "url": "https://scryfall.com/card/snc/105/devilish-valet?utm_source=api"
+        },
+        {
+          "name": "EPF Point Squad",
+          "url": "https://scryfall.com/card/tmt/145/epf-point-squad?utm_source=api"
+        },
+        {
+          "name": "East Wind Avatar",
+          "url": "https://scryfall.com/card/tmt/5/east-wind-avatar?utm_source=api"
+        },
+        {
+          "name": "Elegant Entourage",
+          "url": "https://scryfall.com/card/snc/143/elegant-entourage?utm_source=api"
+        },
+        {
+          "name": "Gala Greeters",
+          "url": "https://scryfall.com/card/snc/148/gala-greeters?utm_source=api"
+        },
+        {
+          "name": "Galadriel, Light of Valinor",
+          "url": "https://scryfall.com/card/ltc/498/galadriel-light-of-valinor?utm_source=api"
+        },
+        {
+          "name": "Lita, Little Orphan Amphibian",
+          "url": "https://scryfall.com/card/tmt/19/lita-little-orphan-amphibian?utm_source=api"
+        },
+        {
+          "name": "Mighty Mutanimals",
+          "url": "https://scryfall.com/card/tmt/21/mighty-mutanimals?utm_source=api"
+        },
+        {
+          "name": "Mutant Town Musicians",
+          "url": "https://scryfall.com/card/tmt/97/mutant-town-musicians?utm_source=api"
+        },
+        {
+          "name": "Raphael, Most Attitude",
+          "url": "https://scryfall.com/card/tmt/101/raphael-most-attitude?utm_source=api"
+        },
+        {
+          "name": "Raphael, Tough Turtle",
+          "url": "https://scryfall.com/card/tmt/104/raphael-tough-turtle?utm_source=api"
+        },
+        {
+          "name": "Rose Room Treasurer",
+          "url": "https://scryfall.com/card/ncc/51/rose-room-treasurer?utm_source=api"
+        },
+        {
+          "name": "Rumor Gatherer",
+          "url": "https://scryfall.com/card/clb/705/rumor-gatherer?utm_source=api"
+        },
+        {
+          "name": "Sizzling Soloist",
+          "url": "https://scryfall.com/card/snc/123/sizzling-soloist?utm_source=api"
+        },
+        {
+          "name": "Slash, Reptile Rampager",
+          "url": "https://scryfall.com/card/tmt/108/slash-reptile-rampager?utm_source=api"
+        },
+        {
+          "name": "Social Climber",
+          "url": "https://scryfall.com/card/snc/157/social-climber?utm_source=api"
+        },
+        {
+          "name": "The Neutrinos",
+          "url": "https://scryfall.com/card/tmt/160/the-neutrinos?utm_source=api"
+        },
+        {
+          "name": "Venom Connoisseur",
+          "url": "https://scryfall.com/card/fdn/648/venom-connoisseur?utm_source=api"
+        },
+        {
+          "name": "Wingnut, Bat on the Belfry",
+          "url": "https://scryfall.com/card/tmt/110/wingnut-bat-on-the-belfry?utm_source=api"
+        },
+        {
+          "name": "Witty Roastmaster",
+          "url": "https://scryfall.com/card/snc/131/witty-roastmaster?utm_source=api"
+        }
+      ],
+      "label": "Scryfall-derived assessment - provisional",
+      "researchDate": "2026-10-26",
+      "kind": "derived",
+      "classification": "Provisional color placements",
+      "outsidePrimary": null,
+      "relatedEffects": [],
+      "sources": [],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAlliance%5Cb/%20include%3Aextras"
+    },
+    {
+      "id": "deck:vocabulary:amass",
+      "name": "Amass",
+      "scope": "Native Amass actions across creature-type variants; include qualified special-set designs.",
+      "confidence": "moderate; low for green",
+      "placements": {
+        "W": null,
+        "U": "Secondary",
+        "B": "Primary",
+        "R": "Secondary",
+        "G": "Tertiary"
+      },
+      "rationale": {
+        "W": "No independent native or grant source in this color supports a placement in this sample; leave unassigned.",
+        "U": "Aven Eternal, Callous Dismissal and Saruman's Trickery show repeated independent blue use across Zombie and Orc applications. This supports Secondary beneath the larger black population.",
+        "B": "The largest monocolor group includes Dreadhorde Invasion, Lazotep Reaver, Orcish Bowmasters and several Goblin variants. Diverse native actions and recurring engines support Primary.",
+        "R": "Dreadhorde Twins, Foray of Orcs and Book of Mazarbul show repeated red native actions across variants. Red is a substantial Secondary home.",
+        "G": "You and Ooze Army? explicitly performs Amass Oozes, but is an isolated special/playtest design. Tertiary is proposed only within that expanded research scope; ordinary-release green access is unassigned."
+      },
+      "summary": "Black leads strongly, with substantial blue/red branches. The sole green design supports only a special-context provisional Tertiary.",
+      "limitations": [
+        "The black Army token created by a blue/red spell does not make that spell black. Special sources such as Bin Chicken and You and Ooze Army? are not evidence of ordinary format availability. Barad-dur is colorless despite black identity."
+      ],
+      "citationCards": [
+        {
+          "name": "Along the Crooked Way",
+          "url": "https://scryfall.com/card/hob/60/along-the-crooked-way?utm_source=api"
+        },
+        {
+          "name": "Angrath, Captain of Chaos",
+          "url": "https://scryfall.com/card/war/227/angrath-captain-of-chaos?utm_source=api"
+        },
+        {
+          "name": "Assault on Osgiliath",
+          "url": "https://scryfall.com/card/ltr/285/assault-on-osgiliath?utm_source=api"
+        },
+        {
+          "name": "Aven Eternal",
+          "url": "https://scryfall.com/card/war/42/aven-eternal?utm_source=api"
+        },
+        {
+          "name": "Azog, Moria's Ruin",
+          "url": "https://scryfall.com/card/hob/61/azog-morias-ruin?utm_source=api"
+        },
+        {
+          "name": "Barad-dûr",
+          "url": "https://scryfall.com/card/ltr/253/barad-d%C3%BBr?utm_source=api"
+        },
+        {
+          "name": "Bin Chicken",
+          "url": "https://scryfall.com/card/unk/RB05c/bin-chicken?utm_source=api"
+        },
+        {
+          "name": "Bleeding Edge",
+          "url": "https://scryfall.com/card/war/78/bleeding-edge?utm_source=api"
+        },
+        {
+          "name": "Bolg of the North",
+          "url": "https://scryfall.com/card/hob/148/bolg-of-the-north?utm_source=api"
+        },
+        {
+          "name": "Book of Mazarbul",
+          "url": "https://scryfall.com/card/ltr/116/book-of-mazarbul?utm_source=api"
+        },
+        {
+          "name": "Bothersome Noisemaker",
+          "url": "https://scryfall.com/card/hob/89/bothersome-noisemaker?utm_source=api"
+        },
+        {
+          "name": "Callous Dismissal",
+          "url": "https://scryfall.com/card/war/44/callous-dismissal?utm_source=api"
+        },
+        {
+          "name": "Commence the Endgame",
+          "url": "https://scryfall.com/card/war/45/commence-the-endgame?utm_source=api"
+        },
+        {
+          "name": "Corsairs of Umbar",
+          "url": "https://scryfall.com/card/ltc/19/corsairs-of-umbar?utm_source=api"
+        },
+        {
+          "name": "Crush Dissent",
+          "url": "https://scryfall.com/card/war/47/crush-dissent?utm_source=api"
+        },
+        {
+          "name": "Deceive the Messenger",
+          "url": "https://scryfall.com/card/ltr/47/deceive-the-messenger?utm_source=api"
+        },
+        {
+          "name": "Down, Down to Goblin-town",
+          "url": "https://scryfall.com/card/hob/65/down-down-to-goblin-town?utm_source=api"
+        },
+        {
+          "name": "Dreadhorde Invasion",
+          "url": "https://scryfall.com/card/frc/48/dreadhorde-invasion?utm_source=api"
+        },
+        {
+          "name": "Dreadhorde Twins",
+          "url": "https://scryfall.com/card/war/126/dreadhorde-twins?utm_source=api"
+        },
+        {
+          "name": "Dunland Crebain",
+          "url": "https://scryfall.com/card/ltr/82/dunland-crebain?utm_source=api"
+        },
+        {
+          "name": "Easterling Vanguard",
+          "url": "https://scryfall.com/card/ltr/83/easterling-vanguard?utm_source=api"
+        },
+        {
+          "name": "Enter the God-Eternals",
+          "url": "https://scryfall.com/card/war/196/enter-the-god-eternals?utm_source=api"
+        },
+        {
+          "name": "Eternal Skylord",
+          "url": "https://scryfall.com/card/mic/99/eternal-skylord?utm_source=api"
+        },
+        {
+          "name": "Fall of Cair Andros",
+          "url": "https://scryfall.com/card/ltr/124/fall-of-cair-andros?utm_source=api"
+        },
+        {
+          "name": "Fearsome Goblin Pair",
+          "url": "https://scryfall.com/card/hob/156/fearsome-goblin-pair?utm_source=api"
+        },
+        {
+          "name": "Foray of Orcs",
+          "url": "https://scryfall.com/card/ltr/128/foray-of-orcs?utm_source=api"
+        },
+        {
+          "name": "Gathering of Darkness",
+          "url": "https://scryfall.com/card/hob/68/gathering-of-darkness?utm_source=api"
+        },
+        {
+          "name": "Gleaming Overseer",
+          "url": "https://scryfall.com/card/mic/151/gleaming-overseer?utm_source=api"
+        },
+        {
+          "name": "Goblin Plate Mail",
+          "url": "https://scryfall.com/card/hob/157/goblin-plate-mail?utm_source=api"
+        },
+        {
+          "name": "Goblin-town Flunkies",
+          "url": "https://scryfall.com/card/hob/100/goblin-town-flunkies?utm_source=api"
+        },
+        {
+          "name": "Gothmog, Morgul Lieutenant",
+          "url": "https://scryfall.com/card/ltr/87/gothmog-morgul-lieutenant?utm_source=api"
+        },
+        {
+          "name": "Great Goblin, Foul-Hearted",
+          "url": "https://scryfall.com/card/hoc/105/great-goblin-foul-hearted?utm_source=api"
+        },
+        {
+          "name": "Great Ugly-Looking Goblin // Clap! Snap!",
+          "url": "https://scryfall.com/card/hob/74/great-ugly-looking-goblin-clap!-snap!?utm_source=api"
+        },
+        {
+          "name": "Grim Initiate",
+          "url": "https://scryfall.com/card/war/130/grim-initiate?utm_source=api"
+        },
+        {
+          "name": "Grishnákh, Brash Instigator",
+          "url": "https://scryfall.com/card/ltr/134/grishn%C3%A1kh-brash-instigator?utm_source=api"
+        },
+        {
+          "name": "Gríma Wormtongue",
+          "url": "https://scryfall.com/card/ltr/88/gr%C3%ADma-wormtongue?utm_source=api"
+        },
+        {
+          "name": "Herald of the Dreadhorde",
+          "url": "https://scryfall.com/card/war/93/herald-of-the-dreadhorde?utm_source=api"
+        },
+        {
+          "name": "Honor the God-Pharaoh",
+          "url": "https://scryfall.com/card/war/132/honor-the-god-pharaoh?utm_source=api"
+        },
+        {
+          "name": "Invade the City",
+          "url": "https://scryfall.com/card/war/201/invade-the-city?utm_source=api"
+        },
+        {
+          "name": "Invading Manticore",
+          "url": "https://scryfall.com/card/war/134/invading-manticore?utm_source=api"
+        },
+        {
+          "name": "Lazotep Chancellor",
+          "url": "https://scryfall.com/card/mh2/203/lazotep-chancellor?utm_source=api"
+        },
+        {
+          "name": "Lazotep Plating",
+          "url": "https://scryfall.com/card/war/59/lazotep-plating?utm_source=api"
+        },
+        {
+          "name": "Lazotep Reaver",
+          "url": "https://scryfall.com/card/war/96/lazotep-reaver?utm_source=api"
+        },
+        {
+          "name": "Lazotep Sliver",
+          "url": "https://scryfall.com/card/cmm/733/lazotep-sliver?utm_source=api"
+        },
+        {
+          "name": "March from the Black Gate",
+          "url": "https://scryfall.com/card/ltr/94/march-from-the-black-gate?utm_source=api"
+        },
+        {
+          "name": "Mindless Conscription",
+          "url": "https://scryfall.com/card/mh3/101/mindless-conscription?utm_source=api"
+        },
+        {
+          "name": "Misty Mountains Raider",
+          "url": "https://scryfall.com/card/hob/105/misty-mountains-raider?utm_source=api"
+        },
+        {
+          "name": "Mordor Muster",
+          "url": "https://scryfall.com/card/ltr/96/mordor-muster?utm_source=api"
+        },
+        {
+          "name": "Moria Scavenger",
+          "url": "https://scryfall.com/card/ltc/63/moria-scavenger?utm_source=api"
+        },
+        {
+          "name": "Orcish Bowmasters",
+          "url": "https://scryfall.com/card/ltr/103/orcish-bowmasters?utm_source=api"
+        },
+        {
+          "name": "Orcish Medicine",
+          "url": "https://scryfall.com/card/ltr/104/orcish-medicine?utm_source=api"
+        },
+        {
+          "name": "Rage into the Valley",
+          "url": "https://scryfall.com/card/hob/79/rage-into-the-valley?utm_source=api"
+        },
+        {
+          "name": "Relentless Advance",
+          "url": "https://scryfall.com/card/war/64/relentless-advance?utm_source=api"
+        },
+        {
+          "name": "Rhovanion Rampager",
+          "url": "https://scryfall.com/card/hob/82/rhovanion-rampager?utm_source=api"
+        },
+        {
+          "name": "Saruman the White",
+          "url": "https://scryfall.com/card/ltr/67/saruman-the-white?utm_source=api"
+        },
+        {
+          "name": "Saruman's Trickery",
+          "url": "https://scryfall.com/card/ltr/68/sarumans-trickery?utm_source=api"
+        },
+        {
+          "name": "Saruman, the White Hand",
+          "url": "https://scryfall.com/card/ltc/8/saruman-the-white-hand?utm_source=api"
+        },
+        {
+          "name": "Sauron, Lord of the Rings",
+          "url": "https://scryfall.com/card/ltc/4/sauron-lord-of-the-rings?utm_source=api"
+        },
+        {
+          "name": "Sauron, the Dark Lord",
+          "url": "https://scryfall.com/card/ltr/224/sauron-the-dark-lord?utm_source=api"
+        },
+        {
+          "name": "Shagrat, Loot Bearer",
+          "url": "https://scryfall.com/card/ltr/228/shagrat-loot-bearer?utm_source=api"
+        },
+        {
+          "name": "Summons of Saruman",
+          "url": "https://scryfall.com/card/ltc/70/summons-of-saruman?utm_source=api"
+        },
+        {
+          "name": "Surrounded by Orcs",
+          "url": "https://scryfall.com/card/ltr/73/surrounded-by-orcs?utm_source=api"
+        },
+        {
+          "name": "Swarming of Moria",
+          "url": "https://scryfall.com/card/ltr/150/swarming-of-moria?utm_source=api"
+        },
+        {
+          "name": "The Mouth of Sauron",
+          "url": "https://scryfall.com/card/ltr/216/the-mouth-of-sauron?utm_source=api"
+        },
+        {
+          "name": "The Sphere",
+          "url": "https://scryfall.com/card/punk/PLA037/the-sphere?utm_source=api"
+        },
+        {
+          "name": "The Torment of Gollum",
+          "url": "https://scryfall.com/card/ltr/110/the-torment-of-gollum?utm_source=api"
+        },
+        {
+          "name": "Tidings of War",
+          "url": "https://scryfall.com/card/hob/115/tidings-of-war?utm_source=api"
+        },
+        {
+          "name": "Toll of the Invasion",
+          "url": "https://scryfall.com/card/war/108/toll-of-the-invasion?utm_source=api"
+        },
+        {
+          "name": "Treason of Isengard",
+          "url": "https://scryfall.com/card/ltr/74/treason-of-isengard?utm_source=api"
+        },
+        {
+          "name": "Vizier of the Scorpion",
+          "url": "https://scryfall.com/card/war/111/vizier-of-the-scorpion?utm_source=api"
+        },
+        {
+          "name": "Warbeast of Gorgoroth",
+          "url": "https://scryfall.com/card/ltr/152/warbeast-of-gorgoroth?utm_source=api"
+        },
+        {
+          "name": "Warg Rider",
+          "url": "https://scryfall.com/card/ltr/826/warg-rider?utm_source=api"
+        },
+        {
+          "name": "Widespread Brutality",
+          "url": "https://scryfall.com/card/war/226/widespread-brutality?utm_source=api"
+        },
+        {
+          "name": "You and Ooze Army?",
+          "url": "https://scryfall.com/card/unk/UG04a/you-and-ooze-army%3F?utm_source=api"
+        }
+      ],
+      "label": "Scryfall-derived assessment - provisional",
+      "researchDate": "2026-10-26",
+      "kind": "derived",
+      "classification": "Provisional color placements",
+      "outsidePrimary": null,
+      "relatedEffects": [],
+      "sources": [],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAmass%5Cb/%20include%3Aextras"
+    },
+    {
+      "id": "deck:vocabulary:amplify",
+      "name": "Amplify",
+      "scope": "Nine native designs: B3/G3/W2/R1; no blue.",
+      "confidence": "moderate",
+      "placements": {
+        "W": "Secondary",
+        "U": null,
+        "B": "Primary",
+        "R": "Tertiary",
+        "G": "Primary"
+      },
+      "rationale": {
+        "W": "Aven Warhawk and Daru Stinger provide uncommon/common native examples. This repeated white access supports Secondary.",
+        "U": "No independent native or grant source in this color supports a placement in this sample; leave unassigned.",
+        "B": "Embalmed Brawler, Zombie Brute and Ghastly Remains cover common, uncommon and rare in a coherent Zombie branch: Primary.",
+        "R": "Kilnmouth Dragon is the sole red native design, a rare with Amplify 3. Its narrow, splashy use supports Tertiary.",
+        "G": "Glowering Rogon, Canopy Crawler and Feral Throwback span common through rare and multiple Amplify amounts: Primary."
+      },
+      "summary": "Black and green have full rarity-spanning clusters; white recurs at lower density; red has one high-rarity outlier.",
+      "limitations": [
+        "This is a small historical mechanic; rarity and functional breadth inform the proposal alongside counts. Reprints do not add independent designs."
+      ],
+      "citationCards": [
+        {
+          "name": "Aven Warhawk",
+          "url": "https://scryfall.com/card/lgn/4/aven-warhawk?utm_source=api"
+        },
+        {
+          "name": "Canopy Crawler",
+          "url": "https://scryfall.com/card/lgn/122/canopy-crawler?utm_source=api"
+        },
+        {
+          "name": "Daru Stinger",
+          "url": "https://scryfall.com/card/lgn/10/daru-stinger?utm_source=api"
+        },
+        {
+          "name": "Embalmed Brawler",
+          "url": "https://scryfall.com/card/lgn/69/embalmed-brawler?utm_source=api"
+        },
+        {
+          "name": "Feral Throwback",
+          "url": "https://scryfall.com/card/lgn/126/feral-throwback?utm_source=api"
+        },
+        {
+          "name": "Ghastly Remains",
+          "url": "https://scryfall.com/card/lgn/71/ghastly-remains?utm_source=api"
+        },
+        {
+          "name": "Glowering Rogon",
+          "url": "https://scryfall.com/card/lgn/128/glowering-rogon?utm_source=api"
+        },
+        {
+          "name": "Kilnmouth Dragon",
+          "url": "https://scryfall.com/card/ddg/59/kilnmouth-dragon?utm_source=api"
+        },
+        {
+          "name": "Zombie Brute",
+          "url": "https://scryfall.com/card/lgn/87/zombie-brute?utm_source=api"
+        }
+      ],
+      "label": "Scryfall-derived assessment - provisional",
+      "researchDate": "2026-10-26",
+      "kind": "derived",
+      "classification": "Provisional color placements",
+      "outsidePrimary": null,
+      "relatedEffects": [],
+      "sources": [],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAmplify%5Cb/%20include%3Aextras"
+    },
+    {
+      "id": "deck:vocabulary:annihilator",
+      "name": "Annihilator",
+      "scope": "Colorless / Outside the Five Colors",
+      "confidence": "Strong evidence for a colorless home",
+      "placements": {
+        "W": null,
+        "U": null,
+        "B": null,
+        "R": null,
+        "G": null
+      },
+      "rationale": {
+        "W": "No independent W placement is assigned; see the classification and rationale below.",
+        "U": "No independent U placement is assigned; see the classification and rationale below.",
+        "B": "No independent B placement is assigned; see the classification and rationale below.",
+        "R": "No independent R placement is assigned; see the classification and rationale below.",
+        "G": "No independent G placement is assigned; see the classification and rationale below."
+      },
+      "summary": "The observed population is dominated by colorless native uses and grants. Primary: Colorless. Secondary: None. Tertiary: None. A five-color playtest grant does not establish independent W/U/B/R/G tiers.",
+      "limitations": [
+        "Colorless is outside the five colors; it is not a sixth Magic color or a synonym for the colorless mana symbol."
+      ],
+      "citationCards": [
+        {
+          "name": "Artisan of Kozilek",
+          "url": "https://scryfall.com/card/cmm/801/artisan-of-kozilek?utm_source=api"
+        },
+        {
+          "name": "Azlask, the Swelling Scourge",
+          "url": "https://scryfall.com/card/m3c/5/azlask-the-swelling-scourge?utm_source=api"
+        },
+        {
+          "name": "Breaker of Creation",
+          "url": "https://scryfall.com/card/mh3/1/breaker-of-creation?utm_source=api"
+        },
+        {
+          "name": "Colorless Ultimatum",
+          "url": "https://scryfall.com/card/unk/RA07/colorless-ultimatum?utm_source=api"
+        },
+        {
+          "name": "Eldrazi",
+          "url": "https://scryfall.com/card/tmoc/1/eldrazi?utm_source=api"
+        },
+        {
+          "name": "Eldrazi Conscription",
+          "url": "https://scryfall.com/card/soc/131/eldrazi-conscription?utm_source=api"
+        },
+        {
+          "name": "Eldrazi Ravager",
+          "url": "https://scryfall.com/card/mh3/5/eldrazi-ravager?utm_source=api"
+        },
+        {
+          "name": "Emrakul, the Aeons Torn",
+          "url": "https://scryfall.com/card/2x2/1/emrakul-the-aeons-torn?utm_source=api"
+        },
+        {
+          "name": "Flayer of Loyalties",
+          "url": "https://scryfall.com/card/cmm/715/flayer-of-loyalties?utm_source=api"
+        },
+        {
+          "name": "Hand of Emrakul",
+          "url": "https://scryfall.com/card/roe/5/hand-of-emrakul?utm_source=api"
+        },
+        {
+          "name": "Hedron Fields of Agadeem",
+          "url": "https://scryfall.com/card/moc/146/hedron-fields-of-agadeem?utm_source=api"
+        },
+        {
+          "name": "Hideous Taskmaster",
+          "url": "https://scryfall.com/card/m3c/57/hideous-taskmaster?utm_source=api"
+        },
+        {
+          "name": "Idol of False Gods",
+          "url": "https://scryfall.com/card/mh3/210/idol-of-false-gods?utm_source=api"
+        },
+        {
+          "name": "It That Betrays",
+          "url": "https://scryfall.com/card/cmm/805/it-that-betrays?utm_source=api"
+        },
+        {
+          "name": "Kozilek, Butcher of Truth",
+          "url": "https://scryfall.com/card/2x2/2/kozilek-butcher-of-truth?utm_source=api"
+        },
+        {
+          "name": "Nazgûl Battle-Mace",
+          "url": "https://scryfall.com/card/ltc/510/nazg%C3%BBl-battle-mace?utm_source=api"
+        },
+        {
+          "name": "Nulldrifter",
+          "url": "https://scryfall.com/card/mh3/13/nulldrifter?utm_source=api"
+        },
+        {
+          "name": "Pathrazer of Ulamog",
+          "url": "https://scryfall.com/card/cmm/4/pathrazer-of-ulamog?utm_source=api"
+        },
+        {
+          "name": "Slivdrazi Monstrosity",
+          "url": "https://scryfall.com/card/cmb2/102/slivdrazi-monstrosity?utm_source=api"
+        },
+        {
+          "name": "Spaghetti Junction",
+          "url": "https://scryfall.com/card/pf25/16/spaghetti-junction?utm_source=api"
+        },
+        {
+          "name": "Spawnsire of Ulamog",
+          "url": "https://scryfall.com/card/roe/11/spawnsire-of-ulamog?utm_source=api"
+        },
+        {
+          "name": "That Which Was Compleated",
+          "url": "https://scryfall.com/card/unk/UA01b/that-which-was-compleated?utm_source=api"
+        },
+        {
+          "name": "Ulamog's Crusher",
+          "url": "https://scryfall.com/card/cmm/6/ulamogs-crusher?utm_source=api"
+        },
+        {
+          "name": "Ulamog, the Defiler",
+          "url": "https://scryfall.com/card/mh3/15/ulamog-the-defiler?utm_source=api"
+        },
+        {
+          "name": "Ulamog, the Infinite Gyre",
+          "url": "https://scryfall.com/card/2x2/3/ulamog-the-infinite-gyre?utm_source=api"
+        }
+      ],
+      "label": "Scryfall-derived assessment - provisional",
+      "researchDate": "2026-10-26",
+      "kind": "colorless",
+      "classification": "Colorless / Outside the Five Colors",
+      "outsidePrimary": "Colorless",
+      "relatedEffects": [],
+      "sources": [],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAnnihilator%5Cb/%20include%3Aextras"
+    },
+    {
+      "id": "deck:vocabulary:ascend",
+      "name": "Ascend",
+      "scope": "Named Ascend uses plus separately qualified event-specific variants; one name-only result excluded.",
+      "confidence": "moderate",
+      "placements": {
+        "W": "Primary",
+        "U": "Primary",
+        "B": "Secondary",
+        "R": "Tertiary",
+        "G": "Tertiary"
+      },
+      "rationale": {
+        "W": "Skymarcher Aspirant, Radiant Destiny, Ocelot Pride and Illustrious Wanderglyph show sustained native white use beyond one initial release: Primary.",
+        "U": "Secrets of the Golden City, Timestream Navigator and Detective of the Month show native blue use across rarity and releases: Primary.",
+        "B": "Dusk Charger, Golden Demise, Mausoleum Harpy, Twilight Prophet and Vona's Hunger give five native monoblack designs across rarities: Secondary.",
+        "R": "Storm Fleet Swashbuckler and Tilonalli's Summoner are a small native branch. Propose Tertiary relative to the broader white/blue/black populations.",
+        "G": "Tendershoot Dryad and Wayward Swordtooth are two rare native green designs. Their narrower high-rarity access supports a provisional Tertiary."
+      },
+      "summary": "White and blue have broad native representation, black a substantial middle group, and red/green smaller branches.",
+      "limitations": [
+        "Windy City Aven and Windy City Elemental are event-specific Ascend variants; they are qualified context and do not drive the primary homes. Colorless lands and equipment are separate; Ascend from Avernus is an unrelated name hit."
+      ],
+      "citationCards": [
+        {
+          "name": "Andúril, Narsil Reforged",
+          "url": "https://scryfall.com/card/ltc/491/and%C3%BAril-narsil-reforged?utm_source=api"
+        },
+        {
+          "name": "Arch of Orazca",
+          "url": "https://scryfall.com/card/lcc/319/arch-of-orazca?utm_source=api"
+        },
+        {
+          "name": "Deadeye Brawler",
+          "url": "https://scryfall.com/card/rix/155/deadeye-brawler?utm_source=api"
+        },
+        {
+          "name": "Detective of the Month",
+          "url": "https://scryfall.com/card/mkc/21/detective-of-the-month?utm_source=api"
+        },
+        {
+          "name": "Dusk Charger",
+          "url": "https://scryfall.com/card/rix/69/dusk-charger?utm_source=api"
+        },
+        {
+          "name": "Expel from Orazca",
+          "url": "https://scryfall.com/card/rix/37/expel-from-orazca?utm_source=api"
+        },
+        {
+          "name": "Golden Demise",
+          "url": "https://scryfall.com/card/rix/73/golden-demise?utm_source=api"
+        },
+        {
+          "name": "Illustrious Wanderglyph",
+          "url": "https://scryfall.com/card/lcc/9/illustrious-wanderglyph?utm_source=api"
+        },
+        {
+          "name": "Kumena's Awakening",
+          "url": "https://scryfall.com/card/rix/42/kumenas-awakening?utm_source=api"
+        },
+        {
+          "name": "Mausoleum Harpy",
+          "url": "https://scryfall.com/card/rix/78/mausoleum-harpy?utm_source=api"
+        },
+        {
+          "name": "Ocelot Pride",
+          "url": "https://scryfall.com/card/mh3/38/ocelot-pride?utm_source=api"
+        },
+        {
+          "name": "Orazca Relic",
+          "url": "https://scryfall.com/card/afc/213/orazca-relic?utm_source=api"
+        },
+        {
+          "name": "Pride of Conquerors",
+          "url": "https://scryfall.com/card/rix/17/pride-of-conquerors?utm_source=api"
+        },
+        {
+          "name": "Radiant Destiny",
+          "url": "https://scryfall.com/card/lcc/135/radiant-destiny?utm_source=api"
+        },
+        {
+          "name": "Resplendent Griffin",
+          "url": "https://scryfall.com/card/rix/170/resplendent-griffin?utm_source=api"
+        },
+        {
+          "name": "Secrets of the Golden City",
+          "url": "https://scryfall.com/card/rix/52/secrets-of-the-golden-city?utm_source=api"
+        },
+        {
+          "name": "Skymarcher Aspirant",
+          "url": "https://scryfall.com/card/rix/21/skymarcher-aspirant?utm_source=api"
+        },
+        {
+          "name": "Slippery Scoundrel",
+          "url": "https://scryfall.com/card/rix/55/slippery-scoundrel?utm_source=api"
+        },
+        {
+          "name": "Snubhorn Sentry",
+          "url": "https://scryfall.com/card/rix/23/snubhorn-sentry?utm_source=api"
+        },
+        {
+          "name": "Spire Winder",
+          "url": "https://scryfall.com/card/rix/57/spire-winder?utm_source=api"
+        },
+        {
+          "name": "Storm Fleet Swashbuckler",
+          "url": "https://scryfall.com/card/rix/117/storm-fleet-swashbuckler?utm_source=api"
+        },
+        {
+          "name": "Temur Elevator",
+          "url": "https://scryfall.com/card/mb2/619/temur-elevator?utm_source=api"
+        },
+        {
+          "name": "Tendershoot Dryad",
+          "url": "https://scryfall.com/card/soc/125/tendershoot-dryad?utm_source=api"
+        },
+        {
+          "name": "The Golden City of Orazca",
+          "url": "https://scryfall.com/card/moc/52/the-golden-city-of-orazca?utm_source=api"
+        },
+        {
+          "name": "Tilonalli's Summoner",
+          "url": "https://scryfall.com/card/rix/121/tilonallis-summoner?utm_source=api"
+        },
+        {
+          "name": "Timestream Navigator",
+          "url": "https://scryfall.com/card/lcc/178/timestream-navigator?utm_source=api"
+        },
+        {
+          "name": "Twilight Prophet",
+          "url": "https://scryfall.com/card/mkc/143/twilight-prophet?utm_source=api"
+        },
+        {
+          "name": "Vona's Hunger",
+          "url": "https://scryfall.com/card/rix/90/vonas-hunger?utm_source=api"
+        },
+        {
+          "name": "Wayward Swordtooth",
+          "url": "https://scryfall.com/card/lcc/263/wayward-swordtooth?utm_source=api"
+        },
+        {
+          "name": "Windy City Aven",
+          "url": "https://scryfall.com/card/unk/UU04a/windy-city-aven?utm_source=api"
+        },
+        {
+          "name": "Windy City Elemental",
+          "url": "https://scryfall.com/card/unk/UW05b/windy-city-elemental?utm_source=api"
+        }
+      ],
+      "label": "Scryfall-derived assessment - provisional",
+      "researchDate": "2026-10-26",
+      "kind": "derived",
+      "classification": "Provisional color placements",
+      "outsidePrimary": null,
+      "relatedEffects": [],
+      "sources": [],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAscend%5Cb/%20include%3Aextras"
+    },
+    {
+      "id": "deck:vocabulary:assemble",
+      "name": "Assemble",
+      "scope": "Contraption assembly in the special-set environment; reassembly-only and replacement-only support excluded from native counts.",
+      "confidence": "moderate within special-set scope",
+      "placements": {
+        "W": "Secondary",
+        "U": "Secondary",
+        "B": "Secondary",
+        "R": "Primary",
+        "G": "Secondary"
+      },
+      "rationale": {
+        "W": "Aerial Toastmaster, Midlife Upgrade and Riveting Rigger directly assemble. This recurring access supports Secondary; it is not just a rare isolated exception.",
+        "U": "Crafty Octopus, Chipper Chopper, Incite Insight, Spell Suck and Very Cryptic Command give common through rare native actions: Secondary, close to red.",
+        "B": "Finders, Keepers, Overt Operative and Steady-Handed Mook directly assemble in removal, combat and entry contexts: Secondary.",
+        "R": "Work a Double, Steamfloggery, Steamflogger Temp and Steamflogger of the Month emphasize repeated or multiple assemblies. This breadth and six native red designs support Primary.",
+        "G": "First Pick, Joyride Rigger and Steamflogger Service Rep directly assemble in removal, entry and repeatable-trigger contexts: Secondary."
+      },
+      "summary": "Red has the strongest repeatable and multi-assembly profile; all other colors have recurring native access.",
+      "limitations": [
+        "Special-set scope does not imply ordinary Commander legality. Cogmentor and Suspicious Nanny only reassemble. Steamflogger Boss doubles another assembly source and is retained as contextual red support, not a native source."
+      ],
+      "citationCards": [
+        {
+          "name": "Aerial Toastmaster",
+          "url": "https://scryfall.com/card/ust/2/aerial-toastmaster?utm_source=api"
+        },
+        {
+          "name": "Chipper Chopper",
+          "url": "https://scryfall.com/card/ust/28/chipper-chopper?utm_source=api"
+        },
+        {
+          "name": "Crafty Octopus",
+          "url": "https://scryfall.com/card/ust/30/crafty-octopus?utm_source=api"
+        },
+        {
+          "name": "Finders, Keepers",
+          "url": "https://scryfall.com/card/ust/55/finders-keepers?utm_source=api"
+        },
+        {
+          "name": "First Pick",
+          "url": "https://scryfall.com/card/ust/109/first-pick?utm_source=api"
+        },
+        {
+          "name": "Garbage Elemental",
+          "url": "https://scryfall.com/card/ust/82b/garbage-elemental?utm_source=api"
+        },
+        {
+          "name": "Hard Hat Area",
+          "url": "https://scryfall.com/card/ust/187/hard-hat-area?utm_source=api"
+        },
+        {
+          "name": "Incite Insight",
+          "url": "https://scryfall.com/card/ust/36/incite-insight?utm_source=api"
+        },
+        {
+          "name": "Joyride Rigger",
+          "url": "https://scryfall.com/card/ust/114/joyride-rigger?utm_source=api"
+        },
+        {
+          "name": "Midlife Upgrade",
+          "url": "https://scryfall.com/card/ust/14/midlife-upgrade?utm_source=api"
+        },
+        {
+          "name": "Overt Operative",
+          "url": "https://scryfall.com/card/ust/64/overt-operative?utm_source=api"
+        },
+        {
+          "name": "Riveting Rigger",
+          "url": "https://scryfall.com/card/ust/19/riveting-rigger?utm_source=api"
+        },
+        {
+          "name": "Spell Suck",
+          "url": "https://scryfall.com/card/ust/45/spell-suck?utm_source=api"
+        },
+        {
+          "name": "Steady-Handed Mook",
+          "url": "https://scryfall.com/card/ust/71/steady-handed-mook?utm_source=api"
+        },
+        {
+          "name": "Steamflogger Service Rep",
+          "url": "https://scryfall.com/card/ust/124/steamflogger-service-rep?utm_source=api"
+        },
+        {
+          "name": "Steamflogger Temp",
+          "url": "https://scryfall.com/card/ust/95/steamflogger-temp?utm_source=api"
+        },
+        {
+          "name": "Steamflogger of the Month",
+          "url": "https://scryfall.com/card/ust/94/steamflogger-of-the-month?utm_source=api"
+        },
+        {
+          "name": "Steamfloggery",
+          "url": "https://scryfall.com/card/ust/96/steamfloggery?utm_source=api"
+        },
+        {
+          "name": "Very Cryptic Command",
+          "url": "https://scryfall.com/card/ust/49a/very-cryptic-command?utm_source=api"
+        },
+        {
+          "name": "Widget Contraption",
+          "url": "https://scryfall.com/card/ust/211/widget-contraption?utm_source=api"
+        },
+        {
+          "name": "Work a Double",
+          "url": "https://scryfall.com/card/ust/100/work-a-double?utm_source=api"
+        },
+        {
+          "name": "Wrench-Rigger",
+          "url": "https://scryfall.com/card/ust/101/wrench-rigger?utm_source=api"
+        }
+      ],
+      "label": "Scryfall-derived assessment - provisional",
+      "researchDate": "2026-10-26",
+      "kind": "derived",
+      "classification": "Provisional color placements",
+      "outsidePrimary": null,
+      "relatedEffects": [],
+      "sources": [],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAssemble%5Cb/%20include%3Aextras"
+    },
+    {
+      "id": "deck:catalog-gaps:assimilate",
+      "name": "Assimilate",
+      "scope": "Eight Star Trek preview-era records: seven have only future saved printings; Borg Queen, Perfection Manifest also has an October 8, 2026 promo printing.",
+      "confidence": "low; preview-era sample",
+      "placements": {
+        "W": null,
+        "U": "Secondary",
+        "B": "Primary",
+        "R": null,
+        "G": null
+      },
+      "rationale": {
+        "W": "Borg Cube, The Best of Both Worlds and The Borg Queen include white jointly with black or blue. These do not isolate white's contribution well enough for an independent tier.",
+        "U": "Gift of Perfection directly assimilates revealed creature cards as a monoblue spell. Joint WU/WUB designs reinforce blue involvement; propose Secondary, with low confidence from one independent source.",
+        "B": "Four monoblack sources, including Assimilate the Wounded, Assimilation Assessor and Death Is Irrelevant, form the dominant independent cluster. Propose Primary within the preview sample.",
+        "R": "No independent native or grant source in this color supports a placement in this sample; leave unassigned.",
+        "G": "No independent native or grant source in this color supports a placement in this sample; leave unassigned."
+      },
+      "summary": "Black leads the preview sample, blue has direct native access, and white remains joint-color evidence without an independent tier.",
+      "limitations": [
+        "Preview-era assessment: all eight representative set printings release November 13, 2026, but one design has an earlier PURL promo. Incomplete set exposure can change these judgments. Empty games/legality fields on previews are not treated as invalid cards. No final release color policy or Commander availability is asserted."
+      ],
+      "citationCards": [
+        {
+          "name": "Assimilate the Wounded",
+          "url": "https://scryfall.com/card/trc/55/assimilate-the-wounded?utm_source=api"
+        },
+        {
+          "name": "Assimilation Assessor",
+          "url": "https://scryfall.com/card/trc/56/assimilation-assessor?utm_source=api"
+        },
+        {
+          "name": "Borg Cube",
+          "url": "https://scryfall.com/card/trk/227/borg-cube?utm_source=api"
+        },
+        {
+          "name": "Borg Queen, Perfection Manifest",
+          "url": "https://scryfall.com/card/trc/197/borg-queen-perfection-manifest?utm_source=api"
+        },
+        {
+          "name": "Death Is Irrelevant",
+          "url": "https://scryfall.com/card/trk/102/death-is-irrelevant?utm_source=api"
+        },
+        {
+          "name": "Gift of Perfection",
+          "url": "https://scryfall.com/card/trc/44/gift-of-perfection?utm_source=api"
+        },
+        {
+          "name": "The Best of Both Worlds",
+          "url": "https://scryfall.com/card/trc/83/the-best-of-both-worlds?utm_source=api"
+        },
+        {
+          "name": "The Borg Queen",
+          "url": "https://scryfall.com/card/trc/1/the-borg-queen?utm_source=api"
+        }
+      ],
+      "label": "Scryfall-derived assessment - provisional",
+      "researchDate": "2026-10-26",
+      "kind": "derived",
+      "classification": "Provisional color placements",
+      "outsidePrimary": null,
+      "relatedEffects": [],
+      "sources": [],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAssimilate%5Cb/%20include%3Aextras"
+    },
+    {
+      "id": "deck:vocabulary:assist",
+      "name": "Assist",
+      "scope": "Native Assist and explicit grants, with the special Assist-kicker variant qualified separately.",
+      "confidence": "moderate",
+      "placements": {
+        "W": "Primary",
+        "U": "Primary",
+        "B": "Secondary",
+        "R": "Secondary",
+        "G": "Secondary"
+      },
+      "rationale": {
+        "W": "Dwarven Lightsmith, Bring Down, Play of the Game and Skystreamer span common to rare; Yume, Chronicler of Valor explicitly grants Assist. This breadth supports Primary.",
+        "U": "Huddle Up, Spellweaver Duo, Out of Bounds and Game Plan span common to rare across several spell effects: Primary.",
+        "B": "Bloodborn Scoundrels, Fan Favorite and Gang Up establish repeated native monoblack access; Vampire Charmseeker is additional joint UB evidence: Secondary.",
+        "R": "Magma Hellion and Lava-Field Overlord provide common/uncommon native Assist. All-Star Kicker is only a qualified special variant. Ordinary repeated access supports Secondary.",
+        "G": "Charging Binox and The Crowd Goes Wild provide common/uncommon native use. Though only two designs, this is recurring core access rather than a high-rarity exception: Secondary."
+      },
+      "summary": "White and blue have the broadest profiles; black, red and green each have recurring independent access.",
+      "limitations": [
+        "All-Star Kicker modifies the payment of a kicker cost and is treated as a special variant, not another ordinary Assist spell. Receiving Assist from Yume does not assign the mechanic independently to every recipient color."
+      ],
+      "citationCards": [
+        {
+          "name": "All-Star Kicker",
+          "url": "https://scryfall.com/card/mb2/557/all-star-kicker?utm_source=api"
+        },
+        {
+          "name": "Bloodborn Scoundrels",
+          "url": "https://scryfall.com/card/bbd/45/bloodborn-scoundrels?utm_source=api"
+        },
+        {
+          "name": "Bring Down",
+          "url": "https://scryfall.com/card/bbd/26/bring-down?utm_source=api"
+        },
+        {
+          "name": "Charging Binox",
+          "url": "https://scryfall.com/card/bbd/66/charging-binox?utm_source=api"
+        },
+        {
+          "name": "Dwarven Lightsmith",
+          "url": "https://scryfall.com/card/bbd/27/dwarven-lightsmith?utm_source=api"
+        },
+        {
+          "name": "Fan Favorite",
+          "url": "https://scryfall.com/card/bbd/46/fan-favorite?utm_source=api"
+        },
+        {
+          "name": "Game Plan",
+          "url": "https://scryfall.com/card/bbd/35/game-plan?utm_source=api"
+        },
+        {
+          "name": "Gang Up",
+          "url": "https://scryfall.com/card/bbd/47/gang-up?utm_source=api"
+        },
+        {
+          "name": "Huddle Up",
+          "url": "https://scryfall.com/card/bbd/36/huddle-up?utm_source=api"
+        },
+        {
+          "name": "Lava-Field Overlord",
+          "url": "https://scryfall.com/card/bbd/60/lava-field-overlord?utm_source=api"
+        },
+        {
+          "name": "Magma Hellion",
+          "url": "https://scryfall.com/card/bbd/61/magma-hellion?utm_source=api"
+        },
+        {
+          "name": "Out of Bounds",
+          "url": "https://scryfall.com/card/bbd/38/out-of-bounds?utm_source=api"
+        },
+        {
+          "name": "Play of the Game",
+          "url": "https://scryfall.com/card/bbd/29/play-of-the-game?utm_source=api"
+        },
+        {
+          "name": "Skystreamer",
+          "url": "https://scryfall.com/card/bbd/31/skystreamer?utm_source=api"
+        },
+        {
+          "name": "Spellweaver Duo",
+          "url": "https://scryfall.com/card/bbd/42/spellweaver-duo?utm_source=api"
+        },
+        {
+          "name": "The Crowd Goes Wild",
+          "url": "https://scryfall.com/card/bbd/68/the-crowd-goes-wild?utm_source=api"
+        },
+        {
+          "name": "Vampire Charmseeker",
+          "url": "https://scryfall.com/card/bbd/78/vampire-charmseeker?utm_source=api"
+        },
+        {
+          "name": "Yume, Chronicler of Valor",
+          "url": "https://scryfall.com/card/mbc/6/yume-chronicler-of-valor?utm_source=api"
+        }
+      ],
+      "label": "Scryfall-derived assessment - provisional",
+      "researchDate": "2026-10-26",
+      "kind": "derived",
+      "classification": "Provisional color placements",
+      "outsidePrimary": null,
+      "relatedEffects": [],
+      "sources": [],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAssist%5Cb/%20include%3Aextras"
+    },
+    {
+      "id": "deck:catalog-gaps:attach",
+      "name": "Attach",
+      "scope": "Generic rules action, with linked effect-specific color-pie evidence",
+      "confidence": "Not applicable to the general rules action",
+      "placements": {
+        "W": null,
+        "U": null,
+        "B": null,
+        "R": null,
+        "G": null
+      },
+      "rationale": {
+        "W": "No independent W placement is assigned; see the classification and rationale below.",
+        "U": "No independent U placement is assigned; see the classification and rationale below.",
+        "B": "No independent B placement is assigned; see the classification and rationale below.",
+        "R": "No independent R placement is assigned; see the classification and rationale below.",
+        "G": "No independent G placement is assigned; see the classification and rationale below."
+      },
+      "summary": "Preserve the distinction between the generic Attach action and moving already attached enchantments. The 2017 article provides explicit Blue Primary evidence for its named Moving enchantments/counters category. Record that evidence alongside Attach rather than expanding the claim to every Equip or Aura-attachment action. Counter movement is also not itself the rules action of attaching a permanent.",
+      "limitations": [],
+      "citationCards": [],
+      "label": "Rules action - not ranked",
+      "researchDate": "2026-10-26",
+      "kind": "rules",
+      "classification": "Generic rules action, with linked effect-specific color-pie evidence",
+      "outsidePrimary": null,
+      "relatedEffects": [
+        {
+          "name": "Moving enchantments/counters",
+          "label": "Explicit Wizards placement - 2017 scope",
+          "placements": {
+            "W": null,
+            "U": "Primary",
+            "B": null,
+            "R": null,
+            "G": null
+          },
+          "url": "https://magic.wizards.com/en/news/making-magic/mechanical-color-pie-2017-2017-06-05",
+          "note": "This 2017 placement describes the named effect, not every Attach action. It does not change the 2021 snapshot."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Moving enchantments/counters",
+          "url": "https://magic.wizards.com/en/news/making-magic/mechanical-color-pie-2017-2017-06-05"
+        },
+        {
+          "title": "Evergreen Eggs & Ham (2015)",
+          "url": "https://magic.wizards.com/en/news/making-magic/evergreen-eggs-ham-2015-06-08"
+        }
+      ],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAttach%5Cb/%20include%3Aextras"
+    },
+    {
+      "id": "deck:catalog-gaps:augment",
+      "name": "Augment",
+      "scope": "Fourteen cards with native Augment in the special-set environment; support-only combining/tutoring/reward cards kept separately.",
+      "confidence": "low-to-moderate within special-set scope",
+      "placements": {
+        "W": "Secondary",
+        "U": "Tertiary",
+        "B": "Secondary",
+        "R": "Tertiary",
+        "G": "Primary"
+      },
+      "rationale": {
+        "W": "Half-Kitten, Half-, Humming- and Rhino- give three native white designs, including a common: Secondary. White combination/tutor support is context, not additional native keyword cards.",
+        "U": "Half-Shark, Half- is the sole native blue example. Propose Tertiary for this narrow special-set access.",
+        "B": "Bat-, Ninja and Zombified provide three distinct native black designs, including altered activation timing and graveyard interaction: Secondary.",
+        "R": "Half-Orc, Half- is the sole native red example. Propose Tertiary within the special-set scope.",
+        "G": "Half-Squirrel, Half-, Monkey-, Multi-Headed and Serpentine give four native green designs spanning common, uncommon and rare. The slightly broader native range supports a tentative Primary."
+      },
+      "summary": "Green leads slightly with broader rarity coverage; white and black recur, while blue/red each have one native design.",
+      "limitations": [
+        "Support cards such as Dr. Julius Jumblemorph and Teacher's Pet can combine cards but do not themselves have or grant Augment; their excluded status concerns native counts, not practical support. The small G/W/B difference makes exact tier boundaries tentative."
+      ],
+      "citationCards": [
+        {
+          "name": "Bat-",
+          "url": "https://scryfall.com/card/und/32/bat-?utm_source=api"
+        },
+        {
+          "name": "Half-Kitten, Half-",
+          "url": "https://scryfall.com/card/ust/9/half-kitten-half-?utm_source=api"
+        },
+        {
+          "name": "Half-Orc, Half-",
+          "url": "https://scryfall.com/card/ust/84/half-orc-half-?utm_source=api"
+        },
+        {
+          "name": "Half-Shark, Half-",
+          "url": "https://scryfall.com/card/ust/35/half-shark-half-?utm_source=api"
+        },
+        {
+          "name": "Half-Squirrel, Half-",
+          "url": "https://scryfall.com/card/und/65/half-squirrel-half-?utm_source=api"
+        },
+        {
+          "name": "Humming-",
+          "url": "https://scryfall.com/card/und/7/humming-?utm_source=api"
+        },
+        {
+          "name": "Monkey-",
+          "url": "https://scryfall.com/card/ust/115/monkey-?utm_source=api"
+        },
+        {
+          "name": "Multi-Headed",
+          "url": "https://scryfall.com/card/ust/117/multi-headed?utm_source=api"
+        },
+        {
+          "name": "Ninja",
+          "url": "https://scryfall.com/card/ust/61/ninja?utm_source=api"
+        },
+        {
+          "name": "Rhino-",
+          "url": "https://scryfall.com/card/ust/18/rhino-?utm_source=api"
+        },
+        {
+          "name": "Robo-",
+          "url": "https://scryfall.com/card/ust/157/robo-?utm_source=api"
+        },
+        {
+          "name": "Serpentine",
+          "url": "https://scryfall.com/card/ust/120/serpentine?utm_source=api"
+        },
+        {
+          "name": "Steam-Powered",
+          "url": "https://scryfall.com/card/ust/161/steam-powered?utm_source=api"
+        },
+        {
+          "name": "Zombified",
+          "url": "https://scryfall.com/card/ust/75/zombified?utm_source=api"
+        }
+      ],
+      "label": "Scryfall-derived assessment - provisional",
+      "researchDate": "2026-10-26",
+      "kind": "derived",
+      "classification": "Provisional color placements",
+      "outsidePrimary": null,
+      "relatedEffects": [],
+      "sources": [],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAugment%5Cb/%20include%3Aextras"
+    },
+    {
+      "id": "deck:vocabulary:aura swap",
+      "name": "Aura Swap",
+      "scope": "Single observed native design: Arcanum Wings.",
+      "confidence": "low",
+      "placements": {
+        "W": null,
+        "U": "Primary",
+        "B": null,
+        "R": null,
+        "G": null
+      },
+      "rationale": {
+        "W": "No independent native or grant source in this color supports a placement in this sample; leave unassigned.",
+        "U": "Arcanum Wings is a monoblue uncommon with the Aura swap activation {2}{U}. Blue is the sole observed native home: provisional Primary, following the same sparse-evidence convention as Absorb.",
+        "B": "No independent native or grant source in this color supports a placement in this sample; leave unassigned.",
+        "R": "No independent native or grant source in this color supports a placement in this sample; leave unassigned.",
+        "G": "No independent native or grant source in this color supports a placement in this sample; leave unassigned."
+      },
+      "summary": "Blue is the only evidenced home, so propose Primary with low confidence rather than invent other tiers.",
+      "limitations": [
+        "One design cannot establish a broad enduring color policy. An Aura swapped in from another color does not supply a native Aura Swap source of that color."
+      ],
+      "citationCards": [
+        {
+          "name": "Arcanum Wings",
+          "url": "https://scryfall.com/card/fut/48/arcanum-wings?utm_source=api"
+        }
+      ],
+      "label": "Scryfall-derived assessment - provisional",
+      "researchDate": "2026-10-26",
+      "kind": "derived",
+      "classification": "Provisional color placements",
+      "outsidePrimary": null,
+      "relatedEffects": [],
+      "sources": [],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAura%20Swap%5Cb/%20include%3Aextras"
+    },
+    {
+      "id": "deck:vocabulary:awaken",
+      "name": "Awaken",
+      "scope": "15 native keyword designs after excluding two name coincidences and one support card.",
+      "confidence": "moderate",
+      "placements": {
+        "W": "Primary",
+        "U": "Primary",
+        "B": "Secondary",
+        "R": "Tertiary",
+        "G": "Tertiary"
+      },
+      "rationale": {
+        "W": "Sheer Drop, Encircling Fissure, Ondu Rising and Planar Outburst span common through rare; Roil Spout adds joint WU evidence. This is a main keyword home: Primary.",
+        "U": "Clutch of Currents, Rush of Ice, Coastal Discovery, Scatter to the Winds and Part the Waterveil cover common through mythic. This breadth supports Primary.",
+        "B": "Mire's Malice, Rising Miasma and Ruinous Path span common, uncommon and rare. Recurring independent access supports Secondary.",
+        "R": "Boiling Earth is the sole native red Awaken design in the sample. Propose Tertiary by its narrow branch, while noting it occurs at common.",
+        "G": "Earthen Arms is the sole native green Awaken design. Propose Tertiary for this exact keyword; do not import green's broader land-animation placement."
+      },
+      "summary": "Blue and white have the broadest native branches; black recurs, while red/green have one native common each.",
+      "limitations": [
+        "The 2021 land-animation entry is untouched and not mapped to Awaken. Halimar Tidecaller is support; Awaken the Inferno and Awaken the Maelstrom are unrelated name matches. Tertiary here describes narrow keyword use, not a universal rarity requirement."
+      ],
+      "citationCards": [
+        {
+          "name": "Boiling Earth",
+          "url": "https://scryfall.com/card/bfz/142/boiling-earth?utm_source=api"
+        },
+        {
+          "name": "Clutch of Currents",
+          "url": "https://scryfall.com/card/bfz/72/clutch-of-currents?utm_source=api"
+        },
+        {
+          "name": "Coastal Discovery",
+          "url": "https://scryfall.com/card/bfz/73/coastal-discovery?utm_source=api"
+        },
+        {
+          "name": "Earthen Arms",
+          "url": "https://scryfall.com/card/bfz/172/earthen-arms?utm_source=api"
+        },
+        {
+          "name": "Encircling Fissure",
+          "url": "https://scryfall.com/card/bfz/23/encircling-fissure?utm_source=api"
+        },
+        {
+          "name": "Mire's Malice",
+          "url": "https://scryfall.com/card/bfz/117/mires-malice?utm_source=api"
+        },
+        {
+          "name": "Ondu Rising",
+          "url": "https://scryfall.com/card/bfz/41/ondu-rising?utm_source=api"
+        },
+        {
+          "name": "Part the Waterveil",
+          "url": "https://scryfall.com/card/bfz/80/part-the-waterveil?utm_source=api"
+        },
+        {
+          "name": "Planar Outburst",
+          "url": "https://scryfall.com/card/ncc/209/planar-outburst?utm_source=api"
+        },
+        {
+          "name": "Rising Miasma",
+          "url": "https://scryfall.com/card/bfz/122/rising-miasma?utm_source=api"
+        },
+        {
+          "name": "Roil Spout",
+          "url": "https://scryfall.com/card/bfz/219/roil-spout?utm_source=api"
+        },
+        {
+          "name": "Ruinous Path",
+          "url": "https://scryfall.com/card/c18/117/ruinous-path?utm_source=api"
+        },
+        {
+          "name": "Rush of Ice",
+          "url": "https://scryfall.com/card/bfz/84/rush-of-ice?utm_source=api"
+        },
+        {
+          "name": "Scatter to the Winds",
+          "url": "https://scryfall.com/card/bfz/85/scatter-to-the-winds?utm_source=api"
+        },
+        {
+          "name": "Sheer Drop",
+          "url": "https://scryfall.com/card/bfz/48/sheer-drop?utm_source=api"
+        }
+      ],
+      "label": "Scryfall-derived assessment - provisional",
+      "researchDate": "2026-10-26",
+      "kind": "derived",
+      "classification": "Provisional color placements",
+      "outsidePrimary": null,
+      "relatedEffects": [],
+      "sources": [],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAwaken%5Cb/%20include%3Aextras"
+    }
+  ]
+}

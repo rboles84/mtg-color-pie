@@ -1,0 +1,165 @@
+{
+  "record_type": "local_research_assessment",
+  "schema_version": 1,
+  "mechanic_id": "deck:catalog-gaps:absorb",
+  "mechanic": "Absorb",
+  "research_date_local": "2026-10-26",
+  "timezone": "America/Denver",
+  "label": "Scryfall-derived assessment - provisional",
+  "attribution": "Card facts retrieved from Scryfall; color tiers are a Vox Mana/Codex judgment, not Scryfall or Wizards rankings.",
+  "owner_direction": "Reasonable Scryfall-based judgments are authorized for Absorb; retain evidence/rationale, preserve 2021, no app changes.",
+  "supersedes": "Prior A research packet Absorb row only, for the proposed research assessment. Earlier explicit-source-only result remains historically valid. No catalog or 2021 identity mapping is changed.",
+  "recommended_placements": [
+    {
+      "color": "W",
+      "name": "White",
+      "tier": "Primary",
+      "status": "provisional_assessment",
+      "observed_native_unique_cards": 1,
+      "confidence": "low-to-moderate",
+      "rationale": "Primary is my provisional best-fit judgment: the only observed native source is a monowhite common that deliberately grants Absorb. White is therefore the best-supported home in this evidence set. Designer history also places the precursor armor designs in white. This supports a proposed home, not proof of a broad established tier."
+    },
+    {
+      "color": "U",
+      "name": "Blue",
+      "tier": null,
+      "status": "unassigned",
+      "observed_native_unique_cards": 0,
+      "confidence": null,
+      "rationale": "No native blue Absorb source was found in the exact-word Scryfall population. Absorbing Man is a substring false positive, not the Absorb keyword. No secondary or tertiary assignment is justified."
+    },
+    {
+      "color": "B",
+      "name": "Black",
+      "tier": null,
+      "status": "unassigned",
+      "observed_native_unique_cards": 0,
+      "confidence": null,
+      "rationale": "No native black Absorb source was found. A black Sliver receiving Absorb from Lymph Sliver is granted access from a white source, not evidence of native black ownership."
+    },
+    {
+      "color": "R",
+      "name": "Red",
+      "tier": null,
+      "status": "unassigned",
+      "observed_native_unique_cards": 0,
+      "confidence": null,
+      "rationale": "No native red Absorb source was found. Receiving the granted ability, copying a card, or lacking observed cards does not establish a red tier."
+    },
+    {
+      "color": "G",
+      "name": "Green",
+      "tier": null,
+      "status": "unassigned",
+      "observed_native_unique_cards": 0,
+      "confidence": null,
+      "rationale": "No native green Absorb source was found. General toughness, resilience, or damage-prevention similarities are not enough to assign this exact keyword a tier."
+    }
+  ],
+  "target2021": null,
+  "application_import_status": "not integrated; research only",
+  "observed_population": {
+    "unique_native_card_designs": 1,
+    "printings": 2,
+    "by_color": {
+      "W": 1,
+      "U": 0,
+      "B": 0,
+      "R": 0,
+      "G": 0
+    },
+    "basis": "Card colors of the deliberate grant source, not colors of creatures that can receive the ability; deduplicate by oracle_id.",
+    "cards": [
+      {
+        "name": "Lymph Sliver",
+        "oracle_id": "c3469de8-4bdb-42d4-9fc0-75fe31c3f6e5",
+        "colors": [
+          "W"
+        ],
+        "color_identity": [
+          "W"
+        ],
+        "mana_cost": "{4}{W}",
+        "type_line": "Creature — Sliver",
+        "keywords": [],
+        "scryfall_url": "https://scryfall.com/card/tsr/25/lymph-sliver",
+        "evidence_summary": "A white Sliver that grants absorb 1 to all Sliver creatures.",
+        "printings": [
+          {
+            "id": "d9cdb51f-c785-47d1-b23c-de74eeb22a31",
+            "set": "fut",
+            "set_name": "Future Sight",
+            "collector_number": "26",
+            "released_at": "2007-05-04",
+            "rarity": "common",
+            "url": "https://scryfall.com/card/fut/26/lymph-sliver"
+          },
+          {
+            "id": "48b8b4d4-4400-46cc-bd3c-e8a781cfc6f2",
+            "set": "tsr",
+            "set_name": "Time Spiral Remastered",
+            "collector_number": "25",
+            "released_at": "2021-03-19",
+            "rarity": "common",
+            "url": "https://scryfall.com/card/tsr/25/lymph-sliver"
+          }
+        ]
+      }
+    ]
+  },
+  "search_evidence": {
+    "definitive_query": {
+      "query": "o:/\\babsorb\\b/ include:extras",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%2F%5Cbabsorb%5Cb%2F+include%3Aextras&unique=cards&order=name",
+      "retrieved_utc": "2026-10-27T04:29:53.607032+00:00",
+      "status": 200,
+      "sha256": "4fa82c2ad99e361e1671a903831f036ae33f63b3fe58a7f2b5944a8973f98135",
+      "total_cards": 1,
+      "has_more": false,
+      "names": [
+        "Lymph Sliver"
+      ]
+    },
+    "initial_keyword_queries": "kw:absorb returned HTTP404 not_found (zero matches), including include:extras. Lymph Sliver has an empty keywords field despite granting absorb in Oracle text; keyword-only discovery misses it.",
+    "broad_query": "o:absorb returned two unique cards. Exclude Absorbing Man: its text names itself but does not contain the keyword.",
+    "printings": "o:absorb unique:prints returned four rows, two for each name. Only the two Lymph Sliver rows are relevant. They are one design, not two independent designs.",
+    "extras": "Exact-word Oracle query with include:extras returned one card with has_more false."
+  },
+  "supporting_design_context": {
+    "title": "Future Sight Design Handoff Document",
+    "author": "Mark Rosewater",
+    "published": "2021-05-17",
+    "url": "https://magic.wizards.com/en/news/making-magic/future-sight-design-handoff-document-2021-05-17",
+    "location": "White / cW12 Full-Plate Paladin and uW13 Astral Elemental",
+    "summary": "Rosewater identifies armor as the predecessor name for Absorb. The white handoff section contains armor concepts, including an unprinted armor-bearing version of Astral Elemental. These corroborate white design intent, but are not additional printed Scryfall cards or explicit P/S/T assignments.",
+    "use": "Supporting qualitative context only; no 2021 Mechanical Color Pie tiers inherited."
+  },
+  "limitations": [
+    "One unique card is a very small sample. Two printings do not supply two independent color decisions.",
+    "Observed exclusivity supports white as a proposed home but does not prove whether R&D would classify it primary, secondary or tertiary.",
+    "Unassigned means not established by this evidence, not unavailable, colorless, zero access or a prohibition.",
+    "The classification concerns the exact keyword Absorb, not the counterspell named Absorb, general damage prevention, copying, or all potential recipients of a granted ability.",
+    "Absorb being scarce across all Magic does not automatically make it tertiary in its only demonstrated color.",
+    "Reassess after a new native design in another color, explicit designer tier guidance, or evidence of a deliberate color-pie exception."
+  ],
+  "protection": {
+    "root": "C:\\dev\\color-wheel-interactive",
+    "data_file_count": 36,
+    "all_data_file_hashes_unchanged": true,
+    "baseline_manifest": "protected-before.json"
+  },
+  "evidence_manifest": {
+    "exact-word-page-1.json": "4fa82c2ad99e361e1671a903831f036ae33f63b3fe58a7f2b5944a8973f98135",
+    "exact-word-query.json": "8b621d3e2ce0bca86e193aad790f88bfa0b45977a2ea14f782c9d4949c77336d",
+    "keyword-all-contexts-error.json": "a824c6b6210f7e25e7fcbfbcf34cf2c097b0b957ec5fe50965a302393dab2181",
+    "keyword-cards-error.json": "1f8cb31c1640ec6253fafa74e2f892f2ded83b39f6780486411c0b7d9b57218f",
+    "keyword-printings-error.json": "22969ac8a5a6e46f8076b945532cb87dd4bf4b4c151cbc8f8b5dceb2fc422275",
+    "oracle-all-contexts-page-1.json": "7fd2bcfd07d1170529d1773e45b77da231bcb06d4f298994489d730014e29382",
+    "oracle-all-contexts.json": "02b8019770508c7a5d37860c1c4fd719bb53f6a33e3d1d15421d7aa6f69bdce3",
+    "oracle-cards-page-1.json": "7fd2bcfd07d1170529d1773e45b77da231bcb06d4f298994489d730014e29382",
+    "oracle-cards.json": "332b89350eafd20de575ae4b84675679ce3e68b00f9450b12a54be14e0effbea",
+    "oracle-printings-page-1.json": "122d5aa1dcd833da11f95c8d82bb9f6ce1fd16bd2273406e2552e75a7059b627",
+    "oracle-printings.json": "a029d9ff9442c4bb80dfb60dc5da722f313c098769a931aca06e51d375f8b8fb",
+    "protected-before.json": "b74d16ef60d6203ad12d529c2f2ba87266502b69fb4fc4f38cebcbd073778933"
+  }
+}

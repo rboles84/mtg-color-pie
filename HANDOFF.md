@@ -1,4 +1,52 @@
-# Active handoff — live publication completion
+# Active handoff - A mechanics assessment preview
+
+## Control
+- Status: `ready-for-qa` (prior completed task archived below; complete -> idle -> dev-in-progress -> ready-for-qa).
+- Owner request: create a branch and put the researched A mechanics on the page for review before continuing the alphabet. This authorizes the scoped local implementation; it does not authorize publication or integration.
+- Branch: `codex/a-mechanics-review`; baseline `9a063b3a98cfcb7672783f83a102e8f968242490`.
+- Checkout: isolated local review worktree; original master checkout and its existing `_site-supplement/` are preserved.
+- Scope authority: target repository AGENTS.md and its HANDOFF-led workflow apply. The Vox Mana VM-card admission validator is for the separate Vox repository; no Vox repository implementation is part of this task.
+- Allowed files: `HANDOFF.md`; `vox-color/mechanical-explorer.html`; `.github/pages/package.py`; `docs/mechanics-research/a-assessments-source.json`; `docs/mechanics-research/absorb-assessment-source.json`; `docs/mechanics-research/a-classification-addendum.json`; `data/mechanics-assessments.v1.json`; `tools/build_mechanics_assessments.py`; `tools/check_assessment_browser.mjs`; `tools/check_supplement_browser.mjs`.
+- Owning layer: retain the reviewed research as source JSON, generate a distinct supplemental-assessment payload, and render it only for the matching supplemental records. Do not modify the existing supplemental evidence/scope transports or the frozen 2021 files. An optional JSON payload follows the existing supplemental-loading architecture and creates no new runtime dependency.
+
+## Acceptance criteria
+1. All 25 supplemental A mechanics, including Absorb, display the final research/addendum proposals in their existing detail surface; retain rationale, confidence, scope/limitations and evidence links. Label derived placements `Scryfall-derived assessment - provisional`; do not attribute these tiers to Wizards or Scryfall.
+2. A-Z and search/detail summaries agree and no assessed A item incorrectly claims all rankings remain unknown. Entries beyond A retain current behavior. No new route, top-level tab or competing detail owner.
+3. Annihilator and Affinitycycling show Primary Colorless outside WUBRG, with appropriate owner-directed/provisional/playtest distinction. Abandon, Activate and generic Attach show rules-action/not-applicable scope. Attach separately shows the explicit 2017 Blue Primary related effect with its narrower scope, never as a 2021 identity merge.
+4. 2021 source/runtime/fixtures, placements, selection arithmetic, Article population and color lenses remain byte/behavior unchanged. Supplemental assessment tiers never enter 2021 calculations. Preserve all existing A-Z/Special memberships and examples.
+5. Strictly validate the optional assessment payload, source bindings, unique accepted unmapped IDs, tiers and safe citation URLs before use. Missing/malformed/late assessment data leaves the existing catalog usable with an honest unavailable/not-loaded state, never fabricated rankings.
+6. Use existing visual/type/color roles and accessibility patterns. Keyboard open/close, narrow detail containment and safe escaped content continue working. No new external dependency or remote provider fetch at runtime.
+7. Provide a local HTTP preview of the branch for Owner appearance/interaction review; no push, merge, deploy or live-site change.
+
+## Verification plan
+- Expected QA-4 due to a new derived research dataset, with separate configured RobQA after ready-for-qa.
+- Run the target's required source/taxonomy/recon/fixture gate chain without generating frozen data; verify deterministic assessment reproduction, exact coverage and protected hashes.
+- Check changed inline script syntax, package allowlist/exclusions, whitespace and exact diff.
+- Focused real-browser assertions cover assessed/native/colorless/rules/2017-note examples, unchanged non-A and 2021 control, evidence/label rendering, malformed/missing/late optional transport, keyboard opening and narrow overflow. No broad old suite or visual sweep without a concrete changed-risk justification.
+- Owner judges appearance. Hand off exact committed candidate, Git-derived file accounting, test results and a short local preview checklist.
+
+## RobDev implementation report
+- Candidate: the local commit containing this report; baseline above. Coordinator completed the bounded source-validation/classification implementation after the configured Terra medium worker returned an incomplete scaffold. Independent Sol medium QA follows; no engineering or Owner acceptance is inferred here.
+- Material paths: `vox-color/mechanical-explorer.html`, `.github/pages/package.py`, `docs/mechanics-research/a-assessments-source.json`, `docs/mechanics-research/absorb-assessment-source.json`, `docs/mechanics-research/a-classification-addendum.json`, `data/mechanics-assessments.v1.json`, `tools/build_mechanics_assessments.py`, `tools/check_assessment_browser.mjs`, `tools/check_supplement_browser.mjs`. Evidence path: `HANDOFF.md`. Total envelope used: 10 paths (9 material, 1 evidence); Git supplies final commit accounting.
+- Behavior: existing A rows/search/detail show 20 derived WUBRG assessments (70 assigned tiers), two Colorless assessments and three rules actions. Attach has a separate scoped 2017 Blue Primary note. Expandable evidence includes rationale, limitations, confidence, source/card links and dated provisional attribution. All supplement tiers remain outside 2021 arithmetic.
+- Source lineage: the three research JSON files are retained unchanged. The deterministic producer explicitly resolves four research-only vocabulary IDs (Abandon, Activate, Actualize, Affinitycycling) to the accepted catalog-gaps IDs, checks names and preserves the research IDs. The addendum overrides the earlier five classifications, including the corrected Abandon search explanation. The browser validates exact coverage, accepted ID/name bindings, canonical supplement hash, source-binding structure, tiers, classification and safe URLs atomically.
+- Validation, all in this checkout with bundled Python/Node: `python tools/build_mechanics_assessments.py --check` -> PASS, 25 accepted unmapped records, 70 WUBRG tiers, deterministic payload/source bindings. `python tools/check_recon.py` -> source, taxonomy and fixture gates PASS plus all 53 recon assertions. The implementation worker reported the same protected gate preflight before edits.
+- `node tools/check_assessment_browser.mjs --playwright <bundled node_modules/playwright>` in local Edge -> PASS: 25 renderings and evidence, 70 tiers, classifications/Attach note; 84/84 frozen self-checks; 216 Article and 543+44 A-Z memberships; unchanged math and non-A; keyboard open/close and 360px containment; atomic missing/bad-tier/wrong-binding/unsafe-URL rejection; delayed loading refresh and escaped source HTML. First harness run used a nonexistent state property; corrected the test to the existing `state.pick` and reran successfully. Browser launch requires unsandboxed local execution on this host.
+- `python .github/pages/package.py --rev APreview --verify` -> PASS: 23 byte-identical files, four inline scripts syntax-clean, 23 HTTP 200 and 24 excluded paths HTTP 404. Sandbox temp/loopback restrictions prevented the first package checks; the authorized local unsandboxed rerun passed. Final preview will be rebuilt with the committed candidate stamp.
+- `git diff --check` -> clean. Existing supplemental browser expectations updated only for the intentionally changed A labels and Special heading; the broad historical suite is not run because the focused harness exercises the changed data/rendering/failure risks. No frozen source, runtime, fixture, scope or example file is edited.
+- Remaining: independent QA against the exact committed candidate; Owner appearance/interaction review. No known product defect, dependency addition, push, merge or deployment.
+
+## Owner preview checklist
+1. At the local preview, choose Mechanical Color Pie -> A-Z and open Absorb. Inspect provisional placements and expand Rationale and evidence.
+2. Search Annihilator, Affinitycycling, Abandon, Activate and Attach. Check the Colorless/rules classifications and Attach's separate 2017 note.
+3. Compare the A-Z row summaries with details, then return to Article view. Judge readability and spacing; its 2021 placements/calculations are preserved.
+
+## Independent QA
+Pending exact-candidate verification.
+
+---
+
+# Prior handoff — live publication completion
 
 ## Control
 

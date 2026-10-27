@@ -520,6 +520,11 @@ html.sheet-open .bar{position:relative}
 .supp-citation{overflow-wrap:anywhere}
 .scope-badge{white-space:normal;max-width:26ch;line-height:1.35}
 .supp-classification .dx-list{margin-top:10px}
+.assessment-notes{margin-top:16px;font:400 13.5px/1.5 var(--f-read);color:var(--ink);overflow-wrap:anywhere}
+.assessment-notes summary{cursor:pointer;color:var(--brass-l);font-family:var(--f-brand)}
+.assessment-notes p{margin:10px 0}
+.assessment-notes a{overflow-wrap:anywhere}
+.assessment-related{margin-top:16px;padding-top:12px;border-top:1px solid var(--brass-q)}
 .supp-symbol{display:inline-block;white-space:nowrap}
 .supp-symbol .ms{display:none;font-size:.9em;vertical-align:baseline}
 .supp-mana-ready .supp-symbol .ms{display:inline-block}
@@ -889,6 +894,7 @@ const SUPPLEMENT = { status:'loading', records:[], revision:null, groups:[] };
 const SUP_BY_KEY = new Map(), SUP_NAMES = new Map(), SUP_SCOPE = new Map();
 /* Optional plates are isolated from the accepted supplemental evidence. */
 const SUP_EXAMPLES = { status:'loading', byKey:new Map() };
+const ASSESSMENTS = { status:'loading', byKey:new Map() };
 const SUP_EXAMPLE_NAMED_EVIDENCE = new Set(['Actualize','Affinitycycling','Covercast','Eminence','Hellbent','Join forces','Jump','Kinfall','Landship','Parade!','Tempting offer','Threshold','Underdog']);
 let resultPage = 0, searchReturn = false;
 
@@ -1238,7 +1244,7 @@ function buildEntries(){
     b.type = 'button'; b.className = 'ent'; b.dataset.k = k; b.tabIndex = -1;
     b.title = r.supplemental ? r.head : r.e.label;
     b.setAttribute('aria-pressed', 'false');
-    b.innerHTML = `<span class="e-lab">${labelHTML(r)}${r.supplemental ? `<span class="e-tag">${esc(r.scope.evidenceLabel)} · Rankings unassigned</span>` : r.listOnly ? `<span class="e-tag">${esc(unmatchedCase(k).tag)}</span>` : ''}</span>${r.supplemental ? '' : stripHTML(r.e.colors)}`;
+    b.innerHTML = `<span class="e-lab">${labelHTML(r)}${r.supplemental ? `<span class="e-tag">${esc(r.scope.evidenceLabel)} · ${esc(assessmentSummary(k))}</span>` : r.listOnly ? `<span class="e-tag">${esc(unmatchedCase(k).tag)}</span>` : ''}</span>${r.supplemental ? '' : stripHTML(r.e.colors)}`;
     b._slots = [...b.querySelectorAll('.strip .sc')];
     entEl.set(k, b);
   }
@@ -1252,7 +1258,7 @@ function layoutList(){
   const frag = document.createDocumentFragment();
   for (const [k, el] of entEl){
     const r = REC.get(k), tag = el.querySelector('.e-tag');
-    if (r.supplemental && tag){ tag.hidden = false; tag.textContent = `${r.scope.evidenceLabel} · Rankings unassigned`; }
+    if (r.supplemental && tag){ tag.hidden = false; tag.textContent = `${r.scope.evidenceLabel} · ${assessmentSummary(k)}`; }
   }
   if (S.view === 'article'){
     let grp = null, grpIn = null, grpName = null;
@@ -1289,7 +1295,7 @@ function layoutList(){
         const r = REC.get(k), L = (azKey(r)[0] || '#').toUpperCase().replace(/[^A-Z]/, '#');
         if (includeLetters && L !== letter){ letter = L; const h = document.createElement('p'); h.className = 'letter'; h.textContent = L; h.setAttribute('aria-hidden', 'true'); entries.appendChild(h); }
         const entry = entEl.get(k);
-        if (compactRankings && r.supplemental){ const tag = entry.querySelector('.e-tag'); const redundant = (r.scope.group === 'card-specific' && r.scope.evidenceLabel === 'Card-specific flavor word') || (r.scope.group === 'preview' && r.scope.evidenceLabel === 'Official mechanic reference') || (r.scope.group === 'designer' && r.scope.evidenceLabel === 'Designer card example'); tag.hidden = redundant; if (!redundant) tag.textContent = r.scope.evidenceLabel; }
+        if (compactRankings && r.supplemental && !isAssessmentTarget(k)){ const tag = entry.querySelector('.e-tag'); const redundant = (r.scope.group === 'card-specific' && r.scope.evidenceLabel === 'Card-specific flavor word') || (r.scope.group === 'preview' && r.scope.evidenceLabel === 'Official mechanic reference') || (r.scope.group === 'designer' && r.scope.evidenceLabel === 'Designer card example'); tag.hidden = redundant; if (!redundant) tag.textContent = r.scope.evidenceLabel; }
         entries.appendChild(entry);
       }
       return section;
@@ -1302,7 +1308,7 @@ function layoutList(){
     if (specialKeys.length){
       const special = document.createElement('section'); special.className = 'grp'; special.dataset.scope = 'special-material';
       special.setAttribute('aria-label', 'Special material');
-      special.innerHTML = `<h3 class="grp-h" id="special-material-heading" tabindex="-1">Special material<small>${specialKeys.length} entries</small></h3><p class="lo-note">Rankings unassigned</p><div class="grp-in"></div>`;
+      special.innerHTML = `<h3 class="grp-h" id="special-material-heading" tabindex="-1">Special material<small>${specialKeys.length} entries</small></h3><p class="lo-note">Supplemental evidence and derived provisional assessments</p><div class="grp-in"></div>`;
       const returnTop = document.createElement('button'); returnTop.type = 'button'; returnTop.className = 'go'; returnTop.dataset.act = 'jump-main'; returnTop.textContent = 'Return to top'; returnTop.setAttribute('aria-label', 'Return to top of A–Z entries'); special.querySelector('.grp-h').appendChild(returnTop);
       const specialIn = special.querySelector('.grp-in');
       for (const group of specialGroups){
@@ -1399,7 +1405,7 @@ function render(){
     el.classList.toggle('is-miss', qOn && !S.hitSet.has(k) && !sel);
     el.classList.toggle('is-sel', sel);
     el.setAttribute('aria-pressed', String(sel));
-    el.setAttribute('aria-label', `${r.head}. Supplemental. ${r.scope.evidenceLabel}. ${r.scope.scopeNote} Rankings unassigned. Outside the 2021 color calculations.`);
+    el.setAttribute('aria-label', `${r.head}. Supplemental. ${r.scope.evidenceLabel}. ${r.scope.scopeNote} ${assessmentSummary(k, true)}. Outside the 2021 color calculations.`);
   }
   /* a group whose entries are all hidden by an explicit spotlight collapses */
   listEl.querySelectorAll('.grp,.lo').forEach(g => g.classList.toggle('is-empty', !!spot && ![...g.querySelectorAll('.ent')].some(x => !x.classList.contains('is-off'))));
@@ -1704,7 +1710,7 @@ function renderResults(){
     const unplaced = lensOn ? articleHits.filter(h => !h.placed).length : 0;
     const unknown = S.hits.length - articleHits.length;
     ab.hidden = !(lensOn && P.phrase);
-    ab.textContent = `${unplaced} of ${articleHits.length} 2021 ${plural(articleHits.length, 'match', 'matches')} ${unplaced === 1 ? 'has' : 'have'} no 2021 placement in ${listWords(cnames(P.colours))}. That records Rosewater's design defaults on October 18, 2021; it is not evidence that no card of that color does this.` + (unknown ? ` ${unknown} supplemental ${plural(unknown, 'record has', 'records have')} no sourced Primary/Secondary/Tertiary assignment recorded and are not counted as absent 2021 placements.` : '');
+    ab.textContent = `${unplaced} of ${articleHits.length} 2021 ${plural(articleHits.length, 'match', 'matches')} ${unplaced === 1 ? 'has' : 'have'} no 2021 placement in ${listWords(cnames(P.colours))}. That records Rosewater's design defaults on October 18, 2021; it is not evidence that no card of that color does this.` + (unknown ? ` ${unknown} supplemental ${plural(unknown, 'record is', 'records are')} outside these 2021 calculations; any provisional assessment is labeled separately.` : '');
     resultPage = Math.min(resultPage, Math.max(0, Math.ceil(S.hits.length / MAX_RESULTS) - 1));
     const offset = resultPage * MAX_RESULTS;
     const shown = S.hits.slice(offset, offset + MAX_RESULTS);
@@ -1715,7 +1721,7 @@ function renderResults(){
       if (lensOn && !r.supplemental){ const pb = proj.best(h.k, P.colours), code = esc([...setKey(P.colours)].join(''));
         lp = `<span class="lensp">${code}: ${pb.sameTier ? (pb.catalog.best ? TIER[pb.catalog.best] : 'no placement')
           : `${TIER[pb.list.best]} ${READING_BY.list} · ${TIER[pb.catalog.best]} ${READING_BY.catalog}`}</span>`; }
-      if (r.supplemental) lp = '<span class="lensp">No sourced Primary/Secondary/Tertiary assignment is recorded</span>';
+      if (r.supplemental) lp = `<span class="lensp">${esc(isAssessmentTarget(h.k) ? assessmentSummary(h.k, true) : 'No sourced Primary/Secondary/Tertiary assignment is recorded')}</span>`;
       const tag = st.related ? ` <span class="pterm-tag rel">related · not what the term names</span>` : st.player ? ' <span class="pterm-tag">navigation aid</span>' : '';
       return `<div class="opt${st.related ? ' is-rel' : ''}" role="option" id="opt-${offset + i}" data-k="${esc(h.k)}" aria-selected="false">
         <span class="opt-l">${labelHTML(r)}</span>${r.supplemental ? `<span class="calc scope-badge">${esc(scopeGroupLabel(r.scope))}</span>` : stripHTML(r.e.colors)}
@@ -1962,7 +1968,7 @@ function supplementalRecordHTML(a, mapped = false){
     ${locator.artist ? `<p class="dx-note">${esc(locator.card)} · Artist: ${esc(locator.artist)}</p>` : ''}
     ${ref && ref.playtest ? `<p class="dx-note">Playtest card: ${esc(ref.playtest.card)}.${ref.playtest.commander === 'not_legal' ? ' Not legal in Commander.' : ''}${ref.playtest.checkedOn ? ' Checked ' + esc(supplementalDate(ref.playtest.checkedOn)) + '.' : ''}</p>` : ''}</section>` : '';
   return `<div class="supp-evidence">${supplementalClassificationHTML(classification, mapped)}
-    ${!mapped ? '<p class="dx-note" aria-describedby="supp-ranking-note">Rankings unassigned</p><p class="sr-only" id="supp-ranking-note">No sourced Primary/Secondary/Tertiary assignment is recorded. This is unknown ranking, not an absent 2021 placement; supplemental evidence stays outside the 2021 color calculations.</p>' : ''}${rules}${reference}${scope}</div>`;
+    ${!mapped && !isAssessmentTarget(a.id) ? '<p class="dx-note" aria-describedby="supp-ranking-note">Rankings unassigned</p><p class="sr-only" id="supp-ranking-note">No sourced Primary/Secondary/Tertiary assignment is recorded. This is unknown ranking, not an absent 2021 placement; supplemental evidence stays outside the 2021 color calculations.</p>' : ''}${rules}${reference}${scope}</div>`;
 }
 function supplementEvidenceHTML(k){
   return (SUP_BY_KEY.get(k) || []).map(a => supplementalRecordHTML(a, true)).join('');
@@ -1971,7 +1977,81 @@ function supplementalDetailHTML(k){
   const r = REC.get(k), records = SUP_BY_KEY.get(k) || [];
   return `<div class="dx-top"><p class="dx-where">Supplemental · ${esc(scopeGroupLabel(r.scope))} · ${esc(r.scope.evidenceLabel)}</p><button class="dx-close" type="button" data-act="close" data-fid="dx-close" aria-label="Close entry">×</button></div>
     <h2 class="dx-title${r.head.length > 48 ? ' long' : ''}" id="dx-title">${esc(r.head)}</h2>
-    ${records.map(a => supplementalRecordHTML(a)).join('')}`;
+    ${assessmentHTML(k)}${records.map(a => supplementalRecordHTML(a)).join('')}`;
+}
+function isAssessmentTarget(k){
+  const r = REC.get(k);
+  return !!r && r.supplemental && r.head.startsWith('A');
+}
+function assessmentSummary(k, full = false){
+  const a = ASSESSMENTS.byKey.get(k);
+  if (!a) return isAssessmentTarget(k) ? (ASSESSMENTS.status === 'unavailable' ? 'Assessment unavailable' : 'Assessment loading') : 'Rankings unassigned';
+  if (a.kind === 'rules') return 'Rules action · Not ranked' + (a.relatedEffects.length ? ' · Related 2017 placement' : '');
+  if (a.kind === 'colorless') return 'Scryfall-derived · Colorless Primary';
+  return 'Scryfall-derived · ' + ORDER.filter(c => a.placements[c]).map(c => `${full ? CNAME[c] : c} ${a.placements[c]}`).join(' · ');
+}
+function assessmentHTML(k){
+  if (!isAssessmentTarget(k)) return '';
+  const a = ASSESSMENTS.byKey.get(k);
+  if (!a) return `<section class="dx-sec supp-assessment" aria-label="Assessment status"><p class="dx-note">${esc(assessmentSummary(k))}. ${ASSESSMENTS.status === 'unavailable' ? 'The research could not be loaded. Reload to try again; rules and other evidence remain available.' : 'Rules and other evidence remain available while the research loads.'}</p></section>`;
+  const link = (name, url) => `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(name)}</a>`;
+  const rows = ORDER.map(c => `<li class="own-row${a.placements[c] ? '' : ' none'}" data-c="${c}">
+    <i class="sc t-${a.placements[c] ? a.placements[c][0].toLowerCase() : 'n'}" style="--cc:var(--${c.toLowerCase()})" aria-hidden="true"><i class="ms ms-${c.toLowerCase()}"></i></i>
+    <span class="own-c">${CNAME[c]}</span><span class="own-lead" aria-hidden="true"></span><span class="own-t">${esc(a.placements[c] || 'Unassigned')}</span></li>`).join('');
+  const placement = a.kind === 'derived' ? `<ul class="own" aria-label="Provisional placements">${rows}</ul>` :
+    a.kind === 'colorless' ? '<p class="dx-ex is-supplemental"><b>Primary: Colorless</b></p><p class="dx-note">Outside the Five Colors · Secondary: None · Tertiary: None<br>W/U/B/R/G placements remain unassigned.</p>' :
+    '<p class="dx-ex is-supplemental"><b>Rules action · Not ranked</b></p><p class="dx-note">Primary, Secondary and Tertiary do not apply to this general rules action.</p>';
+  return `<section class="dx-sec supp-assessment" aria-label="${esc(a.label)}">
+    <h3 class="dx-h">${a.kind === 'rules' ? 'Classification' : 'Placements'}</h3><p class="dx-note">${esc(a.label)}</p>
+    ${placement}<p class="dx-note">${esc(a.scope)}</p><p class="dx-note">Confidence: ${esc(a.confidence)}</p>
+    <p class="dx-note">${a.kind === 'rules' ? 'Rules classification' : 'Analyst assessment, not an official Wizards or Scryfall ranking'} · Research snapshot ${esc(supplementalDate(a.researchDate))}. Outside the 2021 color calculations.</p>
+    <details class="assessment-notes"><summary>Rationale and evidence</summary><p>${esc(a.summary)}</p>
+      ${a.kind === 'derived' ? ORDER.map(c => `<p><b>${CNAME[c]} · ${esc(a.placements[c] || 'Unassigned')}.</b> ${esc(a.rationale[c])}</p>`).join('') : ''}
+      ${a.limitations.length ? `<h4>Scope and limitations</h4><ul class="dx-list">${a.limitations.map(t => `<li>${esc(t)}</li>`).join('')}</ul>` : ''}
+      <h4>Evidence</h4>${a.sources.map(s => `<p>${link(s.title, s.url)}</p>`).join('')}<p>${link('Scryfall search · includes special material', a.queryUrl)}</p>
+      ${a.citationCards.length ? `<details><summary>${a.citationCards.length} reviewed card ${a.citationCards.length === 1 ? 'source' : 'sources'}</summary><ul class="dx-list">${a.citationCards.map(c => `<li>${link(c.name, c.url)}</li>`).join('')}</ul></details>` : ''}
+    </details>${a.relatedEffects.map(e => `<section class="assessment-related" aria-label="Related historical placement"><h4>${esc(e.name)}</h4><p class="dx-note">${esc(e.label)}</p><p class="dx-ex is-supplemental">${ORDER.filter(c => e.placements[c]).map(c => `${CNAME[c]} · ${esc(e.placements[c])}`).join(' · ')}</p><p class="dx-note">${esc(e.note)}</p><p class="dx-note">${link('Mechanical Color Pie 2017', e.url)}</p></section>`).join('')}
+  </section>`;
+}
+async function loadAssessments(data, status){
+  try {
+    const payload = await getJSON('../data/mechanics-assessments.v1.json');
+    const text = v => typeof v === 'string' && !!v.trim();
+    const object = v => v !== null && typeof v === 'object' && !Array.isArray(v);
+    const map = (v, check) => object(v) && Object.keys(v).length === 5 && ORDER.every(c => Object.hasOwn(v, c) && check(v[c]));
+    const placements = v => map(v, t => t === null || ['Primary','Secondary','Tertiary'].includes(t));
+    const safeLink = v => !!supplementalURL(v) && ['scryfall.com','magic.wizards.com'].includes(new URL(v).hostname);
+    const names = ['a-assessments-source.json','absorb-assessment-source.json','a-classification-addendum.json'];
+    const expected = new Map(data.records.filter(r => r.name.startsWith('A') && r.target2021 === null).map(r => [r.id,r]));
+    const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(JSON.stringify(data)));
+    const hash = [...new Uint8Array(digest)].map(n => n.toString(16).padStart(2,'0')).join('');
+    if (!payload || payload.schemaVersion !== 1 || payload.researchDate !== '2026-10-26' || payload.supplementCanonicalSha256 !== hash ||
+        !Array.isArray(payload.sourceBindings) || payload.sourceBindings.length !== 3 || !names.every((name,i) => payload.sourceBindings[i]?.path === 'docs/mechanics-research/' + name && /^[a-f0-9]{64}$/.test(payload.sourceBindings[i].sha256)) ||
+        !Array.isArray(payload.records) || payload.records.length !== 25 || expected.size !== 25) throw new Error('Unsupported assessment schema or binding');
+    const staged = new Map();
+    for (const a of payload.records){
+      const source = expected.get(a?.id);
+      if (!source || staged.has(a.id) || a.name !== source.name || a.researchDate !== payload.researchDate ||
+          !['derived','colorless','rules'].includes(a.kind) || !['label','scope','summary','confidence','classification'].every(k => text(a[k])) ||
+          !placements(a.placements) || !map(a.rationale, text) || !Array.isArray(a.limitations) || !a.limitations.every(text) ||
+          !safeLink(a.queryUrl) || !Array.isArray(a.citationCards) || !a.citationCards.every(c => c && text(c.name) && safeLink(c.url) && new URL(c.url).hostname === 'scryfall.com') ||
+          !Array.isArray(a.sources) || !a.sources.every(s => s && text(s.title) && safeLink(s.url)) ||
+          !Array.isArray(a.relatedEffects) || !a.relatedEffects.every(e => e && text(e.name) && text(e.label) && text(e.note) && placements(e.placements) && safeLink(e.url))) throw new Error('Malformed assessment record');
+      const kind = ['Abandon','Activate','Attach'].includes(a.name) ? 'rules' : ['Annihilator','Affinitycycling'].includes(a.name) ? 'colorless' : 'derived';
+      if (a.kind !== kind || a.label !== (kind === 'rules' ? 'Rules action - not ranked' : 'Scryfall-derived assessment - provisional') ||
+          a.outsidePrimary !== (kind === 'colorless' ? 'Colorless' : null) || kind !== 'derived' && Object.values(a.placements).some(Boolean) ||
+          a.relatedEffects.length !== (a.name === 'Attach' ? 1 : 0)) throw new Error('Assessment classification mismatch');
+      staged.set(a.id, deepFreeze(a));
+    }
+    ASSESSMENTS.byKey = staged; ASSESSMENTS.status = 'ready';
+    status.textContent += ' 25 A-mechanic assessments are available; derived placements remain outside the 2021 calculations.';
+  } catch (err){
+    ASSESSMENTS.byKey = new Map(); ASSESSMENTS.status = 'unavailable';
+    status.textContent += ' A-mechanic assessments are unavailable; rules and other evidence remain available.';
+    console.warn('[mechanical-explorer] assessments unavailable:', err.message);
+  }
+  if (S.view === 'az') layoutList();
+  resEl._sig = null; detailEl._sig = null; render();
 }
 async function loadSupplementExamples(data, scopes, status){
   try {
@@ -2055,7 +2135,7 @@ async function loadSupplement(){
     SUPPLEMENT.status = 'ready';
     const supplemental = SUPPLEMENT.records.filter(a => !a.target2021).length;
     status.textContent = `${data.records.length} accepted source records available in search and A–Z: ${supplemental} supplemental records and ${data.records.length - supplemental} mapped to existing 2021 entries. Supplemental records do not enter the 2021 color calculations.`;
-    loadSupplementExamples(data, scopes, status);
+    loadSupplementExamples(data, scopes, status); loadAssessments(data, status);
   } catch (err){
     SUPPLEMENT.status = 'unavailable';
     status.textContent = 'Supplemental mechanic records and scope classifications are unavailable. The 2021 catalog and its search remain available. Reload the page to try again.';
@@ -2552,6 +2632,7 @@ function api(){
     setQuery: v => { qEl.value = v; setQuery(v); }, toggleColor, clearColors, chooseCombo, setView, setSpot,
     open: k => openEntry(k, {}), close: () => closeEntry(false), article: () => ARTICLE.slice(), listOnly: () => LIST_ONLY.slice(),
     supplemental: () => ({ status:SUPPLEMENT.status, records:SUPPLEMENT.records, revision:SUPPLEMENT.revision }),
+    assessments: () => ({ status:ASSESSMENTS.status, records:[...ASSESSMENTS.byKey.values()] }),
     selftest: () => T };
 }
 
