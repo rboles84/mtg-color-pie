@@ -1,4 +1,25 @@
-# Active handoff — local publication-readiness audit
+# Active handoff — live publication completion
+
+## Control
+
+- **Status:** `complete` (`qa-passed` → `complete`, coordinator). The Owner explicitly authorized publication of exact release `5c8399d4d47652ce25a0bb4daae86f933fbd59aa`; this live QA records the completed deployment and does not authorize or perform a further product, branch, remote, workflow, hosting, or publication mutation.
+- **Published release:** `master` and `origin/master` were advanced to `5c8399d4d47652ce25a0bb4daae86f933fbd59aa`; deployed shell stamp `5c8399d4d476`.
+- **Pages run:** [40447324942](https://github.com/rboles84/mtg-color-pie/actions/runs/40447324942), reported by the coordinator as `completed / success`, with both `build` and `deploy` successful for the exact release SHA.
+- **Allowed write envelope:** this publication-completion section in `HANDOFF.md` only. The browser witness is outside the repository. Coordinator records completion in a ledger-only `[skip ci]` follow-up commit; deployed product remains the approved release.
+
+## Independent RobQA — live publication smoke, 2026-10-26
+
+- **Verdict:** focused QA-5 live smoke **PASS**. `https://colorpie.voxmana.io/?qa=5c8399d4d476` returned HTTP 200 and declared `var REV = '5c8399d4d476';`. External `live-publication-qa.mjs`, using the installed Edge channel, then exited 0 against the actual public surfaces. No blocker, major, minor, or note finding.
+- **Real entry journey:** an ordinary click on the visible `Color Pie` link at `https://voxmana.io/` followed its actual `https://colorpie.voxmana.io/` href to the live custom-domain shell. The shell loaded revision-stamped instruments and Mechanical Color Pie at the canonical `#mechanical-color-pie` route.
+- **Focused product smoke:** the live explorer reached supplemental `ready`, reported `84 of 84 passed`, and reported all 358 selected supplemental examples available. Article contained 216 entries; A–Z contained 587 unique entries partitioned as main 543 plus Special material 44. Exact search `Training` returned only `deck:vocabulary:training`; keyboard selection opened its single detail owner with rankings unassigned and no 2021 owner rows. The original `exiling cards from graveyard` detail retained five owner rows and the declared `Primary in the color lists · Secondary in the explanations` conflict with its two-reading disclosure.
+- **Navigation smoke:** keyboard activation of `Special material · 44` focused the Special heading and recorded instantaneous `scrollIntoView({behavior:'auto'})`; keyboard `Return to top` focused the A–Z heading with the same instantaneous behavior. This confirms the accepted reciprocal controls on the deployed release without repeating the full local matrix.
+- **Publication boundary:** `/data/mechanics-supplement.v1.json`, `/data/mechanics-supplement-scope.v1.json`, and `/vox-color/mechanical-supplement-examples.json` each returned HTTP 200. Sample development-only paths `/HANDOFF.md`, `/docs/mechanics-transfer/REPORT.md`, and `/tools/check_supplement_browser.mjs` each returned HTTP 404. The live application produced no page error, console error, or failed application response during the journey.
+- **Diagnostic disposition:** the first witness attempt sampled the status before the intentionally separate optional-example payload appended its readiness sentence; adding the existing bounded readiness wait resolved it. A second draft used a stale nested selector for the revised unified A–Z DOM; counting the authoritative main scope owner produced 543. Both were witness defects, not product findings; the unchanged final witness passed.
+- **Final state:** publication of exact release `5c8399d4d47652ce25a0bb4daae86f933fbd59aa` is live and independently smoke-verified. QA changed only this ledger, did not commit it, and performed no push, merge, redeploy, provider mutation, or unrelated test. `_site-supplement/` remains the pre-existing generated local preview. Repository writes stop here.
+
+---
+
+# Prior handoff — local publication-readiness audit
 
 ## Control
 
