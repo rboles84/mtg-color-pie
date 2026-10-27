@@ -128,7 +128,20 @@ try {
   const specialTags=await page.evaluate(()=>[...document.querySelectorAll('#list > .grp[data-scope="special-material"] .ent')].map(entry=>({key:entry.dataset.k,tag:entry.querySelector('.e-tag')?.textContent,hidden:entry.querySelector('.e-tag')?.hidden})));
   assert.equal(await page.locator('#list > .grp[data-scope="special-material"] > .lo-note').count(),1);assert.equal(await page.locator('#list > .grp[data-scope="special-material"] > .lo-note').innerText(),'Supplemental evidence and derived provisional assessments');
   const redundantSpecialTag=scopeRecord=>(scopeRecord.group==='card-specific'&&scopeRecord.evidenceLabel==='Card-specific flavor word')||(scopeRecord.group==='preview'&&scopeRecord.evidenceLabel==='Official mechanic reference')||(scopeRecord.group==='designer'&&scopeRecord.evidenceLabel==='Designer card example');
-  assert.equal(specialTags.filter(entry=>entry.hidden).length,18);assert.deepEqual(specialTags.map(entry=>entry.hidden),specialTags.map(entry=>redundantSpecialTag(scopedById.get(entry.key))));assert.deepEqual(specialTags.filter(entry=>!entry.hidden).map(entry=>entry.tag),specialTags.filter(entry=>!entry.hidden).map(entry=>scopedById.get(entry.key).evidenceLabel));
+  const reviewedAssessments=await page.evaluate(()=>VMX.assessments().records);
+  for(const entry of specialTags){
+    const assessment=reviewedAssessments.find(a=>a.id===entry.key);
+    if(assessment?.kind==='derived'){
+      assert.equal(entry.tag,undefined,entry.key+' uses symbols instead of a subtitle');
+    }else if(assessment){
+      assert.equal(entry.hidden,false,entry.key+' classification stays visible');
+      assert.ok(entry.tag.startsWith(scopedById.get(entry.key).evidenceLabel+' · '),entry.key);
+      assert.match(entry.tag,assessment.kind==='rules'?/Rules action · Not ranked/:/Colorless Primary/);
+    }else{
+      assert.equal(entry.hidden,redundantSpecialTag(scopedById.get(entry.key)),entry.key);
+      if(!entry.hidden)assert.equal(entry.tag,scopedById.get(entry.key).evidenceLabel,entry.key);
+    }
+  }
   const abandon=page.locator('#list .ent[data-k="deck:catalog-gaps:abandon"]');await abandon.click();assert.equal(await detail.locator('#dx-title').innerText(),'Abandon');assert.match(await detail.innerText(),/Rules action · Not ranked/);await returnTop.click();assert.equal(await detail.locator('#dx-title').innerText(),'Abandon');
   const openGeometry=await page.evaluate(()=>{const wrapper=document.querySelector('#list > .grp[data-scope="special-material"] > .grp-in'),children=[...wrapper.children].filter(e=>e.classList.contains('grp'));return {columns:new Set(children.map(e=>Math.round(e.getBoundingClientRect().left))).size,overflow:document.documentElement.scrollWidth<=innerWidth};});
   assert.deepEqual(openGeometry,{columns:1,overflow:true});await detail.locator('[data-act="close"]').click();assert.equal(await abandon.evaluate(e=>document.activeElement===e),true);
