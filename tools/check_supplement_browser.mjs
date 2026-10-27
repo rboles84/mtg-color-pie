@@ -144,9 +144,9 @@ try {
     const failures=await page.evaluate(({keys,specialKeys})=>{const special=new Set(specialKeys);return keys.filter(k=>{
       const e=[...document.querySelectorAll('#list .ent')].find(e=>e.dataset.k===k);
       const assessed=VMX.assessments().records.find(r=>r.id===k), status=assessed?(assessed.kind==='rules'?'Rules action':assessed.name==='Annihilator'?'User-selected':'Scryfall-derived'):'Rankings unassigned';
-      return !e||e.classList.contains('is-out')||e.classList.contains('is-off')||e.querySelector('.strip')||
+      return !e||e.classList.contains('is-out')||e.classList.contains('is-off')||(assessed?.kind==='derived'?e.querySelectorAll('.strip > .sc').length!==5:!!e.querySelector('.strip'))||
         getComputedStyle(e).display==='none'||getComputedStyle(e).opacity!=='1'||
-        (!special.has(k)&&!e.textContent.includes(status))||!e.getAttribute('aria-label').includes(status);
+        (!special.has(k)&&assessed?.kind!=='derived'&&!e.textContent.includes(status))||!e.getAttribute('aria-label').includes(status);
     });},{keys:supplementalKeys,specialKeys:specialRecords.map(record=>record.id)});
     assert.deepEqual(failures,[],code);
   }
@@ -275,7 +275,8 @@ try {
       VMX.setQuery(record.name);
       const option=[...document.querySelectorAll('#res-list .opt')].find(e=>e.dataset.k===(record.target2021||record.id));
       const badge=option?.querySelector('.scope-badge');
-      if(!option||(record.target2021?(badge||!option.querySelector('.strip')):badge?.textContent!==labels.get(byId.get(record.id).group)))failures.push(record.name);
+      const derived=VMX.assessments().records.some(a=>a.id===record.id&&a.kind==='derived');
+      if(!option||(record.target2021||derived?(badge||!option.querySelector('.strip')):badge?.textContent!==labels.get(byId.get(record.id).group)))failures.push(record.name);
     }
     VMX.setQuery('');return failures;
   },{records:payload.records,scopes:scope.records,groups:scope.groups});

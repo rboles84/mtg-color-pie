@@ -1,4 +1,30 @@
-# Active handoff - A mechanics assessment preview
+# Active handoff - A placement symbol strips
+
+## Control
+- Status: `ready-for-qa` (Owner follow-up to the pending A-preview review, same branch; dev-in-progress -> ready-for-qa; prior candidate/evidence retained below).
+- Request: replace the long Ability-word reference / Scryfall-derived / W Primary ... list text with the established five-color symbol strip.
+- Branch: `codex/a-mechanics-review`; refinement baseline `627611c9129397937e3863d8efb944882721800d`; total branch baseline `9a063b3a98cfcb7672783f83a102e8f968242490`.
+- Exact allowed files: `HANDOFF.md`, `vox-color/mechanical-explorer.html`, `tools/check_assessment_browser.mjs`, `tools/check_supplement_browser.mjs`.
+- Scope: presentation of existing derived WUBRG assessments in A-Z rows and search results. Reuse existing `stripHTML`/slot classes, symbols, colors and layout. No data, generator, tier, 2021 arithmetic, classification, detail-evidence, dependency, route or publication change.
+
+## Acceptance and targeted verification
+1. All 20 derived colored A entries show exactly five W/U/B/R/G tier symbols matching the existing assessment. Remove the verbose row subtitle for these entries; keep full provisional provenance/rationale in details and accessible row text. Null remains Unassigned, not an absent 2021 placement.
+2. The same assessed entries use the existing strip in search results, with concise provisional attribution instead of a repeated color/tier sentence. Colorless/rules entries, unassessed entries and 2021 native strips retain their existing meaning and behavior.
+3. Late assessments update the row/search symbols without duplicates or focus loss; failure/loading states do not fabricate symbols. Switching Article/A-Z and applying color lenses preserve assessment strips without inserting these placements into 2021 calculations.
+4. Reuse existing responsive and keyboard behavior. Targeted DOM assertions for WUBRG classes, one keyboard journey, one 360px containment check, and a delayed-load witness are proportionate because render timing and existing list slots are involved. Update affected old harness expectations only; no broad historical suite. Existing 2021 certification retained; required cheap gate chain and syntax/package checks are allowed.
+- Expected classification: QA-2 presentation plus asynchronous component rendering, not changed placement semantics. Independent scoped reviewer used for continuity; Owner judges appearance.
+- Owner recheck: compare Adamant's row with nearby 2021 rows, then open it to inspect the unchanged provisional evidence.
+
+## Implementation / QA
+- Implementation: configured RobDev supplied the core row change; coordinator finished shared strip reuse, accessible summaries, search-result rendering and targeted harness updates. The existing `stripHTML`/slot renderer now consumes a display-only projection of the existing assessment tiers. All 20 derived rows have their long subtitle removed; search uses the same strip and a concise provisional label. Full details remain unchanged. Null slots carry Unassigned in accessible text/title; Colorless/rules records remain text-only.
+- Changed files: explorer HTML (one material renderer path), two existing harnesses (objective regression evidence), and this ledger. No source, assessment data, generator, scope, examples or 2021 file changed. Four paths for this refinement; total branch still ten paths over 9a063b3.
+- Developer evidence: worker preflight source/taxonomy/recon gate chain PASS; coordinator post-change `python tools/check_recon.py` PASS with all 53 assertions and upstream gates. Both harnesses pass `node --check`; `git diff --check` clean apart from standard LF/CRLF warning. `git diff --quiet 627611c -- data docs/mechanics-research vox-color/mechanical-supplement-examples.json` exited 0.
+- `node tools/check_assessment_browser.mjs --symbols-only --playwright <bundled Playwright>` in local Edge exited 0: all 20 row/search strips match five WUBRG tier classes; no verbose row subtitle; provisional and Unassigned accessible labels; non-derived records have no false WUBRG strip; Article/A-Z and color-lens roundtrip preserves 20 strips and unchanged math; keyboard Adamant open/close; 360px row containment; missing transport gives no fabricated symbols; late transport refreshes row/search/detail and preserves input focus. First witness attempted a query without focusing the input, so no dropdown existed; using actual input fill corrected the witness and passed.
+- Expected QA-2; independent scoped recheck of the exact commit containing this report remains pending. Earlier data/classification QA remains valid because its files and semantics are unchanged. No broad historical suite or screenshot regression; Owner judges row readability against the established design.
+
+---
+
+# Prior handoff - A mechanics assessment preview
 
 ## Control
 - Status: `qa-passed` (prior completed task archived below; complete -> idle -> dev-in-progress -> ready-for-qa -> qa-failed -> dev-in-progress -> ready-for-qa -> qa-passed). Both recorded defects were repaired and independently rechecked within the original envelope. Only the coordinating agent or Owner may mark complete.

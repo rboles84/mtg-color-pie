@@ -1235,6 +1235,9 @@ function slotHTML(c, d, attrs){
 function stripHTML(colors){
   return '<span class="strip" aria-hidden="true">' + ORDER.map(c => slotHTML(c, colors[c], ` data-c="${c}"`)).join('') + '</span>';
 }
+function assessmentStripHTML(a){
+  return stripHTML(Object.fromEntries(ORDER.map(c => [c, a.placements[c] ? {tier:a.placements[c].toLowerCase()} : null])));
+}
 function labelHTML(r){ return esc(curly(r.disp)).replace(/\//g, '/<wbr>') + (r.qual ? `<span class="e-q"> · ${esc(r.qual)}</span>` : ''); }
 
 function buildEntries(){
@@ -1244,7 +1247,9 @@ function buildEntries(){
     b.type = 'button'; b.className = 'ent'; b.dataset.k = k; b.tabIndex = -1;
     b.title = r.supplemental ? r.head : r.e.label;
     b.setAttribute('aria-pressed', 'false');
-    b.innerHTML = `<span class="e-lab">${labelHTML(r)}${r.supplemental ? `<span class="e-tag">${esc(r.scope.evidenceLabel)} · ${esc(assessmentSummary(k))}</span>` : r.listOnly ? `<span class="e-tag">${esc(unmatchedCase(k).tag)}</span>` : ''}</span>${r.supplemental ? '' : stripHTML(r.e.colors)}`;
+    const a=ASSESSMENTS.byKey.get(k), derived=a && a.kind === 'derived';
+    b.innerHTML = `<span class="e-lab">${labelHTML(r)}${r.supplemental && !derived ? `<span class="e-tag">${esc(r.scope.evidenceLabel)} · ${esc(assessmentSummary(k))}</span>` : r.listOnly ? `<span class="e-tag">${esc(unmatchedCase(k).tag)}</span>` : ''}</span>${derived ? assessmentStripHTML(a) : r.supplemental ? '' : stripHTML(r.e.colors)}`;
+    if (derived) b.title = `${r.head}. ${assessmentSummary(k, true)}.`;
     b._slots = [...b.querySelectorAll('.strip .sc')];
     entEl.set(k, b);
   }
@@ -1259,6 +1264,12 @@ function layoutList(){
   for (const [k, el] of entEl){
     const r = REC.get(k), tag = el.querySelector('.e-tag');
     if (r.supplemental && tag){ tag.hidden = false; tag.textContent = `${r.scope.evidenceLabel} · ${assessmentSummary(k)}`; }
+    const a = ASSESSMENTS.byKey.get(k);
+    if (a && a.kind === 'derived'){
+      if (tag) tag.remove();
+      if (!el.querySelector('.strip')) el.insertAdjacentHTML('beforeend', assessmentStripHTML(a));
+      el.title = `${r.head}. ${assessmentSummary(k, true)}.`;
+    }
   }
   if (S.view === 'article'){
     let grp = null, grpIn = null, grpName = null;
@@ -1716,15 +1727,16 @@ function renderResults(){
     const shown = S.hits.slice(offset, offset + MAX_RESULTS);
     resList.innerHTML = shown.map((h, i) => {
       const r = REC.get(h.k), st = STAGES[h.stage];
+      const a = ASSESSMENTS.byKey.get(h.k), derived = a && a.kind === 'derived';
       const note = h.note ? ` <span>${st.player ? `<span class="pterm">“${esc(h.note)}”</span>` : '“' + esc(curly(h.note)) + '”'}</span>` : '';
       let lp = '';
       if (lensOn && !r.supplemental){ const pb = proj.best(h.k, P.colours), code = esc([...setKey(P.colours)].join(''));
         lp = `<span class="lensp">${code}: ${pb.sameTier ? (pb.catalog.best ? TIER[pb.catalog.best] : 'no placement')
           : `${TIER[pb.list.best]} ${READING_BY.list} · ${TIER[pb.catalog.best]} ${READING_BY.catalog}`}</span>`; }
-      if (r.supplemental) lp = `<span class="lensp">${esc(isAssessmentTarget(h.k) ? assessmentSummary(h.k, true) : 'No sourced Primary/Secondary/Tertiary assignment is recorded')}</span>`;
+      if (r.supplemental) lp = `<span class="lensp">${esc(derived ? 'Scryfall-derived · provisional' : isAssessmentTarget(h.k) ? assessmentSummary(h.k, true) : 'No sourced Primary/Secondary/Tertiary assignment is recorded')}</span>`;
       const tag = st.related ? ` <span class="pterm-tag rel">related · not what the term names</span>` : st.player ? ' <span class="pterm-tag">navigation aid</span>' : '';
-      return `<div class="opt${st.related ? ' is-rel' : ''}" role="option" id="opt-${offset + i}" data-k="${esc(h.k)}" aria-selected="false">
-        <span class="opt-l">${labelHTML(r)}</span>${r.supplemental ? `<span class="calc scope-badge">${esc(scopeGroupLabel(r.scope))}</span>` : stripHTML(r.e.colors)}
+      return `<div class="opt${st.related ? ' is-rel' : ''}" role="option" id="opt-${offset + i}" data-k="${esc(h.k)}" aria-selected="false"${derived ? ` aria-label="${esc(r.head + '. ' + assessmentSummary(h.k, true) + '. Outside the 2021 color calculations.')}"` : ''}>
+        <span class="opt-l">${labelHTML(r)}</span>${derived ? assessmentStripHTML(a) : r.supplemental ? `<span class="calc scope-badge">${esc(scopeGroupLabel(r.scope))}</span>` : stripHTML(r.e.colors)}
         <span class="opt-w"><span class="why${st.player ? ' p' : ''}">${esc(st.why)}</span>${note}${tag}${lp}</span></div>`;
     }).join('');
     if (P.phrase && !S.hits.length){ resNote.hidden = false; resNote.textContent = `No entry matched “${P.phrase}”. The list is unchanged.`; }
@@ -1988,7 +2000,7 @@ function assessmentSummary(k, full = false){
   if (!a) return isAssessmentTarget(k) ? (ASSESSMENTS.status === 'unavailable' ? 'Assessment unavailable' : 'Assessment loading') : 'Rankings unassigned';
   if (a.kind === 'rules') return 'Rules action · Not ranked' + (a.relatedEffects.length ? ' · Related 2017 placement' : '');
   if (a.kind === 'colorless') return (a.name === 'Annihilator' ? 'User-selected' : 'Scryfall-derived') + ' · Colorless Primary';
-  return 'Scryfall-derived · ' + ORDER.filter(c => a.placements[c]).map(c => `${full ? CNAME[c] : c} ${a.placements[c]}`).join(' · ');
+  return (full ? 'Scryfall-derived assessment — provisional · ' : 'Scryfall-derived · ') + ORDER.filter(c => full || a.placements[c]).map(c => `${full ? CNAME[c] : c} ${a.placements[c] || 'Unassigned'}`).join(' · ');
 }
 function assessmentHTML(k){
   if (!isAssessmentTarget(k)) return '';

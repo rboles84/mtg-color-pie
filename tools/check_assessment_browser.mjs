@@ -41,6 +41,38 @@ try{
   assert.equal(await page.locator('#list .ent').count(),587);
   assert.equal(await page.locator('#list > .grp[data-scope="main"] .ent').count(),543);
   assert.equal(await page.locator('#list > .grp[data-scope="special-material"] .ent').count(),44);
+  for(const record of payload.records){
+    const row=page.locator(`#list .ent[data-k="${record.id}"]`);
+    if(record.kind!=='derived'){assert.equal(await row.locator('.strip').count(),0);continue;}
+    const expected=[...'WUBRG'].map(c=>[c,record.placements[c]?'t-'+record.placements[c][0].toLowerCase():'t-n']);
+    assert.equal(await row.locator('.e-tag').count(),0,record.name+' verbose row subtitle removed');
+    assert.equal(await row.locator('.strip').count(),1);
+    assert.deepEqual(await row.locator('.strip > .sc').evaluateAll(slots=>slots.map(e=>[e.dataset.c,[...e.classList].find(c=>c.startsWith('t-'))])),expected);
+    assert.match(await row.getAttribute('aria-label'),/Scryfall-derived assessment — provisional/);
+    for(const c of 'WUBRG')if(!record.placements[c])assert.match(await row.getAttribute('aria-label'),new RegExp(({W:'White',U:'Blue',B:'Black',R:'Red',G:'Green'})[c]+' Unassigned'));
+    await page.locator('#q').fill(record.name);
+    const result=page.locator(`.opt[data-k="${record.id}"]`);
+    assert.deepEqual(await result.locator('.strip > .sc').evaluateAll(slots=>slots.map(e=>[e.dataset.c,[...e.classList].find(c=>c.startsWith('t-'))])),expected);
+    assert.equal(await result.locator('.lensp').innerText(),'Scryfall-derived · provisional');
+    assert.match(await result.getAttribute('aria-label'),/provisional/);
+  }
+  await page.evaluate(()=>{VMX.setQuery('');VMX.chooseCombo('W');VMX.setView('article');VMX.setView('az');});
+  assert.equal(await page.locator('#list .ent[data-k^="deck:"] .strip').count(),20);
+  assert.equal(await page.locator('#list .ent[data-k^="deck:"] .strip .bx').count(),0);
+  assert.equal(await page.evaluate(math),baseline);
+  await page.evaluate(()=>VMX.clearColors());
+  await page.locator('#q').fill('Adamant');await page.locator('#q').press('Enter');
+  assert.equal(await page.locator('#dx-title').innerText(),'Adamant');
+  assert.match(await page.locator('#detail .supp-assessment').innerText(),/Scryfall-derived assessment - provisional/);
+  await page.locator('#detail .dx-close').press('Enter');
+  assert.equal(await page.evaluate(()=>VMX.state.pick),null);
+  await page.setViewportSize({width:360,height:900});
+  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+  assert.equal(await page.locator('#list .ent[data-k^="deck:"] .strip').evaluateAll(strips=>strips.every(e=>e.getBoundingClientRect().right<=e.closest('.ent').getBoundingClientRect().right)),true);
+  assert.deepEqual(errors,[]);
+  results.push('20 exact WUBRG strips in rows/search; no verbose subtitle; accessible provisional/Unassigned labels; no fake Colorless/rules strips; Article/lens roundtrip; keyboard; 360px containment');
+  await page.setViewportSize({width:1440,height:900});
+  if(!args.includes('--symbols-only')){
   let assigned=0;
   for(const record of payload.records){
     await page.evaluate(id=>VMX.open(id),record.id);
@@ -49,7 +81,7 @@ try{
     assert.equal(await page.locator('#dx-title').innerText(),record.name);
     assert.match(await panel.innerText(),/Outside the 2021 color calculations/);
     assert.equal(await page.locator('#supp-ranking-note').count(),0);
-    const summary=await page.locator(`#list .ent[data-k="${record.id}"] .e-tag`).innerText();
+    const summary=await page.locator(`#list .ent[data-k="${record.id}"]`).getAttribute('aria-label');
     assert.match(summary,record.kind==='rules'?/Rules action/:record.name==='Annihilator'?/User-selected/:/Scryfall-derived/);
     assert.doesNotMatch(summary,/Rankings unassigned/);
     if(record.kind==='derived'){
@@ -101,8 +133,9 @@ try{
   assert.equal(await page.evaluate(math),baseline);
   assert.deepEqual(errors,[]);
   results.push('2021: 84/84; Article 216, A–Z 543 + Special 44; unchanged math and non-A; keyboard and 360px containment');
+  }
   await page.close();
-  for(const scenario of ['missing','bad-tier','wrong-binding','unsafe-url']){
+  for(const scenario of (args.includes('--symbols-only')?['missing']:['missing','bad-tier','wrong-binding','unsafe-url'])){
     const p=await browser.newPage();const bad=structuredClone(payload);
     if(scenario==='bad-tier')bad.records.at(-1).placements.W='Invented';
     if(scenario==='wrong-binding')bad.supplementCanonicalSha256='0'.repeat(64);
@@ -114,6 +147,7 @@ try{
     await p.evaluate(id=>{VMX.setView('az');VMX.open(id);},payload.records.find(r=>r.name==='Absorb').id);
     assert.match(await p.locator('#detail .supp-assessment').innerText(),/Assessment unavailable/);
     assert.equal(await p.locator('#list .ent').count(),587);
+    assert.equal(await p.locator('#list .ent[data-k^="deck:"] .strip').count(),0);
     await p.waitForFunction(()=>document.querySelector('#selftest').textContent.includes('84 of 84 passed'));
     assert.equal(await p.evaluate(math),baseline);await p.close();
     results.push('Atomic fail-soft: '+scenario);
@@ -130,7 +164,10 @@ try{
   await late.locator('#q').focus();release();
   await late.waitForFunction(()=>VMX.assessments().status==='ready');
   assert.equal(await late.locator('#q').evaluate(e=>document.activeElement===e),true);
-  assert.match(await late.locator(`#list .ent[data-k="${absorb.id}"] .e-tag`).innerText(),/W Primary/);
+  assert.equal(await late.locator(`#list .ent[data-k="${absorb.id}"] .e-tag`).count(),0);
+  assert.equal(await late.locator(`#list .ent[data-k="${absorb.id}"] .strip`).count(),1);
+  assert.equal(await late.locator(`#list .ent[data-k="${absorb.id}"] .strip .t-p`).count(),1);
+  assert.equal(await late.locator(`.opt[data-k="${absorb.id}"] .strip .t-n`).count(),4);
   assert.match(await late.locator('#detail .supp-assessment').innerText(),/Scryfall-derived/);
   assert.equal(await late.locator('#detail .supp-assessment img').count(),0);
   assert.equal(await late.evaluate(()=>window.assessmentInjected),undefined);
