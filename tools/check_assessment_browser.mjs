@@ -50,7 +50,7 @@ try{
     assert.match(await panel.innerText(),/Outside the 2021 color calculations/);
     assert.equal(await page.locator('#supp-ranking-note').count(),0);
     const summary=await page.locator(`#list .ent[data-k="${record.id}"] .e-tag`).innerText();
-    assert.match(summary,record.kind==='rules'?/Rules action/:/Scryfall-derived/);
+    assert.match(summary,record.kind==='rules'?/Rules action/:record.name==='Annihilator'?/User-selected/:/Scryfall-derived/);
     assert.doesNotMatch(summary,/Rankings unassigned/);
     if(record.kind==='derived'){
       assert.equal(await panel.locator('.own-row').count(),5);
@@ -72,6 +72,14 @@ try{
       const related=panel.locator('.assessment-related');
       assert.match(await related.innerText(),/Blue · Primary/);assert.match(await related.innerText(),/2017/);
       assert.match(await related.innerText(),/not every Attach action/);
+    }
+    if(record.name==='Annihilator'){
+      assert.match(await panel.innerText(),/selected by the user/);
+      assert.doesNotMatch(await panel.innerText(),/Analyst assessment|assessment - provisional/);
+    }
+    if(record.name==='Affinitycycling'){
+      assert.match(await panel.innerText(),/assessment - provisional/);
+      assert.match(await notes.innerText(),/Playtest-only evidence/);
     }
   }
   assert.equal(assigned,70);

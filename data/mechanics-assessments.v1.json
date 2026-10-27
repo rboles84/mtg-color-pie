@@ -2,18 +2,19 @@
   "schemaVersion": 1,
   "researchDate": "2026-10-26",
   "supplementCanonicalSha256": "467835fcfa96c096d4a6c5956465c4043b093c5e4a64ad8b79c5c48a88e8bd0b",
+  "sourceBindingFormat": "canonical-json-utf8",
   "sourceBindings": [
     {
       "path": "docs/mechanics-research/a-assessments-source.json",
-      "sha256": "522bd8f6f185f8a412d69a229157624d8bc9c409baa4452d9e3c93ee2ba81558"
+      "sha256": "ba0294270611a1c29b00b31aecc019ea62232d8bc5eebea84c94af05030e0013"
     },
     {
       "path": "docs/mechanics-research/absorb-assessment-source.json",
-      "sha256": "7db5bfc78e8488112263ba5f9d0b132bcc1603fbc1a0bc9e41a2a9a5b6e4d46c"
+      "sha256": "3c21ac0d1b47169788f417c52b94984aa4ee81f4d23cafd16141a37fa5525414"
     },
     {
       "path": "docs/mechanics-research/a-classification-addendum.json",
-      "sha256": "b4929faf3986b70708dfc97632eabd91746d6bd015497eaf1fad680cdccaae1e"
+      "sha256": "e530c771a465c1336b5aace285b7f4bce9fc2b51a88a23170124347a987eb79d"
     }
   ],
   "records": [
@@ -2068,7 +2069,7 @@
           "url": "https://scryfall.com/card/2x2/3/ulamog-the-infinite-gyre?utm_source=api"
         }
       ],
-      "label": "Scryfall-derived assessment - provisional",
+      "label": "User-selected classification; Scryfall-derived rationale",
       "researchDate": "2026-10-26",
       "kind": "colorless",
       "classification": "Colorless / Outside the Five Colors",

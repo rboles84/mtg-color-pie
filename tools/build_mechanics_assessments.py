@@ -9,6 +9,7 @@ COLORS = 'WUBRG'
 LABEL = 'Scryfall-derived assessment - provisional'
 def read(p): return json.loads(p.read_text(encoding='utf-8-sig'))
 def sha(b): return hashlib.sha256(b).hexdigest()
+def canonical(value): return json.dumps(value,ensure_ascii=False,separators=(',',':')).encode('utf-8')
 def safe_url(url):
     p=urlsplit(url)
     assert p.scheme=='https' and p.hostname in {'scryfall.com','magic.wizards.com'}
@@ -53,6 +54,8 @@ def build():
             for e in ov.get('related_effects',[]):
                 r['relatedEffects'].append({'name':e['name'],'label':e['label'],'placements':e['placements'],'url':safe_url(addendum['sources'][e['source']]['url']),'note':'This 2017 placement describes the named effect, not every Attach action. It does not change the 2021 snapshot.'})
         if r['name']=='Annihilator':
+            assert ov['label']=='Owner-directed classification; Scryfall-derived rationale'
+            r['label']='User-selected classification; Scryfall-derived rationale'
             r['summary']='The observed population is dominated by colorless native uses and grants. Primary: Colorless. Secondary: None. Tertiary: None. A five-color playtest grant does not establish independent W/U/B/R/G tiers.'
             r['confidence']='Strong evidence for a colorless home'
             r['limitations']=['Colorless is outside the five colors; it is not a sixth Magic color or a synonym for the colorless mana symbol.']
@@ -71,8 +74,7 @@ def build():
         assert r['kind']=='derived' or not any(r['placements'].values())
     assert len(rows)==len({r['id'] for r in rows})==25 and {r['id'] for r in rows}==set(accepted)
     assert sum(t is not None for r in rows for t in r['placements'].values())==70
-    canonical=json.dumps(supplement,ensure_ascii=False,separators=(',',':')).encode('utf-8')
-    return {'schemaVersion':1,'researchDate':'2026-10-26','supplementCanonicalSha256':sha(canonical),'sourceBindings':[{'path':p.relative_to(ROOT).as_posix(),'sha256':sha(p.read_bytes())} for p in SOURCES],'records':sorted(rows,key=lambda r:r['name'])}
+    return {'schemaVersion':1,'researchDate':'2026-10-26','supplementCanonicalSha256':sha(canonical(supplement)),'sourceBindingFormat':'canonical-json-utf8','sourceBindings':[{'path':p.relative_to(ROOT).as_posix(),'sha256':sha(canonical(read(p)))} for p in SOURCES],'records':sorted(rows,key=lambda r:r['name'])}
 def main():
     p=argparse.ArgumentParser();p.add_argument('--check',action='store_true');args=p.parse_args()
     text=json.dumps(build(),indent=2,ensure_ascii=False)+'\n'

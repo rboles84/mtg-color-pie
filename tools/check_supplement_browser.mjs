@@ -143,7 +143,7 @@ try {
     await page.evaluate(code=>VMX.chooseCombo(code),code);
     const failures=await page.evaluate(({keys,specialKeys})=>{const special=new Set(specialKeys);return keys.filter(k=>{
       const e=[...document.querySelectorAll('#list .ent')].find(e=>e.dataset.k===k);
-      const assessed=VMX.assessments().records.find(r=>r.id===k), status=assessed?(assessed.kind==='rules'?'Rules action':'Scryfall-derived'):'Rankings unassigned';
+      const assessed=VMX.assessments().records.find(r=>r.id===k), status=assessed?(assessed.kind==='rules'?'Rules action':assessed.name==='Annihilator'?'User-selected':'Scryfall-derived'):'Rankings unassigned';
       return !e||e.classList.contains('is-out')||e.classList.contains('is-off')||e.querySelector('.strip')||
         getComputedStyle(e).display==='none'||getComputedStyle(e).opacity!=='1'||
         (!special.has(k)&&!e.textContent.includes(status))||!e.getAttribute('aria-label').includes(status);
@@ -258,7 +258,7 @@ try {
         if(!links.some(link=>canonical(link.href)===canonical(url)))failures.push(a.name+': missing citation');
       }
       if(!a.target2021){
-        const assessed=VMX.assessments().records.find(r=>r.id===a.id), status=assessed?(assessed.kind==='rules'?'Rules action':'Scryfall-derived'):'Rankings unassigned';
+        const assessed=VMX.assessments().records.find(r=>r.id===a.id), status=assessed?(assessed.kind==='rules'?'Rules action':assessed.name==='Annihilator'?'User-selected':'Scryfall-derived'):'Rankings unassigned';
         if(host.querySelectorAll('h2').length!==1||!host.querySelector('.dx-where').textContent.includes(classification.evidenceLabel)||host.querySelector('.dx-top').textContent.includes('mechanic record')||!host.textContent.includes(status))failures.push(a.name+': heading/status');
         if(!assessed&&!host.querySelector('#supp-ranking-note')?.textContent.includes('No sourced Primary/Secondary/Tertiary assignment is recorded.'))failures.push(a.name+': accessible unknown ranking');
       }

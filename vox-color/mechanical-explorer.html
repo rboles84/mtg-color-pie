@@ -1987,7 +1987,7 @@ function assessmentSummary(k, full = false){
   const a = ASSESSMENTS.byKey.get(k);
   if (!a) return isAssessmentTarget(k) ? (ASSESSMENTS.status === 'unavailable' ? 'Assessment unavailable' : 'Assessment loading') : 'Rankings unassigned';
   if (a.kind === 'rules') return 'Rules action · Not ranked' + (a.relatedEffects.length ? ' · Related 2017 placement' : '');
-  if (a.kind === 'colorless') return 'Scryfall-derived · Colorless Primary';
+  if (a.kind === 'colorless') return (a.name === 'Annihilator' ? 'User-selected' : 'Scryfall-derived') + ' · Colorless Primary';
   return 'Scryfall-derived · ' + ORDER.filter(c => a.placements[c]).map(c => `${full ? CNAME[c] : c} ${a.placements[c]}`).join(' · ');
 }
 function assessmentHTML(k){
@@ -2004,7 +2004,7 @@ function assessmentHTML(k){
   return `<section class="dx-sec supp-assessment" aria-label="${esc(a.label)}">
     <h3 class="dx-h">${a.kind === 'rules' ? 'Classification' : 'Placements'}</h3><p class="dx-note">${esc(a.label)}</p>
     ${placement}<p class="dx-note">${esc(a.scope)}</p><p class="dx-note">Confidence: ${esc(a.confidence)}</p>
-    <p class="dx-note">${a.kind === 'rules' ? 'Rules classification' : 'Analyst assessment, not an official Wizards or Scryfall ranking'} · Research snapshot ${esc(supplementalDate(a.researchDate))}. Outside the 2021 color calculations.</p>
+    <p class="dx-note">${a.kind === 'rules' ? 'Rules classification' : a.name === 'Annihilator' ? 'Classification selected by the user for this review; Scryfall-derived supporting rationale. Not an official Wizards ranking' : 'Analyst assessment, not an official Wizards or Scryfall ranking'} · Research snapshot ${esc(supplementalDate(a.researchDate))}. Outside the 2021 color calculations.</p>
     <details class="assessment-notes"><summary>Rationale and evidence</summary><p>${esc(a.summary)}</p>
       ${a.kind === 'derived' ? ORDER.map(c => `<p><b>${CNAME[c]} · ${esc(a.placements[c] || 'Unassigned')}.</b> ${esc(a.rationale[c])}</p>`).join('') : ''}
       ${a.limitations.length ? `<h4>Scope and limitations</h4><ul class="dx-list">${a.limitations.map(t => `<li>${esc(t)}</li>`).join('')}</ul>` : ''}
@@ -2025,7 +2025,7 @@ async function loadAssessments(data, status){
     const expected = new Map(data.records.filter(r => r.name.startsWith('A') && r.target2021 === null).map(r => [r.id,r]));
     const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(JSON.stringify(data)));
     const hash = [...new Uint8Array(digest)].map(n => n.toString(16).padStart(2,'0')).join('');
-    if (!payload || payload.schemaVersion !== 1 || payload.researchDate !== '2026-10-26' || payload.supplementCanonicalSha256 !== hash ||
+    if (!payload || payload.schemaVersion !== 1 || payload.researchDate !== '2026-10-26' || payload.supplementCanonicalSha256 !== hash || payload.sourceBindingFormat !== 'canonical-json-utf8' ||
         !Array.isArray(payload.sourceBindings) || payload.sourceBindings.length !== 3 || !names.every((name,i) => payload.sourceBindings[i]?.path === 'docs/mechanics-research/' + name && /^[a-f0-9]{64}$/.test(payload.sourceBindings[i].sha256)) ||
         !Array.isArray(payload.records) || payload.records.length !== 25 || expected.size !== 25) throw new Error('Unsupported assessment schema or binding');
     const staged = new Map();
@@ -2038,7 +2038,7 @@ async function loadAssessments(data, status){
           !Array.isArray(a.sources) || !a.sources.every(s => s && text(s.title) && safeLink(s.url)) ||
           !Array.isArray(a.relatedEffects) || !a.relatedEffects.every(e => e && text(e.name) && text(e.label) && text(e.note) && placements(e.placements) && safeLink(e.url))) throw new Error('Malformed assessment record');
       const kind = ['Abandon','Activate','Attach'].includes(a.name) ? 'rules' : ['Annihilator','Affinitycycling'].includes(a.name) ? 'colorless' : 'derived';
-      if (a.kind !== kind || a.label !== (kind === 'rules' ? 'Rules action - not ranked' : 'Scryfall-derived assessment - provisional') ||
+      if (a.kind !== kind || a.label !== (kind === 'rules' ? 'Rules action - not ranked' : a.name === 'Annihilator' ? 'User-selected classification; Scryfall-derived rationale' : 'Scryfall-derived assessment - provisional') ||
           a.outsidePrimary !== (kind === 'colorless' ? 'Colorless' : null) || kind !== 'derived' && Object.values(a.placements).some(Boolean) ||
           a.relatedEffects.length !== (a.name === 'Attach' ? 1 : 0)) throw new Error('Assessment classification mismatch');
       staged.set(a.id, deepFreeze(a));
