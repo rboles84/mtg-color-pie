@@ -521,9 +521,7 @@
         "attribution_check": "Per-card colors, faces and joint evidence are explicit.",
         "tier_and_alternative_check": "Each assigned decision names its nearest alternative in decision text; independent check pending.",
         "isolation_check": "Only new core protocol record is authored; 2021 baseline and original packets remain unchanged.",
-        "unresolved_findings": [
-          "Independent review not yet performed."
-        ],
+        "unresolved_findings": [],
         "reviewer_verdict": "pass",
         "reviewed_candidate": "fc7ad64ee17f3e66711d2909d24bf45daf169c36",
         "evidence_reference": "HANDOFF.md: Independent RobQA protocol application and four-finding repair recheck"
@@ -1654,9 +1652,7 @@
         "attribution_check": "Per-card colors, faces and joint evidence are explicit.",
         "tier_and_alternative_check": "Each assigned decision names its nearest alternative in decision text; independent check pending.",
         "isolation_check": "Only new core protocol record is authored; 2021 baseline and original packets remain unchanged.",
-        "unresolved_findings": [
-          "Independent review not yet performed."
-        ],
+        "unresolved_findings": [],
         "reviewer_verdict": "pass",
         "reviewed_candidate": "fc7ad64ee17f3e66711d2909d24bf45daf169c36",
         "evidence_reference": "HANDOFF.md: Independent RobQA protocol application and four-finding repair recheck"
@@ -3147,9 +3143,7 @@
         "attribution_check": "Per-card colors, faces and joint evidence are explicit.",
         "tier_and_alternative_check": "Each assigned decision names its nearest alternative in decision text; independent check pending.",
         "isolation_check": "Only new core protocol record is authored; 2021 baseline and original packets remain unchanged.",
-        "unresolved_findings": [
-          "Independent review not yet performed."
-        ],
+        "unresolved_findings": [],
         "reviewer_verdict": "pass",
         "reviewed_candidate": "fc7ad64ee17f3e66711d2909d24bf45daf169c36",
         "evidence_reference": "HANDOFF.md: Independent RobQA protocol application and four-finding repair recheck"
@@ -3995,9 +3989,7 @@
         "attribution_check": "Per-card colors, faces and joint evidence are explicit.",
         "tier_and_alternative_check": "Each assigned decision names its nearest alternative in decision text; independent check pending.",
         "isolation_check": "Only new core protocol record is authored; 2021 baseline and original packets remain unchanged.",
-        "unresolved_findings": [
-          "Independent review not yet performed."
-        ],
+        "unresolved_findings": [],
         "reviewer_verdict": "pass",
         "reviewed_candidate": "fc7ad64ee17f3e66711d2909d24bf45daf169c36",
         "evidence_reference": "HANDOFF.md: Independent RobQA protocol application and four-finding repair recheck"
@@ -8144,9 +8136,7 @@
         "attribution_check": "Per-card colors, faces and joint evidence are explicit.",
         "tier_and_alternative_check": "Each assigned decision names its nearest alternative in decision text; independent check pending.",
         "isolation_check": "Only new core protocol record is authored; 2021 baseline and original packets remain unchanged.",
-        "unresolved_findings": [
-          "Independent review not yet performed."
-        ],
+        "unresolved_findings": [],
         "reviewer_verdict": "pass",
         "reviewed_candidate": "fc7ad64ee17f3e66711d2909d24bf45daf169c36",
         "evidence_reference": "HANDOFF.md: Independent RobQA protocol application and four-finding repair recheck"
@@ -9164,9 +9154,7 @@
         "attribution_check": "Per-card colors, faces and joint evidence are explicit.",
         "tier_and_alternative_check": "Each assigned decision names its nearest alternative in decision text; independent check pending.",
         "isolation_check": "Only new core protocol record is authored; 2021 baseline and original packets remain unchanged.",
-        "unresolved_findings": [
-          "Independent review not yet performed."
-        ],
+        "unresolved_findings": [],
         "reviewer_verdict": "pass",
         "reviewed_candidate": "fc7ad64ee17f3e66711d2909d24bf45daf169c36",
         "evidence_reference": "HANDOFF.md: Independent RobQA protocol application and four-finding repair recheck"
@@ -10107,9 +10095,7 @@
         "attribution_check": "Per-card colors, faces and joint evidence are explicit.",
         "tier_and_alternative_check": "Each assigned decision names its nearest alternative in decision text; independent check pending.",
         "isolation_check": "Only new core protocol record is authored; 2021 baseline and original packets remain unchanged.",
-        "unresolved_findings": [
-          "Independent review not yet performed."
-        ],
+        "unresolved_findings": [],
         "reviewer_verdict": "pass",
         "reviewed_candidate": "fc7ad64ee17f3e66711d2909d24bf45daf169c36",
         "evidence_reference": "HANDOFF.md: Independent RobQA protocol application and four-finding repair recheck"
@@ -11723,9 +11709,7 @@
         "attribution_check": "Per-card colors, faces and joint evidence are explicit.",
         "tier_and_alternative_check": "Each assigned decision names its nearest alternative in decision text; independent check pending.",
         "isolation_check": "Only new core protocol record is authored; 2021 baseline and original packets remain unchanged.",
-        "unresolved_findings": [
-          "Independent review not yet performed."
-        ],
+        "unresolved_findings": [],
         "reviewer_verdict": "pass",
         "reviewed_candidate": "fc7ad64ee17f3e66711d2909d24bf45daf169c36",
         "evidence_reference": "HANDOFF.md: Independent RobQA protocol application and four-finding repair recheck"
@@ -12704,9 +12688,7 @@
         "attribution_check": "Per-card colors, faces and joint evidence are explicit.",
         "tier_and_alternative_check": "Each assigned decision names its nearest alternative in decision text; independent check pending.",
         "isolation_check": "Only new core protocol record is authored; 2021 baseline and original packets remain unchanged.",
-        "unresolved_findings": [
-          "Independent review not yet performed."
-        ],
+        "unresolved_findings": [],
         "reviewer_verdict": "pass",
         "reviewed_candidate": "fc7ad64ee17f3e66711d2909d24bf45daf169c36",
         "evidence_reference": "HANDOFF.md: Independent RobQA protocol application and four-finding repair recheck"
