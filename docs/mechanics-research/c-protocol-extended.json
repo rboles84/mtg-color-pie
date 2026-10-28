@@ -41834,6 +41834,14 @@
                 "path": "docs/mechanics-research/c-protocol-evidence/extended-coven/released-paper-printings-receipt.json",
                 "format": "json",
                 "sha256": "ac51f64e4ca1cfc31bd620110532e745b0313d223f528874c9816093e69b02a6"
+              },
+              {
+                "path": "docs/mechanics-research/c-protocol-evidence/extended-coven/released-paper-recovered-page-1.json",
+                "sha256": "cc100dbde96161ec7ea3ef84b4cd3c3813f0050380800e6c59ece3cdee16a5f0"
+              },
+              {
+                "path": "docs/mechanics-research/c-protocol-evidence/extended-coven/recovery-receipt.json",
+                "sha256": "b7d8de8b6a0bcd6f9450afb35759f32bab0787d37055c9850014753566fff7db"
               }
             ],
             "status": "complete",
