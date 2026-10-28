@@ -1,0 +1,254 @@
+[
+  {
+    "id": "extended-alliance",
+    "url": "https://magic.wizards.com/en/news/feature/streets-of-new-capenna-mechanics-2022-04-07",
+    "retrieved_at_utc": "2026-10-28T03:33:14.388Z",
+    "status": 200,
+    "needle": "Alliance",
+    "files": [
+      {
+        "path": "docs/mechanics-research/a-protocol-evidence/extended-alliance.html",
+        "sha256": "77a379a5160e7b674b84b87aa6b11051c99be8c682fca8cab1dd7d710d1fe21b"
+      },
+      {
+        "path": "docs/mechanics-research/a-protocol-evidence/extended-alliance.txt",
+        "sha256": "ead5b869d45a5e14231bce656767f283ecad6f49bdf072ed7b9986d7d9884448"
+      },
+      {
+        "path": "docs/mechanics-research/a-protocol-evidence/extended-alliance.pdf",
+        "sha256": "5f3adcb51ae1866978599693293707eaa2847b4b2f2b282088fb8a4a6d8c5b17"
+      }
+    ],
+    "capture_status": "captured; cited section verified by text and rendered-page review",
+    "pdf_check": {
+      "pages": 9,
+      "cited_page": 5,
+      "text_verified": true,
+      "render_path": "C:\\Users\\obake\\.codex\\visualizations\\2026\\10\\27\\01a17b8d-3467-7eb1-a917-efaf7184cd99\\protocol-pdf-check\\extended-alliance.png"
+    }
+  },
+  {
+    "id": "extended-amass",
+    "url": "https://magic.wizards.com/en/news/making-magic/crafting-the-ring-part-2",
+    "retrieved_at_utc": "2026-10-28T03:33:16.185Z",
+    "status": 200,
+    "needle": "Amass",
+    "files": [
+      {
+        "path": "docs/mechanics-research/a-protocol-evidence/extended-amass.html",
+        "sha256": "c5b858eb497e20fd0e4b60ff88c58dd2a81c3c4c10dbb7d3685ee1f7cccd0a94"
+      },
+      {
+        "path": "docs/mechanics-research/a-protocol-evidence/extended-amass.txt",
+        "sha256": "9273efb21e7eb5bfe41fc16e45b0abaabbd118a8e242f2f7bcd1e0d5b3597f29"
+      },
+      {
+        "path": "docs/mechanics-research/a-protocol-evidence/extended-amass.pdf",
+        "sha256": "8efe77a730287fdb24bf7df3788ba4a7bbd938b004d6d8d5872b0bdcf7899b17"
+      }
+    ],
+    "capture_status": "captured; cited section verified by text and rendered-page review",
+    "pdf_check": {
+      "pages": 18,
+      "cited_page": 6,
+      "text_verified": true,
+      "render_path": "C:\\Users\\obake\\.codex\\visualizations\\2026\\10\\27\\01a17b8d-3467-7eb1-a917-efaf7184cd99\\protocol-pdf-check\\extended-amass.png"
+    }
+  },
+  {
+    "id": "extended-amplify",
+    "url": "https://magic.wizards.com/en/news/making-magic/a-la-mode-2014-02-24-0",
+    "retrieved_at_utc": "2026-10-28T03:33:18.016Z",
+    "status": 200,
+    "needle": "Amplify",
+    "files": [
+      {
+        "path": "docs/mechanics-research/a-protocol-evidence/extended-amplify.html",
+        "sha256": "0ff81777ec55e7c53a01fc405a6ca9b655f228a1fc5726775fae51ec14389c59"
+      },
+      {
+        "path": "docs/mechanics-research/a-protocol-evidence/extended-amplify.txt",
+        "sha256": "bf9f88f4443e8f680b2539cfd50a3bbbd2e63fdca65943b702910ece4453f3c6"
+      },
+      {
+        "path": "docs/mechanics-research/a-protocol-evidence/extended-amplify.pdf",
+        "sha256": "9687381faa79d802bfa4f1f81a24129597c5790f17aed1520725df12320ec947"
+      }
+    ],
+    "capture_status": "captured; cited section verified by text and rendered-page review",
+    "pdf_check": {
+      "pages": 15,
+      "cited_page": 8,
+      "text_verified": true,
+      "render_path": "C:\\Users\\obake\\.codex\\visualizations\\2026\\10\\27\\01a17b8d-3467-7eb1-a917-efaf7184cd99\\protocol-pdf-check\\extended-amplify.png"
+    }
+  },
+  {
+    "id": "extended-ascend",
+    "url": "https://magic.wizards.com/en/news/feature/rivals-ixalan-mechanics-2018-01-01",
+    "retrieved_at_utc": "2026-10-28T03:33:20.121Z",
+    "status": 200,
+    "needle": "Ascend",
+    "files": [
+      {
+        "path": "docs/mechanics-research/a-protocol-evidence/extended-ascend.html",
+        "sha256": "09a52cce483757c5e5fde92f04b376b9a4e05d8ac7315f44471a63da9dc59805"
+      },
+      {
+        "path": "docs/mechanics-research/a-protocol-evidence/extended-ascend.txt",
+        "sha256": "433b8ee29949b7fe5909ec34d7a65b22138499b440153b538ea278bf79370248"
+      },
+      {
+        "path": "docs/mechanics-research/a-protocol-evidence/extended-ascend.pdf",
+        "sha256": "d6ea824e874b08a9c1888f10d4956b24bde3f6ba4fe002d7273d22d2ceacade8"
+      }
+    ],
+    "capture_status": "captured; cited section verified by text and rendered-page review",
+    "pdf_check": {
+      "pages": 9,
+      "cited_page": 4,
+      "text_verified": true,
+      "render_path": "C:\\Users\\obake\\.codex\\visualizations\\2026\\10\\27\\01a17b8d-3467-7eb1-a917-efaf7184cd99\\protocol-pdf-check\\extended-ascend.png"
+    }
+  },
+  {
+    "id": "extended-assemble",
+    "url": "https://magic.wizards.com/en/news/card-preview/unstable-mechanics-2017-11-13",
+    "retrieved_at_utc": "2026-10-28T03:33:21.791Z",
+    "status": 200,
+    "needle": "Assemble",
+    "files": [
+      {
+        "path": "docs/mechanics-research/a-protocol-evidence/extended-assemble.html",
+        "sha256": "73009ff519a86157c69ed536ec30c6f6d9db943960e36ef0116c7d648e4b315f"
+      },
+      {
+        "path": "docs/mechanics-research/a-protocol-evidence/extended-assemble.txt",
+        "sha256": "b72309c8fe39e170c58a946a8f445960d989cad9e5f41255e7feafdb48fc9307"
+      },
+      {
+        "path": "docs/mechanics-research/a-protocol-evidence/extended-assemble.pdf",
+        "sha256": "a928d374d1c25584bac73de2b5f71dfc48906bf77a8f153c8f8c719dabb2cf4f"
+      }
+    ],
+    "capture_status": "captured; cited section verified by text and rendered-page review",
+    "pdf_check": {
+      "pages": 10,
+      "cited_page": 5,
+      "text_verified": true,
+      "render_path": "C:\\Users\\obake\\.codex\\visualizations\\2026\\10\\27\\01a17b8d-3467-7eb1-a917-efaf7184cd99\\protocol-pdf-check\\extended-assemble.png"
+    }
+  },
+  {
+    "id": "extended-assimilate",
+    "url": "https://magic.wizards.com/en/news/feature/collecting-star-trek",
+    "retrieved_at_utc": "2026-10-28T03:33:23.711Z",
+    "status": 200,
+    "needle": "Assimilate",
+    "files": [
+      {
+        "path": "docs/mechanics-research/a-protocol-evidence/extended-assimilate.html",
+        "sha256": "c5563099dc6da0b183d9795b543ec8d2d99aebe3936a07d8bfcf5732f77b2ef4"
+      },
+      {
+        "path": "docs/mechanics-research/a-protocol-evidence/extended-assimilate.txt",
+        "sha256": "7cb406b152ad2053299f0ab69a7e0a225e35a6bc404252f14b139dbb53af06e0"
+      },
+      {
+        "path": "docs/mechanics-research/a-protocol-evidence/extended-assimilate.pdf",
+        "sha256": "36a20a168d97c023cddb1fb6bef5a63807e56a4919b85367ac6db67fb6bdf05a"
+      }
+    ],
+    "capture_status": "captured; cited section verified by text and rendered-page review",
+    "pdf_check": {
+      "pages": 37,
+      "cited_page": 9,
+      "text_verified": true,
+      "render_path": "C:\\Users\\obake\\.codex\\visualizations\\2026\\10\\27\\01a17b8d-3467-7eb1-a917-efaf7184cd99\\protocol-pdf-check\\extended-assimilate.png"
+    }
+  },
+  {
+    "id": "extended-assist",
+    "url": "https://magic.wizards.com/en/news/feature/battlebond-mechanics-2018-05-21",
+    "retrieved_at_utc": "2026-10-28T03:33:25.475Z",
+    "status": 200,
+    "needle": "Assist",
+    "files": [
+      {
+        "path": "docs/mechanics-research/a-protocol-evidence/extended-assist.html",
+        "sha256": "6f286186c0b7d103eff3ecc53fa6c0e19dd35cf481c82804caee8682682fb0a3"
+      },
+      {
+        "path": "docs/mechanics-research/a-protocol-evidence/extended-assist.txt",
+        "sha256": "a2eb31e39bdcaa75c64c15d1977882ed46c6d72a0788b08ba5749a0eac83ec6d"
+      },
+      {
+        "path": "docs/mechanics-research/a-protocol-evidence/extended-assist.pdf",
+        "sha256": "0560668d96930aa88c3e0140ca8508e345217aed190c870a945a6e2837a8b0ed"
+      }
+    ],
+    "capture_status": "captured; cited section verified by text and rendered-page review",
+    "pdf_check": {
+      "pages": 9,
+      "cited_page": 5,
+      "text_verified": true,
+      "render_path": "C:\\Users\\obake\\.codex\\visualizations\\2026\\10\\27\\01a17b8d-3467-7eb1-a917-efaf7184cd99\\protocol-pdf-check\\extended-assist.png"
+    }
+  },
+  {
+    "id": "extended-aura-swap",
+    "url": "https://magic.wizards.com/en/news/making-magic/back-future-sight-2020-08-03",
+    "retrieved_at_utc": "2026-10-28T03:33:27.030Z",
+    "status": 200,
+    "needle": "Aura Swap",
+    "files": [
+      {
+        "path": "docs/mechanics-research/a-protocol-evidence/extended-aura-swap.html",
+        "sha256": "2c57b79b7cb8adaffb9c0a574cedd62f471dd9fbea8f157b2d40fb6992e5994d"
+      },
+      {
+        "path": "docs/mechanics-research/a-protocol-evidence/extended-aura-swap.txt",
+        "sha256": "8eb3aa5d6f76ad05705e1f84333d8589e4e81466b9458bd7d57e761c7a3c21ea"
+      },
+      {
+        "path": "docs/mechanics-research/a-protocol-evidence/extended-aura-swap.pdf",
+        "sha256": "4ee1d831d468c044f6d7cb070827fb38d51e675aacd2dbb48392ce57c919a093"
+      }
+    ],
+    "capture_status": "captured; cited section verified by text and rendered-page review",
+    "pdf_check": {
+      "pages": 18,
+      "cited_page": 5,
+      "text_verified": true,
+      "render_path": "C:\\Users\\obake\\.codex\\visualizations\\2026\\10\\27\\01a17b8d-3467-7eb1-a917-efaf7184cd99\\protocol-pdf-check\\extended-aura-swap.png"
+    }
+  },
+  {
+    "id": "extended-awaken",
+    "url": "https://magic.wizards.com/en/news/feature/battle-for-zendikar-mechanics",
+    "retrieved_at_utc": "2026-10-28T03:33:28.861Z",
+    "status": 200,
+    "needle": "Awaken",
+    "files": [
+      {
+        "path": "docs/mechanics-research/a-protocol-evidence/extended-awaken.html",
+        "sha256": "28e8d20a1f8bd8d12df3199e3aec707fd7e217b6433a53b8986da1ef3cab6a51"
+      },
+      {
+        "path": "docs/mechanics-research/a-protocol-evidence/extended-awaken.txt",
+        "sha256": "90cd6496aab2bf6175ac5eadfaa2613ba07b4a9db6173830aca0e995865865a7"
+      },
+      {
+        "path": "docs/mechanics-research/a-protocol-evidence/extended-awaken.pdf",
+        "sha256": "87bac8f7c5268fd20de411f2b1818b31b01e01b0d4cb72b95c91533a3f472bf4"
+      }
+    ],
+    "capture_status": "captured; cited section verified by text and rendered-page review",
+    "pdf_check": {
+      "pages": 12,
+      "cited_page": 4,
+      "text_verified": true,
+      "render_path": "C:\\Users\\obake\\.codex\\visualizations\\2026\\10\\27\\01a17b8d-3467-7eb1-a917-efaf7184cd99\\protocol-pdf-check\\extended-awaken.png"
+    }
+  }
+]

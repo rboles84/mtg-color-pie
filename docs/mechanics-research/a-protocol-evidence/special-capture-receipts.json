@@ -1,0 +1,142 @@
+[
+  {
+    "id": "special-absorb",
+    "url": "https://magic.wizards.com/en/news/making-magic/future-sight-design-handoff-document-2021-05-17",
+    "retrieved_at_utc": "2026-10-28T03:27:51.267Z",
+    "status": 200,
+    "needle": "Full-Plate Paladin",
+    "files": [
+      {
+        "path": "docs/mechanics-research/a-protocol-evidence/special-absorb.html",
+        "sha256": "1c854513a365495a6caa88dc2ad6c7c8ea71bce83cb51340e53507a3c8e03e43"
+      },
+      {
+        "path": "docs/mechanics-research/a-protocol-evidence/special-absorb.txt",
+        "sha256": "460000d17d749c86d9f33e081afaf0cc774cd154e01f6afb43fc60baf229a0c9"
+      },
+      {
+        "path": "docs/mechanics-research/a-protocol-evidence/special-absorb.pdf",
+        "sha256": "7e0f75ec8ae05a434619cc8f5e446e9d38d7f74ee2c9510af1c18705a41eec9b"
+      }
+    ],
+    "capture_status": "captured; cited section verified by text and rendered-page review",
+    "pdf_check": {
+      "pages": 38,
+      "cited_page": 16,
+      "text_verified": true,
+      "render_path": "C:\\Users\\obake\\.codex\\visualizations\\2026\\10\\27\\01a17b8d-3467-7eb1-a917-efaf7184cd99\\protocol-pdf-check\\special-absorb.png"
+    }
+  },
+  {
+    "id": "special-evergreen",
+    "url": "https://magic.wizards.com/en/news/making-magic/evergreen-eggs-ham-2015-06-08",
+    "retrieved_at_utc": "2026-10-28T03:27:52.639Z",
+    "status": 200,
+    "needle": "Sixth Edition",
+    "files": [
+      {
+        "path": "docs/mechanics-research/a-protocol-evidence/special-evergreen.html",
+        "sha256": "d5801690ffb6f47b788588a683a754580a3ead30d0db12af55bb5a5ccbfa572b"
+      },
+      {
+        "path": "docs/mechanics-research/a-protocol-evidence/special-evergreen.txt",
+        "sha256": "0a46aba75daed658530a606694cbf410df4015f260651064079a3ac438821501"
+      },
+      {
+        "path": "docs/mechanics-research/a-protocol-evidence/special-evergreen.pdf",
+        "sha256": "f75a0298b8a1d448590c47fb6b0e52b4d819c1659aa3b5fe49cd726b038c4207"
+      }
+    ],
+    "capture_status": "captured; cited section verified by text and rendered-page review",
+    "pdf_check": {
+      "pages": 38,
+      "cited_page": 15,
+      "text_verified": true,
+      "render_path": "C:\\Users\\obake\\.codex\\visualizations\\2026\\10\\27\\01a17b8d-3467-7eb1-a917-efaf7184cd99\\protocol-pdf-check\\special-evergreen.png"
+    }
+  },
+  {
+    "id": "special-mcp2017",
+    "url": "https://magic.wizards.com/en/news/making-magic/mechanical-color-pie-2017-2017-06-05",
+    "retrieved_at_utc": "2026-10-28T03:27:53.787Z",
+    "status": 200,
+    "needle": "Moving enchantments/counters",
+    "files": [
+      {
+        "path": "docs/mechanics-research/a-protocol-evidence/special-mcp2017.html",
+        "sha256": "4d57f7d9e79147947e212af802d59f32161f9f9f594bf60f8d3ecd6dadd30a52"
+      },
+      {
+        "path": "docs/mechanics-research/a-protocol-evidence/special-mcp2017.txt",
+        "sha256": "5051a5c56ef07e3ce74eb980fb026951c8ae4d8db42e75a7ba34b28dc9c2c13b"
+      },
+      {
+        "path": "docs/mechanics-research/a-protocol-evidence/special-mcp2017.pdf",
+        "sha256": "d46226e1cab740afdee296c580f2d3b699216172f0407e68d643d37b6bce21de"
+      }
+    ],
+    "capture_status": "captured; cited section verified by text and rendered-page review",
+    "pdf_check": {
+      "pages": 73,
+      "cited_page": 51,
+      "text_verified": true,
+      "render_path": "C:\\Users\\obake\\.codex\\visualizations\\2026\\10\\27\\01a17b8d-3467-7eb1-a917-efaf7184cd99\\protocol-pdf-check\\special-mcp2017.png"
+    }
+  },
+  {
+    "id": "special-archenemy",
+    "url": "https://magic.wizards.com/en/formats/archenemy",
+    "retrieved_at_utc": "2026-10-28T03:27:54.843Z",
+    "status": 200,
+    "needle": "abandon",
+    "files": [
+      {
+        "path": "docs/mechanics-research/a-protocol-evidence/special-archenemy.html",
+        "sha256": "8bde43e18c5551a66d4d803c3eb8c8829f4ac2e388224da68b5bde66f08468d6"
+      },
+      {
+        "path": "docs/mechanics-research/a-protocol-evidence/special-archenemy.txt",
+        "sha256": "154c176cbcbba1eb7c6e06460b8e80cb8fd0e91f57eb08d990732fde38f9ff51"
+      },
+      {
+        "path": "docs/mechanics-research/a-protocol-evidence/special-archenemy.pdf",
+        "sha256": "33c97a6a81a2d7dcf46f2ef014c121bd267d6def67823e0e0fa2ee98df728eae"
+      }
+    ],
+    "capture_status": "captured; cited section verified by text and rendered-page review",
+    "pdf_check": {
+      "pages": 12,
+      "cited_page": 6,
+      "text_verified": true,
+      "render_path": "C:\\Users\\obake\\.codex\\visualizations\\2026\\10\\27\\01a17b8d-3467-7eb1-a917-efaf7184cd99\\protocol-pdf-check\\special-archenemy.png"
+    }
+  },
+  {
+    "id": "special-mcp2021",
+    "url": "https://magic.wizards.com/en/news/making-magic/mechanical-color-pie-2021",
+    "retrieved_at_utc": "2026-10-28T03:27:56.245Z",
+    "status": 200,
+    "needle": "Afflict",
+    "files": [
+      {
+        "path": "docs/mechanics-research/a-protocol-evidence/special-mcp2021.html",
+        "sha256": "bc21000031135590dce54fc62db417f6a70b409e3ddd7f093471623520155557"
+      },
+      {
+        "path": "docs/mechanics-research/a-protocol-evidence/special-mcp2021.txt",
+        "sha256": "9ff51384274ea6e487ae96936fb2e2a6b1943f6eeb25ea1e4734444510cdf2da"
+      },
+      {
+        "path": "docs/mechanics-research/a-protocol-evidence/special-mcp2021.pdf",
+        "sha256": "4c745493d238e435334e27b334a48b972c17080d8b22f85451a56395ae15db64"
+      }
+    ],
+    "capture_status": "captured; cited section verified by text and rendered-page review",
+    "pdf_check": {
+      "pages": 97,
+      "cited_page": 53,
+      "text_verified": true,
+      "render_path": "C:\\Users\\obake\\.codex\\visualizations\\2026\\10\\27\\01a17b8d-3467-7eb1-a917-efaf7184cd99\\protocol-pdf-check\\special-mcp2021.png"
+    }
+  }
+]

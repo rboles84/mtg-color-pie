@@ -4,6 +4,7 @@ from pathlib import Path
 from urllib.parse import urlsplit, quote
 ROOT = Path(__file__).resolve().parents[1]
 SOURCES = [ROOT/'docs/mechanics-research'/n for n in ('a-assessments-source.json','absorb-assessment-source.json','a-classification-addendum.json')]
+REVIEWS = [ROOT/'docs/mechanics-research'/n for n in ('a-protocol-core.json','a-protocol-extended.json','a-protocol-special.json')]
 OUTPUT = ROOT/'data/mechanics-assessments.v1.json'
 COLORS = 'WUBRG'
 LABEL = 'Scryfall-derived assessment - provisional'
@@ -75,13 +76,52 @@ def build():
         assert all(isinstance(t,str) and t.strip() for t in r['limitations']+list(r['rationale'].values()))
         assert r['kind']=='derived' or not any(r['placements'].values())
     assert len(rows)==len({r['id'] for r in rows})==25 and {r['id'] for r in rows}==set(accepted)
-    assert sum(t is not None for r in rows for t in r['placements'].values())==70
-    return {'schemaVersion':1,'researchDate':'2026-10-26','supplementCanonicalSha256':sha(canonical(supplement)),'sourceBindingFormat':'canonical-json-utf8','sourceBindings':[{'path':p.relative_to(ROOT).as_posix(),'sha256':sha(canonical(read(p)))} for p in SOURCES],'records':sorted(rows,key=lambda r:r['name'])}
+    # Retained packets supply card links and the historical Attach effect.
+    # Protocol records exclusively own current judgments and player-facing copy.
+    reviews=[a for p in REVIEWS for a in read(p)['records']]
+    assert len(reviews)==len({a['mechanic']['name'] for a in reviews})==25
+    by_name={a['mechanic']['name']:a for a in reviews}
+    assert set(by_name)=={r['name'] for r in rows}
+    statuses={'assigned','proposed_home','observed_tier_unresolved','no_support_in_sample','incomplete_evidence','conflicted','not_applicable'}
+    for r in rows:
+        a=by_name[r['name']]; ds=a['decisions']; outside=a['outside_five_colors']
+        assert a['protocol_version']=='1.0' and a['record_status'] in {'draft','reviewed'}
+        assert a['mechanic']['accepted_id']==r['id'],r['name']
+        assert set(ds)==set(COLORS)
+        for c,d in ds.items():
+            assert d['tier'] in {None,'Primary','Secondary','Tertiary'}
+            assert d['status'] in statuses and d['route'] in {None,'E1','E2','E3','E3_limited_sample','U'}
+            assert d['confidence'] in {'High','Moderate','Low','Not applicable'}
+            assert (d['tier'] is not None)==(d['status'] in {'assigned','proposed_home'}),(r['name'],c)
+            assert all(isinstance(d[k],str) and d[k].strip() for k in ('rationale','why_chosen','closest_alternative'))
+            if d['tier']:
+                assert d['route'] and (d['support_card_ids'] or d['support_source_ids'])
+                if d['route']=='E3_limited_sample':assert d['confidence']=='Low' and d['status']=='proposed_home'
+        routes={d['route'] for d in ds.values()}|{outside.get('route')}
+        short='Rules action' if r['kind']=='rules' else 'User-selected' if 'U' in routes else 'Source-informed' if 'E2' in routes else 'Official placement' if 'E1' in routes else 'Scryfall-derived'
+        r.update(protocolVersion='1.0',reviewStatus=a['record_status'],judgmentDate=a['provenance']['judgment_date'],shortLabel=short,
+                 label='Rules action - not ranked' if r['kind']=='rules' else 'User-selected classification' if 'U' in routes else short+' assessment - provisional',
+                 scope=a['scope']['population'],classification=a['mechanic']['classification'],summary=a['summary'],limitations=a['limitations'],
+                 placements={c:ds[c]['tier'] for c in COLORS},rationale={c:ds[c]['rationale'] for c in COLORS},
+                 decisionStatus={c:ds[c]['status'] for c in COLORS},decisionRoute={c:ds[c]['route'] for c in COLORS},decisionConfidence={c:ds[c]['confidence'] for c in COLORS},
+                 outsidePrimary='Colorless' if r['kind']=='colorless' and outside.get('proposed_tier')=='Primary' else None,
+                 outsideTier=outside.get('proposed_tier') if r['kind']=='colorless' else None,outsideStatus=outside['status'])
+        confidence=sorted({d['confidence'] for d in ds.values() if d['tier']})
+        r['confidence']=' / '.join(confidence) if confidence else 'Low; observed tiers unresolved' if r['kind']=='derived' else outside.get('confidence','Not applicable')
+        if r['name']=='Annihilator':r['confidence']='User-selected; evidence supports Colorless access'
+        r['scope']={'released_paper':'Released paper designs in the retained card snapshot; special material is recorded separately.','archenemy_scheme':'Archenemy ongoing schemes; a general rules action rather than a colored effect.','generic_rules_action':'General rules vocabulary; individual effects require separate color-pie assessments.','designer_playtest':'Designer/playtest material only; one recorded Affinitycycling design.'}.get(r['scope'],r['scope'])
+        r['sources']=[]
+        for s in a['sources']:
+            if s.get('url') and urlsplit(s['url']).hostname=='magic.wizards.com':
+                item={'title':s['title'],'url':safe_url(s['url'])}
+                if item not in r['sources']:r['sources'].append(item)
+        assert r['kind']=='derived' or not any(r['placements'].values())
+    return {'schemaVersion':2,'protocolVersion':'1.0','researchDate':'2026-10-26','judgmentDate':'2026-10-27','supplementCanonicalSha256':sha(canonical(supplement)),'sourceBindingFormat':'canonical-json-utf8','sourceBindings':[{'path':p.relative_to(ROOT).as_posix(),'sha256':sha(canonical(read(p)))} for p in SOURCES+REVIEWS],'records':sorted(rows,key=lambda r:r['name'])}
 def main():
     p=argparse.ArgumentParser();p.add_argument('--check',action='store_true');args=p.parse_args()
     text=json.dumps(build(),indent=2,ensure_ascii=False)+'\n'
     if args.check:
         assert OUTPUT.read_text(encoding='utf-8')==text,'Generated assessment payload is stale'
-        print('PASS: 25 accepted unmapped A records; 70 WUBRG tiers; deterministic payload and source bindings')
+        print('PASS: 25 protocol v1.0 A records; deterministic payload and source bindings')
     else:OUTPUT.write_text(text,encoding='utf-8');print('Wrote 25 reviewed A assessments')
 if __name__=='__main__':main()

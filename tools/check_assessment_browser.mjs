@@ -48,12 +48,12 @@ try{
     assert.equal(await row.locator('.e-tag').count(),0,record.name+' verbose row subtitle removed');
     assert.equal(await row.locator('.strip').count(),1);
     assert.deepEqual(await row.locator('.strip > .sc').evaluateAll(slots=>slots.map(e=>[e.dataset.c,[...e.classList].find(c=>c.startsWith('t-'))])),expected);
-    assert.match(await row.getAttribute('aria-label'),/Scryfall-derived assessment — provisional/);
+    assert.ok((await row.getAttribute('aria-label')).includes(record.label.replace(' - ',' — ')));
     for(const c of 'WUBRG')if(!record.placements[c])assert.match(await row.getAttribute('aria-label'),new RegExp(({W:'White',U:'Blue',B:'Black',R:'Red',G:'Green'})[c]+' Unassigned'));
     await page.locator('#q').fill(record.name);
     const result=page.locator(`.opt[data-k="${record.id}"]`);
     assert.deepEqual(await result.locator('.strip > .sc').evaluateAll(slots=>slots.map(e=>[e.dataset.c,[...e.classList].find(c=>c.startsWith('t-'))])),expected);
-    assert.equal(await result.locator('.lensp').innerText(),'Scryfall-derived · provisional');
+    assert.equal(await result.locator('.lensp').innerText(),record.shortLabel+' · provisional');
     assert.match(await result.getAttribute('aria-label'),/provisional/);
   }
   await page.evaluate(()=>{VMX.setQuery('');VMX.chooseCombo('W');VMX.setView('article');VMX.setView('az');});
@@ -80,9 +80,11 @@ try{
     assert.equal(await panel.getAttribute('aria-label'),record.label,record.name);
     assert.equal(await page.locator('#dx-title').innerText(),record.name);
     assert.match(await panel.innerText(),/Outside the 2021 color calculations/);
+    assert.match(await panel.innerText(),/Protocol 1\.0/);
+    assert.match(await panel.innerText(),/Judgment October 27, 2026/);
     assert.equal(await page.locator('#supp-ranking-note').count(),0);
     const summary=await page.locator(`#list .ent[data-k="${record.id}"]`).getAttribute('aria-label');
-    assert.match(summary,record.kind==='rules'?/Rules action/:record.name==='Annihilator'?/User-selected/:/Scryfall-derived/);
+    assert.ok(summary.includes(record.shortLabel));
     assert.doesNotMatch(summary,/Rankings unassigned/);
     if(record.kind==='derived'){
       assert.equal(await panel.locator('.own-row').count(),5);
@@ -92,12 +94,17 @@ try{
       }
     }else{
       assert.equal(await panel.locator('.own-row').count(),0);
-      assert.match(await panel.innerText(),record.kind==='colorless'?/Primary: Colorless/:/Rules action · Not ranked/);
+      assert.ok((await panel.innerText()).includes(record.kind==='colorless'?(record.outsidePrimary?'Primary: Colorless':'Colorless access · Tier unassigned'):'Rules action · Not ranked'));
     }
     const notes=panel.locator('.assessment-notes');
     await notes.locator(':scope > summary').focus();await page.keyboard.press('Enter');
     assert.equal(await notes.getAttribute('open'),'');
     assert.ok((await notes.innerText()).includes(record.summary));
+    if(record.kind==='derived') for(const c of 'WUBRG'){
+      assert.ok((await notes.innerText()).includes(record.rationale[c]));
+      assert.ok((await notes.innerText()).includes(record.decisionStatus[c].replaceAll('_',' ')));
+      assert.ok((await notes.innerText()).includes('Confidence: '+record.decisionConfidence[c]));
+    }
     assert.equal(await notes.locator('a').count(),record.sources.length+1+record.citationCards.length);
     assert.deepEqual(await notes.locator('a').evaluateAll(links=>links.filter(a=>a.protocol!=='https:'||!['scryfall.com','magic.wizards.com'].includes(a.hostname)||a.rel!=='noopener noreferrer').map(a=>a.href)),[]);
     if(record.name==='Attach'){
@@ -114,8 +121,8 @@ try{
       assert.match(await notes.innerText(),/Playtest-only evidence/);
     }
   }
-  assert.equal(assigned,70);
-  results.push('25 assessments; 70 colored tiers; two Colorless classifications; three rules actions; scoped 2017 note; evidence links');
+  assert.equal(assigned,payload.records.reduce((n,r)=>n+Object.values(r.placements).filter(Boolean).length,0));
+  results.push('25 protocol assessments; all projected colored tiers; unresolved Colorless access and user-selected Colorless home; rules actions; scoped 2017 note; evidence links');
   const training=supplement.records.find(r=>r.name==='Training');
   await page.evaluate(id=>VMX.open(id),training.id);
   assert.equal(await page.locator('#detail .supp-assessment').count(),0);
@@ -135,11 +142,13 @@ try{
   results.push('2021: 84/84; Article 216, A–Z 543 + Special 44; unchanged math and non-A; keyboard and 360px containment');
   }
   await page.close();
-  for(const scenario of (args.includes('--symbols-only')?['missing']:['missing','bad-tier','wrong-binding','unsafe-url'])){
+  for(const scenario of (args.includes('--symbols-only')?['missing']:['missing','bad-tier','wrong-binding','unsafe-url','bad-status','false-colorless-tier'])){
     const p=await browser.newPage();const bad=structuredClone(payload);
     if(scenario==='bad-tier')bad.records.at(-1).placements.W='Invented';
     if(scenario==='wrong-binding')bad.supplementCanonicalSha256='0'.repeat(64);
     if(scenario==='unsafe-url')bad.records.at(-1).queryUrl='https://scryfall.com@evil.example/test';
+    if(scenario==='bad-status')bad.records.find(r=>r.name==='Absorb').decisionStatus.W='observed_tier_unresolved';
+    if(scenario==='false-colorless-tier')bad.records.find(r=>r.name==='Affinitycycling').outsidePrimary='Colorless';
     await p.route(assessmentRoute,route=>route.fulfill(scenario==='missing'?{status:404,body:'Missing'}:{contentType:'application/json',body:JSON.stringify(bad)}));
     await p.goto(url);await p.waitForFunction(()=>window.VMX?.assessments().status==='unavailable');
     assert.equal(await p.evaluate(()=>VMX.supplemental().status),'ready');

@@ -1,6 +1,8 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
+  "protocolVersion": "1.0",
   "researchDate": "2026-10-26",
+  "judgmentDate": "2026-10-27",
   "supplementCanonicalSha256": "467835fcfa96c096d4a6c5956465c4043b093c5e4a64ad8b79c5c48a88e8bd0b",
   "sourceBindingFormat": "canonical-json-utf8",
   "sourceBindings": [
@@ -15,14 +17,26 @@
     {
       "path": "docs/mechanics-research/a-classification-addendum.json",
       "sha256": "e530c771a465c1336b5aace285b7f4bce9fc2b51a88a23170124347a987eb79d"
+    },
+    {
+      "path": "docs/mechanics-research/a-protocol-core.json",
+      "sha256": "98b4aebc44a163085e42d9b48e43f154f595184a22514aebec006372f7d44a59"
+    },
+    {
+      "path": "docs/mechanics-research/a-protocol-extended.json",
+      "sha256": "f48962bf7abe73d7f0b66e396aaf3e3e7e137f983dde2c9dda481c089db52626"
+    },
+    {
+      "path": "docs/mechanics-research/a-protocol-special.json",
+      "sha256": "960a85b7f408ce73f21fe7229e427f13fc35f49e670e0effa8fa6ac86ecbb4ad"
     }
   ],
   "records": [
     {
       "id": "deck:catalog-gaps:abandon",
       "name": "Abandon",
-      "scope": "Special-format rules action / Archenemy schemes",
-      "confidence": "Not applicable to the general rules action",
+      "scope": "Archenemy ongoing schemes; a general rules action rather than a colored effect.",
+      "confidence": "Not applicable",
       "placements": {
         "W": null,
         "U": null,
@@ -31,15 +45,16 @@
         "G": null
       },
       "rationale": {
-        "W": "No independent W placement is assigned; see the classification and rationale below.",
-        "U": "No independent U placement is assigned; see the classification and rationale below.",
-        "B": "No independent B placement is assigned; see the classification and rationale below.",
-        "R": "No independent R placement is assigned; see the classification and rationale below.",
-        "G": "No independent G placement is assigned; see the classification and rationale below."
+        "W": "Abandon is an Archenemy scheme operation, not a colored spell effect. Its rules classification is supported independently of the Scryfall sample, so no P/S/T tiers apply. This applies equally to white.",
+        "U": "Abandon is an Archenemy scheme operation, not a colored spell effect. Its rules classification is supported independently of the Scryfall sample, so no P/S/T tiers apply. This applies equally to blue.",
+        "B": "Abandon is an Archenemy scheme operation, not a colored spell effect. Its rules classification is supported independently of the Scryfall sample, so no P/S/T tiers apply. This applies equally to black.",
+        "R": "Abandon is an Archenemy scheme operation, not a colored spell effect. Its rules classification is supported independently of the Scryfall sample, so no P/S/T tiers apply. This applies equally to red.",
+        "G": "Abandon is an Archenemy scheme operation, not a colored spell effect. Its rules classification is supported independently of the Scryfall sample, so no P/S/T tiers apply. This applies equally to green."
       },
-      "summary": "This is the action used by ongoing schemes. Colorless schemes are evidence of a special game-object operation, not a reason to rank it like a colored spell effect. The default fulloracle search returned Kobayashi Maru Scenario (Abandon Ship mode label) and Reckless Abandon (self-name), neither a use of the scheme action. Adding include:extras returns the 20 schemes plus those two false positives; filtering t:scheme yields the 20 relevant designs.",
+      "summary": "Abandon is an Archenemy scheme operation, not a colored spell effect. Its rules classification is supported independently of the Scryfall sample, so no P/S/T tiers apply.",
       "limitations": [
-        "Search t:scheme o:abandon include:extras to see the 20 relevant scheme designs. The default search excludes schemes and finds unrelated word matches."
+        "Card evidence reuses the complete or explicitly bounded October 26, 2026 snapshot; judgment reviewed October 27. No later card population is claimed.",
+        "Unassigned does not mean prohibited or impossible; these assessments do not enter the 2021 calculations."
       ],
       "citationCards": [
         {
@@ -127,7 +142,7 @@
       "label": "Rules action - not ranked",
       "researchDate": "2026-10-26",
       "kind": "rules",
-      "classification": "Special-format rules action / Archenemy schemes",
+      "classification": "rules_action",
       "outsidePrimary": null,
       "relatedEffects": [],
       "sources": [
@@ -136,13 +151,40 @@
           "url": "https://magic.wizards.com/en/formats/archenemy"
         }
       ],
-      "queryUrl": "https://scryfall.com/search?q=t%3Ascheme%20o%3Aabandon%20include%3Aextras"
+      "queryUrl": "https://scryfall.com/search?q=t%3Ascheme%20o%3Aabandon%20include%3Aextras",
+      "protocolVersion": "1.0",
+      "reviewStatus": "draft",
+      "judgmentDate": "2026-10-27",
+      "shortLabel": "Rules action",
+      "decisionStatus": {
+        "W": "not_applicable",
+        "U": "not_applicable",
+        "B": "not_applicable",
+        "R": "not_applicable",
+        "G": "not_applicable"
+      },
+      "decisionRoute": {
+        "W": null,
+        "U": null,
+        "B": null,
+        "R": null,
+        "G": null
+      },
+      "decisionConfidence": {
+        "W": "Not applicable",
+        "U": "Not applicable",
+        "B": "Not applicable",
+        "R": "Not applicable",
+        "G": "Not applicable"
+      },
+      "outsideTier": null,
+      "outsideStatus": "not_applicable"
     },
     {
       "id": "deck:catalog-gaps:absorb",
       "name": "Absorb",
-      "scope": "Exact Absorb keyword and explicit native grants; one observed white design.",
-      "confidence": "low-to-moderate",
+      "scope": "Released paper designs in the retained card snapshot; special material is recorded separately.",
+      "confidence": "Low",
       "placements": {
         "W": "Primary",
         "U": null,
@@ -151,20 +193,17 @@
         "G": null
       },
       "rationale": {
-        "W": "Primary is my provisional best-fit judgment: the only observed native source is a monowhite common that deliberately grants Absorb. White is therefore the best-supported home in this evidence set. Designer history also places the precursor armor designs in white. This supports a proposed home, not proof of a broad established tier.",
-        "U": "No native blue Absorb source was found in the exact-word Scryfall population. Absorbing Man is a substring false positive, not the Absorb keyword. No secondary or tertiary assignment is justified.",
-        "B": "No native black Absorb source was found. A black Sliver receiving Absorb from Lymph Sliver is granted access from a white source, not evidence of native black ownership.",
-        "R": "No native red Absorb source was found. Receiving the granted ability, copying a card, or lacking observed cards does not establish a red tier.",
-        "G": "No native green Absorb source was found. General toughness, resilience, or damage-prevention similarities are not enough to assign this exact keyword a tier."
+        "W": "Lymph Sliver deliberately grants absorb, making white the only demonstrated colored source in this sample. Rosewater’s Future Sight handoff also places the armor precursor in white. Together these satisfy the limited-sample rule for a proposed Primary home rather than leaving the home entirely unresolved; one printed design still cannot establish broad or recurring access.",
+        "U": "No independent blue source appears in the complete exact-word Absorb sample. Lymph Sliver can grant the ability to creatures of this color, but the granting card is white; recipient access does not justify a blue tier.",
+        "B": "No independent black source appears in the complete exact-word Absorb sample. Lymph Sliver can grant the ability to creatures of this color, but the granting card is white; recipient access does not justify a black tier.",
+        "R": "No independent red source appears in the complete exact-word Absorb sample. Lymph Sliver can grant the ability to creatures of this color, but the granting card is white; recipient access does not justify a red tier.",
+        "G": "No independent green source appears in the complete exact-word Absorb sample. Lymph Sliver can grant the ability to creatures of this color, but the granting card is white; recipient access does not justify a green tier."
       },
-      "summary": "Lymph Sliver supports white as a provisional home. Two printings represent one design.",
+      "summary": "White remains a proposed Primary home, with Low confidence. Lymph Sliver is the sole printed design in the saved sample; the independent armor design history supports a proposal without establishing a recurring pattern.",
       "limitations": [
-        "One unique card is a very small sample. Two printings do not supply two independent color decisions.",
-        "Observed exclusivity supports white as a proposed home but does not prove whether R&D would classify it primary, secondary or tertiary.",
-        "Unassigned means not established by this evidence, not unavailable, colorless, zero access or a prohibition.",
-        "The classification concerns the exact keyword Absorb, not the counterspell named Absorb, general damage prevention, copying, or all potential recipients of a granted ability.",
-        "Absorb being scarce across all Magic does not automatically make it tertiary in its only demonstrated color.",
-        "Reassess after a new native design in another color, explicit designer tier guidance, or evidence of a deliberate color-pie exception."
+        "Card evidence reuses the complete or explicitly bounded October 26, 2026 snapshot; judgment reviewed October 27. No later card population is claimed.",
+        "Unassigned does not mean prohibited or impossible; these assessments do not enter the 2021 calculations.",
+        "The unprinted armor concepts are design context, not extra Scryfall designs or an explicit official Primary placement."
       ],
       "citationCards": [
         {
@@ -175,7 +214,7 @@
       "label": "Scryfall-derived assessment - provisional",
       "researchDate": "2026-10-26",
       "kind": "derived",
-      "classification": "Provisional color placements",
+      "classification": "keyword_ability",
       "outsidePrimary": null,
       "relatedEffects": [],
       "sources": [
@@ -184,13 +223,40 @@
           "url": "https://magic.wizards.com/en/news/making-magic/future-sight-design-handoff-document-2021-05-17"
         }
       ],
-      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAbsorb%5Cb/%20include%3Aextras"
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAbsorb%5Cb/%20include%3Aextras",
+      "protocolVersion": "1.0",
+      "reviewStatus": "draft",
+      "judgmentDate": "2026-10-27",
+      "shortLabel": "Scryfall-derived",
+      "decisionStatus": {
+        "W": "proposed_home",
+        "U": "no_support_in_sample",
+        "B": "no_support_in_sample",
+        "R": "no_support_in_sample",
+        "G": "no_support_in_sample"
+      },
+      "decisionRoute": {
+        "W": "E3_limited_sample",
+        "U": null,
+        "B": null,
+        "R": null,
+        "G": null
+      },
+      "decisionConfidence": {
+        "W": "Low",
+        "U": "Moderate",
+        "B": "Moderate",
+        "R": "Moderate",
+        "G": "Moderate"
+      },
+      "outsideTier": null,
+      "outsideStatus": "not_applicable"
     },
     {
       "id": "deck:catalog-gaps:activate",
       "name": "Activate",
-      "scope": "Universal rules action / not a color-pie effect",
-      "confidence": "Not applicable to the general rules action",
+      "scope": "General rules vocabulary; individual effects require separate color-pie assessments.",
+      "confidence": "Not applicable",
       "placements": {
         "W": null,
         "U": null,
@@ -199,20 +265,24 @@
         "G": null
       },
       "rationale": {
-        "W": "No independent W placement is assigned; see the classification and rationale below.",
-        "U": "No independent U placement is assigned; see the classification and rationale below.",
-        "B": "No independent B placement is assigned; see the classification and rationale below.",
-        "R": "No independent R placement is assigned; see the classification and rationale below.",
-        "G": "No independent G placement is assigned; see the classification and rationale below."
+        "W": "Activate names a common rules operation. Assessing the effects of activated abilities requires separate entries; the shared verb itself has no P/S/T ranking. This applies equally to white.",
+        "U": "Activate names a common rules operation. Assessing the effects of activated abilities requires separate entries; the shared verb itself has no P/S/T ranking. This applies equally to blue.",
+        "B": "Activate names a common rules operation. Assessing the effects of activated abilities requires separate entries; the shared verb itself has no P/S/T ranking. This applies equally to black.",
+        "R": "Activate names a common rules operation. Assessing the effects of activated abilities requires separate entries; the shared verb itself has no P/S/T ranking. This applies equally to red.",
+        "G": "Activate names a common rules operation. Assessing the effects of activated abilities requires separate entries; the shared verb itself has no P/S/T ranking. This applies equally to green."
       },
-      "summary": "Activate describes using an activated ability, not the effect that ability produces. It is not an ability newly created in Sixth Edition; the standardized vocabulary was introduced then. A tap ability producing mana and an activated damage ability share this rules action but require separate effect-level analysis. Do not interpret rules-neutral as five Primary placements or as Colorless Primary.",
-      "limitations": [],
+      "summary": "Activate names a common rules operation. Assessing the effects of activated abilities requires separate entries; the shared verb itself has no P/S/T ranking.",
+      "limitations": [
+        "Card evidence reuses the complete or explicitly bounded October 26, 2026 snapshot; judgment reviewed October 27. No later card population is claimed.",
+        "Unassigned does not mean prohibited or impossible; these assessments do not enter the 2021 calculations.",
+        "The retained Oracle query is a first-page illustration, not a complete population. No presence-frequency or absence conclusion is drawn from it."
+      ],
       "citationCards": [],
       "researchRecordId": "deck:vocabulary:activate",
       "label": "Rules action - not ranked",
       "researchDate": "2026-10-26",
       "kind": "rules",
-      "classification": "Universal rules action / not a color-pie effect",
+      "classification": "rules_action",
       "outsidePrimary": null,
       "relatedEffects": [],
       "sources": [
@@ -221,30 +291,58 @@
           "url": "https://magic.wizards.com/en/news/making-magic/evergreen-eggs-ham-2015-06-08"
         }
       ],
-      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbActivate%5Cb/%20include%3Aextras"
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbActivate%5Cb/%20include%3Aextras",
+      "protocolVersion": "1.0",
+      "reviewStatus": "draft",
+      "judgmentDate": "2026-10-27",
+      "shortLabel": "Rules action",
+      "decisionStatus": {
+        "W": "not_applicable",
+        "U": "not_applicable",
+        "B": "not_applicable",
+        "R": "not_applicable",
+        "G": "not_applicable"
+      },
+      "decisionRoute": {
+        "W": null,
+        "U": null,
+        "B": null,
+        "R": null,
+        "G": null
+      },
+      "decisionConfidence": {
+        "W": "Not applicable",
+        "U": "Not applicable",
+        "B": "Not applicable",
+        "R": "Not applicable",
+        "G": "Not applicable"
+      },
+      "outsideTier": null,
+      "outsideStatus": "not_applicable"
     },
     {
       "id": "deck:catalog-gaps:actualize",
       "name": "Actualize",
       "scope": "Four native designs in a single Arena-only digital set: blue 2, green 1, colorless 1.",
-      "confidence": "low",
+      "confidence": "Low; observed tiers unresolved",
       "placements": {
         "W": null,
-        "U": "Primary",
+        "U": null,
         "B": null,
         "R": null,
-        "G": "Secondary"
+        "G": null
       },
       "rationale": {
-        "W": "No native use or explicit grant in this color was found in the screened sample; leave unassigned rather than infer access from related effects.",
-        "U": "Crux of the Theory and Echogoyfs are two distinct monoblue native designs, the largest colored cluster. Propose Primary within this digital sample, without claiming a broad established policy.",
-        "B": "No native use or explicit grant in this color was found in the screened sample; leave unassigned rather than infer access from related effects.",
-        "R": "No native use or explicit grant in this color was found in the screened sample; leave unassigned rather than infer access from related effects.",
-        "G": "Etali, Primal Garden is a direct monogreen native example. Propose Secondary relative to the two blue designs; one of three colored designs is meaningful access, not evidence of a settled exceptional-only rule."
+        "W": "No native design or explicit grant attributed to W appears in the complete scoped card review. This is no support in this sample, not a claim that W can never receive Actualize.",
+        "U": "Crux of the Theory and Echogoyfs are two distinct blue native Actualize designs in Alchemy: Reality Fracture. They establish direct blue access, but green's Etali, Primal Garden means the one-color limited-sample route cannot apply. With one digital release and no original placement source, blue remains tier-unresolved rather than Primary.",
+        "B": "No native design or explicit grant attributed to B appears in the complete scoped card review. This is no support in this sample, not a claim that B can never receive Actualize.",
+        "R": "No native design or explicit grant attributed to R appears in the complete scoped card review. This is no support in this sample, not a claim that R can never receive Actualize.",
+        "G": "Etali, Primal Garden is a direct green Actualize design in the same digital release. One card verifies observed access but cannot distinguish a Secondary role from a set exception. Green therefore remains tier-unresolved rather than receiving a count-derived rank."
       },
-      "summary": "Blue is the tentative lead; green has direct but smaller representation. Both judgments are fragile in this tiny digital sample.",
+      "summary": "Four native designs in one Arena-only digital set: blue 2, green 1, and colorless 1; direct access is observed but no colored tier is assigned.",
       "limitations": [
-        "All four observed cards are digital. Willbound Quill is colorless. These proposals do not establish paper or Commander availability, and more cards could readily change the ordering."
+        "All four observed cards are digital. Willbound Quill is colorless. The record does not establish paper or Commander availability.",
+        "The limited-sample route cannot apply because qualifying colored evidence occurs in both blue and green."
       ],
       "citationCards": [
         {
@@ -268,17 +366,44 @@
       "label": "Scryfall-derived assessment - provisional",
       "researchDate": "2026-10-26",
       "kind": "derived",
-      "classification": "Provisional color placements",
+      "classification": "named keyword or ability word as identified by saved Scryfall keyword query",
       "outsidePrimary": null,
       "relatedEffects": [],
       "sources": [],
-      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbActualize%5Cb/%20include%3Aextras"
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbActualize%5Cb/%20include%3Aextras",
+      "protocolVersion": "1.0",
+      "reviewStatus": "draft",
+      "judgmentDate": "2026-10-27",
+      "shortLabel": "Scryfall-derived",
+      "decisionStatus": {
+        "W": "no_support_in_sample",
+        "U": "observed_tier_unresolved",
+        "B": "no_support_in_sample",
+        "R": "no_support_in_sample",
+        "G": "observed_tier_unresolved"
+      },
+      "decisionRoute": {
+        "W": null,
+        "U": null,
+        "B": null,
+        "R": null,
+        "G": null
+      },
+      "decisionConfidence": {
+        "W": "Low",
+        "U": "Low",
+        "B": "Low",
+        "R": "Low",
+        "G": "Low"
+      },
+      "outsideTier": null,
+      "outsideStatus": "observed_tier_unresolved"
     },
     {
       "id": "deck:vocabulary:adamant",
       "name": "Adamant",
       "scope": "Named ability word; 15 monocolored designs plus three colorless designs.",
-      "confidence": "moderate",
+      "confidence": "Moderate",
       "placements": {
         "W": "Primary",
         "U": "Primary",
@@ -287,15 +412,17 @@
         "G": "Primary"
       },
       "rationale": {
-        "W": "White has three distinct monocolored native Adamant designs, matching every other color. The balanced distribution supports equal access rather than a forced ranking.",
-        "U": "Blue has three distinct monocolored native Adamant designs, matching every other color. The balanced distribution supports equal access rather than a forced ranking.",
-        "B": "Black has three distinct monocolored native Adamant designs, matching every other color. The balanced distribution supports equal access rather than a forced ranking.",
-        "R": "Red has three distinct monocolored native Adamant designs, matching every other color. The balanced distribution supports equal access rather than a forced ranking.",
-        "G": "Green has three distinct monocolored native Adamant designs, matching every other color. The balanced distribution supports equal access rather than a forced ranking."
+        "W": "Ardenvale Paladin, Rally for the Throne, and Silverflame Ritual are white native Adamant designs in the original Throne of Eldraine release. Their creature, token, and spell roles show a deliberate mono-white branch rather than an isolated card. White is Primary alongside the other colors because the original implementation deliberately gives each a principal branch, not because white outnumbers them.",
+        "U": "Turn into a Pumpkin, Unexplained Vision, and Vantress Paladin are blue native Adamant designs in original Throne of Eldraine. They span control, card selection, and creature roles within the mono-blue branch. Blue is Primary alongside the other colors because the original implementation deliberately gives each a principal branch, not because blue outnumbers them.",
+        "B": "Cauldron's Gift, Foreboding Fruit, and Locthwain Paladin are black native Adamant designs in original Throne of Eldraine. They cover graveyard, resource, and creature roles within the mono-black branch. Black is Primary alongside the other colors because the original implementation deliberately gives each a principal branch, not because black outnumbers them.",
+        "R": "Embereth Paladin, Searing Barrage, and Slaying Fire are red native Adamant designs in original Throne of Eldraine. They show creature and damage applications within the mono-red branch. Red is Primary alongside the other colors because the original implementation deliberately gives each a principal branch, not because red outnumbers them.",
+        "G": "Garenbrig Paladin, Once and Future, and Outmuscle are green native Adamant designs in original Throne of Eldraine. They cover creature, recursion, and fight effects within the mono-green branch. Green is Primary alongside the other colors because the original implementation deliberately gives each a principal branch, not because green outnumbers them."
       },
       "summary": "Treat all five colors as co-primary for this deliberately balanced monocolor reward mechanic.",
       "limitations": [
-        "Equal Primary is an analyst convention for balanced five-color access. A colorless card rewarding a chosen color is not five additional colored designs."
+        "Equal Primary is an analyst convention for balanced five-color access. A colorless card rewarding a chosen color is not five additional colored designs.",
+        "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch.",
+        "Draft record awaits independent RobQA; no application import authorization."
       ],
       "citationCards": [
         {
@@ -374,34 +501,63 @@
       "label": "Scryfall-derived assessment - provisional",
       "researchDate": "2026-10-26",
       "kind": "derived",
-      "classification": "Provisional color placements",
+      "classification": "named keyword or ability word as identified by saved Scryfall keyword query",
       "outsidePrimary": null,
       "relatedEffects": [],
       "sources": [],
-      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAdamant%5Cb/%20include%3Aextras"
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAdamant%5Cb/%20include%3Aextras",
+      "protocolVersion": "1.0",
+      "reviewStatus": "draft",
+      "judgmentDate": "2026-10-27",
+      "shortLabel": "Scryfall-derived",
+      "decisionStatus": {
+        "W": "assigned",
+        "U": "assigned",
+        "B": "assigned",
+        "R": "assigned",
+        "G": "assigned"
+      },
+      "decisionRoute": {
+        "W": "E3",
+        "U": "E3",
+        "B": "E3",
+        "R": "E3",
+        "G": "E3"
+      },
+      "decisionConfidence": {
+        "W": "Moderate",
+        "U": "Moderate",
+        "B": "Moderate",
+        "R": "Moderate",
+        "G": "Moderate"
+      },
+      "outsideTier": null,
+      "outsideStatus": "observed_tier_unresolved"
     },
     {
       "id": "deck:vocabulary:adapt",
       "name": "Adapt",
       "scope": "Native Adapt actions across the saved card population, with face colors applied to Jetfire.",
-      "confidence": "moderate",
+      "confidence": "Moderate",
       "placements": {
-        "W": "Tertiary",
-        "U": "Secondary",
-        "B": "Secondary",
+        "W": null,
+        "U": null,
+        "B": null,
         "R": null,
         "G": "Primary"
       },
       "rationale": {
-        "W": "Knighted Myr is the lone monowhite native design. Its direct but isolated access supports a provisional Tertiary placement.",
-        "U": "Pteramander, Skatewing Spy and Skitter Eel provide repeated monoblue examples; Jetfire adds a native blue face. These and joint GU cards support recurring Secondary use.",
-        "B": "Etherium Pteramander and Fetid Gargantua are among four monoblack native designs, with BG designs adding joint evidence. This is enough recurring independent use for Secondary.",
-        "R": "No native use or explicit grant in this color was found in the screened sample; leave unassigned rather than infer access from related effects.",
-        "G": "Seven monogreen native designs, including Incubation Druid, Growth-Chamber Guardian and Evolution Witness, plus several joint green designs make green the strongest sustained home."
+        "W": "Knighted Myr is one direct white Adapt design. The complete sample establishes observed access but retains no original source or specific exception constraint that would distinguish a supported Tertiary tier from a singleton. White remains tier-unresolved.",
+        "U": "Pteramander, Skatewing Spy, and Benthic Biomancer establish repeated blue Adapt access. The retained record does not document a qualitative blue branch or a source hierarchy that distinguishes Secondary from a supported exception without comparing breadth. Blue remains tier-unresolved.",
+        "B": "Etherium Pteramander, Fetid Gargantua, and Dreamdrinker Vampire establish repeated black Adapt access. The retained record does not document a qualitative black branch or a source hierarchy that distinguishes Secondary from a supported exception without comparing breadth. Black remains tier-unresolved.",
+        "R": "No native design or explicit grant attributed to R appears in the complete scoped card review. This is no support in this sample, not a claim that R can never receive Adapt.",
+        "G": "Incubation Druid, Growth-Chamber Guardian, and Evolution Witness anchor green Adapt across distinct releases, with further green and GU designs. This is recurring native access across roles rather than a one-set accommodation. Green is Primary rather than merely Secondary."
       },
       "summary": "Green leads; blue and black have recurring independent use; white has one narrow native example.",
       "limitations": [
-        "Multicolor examples supplement the independent monocolor evidence; they are not separate proof for each color. The proposals concern Adapt itself, not all +1/+1-counter effects."
+        "Multicolor examples supplement the independent monocolor evidence; they are not separate proof for each color. The proposals concern Adapt itself, not all +1/+1-counter effects.",
+        "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch.",
+        "Draft record awaits independent RobQA; no application import authorization."
       ],
       "citationCards": [
         {
@@ -508,34 +664,63 @@
       "label": "Scryfall-derived assessment - provisional",
       "researchDate": "2026-10-26",
       "kind": "derived",
-      "classification": "Provisional color placements",
+      "classification": "named keyword or ability word as identified by saved Scryfall keyword query",
       "outsidePrimary": null,
       "relatedEffects": [],
       "sources": [],
-      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAdapt%5Cb/%20include%3Aextras"
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAdapt%5Cb/%20include%3Aextras",
+      "protocolVersion": "1.0",
+      "reviewStatus": "draft",
+      "judgmentDate": "2026-10-27",
+      "shortLabel": "Scryfall-derived",
+      "decisionStatus": {
+        "W": "observed_tier_unresolved",
+        "U": "observed_tier_unresolved",
+        "B": "observed_tier_unresolved",
+        "R": "no_support_in_sample",
+        "G": "assigned"
+      },
+      "decisionRoute": {
+        "W": null,
+        "U": null,
+        "B": null,
+        "R": null,
+        "G": "E3"
+      },
+      "decisionConfidence": {
+        "W": "Low",
+        "U": "Low",
+        "B": "Low",
+        "R": "Low",
+        "G": "Moderate"
+      },
+      "outsideTier": null,
+      "outsideStatus": "observed_tier_unresolved"
     },
     {
       "id": "deck:vocabulary:addendum",
       "name": "Addendum",
       "scope": "Ten native Addendum designs: white 5, blue 3, joint WU 2.",
-      "confidence": "moderate",
+      "confidence": "Low",
       "placements": {
         "W": "Primary",
-        "U": "Secondary",
+        "U": "Primary",
         "B": null,
         "R": null,
         "G": null
       },
       "rationale": {
-        "W": "Five monowhite native designs provide the largest independent cluster, and two WU designs reinforce the white-blue setting. Propose Primary by density, not an exclusive right.",
-        "U": "Three monoblue native designs plus two joint WU designs establish recurring blue access. Propose Secondary relative to white; co-primary would also be plausible for a guild-scoped reading.",
-        "B": "No native use or explicit grant in this color was found in the screened sample; leave unassigned rather than infer access from related effects.",
-        "R": "No native use or explicit grant in this color was found in the screened sample; leave unassigned rather than infer access from related effects.",
-        "G": "No native use or explicit grant in this color was found in the screened sample; leave unassigned rather than infer access from related effects."
+        "W": "Arrester's Zeal, Sentinel's Mark, Summary Judgment, and Unbreakable Formation give white native Addendum effects focused on protection and combat. Blue carries separate tempo and draw roles, so this is not exclusive access. White is Primary provisionally because it is a principal role in the guild implementation, not because it has more cards.",
+        "U": "Arrester's Admonition, Code of Constraint, and Precognitive Perception give blue native Addendum effects focused on tempo and card draw. White carries separate protection and combat roles, so this is not a count-based hierarchy. Blue is Primary provisionally rather than Secondary by a five-versus-three count.",
+        "B": "No native design or explicit grant attributed to B appears in the complete scoped card review. This is no support in this sample, not a claim that B can never receive Addendum.",
+        "R": "No native design or explicit grant attributed to R appears in the complete scoped card review. This is no support in this sample, not a claim that R can never receive Addendum.",
+        "G": "No native design or explicit grant attributed to G appears in the complete scoped card review. This is no support in this sample, not a claim that G can never receive Addendum."
       },
-      "summary": "White is the lead in this sample, with blue a substantial recurring second home.",
+      "summary": "Ten native Addendum designs in the intended WU guild implementation: five white, three blue, and two joint WU; both colored branches are provisionally Primary.",
       "limitations": [
-        "The difference between White Primary and Blue Secondary is an interpretive weighting of a small guild-focused sample, not an official hierarchy."
+        "The difference between White Primary and Blue Secondary is an interpretive weighting of a small guild-focused sample, not an official hierarchy.",
+        "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch.",
+        "Draft record awaits independent RobQA; no application import authorization."
       ],
       "citationCards": [
         {
@@ -582,34 +767,63 @@
       "label": "Scryfall-derived assessment - provisional",
       "researchDate": "2026-10-26",
       "kind": "derived",
-      "classification": "Provisional color placements",
+      "classification": "named keyword or ability word as identified by saved Scryfall keyword query",
       "outsidePrimary": null,
       "relatedEffects": [],
       "sources": [],
-      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAddendum%5Cb/%20include%3Aextras"
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAddendum%5Cb/%20include%3Aextras",
+      "protocolVersion": "1.0",
+      "reviewStatus": "draft",
+      "judgmentDate": "2026-10-27",
+      "shortLabel": "Scryfall-derived",
+      "decisionStatus": {
+        "W": "assigned",
+        "U": "assigned",
+        "B": "no_support_in_sample",
+        "R": "no_support_in_sample",
+        "G": "no_support_in_sample"
+      },
+      "decisionRoute": {
+        "W": "E3",
+        "U": "E3",
+        "B": null,
+        "R": null,
+        "G": null
+      },
+      "decisionConfidence": {
+        "W": "Low",
+        "U": "Low",
+        "B": "Low",
+        "R": "Low",
+        "G": "Low"
+      },
+      "outsideTier": null,
+      "outsideStatus": "no_support_in_sample"
     },
     {
       "id": "deck:vocabulary:affinity",
       "name": "Affinity",
       "scope": "Named Affinity for all qualifying objects, including explicit grants; special, digital and preview examples remain qualified.",
-      "confidence": "moderate",
+      "confidence": "Moderate",
       "placements": {
-        "W": "Secondary",
+        "W": null,
         "U": "Primary",
-        "B": "Tertiary",
-        "R": "Secondary",
-        "G": "Tertiary"
+        "B": null,
+        "R": null,
+        "G": null
       },
       "rationale": {
-        "W": "Eleven monowhite sources include Angelic Observer, Argivian Phalanx and Pearl-Ear, Imperial Advisor. Repeated native forms and a grant support Secondary across creature and Aura-related applications.",
-        "U": "Twenty-four monoblue sources include Thoughtcast, Broodstar and Emry, Lurker of the Loch. This is the largest independent cluster with multiple native spells and grant sources: Primary.",
-        "B": "Demonic Junker, Refurbished Familiar and Scales of Shale give three monoblack sources. Numerous joint-color cards do not erase the smaller independent branch; propose Tertiary.",
-        "R": "Eleven monored sources, including Chiss-Goria, Furnace Dragon and Oxidda Finisher, establish recurring native/grant access: Secondary. Omniclown adds qualified special-set evidence but does not drive the tier.",
-        "G": "Five monogreen sources, including Bartz and Boko and Polliwallop, show real but smaller independent access across specific object types. Tertiary is a provisional relative weighting, not a ban on additional uses."
+        "W": "Angelic Observer, Argivian Phalanx, and Pearl-Ear establish recurring white Affinity access across released paper cards, including an explicit grant. The retained record does not supply an official hierarchy or a non-count-based restriction that cleanly distinguishes Secondary from Tertiary. White remains tier-unresolved.",
+        "U": "Thoughtcast, Broodstar, and Emry, Lurker of the Loch each have retained Oracle text explicitly naming Affinity for artifacts, and their first prints span Mirrodin and Throne of Eldraine. Blue uses the mechanic on card draw, artifact creature scaling, and an artifact-recursion legend. This cross-release, cross-role branch makes blue Primary rather than merely Secondary.",
+        "B": "Demonic Junker, Refurbished Familiar, and Scales of Shale establish repeated black Affinity use. The retained card packet does not supply a qualitative official hierarchy or a specific restriction that separates Secondary from Tertiary without relying on relative counts. Black remains tier-unresolved.",
+        "R": "Furnace Dragon, Oxidda Finisher, and Chiss-Goria establish recurring red Affinity access across released paper cards, including an explicit grant. The retained record does not supply an official hierarchy or a non-count-based restriction that cleanly distinguishes Secondary from Tertiary. Red remains tier-unresolved.",
+        "G": "Bartz and Boko, Polliwallop, and other green cards establish repeated green Affinity use in object-specific designs. The retained evidence does not identify a principled constraint that distinguishes a Secondary home from a Tertiary exception without a count comparison. Green remains tier-unresolved."
       },
       "summary": "Blue has the deepest independent population; white and red recur broadly; black and green form smaller branches.",
       "limitations": [
-        "Current saved Oracle text explicitly names Affinity on several older cards once worded as plain cost reduction; use current facts, not historical recollection. Borg Cube is a preview; Thoughtcast has older printings despite a future representative reprint. Colorless designs, special/acorn/playtest sources and the digital Grand Goatnapper are retained without treating them as ordinary colored policy."
+        "Current saved Oracle text explicitly names Affinity on several older cards once worded as plain cost reduction; use current facts, not historical recollection. Borg Cube is a preview; Thoughtcast has older printings despite a future representative reprint. Colorless designs, special/acorn/playtest sources and the digital Grand Goatnapper are retained without treating them as ordinary colored policy.",
+        "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch.",
+        "Draft record awaits independent RobQA; no application import authorization."
       ],
       "citationCards": [
         {
@@ -964,17 +1178,44 @@
       "label": "Scryfall-derived assessment - provisional",
       "researchDate": "2026-10-26",
       "kind": "derived",
-      "classification": "Provisional color placements",
+      "classification": "named keyword or ability word as identified by saved Scryfall keyword query",
       "outsidePrimary": null,
       "relatedEffects": [],
       "sources": [],
-      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAffinity%5Cb/%20include%3Aextras"
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAffinity%5Cb/%20include%3Aextras",
+      "protocolVersion": "1.0",
+      "reviewStatus": "draft",
+      "judgmentDate": "2026-10-27",
+      "shortLabel": "Scryfall-derived",
+      "decisionStatus": {
+        "W": "observed_tier_unresolved",
+        "U": "assigned",
+        "B": "observed_tier_unresolved",
+        "R": "observed_tier_unresolved",
+        "G": "observed_tier_unresolved"
+      },
+      "decisionRoute": {
+        "W": null,
+        "U": "E3",
+        "B": null,
+        "R": null,
+        "G": null
+      },
+      "decisionConfidence": {
+        "W": "Low",
+        "U": "Moderate",
+        "B": "Low",
+        "R": "Low",
+        "G": "Low"
+      },
+      "outsideTier": null,
+      "outsideStatus": "observed_tier_unresolved"
     },
     {
       "id": "deck:catalog-gaps:affinitycycling",
       "name": "Affinitycycling",
-      "scope": "Colorless / Outside the Five Colors",
-      "confidence": "low",
+      "scope": "Designer/playtest material only; one recorded Affinitycycling design.",
+      "confidence": "Low",
       "placements": {
         "W": null,
         "U": null,
@@ -983,15 +1224,17 @@
         "G": null
       },
       "rationale": {
-        "W": "No independent W placement is assigned; see the classification and rationale below.",
-        "U": "No independent U placement is assigned; see the classification and rationale below.",
-        "B": "No independent B placement is assigned; see the classification and rationale below.",
-        "R": "No independent R placement is assigned; see the classification and rationale below.",
-        "G": "No independent G placement is assigned; see the classification and rationale below."
+        "W": "The sole recorded Affinitycycling design is colorless and belongs to designer/playtest material. Its generic cost and potential use in decks of this color do not establish independent white access.",
+        "U": "The sole recorded Affinitycycling design is colorless and belongs to designer/playtest material. Its generic cost and potential use in decks of this color do not establish independent blue access.",
+        "B": "The sole recorded Affinitycycling design is colorless and belongs to designer/playtest material. Its generic cost and potential use in decks of this color do not establish independent black access.",
+        "R": "The sole recorded Affinitycycling design is colorless and belongs to designer/playtest material. Its generic cost and potential use in decks of this color do not establish independent red access.",
+        "G": "The sole recorded Affinitycycling design is colorless and belongs to designer/playtest material. Its generic cost and potential use in decks of this color do not establish independent green access."
       },
-      "summary": "Sojourner's Enforcermite is the sole observed Affinitycycling design and is colorless. Primary Colorless is a provisional home based on that small playtest sample; no W/U/B/R/G tiers are assigned.",
+      "summary": "Sojourner’s Enforcermite establishes Colorless Affinitycycling access in designer/playtest material. A singleton without independent design context cannot distinguish a principal home from an experiment, so its previous Primary tier is now unassigned.",
       "limitations": [
-        "Playtest-only evidence. This is not an official color-pie ranking or an ordinary format-availability claim."
+        "Card evidence reuses the complete or explicitly bounded October 26, 2026 snapshot; judgment reviewed October 27. No later card population is claimed.",
+        "Unassigned does not mean prohibited or impossible; these assessments do not enter the 2021 calculations.",
+        "Playtest-only evidence. Independent context for a Primary proposal was not established, so the previous singleton-based tier is withdrawn."
       ],
       "citationCards": [
         {
@@ -1003,22 +1246,44 @@
       "label": "Scryfall-derived assessment - provisional",
       "researchDate": "2026-10-26",
       "kind": "colorless",
-      "classification": "Colorless / Outside the Five Colors",
-      "outsidePrimary": "Colorless",
+      "classification": "colorless",
+      "outsidePrimary": null,
       "relatedEffects": [],
-      "sources": [
-        {
-          "title": "Sojourner's Enforcermite",
-          "url": "https://scryfall.com/card/unk/CA06b/sojourners-enforcermite"
-        }
-      ],
-      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAffinitycycling%5Cb/%20include%3Aextras"
+      "sources": [],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAffinitycycling%5Cb/%20include%3Aextras",
+      "protocolVersion": "1.0",
+      "reviewStatus": "draft",
+      "judgmentDate": "2026-10-27",
+      "shortLabel": "Scryfall-derived",
+      "decisionStatus": {
+        "W": "no_support_in_sample",
+        "U": "no_support_in_sample",
+        "B": "no_support_in_sample",
+        "R": "no_support_in_sample",
+        "G": "no_support_in_sample"
+      },
+      "decisionRoute": {
+        "W": null,
+        "U": null,
+        "B": null,
+        "R": null,
+        "G": null
+      },
+      "decisionConfidence": {
+        "W": "Moderate",
+        "U": "Moderate",
+        "B": "Moderate",
+        "R": "Moderate",
+        "G": "Moderate"
+      },
+      "outsideTier": null,
+      "outsideStatus": "observed_tier_unresolved"
     },
     {
       "id": "deck:vocabulary:afflict",
       "name": "Afflict",
       "scope": "Named Afflict keyword; tier judgment informed by Wizards' broader blocked-damage category and checked against the saved Scryfall card history.",
-      "confidence": "moderate; source-informed keyword inference",
+      "confidence": "Moderate",
       "placements": {
         "W": null,
         "U": "Tertiary",
@@ -1027,17 +1292,19 @@
         "G": null
       },
       "rationale": {
-        "W": "The reviewed sample contains no white Afflict design or white card that explicitly grants it. Leave White unassigned; receiving Afflict from an artifact is not evidence of a white design placement.",
-        "U": "Eternal of Harsh Truths and Spellweaver Eternal give blue genuine Afflict access at uncommon and common. Both originated in Hour of Devastation. Rosewater specifically explains blue's inclusion through Bolas's blue-black-red Eternal army. That set-specific explanation supports Tertiary more clearly than the small card count does; low rarity within that set does not by itself make Afflict a general blue ability.",
-        "B": "Black has original Afflict creatures across common, uncommon and rare, plus later tribal grants on Lazotep Sliver (2023) and Lost Monarch of Ifnir (2025). This establishes continued access beyond the original set. I recommend Secondary because Rosewater places black there in the broader category and describes its version as life loss. Five observed black designs do not, by themselves, establish a move to Primary.",
-        "R": "Red's original Afflict cards span common through mythic. Frontline Devastator and Manticore Eternal pressure opponents in combat; Neheb, the Eternal rewards the resulting life loss, and Wildfire Eternal rewards going unblocked. These designs make Afflict part of an attack-and-block decision, consistent with Rosewater's primary red placement for the broader effect. Primary is supported by that design role and source context, not by winning a card-count comparison.",
-        "G": "The reviewed sample contains no green Afflict design or green card that explicitly grants it. Leave Green unassigned; another color's cards and colorless grants do not establish green access."
+        "W": "No native design or explicit grant attributed to W appears in the complete scoped card review. This is no support in this sample, not a claim that W can never receive Afflict.",
+        "U": "Eternal of Harsh Truths and Spellweaver Eternal give blue native Afflict at common and uncommon in Hour of Devastation. Mechanical Color Pie 2021 explains blue’s presence through Bolas’s blue-black-red Eternal army in the broader blocked-damage category. That set-context bridge supports Tertiary, not a count-derived general Secondary placement.",
+        "B": "Ammit Eternal, Khenra Eternal, and Merciless Eternal establish black’s original Afflict branch, while Lazotep Sliver and Lost Monarch of Ifnir later grant it. Mechanical Color Pie 2021 places black Secondary for the broader blocked-damage effect and describes black’s version as life loss. The continued black evidence supports Secondary over Primary; five cards alone do not promote the tier.",
+        "R": "Frontline Devastator, Manticore Eternal, Neheb, and Wildfire Eternal make Afflict an attack-and-block decision in red. Mechanical Color Pie 2021 places red Primary for the broader blocked-damage category while explicitly discussing Afflict. That direct contextual bridge supports Primary over Secondary, not a comparison of card totals.",
+        "G": "No native design or explicit grant attributed to G appears in the complete scoped card review. This is no support in this sample, not a claim that G can never receive Afflict."
       },
       "summary": "Afflict makes blocking costly even when the attacker does not deal combat damage to the defending player. Red is the best-supported primary home, black has established secondary access, and blue is a set-specific tertiary case. The judgment weighs design commentary and card history; it does not turn card counts into tiers.",
       "limitations": [
         "The 2021 article ranks the broader blocked-damage category and explicitly discusses Afflict within it. Applying that hierarchy to the named keyword is this review's inference, not a separate official Afflict ranking.",
         "The sample contains 14 distinct designs, including three colorless sources. Reprints do not count as new designs; all reviewed native red and blue designs originated in Hour of Devastation.",
-        "Dagger of the Worthy, Cyberman Patrol and the Ancestral Hot Dog Minotaur sticker sheet can make Afflict available beyond its colored designs. That availability does not assign every recipient color a tier."
+        "Dagger of the Worthy, Cyberman Patrol and the Ancestral Hot Dog Minotaur sticker sheet can make Afflict available beyond its colored designs. That availability does not assign every recipient color a tier.",
+        "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch.",
+        "Draft record awaits independent RobQA; no application import authorization."
       ],
       "citationCards": [
         {
@@ -1097,42 +1364,71 @@
           "url": "https://scryfall.com/card/hou/109/wildfire-eternal?utm_source=api"
         }
       ],
-      "label": "Scryfall-derived assessment - provisional",
+      "label": "Source-informed assessment - provisional",
       "researchDate": "2026-10-26",
       "kind": "derived",
-      "classification": "Provisional color placements",
+      "classification": "named keyword or ability word as identified by saved Scryfall keyword query",
       "outsidePrimary": null,
       "relatedEffects": [],
       "sources": [
         {
-          "title": "Mechanical Color Pie 2021 — broader blocked-damage category",
+          "title": "Mechanical Color Pie 2021",
           "url": "https://magic.wizards.com/en/news/making-magic/mechanical-color-pie-2021"
         }
       ],
-      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAfflict%5Cb/%20include%3Aextras"
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAfflict%5Cb/%20include%3Aextras",
+      "protocolVersion": "1.0",
+      "reviewStatus": "draft",
+      "judgmentDate": "2026-10-27",
+      "shortLabel": "Source-informed",
+      "decisionStatus": {
+        "W": "no_support_in_sample",
+        "U": "assigned",
+        "B": "assigned",
+        "R": "assigned",
+        "G": "no_support_in_sample"
+      },
+      "decisionRoute": {
+        "W": null,
+        "U": "E2",
+        "B": "E2",
+        "R": "E2",
+        "G": null
+      },
+      "decisionConfidence": {
+        "W": "Low",
+        "U": "Moderate",
+        "B": "Moderate",
+        "R": "Moderate",
+        "G": "Low"
+      },
+      "outsideTier": null,
+      "outsideStatus": "observed_tier_unresolved"
     },
     {
       "id": "deck:vocabulary:afterlife",
       "name": "Afterlife",
       "scope": "Twelve native/grant designs: white 5, black 3, joint WB 4.",
-      "confidence": "moderate",
+      "confidence": "Low",
       "placements": {
         "W": "Primary",
         "U": null,
-        "B": "Secondary",
+        "B": "Primary",
         "R": null,
         "G": null
       },
       "rationale": {
-        "W": "Five monowhite examples, including Tithe Taker, Ministrant of Obligation and Indebted Spirit, establish the broadest independent branch. Indebted Spirit also grants the ability: Primary.",
-        "U": "No native use or explicit grant in this color was found in the screened sample; leave unassigned rather than infer access from related effects.",
-        "B": "Debtors' Transport, Orzhov Enforcer and Orzhov Racketeers establish three native monoblack designs; four WB sources reinforce the shared setting. Propose Secondary relative to white.",
-        "R": "No native use or explicit grant in this color was found in the screened sample; leave unassigned rather than infer access from related effects.",
-        "G": "No native use or explicit grant in this color was found in the screened sample; leave unassigned rather than infer access from related effects."
+        "W": "Tithe Taker and Ministrant of Obligation are native white Afterlife creatures, while Indebted Spirit is a white card that explicitly grants Afterlife. These are distinct white roles in the Orzhov implementation, while black also has its own native branch. White is Primary provisionally as a principal color of the mechanic, not because it has more cards.",
+        "U": "No native design or explicit grant attributed to U appears in the complete scoped card review. This is no support in this sample, not a claim that U can never receive Afterlife.",
+        "B": "Debtors' Transport, Orzhov Enforcer, and Orzhov Racketeers give black distinct native Afterlife roles, while the WB cards share the Orzhov implementation. The retained evidence contains no official white-over-black hierarchy. Black is Primary provisionally rather than Secondary by a five-versus-three count.",
+        "R": "No native design or explicit grant attributed to R appears in the complete scoped card review. This is no support in this sample, not a claim that R can never receive Afterlife.",
+        "G": "No native design or explicit grant attributed to G appears in the complete scoped card review. This is no support in this sample, not a claim that G can never receive Afterlife."
       },
-      "summary": "White leads the independent designs, while black has recurring native access and strong joint support.",
+      "summary": "Twelve native/grant Afterlife designs in the intended Orzhov implementation: white 5, black 3, and joint WB 4; both colored branches are provisionally Primary.",
       "limitations": [
-        "A white-and-black Spirit token does not make each source card both colors. Afterlife Insurance is a joint WB grant; count it once. White/black tier separation is a sample-based judgment, not a published guild hierarchy."
+        "A white-and-black Spirit token does not make each source card both colors. Afterlife Insurance is a joint WB grant; count it once. White/black tier separation is a sample-based judgment, not a published guild hierarchy.",
+        "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch.",
+        "Draft record awaits independent RobQA; no application import authorization."
       ],
       "citationCards": [
         {
@@ -1187,17 +1483,44 @@
       "label": "Scryfall-derived assessment - provisional",
       "researchDate": "2026-10-26",
       "kind": "derived",
-      "classification": "Provisional color placements",
+      "classification": "named keyword or ability word as identified by saved Scryfall keyword query",
       "outsidePrimary": null,
       "relatedEffects": [],
       "sources": [],
-      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAfterlife%5Cb/%20include%3Aextras"
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAfterlife%5Cb/%20include%3Aextras",
+      "protocolVersion": "1.0",
+      "reviewStatus": "draft",
+      "judgmentDate": "2026-10-27",
+      "shortLabel": "Scryfall-derived",
+      "decisionStatus": {
+        "W": "assigned",
+        "U": "no_support_in_sample",
+        "B": "assigned",
+        "R": "no_support_in_sample",
+        "G": "no_support_in_sample"
+      },
+      "decisionRoute": {
+        "W": "E3",
+        "U": null,
+        "B": "E3",
+        "R": null,
+        "G": null
+      },
+      "decisionConfidence": {
+        "W": "Low",
+        "U": "Low",
+        "B": "Low",
+        "R": "Low",
+        "G": "Low"
+      },
+      "outsideTier": null,
+      "outsideStatus": "no_support_in_sample"
     },
     {
       "id": "deck:vocabulary:aftermath",
       "name": "Aftermath",
       "scope": "27 split designs; derive the Aftermath-bearing face color from its mana cost when face colors are absent.",
-      "confidence": "moderate",
+      "confidence": "Moderate",
       "placements": {
         "W": "Primary",
         "U": "Primary",
@@ -1206,15 +1529,17 @@
         "G": "Primary"
       },
       "rationale": {
-        "W": "White has 5 Aftermath-bearing faces. The near-balanced distribution across the mechanic supports Primary, without crediting the unrelated first half's colors.",
-        "U": "Blue has 5 Aftermath-bearing faces. The near-balanced distribution across the mechanic supports Primary, without crediting the unrelated first half's colors.",
-        "B": "Black has 5 Aftermath-bearing faces. The near-balanced distribution across the mechanic supports Primary, without crediting the unrelated first half's colors.",
-        "R": "Red has 7 Aftermath-bearing faces. The near-balanced distribution across the mechanic supports Primary, without crediting the unrelated first half's colors.",
-        "G": "Green has 5 Aftermath-bearing faces. The near-balanced distribution across the mechanic supports Primary, without crediting the unrelated first half's colors."
+        "W": "Appeal // Authority, Dusk // Dawn, and Onward // Victory have white Aftermath-bearing faces; attribution follows those faces rather than their unrelated halves. They show white creature-boost and recovery applications in the original Amonkhet block. White is Primary because the original split-card implementation gives white a principal face branch, not because of a count comparison.",
+        "U": "Commit // Memory, Farm // Market, and Spring // Mind have blue Aftermath-bearing faces; attribution follows those faces rather than their unrelated halves. They show blue interaction, resource, and card-draw applications in the original Amonkhet block. Blue is Primary because the original split-card implementation gives blue a principal face branch, not because of a count comparison.",
+        "B": "Consign // Oblivion, Cut // Ribbons, and Never // Return have black Aftermath-bearing faces; attribution follows those faces rather than their unrelated halves. They show black discard, life-loss, and removal applications in the original Amonkhet block. Black is Primary because the original split-card implementation gives black a principal face branch, not because of a count comparison.",
+        "R": "Claim // Fame, Heaven // Earth, and Insult // Injury have red Aftermath-bearing faces; attribution follows those faces rather than their unrelated halves. They show red combat and damage applications in the original Amonkhet block. Red is Primary because the original split-card implementation gives red a principal face branch, not because of a count comparison.",
+        "G": "Destined // Lead, Mouth // Feed, and Prepare // Fight have green Aftermath-bearing faces; attribution follows those faces rather than their unrelated halves. They show green creature growth and fight applications in the original Amonkhet block. Green is Primary because the original split-card implementation gives green a principal face branch, not because of a count comparison."
       },
       "summary": "All five colors have comparable independent Aftermath-face representation, so propose co-primary access.",
       "limitations": [
-        "Scryfall split-face objects omit colors here; attribution explicitly derives W/U/B/R/G from each relevant face's mana symbols. The count is 27 designs, not 54 card halves. A seven-versus-five difference does not justify forcing red above the balanced five-color pattern."
+        "Scryfall split-face objects omit colors here; attribution explicitly derives W/U/B/R/G from each relevant face's mana symbols. The count is 27 designs, not 54 card halves. A seven-versus-five difference does not justify forcing red above the balanced five-color pattern.",
+        "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch.",
+        "Draft record awaits independent RobQA; no application import authorization."
       ],
       "citationCards": [
         {
@@ -1329,34 +1654,63 @@
       "label": "Scryfall-derived assessment - provisional",
       "researchDate": "2026-10-26",
       "kind": "derived",
-      "classification": "Provisional color placements",
+      "classification": "named keyword or ability word as identified by saved Scryfall keyword query",
       "outsidePrimary": null,
       "relatedEffects": [],
       "sources": [],
-      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAftermath%5Cb/%20include%3Aextras"
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAftermath%5Cb/%20include%3Aextras",
+      "protocolVersion": "1.0",
+      "reviewStatus": "draft",
+      "judgmentDate": "2026-10-27",
+      "shortLabel": "Scryfall-derived",
+      "decisionStatus": {
+        "W": "assigned",
+        "U": "assigned",
+        "B": "assigned",
+        "R": "assigned",
+        "G": "assigned"
+      },
+      "decisionRoute": {
+        "W": "E3",
+        "U": "E3",
+        "B": "E3",
+        "R": "E3",
+        "G": "E3"
+      },
+      "decisionConfidence": {
+        "W": "Moderate",
+        "U": "Moderate",
+        "B": "Moderate",
+        "R": "Moderate",
+        "G": "Moderate"
+      },
+      "outsideTier": null,
+      "outsideStatus": "no_support_in_sample"
     },
     {
       "id": "deck:vocabulary:airbend",
       "name": "Airbend",
       "scope": "Avatar mechanic; 13 native designs after excluding the four-color Avatar Aang reward card.",
-      "confidence": "moderate for white; low for blue",
+      "confidence": "Moderate",
       "placements": {
         "W": "Primary",
-        "U": "Tertiary",
+        "U": null,
         "B": null,
         "R": null,
         "G": null
       },
       "rationale": {
-        "W": "Ten monowhite sources such as Airbending Lesson, Airbender's Reversal and Appa, Steadfast Guardian dominate the population. Swift Savior adds joint WU evidence: Primary.",
-        "U": "Whirlwind Technique directly airbends two creatures, so blue access is real. It is the sole monoblue native source, with Swift Savior only joint WU evidence; propose Tertiary.",
-        "B": "No native use or explicit grant in this color was found in the screened sample; leave unassigned rather than infer access from related effects.",
-        "R": "No native use or explicit grant in this color was found in the screened sample; leave unassigned rather than infer access from related effects.",
-        "G": "No native use or explicit grant in this color was found in the screened sample; leave unassigned rather than infer access from related effects."
+        "W": "Airbending Lesson, Airbender’s Reversal, Appa, and other white cards make Airbend a broad white native mechanic in the Avatar release. White covers common through mythic roles, while the WU Aang card is only joint support. Primary reflects that deliberate release-wide implementation rather than blue’s absence.",
+        "U": "Whirlwind Technique is one direct blue Airbend design and Aang, Swift Savior is joint WU evidence. The Avatar set demonstrates access, but the retained sources do not establish a specific blue exception rule sufficient to rank one independent design Tertiary. Blue remains tier-unresolved.",
+        "B": "No native design or explicit grant attributed to B appears in the complete scoped card review. This is no support in this sample, not a claim that B can never receive Airbend.",
+        "R": "No native design or explicit grant attributed to R appears in the complete scoped card review. This is no support in this sample, not a claim that R can never receive Airbend.",
+        "G": "No native design or explicit grant attributed to G appears in the complete scoped card review. This is no support in this sample, not a claim that G can never receive Airbend."
       },
       "summary": "White is the clear home; blue has one independent native spell and joint white-blue access.",
       "limitations": [
-        "Avatar Aang rewards airbending but does not perform or grant it, so it is excluded. Avatar Yangchen's mechanic-bearing back face has empty colors in the saved API; its white front is retained as casting context, not silently substituted into the face-color count. The proposed blue tier is not an official set-design placement."
+        "Avatar Aang rewards airbending but does not perform or grant it, so it is excluded. Avatar Yangchen's mechanic-bearing back face has empty colors in the saved API; its white front is retained as casting context, not silently substituted into the face-color count. The proposed blue tier is not an official set-design placement.",
+        "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch.",
+        "Draft record awaits independent RobQA; no application import authorization."
       ],
       "citationCards": [
         {
@@ -1415,34 +1769,62 @@
       "label": "Scryfall-derived assessment - provisional",
       "researchDate": "2026-10-26",
       "kind": "derived",
-      "classification": "Provisional color placements",
+      "classification": "named keyword or ability word as identified by saved Scryfall keyword query",
       "outsidePrimary": null,
       "relatedEffects": [],
       "sources": [],
-      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAirbend%5Cb/%20include%3Aextras"
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAirbend%5Cb/%20include%3Aextras",
+      "protocolVersion": "1.0",
+      "reviewStatus": "draft",
+      "judgmentDate": "2026-10-27",
+      "shortLabel": "Scryfall-derived",
+      "decisionStatus": {
+        "W": "assigned",
+        "U": "observed_tier_unresolved",
+        "B": "no_support_in_sample",
+        "R": "no_support_in_sample",
+        "G": "no_support_in_sample"
+      },
+      "decisionRoute": {
+        "W": "E3",
+        "U": null,
+        "B": null,
+        "R": null,
+        "G": null
+      },
+      "decisionConfidence": {
+        "W": "Moderate",
+        "U": "Low",
+        "B": "Low",
+        "R": "Low",
+        "G": "Low"
+      },
+      "outsideTier": null,
+      "outsideStatus": "observed_tier_unresolved"
     },
     {
       "id": "deck:vocabulary:alliance",
       "name": "Alliance",
-      "scope": "24 native ability-word designs after excluding two unrelated name hits.",
-      "confidence": "moderate",
+      "scope": "Saved Scryfall unique-card keyword and Oracle query population; released paper drives WUBRG decisions.",
+      "confidence": "Moderate",
       "placements": {
         "W": "Primary",
         "U": null,
         "B": null,
         "R": "Primary",
-        "G": "Secondary"
+        "G": "Primary"
       },
       "rationale": {
-        "W": "Six monowhite sources such as Boss's Chauffeur, Rumor Gatherer and Lita, Little Orphan Amphibian show repeated native use across releases: Primary.",
-        "U": "Galadriel, Light of Valinor is joint GWU evidence. A single three-color design does not isolate blue ownership, so leave blue unassigned.",
-        "B": "No independent native or grant source in this color supports a placement in this sample; leave unassigned.",
-        "R": "Nine monored sources, including Devilish Valet, Witty Roastmaster and Raphael, Most Attitude, form the largest independent cluster with varied triggers: Primary.",
-        "G": "Five monogreen sources, including Gala Greeters, Attended Socialite and Venom Connoisseur, establish recurring access. Propose Secondary relative to white/red, not an exceptional-only tier."
+        "W": "Boss’s Chauffeur, Celebrity Fencer, and Rumor Gatherer are all first-print New Capenna-era white Alliance designs, with counter growth and repeated-card-selection payoffs; Rumor Gatherer is not treated as a Commander Legends recurrence. East Wind Avatar, Lita, Little Orphan Amphibian, and Mighty Mutanimals later supply independent white Alliance designs in Teenage Mutant Ninja Turtles. That original breadth plus later repetition supports Primary rather than Secondary.",
+        "U": "Observed joint evidence does not isolate an independent U role, so no tier is assigned.",
+        "B": "No independent native or grant Alliance design was found for black in the complete saved population.",
+        "R": "Devilish Valet, Sizzling Soloist, and Rose Room Treasurer show aggressive, damage, and mana Alliance payoffs across Streets of New Capenna and its Commander release. The later Teenage Mutant Ninja Turtles cards independently repeat red use, so red is Primary rather than a set-bound Secondary.",
+        "G": "Attended Socialite grows itself, Elegant Entourage gives another creature +1/+1 and trample, Gala Greeters offers modal value, Social Climber gains life, and Venom Connoisseur grants deathtouch. All five are first-print New Capenna designs; Venom Connoisseur’s Foundations copy is a reprint, not recurrence. This broad original role spread supports Primary rather than a count-derived Secondary."
       },
-      "summary": "White and red are the strongest recurring homes; green is well established at a smaller density.",
+      "summary": "White, red and green are proposed principal homes in the native Alliance implementation. Blue has only joint evidence in the saved sample, and black has no qualifying source.",
       "limitations": [
-        "Back-Alley Gardener is digital. Multicolor Galadriel supports the mechanic's breadth but does not independently establish a blue tier. The exact Primary/Secondary boundary is a qualitative sample judgment."
+        "Back-Alley Gardener is digital. Multicolor Galadriel supports the mechanic's breadth but does not independently establish a blue tier. The exact Primary/Secondary boundary is a qualitative sample judgment.",
+        "Draft conformance record; saved timestamps are historical cutoffs, not fresh queries."
       ],
       "citationCards": [
         {
@@ -1545,34 +1927,67 @@
       "label": "Scryfall-derived assessment - provisional",
       "researchDate": "2026-10-26",
       "kind": "derived",
-      "classification": "Provisional color placements",
+      "classification": "ability word",
       "outsidePrimary": null,
       "relatedEffects": [],
-      "sources": [],
-      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAlliance%5Cb/%20include%3Aextras"
+      "sources": [
+        {
+          "title": "Streets of New Capenna Mechanics",
+          "url": "https://magic.wizards.com/en/news/feature/streets-of-new-capenna-mechanics-2022-04-07"
+        }
+      ],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAlliance%5Cb/%20include%3Aextras",
+      "protocolVersion": "1.0",
+      "reviewStatus": "draft",
+      "judgmentDate": "2026-10-27",
+      "shortLabel": "Scryfall-derived",
+      "decisionStatus": {
+        "W": "assigned",
+        "U": "observed_tier_unresolved",
+        "B": "no_support_in_sample",
+        "R": "assigned",
+        "G": "assigned"
+      },
+      "decisionRoute": {
+        "W": "E3",
+        "U": null,
+        "B": null,
+        "R": "E3",
+        "G": "E3"
+      },
+      "decisionConfidence": {
+        "W": "Moderate",
+        "U": "Low",
+        "B": "Moderate",
+        "R": "Moderate",
+        "G": "Moderate"
+      },
+      "outsideTier": null,
+      "outsideStatus": "not_applicable"
     },
     {
       "id": "deck:vocabulary:amass",
       "name": "Amass",
-      "scope": "Native Amass actions across creature-type variants; include qualified special-set designs.",
-      "confidence": "moderate; low for green",
+      "scope": "Saved Scryfall unique-card keyword and Oracle query population; released paper drives WUBRG decisions.",
+      "confidence": "Moderate",
       "placements": {
         "W": null,
         "U": "Secondary",
         "B": "Primary",
         "R": "Secondary",
-        "G": "Tertiary"
+        "G": null
       },
       "rationale": {
-        "W": "No independent native or grant source in this color supports a placement in this sample; leave unassigned.",
-        "U": "Aven Eternal, Callous Dismissal and Saruman's Trickery show repeated independent blue use across Zombie and Orc applications. This supports Secondary beneath the larger black population.",
-        "B": "The largest monocolor group includes Dreadhorde Invasion, Lazotep Reaver, Orcish Bowmasters and several Goblin variants. Diverse native actions and recurring engines support Primary.",
-        "R": "Dreadhorde Twins, Foray of Orcs and Book of Mazarbul show repeated red native actions across variants. Red is a substantial Secondary home.",
-        "G": "You and Ooze Army? explicitly performs Amass Oozes, but is an isolated special/playtest design. Tertiary is proposed only within that expanded research scope; ordinary-release green access is unassigned."
+        "W": "No independent native or grant Amass design was found for white in the complete saved population.",
+        "U": "Aven Eternal makes an Army on a flier, Callous Dismissal pairs Amass with bounce, and Commence the Endgame pairs it with card draw in War of the Spark. Deceive the Messenger and Saruman’s Trickery repeat blue Amass in The Lord of the Rings as debuff and counterspell support. These are established blue implementations, but they repeatedly attach Amass to blue tempo/card-advantage effects rather than black’s creature, enchantment, and attrition engine roles, supporting Secondary rather than Primary.",
+        "B": "Lazotep Reaver and Herald of the Dreadhorde establish black Amass in War of the Spark, while Mordor Muster, Orcish Bowmasters, and Mindless Conscription extend it through later releases. Those creature, enchantment, and spell roles make black Primary rather than the narrower Secondary access of its partners.",
+        "R": "Grim Initiate, Honor the God-Pharaoh, and Invading Manticore give red Amass aggressive and burn-adjacent roles in War of the Spark. Foray of Orcs and Swarming of Moria repeat it in The Lord of the Rings, supporting established Secondary access rather than black’s broader primary implementation.",
+        "G": "The saved green Amass observation is special/Un-set material rather than part of the released-paper driving population. It is retained as separated evidence, but cannot support a WUBRG tier claim, so green remains unresolved."
       },
-      "summary": "Black leads strongly, with substantial blue/red branches. The sole green design supports only a special-context provisional Tertiary.",
+      "summary": "Black is proposed Primary, with blue and red Secondary in the released-paper sample. Green special-set evidence is recorded separately and does not establish a paper tier.",
       "limitations": [
-        "The black Army token created by a blue/red spell does not make that spell black. Special sources such as Bin Chicken and You and Ooze Army? are not evidence of ordinary format availability. Barad-dur is colorless despite black identity."
+        "The black Army token created by a blue/red spell does not make that spell black. Special sources such as Bin Chicken and You and Ooze Army? are not evidence of ordinary format availability. Barad-dur is colorless despite black identity.",
+        "Draft conformance record; saved timestamps are historical cutoffs, not fresh queries."
       ],
       "citationCards": [
         {
@@ -1875,34 +2290,67 @@
       "label": "Scryfall-derived assessment - provisional",
       "researchDate": "2026-10-26",
       "kind": "derived",
-      "classification": "Provisional color placements",
+      "classification": "keyword action",
       "outsidePrimary": null,
       "relatedEffects": [],
-      "sources": [],
-      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAmass%5Cb/%20include%3Aextras"
+      "sources": [
+        {
+          "title": "Crafting the Ring, Part 2",
+          "url": "https://magic.wizards.com/en/news/making-magic/crafting-the-ring-part-2"
+        }
+      ],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAmass%5Cb/%20include%3Aextras",
+      "protocolVersion": "1.0",
+      "reviewStatus": "draft",
+      "judgmentDate": "2026-10-27",
+      "shortLabel": "Scryfall-derived",
+      "decisionStatus": {
+        "W": "no_support_in_sample",
+        "U": "assigned",
+        "B": "assigned",
+        "R": "assigned",
+        "G": "observed_tier_unresolved"
+      },
+      "decisionRoute": {
+        "W": null,
+        "U": "E3",
+        "B": "E3",
+        "R": "E3",
+        "G": null
+      },
+      "decisionConfidence": {
+        "W": "Moderate",
+        "U": "Moderate",
+        "B": "Moderate",
+        "R": "Moderate",
+        "G": "Low"
+      },
+      "outsideTier": null,
+      "outsideStatus": "not_applicable"
     },
     {
       "id": "deck:vocabulary:amplify",
       "name": "Amplify",
-      "scope": "Nine native designs: B3/G3/W2/R1; no blue.",
-      "confidence": "moderate",
+      "scope": "Saved Scryfall unique-card keyword and Oracle query population; released paper drives WUBRG decisions.",
+      "confidence": "Moderate",
       "placements": {
         "W": "Secondary",
         "U": null,
         "B": "Primary",
-        "R": "Tertiary",
+        "R": null,
         "G": "Primary"
       },
       "rationale": {
-        "W": "Aven Warhawk and Daru Stinger provide uncommon/common native examples. This repeated white access supports Secondary.",
-        "U": "No independent native or grant source in this color supports a placement in this sample; leave unassigned.",
-        "B": "Embalmed Brawler, Zombie Brute and Ghastly Remains cover common, uncommon and rare in a coherent Zombie branch: Primary.",
-        "R": "Kilnmouth Dragon is the sole red native design, a rare with Amplify 3. Its narrow, splashy use supports Tertiary.",
-        "G": "Glowering Rogon, Canopy Crawler and Feral Throwback span common through rare and multiple Amplify amounts: Primary."
+        "W": "Daru Stinger and Aven Warhawk give white Amplify Soldier and Bird applications at common and uncommon in the original Legions design. Two purposeful creature-type roles establish access, but their narrower spread than black and green supports Secondary rather than Primary.",
+        "U": "No independent native or grant Amplify design was found for blue in the complete saved population.",
+        "B": "Embalmed Brawler, Ghastly Remains, and Zombie Brute give black Amplify distinct Zombie roles at common, uncommon, and rare in Legions. That deliberate spread across the original tribal implementation supports Primary rather than a narrow exception.",
+        "R": "The saved screen observes Kilnmouth Dragon for red, but the evidence does not establish an independent role strong enough to distinguish Tertiary from uncertainty. The tier is left unresolved.",
+        "G": "Canopy Crawler, Glowering Rogon, and Feral Throwback give green Amplify Beast and tribal roles from common through rare in Legions. The original set’s deliberate multi-role implementation supports Primary rather than a conditional Secondary."
       },
-      "summary": "Black and green have full rarity-spanning clusters; white recurs at lower density; red has one high-rarity outlier.",
+      "summary": "Black and green have broad original tribal implementations; white is proposed Secondary. Red access is observed, but the saved evidence does not justify a tier for its singleton.",
       "limitations": [
-        "This is a small historical mechanic; rarity and functional breadth inform the proposal alongside counts. Reprints do not add independent designs."
+        "This is a small historical mechanic; rarity and functional breadth inform the proposal alongside counts. Reprints do not add independent designs.",
+        "Draft conformance record; saved timestamps are historical cutoffs, not fresh queries."
       ],
       "citationCards": [
         {
@@ -1945,17 +2393,49 @@
       "label": "Scryfall-derived assessment - provisional",
       "researchDate": "2026-10-26",
       "kind": "derived",
-      "classification": "Provisional color placements",
+      "classification": "keyword",
       "outsidePrimary": null,
       "relatedEffects": [],
-      "sources": [],
-      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAmplify%5Cb/%20include%3Aextras"
+      "sources": [
+        {
+          "title": "A La Mode",
+          "url": "https://magic.wizards.com/en/news/making-magic/a-la-mode-2014-02-24-0"
+        }
+      ],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAmplify%5Cb/%20include%3Aextras",
+      "protocolVersion": "1.0",
+      "reviewStatus": "draft",
+      "judgmentDate": "2026-10-27",
+      "shortLabel": "Scryfall-derived",
+      "decisionStatus": {
+        "W": "assigned",
+        "U": "no_support_in_sample",
+        "B": "assigned",
+        "R": "observed_tier_unresolved",
+        "G": "assigned"
+      },
+      "decisionRoute": {
+        "W": "E3",
+        "U": null,
+        "B": "E3",
+        "R": null,
+        "G": "E3"
+      },
+      "decisionConfidence": {
+        "W": "Moderate",
+        "U": "Moderate",
+        "B": "Moderate",
+        "R": "Low",
+        "G": "Moderate"
+      },
+      "outsideTier": null,
+      "outsideStatus": "not_applicable"
     },
     {
       "id": "deck:vocabulary:annihilator",
       "name": "Annihilator",
-      "scope": "Colorless / Outside the Five Colors",
-      "confidence": "Strong evidence for a colorless home",
+      "scope": "Released paper designs in the retained card snapshot; special material is recorded separately.",
+      "confidence": "User-selected; evidence supports Colorless access",
       "placements": {
         "W": null,
         "U": null,
@@ -1964,15 +2444,17 @@
         "G": null
       },
       "rationale": {
-        "W": "No independent W placement is assigned; see the classification and rationale below.",
-        "U": "No independent U placement is assigned; see the classification and rationale below.",
-        "B": "No independent B placement is assigned; see the classification and rationale below.",
-        "R": "No independent R placement is assigned; see the classification and rationale below.",
-        "G": "No independent G placement is assigned; see the classification and rationale below."
+        "W": "The released-paper native and grant sources in the saved sample are colorless. Slivdrazi Monstrosity is joint five-color playtest evidence; it cannot independently establish white as Primary, Secondary or Tertiary.",
+        "U": "The released-paper native and grant sources in the saved sample are colorless. Slivdrazi Monstrosity is joint five-color playtest evidence; it cannot independently establish blue as Primary, Secondary or Tertiary.",
+        "B": "The released-paper native and grant sources in the saved sample are colorless. Slivdrazi Monstrosity is joint five-color playtest evidence; it cannot independently establish black as Primary, Secondary or Tertiary.",
+        "R": "The released-paper native and grant sources in the saved sample are colorless. Slivdrazi Monstrosity is joint five-color playtest evidence; it cannot independently establish red as Primary, Secondary or Tertiary.",
+        "G": "The released-paper native and grant sources in the saved sample are colorless. Slivdrazi Monstrosity is joint five-color playtest evidence; it cannot independently establish green as Primary, Secondary or Tertiary."
       },
-      "summary": "The observed population is dominated by colorless native uses and grants. Primary: Colorless. Secondary: None. Tertiary: None. A five-color playtest grant does not establish independent W/U/B/R/G tiers.",
+      "summary": "Your Primary Colorless classification is retained. Colorless native designs such as Ulamog’s Crusher and Emrakul, the Aeons Torn, together with grants such as Eldrazi Conscription, support that description; the authority for this project classification remains your explicit decision.",
       "limitations": [
-        "Colorless is outside the five colors; it is not a sixth Magic color or a synonym for the colorless mana symbol."
+        "Card evidence reuses the complete or explicitly bounded October 26, 2026 snapshot; judgment reviewed October 27. No later card population is claimed.",
+        "Unassigned does not mean prohibited or impossible; these assessments do not enter the 2021 calculations.",
+        "Confidence in the user’s classification is not scored as an official design fact. Special objects and joint five-color playtest evidence are retained separately."
       ],
       "citationCards": [
         {
@@ -2076,37 +2558,65 @@
           "url": "https://scryfall.com/card/2x2/3/ulamog-the-infinite-gyre?utm_source=api"
         }
       ],
-      "label": "User-selected classification; Scryfall-derived rationale",
+      "label": "User-selected classification",
       "researchDate": "2026-10-26",
       "kind": "colorless",
-      "classification": "Colorless / Outside the Five Colors",
+      "classification": "colorless",
       "outsidePrimary": "Colorless",
       "relatedEffects": [],
       "sources": [],
-      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAnnihilator%5Cb/%20include%3Aextras"
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAnnihilator%5Cb/%20include%3Aextras",
+      "protocolVersion": "1.0",
+      "reviewStatus": "draft",
+      "judgmentDate": "2026-10-27",
+      "shortLabel": "User-selected",
+      "decisionStatus": {
+        "W": "no_support_in_sample",
+        "U": "no_support_in_sample",
+        "B": "no_support_in_sample",
+        "R": "no_support_in_sample",
+        "G": "no_support_in_sample"
+      },
+      "decisionRoute": {
+        "W": null,
+        "U": null,
+        "B": null,
+        "R": null,
+        "G": null
+      },
+      "decisionConfidence": {
+        "W": "Moderate",
+        "U": "Moderate",
+        "B": "Moderate",
+        "R": "Moderate",
+        "G": "Moderate"
+      },
+      "outsideTier": "Primary",
+      "outsideStatus": "assigned"
     },
     {
       "id": "deck:vocabulary:ascend",
       "name": "Ascend",
-      "scope": "Named Ascend uses plus separately qualified event-specific variants; one name-only result excluded.",
-      "confidence": "moderate",
+      "scope": "Saved Scryfall unique-card keyword and Oracle query population; released paper drives WUBRG decisions.",
+      "confidence": "Moderate",
       "placements": {
         "W": "Primary",
         "U": "Primary",
-        "B": "Secondary",
-        "R": "Tertiary",
-        "G": "Tertiary"
+        "B": "Primary",
+        "R": null,
+        "G": null
       },
       "rationale": {
-        "W": "Skymarcher Aspirant, Radiant Destiny, Ocelot Pride and Illustrious Wanderglyph show sustained native white use beyond one initial release: Primary.",
-        "U": "Secrets of the Golden City, Timestream Navigator and Detective of the Month show native blue use across rarity and releases: Primary.",
-        "B": "Dusk Charger, Golden Demise, Mausoleum Harpy, Twilight Prophet and Vona's Hunger give five native monoblack designs across rarities: Secondary.",
-        "R": "Storm Fleet Swashbuckler and Tilonalli's Summoner are a small native branch. Propose Tertiary relative to the broader white/blue/black populations.",
-        "G": "Tendershoot Dryad and Wayward Swordtooth are two rare native green designs. Their narrower high-rarity access supports a provisional Tertiary."
+        "W": "Skymarcher Aspirant, Snubhorn Sentry, Pride of Conquerors, and Radiant Destiny use Ascend for combat, creatures, and tribal payoff across Rivals of Ixalan. Ocelot Pride later repeats the keyword, making white Primary rather than a one-set Secondary.",
+        "U": "Secrets of the Golden City, Slippery Scoundrel, Spire Winder, and Timestream Navigator cover card draw, evasion, creatures, and a mythic payoff in Rivals of Ixalan. Detective of the Month later repeats blue Ascend, supporting Primary rather than a set-bound Secondary.",
+        "B": "Dusk Charger, Golden Demise, Mausoleum Harpy, Twilight Prophet, and Vona’s Hunger place Ascend on creature growth, a one-sided sweeper, death payoff, card-drain engine, and edict effect in Rivals of Ixalan. The common-through-mythic, varied-role original implementation meets the protocol’s broad-original Primary case. It is Primary rather than Secondary without relying on a later-release requirement.",
+        "R": "The saved screen observes Storm Fleet Swashbuckler, Tilonalli's Summoner for red, but the evidence does not establish an independent role strong enough to distinguish Tertiary from uncertainty. The tier is left unresolved.",
+        "G": "The saved screen observes Tendershoot Dryad, Wayward Swordtooth for green, but the evidence does not establish an independent role strong enough to distinguish Tertiary from uncertainty. The tier is left unresolved."
       },
-      "summary": "White and blue have broad native representation, black a substantial middle group, and red/green smaller branches.",
+      "summary": "White, blue and black each have broad original implementations and are proposed Primary. Red and green native access is retained without an unsupported Tertiary label.",
       "limitations": [
-        "Windy City Aven and Windy City Elemental are event-specific Ascend variants; they are qualified context and do not drive the primary homes. Colorless lands and equipment are separate; Ascend from Avernus is an unrelated name hit."
+        "Windy City Aven and Windy City Elemental are event-specific Ascend variants; they are qualified context and do not drive the primary homes. Colorless lands and equipment are separate; Ascend from Avernus is an unrelated name hit.",
+        "Draft conformance record; saved timestamps are historical cutoffs, not fresh queries."
       ],
       "citationCards": [
         {
@@ -2237,17 +2747,49 @@
       "label": "Scryfall-derived assessment - provisional",
       "researchDate": "2026-10-26",
       "kind": "derived",
-      "classification": "Provisional color placements",
+      "classification": "keyword",
       "outsidePrimary": null,
       "relatedEffects": [],
-      "sources": [],
-      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAscend%5Cb/%20include%3Aextras"
+      "sources": [
+        {
+          "title": "Rivals of Ixalan Mechanics",
+          "url": "https://magic.wizards.com/en/news/feature/rivals-ixalan-mechanics-2018-01-01"
+        }
+      ],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAscend%5Cb/%20include%3Aextras",
+      "protocolVersion": "1.0",
+      "reviewStatus": "draft",
+      "judgmentDate": "2026-10-27",
+      "shortLabel": "Scryfall-derived",
+      "decisionStatus": {
+        "W": "assigned",
+        "U": "assigned",
+        "B": "assigned",
+        "R": "observed_tier_unresolved",
+        "G": "observed_tier_unresolved"
+      },
+      "decisionRoute": {
+        "W": "E3",
+        "U": "E3",
+        "B": "E3",
+        "R": null,
+        "G": null
+      },
+      "decisionConfidence": {
+        "W": "Moderate",
+        "U": "Moderate",
+        "B": "Moderate",
+        "R": "Low",
+        "G": "Low"
+      },
+      "outsideTier": null,
+      "outsideStatus": "not_applicable"
     },
     {
       "id": "deck:vocabulary:assemble",
       "name": "Assemble",
-      "scope": "Contraption assembly in the special-set environment; reassembly-only and replacement-only support excluded from native counts.",
-      "confidence": "moderate within special-set scope",
+      "scope": "Complete Unstable special-set population; this special scope, not ordinary paper, drives every decision.",
+      "confidence": "Moderate",
       "placements": {
         "W": "Secondary",
         "U": "Secondary",
@@ -2256,15 +2798,16 @@
         "G": "Secondary"
       },
       "rationale": {
-        "W": "Aerial Toastmaster, Midlife Upgrade and Riveting Rigger directly assemble. This recurring access supports Secondary; it is not just a rare isolated exception.",
-        "U": "Crafty Octopus, Chipper Chopper, Incite Insight, Spell Suck and Very Cryptic Command give common through rare native actions: Secondary, close to red.",
-        "B": "Finders, Keepers, Overt Operative and Steady-Handed Mook directly assemble in removal, combat and entry contexts: Secondary.",
-        "R": "Work a Double, Steamfloggery, Steamflogger Temp and Steamflogger of the Month emphasize repeated or multiple assemblies. This breadth and six native red designs support Primary.",
-        "G": "First Pick, Joyride Rigger and Steamflogger Service Rep directly assemble in removal, entry and repeatable-trigger contexts: Secondary."
+        "W": "Aerial Toastmaster, Midlife Upgrade, and Riveting Rigger provide white assembling roles at common and uncommon in the complete Unstable-only scope. They are established support inside that special-set implementation, but lack red’s dedicated Rigger breadth, so Secondary rather than Primary.",
+        "U": "Chipper Chopper, Crafty Octopus, Incite Insight, Spell Suck, and Very Cryptic Command spread blue Assemble across creature, spell, and rare roles in Unstable. This supports established special-scope access; it remains Secondary because the original implementation centers the named Rigger suite in red.",
+        "B": "Finders, Keepers, Overt Operative, and Steady-Handed Mook give black three original Unstable roles from common to uncommon. That is more than an exception, but is narrower than red’s dedicated Contraption identity, supporting Secondary.",
+        "R": "Steamflogger Temp, Steamflogger of the Month, Steamfloggery, Work a Double, and Wrench-Rigger make red the dedicated Rigger/Contraption implementation in Unstable across common through rare. That concentrated original role makes red Primary rather than merely one of the supporting colors.",
+        "G": "First Pick, Joyride Rigger, and Steamflogger Service Rep establish green assembly roles at common and uncommon in Unstable. The complete special-scope sample supports Secondary access, not a Primary claim competing with red’s much more dedicated Rigger implementation."
       },
-      "summary": "Red has the strongest repeatable and multi-assembly profile; all other colors have recurring native access.",
+      "summary": "Within Unstable’s Contraption environment, red is proposed Primary and the other colors Secondary. These scoped judgments do not describe ordinary-paper keyword availability.",
       "limitations": [
-        "Special-set scope does not imply ordinary Commander legality. Cogmentor and Suspicious Nanny only reassemble. Steamflogger Boss doubles another assembly source and is retained as contextual red support, not a native source."
+        "Special-set scope does not imply ordinary Commander legality. Cogmentor and Suspicious Nanny only reassemble. Steamflogger Boss doubles another assembly source and is retained as contextual red support, not a native source.",
+        "Draft conformance record; saved timestamps are historical cutoffs, not fresh queries."
       ],
       "citationCards": [
         {
@@ -2359,34 +2902,68 @@
       "label": "Scryfall-derived assessment - provisional",
       "researchDate": "2026-10-26",
       "kind": "derived",
-      "classification": "Provisional color placements",
+      "classification": "keyword action",
       "outsidePrimary": null,
       "relatedEffects": [],
-      "sources": [],
-      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAssemble%5Cb/%20include%3Aextras"
+      "sources": [
+        {
+          "title": "Unstable Mechanics",
+          "url": "https://magic.wizards.com/en/news/card-preview/unstable-mechanics-2017-11-13"
+        }
+      ],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAssemble%5Cb/%20include%3Aextras",
+      "protocolVersion": "1.0",
+      "reviewStatus": "draft",
+      "judgmentDate": "2026-10-27",
+      "shortLabel": "Scryfall-derived",
+      "decisionStatus": {
+        "W": "assigned",
+        "U": "assigned",
+        "B": "assigned",
+        "R": "assigned",
+        "G": "assigned"
+      },
+      "decisionRoute": {
+        "W": "E3",
+        "U": "E3",
+        "B": "E3",
+        "R": "E3",
+        "G": "E3"
+      },
+      "decisionConfidence": {
+        "W": "Moderate",
+        "U": "Moderate",
+        "B": "Moderate",
+        "R": "Moderate",
+        "G": "Moderate"
+      },
+      "outsideTier": null,
+      "outsideStatus": "not_applicable"
     },
     {
       "id": "deck:catalog-gaps:assimilate",
       "name": "Assimilate",
-      "scope": "Eight Star Trek preview-era records: seven have only future saved printings; Borg Queen, Perfection Manifest also has an October 8, 2026 promo printing.",
-      "confidence": "low; preview-era sample",
+      "scope": "Star Trek preview-era evidence, with Borg Queen, Perfection Manifest’s earlier promo recorded separately; no established WUBRG tier.",
+      "confidence": "Low; observed tiers unresolved",
       "placements": {
         "W": null,
-        "U": "Secondary",
-        "B": "Primary",
+        "U": null,
+        "B": null,
         "R": null,
         "G": null
       },
       "rationale": {
-        "W": "Borg Cube, The Best of Both Worlds and The Borg Queen include white jointly with black or blue. These do not isolate white's contribution well enough for an independent tier.",
-        "U": "Gift of Perfection directly assimilates revealed creature cards as a monoblue spell. Joint WU/WUB designs reinforce blue involvement; propose Secondary, with low confidence from one independent source.",
-        "B": "Four monoblack sources, including Assimilate the Wounded, Assimilation Assessor and Death Is Irrelevant, form the dominant independent cluster. Propose Primary within the preview sample.",
-        "R": "No independent native or grant source in this color supports a placement in this sample; leave unassigned.",
-        "G": "No independent native or grant source in this color supports a placement in this sample; leave unassigned."
+        "W": "The saved sample shows joint white Assimilate access, chiefly on cards with future printings at the cutoff. Borg Queen, Perfection Manifest has an earlier promo printing, but that limited release does not establish an independent white pattern. The tier remains unresolved rather than extending a preview distribution into a settled placement.",
+        "U": "The saved sample shows native and joint blue Assimilate access, chiefly on cards with future printings at the cutoff. Borg Queen, Perfection Manifest has an earlier promo printing, but that limited release does not establish an independent blue pattern. The tier remains unresolved rather than extending a preview distribution into a settled placement.",
+        "B": "The saved sample shows native and joint black Assimilate access, chiefly on cards with future printings at the cutoff. Borg Queen, Perfection Manifest has an earlier promo printing, but that limited release does not establish an independent black pattern. The tier remains unresolved rather than extending a preview distribution into a settled placement.",
+        "R": "No independent native or grant Assimilate design was found for red in the complete saved population.",
+        "G": "No independent native or grant Assimilate design was found for green in the complete saved population."
       },
-      "summary": "Black leads the preview sample, blue has direct native access, and white remains joint-color evidence without an independent tier.",
+      "summary": "The saved population is chiefly Star Trek previews. Borg Queen, Perfection Manifest has an earlier promo printing, but the limited released-paper evidence and preview-only independent colors do not establish WUBRG tiers.",
       "limitations": [
-        "Preview-era assessment: all eight representative set printings release November 13, 2026, but one design has an earlier PURL promo. Incomplete set exposure can change these judgments. Empty games/legality fields on previews are not treated as invalid cards. No final release color policy or Commander availability is asserted."
+        "Preview-era assessment: all eight representative set printings release November 13, 2026, but one design has an earlier PURL promo. Incomplete set exposure can change these judgments. Empty games/legality fields on previews are not treated as invalid cards. No final release color policy or Commander availability is asserted.",
+        "Draft conformance record; saved timestamps are historical cutoffs, not fresh queries.",
+        "The recorded October 8 promo is not treated as though every Star Trek preview were already released."
       ],
       "citationCards": [
         {
@@ -2425,34 +3002,67 @@
       "label": "Scryfall-derived assessment - provisional",
       "researchDate": "2026-10-26",
       "kind": "derived",
-      "classification": "Provisional color placements",
+      "classification": "keyword",
       "outsidePrimary": null,
       "relatedEffects": [],
-      "sources": [],
-      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAssimilate%5Cb/%20include%3Aextras"
+      "sources": [
+        {
+          "title": "Collecting Magic: The Gathering | Star Trek",
+          "url": "https://magic.wizards.com/en/news/feature/collecting-star-trek"
+        }
+      ],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAssimilate%5Cb/%20include%3Aextras",
+      "protocolVersion": "1.0",
+      "reviewStatus": "draft",
+      "judgmentDate": "2026-10-27",
+      "shortLabel": "Scryfall-derived",
+      "decisionStatus": {
+        "W": "observed_tier_unresolved",
+        "U": "observed_tier_unresolved",
+        "B": "observed_tier_unresolved",
+        "R": "no_support_in_sample",
+        "G": "no_support_in_sample"
+      },
+      "decisionRoute": {
+        "W": null,
+        "U": null,
+        "B": null,
+        "R": null,
+        "G": null
+      },
+      "decisionConfidence": {
+        "W": "Low",
+        "U": "Low",
+        "B": "Low",
+        "R": "Moderate",
+        "G": "Moderate"
+      },
+      "outsideTier": null,
+      "outsideStatus": "not_applicable"
     },
     {
       "id": "deck:vocabulary:assist",
       "name": "Assist",
-      "scope": "Native Assist and explicit grants, with the special Assist-kicker variant qualified separately.",
-      "confidence": "moderate",
+      "scope": "Complete Battlebond multiplayer-set population plus saved later native/grant observations; the multiplayer scope drives decisions.",
+      "confidence": "Moderate",
       "placements": {
         "W": "Primary",
         "U": "Primary",
-        "B": "Secondary",
+        "B": "Primary",
         "R": "Secondary",
         "G": "Secondary"
       },
       "rationale": {
-        "W": "Dwarven Lightsmith, Bring Down, Play of the Game and Skystreamer span common to rare; Yume, Chronicler of Valor explicitly grants Assist. This breadth supports Primary.",
-        "U": "Huddle Up, Spellweaver Duo, Out of Bounds and Game Plan span common to rare across several spell effects: Primary.",
-        "B": "Bloodborn Scoundrels, Fan Favorite and Gang Up establish repeated native monoblack access; Vampire Charmseeker is additional joint UB evidence: Secondary.",
-        "R": "Magma Hellion and Lava-Field Overlord provide common/uncommon native Assist. All-Star Kicker is only a qualified special variant. Ordinary repeated access supports Secondary.",
-        "G": "Charging Binox and The Crowd Goes Wild provide common/uncommon native use. Though only two designs, this is recurring core access rather than a high-rarity exception: Secondary."
+        "W": "Bring Down, Dwarven Lightsmith, Play of the Game, and Skystreamer put Assist on white removal, creature, and rare spell roles in Battlebond. The deliberate common-to-rare original implementation makes white Primary within Assist’s multiplayer scope rather than a narrower Secondary.",
+        "U": "Game Plan, Huddle Up, Out of Bounds, and Spellweaver Duo give blue Assist card-draw, tempo, and creature roles in Battlebond. Their deliberate rarity and role spread establishes blue as a Primary special-scope home, not merely secondary support.",
+        "B": "Bloodborn Scoundrels and Fan Favorite are black common Assist creatures, while Gang Up is a black uncommon Assist sorcery. These original creature and spell roles establish Primary within Assist’s Battlebond multiplayer scope rather than Secondary.",
+        "R": "Lava-Field Overlord and Magma Hellion are the original red Battlebond Assist designs, both creature applications at uncommon and common. All-Star Kicker is a Mystery Booster playtest Assist-kicker variant and is recorded separately, not used as released-paper recurrence. The two same-role original applications support Secondary rather than Primary.",
+        "G": "Charging Binox is a green common Assist creature and The Crowd Goes Wild is a green uncommon Assist sorcery in Battlebond. Those distinct original applications establish Secondary access in the multiplayer scope, but the saved evidence does not show enough breadth to call green a Primary home."
       },
-      "summary": "White and blue have the broadest profiles; black, red and green each have recurring independent access.",
+      "summary": "Assist is assessed within its Battlebond multiplayer implementation. White, blue and black are proposed Primary; red and green Secondary. The later playtest variant is retained separately.",
       "limitations": [
-        "All-Star Kicker modifies the payment of a kicker cost and is treated as a special variant, not another ordinary Assist spell. Receiving Assist from Yume does not assign the mechanic independently to every recipient color."
+        "All-Star Kicker modifies the payment of a kicker cost and is treated as a special variant, not another ordinary Assist spell. Receiving Assist from Yume does not assign the mechanic independently to every recipient color.",
+        "Draft conformance record; saved timestamps are historical cutoffs, not fresh queries."
       ],
       "citationCards": [
         {
@@ -2531,17 +3141,49 @@
       "label": "Scryfall-derived assessment - provisional",
       "researchDate": "2026-10-26",
       "kind": "derived",
-      "classification": "Provisional color placements",
+      "classification": "keyword",
       "outsidePrimary": null,
       "relatedEffects": [],
-      "sources": [],
-      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAssist%5Cb/%20include%3Aextras"
+      "sources": [
+        {
+          "title": "Battlebond Mechanics",
+          "url": "https://magic.wizards.com/en/news/feature/battlebond-mechanics-2018-05-21"
+        }
+      ],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAssist%5Cb/%20include%3Aextras",
+      "protocolVersion": "1.0",
+      "reviewStatus": "draft",
+      "judgmentDate": "2026-10-27",
+      "shortLabel": "Scryfall-derived",
+      "decisionStatus": {
+        "W": "assigned",
+        "U": "assigned",
+        "B": "assigned",
+        "R": "assigned",
+        "G": "assigned"
+      },
+      "decisionRoute": {
+        "W": "E3",
+        "U": "E3",
+        "B": "E3",
+        "R": "E3",
+        "G": "E3"
+      },
+      "decisionConfidence": {
+        "W": "Moderate",
+        "U": "Moderate",
+        "B": "Moderate",
+        "R": "Moderate",
+        "G": "Moderate"
+      },
+      "outsideTier": null,
+      "outsideStatus": "not_applicable"
     },
     {
       "id": "deck:catalog-gaps:attach",
       "name": "Attach",
-      "scope": "Generic rules action, with linked effect-specific color-pie evidence",
-      "confidence": "Not applicable to the general rules action",
+      "scope": "General rules vocabulary; individual effects require separate color-pie assessments.",
+      "confidence": "Not applicable",
       "placements": {
         "W": null,
         "U": null,
@@ -2550,19 +3192,23 @@
         "G": null
       },
       "rationale": {
-        "W": "No independent W placement is assigned; see the classification and rationale below.",
-        "U": "No independent U placement is assigned; see the classification and rationale below.",
-        "B": "No independent B placement is assigned; see the classification and rationale below.",
-        "R": "No independent R placement is assigned; see the classification and rationale below.",
-        "G": "No independent G placement is assigned; see the classification and rationale below."
+        "W": "The generic Attach action stays unranked. Blue Primary remains separately attributed to the 2017 moving-enchantments/counters effect, which is narrower than all attachment actions. This applies equally to white.",
+        "U": "The generic Attach action stays unranked. Blue Primary remains separately attributed to the 2017 moving-enchantments/counters effect, which is narrower than all attachment actions. This applies equally to blue.",
+        "B": "The generic Attach action stays unranked. Blue Primary remains separately attributed to the 2017 moving-enchantments/counters effect, which is narrower than all attachment actions. This applies equally to black.",
+        "R": "The generic Attach action stays unranked. Blue Primary remains separately attributed to the 2017 moving-enchantments/counters effect, which is narrower than all attachment actions. This applies equally to red.",
+        "G": "The generic Attach action stays unranked. Blue Primary remains separately attributed to the 2017 moving-enchantments/counters effect, which is narrower than all attachment actions. This applies equally to green."
       },
-      "summary": "Preserve the distinction between the generic Attach action and moving already attached enchantments. The 2017 article provides explicit Blue Primary evidence for its named Moving enchantments/counters category. Record that evidence alongside Attach rather than expanding the claim to every Equip or Aura-attachment action. Counter movement is also not itself the rules action of attaching a permanent.",
-      "limitations": [],
+      "summary": "The generic Attach action stays unranked. Blue Primary remains separately attributed to the 2017 moving-enchantments/counters effect, which is narrower than all attachment actions.",
+      "limitations": [
+        "Card evidence reuses the complete or explicitly bounded October 26, 2026 snapshot; judgment reviewed October 27. No later card population is claimed.",
+        "Unassigned does not mean prohibited or impossible; these assessments do not enter the 2021 calculations.",
+        "The retained Oracle query is a first-page illustration, not a complete population. No presence-frequency or absence conclusion is drawn from it."
+      ],
       "citationCards": [],
       "label": "Rules action - not ranked",
       "researchDate": "2026-10-26",
       "kind": "rules",
-      "classification": "Generic rules action, with linked effect-specific color-pie evidence",
+      "classification": "rules_action",
       "outsidePrimary": null,
       "relatedEffects": [
         {
@@ -2581,38 +3227,66 @@
       ],
       "sources": [
         {
-          "title": "Moving enchantments/counters",
-          "url": "https://magic.wizards.com/en/news/making-magic/mechanical-color-pie-2017-2017-06-05"
-        },
-        {
           "title": "Evergreen Eggs & Ham (2015)",
           "url": "https://magic.wizards.com/en/news/making-magic/evergreen-eggs-ham-2015-06-08"
+        },
+        {
+          "title": "Mechanical Color Pie 2017",
+          "url": "https://magic.wizards.com/en/news/making-magic/mechanical-color-pie-2017-2017-06-05"
         }
       ],
-      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAttach%5Cb/%20include%3Aextras"
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAttach%5Cb/%20include%3Aextras",
+      "protocolVersion": "1.0",
+      "reviewStatus": "draft",
+      "judgmentDate": "2026-10-27",
+      "shortLabel": "Rules action",
+      "decisionStatus": {
+        "W": "not_applicable",
+        "U": "not_applicable",
+        "B": "not_applicable",
+        "R": "not_applicable",
+        "G": "not_applicable"
+      },
+      "decisionRoute": {
+        "W": null,
+        "U": null,
+        "B": null,
+        "R": null,
+        "G": null
+      },
+      "decisionConfidence": {
+        "W": "Not applicable",
+        "U": "Not applicable",
+        "B": "Not applicable",
+        "R": "Not applicable",
+        "G": "Not applicable"
+      },
+      "outsideTier": null,
+      "outsideStatus": "not_applicable"
     },
     {
       "id": "deck:catalog-gaps:augment",
       "name": "Augment",
-      "scope": "Fourteen cards with native Augment in the special-set environment; support-only combining/tutoring/reward cards kept separately.",
-      "confidence": "low-to-moderate within special-set scope",
+      "scope": "Complete Unstable/Unsanctioned special-set population; this special scope, not ordinary paper, drives every decision.",
+      "confidence": "Moderate",
       "placements": {
-        "W": "Secondary",
-        "U": "Tertiary",
-        "B": "Secondary",
-        "R": "Tertiary",
+        "W": "Primary",
+        "U": null,
+        "B": "Primary",
+        "R": null,
         "G": "Primary"
       },
       "rationale": {
-        "W": "Half-Kitten, Half-, Humming- and Rhino- give three native white designs, including a common: Secondary. White combination/tutor support is context, not additional native keyword cards.",
-        "U": "Half-Shark, Half- is the sole native blue example. Propose Tertiary for this narrow special-set access.",
-        "B": "Bat-, Ninja and Zombified provide three distinct native black designs, including altered activation timing and graveyard interaction: Secondary.",
-        "R": "Half-Orc, Half- is the sole native red example. Propose Tertiary within the special-set scope.",
-        "G": "Half-Squirrel, Half-, Monkey-, Multi-Headed and Serpentine give four native green designs spanning common, uncommon and rare. The slightly broader native range supports a tentative Primary."
+        "W": "Half-Kitten, Half-, Humming-, and Rhino- give white multiple Host-combining Augment roles from common to uncommon in Unstable. This deliberate original special-set spread supports Primary rather than a count-based Secondary.",
+        "U": "The saved screen observes Half-Shark, Half- for blue, but the evidence does not establish an independent role strong enough to distinguish Tertiary from uncertainty. The tier is left unresolved.",
+        "B": "Bat-, Ninja, and Zombified place Augment on three black Host-combining designs across Unstable and Unsanctioned. The repeated original and later special-set use supports Primary within this special-only mechanic rather than Secondary.",
+        "R": "The saved screen observes Half-Orc, Half- for red, but the evidence does not establish an independent role strong enough to distinguish Tertiary from uncertainty. The tier is left unresolved.",
+        "G": "Monkey-, Multi-Headed, and Serpentine give green Augment common, uncommon, and rare roles in the original special-set environment. That designed rarity spread supports Primary rather than a narrow Secondary."
       },
-      "summary": "Green leads slightly with broader rarity coverage; white and black recur, while blue/red each have one native design.",
+      "summary": "White, black and green have multiple native Host-combining designs and proposed Primary homes within the special-set environment. Blue and red singleton access remains tier-unresolved.",
       "limitations": [
-        "Support cards such as Dr. Julius Jumblemorph and Teacher's Pet can combine cards but do not themselves have or grant Augment; their excluded status concerns native counts, not practical support. The small G/W/B difference makes exact tier boundaries tentative."
+        "Support cards such as Dr. Julius Jumblemorph and Teacher's Pet can combine cards but do not themselves have or grant Augment; their excluded status concerns native counts, not practical support. The small G/W/B difference makes exact tier boundaries tentative.",
+        "Draft conformance record; saved timestamps are historical cutoffs, not fresh queries."
       ],
       "citationCards": [
         {
@@ -2675,34 +3349,67 @@
       "label": "Scryfall-derived assessment - provisional",
       "researchDate": "2026-10-26",
       "kind": "derived",
-      "classification": "Provisional color placements",
+      "classification": "keyword",
       "outsidePrimary": null,
       "relatedEffects": [],
-      "sources": [],
-      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAugment%5Cb/%20include%3Aextras"
+      "sources": [
+        {
+          "title": "Unstable Mechanics",
+          "url": "https://magic.wizards.com/en/news/card-preview/unstable-mechanics-2017-11-13"
+        }
+      ],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAugment%5Cb/%20include%3Aextras",
+      "protocolVersion": "1.0",
+      "reviewStatus": "draft",
+      "judgmentDate": "2026-10-27",
+      "shortLabel": "Scryfall-derived",
+      "decisionStatus": {
+        "W": "assigned",
+        "U": "observed_tier_unresolved",
+        "B": "assigned",
+        "R": "observed_tier_unresolved",
+        "G": "assigned"
+      },
+      "decisionRoute": {
+        "W": "E3",
+        "U": null,
+        "B": "E3",
+        "R": null,
+        "G": "E3"
+      },
+      "decisionConfidence": {
+        "W": "Moderate",
+        "U": "Low",
+        "B": "Moderate",
+        "R": "Low",
+        "G": "Moderate"
+      },
+      "outsideTier": null,
+      "outsideStatus": "not_applicable"
     },
     {
       "id": "deck:vocabulary:aura swap",
       "name": "Aura Swap",
-      "scope": "Single observed native design: Arcanum Wings.",
-      "confidence": "low",
+      "scope": "Saved Scryfall unique-card keyword and Oracle query population; released paper drives WUBRG decisions.",
+      "confidence": "Low; observed tiers unresolved",
       "placements": {
         "W": null,
-        "U": "Primary",
+        "U": null,
         "B": null,
         "R": null,
         "G": null
       },
       "rationale": {
-        "W": "No independent native or grant source in this color supports a placement in this sample; leave unassigned.",
-        "U": "Arcanum Wings is a monoblue uncommon with the Aura swap activation {2}{U}. Blue is the sole observed native home: provisional Primary, following the same sparse-evidence convention as Absorb.",
-        "B": "No independent native or grant source in this color supports a placement in this sample; leave unassigned.",
-        "R": "No independent native or grant source in this color supports a placement in this sample; leave unassigned.",
-        "G": "No independent native or grant source in this color supports a placement in this sample; leave unassigned."
+        "W": "No independent native or grant Aura Swap design was found for white in the complete saved population.",
+        "U": "Arcanum Wings is a blue Future Sight Aura with Aura Swap, so blue access is observed in the complete saved paper sample. Back to the Future Sight says Aura Swap was created to make Auras more playable and was inspired by ninjutsu, but it does not identify blue as the mechanic’s intended home. That design discussion cannot provide the color-specific independent-context bridge required for a proposed Primary home, so the tier remains unresolved.",
+        "B": "No independent native or grant Aura Swap design was found for black in the complete saved population.",
+        "R": "No independent native or grant Aura Swap design was found for red in the complete saved population.",
+        "G": "No independent native or grant Aura Swap design was found for green in the complete saved population."
       },
-      "summary": "Blue is the only evidenced home, so propose Primary with low confidence rather than invent other tiers.",
+      "summary": "Blue Aura Swap access is observed, but its singleton and general design history do not establish the color-specific context required for a proposed tier.",
       "limitations": [
-        "One design cannot establish a broad enduring color policy. An Aura swapped in from another color does not supply a native Aura Swap source of that color."
+        "One design cannot establish a broad enduring color policy. An Aura swapped in from another color does not supply a native Aura Swap source of that color.",
+        "Draft conformance record; saved timestamps are historical cutoffs, not fresh queries."
       ],
       "citationCards": [
         {
@@ -2713,34 +3420,67 @@
       "label": "Scryfall-derived assessment - provisional",
       "researchDate": "2026-10-26",
       "kind": "derived",
-      "classification": "Provisional color placements",
+      "classification": "keyword",
       "outsidePrimary": null,
       "relatedEffects": [],
-      "sources": [],
-      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAura%20Swap%5Cb/%20include%3Aextras"
+      "sources": [
+        {
+          "title": "Back to the Future Sight",
+          "url": "https://magic.wizards.com/en/news/making-magic/back-future-sight-2020-08-03"
+        }
+      ],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAura%20Swap%5Cb/%20include%3Aextras",
+      "protocolVersion": "1.0",
+      "reviewStatus": "draft",
+      "judgmentDate": "2026-10-27",
+      "shortLabel": "Scryfall-derived",
+      "decisionStatus": {
+        "W": "no_support_in_sample",
+        "U": "observed_tier_unresolved",
+        "B": "no_support_in_sample",
+        "R": "no_support_in_sample",
+        "G": "no_support_in_sample"
+      },
+      "decisionRoute": {
+        "W": null,
+        "U": null,
+        "B": null,
+        "R": null,
+        "G": null
+      },
+      "decisionConfidence": {
+        "W": "Moderate",
+        "U": "Low",
+        "B": "Moderate",
+        "R": "Moderate",
+        "G": "Moderate"
+      },
+      "outsideTier": null,
+      "outsideStatus": "not_applicable"
     },
     {
       "id": "deck:vocabulary:awaken",
       "name": "Awaken",
-      "scope": "15 native keyword designs after excluding two name coincidences and one support card.",
-      "confidence": "moderate",
+      "scope": "Saved Scryfall unique-card keyword and Oracle query population; released paper drives WUBRG decisions.",
+      "confidence": "Moderate",
       "placements": {
         "W": "Primary",
         "U": "Primary",
         "B": "Secondary",
-        "R": "Tertiary",
-        "G": "Tertiary"
+        "R": null,
+        "G": null
       },
       "rationale": {
-        "W": "Sheer Drop, Encircling Fissure, Ondu Rising and Planar Outburst span common through rare; Roil Spout adds joint WU evidence. This is a main keyword home: Primary.",
-        "U": "Clutch of Currents, Rush of Ice, Coastal Discovery, Scatter to the Winds and Part the Waterveil cover common through mythic. This breadth supports Primary.",
-        "B": "Mire's Malice, Rising Miasma and Ruinous Path span common, uncommon and rare. Recurring independent access supports Secondary.",
-        "R": "Boiling Earth is the sole native red Awaken design in the sample. Propose Tertiary by its narrow branch, while noting it occurs at common.",
-        "G": "Earthen Arms is the sole native green Awaken design. Propose Tertiary for this exact keyword; do not import green's broader land-animation placement."
+        "W": "Sheer Drop, Encircling Fissure, Ondu Rising, and Planar Outburst give white Awaken removal, prevention, life, and mass-removal roles in Battle for Zendikar. That broad original common-to-rare implementation supports Primary rather than a narrower Secondary.",
+        "U": "Rush of Ice, Clutch of Currents, Coastal Discovery, Scatter to the Winds, and Part the Waterveil give blue Awaken tempo, draw, counterspell, and mythic extra-turn roles. The original implementation spans common through mythic, making blue Primary rather than Secondary.",
+        "B": "Mire’s Malice, Rising Miasma, and Ruinous Path put Awaken on discard, sweeper, and creature/planeswalker removal in Battle for Zendikar. Those three distinct original roles establish Secondary access, while the absence of a broader native spread than white or blue keeps it below Primary.",
+        "R": "The saved screen observes Boiling Earth for red, but the evidence does not establish an independent role strong enough to distinguish Tertiary from uncertainty. The tier is left unresolved.",
+        "G": "The saved screen observes Earthen Arms for green, but the evidence does not establish an independent role strong enough to distinguish Tertiary from uncertainty. The tier is left unresolved."
       },
-      "summary": "Blue and white have the broadest native branches; black recurs, while red/green have one native common each.",
+      "summary": "White and blue have broad spell-role implementations and proposed Primary placements; black is proposed Secondary. Red and green are observed but remain unresolved rather than automatically Tertiary.",
       "limitations": [
-        "The 2021 land-animation entry is untouched and not mapped to Awaken. Halimar Tidecaller is support; Awaken the Inferno and Awaken the Maelstrom are unrelated name matches. Tertiary here describes narrow keyword use, not a universal rarity requirement."
+        "The 2021 land-animation entry is untouched and not mapped to Awaken. Halimar Tidecaller is support; Awaken the Inferno and Awaken the Maelstrom are unrelated name matches. Tertiary here describes narrow keyword use, not a universal rarity requirement.",
+        "Draft conformance record; saved timestamps are historical cutoffs, not fresh queries."
       ],
       "citationCards": [
         {
@@ -2807,11 +3547,43 @@
       "label": "Scryfall-derived assessment - provisional",
       "researchDate": "2026-10-26",
       "kind": "derived",
-      "classification": "Provisional color placements",
+      "classification": "keyword",
       "outsidePrimary": null,
       "relatedEffects": [],
-      "sources": [],
-      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAwaken%5Cb/%20include%3Aextras"
+      "sources": [
+        {
+          "title": "Battle for Zendikar Mechanics",
+          "url": "https://magic.wizards.com/en/news/feature/battle-for-zendikar-mechanics"
+        }
+      ],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAwaken%5Cb/%20include%3Aextras",
+      "protocolVersion": "1.0",
+      "reviewStatus": "draft",
+      "judgmentDate": "2026-10-27",
+      "shortLabel": "Scryfall-derived",
+      "decisionStatus": {
+        "W": "assigned",
+        "U": "assigned",
+        "B": "assigned",
+        "R": "observed_tier_unresolved",
+        "G": "observed_tier_unresolved"
+      },
+      "decisionRoute": {
+        "W": "E3",
+        "U": "E3",
+        "B": "E3",
+        "R": null,
+        "G": null
+      },
+      "decisionConfidence": {
+        "W": "Moderate",
+        "U": "Moderate",
+        "B": "Moderate",
+        "R": "Low",
+        "G": "Low"
+      },
+      "outsideTier": null,
+      "outsideStatus": "not_applicable"
     }
   ]
 }

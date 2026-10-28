@@ -1,0 +1,45 @@
+# A mechanics: protocol v1.0 review
+
+Card evidence: retained October 26, 2026 snapshot. Judgment: October 27, 2026 (America/Denver). Original design-source captures have their own UTC retrieval dates.
+
+25 supplemental mechanics reassessed. Frozen 2021 entries, identities and calculations are unchanged. Three canonical protocol record files contain decisions, scope, raw-evidence mappings, alternative judgments and revisions. Prior packets remain intact.
+
+P/S/T = Primary/Secondary/Tertiary. A dash means unassigned; each record distinguishes observed-but-unresolved, no support in the scoped sample, and not applicable. Special/digital/preview populations are identified in scope.
+
+| Mechanic | W | U | B | R | G | Colorless | Changes from prior preview | Scope / conclusion |
+|---|---|---|---|---|---|---|---|---|
+| Abandon | — | — | — | — | — | Not assigned | No tier change; rationale/status reviewed | Abandon is an Archenemy scheme operation, not a colored spell effect. Its rules classification is supported independently of the Scryfall sample, so no P/S/T tiers apply. |
+| Absorb | Primary | — | — | — | — | Not assigned | No tier change; rationale/status reviewed | White remains a proposed Primary home, with Low confidence. Lymph Sliver is the sole printed design in the saved sample; the independent armor design history supports a proposal without establishing a recurring pattern. |
+| Activate | — | — | — | — | — | Not assigned | No tier change; rationale/status reviewed | Activate names a common rules operation. Assessing the effects of activated abilities requires separate entries; the shared verb itself has no P/S/T ranking. |
+| Actualize | — | — | — | — | — | Not assigned | U: Primary → unassigned; G: Secondary → unassigned | Four native designs in one Arena-only digital set: blue 2, green 1, and colorless 1; direct access is observed but no colored tier is assigned. |
+| Adamant | Primary | Primary | Primary | Primary | Primary | Not assigned | No tier change; rationale/status reviewed | Treat all five colors as co-primary for this deliberately balanced monocolor reward mechanic. |
+| Adapt | — | — | — | — | Primary | Not assigned | W: Tertiary → unassigned; U: Secondary → unassigned; B: Secondary → unassigned | Green leads; blue and black have recurring independent use; white has one narrow native example. |
+| Addendum | Primary | Primary | — | — | — | Not assigned | U: Secondary → Primary | Ten native Addendum designs in the intended WU guild implementation: five white, three blue, and two joint WU; both colored branches are provisionally Primary. |
+| Affinity | — | Primary | — | — | — | Not assigned | W: Secondary → unassigned; B: Tertiary → unassigned; R: Secondary → unassigned; G: Tertiary → unassigned | Blue has the deepest independent population; white and red recur broadly; black and green form smaller branches. |
+| Affinitycycling | — | — | — | — | — | Observed; tier unresolved | Colorless Primary → observed, tier unresolved | Sojourner’s Enforcermite establishes Colorless Affinitycycling access in designer/playtest material. A singleton without independent design context cannot distinguish a principal home from an experiment, so its previous Primary tier is now unassigned. |
+| Afflict | — | Tertiary | Secondary | Primary | — | Not assigned | No tier change; rationale/status reviewed | Afflict makes blocking costly even when the attacker does not deal combat damage to the defending player. Red is the best-supported primary home, black has established secondary access, and blue is a set-specific tertiary case. The judgment weighs design commentary and card history; it does not turn card counts into tiers. |
+| Afterlife | Primary | — | Primary | — | — | Not assigned | B: Secondary → Primary | Twelve native/grant Afterlife designs in the intended Orzhov implementation: white 5, black 3, and joint WB 4; both colored branches are provisionally Primary. |
+| Aftermath | Primary | Primary | Primary | Primary | Primary | Not assigned | No tier change; rationale/status reviewed | All five colors have comparable independent Aftermath-face representation, so propose co-primary access. |
+| Airbend | Primary | — | — | — | — | Not assigned | U: Tertiary → unassigned | White is the clear home; blue has one independent native spell and joint white-blue access. |
+| Alliance | Primary | — | — | Primary | Primary | Not assigned | G: Secondary → Primary | White, red and green are proposed principal homes in the native Alliance implementation. Blue has only joint evidence in the saved sample, and black has no qualifying source. |
+| Amass | — | Secondary | Primary | Secondary | — | Not assigned | G: Tertiary → unassigned | Black is proposed Primary, with blue and red Secondary in the released-paper sample. Green special-set evidence is recorded separately and does not establish a paper tier. |
+| Amplify | Secondary | — | Primary | — | Primary | Not assigned | R: Tertiary → unassigned | Black and green have broad original tribal implementations; white is proposed Secondary. Red access is observed, but the saved evidence does not justify a tier for its singleton. |
+| Annihilator | — | — | — | — | — | Primary (user-selected) | No tier change; rationale/status reviewed | Your Primary Colorless classification is retained. Colorless native designs such as Ulamog’s Crusher and Emrakul, the Aeons Torn, together with grants such as Eldrazi Conscription, support that description; the authority for this project classification remains your explicit decision. |
+| Ascend | Primary | Primary | Primary | — | — | Not assigned | B: Secondary → Primary; R: Tertiary → unassigned; G: Tertiary → unassigned | White, blue and black each have broad original implementations and are proposed Primary. Red and green native access is retained without an unsupported Tertiary label. |
+| Assemble | Secondary | Secondary | Secondary | Primary | Secondary | Not assigned | No tier change; rationale/status reviewed | Within Unstable’s Contraption environment, red is proposed Primary and the other colors Secondary. These scoped judgments do not describe ordinary-paper keyword availability. |
+| Assimilate | — | — | — | — | — | Not assigned | U: Secondary → unassigned; B: Primary → unassigned | The saved population is chiefly Star Trek previews. Borg Queen, Perfection Manifest has an earlier promo printing, but the limited released-paper evidence and preview-only independent colors do not establish WUBRG tiers. |
+| Assist | Primary | Primary | Primary | Secondary | Secondary | Not assigned | B: Secondary → Primary | Assist is assessed within its Battlebond multiplayer implementation. White, blue and black are proposed Primary; red and green Secondary. The later playtest variant is retained separately. |
+| Attach | — | — | — | — | — | Not assigned | No tier change; rationale/status reviewed | The generic Attach action stays unranked. Blue Primary remains separately attributed to the 2017 moving-enchantments/counters effect, which is narrower than all attachment actions. |
+| Augment | Primary | — | Primary | — | Primary | Not assigned | W: Secondary → Primary; U: Tertiary → unassigned; B: Secondary → Primary; R: Tertiary → unassigned | White, black and green have multiple native Host-combining designs and proposed Primary homes within the special-set environment. Blue and red singleton access remains tier-unresolved. |
+| Aura Swap | — | — | — | — | — | Not assigned | U: Primary → unassigned | Blue Aura Swap access is observed, but its singleton and general design history do not establish the color-specific context required for a proposed tier. |
+| Awaken | Primary | Primary | Secondary | — | — | Not assigned | R: Tertiary → unassigned; G: Tertiary → unassigned | White and blue have broad spell-role implementations and proposed Primary placements; black is proposed Secondary. Red and green are observed but remain unresolved rather than automatically Tertiary. |
+
+## Evidence and review
+
+- a-protocol-core.json, a-protocol-extended.json, and a-protocol-special.json are canonical current judgments. The generator combines them with retained evidence links.
+- Original-source HTML/text/PDF captures and per-file SHA-256 receipts are in a-protocol-evidence/. PDFs are archival text renderings of original pages, including navigation, rather than publisher-issued PDFs.
+- Card facts and query receipts are retained in the prior research packets and their referenced external raw-capture directories. A record does not claim a newly fetched card population.
+- Independent exact-candidate review and check results are recorded in HANDOFF.md. Draft record status remains until independent review passes.
+- Some tiers remain unresolved: this is an explicit research result, not missing work or a claim that the mechanic cannot appear in that color.
+
+16 mechanics have a changed colored tier or Colorless tier. All 25 receive protocol records and reviewed rationale.

@@ -1,4 +1,34 @@
-# Active handoff - Repeatable supplemental assessment protocol
+# Active handoff - Apply protocol v1.0 to A mechanics
+
+## Control
+- Status: `ready-for-qa`. Prior protocol task accepted by Owner; this follow-up progressed complete -> idle -> dev-in-progress -> ready-for-qa.
+- Branch: `codex/a-mechanics-review`; baseline `130e095`; total branch baseline `9a063b3a98cfcb7672783f83a102e8f968242490`.
+- Scope: all 25 accepted unmapped supplemental A mechanics. Apply protocol v1.0 to saved evidence, resolve supported judgments, retain uncertainty, and update the local preview. Frozen/mapped 2021 entries and calculations stay unchanged.
+- Exact allowed files: `HANDOFF.md`; new `docs/mechanics-research/a-protocol-core.json`, `a-protocol-extended.json`, `a-protocol-special.json`, `A-PROTOCOL-REVIEW.md`; source capture files only under `docs/mechanics-research/a-protocol-evidence/`; `tools/build_mechanics_assessments.py`; `data/mechanics-assessments.v1.json`; `vox-color/mechanical-explorer.html`; `tools/check_assessment_browser.mjs`; `tools/check_supplement_browser.mjs`. Generated ignored local `_site/` preview and temporary research scripts are permitted. Existing three research JSON packets and all original captures remain unchanged.
+- Ownership: two scoped RobDev researchers own core/extended record files and uniquely prefixed source captures; coordinator owns special records, integration, review table and ledger. QA owns HANDOFF only after committed ready-for-qa. No publication, push, merge, dependency, route or design-theme change.
+
+## Acceptance
+1. Exactly 25 protocol-versioned records, every WUBRG decision explicit with status/route/confidence, concrete evidence and closest-alternative reasoning. Existing evidence may be referenced with an explicit field mapping; original queries/receipts/cutoffs remain distinguishable from current judgments. Preserve user-directed Annihilator.
+2. Split released paper, digital, preview and special/playtest populations; distinguish grants, relevant faces, multicolor joint evidence and reprints. No count-to-tier shortcuts. Unresolved observed access stays null; incomplete searches cannot support absence.
+3. Use E1/E2 only with original scope support and capture receipts; disclose missing captures rather than fabricate them. Absorb limited-sample route Low; Affinitycycling singleton alone no tier. General Abandon/Activate/Attach actions not ranked; Attach related-effect citation remains separate.
+4. Deterministic producer projects the new records, including per-color statuses/confidence/route and current judgment date, while retaining evidence links. Preview reuses WUBRG symbols, labels source-informed versus card-derived/user-selected appropriately, and displays unresolved Colorless without Primary. No 2021 data/identity/calculation mutation.
+5. Independent QA-4 reviews all 25 judgments and consistency, required cheap gate chain and targeted browser coverage. Rebuild and refresh local preview at committed candidate. Batch review table lists old/new placements, rationale and open limitations.
+
+## Verification plan
+- Parse/shape/reference and scope checks of research records; validate full 25-record coverage and field mapping; producer --check and canonical source bindings.
+- Existing source/taxonomy/fixture/recon gate chain; protected-path Git comparison with baseline; meaningful browser assertions for protocol labels, symbols, null/Colorless states, rationale, 2021 isolation and loading/invalid input.
+- No broad unrelated wheel/geometry suite. Owner reviews the revised content in local preview.
+
+## Implementation / QA
+- All 25 supplemental A entries now have protocol v1.0 records. Two scoped RobDev researchers authored the 19 ordinary/special mechanic records; coordinator reviewed and returned unsupported count-based boundaries and factual discrepancies for correction, then authored six exceptional cases and normalized provenance, captures and summaries. Sixteen mechanics change at least one colored/Colorless tier. Existing raw card evidence and three prior research packets remain unchanged.
+- New records distinguish source-informed Afflict, user-selected Annihilator, Low-confidence limited-sample Absorb, unresolved singleton Aura Swap/Affinitycycling, digital Actualize, preview-era Assimilate, and special-set Assemble/Augment. The batch table records every old/new tier. Per-color decisions have explicit route/status/confidence, evidence and closest alternative; draft status is honest pending independent QA.
+- Producer retains original evidence links and the scoped Attach effect but uses protocol records exclusively for current judgments. Payload schema 2 adds protocol/judgment/status/route/confidence fields and binds all six source packets with canonical JSON hashes. UI reuses symbol strips and adds per-color disposition/confidence inside rationale, distinct Source-informed labels, separate judgment date and unresolved Colorless display. No 2021 selection/math owner changes.
+- Preserved 14 original-source HTML/text/PDF captures with per-file hashes/UTC receipts. PDF text includes cited sections; cited pages rendered and visually inspected in the local protocol-pdf-check contact sheets. Original pages are archived as readable text PDFs, not publisher-issued PDFs. New source captures do not claim fresh card queries.
+- Developer verification: protocol record audit passes 25 records and all decision source/card ID references; producer generation/--check deterministic. Source/taxonomy/fixture chain and all 53 recon assertions pass. Node syntax checks for both touched harnesses pass. Focused Edge harness passes all 25 details, 20 WUBRG strips/search, per-color status/confidence/rationale, correct unresolved Colorless state, 84/84 2021 self-checks, 216 Article / 543+44 A-Z counts, unchanged lens math, keyboard/mobile containment, delayed load and six invalid/missing transport cases. Later record-only prose/tier refinements retain this UI-path evidence; QA checks final projection. Protected Git diff against 130e095 is zero for 2021 runtime/source/fixtures/recon and all three original research packets.
+- Independent QA-4 is next on committed candidate. Review all tier boundaries against the protocol, especially remaining Secondary judgments; a disagreement needs a concrete unsupported claim rather than a new count rule. No push, merge, deployment or publication.
+
+---
+# Prior handoff - Repeatable supplemental assessment protocol
 
 ## Control
 - Status: `qa-passed` (qa-failed -> dev-in-progress -> ready-for-qa -> qa-passed after clarifying the one null-semantics sentence). Only the coordinator or Owner may mark complete.
