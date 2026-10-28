@@ -176,7 +176,8 @@
           "retrieved_count": 24,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check."
+          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check.",
+          "receipt_paths_base": "repository_root"
         },
         {
           "query_id": "Q2",
@@ -197,7 +198,8 @@
           "retrieved_count": 26,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check."
+          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check.",
+          "receipt_paths_base": "repository_root"
         },
         {
           "query_id": "Q3",
@@ -218,7 +220,8 @@
           "retrieved_count": 64,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check."
+          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check.",
+          "receipt_paths_base": "repository_root"
         }
       ],
       "card_review": [
@@ -977,7 +980,7 @@
           ],
           "scope": "released paper",
           "roles": [
-            "unrelated"
+            "false_positive"
           ],
           "included": false,
           "inclusion_reason": null,
@@ -1191,7 +1194,7 @@
           ],
           "scope": "released paper",
           "roles": [
-            "unrelated"
+            "false_positive"
           ],
           "included": false,
           "inclusion_reason": null,
@@ -1695,7 +1698,7 @@
         "new_evidence_or_reason": "Saved roles, colors, first-print histories and receipts mapped to v1.0.",
         "protocol_version_change": "Prior record was not protocol-certified.",
         "review_date": null,
-        "application_import_authorization": "No import/integration authorization."
+        "application_import_authorization": "User explicitly authorized applying protocol to all A mechanics and updating the local preview; 2021 remains untouched. No publication or integration authorization."
       },
       "evidence_binding": {
         "path": "docs/mechanics-research/a-assessments-source.json",
@@ -1708,6 +1711,11 @@
           "printing_history": "assessments[name].card_review[oracle_id].print_history"
         },
         "external_raw_root": "C:\\Users\\obake\\.codex\\visualizations\\2026\\10\\27\\01a17b8d-3467-7eb1-a917-efaf7184cd99\\a-derived"
+      },
+      "path_resolution": {
+        "query_receipt_paths": "relative to repository root; ../a-derived and ../absorb-derived identify retained external captures",
+        "absolute_page_paths": "absolute filesystem paths where recorded",
+        "source_capture_paths": "repository-relative for docs/... paths; any inherited source mapping retains its explicitly declared source root"
       }
     },
     {
@@ -1890,7 +1898,8 @@
           "retrieved_count": 71,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check."
+          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check.",
+          "receipt_paths_base": "repository_root"
         },
         {
           "query_id": "Q2",
@@ -1911,7 +1920,8 @@
           "retrieved_count": 73,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check."
+          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check.",
+          "receipt_paths_base": "repository_root"
         },
         {
           "query_id": "Q3",
@@ -1934,7 +1944,8 @@
           "retrieved_count": 182,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check."
+          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check.",
+          "receipt_paths_base": "repository_root"
         }
       ],
       "card_review": [
@@ -5647,7 +5658,7 @@
         "new_evidence_or_reason": "Saved roles, colors, first-print histories and receipts mapped to v1.0.",
         "protocol_version_change": "Prior record was not protocol-certified.",
         "review_date": null,
-        "application_import_authorization": "No import/integration authorization."
+        "application_import_authorization": "User explicitly authorized applying protocol to all A mechanics and updating the local preview; 2021 remains untouched. No publication or integration authorization."
       },
       "evidence_binding": {
         "path": "docs/mechanics-research/a-assessments-source.json",
@@ -5660,6 +5671,11 @@
           "printing_history": "assessments[name].card_review[oracle_id].print_history"
         },
         "external_raw_root": "C:\\Users\\obake\\.codex\\visualizations\\2026\\10\\27\\01a17b8d-3467-7eb1-a917-efaf7184cd99\\a-derived"
+      },
+      "path_resolution": {
+        "query_receipt_paths": "relative to repository root; ../a-derived and ../absorb-derived identify retained external captures",
+        "absolute_page_paths": "absolute filesystem paths where recorded",
+        "source_capture_paths": "repository-relative for docs/... paths; any inherited source mapping retains its explicitly declared source root"
       }
     },
     {
@@ -5837,7 +5853,8 @@
           "retrieved_count": 9,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check."
+          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check.",
+          "receipt_paths_base": "repository_root"
         },
         {
           "query_id": "Q2",
@@ -5858,7 +5875,8 @@
           "retrieved_count": 9,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check."
+          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check.",
+          "receipt_paths_base": "repository_root"
         },
         {
           "query_id": "Q3",
@@ -5879,7 +5897,8 @@
           "retrieved_count": 14,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check."
+          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check.",
+          "receipt_paths_base": "repository_root"
         }
       ],
       "card_review": [
@@ -6548,7 +6567,7 @@
         "new_evidence_or_reason": "Saved roles, colors, first-print histories and receipts mapped to v1.0.",
         "protocol_version_change": "Prior record was not protocol-certified.",
         "review_date": null,
-        "application_import_authorization": "No import/integration authorization."
+        "application_import_authorization": "User explicitly authorized applying protocol to all A mechanics and updating the local preview; 2021 remains untouched. No publication or integration authorization."
       },
       "evidence_binding": {
         "path": "docs/mechanics-research/a-assessments-source.json",
@@ -6561,6 +6580,11 @@
           "printing_history": "assessments[name].card_review[oracle_id].print_history"
         },
         "external_raw_root": "C:\\Users\\obake\\.codex\\visualizations\\2026\\10\\27\\01a17b8d-3467-7eb1-a917-efaf7184cd99\\a-derived"
+      },
+      "path_resolution": {
+        "query_receipt_paths": "relative to repository root; ../a-derived and ../absorb-derived identify retained external captures",
+        "absolute_page_paths": "absolute filesystem paths where recorded",
+        "source_capture_paths": "repository-relative for docs/... paths; any inherited source mapping retains its explicitly declared source root"
       }
     },
     {
@@ -6738,7 +6762,8 @@
           "retrieved_count": 31,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check."
+          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check.",
+          "receipt_paths_base": "repository_root"
         },
         {
           "query_id": "Q2",
@@ -6759,7 +6784,8 @@
           "retrieved_count": 32,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check."
+          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check.",
+          "receipt_paths_base": "repository_root"
         },
         {
           "query_id": "Q3",
@@ -6780,7 +6806,8 @@
           "retrieved_count": 87,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check."
+          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check.",
+          "receipt_paths_base": "repository_root"
         }
       ],
       "card_review": [
@@ -6876,7 +6903,7 @@
           ],
           "scope": "released paper",
           "roles": [
-            "unrelated"
+            "false_positive"
           ],
           "included": false,
           "inclusion_reason": null,
@@ -8500,7 +8527,7 @@
         "new_evidence_or_reason": "Saved roles, colors, first-print histories and receipts mapped to v1.0.",
         "protocol_version_change": "Prior record was not protocol-certified.",
         "review_date": null,
-        "application_import_authorization": "No import/integration authorization."
+        "application_import_authorization": "User explicitly authorized applying protocol to all A mechanics and updating the local preview; 2021 remains untouched. No publication or integration authorization."
       },
       "evidence_binding": {
         "path": "docs/mechanics-research/a-assessments-source.json",
@@ -8513,6 +8540,11 @@
           "printing_history": "assessments[name].card_review[oracle_id].print_history"
         },
         "external_raw_root": "C:\\Users\\obake\\.codex\\visualizations\\2026\\10\\27\\01a17b8d-3467-7eb1-a917-efaf7184cd99\\a-derived"
+      },
+      "path_resolution": {
+        "query_receipt_paths": "relative to repository root; ../a-derived and ../absorb-derived identify retained external captures",
+        "absolute_page_paths": "absolute filesystem paths where recorded",
+        "source_capture_paths": "repository-relative for docs/... paths; any inherited source mapping retains its explicitly declared source root"
       }
     },
     {
@@ -8690,7 +8722,8 @@
           "retrieved_count": 25,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check."
+          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check.",
+          "receipt_paths_base": "repository_root"
         },
         {
           "query_id": "Q2",
@@ -8711,7 +8744,8 @@
           "retrieved_count": 11,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check."
+          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check.",
+          "receipt_paths_base": "repository_root"
         },
         {
           "query_id": "Q3",
@@ -8732,7 +8766,8 @@
           "retrieved_count": 33,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check."
+          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check.",
+          "receipt_paths_base": "repository_root"
         }
       ],
       "card_review": [
@@ -8828,7 +8863,7 @@
           "color_identity": [],
           "scope": "released paper",
           "roles": [
-            "support"
+            "incidental_mention"
           ],
           "included": false,
           "inclusion_reason": null,
@@ -9195,7 +9230,7 @@
           "color_identity": [],
           "scope": "released paper",
           "roles": [
-            "unrelated"
+            "false_positive"
           ],
           "included": false,
           "inclusion_reason": null,
@@ -9404,7 +9439,7 @@
           ],
           "scope": "released paper",
           "roles": [
-            "support"
+            "incidental_mention"
           ],
           "included": false,
           "inclusion_reason": null,
@@ -9617,7 +9652,7 @@
           ],
           "scope": "released paper",
           "roles": [
-            "support"
+            "incidental_mention"
           ],
           "included": false,
           "inclusion_reason": null,
@@ -9655,7 +9690,7 @@
           "color_identity": [],
           "scope": "released paper",
           "roles": [
-            "unrelated"
+            "false_positive"
           ],
           "included": false,
           "inclusion_reason": null,
@@ -10168,7 +10203,7 @@
         "new_evidence_or_reason": "Saved roles, colors, first-print histories and receipts mapped to v1.0.",
         "protocol_version_change": "Prior record was not protocol-certified.",
         "review_date": null,
-        "application_import_authorization": "No import/integration authorization."
+        "application_import_authorization": "User explicitly authorized applying protocol to all A mechanics and updating the local preview; 2021 remains untouched. No publication or integration authorization."
       },
       "evidence_binding": {
         "path": "docs/mechanics-research/a-assessments-source.json",
@@ -10181,6 +10216,11 @@
           "printing_history": "assessments[name].card_review[oracle_id].print_history"
         },
         "external_raw_root": "C:\\Users\\obake\\.codex\\visualizations\\2026\\10\\27\\01a17b8d-3467-7eb1-a917-efaf7184cd99\\a-derived"
+      },
+      "path_resolution": {
+        "query_receipt_paths": "relative to repository root; ../a-derived and ../absorb-derived identify retained external captures",
+        "absolute_page_paths": "absolute filesystem paths where recorded",
+        "source_capture_paths": "repository-relative for docs/... paths; any inherited source mapping retains its explicitly declared source root"
       }
     },
     {
@@ -10358,7 +10398,8 @@
           "retrieved_count": 3,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check."
+          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check.",
+          "receipt_paths_base": "repository_root"
         },
         {
           "query_id": "Q2",
@@ -10379,7 +10420,8 @@
           "retrieved_count": 8,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check."
+          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check.",
+          "receipt_paths_base": "repository_root"
         },
         {
           "query_id": "Q3",
@@ -10400,7 +10442,8 @@
           "retrieved_count": 15,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check."
+          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check.",
+          "receipt_paths_base": "repository_root"
         }
       ],
       "card_review": [
@@ -11034,7 +11077,7 @@
         "new_evidence_or_reason": "Saved roles, colors, first-print histories and receipts mapped to v1.0.",
         "protocol_version_change": "Prior record was not protocol-certified.",
         "review_date": null,
-        "application_import_authorization": "No import/integration authorization."
+        "application_import_authorization": "User explicitly authorized applying protocol to all A mechanics and updating the local preview; 2021 remains untouched. No publication or integration authorization."
       },
       "evidence_binding": {
         "path": "docs/mechanics-research/a-assessments-source.json",
@@ -11047,6 +11090,11 @@
           "printing_history": "assessments[name].card_review[oracle_id].print_history"
         },
         "external_raw_root": "C:\\Users\\obake\\.codex\\visualizations\\2026\\10\\27\\01a17b8d-3467-7eb1-a917-efaf7184cd99\\a-derived"
+      },
+      "path_resolution": {
+        "query_receipt_paths": "relative to repository root; ../a-derived and ../absorb-derived identify retained external captures",
+        "absolute_page_paths": "absolute filesystem paths where recorded",
+        "source_capture_paths": "repository-relative for docs/... paths; any inherited source mapping retains its explicitly declared source root"
       }
     },
     {
@@ -11224,7 +11272,8 @@
           "retrieved_count": 17,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check."
+          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check.",
+          "receipt_paths_base": "repository_root"
         },
         {
           "query_id": "Q2",
@@ -11245,7 +11294,8 @@
           "retrieved_count": 18,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check."
+          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check.",
+          "receipt_paths_base": "repository_root"
         },
         {
           "query_id": "Q3",
@@ -11266,7 +11316,8 @@
           "retrieved_count": 21,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check."
+          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check.",
+          "receipt_paths_base": "repository_root"
         }
       ],
       "card_review": [
@@ -12002,7 +12053,7 @@
           ],
           "scope": "released paper",
           "roles": [
-            "grant"
+            "explicit_grant"
           ],
           "included": true,
           "inclusion_reason": "Explicitly grants Annihilator/Assist or creates an Annihilator token; included under stated scope.",
@@ -12284,7 +12335,7 @@
           "rationale": "Lava-Field Overlord and Magma Hellion are the original red Battlebond Assist designs, both creature applications at uncommon and common. All-Star Kicker is a Mystery Booster playtest Assist-kicker variant and is recorded separately, not used as released-paper recurrence. The two same-role original applications support Secondary rather than Primary."
         },
         "G": {
-          "tier": "Secondary",
+          "tier": "Primary",
           "status": "assigned",
           "route": "E3",
           "confidence": "Moderate",
@@ -12304,9 +12355,9 @@
             "Complete Battlebond scope",
             "Green original creature and sorcery roles"
           ],
-          "closest_alternative": "Primary",
-          "why_chosen": "Green has established original access but a narrower role spread than the primary colors.",
-          "rationale": "Charging Binox is a green common Assist creature and The Crowd Goes Wild is a green uncommon Assist sorcery in Battlebond. Those distinct original applications establish Secondary access in the multiplayer scope, but the saved evidence does not show enough breadth to call green a Primary home."
+          "closest_alternative": "Secondary",
+          "why_chosen": "The original green creature and sorcery roles at common/uncommon meet the same broad-original implementation test as black; an extra black creature does not establish a qualitative hierarchy.",
+          "rationale": "Charging Binox gives green a creature application of Assist, while The Crowd Goes Wild applies it to a counter-granting sorcery in Battlebond. These common and uncommon designs occupy distinct roles in the original multiplayer implementation, just as black’s creature and sorcery designs do. Green is therefore proposed Primary alongside black; fewer designs alone do not justify Secondary."
         }
       },
       "outside_five_colors": {
@@ -12326,7 +12377,7 @@
         "rationale": "Special material is separated and does not become a Colorless placement.",
         "limitations": []
       },
-      "summary": "Assist is assessed within its Battlebond multiplayer implementation. White, blue and black are proposed Primary; red and green Secondary. The later playtest variant is retained separately.",
+      "summary": "Within Battlebond’s multiplayer implementation, white, blue, black and green have varied original roles and proposed Primary homes. Red’s original applications are confined to creatures and are assessed Secondary; its later playtest variant is separate.",
       "limitations": [
         "All-Star Kicker modifies the payment of a kicker cost and is treated as a special variant, not another ordinary Assist spell. Receiving Assist from Yume does not assign the mechanic independently to every recipient color.",
         "Draft conformance record; saved timestamps are historical cutoffs, not fresh queries."
@@ -12356,10 +12407,10 @@
         "changed_fields": [
           "Protocol v1.0 mapping and explicit decision fields"
         ],
-        "new_evidence_or_reason": "Saved roles, colors, first-print histories and receipts mapped to v1.0.",
+        "new_evidence_or_reason": "Saved roles, colors, first-print histories and receipts mapped to v1.0. Independent QA: apply the same original role/rarity criterion to black and green; remove unsupported count-based distinction.",
         "protocol_version_change": "Prior record was not protocol-certified.",
         "review_date": null,
-        "application_import_authorization": "No import/integration authorization."
+        "application_import_authorization": "User explicitly authorized applying protocol to all A mechanics and updating the local preview; 2021 remains untouched. No publication or integration authorization."
       },
       "evidence_binding": {
         "path": "docs/mechanics-research/a-assessments-source.json",
@@ -12372,6 +12423,11 @@
           "printing_history": "assessments[name].card_review[oracle_id].print_history"
         },
         "external_raw_root": "C:\\Users\\obake\\.codex\\visualizations\\2026\\10\\27\\01a17b8d-3467-7eb1-a917-efaf7184cd99\\a-derived"
+      },
+      "path_resolution": {
+        "query_receipt_paths": "relative to repository root; ../a-derived and ../absorb-derived identify retained external captures",
+        "absolute_page_paths": "absolute filesystem paths where recorded",
+        "source_capture_paths": "repository-relative for docs/... paths; any inherited source mapping retains its explicitly declared source root"
       }
     },
     {
@@ -12549,7 +12605,8 @@
           "retrieved_count": 14,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check."
+          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check.",
+          "receipt_paths_base": "repository_root"
         },
         {
           "query_id": "Q2",
@@ -12570,7 +12627,8 @@
           "retrieved_count": 22,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check."
+          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check.",
+          "receipt_paths_base": "repository_root"
         },
         {
           "query_id": "Q3",
@@ -12591,7 +12649,8 @@
           "retrieved_count": 27,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check."
+          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check.",
+          "receipt_paths_base": "repository_root"
         }
       ],
       "card_review": [
@@ -12649,7 +12708,7 @@
           ],
           "scope": "released paper",
           "roles": [
-            "support"
+            "incidental_mention"
           ],
           "included": false,
           "inclusion_reason": null,
@@ -12693,7 +12752,7 @@
           ],
           "scope": "released paper",
           "roles": [
-            "support"
+            "incidental_mention"
           ],
           "included": false,
           "inclusion_reason": null,
@@ -12945,7 +13004,7 @@
           "color_identity": [],
           "scope": "released paper",
           "roles": [
-            "support"
+            "incidental_mention"
           ],
           "included": false,
           "inclusion_reason": null,
@@ -13111,7 +13170,7 @@
           ],
           "scope": "released paper",
           "roles": [
-            "support"
+            "incidental_mention"
           ],
           "included": false,
           "inclusion_reason": null,
@@ -13310,7 +13369,7 @@
           ],
           "scope": "released paper",
           "roles": [
-            "support"
+            "incidental_mention"
           ],
           "included": false,
           "inclusion_reason": null,
@@ -13352,7 +13411,7 @@
           ],
           "scope": "released paper",
           "roles": [
-            "support"
+            "incidental_mention"
           ],
           "included": false,
           "inclusion_reason": null,
@@ -13398,7 +13457,7 @@
           ],
           "scope": "released paper",
           "roles": [
-            "support"
+            "incidental_mention"
           ],
           "included": false,
           "inclusion_reason": null,
@@ -13441,7 +13500,7 @@
           ],
           "scope": "released paper",
           "roles": [
-            "support"
+            "incidental_mention"
           ],
           "included": false,
           "inclusion_reason": null,
@@ -13813,7 +13872,7 @@
         "new_evidence_or_reason": "Saved roles, colors, first-print histories and receipts mapped to v1.0.",
         "protocol_version_change": "Prior record was not protocol-certified.",
         "review_date": null,
-        "application_import_authorization": "No import/integration authorization."
+        "application_import_authorization": "User explicitly authorized applying protocol to all A mechanics and updating the local preview; 2021 remains untouched. No publication or integration authorization."
       },
       "evidence_binding": {
         "path": "docs/mechanics-research/a-assessments-source.json",
@@ -13826,6 +13885,11 @@
           "printing_history": "assessments[name].card_review[oracle_id].print_history"
         },
         "external_raw_root": "C:\\Users\\obake\\.codex\\visualizations\\2026\\10\\27\\01a17b8d-3467-7eb1-a917-efaf7184cd99\\a-derived"
+      },
+      "path_resolution": {
+        "query_receipt_paths": "relative to repository root; ../a-derived and ../absorb-derived identify retained external captures",
+        "absolute_page_paths": "absolute filesystem paths where recorded",
+        "source_capture_paths": "repository-relative for docs/... paths; any inherited source mapping retains its explicitly declared source root"
       }
     },
     {
@@ -14003,7 +14067,8 @@
           "retrieved_count": 1,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check."
+          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check.",
+          "receipt_paths_base": "repository_root"
         },
         {
           "query_id": "Q2",
@@ -14024,7 +14089,8 @@
           "retrieved_count": 1,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check."
+          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check.",
+          "receipt_paths_base": "repository_root"
         },
         {
           "query_id": "Q3",
@@ -14045,7 +14111,8 @@
           "retrieved_count": 1,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check."
+          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check.",
+          "receipt_paths_base": "repository_root"
         }
       ],
       "card_review": [
@@ -14308,7 +14375,7 @@
         "new_evidence_or_reason": "No retained independent original-design context for E3_limited_sample.",
         "protocol_version_change": "Prior record was not protocol-certified.",
         "review_date": null,
-        "application_import_authorization": "No import/integration authorization."
+        "application_import_authorization": "User explicitly authorized applying protocol to all A mechanics and updating the local preview; 2021 remains untouched. No publication or integration authorization."
       },
       "evidence_binding": {
         "path": "docs/mechanics-research/a-assessments-source.json",
@@ -14321,6 +14388,11 @@
           "printing_history": "assessments[name].card_review[oracle_id].print_history"
         },
         "external_raw_root": "C:\\Users\\obake\\.codex\\visualizations\\2026\\10\\27\\01a17b8d-3467-7eb1-a917-efaf7184cd99\\a-derived"
+      },
+      "path_resolution": {
+        "query_receipt_paths": "relative to repository root; ../a-derived and ../absorb-derived identify retained external captures",
+        "absolute_page_paths": "absolute filesystem paths where recorded",
+        "source_capture_paths": "repository-relative for docs/... paths; any inherited source mapping retains its explicitly declared source root"
       }
     },
     {
@@ -14498,7 +14570,8 @@
           "retrieved_count": 15,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check."
+          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check.",
+          "receipt_paths_base": "repository_root"
         },
         {
           "query_id": "Q2",
@@ -14519,7 +14592,8 @@
           "retrieved_count": 18,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check."
+          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check.",
+          "receipt_paths_base": "repository_root"
         },
         {
           "query_id": "Q3",
@@ -14540,7 +14614,8 @@
           "retrieved_count": 40,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check."
+          "exceptional_query_explanation": "Inherited keyword/Oracle cross-check.",
+          "receipt_paths_base": "repository_root"
         }
       ],
       "card_review": [
@@ -14556,7 +14631,7 @@
           ],
           "scope": "released paper",
           "roles": [
-            "unrelated"
+            "false_positive"
           ],
           "included": false,
           "inclusion_reason": null,
@@ -14813,7 +14888,7 @@
           ],
           "scope": "released paper",
           "roles": [
-            "support"
+            "incidental_mention"
           ],
           "included": false,
           "inclusion_reason": null,
@@ -14857,7 +14932,7 @@
           ],
           "scope": "released paper",
           "roles": [
-            "unrelated"
+            "false_positive"
           ],
           "included": false,
           "inclusion_reason": null,
@@ -15522,7 +15597,7 @@
           "rationale": "Rush of Ice, Clutch of Currents, Coastal Discovery, Scatter to the Winds, and Part the Waterveil give blue Awaken tempo, draw, counterspell, and mythic extra-turn roles. The original implementation spans common through mythic, making blue Primary rather than Secondary."
         },
         "B": {
-          "tier": "Secondary",
+          "tier": "Primary",
           "status": "assigned",
           "route": "E3",
           "confidence": "Moderate",
@@ -15544,9 +15619,9 @@
             "Original first-print roles, not reprint contexts",
             "Named cards show the stated roles and original release coverage"
           ],
-          "closest_alternative": "Primary",
-          "why_chosen": "Those three distinct original roles establish Secondary access, while the absence of a broader native spread than white or blue keeps it below Primary.",
-          "rationale": "Mire’s Malice, Rising Miasma, and Ruinous Path put Awaken on discard, sweeper, and creature/planeswalker removal in Battle for Zendikar. Those three distinct original roles establish Secondary access, while the absence of a broader native spread than white or blue keeps it below Primary."
+          "closest_alternative": "Secondary",
+          "why_chosen": "Common/uncommon/rare native designs span discard, a sweeper and targeted removal in the original set; this satisfies the same broad-original test used for white and blue, without a substantiated narrower-access restriction.",
+          "rationale": "Mire’s Malice, Rising Miasma and Ruinous Path use Awaken for discard, a sweeper and targeted creature or planeswalker removal in Battle for Zendikar. That varied original implementation spans common, uncommon and rare and meets the protocol’s Primary case. Black is proposed co-Primary rather than Secondary because the evidence supplies no narrower-access restriction; a smaller card total is insufficient."
         },
         "R": {
           "tier": null,
@@ -15612,7 +15687,7 @@
         "rationale": "Special material is separated and does not become a Colorless placement.",
         "limitations": []
       },
-      "summary": "White and blue have broad spell-role implementations and proposed Primary placements; black is proposed Secondary. Red and green are observed but remain unresolved rather than automatically Tertiary.",
+      "summary": "White, blue and black each have varied original spell roles and proposed Primary homes. Red and green access is observed but remains unresolved rather than automatically Tertiary.",
       "limitations": [
         "The 2021 land-animation entry is untouched and not mapped to Awaken. Halimar Tidecaller is support; Awaken the Inferno and Awaken the Maelstrom are unrelated name matches. Tertiary here describes narrow keyword use, not a universal rarity requirement.",
         "Draft conformance record; saved timestamps are historical cutoffs, not fresh queries."
@@ -15642,10 +15717,10 @@
         "changed_fields": [
           "Protocol v1.0 mapping and explicit decision fields"
         ],
-        "new_evidence_or_reason": "Saved roles, colors, first-print histories and receipts mapped to v1.0.",
+        "new_evidence_or_reason": "Saved roles, colors, first-print histories and receipts mapped to v1.0. Independent QA: broad-original C/U/R spell-role test supports black co-Primary; smaller spread alone does not establish Secondary.",
         "protocol_version_change": "Prior record was not protocol-certified.",
         "review_date": null,
-        "application_import_authorization": "No import/integration authorization."
+        "application_import_authorization": "User explicitly authorized applying protocol to all A mechanics and updating the local preview; 2021 remains untouched. No publication or integration authorization."
       },
       "evidence_binding": {
         "path": "docs/mechanics-research/a-assessments-source.json",
@@ -15658,6 +15733,11 @@
           "printing_history": "assessments[name].card_review[oracle_id].print_history"
         },
         "external_raw_root": "C:\\Users\\obake\\.codex\\visualizations\\2026\\10\\27\\01a17b8d-3467-7eb1-a917-efaf7184cd99\\a-derived"
+      },
+      "path_resolution": {
+        "query_receipt_paths": "relative to repository root; ../a-derived and ../absorb-derived identify retained external captures",
+        "absolute_page_paths": "absolute filesystem paths where recorded",
+        "source_capture_paths": "repository-relative for docs/... paths; any inherited source mapping retains its explicitly declared source root"
       }
     }
   ]

@@ -20,15 +20,15 @@
     },
     {
       "path": "docs/mechanics-research/a-protocol-core.json",
-      "sha256": "98b4aebc44a163085e42d9b48e43f154f595184a22514aebec006372f7d44a59"
+      "sha256": "86142102d6a9179de3e38949fbe678f5db8642fca661796a533e39fc990c8900"
     },
     {
       "path": "docs/mechanics-research/a-protocol-extended.json",
-      "sha256": "f48962bf7abe73d7f0b66e396aaf3e3e7e137f983dde2c9dda481c089db52626"
+      "sha256": "adddfb862c167ebd64a1de86cff520e9460c79aa39832e03339672bc13f8ad3f"
     },
     {
       "path": "docs/mechanics-research/a-protocol-special.json",
-      "sha256": "960a85b7f408ce73f21fe7229e427f13fc35f49e670e0effa8fa6ac86ecbb4ad"
+      "sha256": "d94b424ee9080fda089f93630e4d628c82667ad8701b72b30ee31dfd54483627"
     }
   ],
   "records": [
@@ -421,8 +421,7 @@
       "summary": "Treat all five colors as co-primary for this deliberately balanced monocolor reward mechanic.",
       "limitations": [
         "Equal Primary is an analyst convention for balanced five-color access. A colorless card rewarding a chosen color is not five additional colored designs.",
-        "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch.",
-        "Draft record awaits independent RobQA; no application import authorization."
+        "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch."
       ],
       "citationCards": [
         {
@@ -553,11 +552,10 @@
         "R": "No native design or explicit grant attributed to R appears in the complete scoped card review. This is no support in this sample, not a claim that R can never receive Adapt.",
         "G": "Incubation Druid, Growth-Chamber Guardian, and Evolution Witness anchor green Adapt across distinct releases, with further green and GU designs. This is recurring native access across roles rather than a one-set accommodation. Green is Primary rather than merely Secondary."
       },
-      "summary": "Green leads; blue and black have recurring independent use; white has one narrow native example.",
+      "summary": "Green has a supported Primary pattern. White, blue and black access is observed, but the retained evidence does not justify their exact tiers.",
       "limitations": [
         "Multicolor examples supplement the independent monocolor evidence; they are not separate proof for each color. The proposals concern Adapt itself, not all +1/+1-counter effects.",
-        "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch.",
-        "Draft record awaits independent RobQA; no application import authorization."
+        "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch."
       ],
       "citationCards": [
         {
@@ -719,8 +717,7 @@
       "summary": "Ten native Addendum designs in the intended WU guild implementation: five white, three blue, and two joint WU; both colored branches are provisionally Primary.",
       "limitations": [
         "The difference between White Primary and Blue Secondary is an interpretive weighting of a small guild-focused sample, not an official hierarchy.",
-        "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch.",
-        "Draft record awaits independent RobQA; no application import authorization."
+        "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch."
       ],
       "citationCards": [
         {
@@ -819,11 +816,10 @@
         "R": "Furnace Dragon, Oxidda Finisher, and Chiss-Goria establish recurring red Affinity access across released paper cards, including an explicit grant. The retained record does not supply an official hierarchy or a non-count-based restriction that cleanly distinguishes Secondary from Tertiary. Red remains tier-unresolved.",
         "G": "Bartz and Boko, Polliwallop, and other green cards establish repeated green Affinity use in object-specific designs. The retained evidence does not identify a principled constraint that distinguishes a Secondary home from a Tertiary exception without a count comparison. Green remains tier-unresolved."
       },
-      "summary": "Blue has the deepest independent population; white and red recur broadly; black and green form smaller branches.",
+      "summary": "Blue has a supported recurring Primary pattern. The other colored branches remain observed but tier-unresolved; special and digital cards are recorded separately.",
       "limitations": [
         "Current saved Oracle text explicitly names Affinity on several older cards once worded as plain cost reduction; use current facts, not historical recollection. Borg Cube is a preview; Thoughtcast has older printings despite a future representative reprint. Colorless designs, special/acorn/playtest sources and the digital Grand Goatnapper are retained without treating them as ordinary colored policy.",
-        "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch.",
-        "Draft record awaits independent RobQA; no application import authorization."
+        "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch."
       ],
       "citationCards": [
         {
@@ -1303,8 +1299,7 @@
         "The 2021 article ranks the broader blocked-damage category and explicitly discusses Afflict within it. Applying that hierarchy to the named keyword is this review's inference, not a separate official Afflict ranking.",
         "The sample contains 14 distinct designs, including three colorless sources. Reprints do not count as new designs; all reviewed native red and blue designs originated in Hour of Devastation.",
         "Dagger of the Worthy, Cyberman Patrol and the Ancestral Hot Dog Minotaur sticker sheet can make Afflict available beyond its colored designs. That availability does not assign every recipient color a tier.",
-        "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch.",
-        "Draft record awaits independent RobQA; no application import authorization."
+        "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch."
       ],
       "citationCards": [
         {
@@ -1427,8 +1422,7 @@
       "summary": "Twelve native/grant Afterlife designs in the intended Orzhov implementation: white 5, black 3, and joint WB 4; both colored branches are provisionally Primary.",
       "limitations": [
         "A white-and-black Spirit token does not make each source card both colors. Afterlife Insurance is a joint WB grant; count it once. White/black tier separation is a sample-based judgment, not a published guild hierarchy.",
-        "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch.",
-        "Draft record awaits independent RobQA; no application import authorization."
+        "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch."
       ],
       "citationCards": [
         {
@@ -1535,11 +1529,10 @@
         "R": "Claim // Fame, Heaven // Earth, and Insult // Injury have red Aftermath-bearing faces; attribution follows those faces rather than their unrelated halves. They show red combat and damage applications in the original Amonkhet block. Red is Primary because the original split-card implementation gives red a principal face branch, not because of a count comparison.",
         "G": "Destined // Lead, Mouth // Feed, and Prepare // Fight have green Aftermath-bearing faces; attribution follows those faces rather than their unrelated halves. They show green creature growth and fight applications in the original Amonkhet block. Green is Primary because the original split-card implementation gives green a principal face branch, not because of a count comparison."
       },
-      "summary": "All five colors have comparable independent Aftermath-face representation, so propose co-primary access.",
+      "summary": "All five colors have deliberate, varied Aftermath-bearing faces in the original implementation and are proposed co-Primary.",
       "limitations": [
         "Scryfall split-face objects omit colors here; attribution explicitly derives W/U/B/R/G from each relevant face's mana symbols. The count is 27 designs, not 54 card halves. A seven-versus-five difference does not justify forcing red above the balanced five-color pattern.",
-        "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch.",
-        "Draft record awaits independent RobQA; no application import authorization."
+        "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch."
       ],
       "citationCards": [
         {
@@ -1706,11 +1699,10 @@
         "R": "No native design or explicit grant attributed to R appears in the complete scoped card review. This is no support in this sample, not a claim that R can never receive Airbend.",
         "G": "No native design or explicit grant attributed to G appears in the complete scoped card review. This is no support in this sample, not a claim that G can never receive Airbend."
       },
-      "summary": "White is the clear home; blue has one independent native spell and joint white-blue access.",
+      "summary": "White has a broad original implementation and is proposed Primary. Blue access is observed, but its tier remains unresolved.",
       "limitations": [
         "Avatar Aang rewards airbending but does not perform or grant it, so it is excluded. Avatar Yangchen's mechanic-bearing back face has empty colors in the saved API; its white front is retained as casting context, not silently substituted into the face-color count. The proposed blue tier is not an official set-design placement.",
-        "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch.",
-        "Draft record awaits independent RobQA; no application import authorization."
+        "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch."
       ],
       "citationCards": [
         {
@@ -3050,16 +3042,16 @@
         "U": "Primary",
         "B": "Primary",
         "R": "Secondary",
-        "G": "Secondary"
+        "G": "Primary"
       },
       "rationale": {
         "W": "Bring Down, Dwarven Lightsmith, Play of the Game, and Skystreamer put Assist on white removal, creature, and rare spell roles in Battlebond. The deliberate common-to-rare original implementation makes white Primary within Assist’s multiplayer scope rather than a narrower Secondary.",
         "U": "Game Plan, Huddle Up, Out of Bounds, and Spellweaver Duo give blue Assist card-draw, tempo, and creature roles in Battlebond. Their deliberate rarity and role spread establishes blue as a Primary special-scope home, not merely secondary support.",
         "B": "Bloodborn Scoundrels and Fan Favorite are black common Assist creatures, while Gang Up is a black uncommon Assist sorcery. These original creature and spell roles establish Primary within Assist’s Battlebond multiplayer scope rather than Secondary.",
         "R": "Lava-Field Overlord and Magma Hellion are the original red Battlebond Assist designs, both creature applications at uncommon and common. All-Star Kicker is a Mystery Booster playtest Assist-kicker variant and is recorded separately, not used as released-paper recurrence. The two same-role original applications support Secondary rather than Primary.",
-        "G": "Charging Binox is a green common Assist creature and The Crowd Goes Wild is a green uncommon Assist sorcery in Battlebond. Those distinct original applications establish Secondary access in the multiplayer scope, but the saved evidence does not show enough breadth to call green a Primary home."
+        "G": "Charging Binox gives green a creature application of Assist, while The Crowd Goes Wild applies it to a counter-granting sorcery in Battlebond. These common and uncommon designs occupy distinct roles in the original multiplayer implementation, just as black’s creature and sorcery designs do. Green is therefore proposed Primary alongside black; fewer designs alone do not justify Secondary."
       },
-      "summary": "Assist is assessed within its Battlebond multiplayer implementation. White, blue and black are proposed Primary; red and green Secondary. The later playtest variant is retained separately.",
+      "summary": "Within Battlebond’s multiplayer implementation, white, blue, black and green have varied original roles and proposed Primary homes. Red’s original applications are confined to creatures and are assessed Secondary; its later playtest variant is separate.",
       "limitations": [
         "All-Star Kicker modifies the payment of a kicker cost and is treated as a special variant, not another ordinary Assist spell. Receiving Assist from Yume does not assign the mechanic independently to every recipient color.",
         "Draft conformance record; saved timestamps are historical cutoffs, not fresh queries."
@@ -3466,18 +3458,18 @@
       "placements": {
         "W": "Primary",
         "U": "Primary",
-        "B": "Secondary",
+        "B": "Primary",
         "R": null,
         "G": null
       },
       "rationale": {
         "W": "Sheer Drop, Encircling Fissure, Ondu Rising, and Planar Outburst give white Awaken removal, prevention, life, and mass-removal roles in Battle for Zendikar. That broad original common-to-rare implementation supports Primary rather than a narrower Secondary.",
         "U": "Rush of Ice, Clutch of Currents, Coastal Discovery, Scatter to the Winds, and Part the Waterveil give blue Awaken tempo, draw, counterspell, and mythic extra-turn roles. The original implementation spans common through mythic, making blue Primary rather than Secondary.",
-        "B": "Mire’s Malice, Rising Miasma, and Ruinous Path put Awaken on discard, sweeper, and creature/planeswalker removal in Battle for Zendikar. Those three distinct original roles establish Secondary access, while the absence of a broader native spread than white or blue keeps it below Primary.",
+        "B": "Mire’s Malice, Rising Miasma and Ruinous Path use Awaken for discard, a sweeper and targeted creature or planeswalker removal in Battle for Zendikar. That varied original implementation spans common, uncommon and rare and meets the protocol’s Primary case. Black is proposed co-Primary rather than Secondary because the evidence supplies no narrower-access restriction; a smaller card total is insufficient.",
         "R": "The saved screen observes Boiling Earth for red, but the evidence does not establish an independent role strong enough to distinguish Tertiary from uncertainty. The tier is left unresolved.",
         "G": "The saved screen observes Earthen Arms for green, but the evidence does not establish an independent role strong enough to distinguish Tertiary from uncertainty. The tier is left unresolved."
       },
-      "summary": "White and blue have broad spell-role implementations and proposed Primary placements; black is proposed Secondary. Red and green are observed but remain unresolved rather than automatically Tertiary.",
+      "summary": "White, blue and black each have varied original spell roles and proposed Primary homes. Red and green access is observed but remains unresolved rather than automatically Tertiary.",
       "limitations": [
         "The 2021 land-animation entry is untouched and not mapped to Awaken. Halimar Tidecaller is support; Awaken the Inferno and Awaken the Maelstrom are unrelated name matches. Tertiary here describes narrow keyword use, not a universal rarity requirement.",
         "Draft conformance record; saved timestamps are historical cutoffs, not fresh queries."

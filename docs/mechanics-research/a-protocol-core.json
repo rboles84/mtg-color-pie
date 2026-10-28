@@ -90,13 +90,14 @@
             }
           ],
           "receipt_paths": [
-            "../../../a-derived/sources/actualize/keyword-page-1.json"
+            "../a-derived/sources/actualize/keyword-page-1.json"
           ],
           "expected_count": 4,
           "retrieved_count": 4,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Baseline keyword population."
+          "exceptional_query_explanation": "Baseline keyword population.",
+          "receipt_paths_base": "repository_root"
         },
         {
           "query_id": "Q2",
@@ -117,13 +118,14 @@
             }
           ],
           "receipt_paths": [
-            "../../../a-derived/sources/actualize/oracle-page-1.json"
+            "../a-derived/sources/actualize/oracle-page-1.json"
           ],
           "expected_count": 4,
           "retrieved_count": 4,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Exact-word oracle query complements keyword indexing and exposes grants or indexing gaps."
+          "exceptional_query_explanation": "Exact-word oracle query complements keyword indexing and exposes grants or indexing gaps.",
+          "receipt_paths_base": "repository_root"
         },
         {
           "query_id": "Q3",
@@ -144,13 +146,14 @@
             }
           ],
           "receipt_paths": [
-            "../../../a-derived/sources/actualize/printings-page-1.json"
+            "../a-derived/sources/actualize/printings-page-1.json"
           ],
           "expected_count": 4,
           "retrieved_count": 4,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Prints query is chronology/rarity history, not design-population inflation."
+          "exceptional_query_explanation": "Prints query is chronology/rarity history, not design-population inflation.",
+          "receipt_paths_base": "repository_root"
         }
       ],
       "card_review": [
@@ -540,7 +543,7 @@
         "new_evidence_or_reason": "Bounded v1.0 conformance review of retained card evidence; unsupported count-only wording removed or limited.",
         "protocol_version_change": "Prior assessment was not protocol-certified; this is v1.0 draft conformance output.",
         "review_date": null,
-        "application_import_authorization": "Not authorized by this record; coordinator controls import."
+        "application_import_authorization": "User explicitly authorized applying protocol to all A mechanics and updating the local preview; 2021 remains untouched. No publication or integration authorization."
       },
       "evidence_binding": {
         "source_packet_path": "a-assessments-source.json",
@@ -556,6 +559,11 @@
         },
         "raw_capture_root": "../../../a-derived/sources/actualize",
         "capture_freshness": "Inherited 2026-10-26 America/Denver retrieval; receipt offsets normalized to UTC, not refreshed by this review."
+      },
+      "path_resolution": {
+        "query_receipt_paths": "relative to repository root; ../a-derived and ../absorb-derived identify retained external captures",
+        "absolute_page_paths": "absolute filesystem paths where recorded",
+        "source_capture_paths": "repository-relative for docs/... paths; any inherited source mapping retains its explicitly declared source root"
       }
     },
     {
@@ -647,13 +655,14 @@
             }
           ],
           "receipt_paths": [
-            "../../../a-derived/sources/adamant/keyword-page-1.json"
+            "../a-derived/sources/adamant/keyword-page-1.json"
           ],
           "expected_count": 18,
           "retrieved_count": 18,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Baseline keyword population."
+          "exceptional_query_explanation": "Baseline keyword population.",
+          "receipt_paths_base": "repository_root"
         },
         {
           "query_id": "Q2",
@@ -674,13 +683,14 @@
             }
           ],
           "receipt_paths": [
-            "../../../a-derived/sources/adamant/oracle-page-1.json"
+            "../a-derived/sources/adamant/oracle-page-1.json"
           ],
           "expected_count": 18,
           "retrieved_count": 18,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Exact-word oracle query complements keyword indexing and exposes grants or indexing gaps."
+          "exceptional_query_explanation": "Exact-word oracle query complements keyword indexing and exposes grants or indexing gaps.",
+          "receipt_paths_base": "repository_root"
         },
         {
           "query_id": "Q3",
@@ -701,13 +711,14 @@
             }
           ],
           "receipt_paths": [
-            "../../../a-derived/sources/adamant/printings-page-1.json"
+            "../a-derived/sources/adamant/printings-page-1.json"
           ],
           "expected_count": 21,
           "retrieved_count": 21,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Prints query is chronology/rarity history, not design-population inflation."
+          "exceptional_query_explanation": "Prints query is chronology/rarity history, not design-population inflation.",
+          "receipt_paths_base": "repository_root"
         }
       ],
       "card_review": [
@@ -1633,8 +1644,7 @@
       "summary": "Treat all five colors as co-primary for this deliberately balanced monocolor reward mechanic.",
       "limitations": [
         "Equal Primary is an analyst convention for balanced five-color access. A colorless card rewarding a chosen color is not five additional colored designs.",
-        "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch.",
-        "Draft record awaits independent RobQA; no application import authorization."
+        "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch."
       ],
       "review": {
         "evidence_completeness": "Saved keyword, exact-word, and prints receipts mapped; full independent review pending.",
@@ -1664,7 +1674,7 @@
         "new_evidence_or_reason": "Bounded v1.0 conformance review of retained card evidence; unsupported count-only wording removed or limited.",
         "protocol_version_change": "Prior assessment was not protocol-certified; this is v1.0 draft conformance output.",
         "review_date": null,
-        "application_import_authorization": "Not authorized by this record; coordinator controls import."
+        "application_import_authorization": "User explicitly authorized applying protocol to all A mechanics and updating the local preview; 2021 remains untouched. No publication or integration authorization."
       },
       "evidence_binding": {
         "source_packet_path": "a-assessments-source.json",
@@ -1680,6 +1690,11 @@
         },
         "raw_capture_root": "../../../a-derived/sources/adamant",
         "capture_freshness": "Inherited 2026-10-26 America/Denver retrieval; receipt offsets normalized to UTC, not refreshed by this review."
+      },
+      "path_resolution": {
+        "query_receipt_paths": "relative to repository root; ../a-derived and ../absorb-derived identify retained external captures",
+        "absolute_page_paths": "absolute filesystem paths where recorded",
+        "source_capture_paths": "repository-relative for docs/... paths; any inherited source mapping retains its explicitly declared source root"
       }
     },
     {
@@ -1771,13 +1786,14 @@
             }
           ],
           "receipt_paths": [
-            "../../../a-derived/sources/adapt/keyword-page-1.json"
+            "../a-derived/sources/adapt/keyword-page-1.json"
           ],
           "expected_count": 25,
           "retrieved_count": 25,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Baseline keyword population."
+          "exceptional_query_explanation": "Baseline keyword population.",
+          "receipt_paths_base": "repository_root"
         },
         {
           "query_id": "Q2",
@@ -1798,13 +1814,14 @@
             }
           ],
           "receipt_paths": [
-            "../../../a-derived/sources/adapt/oracle-page-1.json"
+            "../a-derived/sources/adapt/oracle-page-1.json"
           ],
           "expected_count": 25,
           "retrieved_count": 25,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Exact-word oracle query complements keyword indexing and exposes grants or indexing gaps."
+          "exceptional_query_explanation": "Exact-word oracle query complements keyword indexing and exposes grants or indexing gaps.",
+          "receipt_paths_base": "repository_root"
         },
         {
           "query_id": "Q3",
@@ -1825,13 +1842,14 @@
             }
           ],
           "receipt_paths": [
-            "../../../a-derived/sources/adapt/printings-page-1.json"
+            "../a-derived/sources/adapt/printings-page-1.json"
           ],
           "expected_count": 57,
           "retrieved_count": 57,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Prints query is chronology/rarity history, not design-population inflation."
+          "exceptional_query_explanation": "Prints query is chronology/rarity history, not design-population inflation.",
+          "receipt_paths_base": "repository_root"
         }
       ],
       "card_review": [
@@ -3114,11 +3132,10 @@
           "Special-scope evidence is not generalized into ordinary colored policy."
         ]
       },
-      "summary": "Green leads; blue and black have recurring independent use; white has one narrow native example.",
+      "summary": "Green has a supported Primary pattern. White, blue and black access is observed, but the retained evidence does not justify their exact tiers.",
       "limitations": [
         "Multicolor examples supplement the independent monocolor evidence; they are not separate proof for each color. The proposals concern Adapt itself, not all +1/+1-counter effects.",
-        "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch.",
-        "Draft record awaits independent RobQA; no application import authorization."
+        "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch."
       ],
       "review": {
         "evidence_completeness": "Saved keyword, exact-word, and prints receipts mapped; full independent review pending.",
@@ -3148,7 +3165,7 @@
         "new_evidence_or_reason": "Bounded v1.0 conformance review of retained card evidence; unsupported count-only wording removed or limited.",
         "protocol_version_change": "Prior assessment was not protocol-certified; this is v1.0 draft conformance output.",
         "review_date": null,
-        "application_import_authorization": "Not authorized by this record; coordinator controls import."
+        "application_import_authorization": "User explicitly authorized applying protocol to all A mechanics and updating the local preview; 2021 remains untouched. No publication or integration authorization."
       },
       "evidence_binding": {
         "source_packet_path": "a-assessments-source.json",
@@ -3164,6 +3181,11 @@
         },
         "raw_capture_root": "../../../a-derived/sources/adapt",
         "capture_freshness": "Inherited 2026-10-26 America/Denver retrieval; receipt offsets normalized to UTC, not refreshed by this review."
+      },
+      "path_resolution": {
+        "query_receipt_paths": "relative to repository root; ../a-derived and ../absorb-derived identify retained external captures",
+        "absolute_page_paths": "absolute filesystem paths where recorded",
+        "source_capture_paths": "repository-relative for docs/... paths; any inherited source mapping retains its explicitly declared source root"
       }
     },
     {
@@ -3255,13 +3277,14 @@
             }
           ],
           "receipt_paths": [
-            "../../../a-derived/sources/addendum/keyword-page-1.json"
+            "../a-derived/sources/addendum/keyword-page-1.json"
           ],
           "expected_count": 10,
           "retrieved_count": 10,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Baseline keyword population."
+          "exceptional_query_explanation": "Baseline keyword population.",
+          "receipt_paths_base": "repository_root"
         },
         {
           "query_id": "Q2",
@@ -3282,13 +3305,14 @@
             }
           ],
           "receipt_paths": [
-            "../../../a-derived/sources/addendum/oracle-page-1.json"
+            "../a-derived/sources/addendum/oracle-page-1.json"
           ],
           "expected_count": 10,
           "retrieved_count": 10,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Exact-word oracle query complements keyword indexing and exposes grants or indexing gaps."
+          "exceptional_query_explanation": "Exact-word oracle query complements keyword indexing and exposes grants or indexing gaps.",
+          "receipt_paths_base": "repository_root"
         },
         {
           "query_id": "Q3",
@@ -3309,13 +3333,14 @@
             }
           ],
           "receipt_paths": [
-            "../../../a-derived/sources/addendum/printings-page-1.json"
+            "../a-derived/sources/addendum/printings-page-1.json"
           ],
           "expected_count": 35,
           "retrieved_count": 35,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Prints query is chronology/rarity history, not design-population inflation."
+          "exceptional_query_explanation": "Prints query is chronology/rarity history, not design-population inflation.",
+          "receipt_paths_base": "repository_root"
         }
       ],
       "card_review": [
@@ -3956,8 +3981,7 @@
       "summary": "Ten native Addendum designs in the intended WU guild implementation: five white, three blue, and two joint WU; both colored branches are provisionally Primary.",
       "limitations": [
         "The difference between White Primary and Blue Secondary is an interpretive weighting of a small guild-focused sample, not an official hierarchy.",
-        "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch.",
-        "Draft record awaits independent RobQA; no application import authorization."
+        "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch."
       ],
       "review": {
         "evidence_completeness": "Saved keyword, exact-word, and prints receipts mapped; full independent review pending.",
@@ -3987,7 +4011,7 @@
         "new_evidence_or_reason": "Bounded v1.0 conformance review of retained card evidence; unsupported count-only wording removed or limited.",
         "protocol_version_change": "Prior assessment was not protocol-certified; this is v1.0 draft conformance output.",
         "review_date": null,
-        "application_import_authorization": "Not authorized by this record; coordinator controls import."
+        "application_import_authorization": "User explicitly authorized applying protocol to all A mechanics and updating the local preview; 2021 remains untouched. No publication or integration authorization."
       },
       "evidence_binding": {
         "source_packet_path": "a-assessments-source.json",
@@ -4003,6 +4027,11 @@
         },
         "raw_capture_root": "../../../a-derived/sources/addendum",
         "capture_freshness": "Inherited 2026-10-26 America/Denver retrieval; receipt offsets normalized to UTC, not refreshed by this review."
+      },
+      "path_resolution": {
+        "query_receipt_paths": "relative to repository root; ../a-derived and ../absorb-derived identify retained external captures",
+        "absolute_page_paths": "absolute filesystem paths where recorded",
+        "source_capture_paths": "repository-relative for docs/... paths; any inherited source mapping retains its explicitly declared source root"
       }
     },
     {
@@ -4094,13 +4123,14 @@
             }
           ],
           "receipt_paths": [
-            "../../../a-derived/sources/affinity/keyword-page-1.json"
+            "../a-derived/sources/affinity/keyword-page-1.json"
           ],
           "expected_count": 79,
           "retrieved_count": 79,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Baseline keyword population."
+          "exceptional_query_explanation": "Baseline keyword population.",
+          "receipt_paths_base": "repository_root"
         },
         {
           "query_id": "Q2",
@@ -4121,13 +4151,14 @@
             }
           ],
           "receipt_paths": [
-            "../../../a-derived/sources/affinity/oracle-page-1.json"
+            "../a-derived/sources/affinity/oracle-page-1.json"
           ],
           "expected_count": 90,
           "retrieved_count": 90,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Exact-word oracle query complements keyword indexing and exposes grants or indexing gaps."
+          "exceptional_query_explanation": "Exact-word oracle query complements keyword indexing and exposes grants or indexing gaps.",
+          "receipt_paths_base": "repository_root"
         },
         {
           "query_id": "Q3",
@@ -4155,14 +4186,15 @@
             }
           ],
           "receipt_paths": [
-            "../../../a-derived/sources/affinity/printings-page-1.json",
-            "../../../a-derived/sources/affinity/printings-page-2.json"
+            "../a-derived/sources/affinity/printings-page-1.json",
+            "../a-derived/sources/affinity/printings-page-2.json"
           ],
           "expected_count": 249,
           "retrieved_count": 249,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Prints query is chronology/rarity history, not design-population inflation."
+          "exceptional_query_explanation": "Prints query is chronology/rarity history, not design-population inflation.",
+          "receipt_paths_base": "repository_root"
         }
       ],
       "card_review": [
@@ -8093,11 +8125,10 @@
           "Special-scope evidence is not generalized into ordinary colored policy."
         ]
       },
-      "summary": "Blue has the deepest independent population; white and red recur broadly; black and green form smaller branches.",
+      "summary": "Blue has a supported recurring Primary pattern. The other colored branches remain observed but tier-unresolved; special and digital cards are recorded separately.",
       "limitations": [
         "Current saved Oracle text explicitly names Affinity on several older cards once worded as plain cost reduction; use current facts, not historical recollection. Borg Cube is a preview; Thoughtcast has older printings despite a future representative reprint. Colorless designs, special/acorn/playtest sources and the digital Grand Goatnapper are retained without treating them as ordinary colored policy.",
-        "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch.",
-        "Draft record awaits independent RobQA; no application import authorization."
+        "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch."
       ],
       "review": {
         "evidence_completeness": "Saved keyword, exact-word, and prints receipts mapped; full independent review pending.",
@@ -8127,7 +8158,7 @@
         "new_evidence_or_reason": "Bounded v1.0 conformance review of retained card evidence; unsupported count-only wording removed or limited.",
         "protocol_version_change": "Prior assessment was not protocol-certified; this is v1.0 draft conformance output.",
         "review_date": null,
-        "application_import_authorization": "Not authorized by this record; coordinator controls import."
+        "application_import_authorization": "User explicitly authorized applying protocol to all A mechanics and updating the local preview; 2021 remains untouched. No publication or integration authorization."
       },
       "evidence_binding": {
         "source_packet_path": "a-assessments-source.json",
@@ -8143,6 +8174,11 @@
         },
         "raw_capture_root": "../../../a-derived/sources/affinity",
         "capture_freshness": "Inherited 2026-10-26 America/Denver retrieval; receipt offsets normalized to UTC, not refreshed by this review."
+      },
+      "path_resolution": {
+        "query_receipt_paths": "relative to repository root; ../a-derived and ../absorb-derived identify retained external captures",
+        "absolute_page_paths": "absolute filesystem paths where recorded",
+        "source_capture_paths": "repository-relative for docs/... paths; any inherited source mapping retains its explicitly declared source root"
       }
     },
     {
@@ -8271,13 +8307,14 @@
             }
           ],
           "receipt_paths": [
-            "../../../a-derived/sources/afflict/keyword-page-1.json"
+            "../a-derived/sources/afflict/keyword-page-1.json"
           ],
           "expected_count": 11,
           "retrieved_count": 11,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Baseline keyword population."
+          "exceptional_query_explanation": "Baseline keyword population.",
+          "receipt_paths_base": "repository_root"
         },
         {
           "query_id": "Q2",
@@ -8298,13 +8335,14 @@
             }
           ],
           "receipt_paths": [
-            "../../../a-derived/sources/afflict/oracle-page-1.json"
+            "../a-derived/sources/afflict/oracle-page-1.json"
           ],
           "expected_count": 14,
           "retrieved_count": 14,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Exact-word oracle query complements keyword indexing and exposes grants or indexing gaps."
+          "exceptional_query_explanation": "Exact-word oracle query complements keyword indexing and exposes grants or indexing gaps.",
+          "receipt_paths_base": "repository_root"
         },
         {
           "query_id": "Q3",
@@ -8325,13 +8363,14 @@
             }
           ],
           "receipt_paths": [
-            "../../../a-derived/sources/afflict/printings-page-1.json"
+            "../a-derived/sources/afflict/printings-page-1.json"
           ],
           "expected_count": 36,
           "retrieved_count": 36,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Prints query is chronology/rarity history, not design-population inflation."
+          "exceptional_query_explanation": "Prints query is chronology/rarity history, not design-population inflation.",
+          "receipt_paths_base": "repository_root"
         }
       ],
       "card_review": [
@@ -9107,8 +9146,7 @@
         "The 2021 article ranks the broader blocked-damage category and explicitly discusses Afflict within it. Applying that hierarchy to the named keyword is this review's inference, not a separate official Afflict ranking.",
         "The sample contains 14 distinct designs, including three colorless sources. Reprints do not count as new designs; all reviewed native red and blue designs originated in Hour of Devastation.",
         "Dagger of the Worthy, Cyberman Patrol and the Ancestral Hot Dog Minotaur sticker sheet can make Afflict available beyond its colored designs. That availability does not assign every recipient color a tier.",
-        "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch.",
-        "Draft record awaits independent RobQA; no application import authorization."
+        "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch."
       ],
       "review": {
         "evidence_completeness": "Saved keyword, exact-word, and prints receipts mapped; full independent review pending.",
@@ -9138,7 +9176,7 @@
         "new_evidence_or_reason": "Bounded v1.0 conformance review of retained card evidence; unsupported count-only wording removed or limited.",
         "protocol_version_change": "Prior assessment was not protocol-certified; this is v1.0 draft conformance output.",
         "review_date": null,
-        "application_import_authorization": "Not authorized by this record; coordinator controls import."
+        "application_import_authorization": "User explicitly authorized applying protocol to all A mechanics and updating the local preview; 2021 remains untouched. No publication or integration authorization."
       },
       "evidence_binding": {
         "source_packet_path": "a-assessments-source.json",
@@ -9154,6 +9192,11 @@
         },
         "raw_capture_root": "../../../a-derived/sources/afflict",
         "capture_freshness": "Inherited 2026-10-26 America/Denver retrieval; receipt offsets normalized to UTC, not refreshed by this review."
+      },
+      "path_resolution": {
+        "query_receipt_paths": "relative to repository root; ../a-derived and ../absorb-derived identify retained external captures",
+        "absolute_page_paths": "absolute filesystem paths where recorded",
+        "source_capture_paths": "repository-relative for docs/... paths; any inherited source mapping retains its explicitly declared source root"
       }
     },
     {
@@ -9245,13 +9288,14 @@
             }
           ],
           "receipt_paths": [
-            "../../../a-derived/sources/afterlife/keyword-page-1.json"
+            "../a-derived/sources/afterlife/keyword-page-1.json"
           ],
           "expected_count": 11,
           "retrieved_count": 11,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Baseline keyword population."
+          "exceptional_query_explanation": "Baseline keyword population.",
+          "receipt_paths_base": "repository_root"
         },
         {
           "query_id": "Q2",
@@ -9272,13 +9316,14 @@
             }
           ],
           "receipt_paths": [
-            "../../../a-derived/sources/afterlife/oracle-page-1.json"
+            "../a-derived/sources/afterlife/oracle-page-1.json"
           ],
           "expected_count": 12,
           "retrieved_count": 12,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Exact-word oracle query complements keyword indexing and exposes grants or indexing gaps."
+          "exceptional_query_explanation": "Exact-word oracle query complements keyword indexing and exposes grants or indexing gaps.",
+          "receipt_paths_base": "repository_root"
         },
         {
           "query_id": "Q3",
@@ -9299,13 +9344,14 @@
             }
           ],
           "receipt_paths": [
-            "../../../a-derived/sources/afterlife/printings-page-1.json"
+            "../a-derived/sources/afterlife/printings-page-1.json"
           ],
           "expected_count": 32,
           "retrieved_count": 32,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Prints query is chronology/rarity history, not design-population inflation."
+          "exceptional_query_explanation": "Prints query is chronology/rarity history, not design-population inflation.",
+          "receipt_paths_base": "repository_root"
         }
       ],
       "card_review": [
@@ -10041,8 +10087,7 @@
       "summary": "Twelve native/grant Afterlife designs in the intended Orzhov implementation: white 5, black 3, and joint WB 4; both colored branches are provisionally Primary.",
       "limitations": [
         "A white-and-black Spirit token does not make each source card both colors. Afterlife Insurance is a joint WB grant; count it once. White/black tier separation is a sample-based judgment, not a published guild hierarchy.",
-        "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch.",
-        "Draft record awaits independent RobQA; no application import authorization."
+        "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch."
       ],
       "review": {
         "evidence_completeness": "Saved keyword, exact-word, and prints receipts mapped; full independent review pending.",
@@ -10072,7 +10117,7 @@
         "new_evidence_or_reason": "Bounded v1.0 conformance review of retained card evidence; unsupported count-only wording removed or limited.",
         "protocol_version_change": "Prior assessment was not protocol-certified; this is v1.0 draft conformance output.",
         "review_date": null,
-        "application_import_authorization": "Not authorized by this record; coordinator controls import."
+        "application_import_authorization": "User explicitly authorized applying protocol to all A mechanics and updating the local preview; 2021 remains untouched. No publication or integration authorization."
       },
       "evidence_binding": {
         "source_packet_path": "a-assessments-source.json",
@@ -10088,6 +10133,11 @@
         },
         "raw_capture_root": "../../../a-derived/sources/afterlife",
         "capture_freshness": "Inherited 2026-10-26 America/Denver retrieval; receipt offsets normalized to UTC, not refreshed by this review."
+      },
+      "path_resolution": {
+        "query_receipt_paths": "relative to repository root; ../a-derived and ../absorb-derived identify retained external captures",
+        "absolute_page_paths": "absolute filesystem paths where recorded",
+        "source_capture_paths": "repository-relative for docs/... paths; any inherited source mapping retains its explicitly declared source root"
       }
     },
     {
@@ -10179,13 +10229,14 @@
             }
           ],
           "receipt_paths": [
-            "../../../a-derived/sources/aftermath/keyword-page-1.json"
+            "../a-derived/sources/aftermath/keyword-page-1.json"
           ],
           "expected_count": 27,
           "retrieved_count": 27,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Baseline keyword population."
+          "exceptional_query_explanation": "Baseline keyword population.",
+          "receipt_paths_base": "repository_root"
         },
         {
           "query_id": "Q2",
@@ -10206,13 +10257,14 @@
             }
           ],
           "receipt_paths": [
-            "../../../a-derived/sources/aftermath/oracle-page-1.json"
+            "../a-derived/sources/aftermath/oracle-page-1.json"
           ],
           "expected_count": 27,
           "retrieved_count": 27,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Exact-word oracle query complements keyword indexing and exposes grants or indexing gaps."
+          "exceptional_query_explanation": "Exact-word oracle query complements keyword indexing and exposes grants or indexing gaps.",
+          "receipt_paths_base": "repository_root"
         },
         {
           "query_id": "Q3",
@@ -10233,13 +10285,14 @@
             }
           ],
           "receipt_paths": [
-            "../../../a-derived/sources/aftermath/printings-page-1.json"
+            "../a-derived/sources/aftermath/printings-page-1.json"
           ],
           "expected_count": 97,
           "retrieved_count": 97,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Prints query is chronology/rarity history, not design-population inflation."
+          "exceptional_query_explanation": "Prints query is chronology/rarity history, not design-population inflation.",
+          "receipt_paths_base": "repository_root"
         }
       ],
       "card_review": [
@@ -11645,11 +11698,10 @@
           "Special-scope evidence is not generalized into ordinary colored policy."
         ]
       },
-      "summary": "All five colors have comparable independent Aftermath-face representation, so propose co-primary access.",
+      "summary": "All five colors have deliberate, varied Aftermath-bearing faces in the original implementation and are proposed co-Primary.",
       "limitations": [
         "Scryfall split-face objects omit colors here; attribution explicitly derives W/U/B/R/G from each relevant face's mana symbols. The count is 27 designs, not 54 card halves. A seven-versus-five difference does not justify forcing red above the balanced five-color pattern.",
-        "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch.",
-        "Draft record awaits independent RobQA; no application import authorization."
+        "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch."
       ],
       "review": {
         "evidence_completeness": "Saved keyword, exact-word, and prints receipts mapped; full independent review pending.",
@@ -11679,7 +11731,7 @@
         "new_evidence_or_reason": "Bounded v1.0 conformance review of retained card evidence; unsupported count-only wording removed or limited.",
         "protocol_version_change": "Prior assessment was not protocol-certified; this is v1.0 draft conformance output.",
         "review_date": null,
-        "application_import_authorization": "Not authorized by this record; coordinator controls import."
+        "application_import_authorization": "User explicitly authorized applying protocol to all A mechanics and updating the local preview; 2021 remains untouched. No publication or integration authorization."
       },
       "evidence_binding": {
         "source_packet_path": "a-assessments-source.json",
@@ -11695,6 +11747,11 @@
         },
         "raw_capture_root": "../../../a-derived/sources/aftermath",
         "capture_freshness": "Inherited 2026-10-26 America/Denver retrieval; receipt offsets normalized to UTC, not refreshed by this review."
+      },
+      "path_resolution": {
+        "query_receipt_paths": "relative to repository root; ../a-derived and ../absorb-derived identify retained external captures",
+        "absolute_page_paths": "absolute filesystem paths where recorded",
+        "source_capture_paths": "repository-relative for docs/... paths; any inherited source mapping retains its explicitly declared source root"
       }
     },
     {
@@ -11786,13 +11843,14 @@
             }
           ],
           "receipt_paths": [
-            "../../../a-derived/sources/airbend/keyword-page-1.json"
+            "../a-derived/sources/airbend/keyword-page-1.json"
           ],
           "expected_count": 13,
           "retrieved_count": 13,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Baseline keyword population."
+          "exceptional_query_explanation": "Baseline keyword population.",
+          "receipt_paths_base": "repository_root"
         },
         {
           "query_id": "Q2",
@@ -11813,13 +11871,14 @@
             }
           ],
           "receipt_paths": [
-            "../../../a-derived/sources/airbend/oracle-page-1.json"
+            "../a-derived/sources/airbend/oracle-page-1.json"
           ],
           "expected_count": 14,
           "retrieved_count": 14,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Exact-word oracle query complements keyword indexing and exposes grants or indexing gaps."
+          "exceptional_query_explanation": "Exact-word oracle query complements keyword indexing and exposes grants or indexing gaps.",
+          "receipt_paths_base": "repository_root"
         },
         {
           "query_id": "Q3",
@@ -11840,13 +11899,14 @@
             }
           ],
           "receipt_paths": [
-            "../../../a-derived/sources/airbend/printings-page-1.json"
+            "../a-derived/sources/airbend/printings-page-1.json"
           ],
           "expected_count": 31,
           "retrieved_count": 31,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Prints query is chronology/rarity history, not design-population inflation."
+          "exceptional_query_explanation": "Prints query is chronology/rarity history, not design-population inflation.",
+          "receipt_paths_base": "repository_root"
         }
       ],
       "card_review": [
@@ -12617,11 +12677,10 @@
           "Special-scope evidence is not generalized into ordinary colored policy."
         ]
       },
-      "summary": "White is the clear home; blue has one independent native spell and joint white-blue access.",
+      "summary": "White has a broad original implementation and is proposed Primary. Blue access is observed, but its tier remains unresolved.",
       "limitations": [
         "Avatar Aang rewards airbending but does not perform or grant it, so it is excluded. Avatar Yangchen's mechanic-bearing back face has empty colors in the saved API; its white front is retained as casting context, not silently substituted into the face-color count. The proposed blue tier is not an official set-design placement.",
-        "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch.",
-        "Draft record awaits independent RobQA; no application import authorization."
+        "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch."
       ],
       "review": {
         "evidence_completeness": "Saved keyword, exact-word, and prints receipts mapped; full independent review pending.",
@@ -12651,7 +12710,7 @@
         "new_evidence_or_reason": "Bounded v1.0 conformance review of retained card evidence; unsupported count-only wording removed or limited.",
         "protocol_version_change": "Prior assessment was not protocol-certified; this is v1.0 draft conformance output.",
         "review_date": null,
-        "application_import_authorization": "Not authorized by this record; coordinator controls import."
+        "application_import_authorization": "User explicitly authorized applying protocol to all A mechanics and updating the local preview; 2021 remains untouched. No publication or integration authorization."
       },
       "evidence_binding": {
         "source_packet_path": "a-assessments-source.json",
@@ -12667,6 +12726,11 @@
         },
         "raw_capture_root": "../../../a-derived/sources/airbend",
         "capture_freshness": "Inherited 2026-10-26 America/Denver retrieval; receipt offsets normalized to UTC, not refreshed by this review."
+      },
+      "path_resolution": {
+        "query_receipt_paths": "relative to repository root; ../a-derived and ../absorb-derived identify retained external captures",
+        "absolute_page_paths": "absolute filesystem paths where recorded",
+        "source_capture_paths": "repository-relative for docs/... paths; any inherited source mapping retains its explicitly declared source root"
       }
     }
   ]
