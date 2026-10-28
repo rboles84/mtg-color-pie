@@ -564,6 +564,20 @@
         "query_receipt_paths": "relative to repository root; ../a-derived and ../absorb-derived identify retained external captures",
         "absolute_page_paths": "absolute filesystem paths where recorded",
         "source_capture_paths": "repository-relative for docs/... paths; any inherited source mapping retains its explicitly declared source root"
+      },
+      "player_copy": {
+        "scope": "Digital Alchemy cards.",
+        "summary": "Blue and green have Actualize cards, but this small digital release does not establish a clear tier for either color.",
+        "rationale": {
+          "W": "No white card that has or grants Actualize was found in this card sample, so no tier is assigned.",
+          "U": "Crux of the Theory and Echogoyfs show blue using Actualize. Both come from Alchemy: Reality Fracture; these examples alone do not establish blue as its Primary home.",
+          "B": "No black card that has or grants Actualize was found in this card sample, so no tier is assigned.",
+          "R": "No red card that has or grants Actualize was found in this card sample, so no tier is assigned.",
+          "G": "Etali, Primal Garden shows green using Actualize. One example does not establish whether green has a regular role or an occasional exception, so its tier remains unassigned."
+        },
+        "limitations": [
+          "These Alchemy examples do not establish a pattern for paper Magic or Commander."
+        ]
       }
     },
     {
@@ -1695,6 +1709,20 @@
         "query_receipt_paths": "relative to repository root; ../a-derived and ../absorb-derived identify retained external captures",
         "absolute_page_paths": "absolute filesystem paths where recorded",
         "source_capture_paths": "repository-relative for docs/... paths; any inherited source mapping retains its explicitly declared source root"
+      },
+      "player_copy": {
+        "scope": "The five-color Adamant design in Throne of Eldraine.",
+        "summary": "Adamant rewards a commitment to one color of mana. Each of the five colors has its own range of uses, supporting Primary for all five.",
+        "rationale": {
+          "W": "Ardenvale Paladin, Rally for the Throne, and Silverflame Ritual give white creature, token, and spell uses. White has a full role in the original five-color design, supporting Primary.",
+          "U": "Turn into a Pumpkin, Unexplained Vision, and Vantress Paladin give blue control, card-selection, and creature uses. Blue has a full role in the original five-color design, supporting Primary.",
+          "B": "Cauldron's Gift, Foreboding Fruit, and Locthwain Paladin give black graveyard, resource, and creature uses. Black has a full role in the original five-color design, supporting Primary.",
+          "R": "Embereth Paladin, Searing Barrage, and Slaying Fire give red creature and damage uses. Red has a full role in the original five-color design, supporting Primary.",
+          "G": "Garenbrig Paladin, Once and Future, and Outmuscle give green creature, recursion, and fight uses. Green has a full role in the original five-color design, supporting Primary."
+        },
+        "limitations": [
+          "The shared Primary placement is our interpretation of this balanced design, not an official ranking."
+        ]
       }
     },
     {
@@ -3186,6 +3214,20 @@
         "query_receipt_paths": "relative to repository root; ../a-derived and ../absorb-derived identify retained external captures",
         "absolute_page_paths": "absolute filesystem paths where recorded",
         "source_capture_paths": "repository-relative for docs/... paths; any inherited source mapping retains its explicitly declared source root"
+      },
+      "player_copy": {
+        "scope": "Adapt itself, rather than +1/+1-counter effects in general.",
+        "summary": "Green uses Adapt across several releases and kinds of cards. White, blue, and black also use it, but their exact tiers remain uncertain.",
+        "rationale": {
+          "W": "Knighted Myr shows white using Adapt. One card does not establish whether this is an occasional white ability or a one-off exception, so its tier remains unassigned.",
+          "U": "Pteramander, Skatewing Spy, and Benthic Biomancer show repeated blue use. The available evidence does not clearly distinguish a regular Secondary role from more limited access, so blue remains unassigned.",
+          "B": "Etherium Pteramander, Fetid Gargantua, and Dreamdrinker Vampire show repeated black use. The available evidence does not clearly distinguish a regular Secondary role from more limited access, so black remains unassigned.",
+          "R": "No red card that has or grants Adapt was found in this card sample, so no tier is assigned.",
+          "G": "Incubation Druid, Growth-Chamber Guardian, and Evolution Witness show green using Adapt across several releases and roles. This recurring range supports Primary rather than Secondary."
+        },
+        "limitations": [
+          "Multicolor cards add context, but do not by themselves establish a separate tier for each of their colors."
+        ]
       }
     },
     {
@@ -4032,6 +4074,20 @@
         "query_receipt_paths": "relative to repository root; ../a-derived and ../absorb-derived identify retained external captures",
         "absolute_page_paths": "absolute filesystem paths where recorded",
         "source_capture_paths": "repository-relative for docs/... paths; any inherited source mapping retains its explicitly declared source root"
+      },
+      "player_copy": {
+        "scope": "The white-blue Addendum design in Ravnica Allegiance.",
+        "summary": "White and blue each have a substantial role in Addendum, supporting Primary for both.",
+        "rationale": {
+          "W": "Arrester's Zeal, Sentinel's Mark, Summary Judgment, and Unbreakable Formation give white protection and combat uses. These form a main part of the guild mechanic, supporting Primary.",
+          "U": "Arrester's Admonition, Code of Constraint, and Precognitive Perception give blue tempo and card-draw uses. Blue has its own main role alongside white, supporting Primary rather than Secondary.",
+          "B": "No black card that has or grants Addendum was found in this card sample, so no tier is assigned.",
+          "R": "No red card that has or grants Addendum was found in this card sample, so no tier is assigned.",
+          "G": "No green card that has or grants Addendum was found in this card sample, so no tier is assigned."
+        },
+        "limitations": [
+          "Confidence is low because the evidence comes from a small guild-focused design."
+        ]
       }
     },
     {
@@ -8179,6 +8235,20 @@
         "query_receipt_paths": "relative to repository root; ../a-derived and ../absorb-derived identify retained external captures",
         "absolute_page_paths": "absolute filesystem paths where recorded",
         "source_capture_paths": "repository-relative for docs/... paths; any inherited source mapping retains its explicitly declared source root"
+      },
+      "player_copy": {
+        "scope": "Affinity across paper releases; digital and special cards are considered separately.",
+        "summary": "Blue has a recurring range of Affinity cards. The other colors also have examples, but the evidence does not establish precise tiers for them.",
+        "rationale": {
+          "W": "Angelic Observer, Argivian Phalanx, and Pearl-Ear show repeated white access, including granting Affinity. They establish that white can use it, but do not clearly distinguish Secondary from Tertiary.",
+          "U": "Thoughtcast, Broodstar, and Emry, Lurker of the Loch use Affinity for artifacts for card draw, a scaling creature, and artifact recursion across different releases. That recurring range supports Primary.",
+          "B": "Demonic Junker, Refurbished Familiar, and Scales of Shale show repeated black access. The examples establish use, but do not clearly distinguish Secondary from Tertiary.",
+          "R": "Furnace Dragon, Oxidda Finisher, and Chiss-Goria show repeated red access, including granting Affinity. The examples establish use, but do not clearly distinguish Secondary from Tertiary.",
+          "G": "Bartz and Boko, Polliwallop, and other green cards show green using Affinity for particular kinds of objects. The evidence does not clearly distinguish a regular Secondary role from occasional Tertiary access."
+        },
+        "limitations": [
+          "Preview, digital, and playtest examples are kept separate from the paper-card pattern. Colorless cards do not establish tiers for every color that can play them."
+        ]
       }
     },
     {
@@ -9197,6 +9267,21 @@
         "query_receipt_paths": "relative to repository root; ../a-derived and ../absorb-derived identify retained external captures",
         "absolute_page_paths": "absolute filesystem paths where recorded",
         "source_capture_paths": "repository-relative for docs/... paths; any inherited source mapping retains its explicitly declared source root"
+      },
+      "player_copy": {
+        "scope": "The named Afflict keyword, informed by the broader blocked-damage discussion in Mechanical Color Pie 2021.",
+        "summary": "Afflict makes blocking costly. Red is the strongest home, black has an established secondary role, and blue has a narrow set-specific role.",
+        "rationale": {
+          "W": "No white card that has or grants Afflict was found in this card sample, so no tier is assigned.",
+          "U": "Eternal of Harsh Truths and Spellweaver Eternal give blue Afflict in Hour of Devastation. Rosewater explains blue's access through Bolas's blue-black-red Eternal army. That specific set context supports Tertiary rather than a regular Secondary role.",
+          "B": "Ammit Eternal, Khenra Eternal, and Merciless Eternal establish black's original use; Lazotep Sliver and Lost Monarch of Ifnir later grant it. Rosewater places black Secondary for the broader blocked-damage effect and describes its version as life loss. The card history fits that secondary role.",
+          "R": "Frontline Devastator, Manticore Eternal, Neheb, and Wildfire Eternal make blocking a difficult choice. Rosewater places red Primary for the broader blocked-damage effect while explicitly discussing Afflict. Together, that discussion and the cards support red as Primary.",
+          "G": "No green card that has or grants Afflict was found in this card sample, so no tier is assigned."
+        },
+        "limitations": [
+          "The article ranks a broader effect. Applying its hierarchy to Afflict is our judgment, not a separate official ranking of the keyword.",
+          "Colorless cards can grant Afflict to creatures of other colors without establishing tiers for those colors."
+        ]
       }
     },
     {
@@ -10138,6 +10223,20 @@
         "query_receipt_paths": "relative to repository root; ../a-derived and ../absorb-derived identify retained external captures",
         "absolute_page_paths": "absolute filesystem paths where recorded",
         "source_capture_paths": "repository-relative for docs/... paths; any inherited source mapping retains its explicitly declared source root"
+      },
+      "player_copy": {
+        "scope": "The white-black Orzhov mechanic.",
+        "summary": "White and black both have substantial Afterlife roles, supporting Primary for both.",
+        "rationale": {
+          "W": "Tithe Taker and Ministrant of Obligation have Afterlife, while Indebted Spirit grants it. These distinct uses make white a main color of the mechanic, supporting Primary.",
+          "U": "No blue card that has or grants Afterlife was found in this card sample, so no tier is assigned.",
+          "B": "Debtors' Transport, Orzhov Enforcer, and Orzhov Racketeers give black its own range of Afterlife creatures. Black is a main color alongside white, supporting Primary rather than Secondary.",
+          "R": "No red card that has or grants Afterlife was found in this card sample, so no tier is assigned.",
+          "G": "No green card that has or grants Afterlife was found in this card sample, so no tier is assigned."
+        },
+        "limitations": [
+          "Confidence is low because the mechanic has a small, guild-focused range. The colors of its Spirit tokens do not change the colors of the cards that create them."
+        ]
       }
     },
     {
@@ -11752,6 +11851,20 @@
         "query_receipt_paths": "relative to repository root; ../a-derived and ../absorb-derived identify retained external captures",
         "absolute_page_paths": "absolute filesystem paths where recorded",
         "source_capture_paths": "repository-relative for docs/... paths; any inherited source mapping retains its explicitly declared source root"
+      },
+      "player_copy": {
+        "scope": "The half of each Amonkhet-block split card that has Aftermath.",
+        "summary": "Aftermath was spread across all five colors, with each color receiving a substantial role. All five are Primary.",
+        "rationale": {
+          "W": "The Aftermath halves of Appeal // Authority, Dusk // Dawn, and Onward // Victory give white creature-boost and recovery effects. This full role in the five-color design supports Primary.",
+          "U": "The Aftermath halves of Commit // Memory, Farm // Market, and Spring // Mind give blue interaction and card-draw effects. This full role in the five-color design supports Primary.",
+          "B": "The Aftermath halves of Consign // Oblivion, Cut // Ribbons, and Never // Return give black discard, life-loss, and removal effects. This full role in the five-color design supports Primary.",
+          "R": "The Aftermath halves of Claim // Fame, Heaven // Earth, and Insult // Injury give red combat and damage effects. This full role in the five-color design supports Primary.",
+          "G": "The Aftermath halves of Destined // Lead, Mouth // Feed, and Prepare // Fight give green creature-growth and fight effects. This full role in the five-color design supports Primary."
+        },
+        "limitations": [
+          "A color on the other half of a split card does not by itself give that color Aftermath."
+        ]
       }
     },
     {
@@ -12731,6 +12844,20 @@
         "query_receipt_paths": "relative to repository root; ../a-derived and ../absorb-derived identify retained external captures",
         "absolute_page_paths": "absolute filesystem paths where recorded",
         "source_capture_paths": "repository-relative for docs/... paths; any inherited source mapping retains its explicitly declared source root"
+      },
+      "player_copy": {
+        "scope": "Airbend in Avatar: The Last Airbender.",
+        "summary": "White uses Airbend widely in the Avatar release. Blue can also use it, but its tier remains uncertain.",
+        "rationale": {
+          "W": "Airbending Lesson, Airbender's Reversal, Appa, and other white cards use Airbend across common through mythic rarities. Its broad role throughout the release supports Primary.",
+          "U": "Whirlwind Technique shows blue using Airbend, and Aang, Swift Savior adds a white-blue example. These establish access, but do not establish a regular or occasional blue role clearly enough to assign a tier.",
+          "B": "No black card that has or grants Airbend was found in this card sample, so no tier is assigned.",
+          "R": "No red card that has or grants Airbend was found in this card sample, so no tier is assigned.",
+          "G": "No green card that has or grants Airbend was found in this card sample, so no tier is assigned."
+        },
+        "limitations": [
+          "Cards that reward airbending without performing or granting it do not establish another color placement."
+        ]
       }
     }
   ]

@@ -6,6 +6,7 @@ import assert from 'node:assert/strict';
 import {createRequire} from 'node:module';
 const args=process.argv.slice(2), opt=(n,d)=>args.includes(n)?args[args.indexOf(n)+1]:d;
 const root=path.resolve(opt('--root','.'));
+const copyOnly=args.includes('--copy-only');
 const {chromium}=createRequire(import.meta.url)(opt('--playwright','playwright'));
 const payload=JSON.parse(fs.readFileSync(path.join(root,'data/mechanics-assessments.v1.json'),'utf8'));
 const supplement=JSON.parse(fs.readFileSync(path.join(root,'data/mechanics-supplement.v1.json'),'utf8'));
@@ -41,6 +42,7 @@ try{
   assert.equal(await page.locator('#list .ent').count(),587);
   assert.equal(await page.locator('#list > .grp[data-scope="main"] .ent').count(),543);
   assert.equal(await page.locator('#list > .grp[data-scope="special-material"] .ent').count(),44);
+  if(!copyOnly){
   for(const record of payload.records){
     const row=page.locator(`#list .ent[data-k="${record.id}"]`);
     if(record.kind!=='derived'){assert.equal(await row.locator('.strip').count(),0);continue;}
@@ -72,6 +74,7 @@ try{
   assert.deepEqual(errors,[]);
   results.push('20 exact WUBRG strips in rows/search; no verbose subtitle; accessible provisional/Unassigned labels; no fake Colorless/rules strips; Article/lens roundtrip; keyboard; 360px containment');
   await page.setViewportSize({width:1440,height:900});
+  }
   if(!args.includes('--symbols-only')){
   let assigned=0;
   for(const record of payload.records){
@@ -80,8 +83,8 @@ try{
     assert.equal(await panel.getAttribute('aria-label'),record.label,record.name);
     assert.equal(await page.locator('#dx-title').innerText(),record.name);
     assert.match(await panel.innerText(),/Outside the 2021 color calculations/);
-    assert.match(await panel.innerText(),/Protocol 1\.0/);
-    assert.match(await panel.innerText(),/Judgment October 27, 2026/);
+    assert.match(await panel.innerText(),/Based on evidence available October 26, 2026/);
+    assert.ok((await panel.innerText()).includes(record.scope));
     assert.equal(await page.locator('#supp-ranking-note').count(),0);
     const summary=await page.locator(`#list .ent[data-k="${record.id}"]`).getAttribute('aria-label');
     assert.ok(summary.includes(record.shortLabel));
@@ -102,9 +105,18 @@ try{
     assert.ok((await notes.innerText()).includes(record.summary));
     if(record.kind==='derived') for(const c of 'WUBRG'){
       assert.ok((await notes.innerText()).includes(record.rationale[c]));
-      assert.ok((await notes.innerText()).includes(record.decisionStatus[c].replaceAll('_',' ')));
       assert.ok((await notes.innerText()).includes('Confidence: '+record.decisionConfidence[c]));
     }
+    const playerText=await panel.innerText();
+    assert.doesNotMatch(playerText,/Protocol 1\.0|Judgment October|observed tier unresolved|no support in sample|inherited receipts|normalized to UTC|retained record|conformance record|independent review pending/i,record.name+' excludes research bookkeeping');
+    if(record.name==='Adapt'){
+      assert.doesNotMatch(await page.locator('#detail').innerText(),/Specific rules material|Specific Comprehensive Rules material is retained/);
+      for(const name of ['Knighted Myr','Pteramander','Etherium Pteramander','Incubation Druid']) assert.ok(playerText.includes(name));
+      assert.match(record.rationale.U,/not enough|cannot|unclear|uncertain|do not|does not/i);
+      assert.match(record.rationale.R,/no|not found|none/i);
+    }
+    const scopeWitness={Actualize:/digital|Alchemy/i,Assimilate:/preview/i,Assemble:/Unstable/i,Augment:/Unstable|Unsanctioned/i,Affinitycycling:/playtest|designer/i}[record.name];
+    if(scopeWitness) assert.match(await page.locator('#detail').innerText(),scopeWitness,record.name+' scope warning retained');
     assert.equal(await notes.locator('a').count(),record.sources.length+1+record.citationCards.length);
     assert.deepEqual(await notes.locator('a').evaluateAll(links=>links.filter(a=>a.protocol!=='https:'||!['scryfall.com','magic.wizards.com'].includes(a.hostname)||a.rel!=='noopener noreferrer').map(a=>a.href)),[]);
     if(record.name==='Attach'){
@@ -113,12 +125,12 @@ try{
       assert.match(await related.innerText(),/not every Attach action/);
     }
     if(record.name==='Annihilator'){
-      assert.match(await panel.innerText(),/selected by the user/);
+      assert.match(await panel.innerText(),/selected for this page/);
       assert.doesNotMatch(await panel.innerText(),/Analyst assessment|assessment - provisional/);
     }
     if(record.name==='Affinitycycling'){
       assert.match(await panel.innerText(),/assessment - provisional/);
-      assert.match(await notes.innerText(),/Playtest-only evidence/);
+      assert.match(await notes.innerText(),/playtest|designer/i);
     }
   }
   assert.equal(assigned,payload.records.reduce((n,r)=>n+Object.values(r.placements).filter(Boolean).length,0));
@@ -127,6 +139,12 @@ try{
   await page.evaluate(id=>VMX.open(id),training.id);
   assert.equal(await page.locator('#detail .supp-assessment').count(),0);
   assert.match(await page.locator('#detail').innerText(),/Rankings unassigned/);
+  assert.match(await page.locator('#detail').innerText(),/Specific Comprehensive Rules material is retained/);
+  await page.locator('#q').fill('Flying');await page.locator('#q').press('Enter');
+  assert.equal(await page.locator('#dx-title').innerText(),'Flying');
+  assert.equal(await page.locator('#detail .supp-assessment').count(),0);
+  results.push('Player copy for all 25; no research bookkeeping; Adapt uncertainty, special scope, non-A and 2021 controls preserved');
+  if(!copyOnly){
   await page.evaluate(()=>{VMX.close();VMX.clearColors();VMX.setQuery('');});
   await page.locator('#q').fill('Absorb');await page.locator('#q').press('Enter');
   assert.equal(await page.locator('#dx-title').innerText(),'Absorb');
@@ -141,7 +159,9 @@ try{
   assert.deepEqual(errors,[]);
   results.push('2021: 84/84; Article 216, A–Z 543 + Special 44; unchanged math and non-A; keyboard and 360px containment');
   }
+  }
   await page.close();
+  if(!copyOnly){
   for(const scenario of (args.includes('--symbols-only')?['missing']:['missing','bad-tier','wrong-binding','unsafe-url','bad-status','false-colorless-tier'])){
     const p=await browser.newPage();const bad=structuredClone(payload);
     if(scenario==='bad-tier')bad.records.at(-1).placements.W='Invented';
@@ -182,5 +202,6 @@ try{
   assert.equal(await late.evaluate(()=>window.assessmentInjected),undefined);
   assert.ok((await late.locator('#detail .assessment-notes').textContent()).includes('<img src=x'));
   results.push('Late load refreshes row/detail, preserves input focus; source HTML escaped');await late.close();
+  }
   console.log(JSON.stringify({result:'PASS',checks:results},null,2));
 }finally{if(browser)await browser.close();await new Promise(resolve=>server.close(resolve));}

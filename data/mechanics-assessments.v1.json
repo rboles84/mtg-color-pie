@@ -20,22 +20,22 @@
     },
     {
       "path": "docs/mechanics-research/a-protocol-core.json",
-      "sha256": "f721941c22d5d8e808a38d49cd985ea6e6f9b75d204f8db1e7c04d5251530208"
+      "sha256": "dbd222c4df0956a8586f07270c8213fa0e3c2886007a8c898e5b119973410ada"
     },
     {
       "path": "docs/mechanics-research/a-protocol-extended.json",
-      "sha256": "a7a03d9e18ee0b999d3c08af560482c4357f90164afabb08b64242ea9ef884a3"
+      "sha256": "666c18cbf392e30d45b3b8afa899b61d3c65d291e27988f7ea26acb88a2db5aa"
     },
     {
       "path": "docs/mechanics-research/a-protocol-special.json",
-      "sha256": "718c01516e59110d3b853a79874e07d1a248ec5e8fe5930ffa51d82c932c03be"
+      "sha256": "ea9fe9cd24d65935a1593a8b3b7f5860cff80b221bf944847443e1280c6c3904"
     }
   ],
   "records": [
     {
       "id": "deck:catalog-gaps:abandon",
       "name": "Abandon",
-      "scope": "Archenemy ongoing schemes; a general rules action rather than a colored effect.",
+      "scope": "Archenemy scheme rules.",
       "confidence": "Not applicable",
       "placements": {
         "W": null,
@@ -45,17 +45,14 @@
         "G": null
       },
       "rationale": {
-        "W": "Abandon is an Archenemy scheme operation, not a colored spell effect. Its rules classification is supported independently of the Scryfall sample, so no P/S/T tiers apply. This applies equally to white.",
-        "U": "Abandon is an Archenemy scheme operation, not a colored spell effect. Its rules classification is supported independently of the Scryfall sample, so no P/S/T tiers apply. This applies equally to blue.",
-        "B": "Abandon is an Archenemy scheme operation, not a colored spell effect. Its rules classification is supported independently of the Scryfall sample, so no P/S/T tiers apply. This applies equally to black.",
-        "R": "Abandon is an Archenemy scheme operation, not a colored spell effect. Its rules classification is supported independently of the Scryfall sample, so no P/S/T tiers apply. This applies equally to red.",
-        "G": "Abandon is an Archenemy scheme operation, not a colored spell effect. Its rules classification is supported independently of the Scryfall sample, so no P/S/T tiers apply. This applies equally to green."
+        "W": "This general rules action has no color-pie tier.",
+        "U": "This general rules action has no color-pie tier.",
+        "B": "This general rules action has no color-pie tier.",
+        "R": "This general rules action has no color-pie tier.",
+        "G": "This general rules action has no color-pie tier."
       },
-      "summary": "Abandon is an Archenemy scheme operation, not a colored spell effect. Its rules classification is supported independently of the Scryfall sample, so no P/S/T tiers apply.",
-      "limitations": [
-        "Card evidence reuses the complete or explicitly bounded October 26, 2026 snapshot; judgment reviewed October 27. No later card population is claimed.",
-        "Unassigned does not mean prohibited or impossible; these assessments do not enter the 2021 calculations."
-      ],
+      "summary": "Abandon is an Archenemy game action, so color-pie tiers do not apply.",
+      "limitations": [],
       "citationCards": [
         {
           "name": "Because I Have Willed It",
@@ -183,7 +180,7 @@
     {
       "id": "deck:catalog-gaps:absorb",
       "name": "Absorb",
-      "scope": "Released paper designs in the retained card snapshot; special material is recorded separately.",
+      "scope": "The printed Absorb keyword and its design history.",
       "confidence": "Low",
       "placements": {
         "W": "Primary",
@@ -193,17 +190,15 @@
         "G": null
       },
       "rationale": {
-        "W": "Lymph Sliver deliberately grants absorb, making white the only demonstrated colored source in this sample. Rosewater’s Future Sight handoff also places the armor precursor in white. Together these satisfy the limited-sample rule for a proposed Primary home rather than leaving the home entirely unresolved; one printed design still cannot establish broad or recurring access.",
-        "U": "No independent blue source appears in the complete exact-word Absorb sample. Lymph Sliver can grant the ability to creatures of this color, but the granting card is white; recipient access does not justify a blue tier.",
-        "B": "No independent black source appears in the complete exact-word Absorb sample. Lymph Sliver can grant the ability to creatures of this color, but the granting card is white; recipient access does not justify a black tier.",
-        "R": "No independent red source appears in the complete exact-word Absorb sample. Lymph Sliver can grant the ability to creatures of this color, but the granting card is white; recipient access does not justify a red tier.",
-        "G": "No independent green source appears in the complete exact-word Absorb sample. Lymph Sliver can grant the ability to creatures of this color, but the granting card is white; recipient access does not justify a green tier."
+        "W": "Lymph Sliver grants Absorb, and Rosewater's Future Sight handoff places its armor precursor in white. Together they suggest white as the main home, but one printed design cannot establish broad or recurring use.",
+        "U": "No blue card that has or grants Absorb was found in this card sample, so no tier is assigned.",
+        "B": "No black card that has or grants Absorb was found in this card sample, so no tier is assigned.",
+        "R": "No red card that has or grants Absorb was found in this card sample, so no tier is assigned.",
+        "G": "No green card that has or grants Absorb was found in this card sample, so no tier is assigned."
       },
-      "summary": "White remains a proposed Primary home, with Low confidence. Lymph Sliver is the sole printed design in the saved sample; the independent armor design history supports a proposal without establishing a recurring pattern.",
+      "summary": "White is the only demonstrated colored source. Lymph Sliver and the earlier white design concepts support a tentative Primary placement, with low confidence.",
       "limitations": [
-        "Card evidence reuses the complete or explicitly bounded October 26, 2026 snapshot; judgment reviewed October 27. No later card population is claimed.",
-        "Unassigned does not mean prohibited or impossible; these assessments do not enter the 2021 calculations.",
-        "The unprinted armor concepts are design context, not extra Scryfall designs or an explicit official Primary placement."
+        "The armor concepts were unprinted designs, not additional cards or an official Primary ranking. Lymph Sliver can grant Absorb to creatures of other colors without establishing tiers for those colors."
       ],
       "citationCards": [
         {
@@ -255,7 +250,7 @@
     {
       "id": "deck:catalog-gaps:activate",
       "name": "Activate",
-      "scope": "General rules vocabulary; individual effects require separate color-pie assessments.",
+      "scope": "General Magic rules vocabulary.",
       "confidence": "Not applicable",
       "placements": {
         "W": null,
@@ -265,18 +260,14 @@
         "G": null
       },
       "rationale": {
-        "W": "Activate names a common rules operation. Assessing the effects of activated abilities requires separate entries; the shared verb itself has no P/S/T ranking. This applies equally to white.",
-        "U": "Activate names a common rules operation. Assessing the effects of activated abilities requires separate entries; the shared verb itself has no P/S/T ranking. This applies equally to blue.",
-        "B": "Activate names a common rules operation. Assessing the effects of activated abilities requires separate entries; the shared verb itself has no P/S/T ranking. This applies equally to black.",
-        "R": "Activate names a common rules operation. Assessing the effects of activated abilities requires separate entries; the shared verb itself has no P/S/T ranking. This applies equally to red.",
-        "G": "Activate names a common rules operation. Assessing the effects of activated abilities requires separate entries; the shared verb itself has no P/S/T ranking. This applies equally to green."
+        "W": "This general rules action has no color-pie tier.",
+        "U": "This general rules action has no color-pie tier.",
+        "B": "This general rules action has no color-pie tier.",
+        "R": "This general rules action has no color-pie tier.",
+        "G": "This general rules action has no color-pie tier."
       },
-      "summary": "Activate names a common rules operation. Assessing the effects of activated abilities requires separate entries; the shared verb itself has no P/S/T ranking.",
-      "limitations": [
-        "Card evidence reuses the complete or explicitly bounded October 26, 2026 snapshot; judgment reviewed October 27. No later card population is claimed.",
-        "Unassigned does not mean prohibited or impossible; these assessments do not enter the 2021 calculations.",
-        "The retained Oracle query is a first-page illustration, not a complete population. No presence-frequency or absence conclusion is drawn from it."
-      ],
+      "summary": "Activate describes using an activated ability. The effects of those abilities have their own color-pie roles; the shared rules verb does not.",
+      "limitations": [],
       "citationCards": [],
       "researchRecordId": "deck:vocabulary:activate",
       "label": "Rules action - not ranked",
@@ -323,7 +314,7 @@
     {
       "id": "deck:catalog-gaps:actualize",
       "name": "Actualize",
-      "scope": "Four native designs in a single Arena-only digital set: blue 2, green 1, colorless 1.",
+      "scope": "Digital Alchemy cards.",
       "confidence": "Low; observed tiers unresolved",
       "placements": {
         "W": null,
@@ -333,16 +324,15 @@
         "G": null
       },
       "rationale": {
-        "W": "No native design or explicit grant attributed to W appears in the complete scoped card review. This is no support in this sample, not a claim that W can never receive Actualize.",
-        "U": "Crux of the Theory and Echogoyfs are two distinct blue native Actualize designs in Alchemy: Reality Fracture. They establish direct blue access, but green's Etali, Primal Garden means the one-color limited-sample route cannot apply. With one digital release and no original placement source, blue remains tier-unresolved rather than Primary.",
-        "B": "No native design or explicit grant attributed to B appears in the complete scoped card review. This is no support in this sample, not a claim that B can never receive Actualize.",
-        "R": "No native design or explicit grant attributed to R appears in the complete scoped card review. This is no support in this sample, not a claim that R can never receive Actualize.",
-        "G": "Etali, Primal Garden is a direct green Actualize design in the same digital release. One card verifies observed access but cannot distinguish a Secondary role from a set exception. Green therefore remains tier-unresolved rather than receiving a count-derived rank."
+        "W": "No white card that has or grants Actualize was found in this card sample, so no tier is assigned.",
+        "U": "Crux of the Theory and Echogoyfs show blue using Actualize. Both come from Alchemy: Reality Fracture; these examples alone do not establish blue as its Primary home.",
+        "B": "No black card that has or grants Actualize was found in this card sample, so no tier is assigned.",
+        "R": "No red card that has or grants Actualize was found in this card sample, so no tier is assigned.",
+        "G": "Etali, Primal Garden shows green using Actualize. One example does not establish whether green has a regular role or an occasional exception, so its tier remains unassigned."
       },
-      "summary": "Four native designs in one Arena-only digital set: blue 2, green 1, and colorless 1; direct access is observed but no colored tier is assigned.",
+      "summary": "Blue and green have Actualize cards, but this small digital release does not establish a clear tier for either color.",
       "limitations": [
-        "All four observed cards are digital. Willbound Quill is colorless. The record does not establish paper or Commander availability.",
-        "The limited-sample route cannot apply because qualifying colored evidence occurs in both blue and green."
+        "These Alchemy examples do not establish a pattern for paper Magic or Commander."
       ],
       "citationCards": [
         {
@@ -402,7 +392,7 @@
     {
       "id": "deck:vocabulary:adamant",
       "name": "Adamant",
-      "scope": "Named ability word; 15 monocolored designs plus three colorless designs.",
+      "scope": "The five-color Adamant design in Throne of Eldraine.",
       "confidence": "Moderate",
       "placements": {
         "W": "Primary",
@@ -412,16 +402,15 @@
         "G": "Primary"
       },
       "rationale": {
-        "W": "Ardenvale Paladin, Rally for the Throne, and Silverflame Ritual are white native Adamant designs in the original Throne of Eldraine release. Their creature, token, and spell roles show a deliberate mono-white branch rather than an isolated card. White is Primary alongside the other colors because the original implementation deliberately gives each a principal branch, not because white outnumbers them.",
-        "U": "Turn into a Pumpkin, Unexplained Vision, and Vantress Paladin are blue native Adamant designs in original Throne of Eldraine. They span control, card selection, and creature roles within the mono-blue branch. Blue is Primary alongside the other colors because the original implementation deliberately gives each a principal branch, not because blue outnumbers them.",
-        "B": "Cauldron's Gift, Foreboding Fruit, and Locthwain Paladin are black native Adamant designs in original Throne of Eldraine. They cover graveyard, resource, and creature roles within the mono-black branch. Black is Primary alongside the other colors because the original implementation deliberately gives each a principal branch, not because black outnumbers them.",
-        "R": "Embereth Paladin, Searing Barrage, and Slaying Fire are red native Adamant designs in original Throne of Eldraine. They show creature and damage applications within the mono-red branch. Red is Primary alongside the other colors because the original implementation deliberately gives each a principal branch, not because red outnumbers them.",
-        "G": "Garenbrig Paladin, Once and Future, and Outmuscle are green native Adamant designs in original Throne of Eldraine. They cover creature, recursion, and fight effects within the mono-green branch. Green is Primary alongside the other colors because the original implementation deliberately gives each a principal branch, not because green outnumbers them."
+        "W": "Ardenvale Paladin, Rally for the Throne, and Silverflame Ritual give white creature, token, and spell uses. White has a full role in the original five-color design, supporting Primary.",
+        "U": "Turn into a Pumpkin, Unexplained Vision, and Vantress Paladin give blue control, card-selection, and creature uses. Blue has a full role in the original five-color design, supporting Primary.",
+        "B": "Cauldron's Gift, Foreboding Fruit, and Locthwain Paladin give black graveyard, resource, and creature uses. Black has a full role in the original five-color design, supporting Primary.",
+        "R": "Embereth Paladin, Searing Barrage, and Slaying Fire give red creature and damage uses. Red has a full role in the original five-color design, supporting Primary.",
+        "G": "Garenbrig Paladin, Once and Future, and Outmuscle give green creature, recursion, and fight uses. Green has a full role in the original five-color design, supporting Primary."
       },
-      "summary": "Treat all five colors as co-primary for this deliberately balanced monocolor reward mechanic.",
+      "summary": "Adamant rewards a commitment to one color of mana. Each of the five colors has its own range of uses, supporting Primary for all five.",
       "limitations": [
-        "Equal Primary is an analyst convention for balanced five-color access. A colorless card rewarding a chosen color is not five additional colored designs.",
-        "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch."
+        "The shared Primary placement is our interpretation of this balanced design, not an official ranking."
       ],
       "citationCards": [
         {
@@ -536,7 +525,7 @@
     {
       "id": "deck:vocabulary:adapt",
       "name": "Adapt",
-      "scope": "Native Adapt actions across the saved card population, with face colors applied to Jetfire.",
+      "scope": "Adapt itself, rather than +1/+1-counter effects in general.",
       "confidence": "Moderate",
       "placements": {
         "W": null,
@@ -546,16 +535,15 @@
         "G": "Primary"
       },
       "rationale": {
-        "W": "Knighted Myr is one direct white Adapt design. The complete sample establishes observed access but retains no original source or specific exception constraint that would distinguish a supported Tertiary tier from a singleton. White remains tier-unresolved.",
-        "U": "Pteramander, Skatewing Spy, and Benthic Biomancer establish repeated blue Adapt access. The retained record does not document a qualitative blue branch or a source hierarchy that distinguishes Secondary from a supported exception without comparing breadth. Blue remains tier-unresolved.",
-        "B": "Etherium Pteramander, Fetid Gargantua, and Dreamdrinker Vampire establish repeated black Adapt access. The retained record does not document a qualitative black branch or a source hierarchy that distinguishes Secondary from a supported exception without comparing breadth. Black remains tier-unresolved.",
-        "R": "No native design or explicit grant attributed to R appears in the complete scoped card review. This is no support in this sample, not a claim that R can never receive Adapt.",
-        "G": "Incubation Druid, Growth-Chamber Guardian, and Evolution Witness anchor green Adapt across distinct releases, with further green and GU designs. This is recurring native access across roles rather than a one-set accommodation. Green is Primary rather than merely Secondary."
+        "W": "Knighted Myr shows white using Adapt. One card does not establish whether this is an occasional white ability or a one-off exception, so its tier remains unassigned.",
+        "U": "Pteramander, Skatewing Spy, and Benthic Biomancer show repeated blue use. The available evidence does not clearly distinguish a regular Secondary role from more limited access, so blue remains unassigned.",
+        "B": "Etherium Pteramander, Fetid Gargantua, and Dreamdrinker Vampire show repeated black use. The available evidence does not clearly distinguish a regular Secondary role from more limited access, so black remains unassigned.",
+        "R": "No red card that has or grants Adapt was found in this card sample, so no tier is assigned.",
+        "G": "Incubation Druid, Growth-Chamber Guardian, and Evolution Witness show green using Adapt across several releases and roles. This recurring range supports Primary rather than Secondary."
       },
-      "summary": "Green has a supported Primary pattern. White, blue and black access is observed, but the retained evidence does not justify their exact tiers.",
+      "summary": "Green uses Adapt across several releases and kinds of cards. White, blue, and black also use it, but their exact tiers remain uncertain.",
       "limitations": [
-        "Multicolor examples supplement the independent monocolor evidence; they are not separate proof for each color. The proposals concern Adapt itself, not all +1/+1-counter effects.",
-        "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch."
+        "Multicolor cards add context, but do not by themselves establish a separate tier for each of their colors."
       ],
       "citationCards": [
         {
@@ -698,7 +686,7 @@
     {
       "id": "deck:vocabulary:addendum",
       "name": "Addendum",
-      "scope": "Ten native Addendum designs: white 5, blue 3, joint WU 2.",
+      "scope": "The white-blue Addendum design in Ravnica Allegiance.",
       "confidence": "Low",
       "placements": {
         "W": "Primary",
@@ -708,16 +696,15 @@
         "G": null
       },
       "rationale": {
-        "W": "Arrester's Zeal, Sentinel's Mark, Summary Judgment, and Unbreakable Formation give white native Addendum effects focused on protection and combat. Blue carries separate tempo and draw roles, so this is not exclusive access. White is Primary provisionally because it is a principal role in the guild implementation, not because it has more cards.",
-        "U": "Arrester's Admonition, Code of Constraint, and Precognitive Perception give blue native Addendum effects focused on tempo and card draw. White carries separate protection and combat roles, so this is not a count-based hierarchy. Blue is Primary provisionally rather than Secondary by a five-versus-three count.",
-        "B": "No native design or explicit grant attributed to B appears in the complete scoped card review. This is no support in this sample, not a claim that B can never receive Addendum.",
-        "R": "No native design or explicit grant attributed to R appears in the complete scoped card review. This is no support in this sample, not a claim that R can never receive Addendum.",
-        "G": "No native design or explicit grant attributed to G appears in the complete scoped card review. This is no support in this sample, not a claim that G can never receive Addendum."
+        "W": "Arrester's Zeal, Sentinel's Mark, Summary Judgment, and Unbreakable Formation give white protection and combat uses. These form a main part of the guild mechanic, supporting Primary.",
+        "U": "Arrester's Admonition, Code of Constraint, and Precognitive Perception give blue tempo and card-draw uses. Blue has its own main role alongside white, supporting Primary rather than Secondary.",
+        "B": "No black card that has or grants Addendum was found in this card sample, so no tier is assigned.",
+        "R": "No red card that has or grants Addendum was found in this card sample, so no tier is assigned.",
+        "G": "No green card that has or grants Addendum was found in this card sample, so no tier is assigned."
       },
-      "summary": "Ten native Addendum designs in the intended WU guild implementation: five white, three blue, and two joint WU; both colored branches are provisionally Primary.",
+      "summary": "White and blue each have a substantial role in Addendum, supporting Primary for both.",
       "limitations": [
-        "The difference between White Primary and Blue Secondary is an interpretive weighting of a small guild-focused sample, not an official hierarchy.",
-        "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch."
+        "Confidence is low because the evidence comes from a small guild-focused design."
       ],
       "citationCards": [
         {
@@ -800,7 +787,7 @@
     {
       "id": "deck:vocabulary:affinity",
       "name": "Affinity",
-      "scope": "Named Affinity for all qualifying objects, including explicit grants; special, digital and preview examples remain qualified.",
+      "scope": "Affinity across paper releases; digital and special cards are considered separately.",
       "confidence": "Moderate",
       "placements": {
         "W": null,
@@ -810,16 +797,15 @@
         "G": null
       },
       "rationale": {
-        "W": "Angelic Observer, Argivian Phalanx, and Pearl-Ear establish recurring white Affinity access across released paper cards, including an explicit grant. The retained record does not supply an official hierarchy or a non-count-based restriction that cleanly distinguishes Secondary from Tertiary. White remains tier-unresolved.",
-        "U": "Thoughtcast, Broodstar, and Emry, Lurker of the Loch each have retained Oracle text explicitly naming Affinity for artifacts, and their first prints span Mirrodin and Throne of Eldraine. Blue uses the mechanic on card draw, artifact creature scaling, and an artifact-recursion legend. This cross-release, cross-role branch makes blue Primary rather than merely Secondary.",
-        "B": "Demonic Junker, Refurbished Familiar, and Scales of Shale establish repeated black Affinity use. The retained card packet does not supply a qualitative official hierarchy or a specific restriction that separates Secondary from Tertiary without relying on relative counts. Black remains tier-unresolved.",
-        "R": "Furnace Dragon, Oxidda Finisher, and Chiss-Goria establish recurring red Affinity access across released paper cards, including an explicit grant. The retained record does not supply an official hierarchy or a non-count-based restriction that cleanly distinguishes Secondary from Tertiary. Red remains tier-unresolved.",
-        "G": "Bartz and Boko, Polliwallop, and other green cards establish repeated green Affinity use in object-specific designs. The retained evidence does not identify a principled constraint that distinguishes a Secondary home from a Tertiary exception without a count comparison. Green remains tier-unresolved."
+        "W": "Angelic Observer, Argivian Phalanx, and Pearl-Ear show repeated white access, including granting Affinity. They establish that white can use it, but do not clearly distinguish Secondary from Tertiary.",
+        "U": "Thoughtcast, Broodstar, and Emry, Lurker of the Loch use Affinity for artifacts for card draw, a scaling creature, and artifact recursion across different releases. That recurring range supports Primary.",
+        "B": "Demonic Junker, Refurbished Familiar, and Scales of Shale show repeated black access. The examples establish use, but do not clearly distinguish Secondary from Tertiary.",
+        "R": "Furnace Dragon, Oxidda Finisher, and Chiss-Goria show repeated red access, including granting Affinity. The examples establish use, but do not clearly distinguish Secondary from Tertiary.",
+        "G": "Bartz and Boko, Polliwallop, and other green cards show green using Affinity for particular kinds of objects. The evidence does not clearly distinguish a regular Secondary role from occasional Tertiary access."
       },
-      "summary": "Blue has a supported recurring Primary pattern. The other colored branches remain observed but tier-unresolved; special and digital cards are recorded separately.",
+      "summary": "Blue has a recurring range of Affinity cards. The other colors also have examples, but the evidence does not establish precise tiers for them.",
       "limitations": [
-        "Current saved Oracle text explicitly names Affinity on several older cards once worded as plain cost reduction; use current facts, not historical recollection. Borg Cube is a preview; Thoughtcast has older printings despite a future representative reprint. Colorless designs, special/acorn/playtest sources and the digital Grand Goatnapper are retained without treating them as ordinary colored policy.",
-        "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch."
+        "Preview, digital, and playtest examples are kept separate from the paper-card pattern. Colorless cards do not establish tiers for every color that can play them."
       ],
       "citationCards": [
         {
@@ -1210,7 +1196,7 @@
     {
       "id": "deck:catalog-gaps:affinitycycling",
       "name": "Affinitycycling",
-      "scope": "Designer/playtest material only; one recorded Affinitycycling design.",
+      "scope": "One colorless designer playtest card.",
       "confidence": "Low",
       "placements": {
         "W": null,
@@ -1220,17 +1206,15 @@
         "G": null
       },
       "rationale": {
-        "W": "The sole recorded Affinitycycling design is colorless and belongs to designer/playtest material. Its generic cost and potential use in decks of this color do not establish independent white access.",
-        "U": "The sole recorded Affinitycycling design is colorless and belongs to designer/playtest material. Its generic cost and potential use in decks of this color do not establish independent blue access.",
-        "B": "The sole recorded Affinitycycling design is colorless and belongs to designer/playtest material. Its generic cost and potential use in decks of this color do not establish independent black access.",
-        "R": "The sole recorded Affinitycycling design is colorless and belongs to designer/playtest material. Its generic cost and potential use in decks of this color do not establish independent red access.",
-        "G": "The sole recorded Affinitycycling design is colorless and belongs to designer/playtest material. Its generic cost and potential use in decks of this color do not establish independent green access."
+        "W": "No white card that has or grants Affinitycycling was found in this card sample, so no tier is assigned.",
+        "U": "No blue card that has or grants Affinitycycling was found in this card sample, so no tier is assigned.",
+        "B": "No black card that has or grants Affinitycycling was found in this card sample, so no tier is assigned.",
+        "R": "No red card that has or grants Affinitycycling was found in this card sample, so no tier is assigned.",
+        "G": "No green card that has or grants Affinitycycling was found in this card sample, so no tier is assigned."
       },
-      "summary": "Sojourner’s Enforcermite establishes Colorless Affinitycycling access in designer/playtest material. A singleton without independent design context cannot distinguish a principal home from an experiment, so its previous Primary tier is now unassigned.",
+      "summary": "Sojourner's Enforcermite shows colorless Affinitycycling access. One playtest design is not enough to establish a tier.",
       "limitations": [
-        "Card evidence reuses the complete or explicitly bounded October 26, 2026 snapshot; judgment reviewed October 27. No later card population is claimed.",
-        "Unassigned does not mean prohibited or impossible; these assessments do not enter the 2021 calculations.",
-        "Playtest-only evidence. Independent context for a Primary proposal was not established, so the previous singleton-based tier is withdrawn."
+        "This is designer playtest material, not an established general mechanic."
       ],
       "citationCards": [
         {
@@ -1278,7 +1262,7 @@
     {
       "id": "deck:vocabulary:afflict",
       "name": "Afflict",
-      "scope": "Named Afflict keyword; tier judgment informed by Wizards' broader blocked-damage category and checked against the saved Scryfall card history.",
+      "scope": "The named Afflict keyword, informed by the broader blocked-damage discussion in Mechanical Color Pie 2021.",
       "confidence": "Moderate",
       "placements": {
         "W": null,
@@ -1288,18 +1272,16 @@
         "G": null
       },
       "rationale": {
-        "W": "No native design or explicit grant attributed to W appears in the complete scoped card review. This is no support in this sample, not a claim that W can never receive Afflict.",
-        "U": "Eternal of Harsh Truths and Spellweaver Eternal give blue native Afflict at common and uncommon in Hour of Devastation. Mechanical Color Pie 2021 explains blue’s presence through Bolas’s blue-black-red Eternal army in the broader blocked-damage category. That set-context bridge supports Tertiary, not a count-derived general Secondary placement.",
-        "B": "Ammit Eternal, Khenra Eternal, and Merciless Eternal establish black’s original Afflict branch, while Lazotep Sliver and Lost Monarch of Ifnir later grant it. Mechanical Color Pie 2021 places black Secondary for the broader blocked-damage effect and describes black’s version as life loss. The continued black evidence supports Secondary over Primary; five cards alone do not promote the tier.",
-        "R": "Frontline Devastator, Manticore Eternal, Neheb, and Wildfire Eternal make Afflict an attack-and-block decision in red. Mechanical Color Pie 2021 places red Primary for the broader blocked-damage category while explicitly discussing Afflict. That direct contextual bridge supports Primary over Secondary, not a comparison of card totals.",
-        "G": "No native design or explicit grant attributed to G appears in the complete scoped card review. This is no support in this sample, not a claim that G can never receive Afflict."
+        "W": "No white card that has or grants Afflict was found in this card sample, so no tier is assigned.",
+        "U": "Eternal of Harsh Truths and Spellweaver Eternal give blue Afflict in Hour of Devastation. Rosewater explains blue's access through Bolas's blue-black-red Eternal army. That specific set context supports Tertiary rather than a regular Secondary role.",
+        "B": "Ammit Eternal, Khenra Eternal, and Merciless Eternal establish black's original use; Lazotep Sliver and Lost Monarch of Ifnir later grant it. Rosewater places black Secondary for the broader blocked-damage effect and describes its version as life loss. The card history fits that secondary role.",
+        "R": "Frontline Devastator, Manticore Eternal, Neheb, and Wildfire Eternal make blocking a difficult choice. Rosewater places red Primary for the broader blocked-damage effect while explicitly discussing Afflict. Together, that discussion and the cards support red as Primary.",
+        "G": "No green card that has or grants Afflict was found in this card sample, so no tier is assigned."
       },
-      "summary": "Afflict makes blocking costly even when the attacker does not deal combat damage to the defending player. Red is the best-supported primary home, black has established secondary access, and blue is a set-specific tertiary case. The judgment weighs design commentary and card history; it does not turn card counts into tiers.",
+      "summary": "Afflict makes blocking costly. Red is the strongest home, black has an established secondary role, and blue has a narrow set-specific role.",
       "limitations": [
-        "The 2021 article ranks the broader blocked-damage category and explicitly discusses Afflict within it. Applying that hierarchy to the named keyword is this review's inference, not a separate official Afflict ranking.",
-        "The sample contains 14 distinct designs, including three colorless sources. Reprints do not count as new designs; all reviewed native red and blue designs originated in Hour of Devastation.",
-        "Dagger of the Worthy, Cyberman Patrol and the Ancestral Hot Dog Minotaur sticker sheet can make Afflict available beyond its colored designs. That availability does not assign every recipient color a tier.",
-        "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch."
+        "The article ranks a broader effect. Applying its hierarchy to Afflict is our judgment, not a separate official ranking of the keyword.",
+        "Colorless cards can grant Afflict to creatures of other colors without establishing tiers for those colors."
       ],
       "citationCards": [
         {
@@ -1403,7 +1385,7 @@
     {
       "id": "deck:vocabulary:afterlife",
       "name": "Afterlife",
-      "scope": "Twelve native/grant designs: white 5, black 3, joint WB 4.",
+      "scope": "The white-black Orzhov mechanic.",
       "confidence": "Low",
       "placements": {
         "W": "Primary",
@@ -1413,16 +1395,15 @@
         "G": null
       },
       "rationale": {
-        "W": "Tithe Taker and Ministrant of Obligation are native white Afterlife creatures, while Indebted Spirit is a white card that explicitly grants Afterlife. These are distinct white roles in the Orzhov implementation, while black also has its own native branch. White is Primary provisionally as a principal color of the mechanic, not because it has more cards.",
-        "U": "No native design or explicit grant attributed to U appears in the complete scoped card review. This is no support in this sample, not a claim that U can never receive Afterlife.",
-        "B": "Debtors' Transport, Orzhov Enforcer, and Orzhov Racketeers give black distinct native Afterlife roles, while the WB cards share the Orzhov implementation. The retained evidence contains no official white-over-black hierarchy. Black is Primary provisionally rather than Secondary by a five-versus-three count.",
-        "R": "No native design or explicit grant attributed to R appears in the complete scoped card review. This is no support in this sample, not a claim that R can never receive Afterlife.",
-        "G": "No native design or explicit grant attributed to G appears in the complete scoped card review. This is no support in this sample, not a claim that G can never receive Afterlife."
+        "W": "Tithe Taker and Ministrant of Obligation have Afterlife, while Indebted Spirit grants it. These distinct uses make white a main color of the mechanic, supporting Primary.",
+        "U": "No blue card that has or grants Afterlife was found in this card sample, so no tier is assigned.",
+        "B": "Debtors' Transport, Orzhov Enforcer, and Orzhov Racketeers give black its own range of Afterlife creatures. Black is a main color alongside white, supporting Primary rather than Secondary.",
+        "R": "No red card that has or grants Afterlife was found in this card sample, so no tier is assigned.",
+        "G": "No green card that has or grants Afterlife was found in this card sample, so no tier is assigned."
       },
-      "summary": "Twelve native/grant Afterlife designs in the intended Orzhov implementation: white 5, black 3, and joint WB 4; both colored branches are provisionally Primary.",
+      "summary": "White and black both have substantial Afterlife roles, supporting Primary for both.",
       "limitations": [
-        "A white-and-black Spirit token does not make each source card both colors. Afterlife Insurance is a joint WB grant; count it once. White/black tier separation is a sample-based judgment, not a published guild hierarchy.",
-        "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch."
+        "Confidence is low because the mechanic has a small, guild-focused range. The colors of its Spirit tokens do not change the colors of the cards that create them."
       ],
       "citationCards": [
         {
@@ -1513,7 +1494,7 @@
     {
       "id": "deck:vocabulary:aftermath",
       "name": "Aftermath",
-      "scope": "27 split designs; derive the Aftermath-bearing face color from its mana cost when face colors are absent.",
+      "scope": "The half of each Amonkhet-block split card that has Aftermath.",
       "confidence": "Moderate",
       "placements": {
         "W": "Primary",
@@ -1523,16 +1504,15 @@
         "G": "Primary"
       },
       "rationale": {
-        "W": "Appeal // Authority, Dusk // Dawn, and Onward // Victory have white Aftermath-bearing faces; attribution follows those faces rather than their unrelated halves. They show white creature-boost and recovery applications in the original Amonkhet block. White is Primary because the original split-card implementation gives white a principal face branch, not because of a count comparison.",
-        "U": "Commit // Memory, Farm // Market, and Spring // Mind have blue Aftermath-bearing faces; attribution follows those faces rather than their unrelated halves. They show blue interaction, resource, and card-draw applications in the original Amonkhet block. Blue is Primary because the original split-card implementation gives blue a principal face branch, not because of a count comparison.",
-        "B": "Consign // Oblivion, Cut // Ribbons, and Never // Return have black Aftermath-bearing faces; attribution follows those faces rather than their unrelated halves. They show black discard, life-loss, and removal applications in the original Amonkhet block. Black is Primary because the original split-card implementation gives black a principal face branch, not because of a count comparison.",
-        "R": "Claim // Fame, Heaven // Earth, and Insult // Injury have red Aftermath-bearing faces; attribution follows those faces rather than their unrelated halves. They show red combat and damage applications in the original Amonkhet block. Red is Primary because the original split-card implementation gives red a principal face branch, not because of a count comparison.",
-        "G": "Destined // Lead, Mouth // Feed, and Prepare // Fight have green Aftermath-bearing faces; attribution follows those faces rather than their unrelated halves. They show green creature growth and fight applications in the original Amonkhet block. Green is Primary because the original split-card implementation gives green a principal face branch, not because of a count comparison."
+        "W": "The Aftermath halves of Appeal // Authority, Dusk // Dawn, and Onward // Victory give white creature-boost and recovery effects. This full role in the five-color design supports Primary.",
+        "U": "The Aftermath halves of Commit // Memory, Farm // Market, and Spring // Mind give blue interaction and card-draw effects. This full role in the five-color design supports Primary.",
+        "B": "The Aftermath halves of Consign // Oblivion, Cut // Ribbons, and Never // Return give black discard, life-loss, and removal effects. This full role in the five-color design supports Primary.",
+        "R": "The Aftermath halves of Claim // Fame, Heaven // Earth, and Insult // Injury give red combat and damage effects. This full role in the five-color design supports Primary.",
+        "G": "The Aftermath halves of Destined // Lead, Mouth // Feed, and Prepare // Fight give green creature-growth and fight effects. This full role in the five-color design supports Primary."
       },
-      "summary": "All five colors have deliberate, varied Aftermath-bearing faces in the original implementation and are proposed co-Primary.",
+      "summary": "Aftermath was spread across all five colors, with each color receiving a substantial role. All five are Primary.",
       "limitations": [
-        "Scryfall split-face objects omit colors here; attribution explicitly derives W/U/B/R/G from each relevant face's mana symbols. The count is 27 designs, not 54 card halves. A seven-versus-five difference does not justify forcing red above the balanced five-color pattern.",
-        "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch."
+        "A color on the other half of a split card does not by itself give that color Aftermath."
       ],
       "citationCards": [
         {
@@ -1683,7 +1663,7 @@
     {
       "id": "deck:vocabulary:airbend",
       "name": "Airbend",
-      "scope": "Avatar mechanic; 13 native designs after excluding the four-color Avatar Aang reward card.",
+      "scope": "Airbend in Avatar: The Last Airbender.",
       "confidence": "Moderate",
       "placements": {
         "W": "Primary",
@@ -1693,16 +1673,15 @@
         "G": null
       },
       "rationale": {
-        "W": "Airbending Lesson, Airbender’s Reversal, Appa, and other white cards make Airbend a broad white native mechanic in the Avatar release. White covers common through mythic roles, while the WU Aang card is only joint support. Primary reflects that deliberate release-wide implementation rather than blue’s absence.",
-        "U": "Whirlwind Technique is one direct blue Airbend design and Aang, Swift Savior is joint WU evidence. The Avatar set demonstrates access, but the retained sources do not establish a specific blue exception rule sufficient to rank one independent design Tertiary. Blue remains tier-unresolved.",
-        "B": "No native design or explicit grant attributed to B appears in the complete scoped card review. This is no support in this sample, not a claim that B can never receive Airbend.",
-        "R": "No native design or explicit grant attributed to R appears in the complete scoped card review. This is no support in this sample, not a claim that R can never receive Airbend.",
-        "G": "No native design or explicit grant attributed to G appears in the complete scoped card review. This is no support in this sample, not a claim that G can never receive Airbend."
+        "W": "Airbending Lesson, Airbender's Reversal, Appa, and other white cards use Airbend across common through mythic rarities. Its broad role throughout the release supports Primary.",
+        "U": "Whirlwind Technique shows blue using Airbend, and Aang, Swift Savior adds a white-blue example. These establish access, but do not establish a regular or occasional blue role clearly enough to assign a tier.",
+        "B": "No black card that has or grants Airbend was found in this card sample, so no tier is assigned.",
+        "R": "No red card that has or grants Airbend was found in this card sample, so no tier is assigned.",
+        "G": "No green card that has or grants Airbend was found in this card sample, so no tier is assigned."
       },
-      "summary": "White has a broad original implementation and is proposed Primary. Blue access is observed, but its tier remains unresolved.",
+      "summary": "White uses Airbend widely in the Avatar release. Blue can also use it, but its tier remains uncertain.",
       "limitations": [
-        "Avatar Aang rewards airbending but does not perform or grant it, so it is excluded. Avatar Yangchen's mechanic-bearing back face has empty colors in the saved API; its white front is retained as casting context, not silently substituted into the face-color count. The proposed blue tier is not an official set-design placement.",
-        "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch."
+        "Cards that reward airbending without performing or granting it do not establish another color placement."
       ],
       "citationCards": [
         {
@@ -1797,7 +1776,7 @@
     {
       "id": "deck:vocabulary:alliance",
       "name": "Alliance",
-      "scope": "Saved Scryfall unique-card keyword and Oracle query population; released paper drives WUBRG decisions.",
+      "scope": "Alliance in Streets of New Capenna and later releases.",
       "confidence": "Moderate",
       "placements": {
         "W": "Primary",
@@ -1807,16 +1786,15 @@
         "G": "Primary"
       },
       "rationale": {
-        "W": "Boss’s Chauffeur, Celebrity Fencer, and Rumor Gatherer are all first-print New Capenna-era white Alliance designs, with counter growth and repeated-card-selection payoffs; Rumor Gatherer is not treated as a Commander Legends recurrence. East Wind Avatar, Lita, Little Orphan Amphibian, and Mighty Mutanimals later supply independent white Alliance designs in Teenage Mutant Ninja Turtles. That original breadth plus later repetition supports Primary rather than Secondary.",
-        "U": "Observed joint evidence does not isolate an independent U role, so no tier is assigned.",
-        "B": "No independent native or grant Alliance design was found for black in the complete saved population.",
-        "R": "Devilish Valet, Sizzling Soloist, and Rose Room Treasurer show aggressive, damage, and mana Alliance payoffs across Streets of New Capenna and its Commander release. The later Teenage Mutant Ninja Turtles cards independently repeat red use, so red is Primary rather than a set-bound Secondary.",
-        "G": "Attended Socialite grows itself, Elegant Entourage gives another creature +1/+1 and trample, Gala Greeters offers modal value, Social Climber gains life, and Venom Connoisseur grants deathtouch. All five are first-print New Capenna designs; Venom Connoisseur’s Foundations copy is a reprint, not recurrence. This broad original role spread supports Primary rather than a count-derived Secondary."
+        "W": "Boss's Chauffeur, Celebrity Fencer, and Rumor Gatherer establish white uses in New Capenna, with later white cards repeating Alliance. This range and recurrence support Primary.",
+        "U": "Galadriel, Light of Valinor provides a multicolor example. It does not establish an independent blue role, so blue remains unassigned.",
+        "B": "No black card that has or grants Alliance was found in this card sample, so no tier is assigned.",
+        "R": "Devilish Valet, Sizzling Soloist, and Rose Room Treasurer give red aggressive, damage, and mana uses. Later red cards repeat Alliance, supporting Primary.",
+        "G": "Attended Socialite, Elegant Entourage, Gala Greeters, Social Climber, and Venom Connoisseur use Alliance for growth, combat, life gain, and other benefits. This broad range in the original release supports Primary."
       },
-      "summary": "White, red and green are proposed principal homes in the native Alliance implementation. Blue has only joint evidence in the saved sample, and black has no qualifying source.",
+      "summary": "White, red, and green have substantial Alliance roles. Blue appears on multicolor cards, while no black example was found.",
       "limitations": [
-        "Back-Alley Gardener is digital. Multicolor Galadriel supports the mechanic's breadth but does not independently establish a blue tier. The exact Primary/Secondary boundary is a qualitative sample judgment.",
-        "Reviewed conformance record; saved timestamps are historical cutoffs, not fresh queries."
+        "A multicolor Alliance card does not automatically establish a separate tier for each of its colors."
       ],
       "citationCards": [
         {
@@ -1960,7 +1938,7 @@
     {
       "id": "deck:vocabulary:amass",
       "name": "Amass",
-      "scope": "Saved Scryfall unique-card keyword and Oracle query population; released paper drives WUBRG decisions.",
+      "scope": "Amass in paper releases; Un-set examples are considered separately.",
       "confidence": "Moderate",
       "placements": {
         "W": null,
@@ -1970,16 +1948,15 @@
         "G": null
       },
       "rationale": {
-        "W": "No independent native or grant Amass design was found for white in the complete saved population.",
-        "U": "Aven Eternal makes an Army on a flier, Callous Dismissal pairs Amass with bounce, and Commence the Endgame pairs it with card draw in War of the Spark. Deceive the Messenger and Saruman’s Trickery repeat blue Amass in The Lord of the Rings as debuff and counterspell support. These are established blue implementations, but they repeatedly attach Amass to blue tempo/card-advantage effects rather than black’s creature, enchantment, and attrition engine roles, supporting Secondary rather than Primary.",
-        "B": "Lazotep Reaver and Herald of the Dreadhorde establish black Amass in War of the Spark, while Mordor Muster, Orcish Bowmasters, and Mindless Conscription extend it through later releases. Those creature, enchantment, and spell roles make black Primary rather than the narrower Secondary access of its partners.",
-        "R": "Grim Initiate, Honor the God-Pharaoh, and Invading Manticore give red Amass aggressive and burn-adjacent roles in War of the Spark. Foray of Orcs and Swarming of Moria repeat it in The Lord of the Rings, supporting established Secondary access rather than black’s broader primary implementation.",
-        "G": "The saved green Amass observation is special/Un-set material rather than part of the released-paper driving population. It is retained as separated evidence, but cannot support a WUBRG tier claim, so green remains unresolved."
+        "W": "No white card that has or grants Amass was found in this card sample, so no tier is assigned.",
+        "U": "Aven Eternal, Callous Dismissal, and Commence the Endgame pair Amass with blue creatures, bounce, and card draw. Deceive the Messenger and Saruman's Trickery continue its use with blue interaction. This recurring supporting role favors Secondary over Primary.",
+        "B": "Lazotep Reaver, Herald of the Dreadhorde, Mordor Muster, Orcish Bowmasters, and Mindless Conscription put Amass on creatures, spells, and an enchantment engine across releases. That broad recurring role supports Primary.",
+        "R": "Grim Initiate, Honor the God-Pharaoh, and Invading Manticore give red aggressive and damage-related uses, continued by Foray of Orcs and Swarming of Moria. This focused recurring role supports Secondary alongside black.",
+        "G": "You and Ooze Army? is an Un-set example. It does not establish a green tier for the paper-release pattern described here."
       },
-      "summary": "Black is proposed Primary, with blue and red Secondary in the released-paper sample. Green special-set evidence is recorded separately and does not establish a paper tier.",
+      "summary": "Black uses Amass as a broad creature-and-resource engine. Blue and red have recurring but more focused uses, supporting Secondary.",
       "limitations": [
-        "The black Army token created by a blue/red spell does not make that spell black. Special sources such as Bin Chicken and You and Ooze Army? are not evidence of ordinary format availability. Barad-dur is colorless despite black identity.",
-        "Reviewed conformance record; saved timestamps are historical cutoffs, not fresh queries."
+        "The black Army token does not make a blue or red Amass spell black."
       ],
       "citationCards": [
         {
@@ -2323,7 +2300,7 @@
     {
       "id": "deck:vocabulary:amplify",
       "name": "Amplify",
-      "scope": "Saved Scryfall unique-card keyword and Oracle query population; released paper drives WUBRG decisions.",
+      "scope": "The small tribal Amplify design introduced in Legions.",
       "confidence": "Moderate",
       "placements": {
         "W": "Secondary",
@@ -2333,16 +2310,15 @@
         "G": "Primary"
       },
       "rationale": {
-        "W": "Daru Stinger and Aven Warhawk give white Amplify Soldier and Bird applications at common and uncommon in the original Legions design. Two purposeful creature-type roles establish access, but their narrower spread than black and green supports Secondary rather than Primary.",
-        "U": "No independent native or grant Amplify design was found for blue in the complete saved population.",
-        "B": "Embalmed Brawler, Ghastly Remains, and Zombie Brute give black Amplify distinct Zombie roles at common, uncommon, and rare in Legions. That deliberate spread across the original tribal implementation supports Primary rather than a narrow exception.",
-        "R": "The saved screen observes Kilnmouth Dragon for red, but the evidence does not establish an independent role strong enough to distinguish Tertiary from uncertainty. The tier is left unresolved.",
-        "G": "Canopy Crawler, Glowering Rogon, and Feral Throwback give green Amplify Beast and tribal roles from common through rare in Legions. The original set’s deliberate multi-role implementation supports Primary rather than a conditional Secondary."
+        "W": "Daru Stinger and Aven Warhawk give white Soldier and Bird uses at common and uncommon. This more limited role supports Secondary alongside the broader black and green designs.",
+        "U": "No blue card that has or grants Amplify was found in this card sample, so no tier is assigned.",
+        "B": "Embalmed Brawler, Ghastly Remains, and Zombie Brute give black distinct Zombie uses at common, uncommon, and rare. This range in the original design supports Primary.",
+        "R": "Kilnmouth Dragon shows red using Amplify. One card does not establish whether red has an occasional role or a one-off exception, so its tier remains unassigned.",
+        "G": "Canopy Crawler, Glowering Rogon, and Feral Throwback give green Beast and tribal uses from common through rare. This range in the original design supports Primary."
       },
-      "summary": "Black and green have broad original tribal implementations; white is proposed Secondary. Red access is observed, but the saved evidence does not justify a tier for its singleton.",
+      "summary": "Black and green have varied original roles across rarities. White has a narrower role, and the single red example does not establish a tier.",
       "limitations": [
-        "This is a small historical mechanic; rarity and functional breadth inform the proposal alongside counts. Reprints do not add independent designs.",
-        "Reviewed conformance record; saved timestamps are historical cutoffs, not fresh queries."
+        "These are tentative placements for a small historical mechanic."
       ],
       "citationCards": [
         {
@@ -2426,7 +2402,7 @@
     {
       "id": "deck:vocabulary:annihilator",
       "name": "Annihilator",
-      "scope": "Released paper designs in the retained card snapshot; special material is recorded separately.",
+      "scope": "Colorless cards and cards that grant Annihilator.",
       "confidence": "User-selected; evidence supports Colorless access",
       "placements": {
         "W": null,
@@ -2436,17 +2412,15 @@
         "G": null
       },
       "rationale": {
-        "W": "The released-paper native and grant sources in the saved sample are colorless. Slivdrazi Monstrosity is joint five-color playtest evidence; it cannot independently establish white as Primary, Secondary or Tertiary.",
-        "U": "The released-paper native and grant sources in the saved sample are colorless. Slivdrazi Monstrosity is joint five-color playtest evidence; it cannot independently establish blue as Primary, Secondary or Tertiary.",
-        "B": "The released-paper native and grant sources in the saved sample are colorless. Slivdrazi Monstrosity is joint five-color playtest evidence; it cannot independently establish black as Primary, Secondary or Tertiary.",
-        "R": "The released-paper native and grant sources in the saved sample are colorless. Slivdrazi Monstrosity is joint five-color playtest evidence; it cannot independently establish red as Primary, Secondary or Tertiary.",
-        "G": "The released-paper native and grant sources in the saved sample are colorless. Slivdrazi Monstrosity is joint five-color playtest evidence; it cannot independently establish green as Primary, Secondary or Tertiary."
+        "W": "No white card that has or grants Annihilator was found in this card sample, so no tier is assigned.",
+        "U": "No blue card that has or grants Annihilator was found in this card sample, so no tier is assigned.",
+        "B": "No black card that has or grants Annihilator was found in this card sample, so no tier is assigned.",
+        "R": "No red card that has or grants Annihilator was found in this card sample, so no tier is assigned.",
+        "G": "No green card that has or grants Annihilator was found in this card sample, so no tier is assigned."
       },
-      "summary": "Your Primary Colorless classification is retained. Colorless native designs such as Ulamog’s Crusher and Emrakul, the Aeons Torn, together with grants such as Eldrazi Conscription, support that description; the authority for this project classification remains your explicit decision.",
+      "summary": "Colorless is the selected Primary home. The ordinary card examples are colorless; a five-color playtest card does not establish separate colored tiers.",
       "limitations": [
-        "Card evidence reuses the complete or explicitly bounded October 26, 2026 snapshot; judgment reviewed October 27. No later card population is claimed.",
-        "Unassigned does not mean prohibited or impossible; these assessments do not enter the 2021 calculations.",
-        "Confidence in the user’s classification is not scored as an official design fact. Special objects and joint five-color playtest evidence are retained separately."
+        "Colorless is outside the five colors, not a sixth Magic color."
       ],
       "citationCards": [
         {
@@ -2589,7 +2563,7 @@
     {
       "id": "deck:vocabulary:ascend",
       "name": "Ascend",
-      "scope": "Saved Scryfall unique-card keyword and Oracle query population; released paper drives WUBRG decisions.",
+      "scope": "Ascend in Rivals of Ixalan and later releases.",
       "confidence": "Moderate",
       "placements": {
         "W": "Primary",
@@ -2599,16 +2573,15 @@
         "G": null
       },
       "rationale": {
-        "W": "Skymarcher Aspirant, Snubhorn Sentry, Pride of Conquerors, and Radiant Destiny use Ascend for combat, creatures, and tribal payoff across Rivals of Ixalan. Ocelot Pride later repeats the keyword, making white Primary rather than a one-set Secondary.",
-        "U": "Secrets of the Golden City, Slippery Scoundrel, Spire Winder, and Timestream Navigator cover card draw, evasion, creatures, and a mythic payoff in Rivals of Ixalan. Detective of the Month later repeats blue Ascend, supporting Primary rather than a set-bound Secondary.",
-        "B": "Dusk Charger, Golden Demise, Mausoleum Harpy, Twilight Prophet, and Vona’s Hunger place Ascend on creature growth, a one-sided sweeper, death payoff, card-drain engine, and edict effect in Rivals of Ixalan. The common-through-mythic, varied-role original implementation meets the protocol’s broad-original Primary case. It is Primary rather than Secondary without relying on a later-release requirement.",
-        "R": "The saved screen observes Storm Fleet Swashbuckler, Tilonalli's Summoner for red, but the evidence does not establish an independent role strong enough to distinguish Tertiary from uncertainty. The tier is left unresolved.",
-        "G": "The saved screen observes Tendershoot Dryad, Wayward Swordtooth for green, but the evidence does not establish an independent role strong enough to distinguish Tertiary from uncertainty. The tier is left unresolved."
+        "W": "Skymarcher Aspirant, Snubhorn Sentry, Pride of Conquerors, and Radiant Destiny cover creatures, combat, and tribal benefits. Ocelot Pride later repeats Ascend. This range and recurrence support Primary.",
+        "U": "Secrets of the Golden City, Slippery Scoundrel, Spire Winder, and Timestream Navigator cover draw, evasion, creatures, and a mythic payoff. Detective of the Month later repeats Ascend, supporting Primary.",
+        "B": "Dusk Charger, Golden Demise, Mausoleum Harpy, Twilight Prophet, and Vona's Hunger cover growth, sweeping, death benefits, card advantage, and sacrifice. That broad original range from common through mythic supports Primary.",
+        "R": "Storm Fleet Swashbuckler and Tilonalli's Summoner show red using Ascend. The available context does not clearly establish how regular that role should be, so its tier remains unassigned.",
+        "G": "Tendershoot Dryad and Wayward Swordtooth show green using Ascend. The available context does not clearly establish how regular that role should be, so its tier remains unassigned."
       },
-      "summary": "White, blue and black each have broad original implementations and are proposed Primary. Red and green native access is retained without an unsupported Tertiary label.",
+      "summary": "White, blue, and black have broad original uses of Ascend. Red and green have examples, but their exact tiers remain uncertain.",
       "limitations": [
-        "Windy City Aven and Windy City Elemental are event-specific Ascend variants; they are qualified context and do not drive the primary homes. Colorless lands and equipment are separate; Ascend from Avernus is an unrelated name hit.",
-        "Reviewed conformance record; saved timestamps are historical cutoffs, not fresh queries."
+        "Event-specific variants are considered separately from these placements."
       ],
       "citationCards": [
         {
@@ -2780,7 +2753,7 @@
     {
       "id": "deck:vocabulary:assemble",
       "name": "Assemble",
-      "scope": "Complete Unstable special-set population; this special scope, not ordinary paper, drives every decision.",
+      "scope": "Contraptions in Unstable.",
       "confidence": "Moderate",
       "placements": {
         "W": "Secondary",
@@ -2790,16 +2763,15 @@
         "G": "Secondary"
       },
       "rationale": {
-        "W": "Aerial Toastmaster, Midlife Upgrade, and Riveting Rigger provide white assembling roles at common and uncommon in the complete Unstable-only scope. They are established support inside that special-set implementation, but lack red’s dedicated Rigger breadth, so Secondary rather than Primary.",
-        "U": "Chipper Chopper, Crafty Octopus, Incite Insight, Spell Suck, and Very Cryptic Command spread blue Assemble across creature, spell, and rare roles in Unstable. This supports established special-scope access; it remains Secondary because the original implementation centers the named Rigger suite in red.",
-        "B": "Finders, Keepers, Overt Operative, and Steady-Handed Mook give black three original Unstable roles from common to uncommon. That is more than an exception, but is narrower than red’s dedicated Contraption identity, supporting Secondary.",
-        "R": "Steamflogger Temp, Steamflogger of the Month, Steamfloggery, Work a Double, and Wrench-Rigger make red the dedicated Rigger/Contraption implementation in Unstable across common through rare. That concentrated original role makes red Primary rather than merely one of the supporting colors.",
-        "G": "First Pick, Joyride Rigger, and Steamflogger Service Rep establish green assembly roles at common and uncommon in Unstable. The complete special-scope sample supports Secondary access, not a Primary claim competing with red’s much more dedicated Rigger implementation."
+        "W": "Aerial Toastmaster, Midlife Upgrade, and Riveting Rigger give white common and uncommon ways to assemble. They support the mechanic without red's dedicated Rigger focus, favoring Secondary.",
+        "U": "Chipper Chopper, Crafty Octopus, Incite Insight, Spell Suck, and Very Cryptic Command give blue varied ways to assemble. Blue supports the mechanic, while red carries its dedicated Rigger focus, favoring Secondary.",
+        "B": "Finders, Keepers, Overt Operative, and Steady-Handed Mook give black several common and uncommon ways to assemble. That is established access, but without red's dedicated Contraption focus, favoring Secondary.",
+        "R": "Steamflogger Temp, Steamflogger of the Month, Steamfloggery, Work a Double, and Wrench-Rigger make assembling a dedicated red theme from common through rare. That central role supports Primary.",
+        "G": "First Pick, Joyride Rigger, and Steamflogger Service Rep give green common and uncommon ways to assemble. They support the mechanic without red's dedicated Rigger focus, favoring Secondary."
       },
-      "summary": "Within Unstable’s Contraption environment, red is proposed Primary and the other colors Secondary. These scoped judgments do not describe ordinary-paper keyword availability.",
+      "summary": "Red has the dedicated Rigger and Contraption focus. The other colors have established supporting roles within this Un-set mechanic.",
       "limitations": [
-        "Special-set scope does not imply ordinary Commander legality. Cogmentor and Suspicious Nanny only reassemble. Steamflogger Boss doubles another assembly source and is retained as contextual red support, not a native source.",
-        "Reviewed conformance record; saved timestamps are historical cutoffs, not fresh queries."
+        "These placements describe Unstable, not ordinary Commander availability."
       ],
       "citationCards": [
         {
@@ -2935,7 +2907,7 @@
     {
       "id": "deck:catalog-gaps:assimilate",
       "name": "Assimilate",
-      "scope": "Star Trek preview-era evidence, with Borg Queen, Perfection Manifest’s earlier promo recorded separately; no established WUBRG tier.",
+      "scope": "Star Trek previews, with one earlier promo.",
       "confidence": "Low; observed tiers unresolved",
       "placements": {
         "W": null,
@@ -2945,17 +2917,15 @@
         "G": null
       },
       "rationale": {
-        "W": "The saved sample shows joint white Assimilate access, chiefly on cards with future printings at the cutoff. Borg Queen, Perfection Manifest has an earlier promo printing, but that limited release does not establish an independent white pattern. The tier remains unresolved rather than extending a preview distribution into a settled placement.",
-        "U": "The saved sample shows native and joint blue Assimilate access, chiefly on cards with future printings at the cutoff. Borg Queen, Perfection Manifest has an earlier promo printing, but that limited release does not establish an independent blue pattern. The tier remains unresolved rather than extending a preview distribution into a settled placement.",
-        "B": "The saved sample shows native and joint black Assimilate access, chiefly on cards with future printings at the cutoff. Borg Queen, Perfection Manifest has an earlier promo printing, but that limited release does not establish an independent black pattern. The tier remains unresolved rather than extending a preview distribution into a settled placement.",
-        "R": "No independent native or grant Assimilate design was found for red in the complete saved population.",
-        "G": "No independent native or grant Assimilate design was found for green in the complete saved population."
+        "W": "The white examples are multicolor cards, mostly still previews at the evidence date. Borg Queen, Perfection Manifest has an earlier promo, but that alone does not establish an independent white role.",
+        "U": "Blue appears both on its own and on multicolor Assimilate cards. Most are still previews at the evidence date, so a blue tier remains unassigned.",
+        "B": "Black appears both on its own and on multicolor Assimilate cards. Most are still previews at the evidence date, so a black tier remains unassigned.",
+        "R": "No red card that has or grants Assimilate was found in this card sample, so no tier is assigned.",
+        "G": "No green card that has or grants Assimilate was found in this card sample, so no tier is assigned."
       },
-      "summary": "The saved population is chiefly Star Trek previews. Borg Queen, Perfection Manifest has an earlier promo printing, but the limited released-paper evidence and preview-only independent colors do not establish WUBRG tiers.",
+      "summary": "Most of these examples are previews. They show access in several colors, but do not yet establish settled color-pie tiers.",
       "limitations": [
-        "Preview-era assessment: all eight representative set printings release November 13, 2026, but one design has an earlier PURL promo. Incomplete set exposure can change these judgments. Empty games/legality fields on previews are not treated as invalid cards. No final release color policy or Commander availability is asserted.",
-        "Reviewed conformance record; saved timestamps are historical cutoffs, not fresh queries.",
-        "The recorded October 8 promo is not treated as though every Star Trek preview were already released."
+        "The representative set printings release November 13, 2026. One earlier promo does not make the rest of the preview set released material."
       ],
       "citationCards": [
         {
@@ -3035,7 +3005,7 @@
     {
       "id": "deck:vocabulary:assist",
       "name": "Assist",
-      "scope": "Complete Battlebond multiplayer-set population plus saved later native/grant observations; the multiplayer scope drives decisions.",
+      "scope": "The multiplayer mechanic introduced in Battlebond.",
       "confidence": "Moderate",
       "placements": {
         "W": "Primary",
@@ -3045,16 +3015,15 @@
         "G": "Primary"
       },
       "rationale": {
-        "W": "Bring Down, Dwarven Lightsmith, Play of the Game, and Skystreamer put Assist on white removal, creature, and rare spell roles in Battlebond. The deliberate common-to-rare original implementation makes white Primary within Assist’s multiplayer scope rather than a narrower Secondary.",
-        "U": "Game Plan, Huddle Up, Out of Bounds, and Spellweaver Duo give blue Assist card-draw, tempo, and creature roles in Battlebond. Their deliberate rarity and role spread establishes blue as a Primary special-scope home, not merely secondary support.",
-        "B": "Bloodborn Scoundrels and Fan Favorite are black common Assist creatures, while Gang Up is a black uncommon Assist sorcery. These original creature and spell roles establish Primary within Assist’s Battlebond multiplayer scope rather than Secondary.",
-        "R": "Lava-Field Overlord and Magma Hellion are the original red Battlebond Assist designs, both creature applications at uncommon and common. All-Star Kicker is a Mystery Booster playtest Assist-kicker variant and is recorded separately, not used as released-paper recurrence. The two same-role original applications support Secondary rather than Primary.",
-        "G": "Charging Binox gives green a creature application of Assist, while The Crowd Goes Wild applies it to a counter-granting sorcery in Battlebond. These common and uncommon designs occupy distinct roles in the original multiplayer implementation, just as black’s creature and sorcery designs do. Green is therefore proposed Primary alongside black; fewer designs alone do not justify Secondary."
+        "W": "Bring Down, Dwarven Lightsmith, Play of the Game, and Skystreamer cover removal, creatures, and spells from common through rare. This varied original role supports Primary.",
+        "U": "Game Plan, Huddle Up, Out of Bounds, and Spellweaver Duo cover card draw, tempo, and creatures across rarities. This varied original role supports Primary.",
+        "B": "Bloodborn Scoundrels and Fan Favorite are common Assist creatures, while Gang Up is an uncommon sorcery. These distinct creature and spell roles support Primary.",
+        "R": "Lava-Field Overlord and Magma Hellion are the original red Assist designs, both creatures. This narrower role supports Secondary rather than Primary.",
+        "G": "Charging Binox is a common creature and The Crowd Goes Wild is an uncommon counter-granting sorcery. These distinct creature and spell roles support Primary, as they do for black."
       },
-      "summary": "Within Battlebond’s multiplayer implementation, white, blue, black and green have varied original roles and proposed Primary homes. Red’s original applications are confined to creatures and are assessed Secondary; its later playtest variant is separate.",
+      "summary": "White, blue, black, and green use Assist in varied creature and spell roles. Red has a narrower creature-only role, supporting Secondary.",
       "limitations": [
-        "All-Star Kicker modifies the payment of a kicker cost and is treated as a special variant, not another ordinary Assist spell. Receiving Assist from Yume does not assign the mechanic independently to every recipient color.",
-        "Reviewed conformance record; saved timestamps are historical cutoffs, not fresh queries."
+        "The playtest card All-Star Kicker is a special variant. A card that grants Assist to other creatures does not establish a tier for every color that receives it."
       ],
       "citationCards": [
         {
@@ -3174,7 +3143,7 @@
     {
       "id": "deck:catalog-gaps:attach",
       "name": "Attach",
-      "scope": "General rules vocabulary; individual effects require separate color-pie assessments.",
+      "scope": "General Magic rules vocabulary.",
       "confidence": "Not applicable",
       "placements": {
         "W": null,
@@ -3184,18 +3153,14 @@
         "G": null
       },
       "rationale": {
-        "W": "The generic Attach action stays unranked. Blue Primary remains separately attributed to the 2017 moving-enchantments/counters effect, which is narrower than all attachment actions. This applies equally to white.",
-        "U": "The generic Attach action stays unranked. Blue Primary remains separately attributed to the 2017 moving-enchantments/counters effect, which is narrower than all attachment actions. This applies equally to blue.",
-        "B": "The generic Attach action stays unranked. Blue Primary remains separately attributed to the 2017 moving-enchantments/counters effect, which is narrower than all attachment actions. This applies equally to black.",
-        "R": "The generic Attach action stays unranked. Blue Primary remains separately attributed to the 2017 moving-enchantments/counters effect, which is narrower than all attachment actions. This applies equally to red.",
-        "G": "The generic Attach action stays unranked. Blue Primary remains separately attributed to the 2017 moving-enchantments/counters effect, which is narrower than all attachment actions. This applies equally to green."
+        "W": "This general rules action has no color-pie tier.",
+        "U": "This general rules action has no color-pie tier.",
+        "B": "This general rules action has no color-pie tier.",
+        "R": "This general rules action has no color-pie tier.",
+        "G": "This general rules action has no color-pie tier."
       },
-      "summary": "The generic Attach action stays unranked. Blue Primary remains separately attributed to the 2017 moving-enchantments/counters effect, which is narrower than all attachment actions.",
-      "limitations": [
-        "Card evidence reuses the complete or explicitly bounded October 26, 2026 snapshot; judgment reviewed October 27. No later card population is claimed.",
-        "Unassigned does not mean prohibited or impossible; these assessments do not enter the 2021 calculations.",
-        "The retained Oracle query is a first-page illustration, not a complete population. No presence-frequency or absence conclusion is drawn from it."
-      ],
+      "summary": "Attach is a general rules action. The separate 2017 placement below concerns moving enchantments and counters, rather than every effect that attaches something.",
+      "limitations": [],
       "citationCards": [],
       "label": "Rules action - not ranked",
       "researchDate": "2026-10-26",
@@ -3259,7 +3224,7 @@
     {
       "id": "deck:catalog-gaps:augment",
       "name": "Augment",
-      "scope": "Complete Unstable/Unsanctioned special-set population; this special scope, not ordinary paper, drives every decision.",
+      "scope": "The Host-combining mechanic in Unstable and Unsanctioned.",
       "confidence": "Moderate",
       "placements": {
         "W": "Primary",
@@ -3269,16 +3234,15 @@
         "G": "Primary"
       },
       "rationale": {
-        "W": "Half-Kitten, Half-, Humming-, and Rhino- give white multiple Host-combining Augment roles from common to uncommon in Unstable. This deliberate original special-set spread supports Primary rather than a count-based Secondary.",
-        "U": "The saved screen observes Half-Shark, Half- for blue, but the evidence does not establish an independent role strong enough to distinguish Tertiary from uncertainty. The tier is left unresolved.",
-        "B": "Bat-, Ninja, and Zombified place Augment on three black Host-combining designs across Unstable and Unsanctioned. The repeated original and later special-set use supports Primary within this special-only mechanic rather than Secondary.",
-        "R": "The saved screen observes Half-Orc, Half- for red, but the evidence does not establish an independent role strong enough to distinguish Tertiary from uncertainty. The tier is left unresolved.",
-        "G": "Monkey-, Multi-Headed, and Serpentine give green Augment common, uncommon, and rare roles in the original special-set environment. That designed rarity spread supports Primary rather than a narrow Secondary."
+        "W": "Half-Kitten, Half-, Humming-, and Rhino- give white several ways to combine with Hosts at common and uncommon. This range in the original design supports Primary.",
+        "U": "Half-Shark, Half- shows blue using Augment. One card does not establish whether blue has an occasional role or a one-off exception, so its tier remains unassigned.",
+        "B": "Bat-, Ninja, and Zombified give black Host-combining cards across Unstable and Unsanctioned. This recurring special-set role supports Primary.",
+        "R": "Half-Orc, Half- shows red using Augment. One card does not establish whether red has an occasional role or a one-off exception, so its tier remains unassigned.",
+        "G": "Monkey-, Multi-Headed, and Serpentine give green common, uncommon, and rare Augment cards. This range in the original design supports Primary."
       },
-      "summary": "White, black and green have multiple native Host-combining designs and proposed Primary homes within the special-set environment. Blue and red singleton access remains tier-unresolved.",
+      "summary": "White, black, and green have varied Augment roles. Blue and red each have one example, which is not enough to establish a tier.",
       "limitations": [
-        "Support cards such as Dr. Julius Jumblemorph and Teacher's Pet can combine cards but do not themselves have or grant Augment; their excluded status concerns native counts, not practical support. The small G/W/B difference makes exact tier boundaries tentative.",
-        "Reviewed conformance record; saved timestamps are historical cutoffs, not fresh queries."
+        "These placements describe the Un-set mechanic. Cards that help combine Hosts and Augment cards do not necessarily have or grant Augment themselves."
       ],
       "citationCards": [
         {
@@ -3382,7 +3346,7 @@
     {
       "id": "deck:vocabulary:aura swap",
       "name": "Aura Swap",
-      "scope": "Saved Scryfall unique-card keyword and Oracle query population; released paper drives WUBRG decisions.",
+      "scope": "Aura Swap on Arcanum Wings.",
       "confidence": "Low; observed tiers unresolved",
       "placements": {
         "W": null,
@@ -3392,16 +3356,15 @@
         "G": null
       },
       "rationale": {
-        "W": "No independent native or grant Aura Swap design was found for white in the complete saved population.",
-        "U": "Arcanum Wings is a blue Future Sight Aura with Aura Swap, so blue access is observed in the complete saved paper sample. Back to the Future Sight says Aura Swap was created to make Auras more playable and was inspired by ninjutsu, but it does not identify blue as the mechanic’s intended home. That design discussion cannot provide the color-specific independent-context bridge required for a proposed Primary home, so the tier remains unresolved.",
-        "B": "No independent native or grant Aura Swap design was found for black in the complete saved population.",
-        "R": "No independent native or grant Aura Swap design was found for red in the complete saved population.",
-        "G": "No independent native or grant Aura Swap design was found for green in the complete saved population."
+        "W": "No white card that has or grants Aura Swap was found in this card sample, so no tier is assigned.",
+        "U": "Arcanum Wings has Aura Swap. The cited design article explains its goal of making Auras more playable and its inspiration from ninjutsu, but does not identify blue as its intended home. Blue therefore remains unassigned.",
+        "B": "No black card that has or grants Aura Swap was found in this card sample, so no tier is assigned.",
+        "R": "No red card that has or grants Aura Swap was found in this card sample, so no tier is assigned.",
+        "G": "No green card that has or grants Aura Swap was found in this card sample, so no tier is assigned."
       },
-      "summary": "Blue Aura Swap access is observed, but its singleton and general design history do not establish the color-specific context required for a proposed tier.",
+      "summary": "A single blue card establishes blue access, but does not establish a lasting color-pie tier.",
       "limitations": [
-        "One design cannot establish a broad enduring color policy. An Aura swapped in from another color does not supply a native Aura Swap source of that color.",
-        "Reviewed conformance record; saved timestamps are historical cutoffs, not fresh queries."
+        "Swapping in an Aura of another color does not establish Aura Swap as an ability of that color."
       ],
       "citationCards": [
         {
@@ -3453,7 +3416,7 @@
     {
       "id": "deck:vocabulary:awaken",
       "name": "Awaken",
-      "scope": "Saved Scryfall unique-card keyword and Oracle query population; released paper drives WUBRG decisions.",
+      "scope": "The Awaken design in Battle for Zendikar.",
       "confidence": "Moderate",
       "placements": {
         "W": "Primary",
@@ -3463,16 +3426,15 @@
         "G": null
       },
       "rationale": {
-        "W": "Sheer Drop, Encircling Fissure, Ondu Rising, and Planar Outburst give white Awaken removal, prevention, life, and mass-removal roles in Battle for Zendikar. That broad original common-to-rare implementation supports Primary rather than a narrower Secondary.",
-        "U": "Rush of Ice, Clutch of Currents, Coastal Discovery, Scatter to the Winds, and Part the Waterveil give blue Awaken tempo, draw, counterspell, and mythic extra-turn roles. The original implementation spans common through mythic, making blue Primary rather than Secondary.",
-        "B": "Mire’s Malice, Rising Miasma and Ruinous Path use Awaken for discard, a sweeper and targeted creature or planeswalker removal in Battle for Zendikar. That varied original implementation spans common, uncommon and rare and meets the protocol’s Primary case. Black is proposed co-Primary rather than Secondary because the evidence supplies no narrower-access restriction; a smaller card total is insufficient.",
-        "R": "The saved screen observes Boiling Earth for red, but the evidence does not establish an independent role strong enough to distinguish Tertiary from uncertainty. The tier is left unresolved.",
-        "G": "The saved screen observes Earthen Arms for green, but the evidence does not establish an independent role strong enough to distinguish Tertiary from uncertainty. The tier is left unresolved."
+        "W": "Sheer Drop, Encircling Fissure, Ondu Rising, and Planar Outburst cover removal, prevention, life gain, and mass removal from common through rare. This broad original role supports Primary.",
+        "U": "Rush of Ice, Clutch of Currents, Coastal Discovery, Scatter to the Winds, and Part the Waterveil cover tempo, draw, counterspells, and extra turns from common through mythic. This broad original role supports Primary.",
+        "B": "Mire's Malice, Rising Miasma, and Ruinous Path cover discard, sweeping, and targeted removal at common, uncommon, and rare. This broad original role supports Primary alongside white and blue.",
+        "R": "Boiling Earth shows red using Awaken. One example does not establish whether red has an occasional role or a one-off exception, so its tier remains unassigned.",
+        "G": "Earthen Arms shows green using Awaken. One example does not establish whether green has an occasional role or a one-off exception, so its tier remains unassigned."
       },
-      "summary": "White, blue and black each have varied original spell roles and proposed Primary homes. Red and green access is observed but remains unresolved rather than automatically Tertiary.",
+      "summary": "White, blue, and black use Awaken on a broad range of spells. Red and green each have an example, but their tiers remain uncertain.",
       "limitations": [
-        "The 2021 land-animation entry is untouched and not mapped to Awaken. Halimar Tidecaller is support; Awaken the Inferno and Awaken the Maelstrom are unrelated name matches. Tertiary here describes narrow keyword use, not a universal rarity requirement.",
-        "Reviewed conformance record; saved timestamps are historical cutoffs, not fresh queries."
+        "These placements concern the named Awaken mechanic, rather than all effects that turn lands into creatures."
       ],
       "citationCards": [
         {

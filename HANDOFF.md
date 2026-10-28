@@ -1,4 +1,27 @@
-# Active handoff - Apply protocol v1.0 to A mechanics
+# Active handoff - Player-facing A mechanic explanations
+
+## Control
+- Status: `ready-for-qa` (`dev-in-progress -> ready-for-qa`). Player-copy repair completed; placements and research evidence remain fixed. Independent QA-1 follows the committed candidate.
+- Branch: `codex/a-mechanics-review`; task baseline `4fb2ab42ce3245d9450130bbf1f326bae6b1f010`; branch baseline `9a063b3a98cfcb7672783f83a102e8f968242490`.
+- Allowed files: `HANDOFF.md`; `docs/mechanics-research/a-protocol-core.json`; `docs/mechanics-research/a-protocol-extended.json`; `docs/mechanics-research/a-protocol-special.json`; `tools/build_mechanics_assessments.py`; `data/mechanics-assessments.v1.json`; `vox-color/mechanical-explorer.html`; `tools/check_assessment_browser.mjs`. Ignored local preview output and external temporary verification artifacts permitted.
+- Ownership: RobDev copy worker owns three protocol records and producer; coordinator owns renderer/harness/payload and ledger. QA reviews the committed candidate independently and edits ledger only.
+
+## Pre-edit contract
+- Outcome: all 25 A assessments explain the card evidence and tier judgment in readable player language. Adapt must not expose receipt normalization, retained-record mechanics, raw status enums, protocol identifiers or review workflow.
+- Cause/owner: producer projects research scope/summary/limitations/decision rationale verbatim; shared assessment renderer exposes decision enums and provenance bookkeeping. Add explicit player-copy fields to the same canonical research records and project them through the existing producer; preserve the full research fields. Renderer keeps meaningful source attribution/date/confidence and uncertainty while removing bookkeeping/redundant labels. Supplemental generic rules-scope boilerplate may be suppressed only for assessed A entries where the Rules section already provides it; special context remains visible.
+- Protected: exact P/S/T/null/Colorless decisions, status/route/confidence values, research rationale/evidence/receipts/hashes/review metadata, all source/citation links, special/digital/preview scope warnings, 2021 data/content/calculations, other supplemental entries. No new research, ranking decision, theme change, publication or integration.
+- Acceptance: explicit plain-language copy for all 25; card examples and reasons remain concrete; unresolved access remains distinguishable from no evidence; no stronger claims. No internal workflow prose in rendered assessment. Producer deterministic; record delta only player-copy additions; payload semantic fields preserved. The existing symbol system remains.
+- QA handoff: copy semantics and authored-to-generated boundary; focused assessment DOM assertions for all 25 and negative process-language regression, plus producer/protected-diff checks. Owner judges readability. No broad research or unrelated browser sweep.
+
+## RobDev implementation packet
+- Added explicit player_copy for all 25 canonical records and reused the existing producer to project only that public scope, summary, per-color explanation and limitations. Every pre-existing record field remains semantically identical. The worker supplied the input/projection seam; coordinator rewrote the final public copy after rejecting mechanical substitutions and overbroad removal of limitations.
+- Assessment presenter removes raw status/route repetition, protocol/review-date bookkeeping and redundant generic rules headings. Source attribution, evidence date, per-color confidence, exact symbol tiers, source/card links, uncertainty and special-scope warnings remain. Generic rules-note suppression applies only to assessed A entries with the exact redundant boilerplate and no additional qualifications; other supplement/2021 controls stay unchanged.
+- Verification: 25-record additive-field comparison PASS; all non-copy payload values unchanged except canonical source hashes; producer --check PASS; Node harness syntax PASS. Focused Edge --copy-only PASS for all25 projected details/tiers/copy/confidence/links plus Adapt, special/digital/preview witnesses, Training and Flying controls. The new contextual regression first failed old projected copy on inherited receipts/UTC normalization, then passed the new copy. The initial sandbox Edge launch failed before tests; the authorized unsandboxed run worked. No app change was made for that environment issue.
+- Browser justification: this is a runtime composition defect; the focused DOM check verifies the actually rendered assessment after disclosure, including conditional boilerplate suppression. No viewport matrix, screenshot suite, broad research, placement/recon certification or unrelated wheel tests were run. Original 2021 and source/example files remain diff-zero. Runtime loading/validation and placement logic are unchanged.
+- Remaining Owner judgment: read Adapt in the refreshed local preview and judge clarity. No tier reconsideration, new research, publication, push, merge or integration is part of this repair.
+
+---
+# Prior handoff - Apply protocol v1.0 to A mechanics
 
 ## Control
 - Status: `qa-passed` (`qa-failed -> dev-in-progress -> ready-for-qa -> qa-passed`) for exact candidate `12ec713e52490c34f3e46b61cf02df243ca79db4`. All stale review-status prose is resolved without semantic assessment changes. This engineering verdict does not infer Owner acceptance, publication authorization or integration.

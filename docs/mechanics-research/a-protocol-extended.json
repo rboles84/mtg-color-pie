@@ -1718,6 +1718,20 @@
         "query_receipt_paths": "relative to repository root; ../a-derived and ../absorb-derived identify retained external captures",
         "absolute_page_paths": "absolute filesystem paths where recorded",
         "source_capture_paths": "repository-relative for docs/... paths; any inherited source mapping retains its explicitly declared source root"
+      },
+      "player_copy": {
+        "scope": "Alliance in Streets of New Capenna and later releases.",
+        "summary": "White, red, and green have substantial Alliance roles. Blue appears on multicolor cards, while no black example was found.",
+        "rationale": {
+          "W": "Boss's Chauffeur, Celebrity Fencer, and Rumor Gatherer establish white uses in New Capenna, with later white cards repeating Alliance. This range and recurrence support Primary.",
+          "U": "Galadriel, Light of Valinor provides a multicolor example. It does not establish an independent blue role, so blue remains unassigned.",
+          "B": "No black card that has or grants Alliance was found in this card sample, so no tier is assigned.",
+          "R": "Devilish Valet, Sizzling Soloist, and Rose Room Treasurer give red aggressive, damage, and mana uses. Later red cards repeat Alliance, supporting Primary.",
+          "G": "Attended Socialite, Elegant Entourage, Gala Greeters, Social Climber, and Venom Connoisseur use Alliance for growth, combat, life gain, and other benefits. This broad range in the original release supports Primary."
+        },
+        "limitations": [
+          "A multicolor Alliance card does not automatically establish a separate tier for each of its colors."
+        ]
       }
     },
     {
@@ -5680,6 +5694,20 @@
         "query_receipt_paths": "relative to repository root; ../a-derived and ../absorb-derived identify retained external captures",
         "absolute_page_paths": "absolute filesystem paths where recorded",
         "source_capture_paths": "repository-relative for docs/... paths; any inherited source mapping retains its explicitly declared source root"
+      },
+      "player_copy": {
+        "scope": "Amass in paper releases; Un-set examples are considered separately.",
+        "summary": "Black uses Amass as a broad creature-and-resource engine. Blue and red have recurring but more focused uses, supporting Secondary.",
+        "rationale": {
+          "W": "No white card that has or grants Amass was found in this card sample, so no tier is assigned.",
+          "U": "Aven Eternal, Callous Dismissal, and Commence the Endgame pair Amass with blue creatures, bounce, and card draw. Deceive the Messenger and Saruman's Trickery continue its use with blue interaction. This recurring supporting role favors Secondary over Primary.",
+          "B": "Lazotep Reaver, Herald of the Dreadhorde, Mordor Muster, Orcish Bowmasters, and Mindless Conscription put Amass on creatures, spells, and an enchantment engine across releases. That broad recurring role supports Primary.",
+          "R": "Grim Initiate, Honor the God-Pharaoh, and Invading Manticore give red aggressive and damage-related uses, continued by Foray of Orcs and Swarming of Moria. This focused recurring role supports Secondary alongside black.",
+          "G": "You and Ooze Army? is an Un-set example. It does not establish a green tier for the paper-release pattern described here."
+        },
+        "limitations": [
+          "The black Army token does not make a blue or red Amass spell black."
+        ]
       }
     },
     {
@@ -6591,6 +6619,20 @@
         "query_receipt_paths": "relative to repository root; ../a-derived and ../absorb-derived identify retained external captures",
         "absolute_page_paths": "absolute filesystem paths where recorded",
         "source_capture_paths": "repository-relative for docs/... paths; any inherited source mapping retains its explicitly declared source root"
+      },
+      "player_copy": {
+        "scope": "The small tribal Amplify design introduced in Legions.",
+        "summary": "Black and green have varied original roles across rarities. White has a narrower role, and the single red example does not establish a tier.",
+        "rationale": {
+          "W": "Daru Stinger and Aven Warhawk give white Soldier and Bird uses at common and uncommon. This more limited role supports Secondary alongside the broader black and green designs.",
+          "U": "No blue card that has or grants Amplify was found in this card sample, so no tier is assigned.",
+          "B": "Embalmed Brawler, Ghastly Remains, and Zombie Brute give black distinct Zombie uses at common, uncommon, and rare. This range in the original design supports Primary.",
+          "R": "Kilnmouth Dragon shows red using Amplify. One card does not establish whether red has an occasional role or a one-off exception, so its tier remains unassigned.",
+          "G": "Canopy Crawler, Glowering Rogon, and Feral Throwback give green Beast and tribal uses from common through rare. This range in the original design supports Primary."
+        },
+        "limitations": [
+          "These are tentative placements for a small historical mechanic."
+        ]
       }
     },
     {
@@ -8553,6 +8595,20 @@
         "query_receipt_paths": "relative to repository root; ../a-derived and ../absorb-derived identify retained external captures",
         "absolute_page_paths": "absolute filesystem paths where recorded",
         "source_capture_paths": "repository-relative for docs/... paths; any inherited source mapping retains its explicitly declared source root"
+      },
+      "player_copy": {
+        "scope": "Ascend in Rivals of Ixalan and later releases.",
+        "summary": "White, blue, and black have broad original uses of Ascend. Red and green have examples, but their exact tiers remain uncertain.",
+        "rationale": {
+          "W": "Skymarcher Aspirant, Snubhorn Sentry, Pride of Conquerors, and Radiant Destiny cover creatures, combat, and tribal benefits. Ocelot Pride later repeats Ascend. This range and recurrence support Primary.",
+          "U": "Secrets of the Golden City, Slippery Scoundrel, Spire Winder, and Timestream Navigator cover draw, evasion, creatures, and a mythic payoff. Detective of the Month later repeats Ascend, supporting Primary.",
+          "B": "Dusk Charger, Golden Demise, Mausoleum Harpy, Twilight Prophet, and Vona's Hunger cover growth, sweeping, death benefits, card advantage, and sacrifice. That broad original range from common through mythic supports Primary.",
+          "R": "Storm Fleet Swashbuckler and Tilonalli's Summoner show red using Ascend. The available context does not clearly establish how regular that role should be, so its tier remains unassigned.",
+          "G": "Tendershoot Dryad and Wayward Swordtooth show green using Ascend. The available context does not clearly establish how regular that role should be, so its tier remains unassigned."
+        },
+        "limitations": [
+          "Event-specific variants are considered separately from these placements."
+        ]
       }
     },
     {
@@ -10231,6 +10287,20 @@
         "query_receipt_paths": "relative to repository root; ../a-derived and ../absorb-derived identify retained external captures",
         "absolute_page_paths": "absolute filesystem paths where recorded",
         "source_capture_paths": "repository-relative for docs/... paths; any inherited source mapping retains its explicitly declared source root"
+      },
+      "player_copy": {
+        "scope": "Contraptions in Unstable.",
+        "summary": "Red has the dedicated Rigger and Contraption focus. The other colors have established supporting roles within this Un-set mechanic.",
+        "rationale": {
+          "W": "Aerial Toastmaster, Midlife Upgrade, and Riveting Rigger give white common and uncommon ways to assemble. They support the mechanic without red's dedicated Rigger focus, favoring Secondary.",
+          "U": "Chipper Chopper, Crafty Octopus, Incite Insight, Spell Suck, and Very Cryptic Command give blue varied ways to assemble. Blue supports the mechanic, while red carries its dedicated Rigger focus, favoring Secondary.",
+          "B": "Finders, Keepers, Overt Operative, and Steady-Handed Mook give black several common and uncommon ways to assemble. That is established access, but without red's dedicated Contraption focus, favoring Secondary.",
+          "R": "Steamflogger Temp, Steamflogger of the Month, Steamfloggery, Work a Double, and Wrench-Rigger make assembling a dedicated red theme from common through rare. That central role supports Primary.",
+          "G": "First Pick, Joyride Rigger, and Steamflogger Service Rep give green common and uncommon ways to assemble. They support the mechanic without red's dedicated Rigger focus, favoring Secondary."
+        },
+        "limitations": [
+          "These placements describe Unstable, not ordinary Commander availability."
+        ]
       }
     },
     {
@@ -11107,6 +11177,20 @@
         "query_receipt_paths": "relative to repository root; ../a-derived and ../absorb-derived identify retained external captures",
         "absolute_page_paths": "absolute filesystem paths where recorded",
         "source_capture_paths": "repository-relative for docs/... paths; any inherited source mapping retains its explicitly declared source root"
+      },
+      "player_copy": {
+        "scope": "Star Trek previews, with one earlier promo.",
+        "summary": "Most of these examples are previews. They show access in several colors, but do not yet establish settled color-pie tiers.",
+        "rationale": {
+          "W": "The white examples are multicolor cards, mostly still previews at the evidence date. Borg Queen, Perfection Manifest has an earlier promo, but that alone does not establish an independent white role.",
+          "U": "Blue appears both on its own and on multicolor Assimilate cards. Most are still previews at the evidence date, so a blue tier remains unassigned.",
+          "B": "Black appears both on its own and on multicolor Assimilate cards. Most are still previews at the evidence date, so a black tier remains unassigned.",
+          "R": "No red card that has or grants Assimilate was found in this card sample, so no tier is assigned.",
+          "G": "No green card that has or grants Assimilate was found in this card sample, so no tier is assigned."
+        },
+        "limitations": [
+          "The representative set printings release November 13, 2026. One earlier promo does not make the rest of the preview set released material."
+        ]
       }
     },
     {
@@ -12442,6 +12526,20 @@
         "query_receipt_paths": "relative to repository root; ../a-derived and ../absorb-derived identify retained external captures",
         "absolute_page_paths": "absolute filesystem paths where recorded",
         "source_capture_paths": "repository-relative for docs/... paths; any inherited source mapping retains its explicitly declared source root"
+      },
+      "player_copy": {
+        "scope": "The multiplayer mechanic introduced in Battlebond.",
+        "summary": "White, blue, black, and green use Assist in varied creature and spell roles. Red has a narrower creature-only role, supporting Secondary.",
+        "rationale": {
+          "W": "Bring Down, Dwarven Lightsmith, Play of the Game, and Skystreamer cover removal, creatures, and spells from common through rare. This varied original role supports Primary.",
+          "U": "Game Plan, Huddle Up, Out of Bounds, and Spellweaver Duo cover card draw, tempo, and creatures across rarities. This varied original role supports Primary.",
+          "B": "Bloodborn Scoundrels and Fan Favorite are common Assist creatures, while Gang Up is an uncommon sorcery. These distinct creature and spell roles support Primary.",
+          "R": "Lava-Field Overlord and Magma Hellion are the original red Assist designs, both creatures. This narrower role supports Secondary rather than Primary.",
+          "G": "Charging Binox is a common creature and The Crowd Goes Wild is an uncommon counter-granting sorcery. These distinct creature and spell roles support Primary, as they do for black."
+        },
+        "limitations": [
+          "The playtest card All-Star Kicker is a special variant. A card that grants Assist to other creatures does not establish a tier for every color that receives it."
+        ]
       }
     },
     {
@@ -13906,6 +14004,20 @@
         "query_receipt_paths": "relative to repository root; ../a-derived and ../absorb-derived identify retained external captures",
         "absolute_page_paths": "absolute filesystem paths where recorded",
         "source_capture_paths": "repository-relative for docs/... paths; any inherited source mapping retains its explicitly declared source root"
+      },
+      "player_copy": {
+        "scope": "The Host-combining mechanic in Unstable and Unsanctioned.",
+        "summary": "White, black, and green have varied Augment roles. Blue and red each have one example, which is not enough to establish a tier.",
+        "rationale": {
+          "W": "Half-Kitten, Half-, Humming-, and Rhino- give white several ways to combine with Hosts at common and uncommon. This range in the original design supports Primary.",
+          "U": "Half-Shark, Half- shows blue using Augment. One card does not establish whether blue has an occasional role or a one-off exception, so its tier remains unassigned.",
+          "B": "Bat-, Ninja, and Zombified give black Host-combining cards across Unstable and Unsanctioned. This recurring special-set role supports Primary.",
+          "R": "Half-Orc, Half- shows red using Augment. One card does not establish whether red has an occasional role or a one-off exception, so its tier remains unassigned.",
+          "G": "Monkey-, Multi-Headed, and Serpentine give green common, uncommon, and rare Augment cards. This range in the original design supports Primary."
+        },
+        "limitations": [
+          "These placements describe the Un-set mechanic. Cards that help combine Hosts and Augment cards do not necessarily have or grant Augment themselves."
+        ]
       }
     },
     {
@@ -14411,6 +14523,20 @@
         "query_receipt_paths": "relative to repository root; ../a-derived and ../absorb-derived identify retained external captures",
         "absolute_page_paths": "absolute filesystem paths where recorded",
         "source_capture_paths": "repository-relative for docs/... paths; any inherited source mapping retains its explicitly declared source root"
+      },
+      "player_copy": {
+        "scope": "Aura Swap on Arcanum Wings.",
+        "summary": "A single blue card establishes blue access, but does not establish a lasting color-pie tier.",
+        "rationale": {
+          "W": "No white card that has or grants Aura Swap was found in this card sample, so no tier is assigned.",
+          "U": "Arcanum Wings has Aura Swap. The cited design article explains its goal of making Auras more playable and its inspiration from ninjutsu, but does not identify blue as its intended home. Blue therefore remains unassigned.",
+          "B": "No black card that has or grants Aura Swap was found in this card sample, so no tier is assigned.",
+          "R": "No red card that has or grants Aura Swap was found in this card sample, so no tier is assigned.",
+          "G": "No green card that has or grants Aura Swap was found in this card sample, so no tier is assigned."
+        },
+        "limitations": [
+          "Swapping in an Aura of another color does not establish Aura Swap as an ability of that color."
+        ]
       }
     },
     {
@@ -15758,6 +15884,20 @@
         "query_receipt_paths": "relative to repository root; ../a-derived and ../absorb-derived identify retained external captures",
         "absolute_page_paths": "absolute filesystem paths where recorded",
         "source_capture_paths": "repository-relative for docs/... paths; any inherited source mapping retains its explicitly declared source root"
+      },
+      "player_copy": {
+        "scope": "The Awaken design in Battle for Zendikar.",
+        "summary": "White, blue, and black use Awaken on a broad range of spells. Red and green each have an example, but their tiers remain uncertain.",
+        "rationale": {
+          "W": "Sheer Drop, Encircling Fissure, Ondu Rising, and Planar Outburst cover removal, prevention, life gain, and mass removal from common through rare. This broad original role supports Primary.",
+          "U": "Rush of Ice, Clutch of Currents, Coastal Discovery, Scatter to the Winds, and Part the Waterveil cover tempo, draw, counterspells, and extra turns from common through mythic. This broad original role supports Primary.",
+          "B": "Mire's Malice, Rising Miasma, and Ruinous Path cover discard, sweeping, and targeted removal at common, uncommon, and rare. This broad original role supports Primary alongside white and blue.",
+          "R": "Boiling Earth shows red using Awaken. One example does not establish whether red has an occasional role or a one-off exception, so its tier remains unassigned.",
+          "G": "Earthen Arms shows green using Awaken. One example does not establish whether green has an occasional role or a one-off exception, so its tier remains unassigned."
+        },
+        "limitations": [
+          "These placements concern the named Awaken mechanic, rather than all effects that turn lands into creatures."
+        ]
       }
     }
   ]

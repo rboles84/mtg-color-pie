@@ -1979,7 +1979,8 @@ function supplementalRecordHTML(a, mapped = false){
     ${review && review.limits && !upfront.has(review.limits) ? `<p class="dx-note">${esc(review.limits)}</p>` : ''}
     ${locator.artist ? `<p class="dx-note">${esc(locator.card)} · Artist: ${esc(locator.artist)}</p>` : ''}
     ${ref && ref.playtest ? `<p class="dx-note">Playtest card: ${esc(ref.playtest.card)}.${ref.playtest.commander === 'not_legal' ? ' Not legal in Commander.' : ''}${ref.playtest.checkedOn ? ' Checked ' + esc(supplementalDate(ref.playtest.checkedOn)) + '.' : ''}</p>` : ''}</section>` : '';
-  return `<div class="supp-evidence">${supplementalClassificationHTML(classification, mapped)}
+  const redundantRulesNote = !mapped && isAssessmentTarget(a.id) && classification.group === 'rules' && classification.scopeNote === 'Specific Comprehensive Rules material is retained for this entry.' && !classification.qualifications.length;
+  return `<div class="supp-evidence">${redundantRulesNote ? '' : supplementalClassificationHTML(classification, mapped)}
     ${!mapped && !isAssessmentTarget(a.id) ? '<p class="dx-note" aria-describedby="supp-ranking-note">Rankings unassigned</p><p class="sr-only" id="supp-ranking-note">No sourced Primary/Secondary/Tertiary assignment is recorded. This is unknown ranking, not an absent 2021 placement; supplemental evidence stays outside the 2021 color calculations.</p>' : ''}${rules}${reference}${scope}</div>`;
 }
 function supplementEvidenceHTML(k){
@@ -1987,7 +1988,8 @@ function supplementEvidenceHTML(k){
 }
 function supplementalDetailHTML(k){
   const r = REC.get(k), records = SUP_BY_KEY.get(k) || [];
-  return `<div class="dx-top"><p class="dx-where">Supplemental · ${esc(scopeGroupLabel(r.scope))} · ${esc(r.scope.evidenceLabel)}</p><button class="dx-close" type="button" data-act="close" data-fid="dx-close" aria-label="Close entry">×</button></div>
+  const heading = isAssessmentTarget(k) ? (r.scope.group === 'rules' ? 'Supplemental mechanic' : r.scope.group === 'ability-words' ? 'Supplemental · Ability word' : `Supplemental · ${scopeGroupLabel(r.scope)}`) : `Supplemental · ${scopeGroupLabel(r.scope)} · ${r.scope.evidenceLabel}`;
+  return `<div class="dx-top"><p class="dx-where">${esc(heading)}</p><button class="dx-close" type="button" data-act="close" data-fid="dx-close" aria-label="Close entry">×</button></div>
     <h2 class="dx-title${r.head.length > 48 ? ' long' : ''}" id="dx-title">${esc(r.head)}</h2>
     ${assessmentHTML(k)}${records.map(a => supplementalRecordHTML(a)).join('')}`;
 }
@@ -2015,10 +2017,10 @@ function assessmentHTML(k){
     '<p class="dx-ex is-supplemental"><b>Rules action · Not ranked</b></p><p class="dx-note">Primary, Secondary and Tertiary do not apply to this general rules action.</p>';
   return `<section class="dx-sec supp-assessment" aria-label="${esc(a.label)}">
     <h3 class="dx-h">${a.kind === 'rules' ? 'Classification' : 'Placements'}</h3><p class="dx-note">${esc(a.label)}</p>
-    ${placement}<p class="dx-note">${esc(a.scope)}</p><p class="dx-note">Confidence: ${esc(a.confidence)}</p>
-    <p class="dx-note">${a.kind === 'rules' ? 'Rules classification' : a.name === 'Annihilator' ? 'Classification selected by the user for this review; Scryfall-derived supporting rationale. Not an official Wizards ranking' : 'Analyst assessment, not an official Wizards or Scryfall ranking'} · Card snapshot ${esc(supplementalDate(a.researchDate))} · Judgment ${esc(supplementalDate(a.judgmentDate))} · Protocol ${esc(a.protocolVersion)}. Outside the 2021 color calculations.</p>
+    ${placement}<p class="dx-note">${esc(a.scope)}</p>${a.kind === 'derived' ? `<p class="dx-note">Confidence: ${esc(a.confidence.split(';')[0])}</p>` : ''}
+    <p class="dx-note">${a.kind === 'rules' ? 'General rules terminology.' : a.name === 'Annihilator' ? 'Colorless classification selected for this page; not an official Wizards ranking.' : 'Our assessment, not an official Wizards or Scryfall ranking.'} Based on evidence available ${esc(supplementalDate(a.researchDate))}. Outside the 2021 color calculations.</p>
     <details class="assessment-notes"><summary>Rationale and evidence</summary><p>${esc(a.summary)}</p>
-      ${a.kind === 'derived' ? ORDER.map(c => `<p><b>${CNAME[c]} · ${esc(a.placements[c] || 'Unassigned')}.</b> ${esc(a.rationale[c])}</p><p class="dx-note">${esc(a.decisionStatus[c].replaceAll('_',' '))} · Confidence: ${esc(a.decisionConfidence[c])}${a.decisionRoute[c] ? ' · '+esc(a.decisionRoute[c] === 'E2' ? 'Source-informed' : a.decisionRoute[c] === 'E1' ? 'Official source' : a.decisionRoute[c] === 'U' ? 'User-selected' : 'Scryfall-derived') : ''}</p>`).join('') : ''}
+      ${a.kind === 'derived' ? ORDER.map(c => `<p><b>${CNAME[c]} · ${esc(a.placements[c] || 'Unassigned')}.</b> ${esc(a.rationale[c])}</p><p class="dx-note">Confidence: ${esc(a.decisionConfidence[c])}</p>`).join('') : ''}
       ${a.limitations.length ? `<h4>Scope and limitations</h4><ul class="dx-list">${a.limitations.map(t => `<li>${esc(t)}</li>`).join('')}</ul>` : ''}
       <h4>Evidence</h4>${a.sources.map(s => `<p>${link(s.title, s.url)}</p>`).join('')}<p>${link('Scryfall search · includes special material', a.queryUrl)}</p>
       ${a.citationCards.length ? `<details><summary>${a.citationCards.length} reviewed card ${a.citationCards.length === 1 ? 'source' : 'sources'}</summary><ul class="dx-list">${a.citationCards.map(c => `<li>${link(c.name, c.url)}</li>`).join('')}</ul></details>` : ''}

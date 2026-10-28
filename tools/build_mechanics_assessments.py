@@ -85,9 +85,14 @@ def build():
     statuses={'assigned','proposed_home','observed_tier_unresolved','no_support_in_sample','incomplete_evidence','conflicted','not_applicable'}
     for r in rows:
         a=by_name[r['name']]; ds=a['decisions']; outside=a['outside_five_colors']
+        player=a.get('player_copy')
         assert a['protocol_version']=='1.0' and a['record_status'] in {'draft','reviewed'}
         assert a['mechanic']['accepted_id']==r['id'],r['name']
         assert set(ds)==set(COLORS)
+        assert isinstance(player,dict) and set(player)=={'scope','summary','rationale','limitations'}
+        assert set(player['rationale'])==set(COLORS)
+        assert all(isinstance(player[k],str) and player[k].strip() for k in ('scope','summary'))
+        assert all(isinstance(text,str) and text.strip() for text in list(player['rationale'].values())+player['limitations'])
         for c,d in ds.items():
             assert d['tier'] in {None,'Primary','Secondary','Tertiary'}
             assert d['status'] in statuses and d['route'] in {None,'E1','E2','E3','E3_limited_sample','U'}
@@ -101,15 +106,14 @@ def build():
         short='Rules action' if r['kind']=='rules' else 'User-selected' if 'U' in routes else 'Source-informed' if 'E2' in routes else 'Official placement' if 'E1' in routes else 'Scryfall-derived'
         r.update(protocolVersion='1.0',reviewStatus=a['record_status'],judgmentDate=a['provenance']['judgment_date'],shortLabel=short,
                  label='Rules action - not ranked' if r['kind']=='rules' else 'User-selected classification' if 'U' in routes else short+' assessment - provisional',
-                 scope=a['scope']['population'],classification=a['mechanic']['classification'],summary=a['summary'],limitations=a['limitations'],
-                 placements={c:ds[c]['tier'] for c in COLORS},rationale={c:ds[c]['rationale'] for c in COLORS},
+                 scope=player['scope'],classification=a['mechanic']['classification'],summary=player['summary'],limitations=player['limitations'],
+                 placements={c:ds[c]['tier'] for c in COLORS},rationale=player['rationale'],
                  decisionStatus={c:ds[c]['status'] for c in COLORS},decisionRoute={c:ds[c]['route'] for c in COLORS},decisionConfidence={c:ds[c]['confidence'] for c in COLORS},
                  outsidePrimary='Colorless' if r['kind']=='colorless' and outside.get('proposed_tier')=='Primary' else None,
                  outsideTier=outside.get('proposed_tier') if r['kind']=='colorless' else None,outsideStatus=outside['status'])
         confidence=sorted({d['confidence'] for d in ds.values() if d['tier']})
         r['confidence']=' / '.join(confidence) if confidence else 'Low; observed tiers unresolved' if r['kind']=='derived' else outside.get('confidence','Not applicable')
         if r['name']=='Annihilator':r['confidence']='User-selected; evidence supports Colorless access'
-        r['scope']={'released_paper':'Released paper designs in the retained card snapshot; special material is recorded separately.','archenemy_scheme':'Archenemy ongoing schemes; a general rules action rather than a colored effect.','generic_rules_action':'General rules vocabulary; individual effects require separate color-pie assessments.','designer_playtest':'Designer/playtest material only; one recorded Affinitycycling design.'}.get(r['scope'],r['scope'])
         r['sources']=[]
         for s in a['sources']:
             if s.get('url') and urlsplit(s['url']).hostname=='magic.wizards.com':

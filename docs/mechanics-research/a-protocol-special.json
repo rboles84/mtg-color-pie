@@ -956,6 +956,18 @@
         "query_receipt_paths": "relative to repository root; ../a-derived and ../absorb-derived identify retained external captures",
         "absolute_page_paths": "absolute filesystem paths where recorded",
         "source_capture_paths": "repository-relative for docs/... paths; any inherited source mapping retains its explicitly declared source root"
+      },
+      "player_copy": {
+        "scope": "Archenemy scheme rules.",
+        "summary": "Abandon is an Archenemy game action, so color-pie tiers do not apply.",
+        "rationale": {
+          "W": "This general rules action has no color-pie tier.",
+          "U": "This general rules action has no color-pie tier.",
+          "B": "This general rules action has no color-pie tier.",
+          "R": "This general rules action has no color-pie tier.",
+          "G": "This general rules action has no color-pie tier."
+        },
+        "limitations": []
       }
     },
     {
@@ -1350,6 +1362,20 @@
         "query_receipt_paths": "relative to repository root; ../a-derived and ../absorb-derived identify retained external captures",
         "absolute_page_paths": "absolute filesystem paths where recorded",
         "source_capture_paths": "repository-relative for docs/... paths; any inherited source mapping retains its explicitly declared source root"
+      },
+      "player_copy": {
+        "scope": "The printed Absorb keyword and its design history.",
+        "summary": "White is the only demonstrated colored source. Lymph Sliver and the earlier white design concepts support a tentative Primary placement, with low confidence.",
+        "rationale": {
+          "W": "Lymph Sliver grants Absorb, and Rosewater's Future Sight handoff places its armor precursor in white. Together they suggest white as the main home, but one printed design cannot establish broad or recurring use.",
+          "U": "No blue card that has or grants Absorb was found in this card sample, so no tier is assigned.",
+          "B": "No black card that has or grants Absorb was found in this card sample, so no tier is assigned.",
+          "R": "No red card that has or grants Absorb was found in this card sample, so no tier is assigned.",
+          "G": "No green card that has or grants Absorb was found in this card sample, so no tier is assigned."
+        },
+        "limitations": [
+          "The armor concepts were unprinted designs, not additional cards or an official Primary ranking. Lymph Sliver can grant Absorb to creatures of other colors without establishing tiers for those colors."
+        ]
       }
     },
     {
@@ -6512,6 +6538,18 @@
         "query_receipt_paths": "relative to repository root; ../a-derived and ../absorb-derived identify retained external captures",
         "absolute_page_paths": "absolute filesystem paths where recorded",
         "source_capture_paths": "repository-relative for docs/... paths; any inherited source mapping retains its explicitly declared source root"
+      },
+      "player_copy": {
+        "scope": "General Magic rules vocabulary.",
+        "summary": "Activate describes using an activated ability. The effects of those abilities have their own color-pie roles; the shared rules verb does not.",
+        "rationale": {
+          "W": "This general rules action has no color-pie tier.",
+          "U": "This general rules action has no color-pie tier.",
+          "B": "This general rules action has no color-pie tier.",
+          "R": "This general rules action has no color-pie tier.",
+          "G": "This general rules action has no color-pie tier."
+        },
+        "limitations": []
       }
     },
     {
@@ -6896,6 +6934,20 @@
         "query_receipt_paths": "relative to repository root; ../a-derived and ../absorb-derived identify retained external captures",
         "absolute_page_paths": "absolute filesystem paths where recorded",
         "source_capture_paths": "repository-relative for docs/... paths; any inherited source mapping retains its explicitly declared source root"
+      },
+      "player_copy": {
+        "scope": "One colorless designer playtest card.",
+        "summary": "Sojourner's Enforcermite shows colorless Affinitycycling access. One playtest design is not enough to establish a tier.",
+        "rationale": {
+          "W": "No white card that has or grants Affinitycycling was found in this card sample, so no tier is assigned.",
+          "U": "No blue card that has or grants Affinitycycling was found in this card sample, so no tier is assigned.",
+          "B": "No black card that has or grants Affinitycycling was found in this card sample, so no tier is assigned.",
+          "R": "No red card that has or grants Affinitycycling was found in this card sample, so no tier is assigned.",
+          "G": "No green card that has or grants Affinitycycling was found in this card sample, so no tier is assigned."
+        },
+        "limitations": [
+          "This is designer playtest material, not an established general mechanic."
+        ]
       }
     },
     {
@@ -7968,6 +8020,20 @@
         "query_receipt_paths": "relative to repository root; ../a-derived and ../absorb-derived identify retained external captures",
         "absolute_page_paths": "absolute filesystem paths where recorded",
         "source_capture_paths": "repository-relative for docs/... paths; any inherited source mapping retains its explicitly declared source root"
+      },
+      "player_copy": {
+        "scope": "Colorless cards and cards that grant Annihilator.",
+        "summary": "Colorless is the selected Primary home. The ordinary card examples are colorless; a five-color playtest card does not establish separate colored tiers.",
+        "rationale": {
+          "W": "No white card that has or grants Annihilator was found in this card sample, so no tier is assigned.",
+          "U": "No blue card that has or grants Annihilator was found in this card sample, so no tier is assigned.",
+          "B": "No black card that has or grants Annihilator was found in this card sample, so no tier is assigned.",
+          "R": "No red card that has or grants Annihilator was found in this card sample, so no tier is assigned.",
+          "G": "No green card that has or grants Annihilator was found in this card sample, so no tier is assigned."
+        },
+        "limitations": [
+          "Colorless is outside the five colors, not a sixth Magic color."
+        ]
       }
     },
     {
@@ -13180,6 +13246,18 @@
         "query_receipt_paths": "relative to repository root; ../a-derived and ../absorb-derived identify retained external captures",
         "absolute_page_paths": "absolute filesystem paths where recorded",
         "source_capture_paths": "repository-relative for docs/... paths; any inherited source mapping retains its explicitly declared source root"
+      },
+      "player_copy": {
+        "scope": "General Magic rules vocabulary.",
+        "summary": "Attach is a general rules action. The separate 2017 placement below concerns moving enchantments and counters, rather than every effect that attaches something.",
+        "rationale": {
+          "W": "This general rules action has no color-pie tier.",
+          "U": "This general rules action has no color-pie tier.",
+          "B": "This general rules action has no color-pie tier.",
+          "R": "This general rules action has no color-pie tier.",
+          "G": "This general rules action has no color-pie tier."
+        },
+        "limitations": []
       }
     }
   ]
