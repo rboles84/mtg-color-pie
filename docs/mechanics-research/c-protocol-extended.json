@@ -30661,11 +30661,11 @@
           ],
           "scope": "released_paper",
           "roles": [
-            "explicit_grant"
+            "payoff"
           ],
-          "included": true,
-          "inclusion_reason": "This card explicitly grants the named mechanic.",
-          "exclusion_reason": null,
+          "included": false,
+          "inclusion_reason": "",
+          "exclusion_reason": "Rewards casting a spell that has convoke; does not have convoke or grant it to any spell.",
           "attributed_colors": [
             "R",
             "U"
@@ -37336,16 +37336,6 @@
           },
           {
             "colors": [
-              "U",
-              "R"
-            ],
-            "card_ids": [
-              "39867856-c1f3-442a-abe9-53f8f73777d0"
-            ],
-            "note": "Joyful Stormsculptor gives spells convoke under its stated conditions. Each creature tapped for convoke can pay for one generic mana or one mana of that creature’s color."
-          },
-          {
-            "colors": [
               "W",
               "U",
               "R"
@@ -41843,7 +41833,7 @@
               {
                 "path": "docs/mechanics-research/c-protocol-evidence/extended-coven/released-paper-printings-receipt.json",
                 "format": "json",
-                "sha256": "2982f7d01cd13f79322365ccbbdfb4b259cc6593255f768a1dfdef9824adb398"
+                "sha256": "ac51f64e4ca1cfc31bd620110532e745b0313d223f528874c9816093e69b02a6"
               }
             ],
             "status": "complete",
@@ -41920,14 +41910,14 @@
             "order": "released",
             "include_extras": "true"
           },
-          "retrieved_at_utc": "2026-10-28T20:24:04.917Z",
+          "retrieved_at_utc": "2026-10-28T20:45:08.224Z",
           "pages": [
             {
               "url": "https://api.scryfall.com/cards/search?q=%28kw%3A%22Coven%22+game%3Apaper+date%3C%3D2026-10-28+or+o%3A%2F%5CbCoven%5Cb%2F+game%3Apaper+date%3C%3D2026-10-28%29&unique=prints&order=released&include_extras=true",
-              "receipt_path": "docs/mechanics-research/c-protocol-evidence/extended-coven/released-paper-printings-page-1.json",
-              "sha256": "cc100dbde96161ec7ea3ef84b4cd3c3813f0050380800e6c59ece3cdee16a5f0",
+              "receipt_path": "docs/mechanics-research/c-protocol-evidence/extended-coven/released-paper-recovered-page-1.json",
+              "retrieved_at_utc": "2026-10-28T20:45:08.224Z",
               "http_status": 200,
-              "retrieved_at_utc": "2026-10-28T20:24:04.917Z"
+              "sha256": "cc100dbde96161ec7ea3ef84b4cd3c3813f0050380800e6c59ece3cdee16a5f0"
             }
           ],
           "receipt_paths": [
@@ -41937,7 +41927,8 @@
           "retrieved_count": 59,
           "completion": "complete",
           "errors": [],
-          "exceptional_query_explanation": "Separate released-paper printings query; every returned unique Oracle card was screened and print pagination records released-paper qualification."
+          "exceptional_query_explanation": "Separate released-paper printings query; every returned unique Oracle card was screened and print pagination records released-paper qualification.",
+          "recovery_receipt": "docs/mechanics-research/c-protocol-evidence/extended-coven/recovery-receipt.json"
         }
       ],
       "card_review": [

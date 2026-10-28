@@ -39,11 +39,11 @@
     },
     {
       "path": "docs/mechanics-research/c-protocol-core.json",
-      "sha256": "a6123bb639e2a0bb52a9ac21b9a8b12e21b543058189f4b0dcca2e1eb0c8e781"
+      "sha256": "e4e6509e2c392b5d61a447b302f8e4978d724552743142df905fbaf0be57d44e"
     },
     {
       "path": "docs/mechanics-research/c-protocol-extended.json",
-      "sha256": "63eb5c3515cf585ddd51e9f3e1d299c0bb323df3a1e579bc303d80ea8f0bc2f6"
+      "sha256": "2a332597600fa5e8c92c4fe736c1343bec6d758626edd7b9f591f007f5ed704d"
     },
     {
       "path": "docs/mechanics-research/c-protocol-special.json",
@@ -11482,13 +11482,13 @@
           },
           "U": {
             "status": "not_found",
-            "note": "No blue example was found in the reviewed paper cards.",
+            "note": "No example was found in the reviewed ordinary paper cards.",
             "cards": [],
             "findUrl": null
           },
           "B": {
             "status": "not_found",
-            "note": "No black example was found in the reviewed paper cards.",
+            "note": "No example was found in the reviewed ordinary paper cards.",
             "cards": [],
             "findUrl": null
           },
@@ -11513,19 +11513,15 @@
                 "url": "https://scryfall.com/card/woe/134/grand-ball-guest?utm_source=api"
               },
               {
-                "name": "Overcooked",
-                "url": "https://scryfall.com/card/mbc/67/overcooked?utm_source=api"
-              },
-              {
                 "name": "Raging Battle Mouse",
                 "url": "https://scryfall.com/card/woe/143/raging-battle-mouse?utm_source=api"
               }
             ],
-            "findUrl": "https://scryfall.com/search?q=%28%21%22Belligerent%20of%20the%20Ball%22%20or%20%21%22Bespoke%20Battlegarb%22%20or%20%21%22Goddric%2C%20Cloaked%20Reveler%22%20or%20%21%22Grand%20Ball%20Guest%22%20or%20%21%22Overcooked%22%20or%20%21%22Raging%20Battle%20Mouse%22%29%20include%3Aextras"
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Belligerent%20of%20the%20Ball%22%20or%20%21%22Bespoke%20Battlegarb%22%20or%20%21%22Goddric%2C%20Cloaked%20Reveler%22%20or%20%21%22Grand%20Ball%20Guest%22%20or%20%21%22Raging%20Battle%20Mouse%22%29%20include%3Aextras"
           },
           "G": {
             "status": "not_found",
-            "note": "No green example was found in the reviewed paper cards.",
+            "note": "No example was found in the reviewed ordinary paper cards.",
             "cards": [],
             "findUrl": null
           }
@@ -11548,7 +11544,7 @@
         ],
         "colorless": {
           "status": "not_found",
-          "note": "No colorless example was found in the reviewed paper cards.",
+          "note": "No example was found in the reviewed ordinary paper cards.",
           "cards": [],
           "findUrl": null
         },
@@ -11589,10 +11585,6 @@
         {
           "name": "Lady of Laughter",
           "url": "https://scryfall.com/card/woe/309/lady-of-laughter?utm_source=api"
-        },
-        {
-          "name": "Overcooked",
-          "url": "https://scryfall.com/card/mbc/67/overcooked?utm_source=api"
         },
         {
           "name": "Pests of Honor",
@@ -18926,20 +18918,6 @@
           },
           {
             "colors": [
-              "U",
-              "R"
-            ],
-            "note": "Joyful Stormsculptor gives spells convoke under its stated conditions. Each creature tapped for convoke can pay for one generic mana or one mana of that creature’s color.",
-            "cards": [
-              {
-                "name": "Joyful Stormsculptor",
-                "url": "https://scryfall.com/card/mom/243/joyful-stormsculptor?utm_source=api"
-              }
-            ],
-            "findUrl": "https://scryfall.com/search?q=%28%21%22Joyful%20Stormsculptor%22%29%20include%3Aextras"
-          },
-          {
-            "colors": [
               "W",
               "U",
               "R"
@@ -19194,10 +19172,6 @@
         {
           "name": "Interdisciplinary Mascot",
           "url": "https://scryfall.com/card/mom/326/interdisciplinary-mascot?utm_source=api"
-        },
-        {
-          "name": "Joyful Stormsculptor",
-          "url": "https://scryfall.com/card/mom/243/joyful-stormsculptor?utm_source=api"
         },
         {
           "name": "Kasla, the Broken Halo",

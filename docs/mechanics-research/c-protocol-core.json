@@ -15346,13 +15346,13 @@
           "color_identity": [
             "R"
           ],
-          "scope": "released_paper",
+          "scope": "special_paper",
           "roles": [
             "native"
           ],
-          "included": true,
-          "inclusion_reason": "Printed mechanic operation on this card or mechanic-bearing face.",
-          "exclusion_reason": null,
+          "included": false,
+          "inclusion_reason": "",
+          "exclusion_reason": "Acorn or silver-bordered printing; outside ordinary released-paper access scope.",
           "attributed_colors": [
             "R"
           ],
@@ -16088,12 +16088,12 @@
           "U": {
             "status": "not_found",
             "card_ids": [],
-            "note": "No blue example was found in the reviewed paper cards."
+            "note": "No example was found in the reviewed ordinary paper cards."
           },
           "B": {
             "status": "not_found",
             "card_ids": [],
-            "note": "No black example was found in the reviewed paper cards."
+            "note": "No example was found in the reviewed ordinary paper cards."
           },
           "R": {
             "status": "documented",
@@ -16102,7 +16102,6 @@
               "b2ff15b8-1be4-4f94-b4cc-aa959a50288e",
               "35b2b172-5fbc-4e4d-a011-390ee1b6c848",
               "0b0fdb28-f7b1-4c30-9f2c-14a9074da22d",
-              "2c42983e-f45a-4d10-afe5-d2234dfae1ee",
               "9ffe4d90-b46c-4606-89cb-1b724104f6ea"
             ],
             "note": "Belligerent of the Ball can give a creature extra power and menace at combat when its Celebration condition is met."
@@ -16110,7 +16109,7 @@
           "G": {
             "status": "not_found",
             "card_ids": [],
-            "note": "No green example was found in the reviewed paper cards."
+            "note": "No example was found in the reviewed ordinary paper cards."
           }
         },
         "combinations": [
@@ -16128,7 +16127,7 @@
         "colorless": {
           "status": "not_found",
           "card_ids": [],
-          "note": "No colorless example was found in the reviewed paper cards."
+          "note": "No example was found in the reviewed ordinary paper cards."
         },
         "full_qualifying_ids": [
           "68f7d1bf-48c7-483e-b17f-a60008854b46",
@@ -16139,7 +16138,6 @@
           "35b2b172-5fbc-4e4d-a011-390ee1b6c848",
           "0b0fdb28-f7b1-4c30-9f2c-14a9074da22d",
           "356a85d9-2570-448c-a455-f4ce915a604f",
-          "2c42983e-f45a-4d10-afe5-d2234dfae1ee",
           "c2a4066a-f911-4622-beb2-683e7e10822f",
           "9ffe4d90-b46c-4606-89cb-1b724104f6ea",
           "dab16c93-9788-46e0-9345-838ebeda8d54"

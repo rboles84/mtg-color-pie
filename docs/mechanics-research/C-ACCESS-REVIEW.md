@@ -40,7 +40,7 @@ Review corrections include excluding name-only Burning Cloak, payoff-only Third 
 | Constellation | WUBRG | WG, UG, WB | No example | 36 |
 | Converge | WUBRG | UG | Yes | 28 |
 | Convert | WUBR | BR, RG, UB, WBR, WR, WRG, WU, WUB, WUR | No example | 16 |
-| Convoke | WUBRG | WG, WUBRG, WU, BG, UR, WUR, WB, WR | Yes | 117 |
+| Convoke | WUBRG | WG, WUBRG, WU, BG, WUR, WB, WR | Yes | 117 |
 | Corrupted | WUBG | WBG, WB | Yes | 26 |
 | Council's dilemma | WUBRG | WUB | No example | 9 |
 | Counter | — | — | N/A | 0 |
@@ -57,3 +57,9 @@ Review corrections include excluding name-only Burning Cloak, payoff-only Third 
 The generated optional payload expands to 78 records and 11 source bindings. Existing source-bound loading, mana colors, colorless diamonds, per-bucket Reviewed Card Sources, exact-example discovery links and nonredundant Sources presentation are retained. The catalog remains 587 entries because C mechanics already existed in it.
 
 Coordinator reviewed and authored final player copy after research drafts. Developer checks and exact-candidate independent QA are recorded in HANDOFF.md. Visual acceptance remains with the Owner. No publication, push or merge.
+
+## Independent-review corrections
+
+The first candidate was rejected by independent QA. Coven's print-query summary incorrectly pointed to a retained HTTP 429 body with a stale success hash. A new, separately named capture contains all 59 printings and covers every included Coven Oracle ID. The original error body and per-page receipt remain preserved; the summary and canonical source references now point to the recovered evidence.
+
+Celebration excludes the acorn printing of Overcooked from ordinary-paper access. Convoke excludes Joyful Stormsculptor because its text rewards casting spells with convoke rather than granting convoke. The latter removes the unsupported blue-red combination; other independently supported blue and red examples remain. Raw source facts are retained for both exclusions.
