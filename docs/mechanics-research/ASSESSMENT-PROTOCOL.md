@@ -155,7 +155,8 @@ is permitted.
 7. **Unassigned:** if no route yields a defensible tier, leave it null. Presence
    without a justified tier is `observed_tier_unresolved`; an adequate search
    with no qualifying support is `no_support_in_sample`; incomplete evidence is
-   `incomplete_evidence`. None means the color can never receive the mechanic.
+   `incomplete_evidence`. None of these statuses means the color can never
+   receive the mechanic.
 
 ### E3 tier rubric
 
