@@ -1,7 +1,7 @@
 # Active handoff - Player-facing A mechanic explanations
 
 ## Control
-- Status: `ready-for-qa` (`qa-failed -> dev-in-progress -> ready-for-qa`). Restored colorless confidence distinctions in plain language and added both focused witnesses. No record/payload or decision change.
+- Status: `qa-passed` (`qa-failed -> dev-in-progress -> ready-for-qa -> qa-passed`) for exact candidate `fb4d9dc92dc4c1f50336ad7ea736c8d34c5a3bd8`. Both colorless confidence distinctions are restored in player language; records, payload and decisions remain unchanged. This engineering verdict does not infer Owner readability acceptance, publication authorization or integration.
 - Branch: `codex/a-mechanics-review`; task baseline `4fb2ab42ce3245d9450130bbf1f326bae6b1f010`; branch baseline `9a063b3a98cfcb7672783f83a102e8f968242490`.
 - Allowed files: `HANDOFF.md`; `docs/mechanics-research/a-protocol-core.json`; `docs/mechanics-research/a-protocol-extended.json`; `docs/mechanics-research/a-protocol-special.json`; `tools/build_mechanics_assessments.py`; `data/mechanics-assessments.v1.json`; `vox-color/mechanical-explorer.html`; `tools/check_assessment_browser.mjs`. Ignored local preview output and external temporary verification artifacts permitted.
 - Ownership: RobDev copy worker owns three protocol records and producer; coordinator owns renderer/harness/payload and ledger. QA reviews the committed candidate independently and edits ledger only.
@@ -28,6 +28,42 @@
 - **Major — meaningful colorless confidence is removed:** `assessmentHTML` now renders the overall confidence line only when `a.kind === 'derived'`. That correctly avoids a useless `Not applicable` line for the three rules actions, but also hides `Confidence: Low` for Affinitycycling and `Confidence: User-selected; evidence supports Colorless access` for Annihilator. The active contract explicitly retains meaningful confidence, and these two values distinguish a one-card playtest inference from an Owner-selected Colorless classification. The focused harness currently asserts per-color confidence only for derived records, so it does not protect this boundary.
 - Other focused runtime evidence: the independent escalated Edge `--copy-only` run passed all 25 projected details and tiers, backend-language negatives, Adapt uncertainty, special/digital/preview witnesses, evidence links, Attach's scoped 2017 note, Training unassessed-supplement control, Flying 2021 control, and page-error check. Coordinator package verification separately reports 23 byte-identical files, four syntax-clean inline scripts, 23 expected HTTP 200 responses and 24 excluded-path 404 responses. These passing results remain applicable to a renderer/harness-only correction.
 - Bounded recheck: render confidence for non-rules colorless assessments while continuing to suppress rules-action `Not applicable`; add explicit Affinitycycling and Annihilator confidence assertions to `--copy-only`. Recheck only the renderer/harness delta, Node syntax, and focused copy-only run. No player-copy, canonical research, payload, producer, package, source, placement, recon, viewport or broad browser rerun is warranted. Owner readability judgment remains pending.
+
+### Independent RobQA — colorless-confidence repair recheck, 2026-10-27
+
+- Mode/class/verdict: separate non-implementing reviewer; **QA-1, `qa-passed`** for exact repair candidate `fb4d9dc92dc4c1f50336ad7ea736c8d34c5a3bd8` over failed candidate `b50478ecea70b2230243f212deb9fd553a0f4b4e`. The sole presentation defect above is resolved. QA wrote only `HANDOFF.md`; it made no canonical record, producer, payload, renderer, harness, preview, branch, commit, publication, push, merge or integration change.
+- Exact repair envelope: `git rev-parse HEAD` resolved to the named candidate. The committed delta is exactly `HANDOFF.md`, `vox-color/mechanical-explorer.html`, and `tools/check_assessment_browser.mjs`; `git diff --check` is clean. The renderer now omits meaningless rules-action `Not applicable`, shows `Confidence: Low` for Affinitycycling, and explains Annihilator without leaking raw metadata: `The cards support colorless access; Primary is the classification chosen for this page.` No record, payload, decision, player-copy, source or 2021 owner changed.
+- Focused regression evidence: bundled Node syntax check passed. The independent escalated Edge `--copy-only` run passed, including exact assertions for both repaired colorless distinctions plus the retained all-25 copy, tier, uncertainty, backend-language, special-scope, evidence-link, Attach-related-effect, Training and Flying controls. No page errors were reported.
+- Proportional disposition: the prior full authored-copy reading, additive canonical comparison, non-copy payload equality, producer determinism and coordinator package evidence remain applicable because the repair changes only two renderer branches and their focused assertions. No broader browser, package, research, source, placement, recon or viewport rerun was required. Owner judges Adapt's readability in the refreshed preview; engineering QA does not claim appearance or product-language acceptance.
+
+## Material candidate
+
+- Baseline: `4fb2ab42ce3245d9450130bbf1f326bae6b1f010`
+- Candidate: `fb4d9dc92dc4c1f50336ad7ea736c8d34c5a3bd8`
+- Changed paths: `8`
+
+## Files changed
+
+- `HANDOFF.md`
+- `data/mechanics-assessments.v1.json`
+- `docs/mechanics-research/a-protocol-core.json`
+- `docs/mechanics-research/a-protocol-extended.json`
+- `docs/mechanics-research/a-protocol-special.json`
+- `tools/build_mechanics_assessments.py`
+- `tools/check_assessment_browser.mjs`
+- `vox-color/mechanical-explorer.html`
+
+## Evidence delta
+
+- Material candidate: `fb4d9dc92dc4c1f50336ad7ea736c8d34c5a3bd8`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `1`
+
+This ledger-only evidence delta is not the full task diff. The final task delta remains eight paths. The complete branch has 61 changed paths versus 9a063b3. Final local package verification passed: 23 files, four syntax-clean inline scripts, 23 expected HTTP 200 and 24 exclusions 404. The open Adapt preview uses the exact material stamp, with rationale expanded. No push or merge performed; remote-tracking refs and master do not contain the candidate.
+
+## Evidence-only paths
+
+- `HANDOFF.md`
 
 ---
 # Prior handoff - Apply protocol v1.0 to A mechanics
