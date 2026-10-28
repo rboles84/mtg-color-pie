@@ -2,10 +2,10 @@
 
 ## Control and admission
 
-- Status: ready-for-independent-QA. Owner explicitly replaces inferred supplemental rankings with documented color access for discovery, covering A and B; local preview update authorized. Task baseline `fa1643c0fd7cdcec3a89ce152dd377ed53512673`; reuse `codex/a-mechanics-review` in this standalone preview repository. The owning AGENTS ledger governs this same-task continuation; no Vox Mana application/VM-card changes.
+- Status: Owner Review; independent engineering QA passed. Owner explicitly replaces inferred supplemental rankings with documented color access for discovery, covering A and B; local preview update authorized. Task baseline `fa1643c0fd7cdcec3a89ce152dd377ed53512673`; reuse `codex/a-mechanics-review` in this standalone preview repository. The owning AGENTS ledger governs this same-task continuation; no Vox Mana application/VM-card changes.
 - Grounding: RobDev authority, target AGENTS/CONTEXT, current B handoff, v1 protocol, current five canonical packets, producer, list/search/detail/loader and focused harness. New current contract: COLOR-ACCESS-PROTOCOL.md v2.0.
 - Allowed files: HANDOFF.md; CONTEXT.md (durable approved access decision only); docs/mechanics-research/COLOR-ACCESS-PROTOCOL.md; ASSESSMENT-PROTOCOL.md (supersession note only); A-PROTOCOL-REVIEW.md and B-PROTOCOL-REVIEW.md (supersession note only); existing a-protocol-core.json, a-protocol-extended.json, a-protocol-special.json, b-protocol-core.json, b-protocol-extended.json; tools/build_mechanics_assessments.py; data/mechanics-assessments.v1.json; vox-color/mechanical-explorer.html; tools/check_assessment_browser.mjs. Ignored preview package and temporary scripts outside the checkout permitted.
-- Ownership: A RobDev owns A core; B RobDev owns both B packets and A extended; coordinator owns A special; runtime RobDev owns producer/generated payload/explorer/focused harness; coordinator owns protocol, context, ledger, integration. Workers do not revert each other's changes. Independent RobQA reviews the committed candidate later; no concurrent QA product edits.
+- Ownership: A/B RobDev workers supplied initial packet inventories; coordinator owns final authored copy and bucket integration for all five packets. Runtime RobDev supplied producer/generated payload/explorer/harness changes, with coordinator completing harness integration. Coordinator owns protocol, context and ledger. Independent RobQA reviewed the committed candidate and edited only this ledger.
 - Product: searchable mechanics show verified single-color access, separate multicolor combinations and colorless examples, with exact-example Scryfall links and fact-only explanations. One verified design can establish access. No inferred P/S/T or confidence labels for supplemental access; generic rules and special scopes remain explicit.
 - Protected: all 2021 sources/runtime/fixtures/names/placements/math, supplemental raw corpus/scope/examples, raw saved research captures, other letters, wheel/routing/theme. Existing tier research is retained as superseded history. No new dependencies, publication, push, merge or unrelated redesign.
 - Acceptance: all43 A/B entries converted; known Optimus/Behold and wording defects corrected in current copy; source references resolve; exact face and grant scope respected; producer deterministic; neutral symbols and links work in list/search/details and keyboard/mobile cases; missing/malformed sidecar fails softly without altering2021; exact candidate reviewed independently then preview refreshed.
@@ -20,7 +20,65 @@
 - Root authored and read current factual copy after worker drafts failed the player-copy contract. Root verified all five historical packet objects equal baseline when the new access_review field is removed. Independent RobQA has performed read-only semantic preparation; its final verdict requires the committed candidate.
 - Developer verification: producer regeneration and deterministic check PASS; JavaScript harness syntax PASS; whitespace PASS; source invariants PASS (217 source / 216 projection), taxonomy PASS, recon 53/53 PASS. Focused Edge browser PASS: all 43 maps and their visible notes/links, keyboard disclosure/search, neutral-symbol stability, malformed/missing/unsafe/binding isolation, mobile containment and unchanged built-in 84/84 checks. Directly causal migration-harness fixes corrected disclosure timing, rules-action expectations and quote-normalized search expectations; no failed requirement was waived.
 - QA selection: separate RobQA, QA-4 semantic qualification with bounded QA-2 rendering/disclosure/keyboard checks. CPU-heavy engine certification NOT REQUIRED: 2021 qualification/math is unchanged. Scope includes exact source-to-access buckets, visible note/link binding, invalid-sidecar isolation, lens restoration and narrow-screen containment. Appearance remains Owner judgment.
-- Remaining work: exact material commit, independent candidate verdict, final packaged preview and Git accounting. The Owner-requested working preview was refreshed with Backup open while final verification continued. No push, merge or publication authorized/performed.
+- Delivery complete for Owner Review: exact material commit and independent PASS are recorded below; the verified package is visible at the requested localhost preview with Backup open. Subjective presentation acceptance remains with the Owner. No push, merge or publication authorized/performed.
+
+## Independent RobQA — documented color access
+
+- Verdict: **RobQAPass PASS** for exact candidate `6f1df942e6ef7f5ac4d7ec5fa4526208b703afb9` against baseline `fa1643c0fd7cdcec3a89ce152dd377ed53512673`. Execution mode: separate independent reviewer. QA tier: QA-4 semantic/schema qualification with bounded QA-2 browser-seam evidence. This advances the task from `ready-for-independent-QA` to `qa-passed`; it does not provide Owner acceptance or integration authority.
+- Changed behavior verified: all 43 A/B supplemental records expose factual documented access with separate single-color, multicolor-combination, colorless and rules/special-scope treatment; authored evidence notes and exact-example Scryfall links are bound through the generated payload. No current P/S/T or confidence judgment is used for access. Difficult face/scope cases were checked against the saved card facts, including Jetfire, Avatar Yangchen, aftermath halves, Optimus Prime, Assemble/Augment, Assimilate, Actualize, Affinitycycling and the explicit Amass/Ascend exclusions.
+- Protected behavior verified: removing each record's new `access_review` leaves all five canonical packet JSON objects exactly equal to the baseline. Producer/gate/recon and browser evidence preserve the frozen 2021 qualification, placements and calculations; the built-in browser self-check remains 84/84. No raw saved evidence or unrelated mechanic packet changed.
+- Exact-candidate static evidence: the 15 changed paths are inside the admitted envelope; `git diff --check` is clean. `python tools/build_mechanics_assessments.py --check` passes for 43 deterministic protocol-v2.0 records. All eight `canonical-json-utf8` source-binding hashes independently recompute exactly, and the payload contains 43 unique mechanic names. Source/taxonomy gates pass and recon passes 53/53.
+- Exact-candidate browser evidence: `node tools/check_assessment_browser.mjs --root . --playwright C:/Users/obake/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright` passes in Edge for 43 access maps, documented/no-example/joint/colorless/rules cases, visible exact-example links, atomic malformed/missing/unsafe/binding fail-soft behavior, search, keyboard disclosure, mobile containment and unchanged 2021 checks. The first sandbox-confined launch failed on Windows profile/temp permissions; the required unrestricted rerun passed, so this was an execution-environment limitation rather than a product finding.
+- Stateful/adversarial assessment: applicable at the optional sidecar boundary. The frozen 2021 dataset and the v2 access sidecar have distinct owners; valid forward load succeeds, malformed/missing/replaced sidecars fail atomically to unavailable access without disturbing 2021 state, and view/lens restoration retains the neutral marks and unchanged math. No reverse migration or reset contract is introduced. Structurally different rules-action, multicolor, colorless and special-scope representations were exercised.
+- Skipped as disproportionate: broad wheel/journey/engine stress suites and new external MTG research. The candidate does not modify the 2021 engine, and the saved qualified facts, exact canonical coverage checks, focused browser seam and existing gates cover the changed risk. CPU-heavy certification is NOT REQUIRED.
+- Findings: no blocker, major or minor engineering finding. Remaining Owner judgment is visual hierarchy/readability and whether the factual access presentation meets the intended discovery experience. OWNER-VISUAL remains open; the Owner may ACCEPT or REJECT this exact candidate.
+
+## Current preview verification
+
+- Exact material candidate `6f1df942e6ef7f5ac4d7ec5fa4526208b703afb9` packaged successfully: 23 byte-identical files (shell revision stamped), four syntax-clean inline scripts, 23 expected HTTP 200 responses and 24 excluded paths returning 404.
+- Refreshed the existing in-app tab at http://127.0.0.1:8020/#mechanical-color-pie. Its frame revision is the exact candidate; A–Z and Backup are open with Evidence and scope expanded. Verified visible Blue access, the Saiba Cryptomancer explanation, and its reviewed-card Scryfall link.
+- Screenshot: `C:/Users/obake/.codex/visualizations/2026/10/27/01a17b8d-3467-7eb1-a917-efaf7184cd99/ab-color-access-preview.png` (outside Git). Owner can inspect Backup, Adapt and Annihilator for colored access, a single-color example and separate colorless evidence. No publication, push or merge performed.
+
+## Material candidate
+
+- Baseline: `fa1643c0fd7cdcec3a89ce152dd377ed53512673`
+- Candidate: `6f1df942e6ef7f5ac4d7ec5fa4526208b703afb9`
+- Changed paths: `15`
+
+## Files changed
+
+- `CONTEXT.md`
+- `HANDOFF.md`
+- `data/mechanics-assessments.v1.json`
+- `docs/mechanics-research/A-PROTOCOL-REVIEW.md`
+- `docs/mechanics-research/ASSESSMENT-PROTOCOL.md`
+- `docs/mechanics-research/B-PROTOCOL-REVIEW.md`
+- `docs/mechanics-research/COLOR-ACCESS-PROTOCOL.md`
+- `docs/mechanics-research/a-protocol-core.json`
+- `docs/mechanics-research/a-protocol-extended.json`
+- `docs/mechanics-research/a-protocol-special.json`
+- `docs/mechanics-research/b-protocol-core.json`
+- `docs/mechanics-research/b-protocol-extended.json`
+- `tools/build_mechanics_assessments.py`
+- `tools/check_assessment_browser.mjs`
+- `vox-color/mechanical-explorer.html`
+
+## Evidence delta
+
+- Material candidate: `6f1df942e6ef7f5ac4d7ec5fa4526208b703afb9`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `1`
+- This records independent QA, packaged-preview proof and Git accounting; it is not the full task diff.
+
+## Evidence-only paths
+
+- `HANDOFF.md`
+
+## Final branch accounting
+
+- Current task: 15 material paths; the evidence commit changes only HANDOFF.md and adds no new unique path to the task delta.
+- Entire existing branch: 245 changed paths from `9a063b3a98cfcb7672783f83a102e8f968242490` through the evidence head, including prior A/B research and preview work. This is separate from the current task's 15 paths.
+- Branch: `codex/a-mechanics-review`. Local candidate and evidence commits only; no push, merge or publication. Git change-report validator must pass and the final working tree must be clean before final delivery.
 
 ---
 
