@@ -1,3 +1,231 @@
+# B mechanics delivery and Owner preview
+
+## Preview verification
+
+- Independent RobQA PASS for exact material candidate below. All 18 B records are reviewed; 25 A assessments and frozen 2021 content, placements and calculations remain unchanged. Owner visual acceptance remains open.
+- Local package at `_site/` was rebuilt from the exact candidate: 23 byte-identical published files, four syntax-clean inline scripts, 23 expected HTTP responses and 24 excluded paths returning 404. Package verification passed.
+- Actual in-app preview at http://127.0.0.1:8020/#mechanical-color-pie visibly reports 43 A/B assessments. Backup is open with the established symbol strip and expanded player-facing rationale/evidence. An older A-only JSON response was found in the browser cache and refreshed directly; the server and packaged bytes already matched. No source fix was needed.
+- Visual proof saved outside Git at `C:/Users/obake/.codex/visualizations/2026/10/27/01a17b8d-3467-7eb1-a917-efaf7184cd99/b-mechanics-preview.png`.
+- Checks: deterministic producer PASS; source/taxonomy gates PASS; recon 53/53 PASS; focused assessment browser PASS for all 43 rows, six fail-soft cases, keyboard/mobile containment and unchanged built-in 84/84 checks. Independent evidence review verified 134/134 record capture bindings, complete card-query screening and print chronology, all 18 judgments and player copy.
+
+## Material candidate
+
+- Baseline: `a5a1c6b5463fdff20695aa26e2c6dc05ed4a6487`
+- Candidate: `1d1931cd2fb9b7b15ff8777a95f56e404ff3cbaa`
+- Changed paths: `187`
+
+## Files changed
+
+- `HANDOFF.md`
+- `data/mechanics-assessments.v1.json`
+- `docs/mechanics-research/B-PROTOCOL-REVIEW.md`
+- `docs/mechanics-research/b-protocol-core.json`
+- `docs/mechanics-research/b-protocol-evidence/core-backup/keyword-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/core-backup/oracle-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/core-backup/prints-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/core-backup/receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/core-banding/keyword-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/core-banding/oracle-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/core-banding/prints-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/core-banding/receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/core-bargain/keyword-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/core-bargain/oracle-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/core-bargain/prints-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/core-bargain/receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/core-basic-landcycling/keyword-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/core-basic-landcycling/oracle-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/core-basic-landcycling/prints-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/core-basic-landcycling/receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/core-battalion/keyword-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/core-battalion/oracle-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/core-battalion/prints-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/core-battalion/receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/core-battle-cry/keyword-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/core-battle-cry/oracle-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/core-battle-cry/prints-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/core-battle-cry/receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/core-behold/keyword-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/core-behold/oracle-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/core-behold/prints-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/core-behold/receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/core-bestow/keyword-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/core-bestow/oracle-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/core-bestow/prints-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/core-bestow/receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/core-blight/keyword-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/core-blight/oracle-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/core-blight/prints-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/core-blight/receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/core-lorwyn-eclipsed-mechanics.html`
+- `docs/mechanics-research/b-protocol-evidence/core-lorwyn-eclipsed-release-notes.html`
+- `docs/mechanics-research/b-protocol-evidence/core-lorwyn-eclipsed-release-notes.pdf`
+- `docs/mechanics-research/b-protocol-evidence/extended-berzerker/label-exact-term-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-berzerker/label-exact-term-receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-berzerker/label-named-prints-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-berzerker/label-named-prints-receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-berzerker/replacement-name-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-berzerker/replacement-name-receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-blitz/exact-word-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-blitz/exact_word-receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-blitz/extras-exact_word-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-blitz/extras-exact_word-receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-blitz/extras-keyword-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-blitz/extras-keyword-receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-blitz/extras-printings-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-blitz/extras-printings-receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-blitz/keyword-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-blitz/keyword-receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-blitz/official-mechanics-source.txt`
+- `docs/mechanics-research/b-protocol-evidence/extended-blitz/printings-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-blitz/printings-receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-bloodrush/exact-word-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-bloodrush/exact_word-receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-bloodrush/extras-exact_word-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-bloodrush/extras-exact_word-receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-bloodrush/extras-keyword-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-bloodrush/extras-keyword-receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-bloodrush/extras-printings-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-bloodrush/extras-printings-receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-bloodrush/keyword-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-bloodrush/keyword-receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-bloodrush/official-mechanics-source.txt`
+- `docs/mechanics-research/b-protocol-evidence/extended-bloodrush/printings-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-bloodrush/printings-receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-bloodthirst/exact-word-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-bloodthirst/exact_word-receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-bloodthirst/extras-exact_word-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-bloodthirst/extras-exact_word-receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-bloodthirst/extras-keyword-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-bloodthirst/extras-keyword-receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-bloodthirst/extras-printings-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-bloodthirst/extras-printings-receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-bloodthirst/keyword-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-bloodthirst/keyword-receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-bloodthirst/official-mechanics-source.txt`
+- `docs/mechanics-research/b-protocol-evidence/extended-bloodthirst/printings-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-bloodthirst/printings-receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-boast/exact-word-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-boast/exact_word-receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-boast/extras-exact_word-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-boast/extras-exact_word-receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-boast/extras-keyword-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-boast/extras-keyword-receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-boast/extras-printings-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-boast/extras-printings-receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-boast/keyword-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-boast/keyword-receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-boast/official-mechanics-source.txt`
+- `docs/mechanics-research/b-protocol-evidence/extended-boast/printings-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-boast/printings-receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-bolster/exact-word-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-bolster/exact_word-receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-bolster/extras-exact_word-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-bolster/extras-exact_word-receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-bolster/extras-keyword-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-bolster/extras-keyword-receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-bolster/extras-printings-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-bolster/extras-printings-receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-bolster/keyword-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-bolster/keyword-receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-bolster/official-mechanics-source.txt`
+- `docs/mechanics-research/b-protocol-evidence/extended-bolster/printings-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-bolster/printings-receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-bushido/exact-word-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-bushido/exact_word-receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-bushido/extras-exact_word-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-bushido/extras-exact_word-receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-bushido/extras-keyword-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-bushido/extras-keyword-receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-bushido/extras-printings-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-bushido/extras-printings-receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-bushido/keyword-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-bushido/keyword-receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-bushido/official-mechanics-source.txt`
+- `docs/mechanics-research/b-protocol-evidence/extended-bushido/printings-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-bushido/printings-receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-buy-information/label-exact-term-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-buy-information/label-exact-term-receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-buy-information/label-named-prints-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-buy-information/label-named-prints-receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-buy-information/replacement-name-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-buy-information/replacement-name-receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-buyback/exact-word-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-buyback/exact_word-receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-buyback/extras-exact_word-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-buyback/extras-exact_word-receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-buyback/extras-keyword-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-buyback/extras-keyword-receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-buyback/extras-printings-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-buyback/extras-printings-receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-buyback/keyword-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-buyback/keyword-receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-buyback/official-mechanics-source.txt`
+- `docs/mechanics-research/b-protocol-evidence/extended-buyback/printings-page-1.json`
+- `docs/mechanics-research/b-protocol-evidence/extended-buyback/printings-receipt.json`
+- `docs/mechanics-research/b-protocol-evidence/shared-backup.html`
+- `docs/mechanics-research/b-protocol-evidence/shared-backup.pdf`
+- `docs/mechanics-research/b-protocol-evidence/shared-backup.txt`
+- `docs/mechanics-research/b-protocol-evidence/shared-banding.html`
+- `docs/mechanics-research/b-protocol-evidence/shared-banding.pdf`
+- `docs/mechanics-research/b-protocol-evidence/shared-banding.txt`
+- `docs/mechanics-research/b-protocol-evidence/shared-bargain.html`
+- `docs/mechanics-research/b-protocol-evidence/shared-bargain.pdf`
+- `docs/mechanics-research/b-protocol-evidence/shared-bargain.txt`
+- `docs/mechanics-research/b-protocol-evidence/shared-basic-landcycling.html`
+- `docs/mechanics-research/b-protocol-evidence/shared-basic-landcycling.pdf`
+- `docs/mechanics-research/b-protocol-evidence/shared-basic-landcycling.txt`
+- `docs/mechanics-research/b-protocol-evidence/shared-battle-cry.html`
+- `docs/mechanics-research/b-protocol-evidence/shared-battle-cry.pdf`
+- `docs/mechanics-research/b-protocol-evidence/shared-battle-cry.txt`
+- `docs/mechanics-research/b-protocol-evidence/shared-bestow.html`
+- `docs/mechanics-research/b-protocol-evidence/shared-bestow.pdf`
+- `docs/mechanics-research/b-protocol-evidence/shared-bestow.txt`
+- `docs/mechanics-research/b-protocol-evidence/shared-bloodthirst.html`
+- `docs/mechanics-research/b-protocol-evidence/shared-bloodthirst.pdf`
+- `docs/mechanics-research/b-protocol-evidence/shared-bloodthirst.txt`
+- `docs/mechanics-research/b-protocol-evidence/shared-boast.html`
+- `docs/mechanics-research/b-protocol-evidence/shared-boast.pdf`
+- `docs/mechanics-research/b-protocol-evidence/shared-boast.txt`
+- `docs/mechanics-research/b-protocol-evidence/shared-bolster.html`
+- `docs/mechanics-research/b-protocol-evidence/shared-bolster.pdf`
+- `docs/mechanics-research/b-protocol-evidence/shared-bolster.txt`
+- `docs/mechanics-research/b-protocol-evidence/shared-bushido.html`
+- `docs/mechanics-research/b-protocol-evidence/shared-bushido.pdf`
+- `docs/mechanics-research/b-protocol-evidence/shared-bushido.txt`
+- `docs/mechanics-research/b-protocol-evidence/shared-buyback.html`
+- `docs/mechanics-research/b-protocol-evidence/shared-buyback.pdf`
+- `docs/mechanics-research/b-protocol-evidence/shared-buyback.txt`
+- `docs/mechanics-research/b-protocol-evidence/shared-capture-receipts.json`
+- `docs/mechanics-research/b-protocol-evidence/shared-gatecrash.html`
+- `docs/mechanics-research/b-protocol-evidence/shared-gatecrash.pdf`
+- `docs/mechanics-research/b-protocol-evidence/shared-gatecrash.txt`
+- `docs/mechanics-research/b-protocol-extended.json`
+- `tools/build_mechanics_assessments.py`
+- `tools/check_assessment_browser.mjs`
+- `vox-color/mechanical-explorer.html`
+
+## Evidence delta
+
+- Material candidate: `1d1931cd2fb9b7b15ff8777a95f56e404ff3cbaa`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `1`
+
+This ledger-only evidence delta is not the full task diff. It records final independent QA, preview proof and Git accounting; no material source or acceptance condition changes.
+
+## Evidence-only paths
+
+- `HANDOFF.md`
+
+## Final branch accounting
+
+- Branch: `codex/a-mechanics-review`.
+- Task baseline to evidence HEAD: 187 paths (the ledger is already in the material set).
+- Whole existing branch baseline `9a063b3a98cfcb7672783f83a102e8f968242490` to evidence HEAD: 243 paths, including earlier A work.
+- Before the final ledger commit, `git status --short` contains only `M HANDOFF.md`; the final report validator and clean-worktree check are run after this commit.
+- Git shows local master and origin/master remain at `9a063b3`; no remote-tracking branch contains the material candidate. No push, merge, deployment or publication was performed for this task. The local preview is ready for Owner review.
+
+---
+
 # Active handoff - Protocol v1.0 B mechanics
 
 ## Control
@@ -81,6 +309,18 @@
 - Determinism/protected state: `python tools/build_mechanics_assessments.py --check` exited 0 with `PASS: 43 protocol v1.0 A/B records; deterministic payload and source bindings`. All 25 A rows remain exactly equal to task baseline; direct protected-path comparison returned `PROTECTED_DIFF_ZERO` for A canonical packets/captures, frozen 2021 owners and existing supplement/scope/example owners. Authored/non-capture `git diff --check` is clean.
 - Browser and heavy suites were not rerun: the repair changes evidence bytes/metadata/binding hashes only, while all 43 projected records and runtime code are unchanged. The prior focused exact-candidate Edge evidence remains applicable. CPU-heavy validation remains **NOT REQUIRED**; Stateful Adversarial QA remains **NOT APPLICABLE** for the reasons recorded above.
 - Verdict: **RobQAPass PASS / `qa-passed`** for exact candidate `55a2e762c4e6dbaf44bca1d510655f0df22ce945`. No blocker, major or acceptance-relevant minor remains. This engineering PASS preserves the substantive all-18 review from `1bda621` and permits the bounded review-metadata finalization step; it does not mark records reviewed by itself, replace Owner wording/appearance judgment, authorize publication, or constitute Owner ACCEPT.
+
+---
+## Independent RobQA final metadata confirmation — candidate `1d1931cd2fb9b7b15ff8777a95f56e404ff3cbaa`
+
+- Exact candidate/envelope: clean worktree; `git rev-parse HEAD` returned the named SHA. The delta from passing repair `55a2e762` contains exactly `HANDOFF.md`, the two B protocol packets, `B-PROTOCOL-REVIEW.md` and regenerated assessment payload.
+- Canonical semantic isolation: recursive JSON comparison found exactly 126 B packet leaf changes—seven review-state fields on each of 18 records: `record_status`, reviewer, completed tier-check text, removal of the resolved QA-pending finding, verdict, reviewed-candidate citation and review date. Every tier, status, route, confidence, rationale, card ledger, population, source/capture/query, player-copy field and genuine research limitation is unchanged.
+- Review metadata: **18/18** records are `reviewed`, cite `Independent RobQA /root/b_qa`, verdict `pass`, passing reviewed candidate `55a2e762c4e6dbaf44bca1d510655f0df22ce945`, and review date `2026-10-27`; all resolved workflow-finding arrays are empty. The batch table changes only its pending-review paragraph to the passing-review/Owner-review boundary.
+- Generated isolation: the payload changes only 18 B `reviewStatus` values (`draft -> reviewed`) and the two regenerated B source-binding hashes; all 43 projected assessment records are otherwise unchanged. All 25 A payload rows remain exactly equal to task baseline.
+- Stale-state scan: no `pending independent review`, `Independent RobQA pending`, `draft conformance`, `awaiting independent`, `record remains a draft`, or equivalent stale QA workflow marker remains in the B packets, review table or payload. Genuine unresolved color-tier and evidence limitations remain present and were not erased.
+- Determinism/protection: `python tools/build_mechanics_assessments.py --check` exited 0 with `PASS: 43 protocol v1.0 A/B records; deterministic payload and source bindings`; **134/134** B committed capture bindings still match. `git diff --check` for the metadata delta is clean. A canonical packets/captures, frozen 2021 owners and existing supplement/scope/example owners remain `PROTECTED_DIFF_ZERO`.
+- No browser, source, recon or heavy suite was rerun: review metadata and generated review-status/bindings cannot change the already-passed card, copy, UI, transport or calculation behavior. The focused Edge and substantive QA-4 evidence recorded above remain applicable.
+- Final verdict: **RobQAPass PASS / `qa-passed`** for exact candidate `1d1931cd2fb9b7b15ff8777a95f56e404ff3cbaa`. The 18 records are now review-finalized and the exact candidate may enter Owner Review. This does not authorize publication, push, merge or integration and does not replace Owner wording/appearance judgment or Owner ACCEPT.
 
 ---
 # Prior handoff - Player-facing A mechanic explanations
