@@ -6,7 +6,7 @@
   "sourceBindings": [
     {
       "path": "docs/mechanics-research/a-assessments-source.json",
-      "sha256": "ba0294270611a1c29b00b31aecc019ea62232d8bc5eebea84c94af05030e0013"
+      "sha256": "415bcc3c788ca1078fbe3962b86cfdf4c309664797d4d954ddc9d3220fc5d085"
     },
     {
       "path": "docs/mechanics-research/absorb-assessment-source.json",
@@ -1017,25 +1017,27 @@
     {
       "id": "deck:vocabulary:afflict",
       "name": "Afflict",
-      "scope": "Named Afflict keyword and explicit grants; distinct from the broader 2021 blocked-damage effect.",
-      "confidence": "moderate",
+      "scope": "Named Afflict keyword; tier judgment informed by Wizards' broader blocked-damage category and checked against the saved Scryfall card history.",
+      "confidence": "moderate; source-informed keyword inference",
       "placements": {
         "W": null,
         "U": "Tertiary",
-        "B": "Primary",
+        "B": "Secondary",
         "R": "Primary",
         "G": null
       },
       "rationale": {
-        "W": "No native use or explicit grant in this color was found in the screened sample; leave unassigned rather than infer access from related effects.",
-        "U": "Two monoblue native designs form a much narrower branch than black/red. Propose Tertiary for relative frequency within this keyword sample, with limited confidence in the exact boundary.",
-        "B": "Five monoblack sources, including the tribal grant on Lazotep Sliver, give the largest independent cluster. Native use and explicit granting support Primary.",
-        "R": "Four monored native sources make red a comparably substantial home alongside black. Their close density supports co-primary rather than forcing a ranking from a one-card difference.",
-        "G": "No native use or explicit grant in this color was found in the screened sample; leave unassigned rather than infer access from related effects."
+        "W": "The reviewed sample contains no white Afflict design or white card that explicitly grants it. Leave White unassigned; receiving Afflict from an artifact is not evidence of a white design placement.",
+        "U": "Eternal of Harsh Truths and Spellweaver Eternal give blue genuine Afflict access at uncommon and common. Both originated in Hour of Devastation. Rosewater specifically explains blue's inclusion through Bolas's blue-black-red Eternal army. That set-specific explanation supports Tertiary more clearly than the small card count does; low rarity within that set does not by itself make Afflict a general blue ability.",
+        "B": "Black has original Afflict creatures across common, uncommon and rare, plus later tribal grants on Lazotep Sliver (2023) and Lost Monarch of Ifnir (2025). This establishes continued access beyond the original set. I recommend Secondary because Rosewater places black there in the broader category and describes its version as life loss. Five observed black designs do not, by themselves, establish a move to Primary.",
+        "R": "Red's original Afflict cards span common through mythic. Frontline Devastator and Manticore Eternal pressure opponents in combat; Neheb, the Eternal rewards the resulting life loss, and Wildfire Eternal rewards going unblocked. These designs make Afflict part of an attack-and-block decision, consistent with Rosewater's primary red placement for the broader effect. Primary is supported by that design role and source context, not by winning a card-count comparison.",
+        "G": "The reviewed sample contains no green Afflict design or green card that explicitly grants it. Leave Green unassigned; another color's cards and colorless grants do not establish green access."
       },
-      "summary": "Black and red are the principal observed homes; blue has a small native branch.",
+      "summary": "Afflict makes blocking costly even when the attacker does not deal combat damage to the defending player. Red is the best-supported primary home, black has established secondary access, and blue is a set-specific tertiary case. The judgment weighs design commentary and card history; it does not turn card counts into tiers.",
       "limitations": [
-        "Colorless grants such as Dagger of the Worthy and Cyberman Patrol do not assign the keyword to every color that can receive it. No 2021 placement or identity mapping is inherited."
+        "The 2021 article ranks the broader blocked-damage category and explicitly discusses Afflict within it. Applying that hierarchy to the named keyword is this review's inference, not a separate official Afflict ranking.",
+        "The sample contains 14 distinct designs, including three colorless sources. Reprints do not count as new designs; all reviewed native red and blue designs originated in Hour of Devastation.",
+        "Dagger of the Worthy, Cyberman Patrol and the Ancestral Hot Dog Minotaur sticker sheet can make Afflict available beyond its colored designs. That availability does not assign every recipient color a tier."
       ],
       "citationCards": [
         {
@@ -1101,7 +1103,12 @@
       "classification": "Provisional color placements",
       "outsidePrimary": null,
       "relatedEffects": [],
-      "sources": [],
+      "sources": [
+        {
+          "title": "Mechanical Color Pie 2021 — broader blocked-damage category",
+          "url": "https://magic.wizards.com/en/news/making-magic/mechanical-color-pie-2021"
+        }
+      ],
       "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAfflict%5Cb/%20include%3Aextras"
     },
     {

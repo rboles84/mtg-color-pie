@@ -1,4 +1,32 @@
-# Active handoff - A placement symbol strips
+# Active handoff - Afflict judgment and rationale
+
+## Control
+- Status: `ready-for-qa` (Owner requests revisiting the reasoning behind tiers; dev-in-progress -> ready-for-qa on the same local review branch).
+- Branch: `codex/a-mechanics-review`; refinement baseline `3e6313eb709caae6585b25831b6503d98aca9349`; total branch baseline `9a063b3a98cfcb7672783f83a102e8f968242490`.
+- Exact allowed files: `HANDOFF.md`, `docs/mechanics-research/a-assessments-source.json`, `tools/build_mechanics_assessments.py`, `data/mechanics-assessments.v1.json`.
+- Scope: Afflict assessment only. Reweigh its saved 14-card evidence against Wizards' explicit Afflict discussion in the broader 2021 blocked-damage category, update the authored judgment/rationale and supporting citation, regenerate the separate assessment display payload. No frozen 2021, UI, other mechanic, card evidence, external research archive, dependency, hosting, push or merge changes.
+
+## Judgment and acceptance criteria
+1. Revise Afflict Black from Primary to Secondary; retain Red Primary, Blue Tertiary, W/G unassigned. This is a provisional keyword-specific inference informed by the named 2021 category, not a claim that Wizards published a new standalone Afflict ranking or that card counts alone determine tiers.
+2. Explain why counts alone are insufficient; use original design/rarity range, later new black designs versus reprints, and the author's stated set-color rationale for blue. Red's native sample starts in HOU; do not claim later new red designs. Black's later grant cards confirm continued use, not proof of a changed design hierarchy.
+3. Name supporting cards accurately, and cite the Wizards article under its exact broader category. Preserve all 14 retained card records, queries/receipts, evidence counts and sources. Retain the October 26 card-research date; record this judgment revision date separately in source provenance.
+4. Producer carries optional supporting design context into the existing sources array without changing any other assessment. Payload remains 25 records and 70 non-null WUBRG assignments; only Afflict content/tier/citation and its main-source binding change.
+5. Existing symbol row and detail reflect the new Black Secondary tier, with rationale/source accessible; frozen 2021 remains byte-identical. Refresh local preview to Afflict after candidate checks.
+
+## Verification plan
+- QA-4 due to a placement judgment/data revision; independent scoped QA after committed ready-for-qa. Use semantic before/after comparison for all other records and Afflict evidence fields, deterministic producer check, required cheap recon chain, and one focused Afflict UI/source witness (no broad mechanics research or browser sweep).
+- The saved runtime already contains the source explanation; live official article independently verified at https://magic.wizards.com/en/news/making-magic/mechanical-color-pie-2021, section Deal damage when blocked, on 2026-10-27. Official broader tiers: Red Primary / Black Secondary / Blue Tertiary. Its explanatory paragraph names Afflict and Bolas's UBR army. No direct quotation added to app rationale.
+- Owner recheck: open Afflict and read the revised explanation of why each assigned tier is justified.
+
+## Implementation / QA
+- Coordinator completed the bounded implementation after the assigned RobDev worker returned without changes. Authored Afflict copy now explains design role, rarity/context and later black reuse; Black changes Primary -> Secondary. Added the source-scoped Wizards citation and judgment revision date while preserving the saved card-research snapshot. Producer minimally generalizes its existing optional supporting-design citation mapping; the generated payload follows the authored record.
+- Exact changed paths: this ledger, main assessment source, producer and generated assessment payload. Four paths for this refinement; total branch remains ten paths. No app renderer, 2021 data, other research source, other mechanic or source-card evidence changes.
+- Developer checks: semantic comparison against 3e6313e confirms all 14 Afflict card/evidence records, query receipts and counts unchanged; all other authored assessments and all 24 other display records unchanged. Only Black changes tier; Afflict has one added official design-context citation and its same 14 card links. Producer `--check` passes 25 records/70 non-null assignments with refreshed canonical source binding. Pre/post `check_recon.py` passes source/taxonomy/fixtures plus 53 recon assertions. Git whitespace clean apart from standard line-ending warning; protected 2021/supplement/scope/example/UI paths diff clean.
+- Independent QA-4 remains pending on the exact commit containing this report. Requested scope: validate the inference boundary against the cited article and retained card histories, semantic isolation, producer/recon and one Afflict rendering witness. No broad research or regression sweep. Owner judges the explanation's usefulness; local preview refresh follows. No publication/integration authorized.
+
+---
+
+# Prior handoff - A placement symbol strips
 
 ## Control
 - Status: `qa-passed` (Owner follow-up, same branch; qa-failed -> dev-in-progress -> ready-for-qa -> qa-passed after the narrow legacy assertion correction). Product symbol evidence remains passing; only the coordinator or Owner may mark complete.

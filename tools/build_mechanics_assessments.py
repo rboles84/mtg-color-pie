@@ -21,6 +21,8 @@ def build():
     accepted={r['id']:r for r in supplement['records'] if r['name'].startswith('A') and r['target2021'] is None}
     assert len(accepted)==25
     overrides={r['mechanic']:r for r in addendum['records']}
+    contexts={a['name']:a.get('supporting_design_context') for a in main['assessments']}
+    contexts['Absorb']=ab['supporting_design_context']
     rows=[]
     for a in main['assessments']:
         cards=[{'name':c['name'],'url':safe_url(c['card_facts']['scryfall_uri'])} for c in a['card_review'] if c['include']]
@@ -34,8 +36,8 @@ def build():
     rows.append(dict(id=ab['mechanic_id'],name='Absorb',scope='Exact Absorb keyword and explicit native grants; one observed white design.',confidence='low-to-moderate',placements={r['color']:r['tier'] for r in ab['recommended_placements']},rationale={r['color']:r['rationale'] for r in ab['recommended_placements']},summary='Lymph Sliver supports white as a provisional home. Two printings represent one design.',limitations=ab['limitations'],citationCards=[{'name':c['name'],'url':safe_url(c['scryfall_url'])} for c in ab['observed_population']['cards']]))
     for r in rows:
         r.update(label=LABEL,researchDate='2026-10-26',kind='derived',classification='Provisional color placements',outsidePrimary=None,relatedEffects=[],sources=[])
-        if r['name']=='Absorb':
-            s=ab['supporting_design_context'];r['sources'].append({'title':s['title'],'url':safe_url(s['url'])})
+        if contexts.get(r['name']):
+            s=contexts[r['name']];r['sources'].append({'title':s['title'],'url':safe_url(s['url'])})
         ov=overrides.get(r['name'])
         if ov:
             r['placements']=ov['wubrg_placements']
