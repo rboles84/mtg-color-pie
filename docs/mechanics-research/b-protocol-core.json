@@ -3,7 +3,7 @@
   "records": [
     {
       "protocol_version": "1.0",
-      "record_status": "draft",
+      "record_status": "reviewed",
       "mechanic": {
         "accepted_id": "deck:vocabulary:backup",
         "name": "Backup",
@@ -30,7 +30,7 @@
       },
       "provenance": {
         "researcher": "RobDev researchers with coordinator card-by-card correction and judgment review",
-        "reviewer": null,
+        "reviewer": "Independent RobQA /root/b_qa",
         "research_date": "2026-10-27",
         "judgment_date": "2026-10-27",
         "source_revision": "a5a1c6b5463fdff20695aa26e2c6dc05ed4a6487 plus retained fresh B query receipts",
@@ -3160,12 +3160,11 @@
         "evidence_completeness": "Complete candidate queries and printing pagination, including empty-result responses where applicable; every candidate screened against Oracle text.",
         "source_scope_check": "Original articles supply scope and design context, not explicit tier authority.",
         "attribution_check": "Per-face colors, colored grants, joint multicolor evidence, and special scopes separated; original chronology from eligible printing minimum.",
-        "tier_and_alternative_check": "Qualitative card roles and closest alternative stated per color; pending independent review.",
+        "tier_and_alternative_check": "Independent all-record review passed: qualitative roles and nearest alternatives support the judgments; no count-only tier assignment.",
         "isolation_check": "B records only; all A and 2021 owners frozen.",
-        "unresolved_findings": [
-          "Independent RobQA pending."
-        ],
-        "reviewer_verdict": null
+        "unresolved_findings": [],
+        "reviewer_verdict": "pass",
+        "reviewed_candidate": "55a2e762c4e6dbaf44bca1d510655f0df22ce945"
       },
       "revision": {
         "prior_decision": null,
@@ -3174,7 +3173,7 @@
         ],
         "new_evidence_or_reason": "Complete B batch research and corrected factual screening; user-authorized player-facing preview.",
         "protocol_version_change": null,
-        "review_date": null,
+        "review_date": "2026-10-27",
         "application_import_authorization": "User explicitly requested B mechanics and local preview update; no publication or 2021 edits."
       },
       "path_resolution": {
@@ -3200,7 +3199,7 @@
     },
     {
       "protocol_version": "1.0",
-      "record_status": "draft",
+      "record_status": "reviewed",
       "mechanic": {
         "accepted_id": "deck:vocabulary:banding",
         "name": "Banding",
@@ -3228,7 +3227,7 @@
       },
       "provenance": {
         "researcher": "RobDev researchers with coordinator card-by-card correction and judgment review",
-        "reviewer": null,
+        "reviewer": "Independent RobQA /root/b_qa",
         "research_date": "2026-10-27",
         "judgment_date": "2026-10-27",
         "source_revision": "a5a1c6b5463fdff20695aa26e2c6dc05ed4a6487 plus retained fresh B query receipts",
@@ -8099,12 +8098,11 @@
         "evidence_completeness": "Complete candidate queries and printing pagination, including empty-result responses where applicable; every candidate screened against Oracle text.",
         "source_scope_check": "Original articles supply scope and design context, not explicit tier authority.",
         "attribution_check": "Per-face colors, colored grants, joint multicolor evidence, and special scopes separated; original chronology from eligible printing minimum.",
-        "tier_and_alternative_check": "Qualitative card roles and closest alternative stated per color; pending independent review.",
+        "tier_and_alternative_check": "Independent all-record review passed: qualitative roles and nearest alternatives support the judgments; no count-only tier assignment.",
         "isolation_check": "B records only; all A and 2021 owners frozen.",
-        "unresolved_findings": [
-          "Independent RobQA pending."
-        ],
-        "reviewer_verdict": null
+        "unresolved_findings": [],
+        "reviewer_verdict": "pass",
+        "reviewed_candidate": "55a2e762c4e6dbaf44bca1d510655f0df22ce945"
       },
       "revision": {
         "prior_decision": null,
@@ -8113,7 +8111,7 @@
         ],
         "new_evidence_or_reason": "Complete B batch research and corrected factual screening; user-authorized player-facing preview.",
         "protocol_version_change": null,
-        "review_date": null,
+        "review_date": "2026-10-27",
         "application_import_authorization": "User explicitly requested B mechanics and local preview update; no publication or 2021 edits."
       },
       "path_resolution": {
@@ -8139,7 +8137,7 @@
     },
     {
       "protocol_version": "1.0",
-      "record_status": "draft",
+      "record_status": "reviewed",
       "mechanic": {
         "accepted_id": "deck:vocabulary:bargain",
         "name": "Bargain",
@@ -8167,7 +8165,7 @@
       },
       "provenance": {
         "researcher": "RobDev researchers with coordinator card-by-card correction and judgment review",
-        "reviewer": null,
+        "reviewer": "Independent RobQA /root/b_qa",
         "research_date": "2026-10-27",
         "judgment_date": "2026-10-27",
         "source_revision": "a5a1c6b5463fdff20695aa26e2c6dc05ed4a6487 plus retained fresh B query receipts",
@@ -10735,12 +10733,11 @@
         "evidence_completeness": "Complete candidate queries and printing pagination, including empty-result responses where applicable; every candidate screened against Oracle text.",
         "source_scope_check": "Original articles supply scope and design context, not explicit tier authority.",
         "attribution_check": "Per-face colors, colored grants, joint multicolor evidence, and special scopes separated; original chronology from eligible printing minimum.",
-        "tier_and_alternative_check": "Qualitative card roles and closest alternative stated per color; pending independent review.",
+        "tier_and_alternative_check": "Independent all-record review passed: qualitative roles and nearest alternatives support the judgments; no count-only tier assignment.",
         "isolation_check": "B records only; all A and 2021 owners frozen.",
-        "unresolved_findings": [
-          "Independent RobQA pending."
-        ],
-        "reviewer_verdict": null
+        "unresolved_findings": [],
+        "reviewer_verdict": "pass",
+        "reviewed_candidate": "55a2e762c4e6dbaf44bca1d510655f0df22ce945"
       },
       "revision": {
         "prior_decision": null,
@@ -10749,7 +10746,7 @@
         ],
         "new_evidence_or_reason": "Complete B batch research and corrected factual screening; user-authorized player-facing preview.",
         "protocol_version_change": null,
-        "review_date": null,
+        "review_date": "2026-10-27",
         "application_import_authorization": "User explicitly requested B mechanics and local preview update; no publication or 2021 edits."
       },
       "path_resolution": {
@@ -10775,7 +10772,7 @@
     },
     {
       "protocol_version": "1.0",
-      "record_status": "draft",
+      "record_status": "reviewed",
       "mechanic": {
         "accepted_id": "deck:variants:basic landcycling",
         "name": "Basic landcycling",
@@ -10803,7 +10800,7 @@
       },
       "provenance": {
         "researcher": "RobDev researchers with coordinator card-by-card correction and judgment review",
-        "reviewer": null,
+        "reviewer": "Independent RobQA /root/b_qa",
         "research_date": "2026-10-27",
         "judgment_date": "2026-10-27",
         "source_revision": "a5a1c6b5463fdff20695aa26e2c6dc05ed4a6487 plus retained fresh B query receipts",
@@ -15709,12 +15706,11 @@
         "evidence_completeness": "Complete candidate queries and printing pagination, including empty-result responses where applicable; every candidate screened against Oracle text.",
         "source_scope_check": "Original articles supply scope and design context, not explicit tier authority.",
         "attribution_check": "Per-face colors, colored grants, joint multicolor evidence, and special scopes separated; original chronology from eligible printing minimum.",
-        "tier_and_alternative_check": "Qualitative card roles and closest alternative stated per color; pending independent review.",
+        "tier_and_alternative_check": "Independent all-record review passed: qualitative roles and nearest alternatives support the judgments; no count-only tier assignment.",
         "isolation_check": "B records only; all A and 2021 owners frozen.",
-        "unresolved_findings": [
-          "Independent RobQA pending."
-        ],
-        "reviewer_verdict": null
+        "unresolved_findings": [],
+        "reviewer_verdict": "pass",
+        "reviewed_candidate": "55a2e762c4e6dbaf44bca1d510655f0df22ce945"
       },
       "revision": {
         "prior_decision": null,
@@ -15723,7 +15719,7 @@
         ],
         "new_evidence_or_reason": "Complete B batch research and corrected factual screening; user-authorized player-facing preview.",
         "protocol_version_change": null,
-        "review_date": null,
+        "review_date": "2026-10-27",
         "application_import_authorization": "User explicitly requested B mechanics and local preview update; no publication or 2021 edits."
       },
       "path_resolution": {
@@ -15749,7 +15745,7 @@
     },
     {
       "protocol_version": "1.0",
-      "record_status": "draft",
+      "record_status": "reviewed",
       "mechanic": {
         "accepted_id": "deck:vocabulary:battalion",
         "name": "Battalion",
@@ -15776,7 +15772,7 @@
       },
       "provenance": {
         "researcher": "RobDev researchers with coordinator card-by-card correction and judgment review",
-        "reviewer": null,
+        "reviewer": "Independent RobQA /root/b_qa",
         "research_date": "2026-10-27",
         "judgment_date": "2026-10-27",
         "source_revision": "a5a1c6b5463fdff20695aa26e2c6dc05ed4a6487 plus retained fresh B query receipts",
@@ -18348,12 +18344,11 @@
         "evidence_completeness": "Complete candidate queries and printing pagination, including empty-result responses where applicable; every candidate screened against Oracle text.",
         "source_scope_check": "Original articles supply scope and design context, not explicit tier authority.",
         "attribution_check": "Per-face colors, colored grants, joint multicolor evidence, and special scopes separated; original chronology from eligible printing minimum.",
-        "tier_and_alternative_check": "Qualitative card roles and closest alternative stated per color; pending independent review.",
+        "tier_and_alternative_check": "Independent all-record review passed: qualitative roles and nearest alternatives support the judgments; no count-only tier assignment.",
         "isolation_check": "B records only; all A and 2021 owners frozen.",
-        "unresolved_findings": [
-          "Independent RobQA pending."
-        ],
-        "reviewer_verdict": null
+        "unresolved_findings": [],
+        "reviewer_verdict": "pass",
+        "reviewed_candidate": "55a2e762c4e6dbaf44bca1d510655f0df22ce945"
       },
       "revision": {
         "prior_decision": null,
@@ -18362,7 +18357,7 @@
         ],
         "new_evidence_or_reason": "Complete B batch research and corrected factual screening; user-authorized player-facing preview.",
         "protocol_version_change": null,
-        "review_date": null,
+        "review_date": "2026-10-27",
         "application_import_authorization": "User explicitly requested B mechanics and local preview update; no publication or 2021 edits."
       },
       "path_resolution": {
@@ -18388,7 +18383,7 @@
     },
     {
       "protocol_version": "1.0",
-      "record_status": "draft",
+      "record_status": "reviewed",
       "mechanic": {
         "accepted_id": "deck:vocabulary:battle cry",
         "name": "Battle Cry",
@@ -18417,7 +18412,7 @@
       },
       "provenance": {
         "researcher": "RobDev researchers with coordinator card-by-card correction and judgment review",
-        "reviewer": null,
+        "reviewer": "Independent RobQA /root/b_qa",
         "research_date": "2026-10-27",
         "judgment_date": "2026-10-27",
         "source_revision": "a5a1c6b5463fdff20695aa26e2c6dc05ed4a6487 plus retained fresh B query receipts",
@@ -20481,12 +20476,11 @@
         "evidence_completeness": "Complete candidate queries and printing pagination, including empty-result responses where applicable; every candidate screened against Oracle text.",
         "source_scope_check": "Original articles supply scope and design context, not explicit tier authority.",
         "attribution_check": "Per-face colors, colored grants, joint multicolor evidence, and special scopes separated; original chronology from eligible printing minimum.",
-        "tier_and_alternative_check": "Qualitative card roles and closest alternative stated per color; pending independent review.",
+        "tier_and_alternative_check": "Independent all-record review passed: qualitative roles and nearest alternatives support the judgments; no count-only tier assignment.",
         "isolation_check": "B records only; all A and 2021 owners frozen.",
-        "unresolved_findings": [
-          "Independent RobQA pending."
-        ],
-        "reviewer_verdict": null
+        "unresolved_findings": [],
+        "reviewer_verdict": "pass",
+        "reviewed_candidate": "55a2e762c4e6dbaf44bca1d510655f0df22ce945"
       },
       "revision": {
         "prior_decision": null,
@@ -20495,7 +20489,7 @@
         ],
         "new_evidence_or_reason": "Complete B batch research and corrected factual screening; user-authorized player-facing preview.",
         "protocol_version_change": null,
-        "review_date": null,
+        "review_date": "2026-10-27",
         "application_import_authorization": "User explicitly requested B mechanics and local preview update; no publication or 2021 edits."
       },
       "path_resolution": {
@@ -20521,7 +20515,7 @@
     },
     {
       "protocol_version": "1.0",
-      "record_status": "draft",
+      "record_status": "reviewed",
       "mechanic": {
         "accepted_id": "deck:vocabulary:behold",
         "name": "Behold",
@@ -20548,7 +20542,7 @@
       },
       "provenance": {
         "researcher": "RobDev researchers with coordinator card-by-card correction and judgment review",
-        "reviewer": null,
+        "reviewer": "Independent RobQA /root/b_qa",
         "research_date": "2026-10-27",
         "judgment_date": "2026-10-27",
         "source_revision": "a5a1c6b5463fdff20695aa26e2c6dc05ed4a6487 plus retained fresh B query receipts",
@@ -23284,12 +23278,11 @@
         "evidence_completeness": "Complete candidate queries and printing pagination, including empty-result responses where applicable; every candidate screened against Oracle text.",
         "source_scope_check": "Original articles supply scope and design context, not explicit tier authority.",
         "attribution_check": "Per-face colors, colored grants, joint multicolor evidence, and special scopes separated; original chronology from eligible printing minimum.",
-        "tier_and_alternative_check": "Qualitative card roles and closest alternative stated per color; pending independent review.",
+        "tier_and_alternative_check": "Independent all-record review passed: qualitative roles and nearest alternatives support the judgments; no count-only tier assignment.",
         "isolation_check": "B records only; all A and 2021 owners frozen.",
-        "unresolved_findings": [
-          "Independent RobQA pending."
-        ],
-        "reviewer_verdict": null
+        "unresolved_findings": [],
+        "reviewer_verdict": "pass",
+        "reviewed_candidate": "55a2e762c4e6dbaf44bca1d510655f0df22ce945"
       },
       "revision": {
         "prior_decision": null,
@@ -23298,7 +23291,7 @@
         ],
         "new_evidence_or_reason": "Complete B batch research and corrected factual screening; user-authorized player-facing preview.",
         "protocol_version_change": null,
-        "review_date": null,
+        "review_date": "2026-10-27",
         "application_import_authorization": "User explicitly requested B mechanics and local preview update; no publication or 2021 edits."
       },
       "path_resolution": {
@@ -23324,7 +23317,7 @@
     },
     {
       "protocol_version": "1.0",
-      "record_status": "draft",
+      "record_status": "reviewed",
       "mechanic": {
         "accepted_id": "deck:vocabulary:bestow",
         "name": "Bestow",
@@ -23348,7 +23341,7 @@
       },
       "provenance": {
         "researcher": "RobDev researchers with coordinator card-by-card correction and judgment review",
-        "reviewer": null,
+        "reviewer": "Independent RobQA /root/b_qa",
         "research_date": "2026-10-27",
         "judgment_date": "2026-10-27",
         "source_revision": "a5a1c6b5463fdff20695aa26e2c6dc05ed4a6487 plus retained fresh B query receipts",
@@ -27565,12 +27558,11 @@
         "evidence_completeness": "Complete candidate queries and printing pagination, including empty-result responses where applicable; every candidate screened against Oracle text.",
         "source_scope_check": "Original articles supply scope and design context, not explicit tier authority.",
         "attribution_check": "Per-face colors, colored grants, joint multicolor evidence, and special scopes separated; original chronology from eligible printing minimum.",
-        "tier_and_alternative_check": "Qualitative card roles and closest alternative stated per color; pending independent review.",
+        "tier_and_alternative_check": "Independent all-record review passed: qualitative roles and nearest alternatives support the judgments; no count-only tier assignment.",
         "isolation_check": "B records only; all A and 2021 owners frozen.",
-        "unresolved_findings": [
-          "Independent RobQA pending."
-        ],
-        "reviewer_verdict": null
+        "unresolved_findings": [],
+        "reviewer_verdict": "pass",
+        "reviewed_candidate": "55a2e762c4e6dbaf44bca1d510655f0df22ce945"
       },
       "revision": {
         "prior_decision": null,
@@ -27579,7 +27571,7 @@
         ],
         "new_evidence_or_reason": "Complete B batch research and corrected factual screening; user-authorized player-facing preview.",
         "protocol_version_change": null,
-        "review_date": null,
+        "review_date": "2026-10-27",
         "application_import_authorization": "User explicitly requested B mechanics and local preview update; no publication or 2021 edits."
       },
       "path_resolution": {
@@ -27604,7 +27596,7 @@
     },
     {
       "protocol_version": "1.0",
-      "record_status": "draft",
+      "record_status": "reviewed",
       "mechanic": {
         "accepted_id": "deck:vocabulary:blight",
         "name": "Blight",
@@ -27632,7 +27624,7 @@
       },
       "provenance": {
         "researcher": "RobDev researchers with coordinator card-by-card correction and judgment review",
-        "reviewer": null,
+        "reviewer": "Independent RobQA /root/b_qa",
         "research_date": "2026-10-27",
         "judgment_date": "2026-10-27",
         "source_revision": "a5a1c6b5463fdff20695aa26e2c6dc05ed4a6487 plus retained fresh B query receipts",
@@ -30877,12 +30869,11 @@
         "evidence_completeness": "Complete candidate queries and printing pagination, including empty-result responses where applicable; every candidate screened against Oracle text.",
         "source_scope_check": "Original articles supply scope and design context, not explicit tier authority.",
         "attribution_check": "Per-face colors, colored grants, joint multicolor evidence, and special scopes separated; original chronology from eligible printing minimum.",
-        "tier_and_alternative_check": "Qualitative card roles and closest alternative stated per color; pending independent review.",
+        "tier_and_alternative_check": "Independent all-record review passed: qualitative roles and nearest alternatives support the judgments; no count-only tier assignment.",
         "isolation_check": "B records only; all A and 2021 owners frozen.",
-        "unresolved_findings": [
-          "Independent RobQA pending."
-        ],
-        "reviewer_verdict": null
+        "unresolved_findings": [],
+        "reviewer_verdict": "pass",
+        "reviewed_candidate": "55a2e762c4e6dbaf44bca1d510655f0df22ce945"
       },
       "revision": {
         "prior_decision": null,
@@ -30891,7 +30882,7 @@
         ],
         "new_evidence_or_reason": "Complete B batch research and corrected factual screening; user-authorized player-facing preview.",
         "protocol_version_change": null,
-        "review_date": null,
+        "review_date": "2026-10-27",
         "application_import_authorization": "User explicitly requested B mechanics and local preview update; no publication or 2021 edits."
       },
       "path_resolution": {

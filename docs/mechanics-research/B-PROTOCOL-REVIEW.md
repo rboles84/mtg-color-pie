@@ -309,6 +309,6 @@ Buyback returns a resolving spell to its owner's hand when its additional cost w
 
 ## Review and preview boundary
 
-Independent QA is pending for the committed material candidate. The producer and focused browser checks pass, including all 43 A/B rows, source links, symbol strips, failure isolation, 84/84 built-in checks, and unchanged 216-entry Article calculations. The 25 A payload records match the baseline exactly. The 2021 source/taxonomy/reconciliation gates pass, including all 53 reconciliation assertions.
+Independent QA-4 passed the substantive review and the bounded evidence repair at `55a2e762c4e6dbaf44bca1d510655f0df22ce945`. The records now retain that passing review; Owner review of the local preview remains open. The producer and focused browser checks pass, including all 43 A/B rows, source links, symbol strips, failure isolation, 84/84 built-in checks, and unchanged 216-entry Article calculations. The 25 A payload records match the baseline exactly. The 2021 source/taxonomy/reconciliation gates pass, including all 53 reconciliation assertions.
 
 Only the local preview is authorized. No publication, push, merge or integration is implied.

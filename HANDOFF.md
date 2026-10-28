@@ -1,7 +1,7 @@
 # Active handoff - Protocol v1.0 B mechanics
 
 ## Control
-- Status: `ready-for-qa` (`qa-failed -> dev-in-progress -> ready-for-qa`). The three named evidence/metadata findings are repaired; all substantive decisions and player-facing fields are unchanged.
+- Status: `qa-passed` (`qa-failed -> dev-in-progress -> ready-for-qa -> qa-passed`). The three named evidence/metadata findings are repaired; all substantive decisions and player-facing fields are unchanged.
 - Branch: `codex/a-mechanics-review`; task baseline `a5a1c6b5463fdff20695aa26e2c6dc05ed4a6487`; branch baseline `9a063b3a98cfcb7672783f83a102e8f968242490`. Reuse the existing preview checkout; no additional branch or worktree.
 - Allowed files: `HANDOFF.md`; new `docs/mechanics-research/b-protocol-core.json`, `b-protocol-extended.json`, `B-PROTOCOL-REVIEW.md`; new evidence files under `docs/mechanics-research/b-protocol-evidence/`; `tools/build_mechanics_assessments.py`; `data/mechanics-assessments.v1.json`; `vox-color/mechanical-explorer.html`; `tools/check_assessment_browser.mjs`; `tools/check_supplement_browser.mjs`. Ignored preview package and temporary external research scripts permitted.
 - Ownership: two RobDev researchers own disjoint nine-record B packets and uniquely prefixed evidence files; coordinator owns integration/generator/runtime/payload/harness/review table/ledger. Independent RobQA owns ledger only after committed ready-for-qa.
@@ -69,6 +69,18 @@
 ### Owner review boundary
 
 - Owner review is not open on this failed candidate. After a committed bounded repair, RobQA should compare only the named evidence bytes/hashes, two parameter values, seven note labels/pointers and deterministic derivatives; rerun committed-blob hashes, producer `--check`, A25/protected-zero checks, and confirm no tier/rationale/card-role/player-copy/runtime change.
+
+---
+## Independent RobQA bounded repair PASS — candidate `55a2e762c4e6dbaf44bca1d510655f0df22ce945`
+
+- Exact repair envelope: `git status --short` was empty and `git rev-parse HEAD` returned the named candidate. Relative to failed candidate `1bda621`, the committed delta is the ledger, the two B packets, shared capture receipt, seven retained early-note files and regenerated payload—only the owners named by the failed findings.
+- Committed-byte evidence: independently hashed every `sources[].capture.files[]` path using `git show HEAD:<path>`. Result: **134/134 B record capture bindings match**. Independently checked `shared-capture-receipts.json`: **36/36 committed files match**. Each repaired narrative capture now declares the generated text serialization as UTF-8/LF; original HTML/PDF hashes remain unchanged.
+- Query metadata: every normalized query parameter now agrees with its exact saved URL. Buy Information Q1 and Berzerker Q1 both use `order: released`; result: **0 mismatches** across all 18 records.
+- Archived-note labels: all seven `extended-*/official-mechanics-source.txt` files begin `SUPERSEDED RESEARCH NOTE — analyst summary, not an original-source capture`, disclaim source authority/binding and point to three committed original-capture files. Result: **7/7 labels and 21/21 pointers pass**.
+- Semantic isolation: recursive comparison with `1bda621` found the B packet changes are only thirteen record uses of twelve repaired TXT SHA-256 values, twelve explicit serialization statements and the two query-order values. All decisions, tiers, statuses, confidence, card ledgers, populations, rationales, player copy and actual limitations are unchanged. The generated payload changes only its two B source-binding digests; **all 43 projected records are exactly equal** to the failed candidate.
+- Determinism/protected state: `python tools/build_mechanics_assessments.py --check` exited 0 with `PASS: 43 protocol v1.0 A/B records; deterministic payload and source bindings`. All 25 A rows remain exactly equal to task baseline; direct protected-path comparison returned `PROTECTED_DIFF_ZERO` for A canonical packets/captures, frozen 2021 owners and existing supplement/scope/example owners. Authored/non-capture `git diff --check` is clean.
+- Browser and heavy suites were not rerun: the repair changes evidence bytes/metadata/binding hashes only, while all 43 projected records and runtime code are unchanged. The prior focused exact-candidate Edge evidence remains applicable. CPU-heavy validation remains **NOT REQUIRED**; Stateful Adversarial QA remains **NOT APPLICABLE** for the reasons recorded above.
+- Verdict: **RobQAPass PASS / `qa-passed`** for exact candidate `55a2e762c4e6dbaf44bca1d510655f0df22ce945`. No blocker, major or acceptance-relevant minor remains. This engineering PASS preserves the substantive all-18 review from `1bda621` and permits the bounded review-metadata finalization step; it does not mark records reviewed by itself, replace Owner wording/appearance judgment, authorize publication, or constitute Owner ACCEPT.
 
 ---
 # Prior handoff - Player-facing A mechanic explanations
