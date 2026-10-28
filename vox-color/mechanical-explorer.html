@@ -2017,7 +2017,7 @@ function assessmentHTML(k){
     '<p class="dx-ex is-supplemental"><b>Rules action · Not ranked</b></p><p class="dx-note">Primary, Secondary and Tertiary do not apply to this general rules action.</p>';
   return `<section class="dx-sec supp-assessment" aria-label="${esc(a.label)}">
     <h3 class="dx-h">${a.kind === 'rules' ? 'Classification' : 'Placements'}</h3><p class="dx-note">${esc(a.label)}</p>
-    ${placement}<p class="dx-note">${esc(a.scope)}</p>${a.kind === 'derived' ? `<p class="dx-note">Confidence: ${esc(a.confidence.split(';')[0])}</p>` : ''}
+    ${placement}<p class="dx-note">${esc(a.scope)}</p>${a.kind === 'rules' ? '' : a.name === 'Annihilator' ? '<p class="dx-note">The cards support colorless access; Primary is the classification chosen for this page.</p>' : `<p class="dx-note">Confidence: ${esc(a.confidence.split(';')[0])}</p>`}
     <p class="dx-note">${a.kind === 'rules' ? 'General rules terminology.' : a.name === 'Annihilator' ? 'Colorless classification selected for this page; not an official Wizards ranking.' : 'Our assessment, not an official Wizards or Scryfall ranking.'} Based on evidence available ${esc(supplementalDate(a.researchDate))}. Outside the 2021 color calculations.</p>
     <details class="assessment-notes"><summary>Rationale and evidence</summary><p>${esc(a.summary)}</p>
       ${a.kind === 'derived' ? ORDER.map(c => `<p><b>${CNAME[c]} · ${esc(a.placements[c] || 'Unassigned')}.</b> ${esc(a.rationale[c])}</p><p class="dx-note">Confidence: ${esc(a.decisionConfidence[c])}</p>`).join('') : ''}

@@ -126,10 +126,12 @@ try{
     }
     if(record.name==='Annihilator'){
       assert.match(await panel.innerText(),/selected for this page/);
+      assert.match(await panel.innerText(),/The cards support colorless access; Primary is the classification chosen for this page/);
       assert.doesNotMatch(await panel.innerText(),/Analyst assessment|assessment - provisional/);
     }
     if(record.name==='Affinitycycling'){
       assert.match(await panel.innerText(),/assessment - provisional/);
+      assert.match(await panel.innerText(),/Confidence: Low/);
       assert.match(await notes.innerText(),/playtest|designer/i);
     }
   }
