@@ -1,6 +1,6 @@
 # Active task — Access presentation refinement
 
-- Status: ready-for-qa. Owner requests actual mana colors, a colorless glyph where evidence supports it, the label Color Access, and removal of redundant aggregate card citations. Same branch/worktree; baseline `193c92e4cde43aca06bc1687d97875572815f1e7`.
+- Status: qa-passed. Owner requests actual mana colors, a colorless glyph where evidence supports it, the label Color Access, and removal of redundant aggregate card citations. Same branch/worktree; baseline `193c92e4cde43aca06bc1687d97875572815f1e7`.
 - Allowed files: HANDOFF.md, CONTEXT.md (approved presentation decision), docs/mechanics-research/COLOR-ACCESS-PROTOCOL.md (presentation paragraph only), vox-color/mechanical-explorer.html, tools/check_assessment_browser.mjs. Ignored local preview package permitted.
 - Owner: coordinator implements the supplemental presenter. No changes to payloads, canonical evidence, scope, access statuses, 2021 data/calculations/notation, dependencies, routes or other mechanics. Existing WUBRG palette and mana-font colorless glyph are reused.
 - Acceptance: supported WUBRG marks use their existing colors; colorless sources show the diamond in list/search/details; labels say Color Access/Access; per-color Reviewed Card Sources remain, aggregate repeated cards/search citations disappear; non-card references remain under Sources. Rules entries without color buckets may keep a single reviewed-card list.
@@ -12,6 +12,52 @@
 - Labels now say Color Access/Access. Removed the neutral-notation explanation and redundant aggregate card lists/search references. Per-bucket Reviewed Card Sources remain; non-card references keep the Sources section. Rules actions with no buckets retain one nonredundant card list.
 - Focused Edge harness PASS for all 43 supplemental records, computed palette bindings, conditional colorless list/detail glyphs, label copy, exact retained non-card references, absence of aggregate card duplication, existing links, keyboard/mobile containment and 84/84 2021 checks. One test initially overmatched historical prose; corrected to assert presentation labels specifically. No product requirement waived.
 - Five-path scope: HTML presenter, existing focused harness, presentation protocol paragraph, approved context note and ledger. No payload, evidence, source-scope, rank or dependency edits. QA-1 with a bounded DOM/browser check of the shared presentation; prior semantic certification remains applicable.
+
+## Independent RobQA — access presentation refinement
+
+- Verdict: **RobQAPass PASS** for exact candidate `f799aa064c2878c5de9dd2fa2d54b901da1a3ac1` against baseline `193c92e4cde43aca06bc1687d97875572815f1e7`. Execution mode: separate independent reviewer. QA tier: QA-1 presentation/DOM regression. This advances the refinement from `ready-for-qa` to `qa-passed`; Owner acceptance remains separate.
+- Scope and protected behavior: all five changed paths are admitted, and the payload, five canonical packets and producer are byte-unchanged across the refinement. The previously qualified 43-record access semantics and frozen 2021 data/calculations therefore remain protected; no repeated semantic research was necessary.
+- Static evidence: exact-candidate `git diff --check` and harness syntax pass. Diff review confirms the shared presenter binds W/U/B/R/G documented marks to the existing palette tokens, adds the mana-font `C` diamond only for documented colorless access, changes player-facing headings/status copy to Color Access/Access, retains per-bucket reviewed-card sources and exact discovery links, filters aggregate Scryfall card/search references, preserves non-card Sources, and retains the single nonredundant rules-card list.
+- Browser evidence: the focused Edge command `node tools/check_assessment_browser.mjs --root . --playwright C:/Users/obake/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright` passes on the exact candidate. Its 43-record DOM assertions verify computed WUBRG palette bindings, all 17 conditional colorless list/detail diamonds, Color Access labels, exact per-bucket card links without aggregate duplication, retained non-card references, keyboard/search/mobile behavior, four atomic fail-soft cases and unchanged 84/84 2021 checks.
+- Stateful/adversarial assessment: NOT APPLICABLE to the refinement itself because it is a stateless projection of an unchanged payload. The existing optional-sidecar fail-soft and view/lens restoration cases were nevertheless rerun as regression evidence. CPU-heavy certification and broad engine suites are NOT REQUIRED for this bounded presenter-only change.
+- Findings: no blocker, major or minor engineering finding. OWNER-VISUAL remains open for subjective palette contrast, density and hierarchy; the Owner may ACCEPT or REJECT this exact candidate.
+
+## Preview verification
+
+- Exact candidate `f799aa064c2878c5de9dd2fa2d54b901da1a3ac1` packaged and verified: 23 byte-identical files, four syntax-clean inline scripts, 23 HTTP 200 paths and 24 excluded paths returning 404.
+- Existing localhost preview refreshed with Annihilator open in A–Z. Colorless diamonds are visible in its row and detail; other entries show the existing WUBRG palette. Screenshot outside Git: `C:/Users/obake/.codex/visualizations/2026/10/27/01a17b8d-3467-7eb1-a917-efaf7184cd99/access-presentation-preview.png`.
+- Independent QA PASS; Owner visual review remains open. No push, merge or publication.
+
+## Material candidate
+
+- Baseline: `193c92e4cde43aca06bc1687d97875572815f1e7`
+- Candidate: `f799aa064c2878c5de9dd2fa2d54b901da1a3ac1`
+- Changed paths: `5`
+
+## Files changed
+
+- `CONTEXT.md`
+- `HANDOFF.md`
+- `docs/mechanics-research/COLOR-ACCESS-PROTOCOL.md`
+- `tools/check_assessment_browser.mjs`
+- `vox-color/mechanical-explorer.html`
+
+## Evidence delta
+
+- Material candidate: `f799aa064c2878c5de9dd2fa2d54b901da1a3ac1`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `1`
+- This records QA and preview evidence; it is not the full task diff.
+
+## Evidence-only paths
+
+- `HANDOFF.md`
+
+## Final branch accounting
+
+- Current refinement: five material paths, with HANDOFF.md as the only later evidence path. All prior evidence and 2021 data remain unchanged.
+- Whole existing branch: 245 paths from `9a063b3a98cfcb7672783f83a102e8f968242490`, including earlier research and implementation. This is separate from the five-path refinement.
+- Branch `codex/a-mechanics-review`; local commits only. Final Git report validation and a clean working tree are required for delivery.
 
 ---
 
