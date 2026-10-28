@@ -1,3 +1,5 @@
+> Historical tier-assessment record. On October 28, 2026, the Owner replaced inferred supplemental A/B P/S/T with documented color access. Current display authority is [COLOR-ACCESS-PROTOCOL.md](COLOR-ACCESS-PROTOCOL.md) and each canonical packet's `access_review` field. The tier judgments below are preserved history and do not drive the current preview.
+
 # Supplemental mechanic assessment protocol
 
 Version: **1.0** · Established: **2026-10-27, America/Denver**

@@ -968,6 +968,49 @@
           "G": "This general rules action has no color-pie tier."
         },
         "limitations": []
+      },
+      "access_review": {
+        "version": "2.0",
+        "review_date": "2026-10-28",
+        "scope_label": "Archenemy scheme rules",
+        "scope": "The action that puts a face-up ongoing scheme on the bottom of its owner’s scheme deck.",
+        "summary": "Abandon ends an ongoing scheme by putting it on the bottom of its owner's scheme deck. It describes how schemes work rather than access to an effect in a particular color.",
+        "colors": {
+          "W": {
+            "status": "not_applicable",
+            "card_ids": [],
+            "note": "This rules action does not identify a colored mechanic to search for."
+          },
+          "U": {
+            "status": "not_applicable",
+            "card_ids": [],
+            "note": "This rules action does not identify a colored mechanic to search for."
+          },
+          "B": {
+            "status": "not_applicable",
+            "card_ids": [],
+            "note": "This rules action does not identify a colored mechanic to search for."
+          },
+          "R": {
+            "status": "not_applicable",
+            "card_ids": [],
+            "note": "This rules action does not identify a colored mechanic to search for."
+          },
+          "G": {
+            "status": "not_applicable",
+            "card_ids": [],
+            "note": "This rules action does not identify a colored mechanic to search for."
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "not_applicable",
+          "card_ids": [],
+          "note": "Colorless is not assigned to a general rules action."
+        },
+        "limitations": [
+          "The scheme examples illustrate the rules action; their lack of color does not make Abandon a colorless mechanic."
+        ]
       }
     },
     {
@@ -1375,6 +1418,52 @@
         },
         "limitations": [
           "The armor concepts were unprinted designs, not additional cards or an official Primary ranking. Lymph Sliver can grant Absorb to creatures of other colors without establishing tiers for those colors."
+        ]
+      },
+      "access_review": {
+        "version": "2.0",
+        "review_date": "2026-10-28",
+        "scope_label": "Released paper cards",
+        "scope": "A damage-reduction keyword; absorb N prevents N damage from each source that would deal damage to the creature.",
+        "summary": "Lymph Sliver establishes white access to Absorb by granting the ability to Sliver creatures.",
+        "colors": {
+          "W": {
+            "status": "documented",
+            "card_ids": [
+              "c3469de8-4bdb-42d4-9fc0-75fe31c3f6e5"
+            ],
+            "note": "Lymph Sliver gives all Sliver creatures absorb 1, preventing 1 damage from each source that would deal damage to them. This is a white card granting Absorb."
+          },
+          "U": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No blue example was found in the reviewed paper cards."
+          },
+          "B": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No black example was found in the reviewed paper cards."
+          },
+          "R": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No red example was found in the reviewed paper cards."
+          },
+          "G": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No green example was found in the reviewed paper cards."
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "not_found",
+          "card_ids": [],
+          "note": "No colorless example was found in the reviewed paper cards."
+        },
+        "limitations": [
+          "Slivers of other colors can receive the ability from Lymph Sliver. That does not establish a separate source of Absorb in those colors.",
+          "Earlier unprinted design concepts remain background evidence and are not additional printed examples."
         ]
       }
     },
@@ -6550,6 +6639,47 @@
           "G": "This general rules action has no color-pie tier."
         },
         "limitations": []
+      },
+      "access_review": {
+        "version": "2.0",
+        "review_date": "2026-10-28",
+        "scope_label": "General rules vocabulary",
+        "scope": "Using an activated ability by paying its activation cost; the action does not specify the resulting effect.",
+        "summary": "Activate means using an activated ability by paying its cost. Search for the particular effect you want, such as drawing cards or dealing damage; the shared rules verb does not establish access to those effects.",
+        "colors": {
+          "W": {
+            "status": "not_applicable",
+            "card_ids": [],
+            "note": "This rules action does not identify a colored mechanic to search for."
+          },
+          "U": {
+            "status": "not_applicable",
+            "card_ids": [],
+            "note": "This rules action does not identify a colored mechanic to search for."
+          },
+          "B": {
+            "status": "not_applicable",
+            "card_ids": [],
+            "note": "This rules action does not identify a colored mechanic to search for."
+          },
+          "R": {
+            "status": "not_applicable",
+            "card_ids": [],
+            "note": "This rules action does not identify a colored mechanic to search for."
+          },
+          "G": {
+            "status": "not_applicable",
+            "card_ids": [],
+            "note": "This rules action does not identify a colored mechanic to search for."
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "not_applicable",
+          "card_ids": [],
+          "note": "Colorless is not assigned to a general rules action."
+        },
+        "limitations": []
       }
     },
     {
@@ -6947,6 +7077,51 @@
         },
         "limitations": [
           "This is designer playtest material, not an established general mechanic."
+        ]
+      },
+      "access_review": {
+        "version": "2.0",
+        "review_date": "2026-10-28",
+        "scope_label": "Designer playtest card",
+        "scope": "A designer/playtest cycling variant that searches for a card with affinity.",
+        "summary": "Sojourner's Enforcermite is a colorless designer playtest card with Affinitycycling. This example belongs to Unknown Event material.",
+        "colors": {
+          "W": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No white example was found in the reviewed playtest material."
+          },
+          "U": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No blue example was found in the reviewed playtest material."
+          },
+          "B": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No black example was found in the reviewed playtest material."
+          },
+          "R": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No red example was found in the reviewed playtest material."
+          },
+          "G": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No green example was found in the reviewed playtest material."
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "documented",
+          "card_ids": [
+            "b00d4b1a-bd7a-438c-9986-bd02282cb9f0"
+          ],
+          "note": "Sojourner's Enforcermite lets you pay {2} and discard it to search your library for a card with affinity, reveal it, put it into your hand, then shuffle."
+        },
+        "limitations": [
+          "This documents a designer playtest example, not a mechanic available in ordinary Commander play."
         ]
       }
     },
@@ -8033,6 +8208,70 @@
         },
         "limitations": [
           "Colorless is outside the five colors, not a sixth Magic color."
+        ]
+      },
+      "access_review": {
+        "version": "2.0",
+        "review_date": "2026-10-28",
+        "scope_label": "Released paper cards",
+        "scope": "An attack-triggered keyword requiring the defending player to sacrifice a stated number of permanents.",
+        "summary": "The reviewed paper examples of Annihilator are colorless. They include creatures with the attack trigger and cards that grant it to other creatures.",
+        "colors": {
+          "W": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No white example was found in the reviewed paper cards."
+          },
+          "U": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No blue example was found in the reviewed paper cards."
+          },
+          "B": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No black example was found in the reviewed paper cards."
+          },
+          "R": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No red example was found in the reviewed paper cards."
+          },
+          "G": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No green example was found in the reviewed paper cards."
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "documented",
+          "card_ids": [
+            "19409704-09c4-4a4b-a5a7-f95120b425db",
+            "55bc7f55-f73b-40b5-8912-9bf76c129ccc",
+            "785026c5-3f26-489c-8e26-96dd3ca6bc98",
+            "3635e4e5-e655-45f4-a444-39756f55129a",
+            "25a73cfc-a40d-47ea-a7b1-61c7b62a9e6c",
+            "900ca697-ad38-4b2b-bc74-2ff7eb6ea951",
+            "1e9053b5-5cca-486c-9dd8-b198a7b666bf",
+            "b206d3bc-1203-4f00-997e-5da706346a24",
+            "8f48c43e-fa70-4c4f-bb88-be0526303453",
+            "b30d583b-e770-47e8-9f26-fca7ef43285c",
+            "b11187ab-f8a8-422b-b550-4495f96de0f2",
+            "7b8528b0-71eb-4c9e-bed9-aa2d2e84038f",
+            "1ea3ba2d-e88f-4879-92f2-681637094b45",
+            "ef8d9c3a-5860-45bf-8205-14e2df9a6fc8",
+            "4bf95747-4572-49b8-b892-87fe7f910252",
+            "b90d2f4d-b4ea-40af-aea0-1ab4234ab80f",
+            "597bce51-af89-4d13-9a97-667b4f4f4694",
+            "97836c48-8777-4b4e-98fb-e99204f38bdd",
+            "b817bc56-9b4d-4c50-bafa-3c652b99578f"
+          ],
+          "note": "Artisan of Kozilek has annihilator 2. Eldrazi Conscription grants annihilator 2 to the enchanted creature, and Azlask, the Swelling Scourge can grant annihilator 1 to Scions and Spawns you control. These are colorless sources."
+        },
+        "limitations": [
+          "Azlask has a five-color activation cost and commander color identity, but the card itself is colorless. The access symbols describe card colors, not deck legality.",
+          "Playtest designs, tokens and plane cards are outside this paper-card access list. Grants can give Annihilator to creatures of other colors without establishing colored sources."
         ]
       }
     },
@@ -13258,6 +13497,49 @@
           "G": "This general rules action has no color-pie tier."
         },
         "limitations": []
+      },
+      "access_review": {
+        "version": "2.0",
+        "review_date": "2026-10-28",
+        "scope_label": "General rules vocabulary",
+        "scope": "Moving an Aura, Equipment or Fortification onto the object or player it legally enchants, equips or fortifies.",
+        "summary": "Attach describes putting an Aura, Equipment or Fortification onto something it can legally enchant, equip or fortify. A specific card that attaches something is evidence for that effect, not for every use of Attach.",
+        "colors": {
+          "W": {
+            "status": "not_applicable",
+            "card_ids": [],
+            "note": "This rules action does not identify a colored mechanic to search for."
+          },
+          "U": {
+            "status": "not_applicable",
+            "card_ids": [],
+            "note": "This rules action does not identify a colored mechanic to search for."
+          },
+          "B": {
+            "status": "not_applicable",
+            "card_ids": [],
+            "note": "This rules action does not identify a colored mechanic to search for."
+          },
+          "R": {
+            "status": "not_applicable",
+            "card_ids": [],
+            "note": "This rules action does not identify a colored mechanic to search for."
+          },
+          "G": {
+            "status": "not_applicable",
+            "card_ids": [],
+            "note": "This rules action does not identify a colored mechanic to search for."
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "not_applicable",
+          "card_ids": [],
+          "note": "Colorless is not assigned to a general rules action."
+        },
+        "limitations": [
+          "The separately cited 2017 discussion concerns moving enchantments and counters. It does not classify every Attach action."
+        ]
       }
     }
   ]

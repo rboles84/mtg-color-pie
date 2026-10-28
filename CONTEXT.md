@@ -362,3 +362,8 @@ tiles' false focusability · all 37 placeholder dossier lines.
 ## Not in this folder
 
 Nothing now — the Rosewater corpus is in `voxmana.io/docs/research/canon/`.
+
+
+## Supplemental mechanic discovery: documented color access
+
+Owner decision, October 28, 2026: A/B supplemental entries show documented color access, not inferred Primary/Secondary/Tertiary rankings. A verified monocolor native use or explicit colored grant is enough to show access. Multicolor combinations, colorless examples and special-material scopes remain distinct. Descriptions state the card evidence, with Scryfall links to reviewed examples. No example found in the reviewed scope is not a claim that access is impossible. Generic rules actions are not assigned colors from incidental word matches. The 2021 catalog retains its exact original tiers and calculations. Canonical access fields and projection follow `docs/mechanics-research/COLOR-ACCESS-PROTOCOL.md`; prior tier research remains historical.

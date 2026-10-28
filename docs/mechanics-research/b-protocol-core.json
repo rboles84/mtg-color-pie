@@ -2822,6 +2822,90 @@
           }
         }
       ],
+      "access_review": {
+        "version": "2.0",
+        "review_date": "2026-10-28",
+        "scope_label": "Released paper cards",
+        "scope": "Backup puts counters on a creature and can lend it the source creature's listed abilities for the turn.",
+        "summary": "The reviewed cards show Backup in all five colors. The creatures can share different abilities, including blue's hexproof example.",
+        "colors": {
+          "W": {
+            "status": "documented",
+            "card_ids": [
+              "6ff995f9-080d-4316-8fbe-39bf195db91b",
+              "8652d88f-edca-4235-b942-6e7467608de8",
+              "c17d4818-5825-4bff-8fc5-5fd740cc0c70",
+              "d388080d-5ad4-4e27-b361-340f410423a7",
+              "d6c7d7a6-2d38-4c06-ab83-bee9cc18de52",
+              "79c90a68-1c31-4e16-be53-1304132da80f"
+            ],
+            "note": "Boon-Bringer Valkyrie can share flying, first strike and lifelink through Backup."
+          },
+          "U": {
+            "status": "documented",
+            "card_ids": [
+              "15f89b06-5025-4c9f-bf51-e25bc5c2dd6b"
+            ],
+            "note": "Saiba Cryptomancer can give another creature a +1/+1 counter and hexproof for the turn through Backup."
+          },
+          "B": {
+            "status": "documented",
+            "card_ids": [
+              "7b03910a-2ca7-40cb-9c71-1c2cc856a287",
+              "4d472308-5bc7-4a3c-81b5-0a757f00d9e2",
+              "5437f560-7f61-4326-be8e-15d74bf4e6ec",
+              "93107139-b743-4d62-b0ac-9997202e0562"
+            ],
+            "note": "Scorn-Blade Berserker can share its sacrifice-to-draw ability through Backup."
+          },
+          "R": {
+            "status": "documented",
+            "card_ids": [
+              "57120486-0316-4591-abca-438ab8283d3f",
+              "81abb451-5ee0-4f90-bacc-a8ff69726a27",
+              "f055a941-8b83-464e-a57f-8f188dc69aaa",
+              "d1b74fb9-8ef3-40be-bc79-45ffb4c597eb",
+              "6a871d70-a46d-4357-8c7d-876f7a004eb7",
+              "d2134b68-d73f-4090-aaec-b2ee5c9f9f04",
+              "b3cc2ed9-1da3-4ad2-a9a7-de7665d800ff"
+            ],
+            "note": "Voldaren Thrillseeker can share its sacrifice-to-deal-damage ability through Backup."
+          },
+          "G": {
+            "status": "documented",
+            "card_ids": [
+              "20a362c3-d278-437f-881c-e7d9fe78fc2d",
+              "e09e7bb8-2665-4081-b75a-628a8bc0a3cd",
+              "7ac00312-8963-4fee-8561-1a54e533adbb",
+              "a74e41b4-6284-453c-a586-d575735dca65",
+              "66a131ae-dbb2-4e7b-b6ce-7695f47c8f87",
+              "74b631c5-9420-496e-8845-3b050d3d5340"
+            ],
+            "note": "Doomskar Warrior can share trample and its combat-damage reward through Backup."
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "W",
+              "R",
+              "G"
+            ],
+            "card_ids": [
+              "f74888ee-5086-49a6-ae74-fd9894f46332"
+            ],
+            "note": "Bright-Palm, Soul Awakener provides a white-red-green example. This card documents this combination, not separate single-color sources."
+          }
+        ],
+        "colorless": {
+          "status": "not_found",
+          "card_ids": [],
+          "note": "No colorless example was found in the reviewed scope."
+        },
+        "limitations": [
+          "Access describes the colors of the reviewed cards or mechanic-bearing faces, not Commander deck legality. Multicolor cards and colorless grants do not establish separate single-color sources."
+        ]
+      },
       "population_summary": {
         "scoped_totals": {
           "candidate_union": 31,
@@ -7719,6 +7803,113 @@
           }
         }
       ],
+      "access_review": {
+        "version": "2.0",
+        "review_date": "2026-10-28",
+        "scope_label": "Released paper cards",
+        "scope": "Banding on released paper cards, including cards that explicitly grant it.",
+        "summary": "The reviewed cards establish white, red and green access to Banding. White-blue and white-green cards, and colorless sources, are shown separately.",
+        "colors": {
+          "W": {
+            "status": "documented",
+            "card_ids": [
+              "4c81cfb7-8765-4e28-ae33-4287fa9a86cc",
+              "543af1f4-f93f-4c7f-a067-ad2db599a4ae",
+              "d33b3591-c01f-4ac4-8626-7cbfdabaf90d",
+              "a1160b8d-c4e4-4869-b7a5-c6a826eb1ba4",
+              "8ddbe82b-7fc9-4b2c-85de-dc747adbb3ca",
+              "1c6c1604-0724-40b1-9df6-71e57e5063c9",
+              "5d7747b4-061d-4459-ba80-51361526cbfa",
+              "a8563a4f-a23b-4cb5-b6e5-795bf8d74ee6",
+              "7160ebce-ee3f-42ac-a3f7-b55f17f2c49f",
+              "b06db20f-84c4-4e2e-a184-3cd70ea0d10d",
+              "73b70a48-b62c-4fdf-9c2d-c6d6688f9ac8",
+              "6d8e1a97-67bf-4260-888c-c10c498b98d8",
+              "8161f5b8-6aab-4133-ba2c-2e7b5774153e",
+              "99dd6f15-855f-431f-a3c8-31f1421af88f",
+              "5556a897-8947-4b78-81ce-a829508a4f11",
+              "75decba6-d188-4144-8e74-58285be0fe9f",
+              "a00cb1fa-a196-4403-9008-532dbd15769e",
+              "a2dabd52-0b75-42d7-a07d-0df7b38646e2",
+              "2b7c9fe0-5a23-4172-b31f-b0d85cd465f6",
+              "68dfc626-66d5-4a40-9410-2b15676ebcec",
+              "19f7a0f2-aa3f-4253-be44-b08056918a26",
+              "977f0d8d-4359-44ae-8f22-2103ea909c40",
+              "ad5d27ea-cead-4c95-8561-283855ce952e",
+              "cef37acf-ee97-48bf-a605-b17efcce5ce8",
+              "9eb274f3-ef55-4545-81b4-29454a48f075",
+              "0f1c14c5-7a28-47b0-a603-33cc592b00ad",
+              "20fa17d4-9c3e-470b-9993-a4a2799e33d1"
+            ],
+            "note": "Benalish Hero and Mesa Pegasus have Banding. Cooperation also grants Banding to a creature for the turn."
+          },
+          "U": {
+            "status": "multicolor_only",
+            "card_ids": [
+              "35e4ed0e-8ce2-4729-a009-0d6be8f47663"
+            ],
+            "note": "The reviewed blue examples are multicolor cards: Ayesha Tanaka. They are listed under combinations; no single-color blue example was found in this scope."
+          },
+          "B": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No black example was found in the reviewed paper cards."
+          },
+          "R": {
+            "status": "documented",
+            "card_ids": [
+              "0887dc95-3e75-4f72-bf05-4067d3785376"
+            ],
+            "note": "Nalathni Dragon has Banding, providing a red example."
+          },
+          "G": {
+            "status": "documented",
+            "card_ids": [
+              "35d07ac9-b184-4b5f-8192-34b1db042f69",
+              "7d72a2f4-cce6-4a2b-9507-0ee1c3e1e4ae"
+            ],
+            "note": "Timber Wolves has Banding. Dire Wolves has it while you control a Plains."
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "W",
+              "U"
+            ],
+            "card_ids": [
+              "35e4ed0e-8ce2-4729-a009-0d6be8f47663"
+            ],
+            "note": "Ayesha Tanaka provides a white-blue example. This card documents this combination, not separate single-color sources."
+          },
+          {
+            "colors": [
+              "W",
+              "G"
+            ],
+            "card_ids": [
+              "ae0f65b4-3814-45fe-a869-8585f6869278"
+            ],
+            "note": "Nature's Blessing provides a white-green example. This card documents this combination, not separate single-color sources."
+          }
+        ],
+        "colorless": {
+          "status": "documented",
+          "card_ids": [
+            "18b1f96f-de35-4f0a-8b0e-81576471fd15",
+            "530514d9-7274-4835-a4b5-6dccef4da758",
+            "879011c6-550e-4e33-a664-fffb655321d9",
+            "e7b91fba-8d96-4040-95e8-f0023b65c497",
+            "948e3bb7-8265-4e95-acd1-a0c4f22441df",
+            "1cfeb5c4-a2d0-4872-a907-a6d484be85a5",
+            "bf6ea878-044b-40a8-a21b-0191a948a69a"
+          ],
+          "note": "Helm of Chatzuk and Baton of Morale grant Banding. These colorless artifacts do not establish a source in every color that can receive their effects."
+        },
+        "limitations": [
+          "Access describes the colors of the reviewed cards or mechanic-bearing faces, not Commander deck legality. Multicolor cards and colorless grants do not establish separate single-color sources."
+        ]
+      },
       "population_summary": {
         "scoped_totals": {
           "candidate_union": 45,
@@ -10411,6 +10602,74 @@
           }
         }
       ],
+      "access_review": {
+        "version": "2.0",
+        "review_date": "2026-10-28",
+        "scope_label": "Released paper cards",
+        "scope": "The Bargain keyword: sacrificing an artifact, enchantment or token as an optional additional casting cost.",
+        "summary": "Reviewed spells in all five colors use Bargain. Their additional sacrifice cost changes the spell's effect or mana cost.",
+        "colors": {
+          "W": {
+            "status": "documented",
+            "card_ids": [
+              "bc5631ae-494e-4987-8d17-57674bfbdb9f",
+              "4b803bf2-025a-4bf6-9d3c-a28d714b4781"
+            ],
+            "note": "Archon's Glory adds flying and lifelink if bargained; Kellan's Lightblades upgrades its removal effect."
+          },
+          "U": {
+            "status": "documented",
+            "card_ids": [
+              "c2283655-f6b8-4399-ba1f-68a7107f9485",
+              "7de66ba3-6e97-4e0a-928e-7ce45dee278b",
+              "fed3bc35-4269-48f0-9133-a595ce49c2d1",
+              "c7b235e1-746e-4467-be54-4e11e2bf6362",
+              "b07bf08b-d9ec-429f-be6d-a7afa27c60c4"
+            ],
+            "note": "Ice Out and Johann's Stopgap cost less if bargained."
+          },
+          "B": {
+            "status": "documented",
+            "card_ids": [
+              "ee3d21b9-58b4-480c-bae3-26de50f1a5c6",
+              "cbbe535b-12d6-4e6c-8b26-9220f06a1604",
+              "9588a7fd-bbe5-4a81-9a7e-d8e8f6c0537d",
+              "90ecd452-333a-43b0-be08-a61f3779b3bd",
+              "f60234e4-9b53-47a5-a21a-82c80b5af072"
+            ],
+            "note": "Candy Grapple strengthens its toughness reduction if bargained, while Back for Seconds can put a returned creature onto the battlefield."
+          },
+          "R": {
+            "status": "documented",
+            "card_ids": [
+              "50ace222-57f1-477f-9e06-155d7b403512",
+              "1322734c-3c3e-4885-a6d2-d6460a16fca2",
+              "10d33e95-3e5d-447e-ba4a-acd3c33b4045"
+            ],
+            "note": "Torch the Tower upgrades its damage effect if bargained. Realm-Scorcher Hellkite adds mana when it enters if it was bargained."
+          },
+          "G": {
+            "status": "documented",
+            "card_ids": [
+              "debdfab7-454f-4fec-9ee8-aa5b570ea7fb",
+              "49d189dd-9ce7-434f-931b-7110cd5255e7",
+              "aa1b7cdd-0296-418c-ac3b-7ad3c51f1760",
+              "07995092-af6c-43b8-b30b-17e020ead37c",
+              "16cdba97-73cf-44ba-9d64-f27009b829f8"
+            ],
+            "note": "Brave the Wilds adds land animation if bargained, while Hamlet Glutton costs less."
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "not_found",
+          "card_ids": [],
+          "note": "No colorless example was found in the reviewed scope."
+        },
+        "limitations": [
+          "Access describes the colors of the reviewed cards or mechanic-bearing faces, not Commander deck legality. Multicolor cards and colorless grants do not establish separate single-color sources."
+        ]
+      },
       "population_summary": {
         "scoped_totals": {
           "candidate_union": 25,
@@ -15304,6 +15563,146 @@
           }
         }
       ],
+      "access_review": {
+        "version": "2.0",
+        "review_date": "2026-10-28",
+        "scope_label": "Released paper cards",
+        "scope": "Discard the card and pay its basic landcycling cost to search for a basic land card, reveal it, put it into your hand, then shuffle.",
+        "summary": "The reviewed cards offer Basic landcycling in every color. Ash Barrens is a separate colorless land example; the ability is an alternative to using the card normally.",
+        "colors": {
+          "W": {
+            "status": "documented",
+            "card_ids": [
+              "6effbf59-3933-4a77-9a6a-fd3bedf45c26",
+              "223db021-979f-4312-8cb5-169ae4bf17bc",
+              "c4c0a391-4549-4041-bc6d-09f8b756868e",
+              "158823ed-6015-437a-82b0-8dadb1e9aab2",
+              "144bef8b-3583-4e98-9285-a1965e7e17f8"
+            ],
+            "note": "Gleam of Resistance and Landscaper Colos can be discarded for their basic landcycling cost to find a basic land."
+          },
+          "U": {
+            "status": "documented",
+            "card_ids": [
+              "fa732888-5b7d-4087-a6e5-1db1c98fbd4c",
+              "99eff6e9-5911-4f89-bad1-0888067a7783",
+              "94e71162-7c9d-46f4-90e8-413a1b08a198",
+              "36ab41b7-bcfb-4618-bbfb-70d608dba15a",
+              "a30724f0-d174-408e-8baf-4bba3cbc45b5",
+              "77b684b8-227b-40de-80b4-15d0e70914f4"
+            ],
+            "note": "Traumatic Visions and Mental Journey offer basic landcycling alongside a counterspell and a draw spell."
+          },
+          "B": {
+            "status": "documented",
+            "card_ids": [
+              "04ea7e88-7ea5-4b4c-9a7c-2a6ac0bc0682",
+              "253d0cf7-65d3-4f13-aaf2-aae5bb60ac46",
+              "05a1e1ee-67f0-4158-a012-01612bc9cc70",
+              "b92c2da9-eaa4-404b-8114-5527eec6390e",
+              "de6e0f80-3a9e-4499-aec1-2513a0264538"
+            ],
+            "note": "Absorb Vis and World-Weary can be discarded for their basic landcycling cost to find a basic land."
+          },
+          "R": {
+            "status": "documented",
+            "card_ids": [
+              "e729fce5-a1cf-4e95-9fd5-fccf4f704d31",
+              "09b4fba6-d943-49e4-9f9e-a74fcbabe83f",
+              "f014b1a1-20ef-475c-bf83-f1a82e68ab97",
+              "3c2b9bb2-8201-47e8-84d5-f3518cac03cb",
+              "d18ca75c-3572-4851-9580-27bafe10edd6",
+              "5ee9940a-0569-45b6-b28c-0ef3914013a9"
+            ],
+            "note": "Fiery Fall and Battle Plan offer basic landcycling alongside damage and combat-support effects."
+          },
+          "G": {
+            "status": "documented",
+            "card_ids": [
+              "c2f7f39b-0569-4c32-bdbf-7fb0a0efd5cf",
+              "c6906032-e08b-478f-bc71-cb1184f60bad",
+              "6e21ebdf-b97c-494e-a1d5-19db1b7d3016",
+              "c20635d2-20e9-48f7-88f0-6de0f953bb08",
+              "efddf972-94c4-49d1-a844-b4aba70c93aa",
+              "b5918fb0-c33f-4e33-ac6d-8f94723d4296"
+            ],
+            "note": "Sylvan Bounty and Orchard Strider can be discarded for their basic landcycling cost to find a basic land."
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "U",
+              "B"
+            ],
+            "card_ids": [
+              "46db3dc2-9eb1-4be3-96f9-0013119fcd97"
+            ],
+            "note": "Ancient Excavation provides a blue-black example. This card documents this combination, not separate single-color sources."
+          },
+          {
+            "colors": [
+              "B",
+              "R"
+            ],
+            "card_ids": [
+              "e5b43523-809a-4baf-b76d-9f59b82846b6"
+            ],
+            "note": "Grave Upheaval provides a black-red example. This card documents this combination, not separate single-color sources."
+          },
+          {
+            "colors": [
+              "U",
+              "G"
+            ],
+            "card_ids": [
+              "cb2c8ea9-c125-4742-a562-b693254152e5"
+            ],
+            "note": "Lunar Hatchling provides a blue-green example. This card documents this combination, not separate single-color sources."
+          },
+          {
+            "colors": [
+              "W",
+              "U"
+            ],
+            "card_ids": [
+              "f6a74582-62b6-48d1-89d6-e26059229840"
+            ],
+            "note": "Migratory Route provides a white-blue example. This card documents this combination, not separate single-color sources."
+          },
+          {
+            "colors": [
+              "W",
+              "G"
+            ],
+            "card_ids": [
+              "aeec8e85-6571-4da6-8a48-f5d3985ca10b"
+            ],
+            "note": "Sylvan Reclamation provides a white-green example. This card documents this combination, not separate single-color sources."
+          },
+          {
+            "colors": [
+              "R",
+              "G"
+            ],
+            "card_ids": [
+              "eced76b8-b29a-4c89-b77a-cbae99f56cb7"
+            ],
+            "note": "Treacherous Terrain provides a red-green example. This card documents this combination, not separate single-color sources."
+          }
+        ],
+        "colorless": {
+          "status": "documented",
+          "card_ids": [
+            "58257464-278e-45fa-8e0b-bcd9a7500bc1",
+            "823afa57-faac-4a43-a403-c1bb0446d594"
+          ],
+          "note": "Ash Barrens is a colorless land with basic landcycling. Shardless Outlander is another colorless example."
+        },
+        "limitations": [
+          "Access describes the colors of the reviewed cards or mechanic-bearing faces, not Commander deck legality. Multicolor cards and colorless grants do not establish separate single-color sources."
+        ]
+      },
       "population_summary": {
         "scoped_totals": {
           "candidate_union": 42,
@@ -18036,6 +18435,82 @@
           }
         }
       ],
+      "access_review": {
+        "version": "2.0",
+        "review_date": "2026-10-28",
+        "scope_label": "Released paper cards",
+        "scope": "The named ability word for attacking with this creature and at least two others.",
+        "summary": "White and red examples use Battalion to reward attacking with the creature and at least two others. White-red cards supply additional combination examples.",
+        "colors": {
+          "W": {
+            "status": "documented",
+            "card_ids": [
+              "7c83fb45-03af-4f1a-b7e3-2c4f47511658",
+              "bcbaef07-1d5b-457b-b373-77d3a2884b39",
+              "e9566303-15cf-4444-a044-fc19540f21b6",
+              "f15a202d-c1c4-49bd-924a-7a0a5667ff70",
+              "46399b09-1b5c-4c28-9134-cc2ed573b6aa",
+              "36a3c910-95b8-45a2-9f84-5681336d868c",
+              "57ffb558-3a1c-43ea-a79c-bcfacad22ca4",
+              "8b6e2feb-9e8f-4912-ada0-1614502d9813",
+              "affdf41e-c851-4f5d-bd3a-7ca7ada4416a"
+            ],
+            "note": "Boros Elite gets a combat bonus, Daring Skyjek gains flying, and Frontline Medic grants indestructible to your creatures when their Battalion abilities trigger."
+          },
+          "U": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No blue example was found in the reviewed paper cards."
+          },
+          "B": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No black example was found in the reviewed paper cards."
+          },
+          "R": {
+            "status": "documented",
+            "card_ids": [
+              "a429c351-d281-4e49-8564-bd96bdf5c41b",
+              "a017ab43-7d73-441a-8931-2a038306083f",
+              "560a5452-0dc3-421d-bf16-8843a35dae6f",
+              "76a416fa-d97b-4c24-af41-b2382f1fd546",
+              "9e32750a-8e5f-4d81-92a8-c3d4ea1477fd"
+            ],
+            "note": "Bomber Corps deals damage, Firefist Striker stops a creature from blocking, and Legion Loyalist grants combat abilities when their Battalion abilities trigger."
+          },
+          "G": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No green example was found in the reviewed paper cards."
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "W",
+              "R"
+            ],
+            "card_ids": [
+              "30b20932-0d9a-447f-b934-1daa8c44a678",
+              "7ea71a36-8fa8-4ba3-9cb1-7fc6917c3ddd",
+              "119af12a-b767-4408-9bb5-72a6d0ec63d1",
+              "3cfea32e-6b52-441b-90aa-d8a137997297",
+              "b368b1bd-3273-40a9-8102-27501f4d0e15",
+              "8951d797-6356-4f27-a6de-e013216274d6",
+              "96d6a400-f1bc-40f8-91ef-1d3cb96926f1"
+            ],
+            "note": "Boros Strike-Captain, Firemane Avenger, Ordruun Veteran, Paladin Elizabeth Taggerdy, Sentinel Sarah Lyons, Tajic, Blade of the Legion, Wojek Halberdiers provide white-red examples. These cards document this combination, not separate single-color sources."
+          }
+        ],
+        "colorless": {
+          "status": "not_found",
+          "card_ids": [],
+          "note": "No colorless example was found in the reviewed scope."
+        },
+        "limitations": [
+          "Access describes the colors of the reviewed cards or mechanic-bearing faces, not Commander deck legality. Multicolor cards and colorless grants do not establish separate single-color sources."
+        ]
+      },
       "population_summary": {
         "scoped_totals": {
           "candidate_union": 23,
@@ -20183,6 +20658,79 @@
           }
         }
       ],
+      "access_review": {
+        "version": "2.0",
+        "review_date": "2026-10-28",
+        "scope_label": "Released paper cards",
+        "scope": "The Battle Cry keyword gives each other attacking creature +1/+0.",
+        "summary": "The reviewed cards show Battle Cry in white and red, on white-black cards and on a colorless creature. The attacking creature boosts each other attacking creature.",
+        "colors": {
+          "W": {
+            "status": "documented",
+            "card_ids": [
+              "6891c8b7-7112-40dc-8b94-b84ad1885e5e",
+              "454a8902-8120-4373-96ee-bbf352b04e8d",
+              "9d2bfbb2-84df-4d7c-9989-7f5577f90d97",
+              "a681c6ea-b10a-4061-abf4-7b45e06ccebd",
+              "a70d9645-7c25-4fcb-9d16-fb73ce8b55e2"
+            ],
+            "note": "Accorder Paladin and Hero of Bladehold have Battle Cry, giving each other attacking creature +1/+0 for the turn."
+          },
+          "U": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No blue example was found in the reviewed paper cards."
+          },
+          "B": {
+            "status": "multicolor_only",
+            "card_ids": [
+              "bd024849-3005-4509-ad83-65a9bcf956ac",
+              "785f55bb-d47c-470c-94d4-95f69055e35f"
+            ],
+            "note": "The reviewed black examples are multicolor cards: Primaris Chaplain, Ria Ivor, Bane of Bladehold. They are listed under combinations; no single-color black example was found in this scope."
+          },
+          "R": {
+            "status": "documented",
+            "card_ids": [
+              "10849bbb-50ca-4194-a7cb-fa872272b29b",
+              "f18799c4-ec54-4435-be51-03ea25809289",
+              "52925539-423a-42ec-91b9-0d39e7df565c",
+              "dff72513-b67a-4732-a8fc-269cbf21ae99",
+              "86f7d513-1f5f-4551-83e6-56d24da5ab39",
+              "65c35934-796c-4495-a6b5-eea654dfcd55"
+            ],
+            "note": "Goblin Wardriver and Hero of Oxid Ridge have Battle Cry, giving each other attacking creature +1/+0 for the turn."
+          },
+          "G": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No green example was found in the reviewed paper cards."
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "W",
+              "B"
+            ],
+            "card_ids": [
+              "bd024849-3005-4509-ad83-65a9bcf956ac",
+              "785f55bb-d47c-470c-94d4-95f69055e35f"
+            ],
+            "note": "Primaris Chaplain, Ria Ivor, Bane of Bladehold provide white-black examples. These cards document this combination, not separate single-color sources."
+          }
+        ],
+        "colorless": {
+          "status": "documented",
+          "card_ids": [
+            "724f3d2f-0513-4efd-961f-56a7ea7b5731"
+          ],
+          "note": "Signal Pest is a colorless creature with Battle Cry."
+        },
+        "limitations": [
+          "Access describes the colors of the reviewed cards or mechanic-bearing faces, not Commander deck legality. Multicolor cards and colorless grants do not establish separate single-color sources."
+        ]
+      },
       "population_summary": {
         "scoped_totals": {
           "candidate_union": 18,
@@ -22942,6 +23490,78 @@
           }
         }
       ],
+      "access_review": {
+        "version": "2.0",
+        "review_date": "2026-10-28",
+        "scope_label": "Released paper cards",
+        "scope": "Behold chooses a matching permanent you control or reveals a matching card from your hand; each card specifies the required quality.",
+        "summary": "The reviewed cards use Behold in all five colors. Each card specifies the quality of the permanent to choose or the card to reveal.",
+        "colors": {
+          "W": {
+            "status": "documented",
+            "card_ids": [
+              "4a220e0c-e463-4264-9a96-658cf842b82e",
+              "e1e82283-01ec-447f-b0d4-5bd4619ab3d8",
+              "845d80ee-1cd5-437a-90a5-40dcc657d3aa",
+              "8d84a706-080c-4fb2-b1b9-3dbb3294fb7b"
+            ],
+            "note": "Kinsbaile Aspirant uses Behold with a Kithkin to avoid an additional cost; Champion of the Clachan uses it in an exile-and-return ability."
+          },
+          "U": {
+            "status": "documented",
+            "card_ids": [
+              "fc76ec95-f001-44df-89b2-b0f1b10c8e11",
+              "fc3353e9-fe24-4ca7-bff8-9da767f2903a",
+              "dd3a4b64-0987-4e9b-a18d-c54365438857",
+              "dcf07f38-422f-46c3-aee9-50540b9c9115"
+            ],
+            "note": "Silvergill Mentor and Champions of the Shoal use Behold with Merfolk. Dispelling Exhale uses it with a Dragon to strengthen its counterspell effect."
+          },
+          "B": {
+            "status": "documented",
+            "card_ids": [
+              "c4023e1f-26e3-4225-98d0-3d33f6654616",
+              "1726f9cd-6f18-4509-b95b-bca82ba795a4",
+              "b63e5518-61f3-4cde-a799-5f3ee6aba70b"
+            ],
+            "note": "Mudbutton Cursetosser and Champion of the Weird use Behold with Goblins. Caustic Exhale uses a Dragon to avoid an additional cost."
+          },
+          "R": {
+            "status": "documented",
+            "card_ids": [
+              "b326ccd5-8ad2-441c-9d73-82ee6390dd36",
+              "c7ca6371-73bb-4717-a148-0804b8f4c1e6",
+              "82aa1402-4b1c-4343-aba5-dd3271cc1ac5",
+              "71cb48e2-2328-471c-a04a-7b6461f378f4",
+              "762679dd-4345-43c3-929b-15959443aeb0"
+            ],
+            "note": "Soulbright Seeker and Champion of the Path use Behold with Elementals. Kindle the Inner Flame includes Behold in its flashback cost."
+          },
+          "G": {
+            "status": "documented",
+            "card_ids": [
+              "ba0a815c-1dfe-47c1-890f-496c670124f3",
+              "9cb7f23f-322d-4a87-b6c6-15b9d446aef3",
+              "e377059d-a918-462f-920a-6b062bd5fcfd",
+              "ce7582a2-e014-41fb-8753-00d29cffc81a",
+              "ea96fe35-88ed-432b-a495-08e787d23d0b"
+            ],
+            "note": "Lys Alana Dignitary uses Behold with an Elf as an additional casting cost. Its mana ability has a separate graveyard condition; Behold does not produce that mana."
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "documented",
+          "card_ids": [
+            "97a2cd39-6b54-496b-b3ac-dab9dfed7edc",
+            "37513bd8-7303-4ac6-a7a7-224184faf758"
+          ],
+          "note": "Elven Passage and Theorist's Sanctum are colorless land examples; their mana abilities do not make them colored cards."
+        },
+        "limitations": [
+          "Access describes the colors of the reviewed cards or mechanic-bearing faces, not Commander deck legality. Multicolor cards and colorless grants do not establish separate single-color sources."
+        ]
+      },
       "population_summary": {
         "scoped_totals": {
           "candidate_union": 26,
@@ -27149,6 +27769,120 @@
           }
         }
       ],
+      "access_review": {
+        "version": "2.0",
+        "review_date": "2026-10-28",
+        "scope_label": "Released paper cards",
+        "scope": "Bestow lets an enchantment creature be cast as an Aura and become a creature again when it is no longer attached.",
+        "summary": "The reviewed enchantment creatures have Bestow in every color. They can be cast as Auras, with different bonuses for the enchanted creature.",
+        "colors": {
+          "W": {
+            "status": "documented",
+            "card_ids": [
+              "d2b29bb0-9fb5-46cd-a546-fa6c4ff6113c",
+              "441b51b0-ecd0-466d-9ca8-e754eb563aec",
+              "78a1f291-22ed-41f1-87fd-0bdc97f9c065",
+              "288ea954-a880-4731-8fe7-93d2ff6a043f",
+              "182c9af9-d867-4848-ab36-ac7b1914f41a",
+              "13c1ca1e-cd17-49ef-bc31-97bff99ec1e3",
+              "c4c0a622-7325-4024-8b2e-6335f9a729e9",
+              "a1012f33-7ebd-47c6-b670-1b0dc046fbce",
+              "b9304d88-a1de-4300-9425-50350969bd70",
+              "0eb0c9d2-bc5a-4ba3-bd83-57af1da51c3b",
+              "0f7d76a9-3f47-4cfa-882b-1790256d15b2"
+            ],
+            "note": "Hopeful Eidolon grants lifelink and Observant Alseid grants vigilance when attached as Auras."
+          },
+          "U": {
+            "status": "documented",
+            "card_ids": [
+              "77661282-1c98-4f70-b617-c75633ab04c8",
+              "4280191f-e2cb-4cee-a3b4-660b3efd62e9",
+              "54aede54-4f7d-40f5-bad0-2448293e2cf0",
+              "1b3b14b9-088d-48df-8d21-54ee68989ac0",
+              "cdd37bbf-09db-4c1f-9947-312de48a0f4c",
+              "fcb97d06-e0b8-4a13-ab7c-1304ccb7ace2",
+              "d2309fba-4273-4084-b206-642a43975c34"
+            ],
+            "note": "Nimbus Naiad grants flying, while Thassa's Emissary rewards combat damage with card draw."
+          },
+          "B": {
+            "status": "documented",
+            "card_ids": [
+              "0930a976-f69e-44a8-8b19-72095f20ed13",
+              "6ead91e1-4062-4080-bbc7-a4b62f8c6111",
+              "dc39c52b-9bee-4cec-a970-1867314944ef",
+              "1ef73cc0-fe72-4040-a932-bcd4b1a704a3",
+              "3c04aeda-ae09-4162-ab51-983e29d21225",
+              "57b3f7fc-1812-4134-a645-6cef48a8aa71",
+              "bd7fd82f-154a-4001-bb8f-7fb50ac77b6b",
+              "e7e60afe-5ddf-406b-86e1-e82e2a660432"
+            ],
+            "note": "Baleful Eidolon grants deathtouch and Herald of Torment grants flying when attached as Auras."
+          },
+          "R": {
+            "status": "documented",
+            "card_ids": [
+              "52c3fe55-74ee-44cb-b62b-dc6c5dfdc33e",
+              "2c6b2f4a-4e0e-4dc1-92a8-c07e5cbba5f4",
+              "bb87917f-33fb-4024-9317-0992c2f8f55e",
+              "ebf2974a-963e-425a-8f8c-55f0a36984c3",
+              "d78d7fd6-778b-4030-a776-29ddce83e33f",
+              "2fa7bb26-18eb-4ff0-8558-f6f3981a84ce"
+            ],
+            "note": "Spearpoint Oread grants first strike, while Everflame Eidolon grants a power-boosting activated ability."
+          },
+          "G": {
+            "status": "documented",
+            "card_ids": [
+              "aedcd2fb-813a-4915-b7b9-ac7479863462",
+              "01914751-af8e-4aea-a254-6fa4f9fd3457",
+              "d549abd0-fea5-417f-93f9-255cb87ec989",
+              "ec30e221-ffc8-4867-ba9c-f39712b3aa93",
+              "4d1b655f-05b8-4b82-9cb9-67660f570a9b",
+              "3fa11a6a-a760-45db-8341-f83a0f69c17f",
+              "de0edcc8-1595-4dbb-ac8a-46dcd96299cb",
+              "8a3ad2ef-8bcb-40c0-85de-f03328c2b644",
+              "5bca05c1-1c0a-45f4-aa20-69f68b99cd7e"
+            ],
+            "note": "Leafcrown Dryad grants reach, while Springheart Nantuko grants a landfall ability when attached as an Aura."
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "W",
+              "U",
+              "B",
+              "R",
+              "G"
+            ],
+            "card_ids": [
+              "695ee4fe-356d-47fb-9442-d171b618151c"
+            ],
+            "note": "Chromanticore provides a white-blue-black-red-green example. This card documents this combination, not separate single-color sources."
+          },
+          {
+            "colors": [
+              "W",
+              "U",
+              "G"
+            ],
+            "card_ids": [
+              "21620bfc-8ef0-4e43-b675-d0bbad86e83d"
+            ],
+            "note": "Kestia, the Cultivator provides a white-blue-green example. This card documents this combination, not separate single-color sources."
+          }
+        ],
+        "colorless": {
+          "status": "not_found",
+          "card_ids": [],
+          "note": "No colorless example was found in the reviewed scope."
+        },
+        "limitations": [
+          "Access describes the colors of the reviewed cards or mechanic-bearing faces, not Commander deck legality. Multicolor cards and colorless grants do not establish separate single-color sources."
+        ]
+      },
       "population_summary": {
         "scoped_totals": {
           "candidate_union": 43,
@@ -30527,6 +31261,113 @@
           }
         }
       ],
+      "access_review": {
+        "version": "2.0",
+        "review_date": "2026-10-28",
+        "scope_label": "Released paper cards",
+        "scope": "The Blight action puts -1/-1 counters on a creature controlled by the player who blights.",
+        "summary": "The reviewed white, blue, black and red cards use Blight. Green appears in multicolor examples, which are listed as combinations.",
+        "colors": {
+          "W": {
+            "status": "documented",
+            "card_ids": [
+              "b5bc4adf-9105-4901-989c-63612314af5c",
+              "5ea1d89c-8650-4373-9835-e369587020ef",
+              "d8599f06-f030-4575-8497-307a4d7ec182"
+            ],
+            "note": "The reviewed white cards use Blight to exile an enchanted creature, return an Aura from the graveyard, or choose both modes of a spell. These examples establish white access."
+          },
+          "U": {
+            "status": "documented",
+            "card_ids": [
+              "dd1a4219-437b-494f-ae0e-1d3181ffcd63"
+            ],
+            "note": "Wild Unraveling counters a spell and requires either blight 2 or an extra {1} as an additional casting cost. This supplies a blue example."
+          },
+          "B": {
+            "status": "documented",
+            "card_ids": [
+              "a294968e-9a7f-4d66-bde0-e775ae5f8197",
+              "ac65ed8c-abe8-4044-9ce5-70b1370d0e19",
+              "21695c70-f746-4d77-b6d3-e2713a5c929e",
+              "1726f9cd-6f18-4509-b95b-bca82ba795a4",
+              "2cabf7a4-17af-45c7-b314-a84f5dc0d070",
+              "f852bc33-e2f8-43be-9e6e-7badd1f894ef",
+              "c7e4bc5d-e1d9-4fbc-8d53-0cec73086828",
+              "322c1c8f-ef8a-4a9f-b9ce-927720bad1d6",
+              "eda16b31-33db-4ad2-901a-80fbe6273733",
+              "fcd2142e-ba84-4693-9b29-ecc43feba2b8"
+            ],
+            "note": "Blighted Blackthorn uses Blight for cards, Dawnhand Dissident uses it in activated abilities, and Bogslither's Embrace uses it in removal."
+          },
+          "R": {
+            "status": "documented",
+            "card_ids": [
+              "7f420633-901d-47f9-ae0f-0f5b0ea8359c",
+              "54421e69-d79e-4c2e-8ce6-96994d168835",
+              "b7163800-41fc-410a-9650-50ae90842170",
+              "180286e4-67fa-44d5-9e90-4a4e99c016a7",
+              "af38d683-77a3-4599-ad2a-1c293ae01d45",
+              "6b087ae1-1412-4dd9-9b96-3b45be52d386",
+              "945a4a4d-fdfd-4c39-9975-5b22d17a4e70",
+              "20c3c8ab-e996-462e-a1f6-87421fc3ee55",
+              "338747e8-bed8-4e60-8b19-5c2b80799477"
+            ],
+            "note": "Gristle Glutton uses Blight in an ability that discards a card, then draws a card. Scuzzback Scrounger uses it to make Treasure, and Cinder Strike uses it to strengthen removal."
+          },
+          "G": {
+            "status": "multicolor_only",
+            "card_ids": [
+              "e3cd53c1-86bd-4177-adb0-a1fa693b44c6",
+              "dd27c5fa-4355-4e5c-8219-b74cfe209da0"
+            ],
+            "note": "The reviewed green examples are multicolor cards: Auntie Ool, Cursewretch, High Perfect Morcant. They are listed under combinations; no single-color green example was found in this scope."
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "B",
+              "R",
+              "G"
+            ],
+            "card_ids": [
+              "e3cd53c1-86bd-4177-adb0-a1fa693b44c6"
+            ],
+            "note": "Auntie Ool, Cursewretch provides a black-red-green example. This card documents this combination, not separate single-color sources."
+          },
+          {
+            "colors": [
+              "B",
+              "R"
+            ],
+            "card_ids": [
+              "77217a66-4ba8-443f-b915-178cfcc233e1",
+              "86bd332f-ba61-49a4-ad31-de4d7e3638c6"
+            ],
+            "note": "Chaos Spewer, Shadow Urchin provide black-red examples. These cards document this combination, not separate single-color sources."
+          },
+          {
+            "colors": [
+              "B",
+              "G"
+            ],
+            "card_ids": [
+              "dd27c5fa-4355-4e5c-8219-b74cfe209da0"
+            ],
+            "note": "High Perfect Morcant provides a black-green example. This card documents this combination, not separate single-color sources."
+          }
+        ],
+        "colorless": {
+          "status": "not_found",
+          "card_ids": [],
+          "note": "No colorless example was found in the reviewed scope."
+        },
+        "limitations": [
+          "Access describes the colors of the reviewed cards or mechanic-bearing faces, not Commander deck legality. Multicolor cards and colorless grants do not establish separate single-color sources.",
+          "Blight counters and similarly named cards are separate. The Blight ability on Grub belongs to its red back face."
+        ]
+      },
       "population_summary": {
         "scoped_totals": {
           "candidate_union": 32,

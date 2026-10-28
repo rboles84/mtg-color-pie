@@ -2294,6 +2294,81 @@
           }
         }
       ],
+      "access_review": {
+        "version": "2.0",
+        "review_date": "2026-10-28",
+        "scope_label": "Released paper cards",
+        "scope": "Blitz is an alternative casting cost that gives the creature haste and a card-draw death trigger, then sacrifices it at the next end step.",
+        "summary": "The reviewed cards show Blitz in black, red and green. The alternative cost gives haste and a death-triggered card draw, with a sacrifice at the next end step.",
+        "colors": {
+          "W": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No white example was found in the reviewed paper cards."
+          },
+          "U": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No blue example was found in the reviewed paper cards."
+          },
+          "B": {
+            "status": "documented",
+            "card_ids": [
+              "655961a3-94b5-4600-b9f1-f93163d03a49",
+              "4d2abfe1-f5f8-4ed5-915d-bfe98c6321ee",
+              "598e3ed2-659f-4400-b41d-3aee8068fba6",
+              "ccb0f59b-7947-4563-9e16-5d23246f4232"
+            ],
+            "note": "Girder Goons leaves a token when it dies; Tenacious Underdog can be cast from the graveyard for its Blitz cost."
+          },
+          "R": {
+            "status": "documented",
+            "card_ids": [
+              "764121bf-535d-40d0-ab9d-65486da31734",
+              "f77a9160-1d37-476d-8908-29ddcc982328",
+              "068699a9-dd5c-428b-96eb-fd085dda71e9",
+              "dedf0d3a-090a-4cc3-b5ee-65b6cb990b72",
+              "7c22e6ba-5570-460b-962e-b7c0fbb3f394",
+              "469f25de-c180-47e9-9b1b-e23269139bbd",
+              "7234bbf8-b962-4515-bedf-68d111c6137e",
+              "fb03befb-b4e4-4ae9-908d-a16d5b03b054"
+            ],
+            "note": "Mayhem Patrol and Plasma Jockey can attack immediately with Blitz. Riveteers Requisitioner leaves Treasure when it dies."
+          },
+          "G": {
+            "status": "documented",
+            "card_ids": [
+              "fd55d686-510e-4b6c-b8eb-458ee7c19fff",
+              "e0e6938b-7abf-4f69-a3d6-82a58912bff4",
+              "1c4918e6-3810-458e-a11b-949bbc43e7cc",
+              "0695af85-7405-4512-bb97-42517a532ada"
+            ],
+            "note": "Caldaia Strongarm adds counters when it enters, while Workshop Warchief leaves a Rhino token when it dies; both have Blitz."
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "B",
+              "R",
+              "G"
+            ],
+            "card_ids": [
+              "93fe1d5b-3ab3-431a-9d78-175550ba9d43",
+              "5320f5a6-8066-47d4-aa0a-4c879f39d413"
+            ],
+            "note": "Ziatora's Envoy, Henzie \"Toolbox\" Torre provide black-red-green examples. These cards document this combination, not separate single-color sources."
+          }
+        ],
+        "colorless": {
+          "status": "not_found",
+          "card_ids": [],
+          "note": "No colorless example was found in the reviewed scope."
+        },
+        "limitations": [
+          "Access describes the colors of the reviewed cards or mechanic-bearing faces, not Commander deck legality. Multicolor cards and colorless grants do not establish separate single-color sources."
+        ]
+      },
       "population_summary": {
         "scoped_totals": {
           "candidate_union": 22,
@@ -4133,6 +4208,74 @@
           }
         }
       ],
+      "access_review": {
+        "version": "2.0",
+        "review_date": "2026-10-28",
+        "scope_label": "Released paper cards",
+        "scope": "Bloodrush turns a creature card in hand into an activated bonus for an attacking creature.",
+        "summary": "The reviewed red and green cards have Bloodrush abilities that are activated from hand to help an attacking creature.",
+        "colors": {
+          "W": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No white example was found in the reviewed paper cards."
+          },
+          "U": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No blue example was found in the reviewed paper cards."
+          },
+          "B": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No black example was found in the reviewed paper cards."
+          },
+          "R": {
+            "status": "documented",
+            "card_ids": [
+              "a1e71473-3eba-4d29-87e2-7f14acab2ccd",
+              "185db9c7-3936-473c-9220-ae255527aaf9",
+              "566d6fcd-dd50-4135-a912-ec923fc433df",
+              "2e1d5873-50e6-432a-b7a9-9f8d2632a0b9",
+              "1e49f33b-84c0-4b68-abd4-e8c00b3ce98f",
+              "85d03947-a39a-4f4f-97c3-6d1094c9248e"
+            ],
+            "note": "Skinbrand Goblin gives an attacking creature a power-and-toughness bonus, Viashino Shanktail adds first strike, and Wrecking Ogre adds double strike."
+          },
+          "G": {
+            "status": "documented",
+            "card_ids": [
+              "2f947056-fa10-4491-95e5-532ea3b76d10",
+              "72350461-8231-4737-a57f-f20fb5d179a3",
+              "f1fca987-3484-4a76-86b6-d61ef0a2cf0f",
+              "e30b4eb8-6393-486a-9f8e-970ad2351d8a"
+            ],
+            "note": "Slaughterhorn gives an attacking creature a power-and-toughness bonus, Wasteland Viper adds deathtouch, and Skarrg Goliath adds trample."
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "R",
+              "G"
+            ],
+            "card_ids": [
+              "ec7a9e7f-742b-4344-983e-73372c6a1760",
+              "063960e0-3f9c-4697-ba5e-81c56ac1b5d2",
+              "dcc31cbf-f75d-4584-a97b-aa9d19d7b142"
+            ],
+            "note": "Ghor-Clan Rampager, Rubblehulk, Zhur-Taa Swine provide red-green examples. These cards document this combination, not separate single-color sources."
+          }
+        ],
+        "colorless": {
+          "status": "not_found",
+          "card_ids": [],
+          "note": "No colorless example was found in the reviewed scope."
+        },
+        "limitations": [
+          "Access describes the colors of the reviewed cards or mechanic-bearing faces, not Commander deck legality. Multicolor cards and colorless grants do not establish separate single-color sources."
+        ]
+      },
       "population_summary": {
         "scoped_totals": {
           "candidate_union": 13,
@@ -6906,6 +7049,97 @@
           }
         }
       ],
+      "access_review": {
+        "version": "2.0",
+        "review_date": "2026-10-28",
+        "scope_label": "Released paper cards",
+        "scope": "Bloodthirst rewards damage dealt to an opponent by adding counters as a creature enters.",
+        "summary": "Black, red and green examples enter with extra counters if an opponent was dealt damage that turn. A colorless grant is listed separately.",
+        "colors": {
+          "W": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No white example was found in the reviewed paper cards."
+          },
+          "U": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No blue example was found in the reviewed paper cards."
+          },
+          "B": {
+            "status": "documented",
+            "card_ids": [
+              "d8560ee9-8cbb-440b-a132-e102a1eb3e89",
+              "b1b6a840-2dc6-4af3-869a-b3bfe64ff7c0",
+              "6082f84a-3af2-4007-ab88-7b4b59b5c154",
+              "25ad4e88-b5ee-4853-a4fc-0a0420c746f6"
+            ],
+            "note": "Duskhunter Bat and Vampire Outcasts have Bloodthirst. Bloodlord of Vaasgoth can also grant bloodthirst 3 to Vampire spells you cast."
+          },
+          "R": {
+            "status": "documented",
+            "card_ids": [
+              "8bbe3f0d-41d0-4c58-ad65-6675a234cad3",
+              "655a584c-5280-4317-b707-101b7e31dcb1",
+              "67953edb-9681-4339-a5d2-917082925c24",
+              "8c4aba38-7fbd-463e-8454-21037090c71e",
+              "be8ad29c-2232-426d-bda9-a289dcc6c265",
+              "1d591c00-7086-4337-bdb8-a5f35568f04e",
+              "42a96276-fddc-435e-bd47-04f9c6001ec7",
+              "84e56125-3fbb-4229-8aa0-8f8acff27038"
+            ],
+            "note": "Blood Ogre and Stormblood Berserker have Bloodthirst, entering with extra counters if an opponent was dealt damage that turn."
+          },
+          "G": {
+            "status": "documented",
+            "card_ids": [
+              "fdcfa49a-70ed-48a4-b424-527a1698fd85",
+              "007161cb-a44b-4443-a53a-dfaacc6cfb86",
+              "28f35fa1-befa-40b4-95ab-30bb53d339ab",
+              "36f4d359-f46c-4da4-a8c2-1fe1799ac3f7",
+              "b0df3389-5959-4ee2-a921-9324732f7ce8",
+              "3bc9649c-4350-4c6a-8441-dc76a5f833af",
+              "e2ce99b9-7098-4de1-95bf-609bd448848d"
+            ],
+            "note": "Skarrgan Pit-Skulk and Ghor-Clan Savage have Bloodthirst, entering with extra counters if an opponent was dealt damage that turn."
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "R",
+              "G"
+            ],
+            "card_ids": [
+              "a9be4be0-71fe-41d9-8f30-351385753fc9",
+              "db0b6e35-d7f2-435a-87d7-9e8c36426f4d",
+              "0a45d8d4-2a5e-4b5b-b430-fc2fd5fd82c0"
+            ],
+            "note": "Burning-Tree Bloodscale, Scab-Clan Mauler, Skarrgan Skybreaker provide red-green examples. These cards document this combination, not separate single-color sources."
+          },
+          {
+            "colors": [
+              "B",
+              "R",
+              "G"
+            ],
+            "card_ids": [
+              "0dd4bc7b-2ddf-4ca4-912c-59685c41c3b5"
+            ],
+            "note": "Indoraptor, the Perfect Hybrid provides a black-red-green example. This card documents this combination, not separate single-color sources."
+          }
+        ],
+        "colorless": {
+          "status": "documented",
+          "card_ids": [
+            "4a8f2104-57ec-4b23-9857-f26afa5cbcfe"
+          ],
+          "note": "Twins of Discord grants bloodthirst 2 to other colorless creatures you control. That does not establish access in the five colors."
+        },
+        "limitations": [
+          "Access describes the colors of the reviewed cards or mechanic-bearing faces, not Commander deck legality. Multicolor cards and colorless grants do not establish separate single-color sources."
+        ]
+      },
       "population_summary": {
         "scoped_totals": {
           "candidate_union": 24,
@@ -9521,6 +9755,82 @@
           }
         }
       ],
+      "access_review": {
+        "version": "2.0",
+        "review_date": "2026-10-28",
+        "scope_label": "Released paper cards",
+        "scope": "Boast abilities normally activate only once each turn and only if the creature attacked that turn.",
+        "summary": "The reviewed cards show Boast in white, black, red and green. These abilities normally activate only once each turn, after the creature attacked that turn.",
+        "colors": {
+          "W": {
+            "status": "documented",
+            "card_ids": [
+              "d0d4ab83-8b9b-49cd-86b8-720abd0550f4",
+              "f8e8cdc6-5685-4986-a14b-20bb9e31d9cf",
+              "9cbc8765-1735-48ca-bbc2-411aa7da2ed3",
+              "a6eb06dc-a62d-4fdb-b336-e304d8d68c92"
+            ],
+            "note": "Usher of the Fallen makes a token, Goldmaw Champion taps a creature, and Axgard Braggart untaps and adds a counter to itself through Boast."
+          },
+          "U": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No blue example was found in the reviewed paper cards."
+          },
+          "B": {
+            "status": "documented",
+            "card_ids": [
+              "0fe6c042-1182-4392-8938-fee36149d74f",
+              "f854ea0d-aae3-4b6a-9767-6ac1788f2190",
+              "b9227f38-7db7-4ea1-9482-94e5de3984fe",
+              "06b7987d-c876-4369-9c2d-ce1d35a01097",
+              "68b41a04-8cb0-4edf-b488-a219494453ae"
+            ],
+            "note": "Duskwielder drains life, Draugr Recruiter recovers a creature card, and Varragoth, Bloodsky Sire searches for a card through Boast."
+          },
+          "R": {
+            "status": "documented",
+            "card_ids": [
+              "3dce6c6c-599f-4e35-ae15-728c5e78dee1",
+              "e0c00a74-bdf8-4fee-8042-42c5878e9e3c",
+              "06b77a80-4968-4385-960a-fb66bb4faa94",
+              "b0b93253-6432-401e-9a01-94c41fb72c10",
+              "61295adf-9a58-479a-b6e5-403aa0876c22",
+              "c19aaf86-b098-4e7d-af50-9e02ae3cda55",
+              "36dda03b-a3c1-4ef4-ae62-da318028a39e"
+            ],
+            "note": "Fearless Liberator makes a token, Hagi Mob deals damage, and Tuskeri Firewalker exiles a card you can play through Boast."
+          },
+          "G": {
+            "status": "documented",
+            "card_ids": [
+              "e0610ab1-88d3-4502-84b7-3a08d0170167"
+            ],
+            "note": "Horizon Seeker uses Boast to search for a basic land card and put it into your hand."
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "W",
+              "R",
+              "G"
+            ],
+            "card_ids": [
+              "eedd74c4-42d1-41ba-9051-dc518e45ebbb"
+            ],
+            "note": "Sigurd, Jarl of Ravensthorpe provides a white-red-green example. This card documents this combination, not separate single-color sources."
+          }
+        ],
+        "colorless": {
+          "status": "not_found",
+          "card_ids": [],
+          "note": "No colorless example was found in the reviewed scope."
+        },
+        "limitations": [
+          "Access describes the colors of the reviewed cards or mechanic-bearing faces, not Commander deck legality. Multicolor cards and colorless grants do not establish separate single-color sources."
+        ]
+      },
       "population_summary": {
         "scoped_totals": {
           "candidate_union": 21,
@@ -12355,6 +12665,99 @@
           }
         }
       ],
+      "access_review": {
+        "version": "2.0",
+        "review_date": "2026-10-28",
+        "scope_label": "Released paper cards",
+        "scope": "Bolster puts counters on a creature with the least toughness among creatures you control.",
+        "summary": "The reviewed cards establish white and green access to Bolster. Optimus Prime supplies a white-blue-red combination, rather than separate blue and red sources.",
+        "colors": {
+          "W": {
+            "status": "documented",
+            "card_ids": [
+              "e7b2f844-2ba2-4465-bb80-358a4d915f36",
+              "866fc4b9-f661-444b-b7fd-929814dbc69d",
+              "f7fa6ac0-70db-4586-b881-5a19db644dfb",
+              "f2d5949b-3cdc-4efd-9841-7d450e12dbbe",
+              "9fc6e1db-cf09-4b8c-be4f-bb02ffe7a188",
+              "74333718-2a05-4643-9a37-013df39b32e0",
+              "9863a7da-6f51-4d3e-9ace-e8ff201faf13",
+              "b90af42d-edb6-4654-b7dc-10f0f272c883",
+              "955ff3bf-4323-452e-a8b1-b7662034473d",
+              "68a91b87-1845-419b-aae7-ee1237554946",
+              "87e6aabb-41f5-41d2-b662-cd09ad61a1c8",
+              "6bf9c91f-f278-4b97-8517-d062118c4e56",
+              "a7157ec5-9e6a-4771-b3db-6760640d6c6c"
+            ],
+            "note": "Sandcrafter Mage bolsters when it enters, Enduring Victory pairs Bolster with removal, and Anafenza, Kin-Tree Spirit can trigger it repeatedly."
+          },
+          "U": {
+            "status": "multicolor_only",
+            "card_ids": [
+              "199c4a1a-2082-417c-a174-f479d7334d15"
+            ],
+            "note": "The reviewed blue examples are multicolor cards: Optimus Prime, Hero // Optimus Prime, Autobot Leader. They are listed under combinations; no single-color blue example was found in this scope."
+          },
+          "B": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No black example was found in the reviewed paper cards."
+          },
+          "R": {
+            "status": "multicolor_only",
+            "card_ids": [
+              "199c4a1a-2082-417c-a174-f479d7334d15"
+            ],
+            "note": "The reviewed red examples are multicolor cards: Optimus Prime, Hero // Optimus Prime, Autobot Leader. They are listed under combinations; no single-color red example was found in this scope."
+          },
+          "G": {
+            "status": "documented",
+            "card_ids": [
+              "0e564f52-94fb-4c44-926f-0eebedc7d4c0",
+              "1264da2f-4767-4bec-b4ed-1c625ac3cf95",
+              "b845e69b-5d49-40ff-9cf7-d5cf2ccec7be",
+              "9812bdf9-98b6-4b4d-8381-a7bbb25069d8",
+              "99fa202b-052c-4627-b78c-f0b323f7bdf3",
+              "747ee321-f2dc-4d27-90cd-c4e610086958",
+              "461c0c37-7213-4ece-91f7-934e6a1a8d64",
+              "bbfced8f-0f83-4cc9-9143-aa2473828b48"
+            ],
+            "note": "Map the Wastes pairs Bolster with a land search, while Pinion Feast pairs it with removal."
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "W",
+              "G"
+            ],
+            "card_ids": [
+              "73520b5a-3d55-40c9-af60-90fdd811934f"
+            ],
+            "note": "Dromoka, the Eternal provides a white-green example. This card documents this combination, not separate single-color sources."
+          },
+          {
+            "colors": [
+              "W",
+              "U",
+              "R"
+            ],
+            "card_ids": [
+              "199c4a1a-2082-417c-a174-f479d7334d15"
+            ],
+            "note": "Optimus Prime, Hero // Optimus Prime, Autobot Leader provides a white-blue-red example. This card documents this combination, not separate single-color sources."
+          }
+        ],
+        "colorless": {
+          "status": "not_found",
+          "card_ids": [],
+          "note": "No colorless example was found in the reviewed scope."
+        },
+        "limitations": [
+          "Access describes the colors of the reviewed cards or mechanic-bearing faces, not Commander deck legality. Multicolor cards and colorless grants do not establish separate single-color sources.",
+          "Both Optimus Prime faces are white, blue and red, including the back face with its color indicator."
+        ]
+      },
       "population_summary": {
         "scoped_totals": {
           "candidate_union": 25,
@@ -16012,6 +16415,90 @@
           }
         }
       ],
+      "access_review": {
+        "version": "2.0",
+        "review_date": "2026-10-28",
+        "scope_label": "Released paper cards",
+        "scope": "Bushido gives a creature a temporary power and toughness bonus when it blocks or becomes blocked.",
+        "summary": "The reviewed cards show Bushido in white, black, red and green. The bonus triggers when the creature blocks or becomes blocked.",
+        "colors": {
+          "W": {
+            "status": "documented",
+            "card_ids": [
+              "d6b54f58-7775-4180-b2e5-1b57da65a409",
+              "82959ca2-cd96-4cca-9ce0-afb8db209860",
+              "54970935-b3d3-4f65-a262-c4975f2787e5",
+              "feb65f2e-6f71-4f29-bf31-b210c85f3ab3",
+              "fee392d9-a961-4f41-81ba-ab1b87c931fa",
+              "ea5e8920-1343-4335-b516-6db43c3bfeb0",
+              "bfaf20a7-a11c-4f57-8eb6-b03b5223704d",
+              "2db73fff-1a89-4006-945d-a244ff2f0bef",
+              "cd954a2a-5799-4c65-af8a-47adb1ce5e91",
+              "efea2342-bb24-472a-acfb-1b9e012af91b",
+              "6c076776-f497-4abf-ab06-f551768cffae",
+              "38530399-d2c9-4445-92ba-14c5cd438055",
+              "6207ec81-342a-49e4-ae07-426397eef0ec",
+              "e4acac65-112b-48fc-bea3-44747c1389a3",
+              "9d0d19e4-34f9-4bfa-9c8b-74356d223a18",
+              "6df6e834-1917-4bf4-b0b7-09834bf90fb2",
+              "63305fd4-068f-498b-a01e-0b375c592797",
+              "3df0a392-bcc1-4456-bd6e-d044bcc83a16",
+              "f995e0cc-b2bd-41c3-8c08-c8873312cebe",
+              "c5577514-d2af-4904-9f94-b472228c6e3d"
+            ],
+            "note": "Devoted Retainer and Kitsune Blademaster have Bushido. Sensei Golden-Tail can also grant bushido 1 to a creature."
+          },
+          "U": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No blue example was found in the reviewed paper cards."
+          },
+          "B": {
+            "status": "documented",
+            "card_ids": [
+              "23e98711-0b3f-446d-abcc-9b0378178feb",
+              "ddbd4d8c-9763-43d7-882f-6edf8efffb0a",
+              "8b787ba5-0b87-449f-98cd-9454445e2f48",
+              "0f9672ac-f4fc-46e8-9fe5-93b3e66810a4",
+              "0319a50f-cbcd-45ab-9630-9e9f1498d23d",
+              "11838086-db2f-4588-ae18-4129c9e2b67d"
+            ],
+            "note": "Nezumi Ronin and Cursed Ronin have Bushido, gaining a combat bonus when they block or become blocked."
+          },
+          "R": {
+            "status": "documented",
+            "card_ids": [
+              "39a7c52d-0b89-47c1-a376-5004c94c2e0f",
+              "5c820811-1775-4ea4-b003-721750a4d90f",
+              "4f40d66a-1fd8-4b06-b6cb-9cbcf33bc041",
+              "56551cba-3871-4746-a11f-7ab8aaf46cf6",
+              "ce8fc1bb-5dd0-41b1-909a-bbfe6b165158",
+              "69a3de91-bb18-4e37-975e-0f4becafa34f",
+              "63f414ed-01f4-428a-b65f-5c640679d5ef",
+              "26e47cc5-9dc7-4d54-80a6-1eb77587df36",
+              "cba58942-b98c-45aa-8651-7dc666e31c93"
+            ],
+            "note": "Ronin Houndmaster has Bushido alongside haste. Fumiko the Lowblood has a Bushido bonus based on the number of attacking creatures."
+          },
+          "G": {
+            "status": "documented",
+            "card_ids": [
+              "15ec1bfc-b0a0-4058-87bb-8dbaf17b7f3b",
+              "177248b7-f3fd-42f8-b325-2625a2bb28ff"
+            ],
+            "note": "Isao, Enlightened Bushi and Jade Avenger have Bushido, providing two green examples."
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "not_found",
+          "card_ids": [],
+          "note": "No colorless example was found in the reviewed scope."
+        },
+        "limitations": [
+          "Access describes the colors of the reviewed cards or mechanic-bearing faces, not Commander deck legality. Multicolor cards and colorless grants do not establish separate single-color sources."
+        ]
+      },
       "population_summary": {
         "scoped_totals": {
           "candidate_union": 40,
@@ -20325,6 +20812,93 @@
           }
         }
       ],
+      "access_review": {
+        "version": "2.0",
+        "review_date": "2026-10-28",
+        "scope_label": "Released paper cards",
+        "scope": "Buyback returns a resolving spell to its owner's hand when its additional cost was paid.",
+        "summary": "The reviewed cards have Buyback in every color. Paying its additional cost can return the spell to hand as it resolves.",
+        "colors": {
+          "W": {
+            "status": "documented",
+            "card_ids": [
+              "664d982a-5cd8-4289-afb8-fa2e083042c9",
+              "fcb03c54-5b9a-428d-bbf6-ef8977770c8d",
+              "a8c0b41b-916c-4da9-9c39-a058c91a78f4",
+              "23a60803-6b0f-48ee-aa3b-12a3c5fc62cf",
+              "2c964157-d414-4d4e-822b-12ce61e882ff",
+              "16b4a48a-fec2-433c-948d-e0b16c961172",
+              "b4177445-46d8-4427-a345-d786c820c3af",
+              "e25e2a3f-4add-4744-b1f8-2e880998a51f",
+              "b24063f7-157f-47c0-919a-33856d53b902"
+            ],
+            "note": "Allay destroys an enchantment, while Recruit the Worthy creates a token; both offer Buyback."
+          },
+          "U": {
+            "status": "documented",
+            "card_ids": [
+              "77637eff-2963-4402-88f3-ca346f762fc8",
+              "3e1b32a9-27a4-4550-a644-ebe254e1f512",
+              "6e26a525-2584-490d-b106-621c1a30e1fd",
+              "ea43372f-b0a7-4d1b-be3e-a4a738b06d59",
+              "a58adf82-d9e2-4b47-933e-68180f280ba2",
+              "141d9b88-5326-4e3d-8f16-5293246fab88",
+              "0ec36301-6282-49d4-85ea-6a46708e2f60",
+              "51a20c9f-68d2-471b-8622-67d481b53b92",
+              "a4a8af4e-8686-45ba-94fd-ccf6cc8adaae"
+            ],
+            "note": "Whispers of the Muse draws a card, Capsize returns a permanent, and Forbid counters a spell; each offers Buyback."
+          },
+          "B": {
+            "status": "documented",
+            "card_ids": [
+              "d87e580f-eca1-4f91-962b-82d684cba5e7",
+              "59b02ca7-e7bd-4820-ac32-87ea1a8c64c0",
+              "53cbc12d-e182-4cde-8967-9b2664daa817",
+              "cdbaa21d-5896-4b8b-9a08-f0839ccfddfc",
+              "c0d3dfc0-1ff2-4ac3-98eb-32eaa5b84c05",
+              "7ebec169-d941-460e-9e3c-ba54b5066b05",
+              "c53d6d3e-64e3-48b9-afab-3bde3164888f",
+              "4f424d94-1544-4086-a57d-2add17332094",
+              "37de575d-15d4-42a2-a3d2-3855fb6ab110"
+            ],
+            "note": "Disturbed Burial returns a creature card from your graveyard to your hand, while Demonic Collusion searches for a card; both offer Buyback."
+          },
+          "R": {
+            "status": "documented",
+            "card_ids": [
+              "1d5f0a1c-88e0-4603-97af-8ed47766812e",
+              "7f77de5d-1088-42d0-8f68-5633aeab0d74",
+              "f17d0fb8-c157-43b8-be26-f5ba4c6aed14",
+              "38394ee3-6726-4f91-bc25-36bce0c6aab9",
+              "1cd9a3ba-a115-4e59-983d-605e4435f3a8",
+              "2effcd1c-5833-4e0e-bb67-2d2ffb22a014",
+              "77953b7a-813e-45f5-ad7f-ab72a79a0112"
+            ],
+            "note": "Searing Touch deals damage, Shattering Pulse destroys an artifact, and Reiterate copies a spell; each offers Buyback."
+          },
+          "G": {
+            "status": "documented",
+            "card_ids": [
+              "c850a29e-dc40-4ab6-89f1-d501a1a350d1",
+              "557d2af0-04c5-461d-826b-7208c4535dc2",
+              "8b33d890-7d67-44a8-a253-e2b171d7ca9d",
+              "68845200-5346-473d-becd-27315879443d",
+              "8dd0f86d-6f9e-47e3-97dd-3a3fc075ea93"
+            ],
+            "note": "Elvish Fury boosts a creature, Constant Mists prevents combat damage, and Sprout Swarm makes a token; each offers Buyback."
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "not_found",
+          "card_ids": [],
+          "note": "No colorless example was found in the reviewed scope."
+        },
+        "limitations": [
+          "Access describes the colors of the reviewed cards or mechanic-bearing faces, not Commander deck legality. Multicolor cards and colorless grants do not establish separate single-color sources."
+        ]
+      },
       "population_summary": {
         "scoped_totals": {
           "candidate_union": 42,
@@ -21091,6 +21665,52 @@
           }
         }
       ],
+      "access_review": {
+        "version": "2.0",
+        "review_date": "2026-10-28",
+        "scope_label": "Released paper cards",
+        "scope": "Buy Information is the name of one mode on Black Market Connections.",
+        "summary": "Black Market Connections uses Buy Information as the name of one mode. This documents that exact label on a black card.",
+        "colors": {
+          "W": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No white example was found in the reviewed paper cards."
+          },
+          "U": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No blue example was found in the reviewed paper cards."
+          },
+          "B": {
+            "status": "documented",
+            "card_ids": [
+              "d2664f28-49e1-46f8-a863-b217e961a57c"
+            ],
+            "note": "Black Market Connections uses the Buy Information label for its mode that draws a card and costs you 2 life."
+          },
+          "R": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No red example was found in the reviewed paper cards."
+          },
+          "G": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No green example was found in the reviewed paper cards."
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "not_found",
+          "card_ids": [],
+          "note": "No colorless example was found in the reviewed scope."
+        },
+        "limitations": [
+          "Access describes the colors of the reviewed cards or mechanic-bearing faces, not Commander deck legality. Multicolor cards and colorless grants do not establish separate single-color sources.",
+          "This is a card-specific label. Similar effects without that label are outside this entry."
+        ]
+      },
       "population_summary": {
         "scoped_totals": {
           "candidate_union": 1,
@@ -21546,6 +22166,52 @@
           }
         }
       ],
+      "access_review": {
+        "version": "2.0",
+        "review_date": "2026-10-28",
+        "scope_label": "Released paper cards",
+        "scope": "Berzerker is the flavor label for Khârn the Betrayer's requirement to attack or block each combat if able.",
+        "summary": "Khârn the Betrayer uses Berzerker as a flavor label. This documents that exact label on a red card.",
+        "colors": {
+          "W": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No white example was found in the reviewed paper cards."
+          },
+          "U": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No blue example was found in the reviewed paper cards."
+          },
+          "B": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No black example was found in the reviewed paper cards."
+          },
+          "R": {
+            "status": "documented",
+            "card_ids": [
+              "3246eff5-8739-469f-a401-e5de927dd6bb"
+            ],
+            "note": "Khârn the Betrayer uses Berzerker to label its requirement to attack or block each combat if able."
+          },
+          "G": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No green example was found in the reviewed paper cards."
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "not_found",
+          "card_ids": [],
+          "note": "No colorless example was found in the reviewed scope."
+        },
+        "limitations": [
+          "Access describes the colors of the reviewed cards or mechanic-bearing faces, not Commander deck legality. Multicolor cards and colorless grants do not establish separate single-color sources.",
+          "This is a card-specific label. Similar effects without that label are outside this entry."
+        ]
+      },
       "population_summary": {
         "scoped_totals": {
           "candidate_union": 1,

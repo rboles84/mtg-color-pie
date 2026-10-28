@@ -1,4 +1,30 @@
-# B mechanics delivery and Owner preview
+# Active task — A/B documented color access
+
+## Control and admission
+
+- Status: ready-for-independent-QA. Owner explicitly replaces inferred supplemental rankings with documented color access for discovery, covering A and B; local preview update authorized. Task baseline `fa1643c0fd7cdcec3a89ce152dd377ed53512673`; reuse `codex/a-mechanics-review` in this standalone preview repository. The owning AGENTS ledger governs this same-task continuation; no Vox Mana application/VM-card changes.
+- Grounding: RobDev authority, target AGENTS/CONTEXT, current B handoff, v1 protocol, current five canonical packets, producer, list/search/detail/loader and focused harness. New current contract: COLOR-ACCESS-PROTOCOL.md v2.0.
+- Allowed files: HANDOFF.md; CONTEXT.md (durable approved access decision only); docs/mechanics-research/COLOR-ACCESS-PROTOCOL.md; ASSESSMENT-PROTOCOL.md (supersession note only); A-PROTOCOL-REVIEW.md and B-PROTOCOL-REVIEW.md (supersession note only); existing a-protocol-core.json, a-protocol-extended.json, a-protocol-special.json, b-protocol-core.json, b-protocol-extended.json; tools/build_mechanics_assessments.py; data/mechanics-assessments.v1.json; vox-color/mechanical-explorer.html; tools/check_assessment_browser.mjs. Ignored preview package and temporary scripts outside the checkout permitted.
+- Ownership: A RobDev owns A core; B RobDev owns both B packets and A extended; coordinator owns A special; runtime RobDev owns producer/generated payload/explorer/focused harness; coordinator owns protocol, context, ledger, integration. Workers do not revert each other's changes. Independent RobQA reviews the committed candidate later; no concurrent QA product edits.
+- Product: searchable mechanics show verified single-color access, separate multicolor combinations and colorless examples, with exact-example Scryfall links and fact-only explanations. One verified design can establish access. No inferred P/S/T or confidence labels for supplemental access; generic rules and special scopes remain explicit.
+- Protected: all 2021 sources/runtime/fixtures/names/placements/math, supplemental raw corpus/scope/examples, raw saved research captures, other letters, wheel/routing/theme. Existing tier research is retained as superseded history. No new dependencies, publication, push, merge or unrelated redesign.
+- Acceptance: all43 A/B entries converted; known Optimus/Behold and wording defects corrected in current copy; source references resolve; exact face and grant scope respected; producer deterministic; neutral symbols and links work in list/search/details and keyboard/mobile cases; missing/malformed sidecar fails softly without altering2021; exact candidate reviewed independently then preview refreshed.
+- Risk: cross-surface schema migration and semantic evidence qualification. Test selection belongs to RobQA; existing focused harness and source invariants are the relevant seams, not broad engine/wheel stress tests.
+
+## RobDev implementation packet
+
+- Current material replaces inferred supplemental tiers for all 25 A and 18 B records with documented access. The five owning packets retain v1 history and gain v2 access reviews; the deterministic producer projects only v2 fields. No raw card captures were rewritten.
+- Player flow: search a mechanic, read its neutral color-access marks, expand evidence, then follow a color-specific Scryfall link covering the reviewed examples. Single-color evidence, combinations, colorless cards, rules vocabulary and special-set scopes stay distinct. Each color has a factual explanation; detailed card links remain available.
+- Canonical protocol 2.0 documents repeatable inclusion, exact-face color, grant, scope, absence and link rules. One verified example is enough; no inferred P/S/T or confidence labels are current supplemental judgments.
+- Scope corrections are explicit exclusions in the current access review: Amass excludes Bin Chicken and The Sphere; Ascend excludes Temur Elevator and The Golden City of Orazca. Their original evidence is retained. Assemble/Augment are labeled Un-set; Actualize digital; Affinitycycling designer playtest; Assimilate keeps later previews outside released-paper access.
+- Root authored and read current factual copy after worker drafts failed the player-copy contract. Root verified all five historical packet objects equal baseline when the new access_review field is removed. Independent RobQA has performed read-only semantic preparation; its final verdict requires the committed candidate.
+- Developer verification: producer regeneration and deterministic check PASS; JavaScript harness syntax PASS; whitespace PASS; source invariants PASS (217 source / 216 projection), taxonomy PASS, recon 53/53 PASS. Focused Edge browser PASS: all 43 maps and their visible notes/links, keyboard disclosure/search, neutral-symbol stability, malformed/missing/unsafe/binding isolation, mobile containment and unchanged built-in 84/84 checks. Directly causal migration-harness fixes corrected disclosure timing, rules-action expectations and quote-normalized search expectations; no failed requirement was waived.
+- QA selection: separate RobQA, QA-4 semantic qualification with bounded QA-2 rendering/disclosure/keyboard checks. CPU-heavy engine certification NOT REQUIRED: 2021 qualification/math is unchanged. Scope includes exact source-to-access buckets, visible note/link binding, invalid-sidecar isolation, lens restoration and narrow-screen containment. Appearance remains Owner judgment.
+- Remaining work: exact material commit, independent candidate verdict, final packaged preview and Git accounting. The Owner-requested working preview was refreshed with Backup open while final verification continued. No push, merge or publication authorized/performed.
+
+---
+
+# Prior delivery — B mechanics and Owner preview
 
 ## Preview verification
 
@@ -226,7 +252,7 @@ This ledger-only evidence delta is not the full task diff. It records final inde
 
 ---
 
-# Active handoff - Protocol v1.0 B mechanics
+# Prior handoff - Protocol v1.0 B mechanics
 
 ## Control
 - Status: `qa-passed` (`qa-failed -> dev-in-progress -> ready-for-qa -> qa-passed`). The three named evidence/metadata findings are repaired; all substantive decisions and player-facing fields are unchanged.

@@ -1,148 +1,95 @@
-"""Deterministic display projection of A/B research. No network or 2021 edits."""
+"""Deterministic access-only projection from the five A/B protocol packets."""
 import argparse, hashlib, json
 from pathlib import Path
-from urllib.parse import urlsplit, quote
-ROOT = Path(__file__).resolve().parents[1]
-SOURCES = [ROOT/'docs/mechanics-research'/n for n in ('a-assessments-source.json','absorb-assessment-source.json','a-classification-addendum.json')]
-REVIEWS = [ROOT/'docs/mechanics-research'/n for n in ('a-protocol-core.json','a-protocol-extended.json','a-protocol-special.json','b-protocol-core.json','b-protocol-extended.json')]
-OUTPUT = ROOT/'data/mechanics-assessments.v1.json'
-COLORS = 'WUBRG'
-LABEL = 'Scryfall-derived assessment - provisional'
+from urllib.parse import quote, urlsplit
+ROOT=Path(__file__).resolve().parents[1]
+REVIEWS=[ROOT/'docs/mechanics-research'/n for n in ('a-protocol-core.json','a-protocol-extended.json','a-protocol-special.json','b-protocol-core.json','b-protocol-extended.json')]
+ADDENDUM=ROOT/'docs/mechanics-research/a-classification-addendum.json'; SUPPLEMENT=ROOT/'data/mechanics-supplement.v1.json'; OUTPUT=ROOT/'data/mechanics-assessments.v1.json'
+LEGACY_A=ROOT/'docs/mechanics-research/a-assessments-source.json'; LEGACY_ABSORB=ROOT/'docs/mechanics-research/absorb-assessment-source.json'
+SOURCE_INPUTS=[LEGACY_A,LEGACY_ABSORB,ADDENDUM,*REVIEWS]
+COLORS='WUBRG'; STATUSES={'documented','multicolor_only','not_found','not_applicable','insufficient_evidence'}
 def read(p): return json.loads(p.read_text(encoding='utf-8-sig'))
-def sha(b): return hashlib.sha256(b).hexdigest()
-def canonical(value): return json.dumps(value,ensure_ascii=False,separators=(',',':')).encode('utf-8')
+def canonical(v): return json.dumps(v,ensure_ascii=False,separators=(',',':')).encode('utf-8')
+def sha(v): return hashlib.sha256(v).hexdigest()
 def safe_url(url):
-    p=urlsplit(url)
-    assert p.scheme=='https' and p.hostname in {'scryfall.com','magic.wizards.com'}
-    assert not p.username and not p.password and not p.port
-    return url
+ p=urlsplit(url); assert p.scheme=='https' and p.hostname in {'scryfall.com','magic.wizards.com'} and not p.username and not p.password and not p.port; return url
+def card_url(c):
+ url=c.get('scryfall_url') or c.get('card_facts',{}).get('scryfall_uri')
+ return safe_url(url) if url else None
+def cards_for(ids,cards):
+ assert isinstance(ids,list); out=[]
+ for i in ids: assert i in cards,i; out.append({'name':cards[i]['name'],'url':card_url(cards[i])})
+ return out
+def find_url(cards):
+ return safe_url('https://scryfall.com/search?q='+quote('('+ ' or '.join('!"'+c['name'].replace('"','')+'"' for c in cards)+') include:extras')) if cards and all(c['url'] for c in cards) else None
+def entry(v,cards,colorless=False):
+ assert isinstance(v,dict) and v.get('status') in STATUSES and (not colorless or v['status']!='multicolor_only') and isinstance(v.get('note'),str) and v['note'].strip()
+ found=cards_for(v.get('card_ids'),cards); assert bool(found)==(v['status'] in {'documented','multicolor_only'})
+ return {'status':v['status'],'note':v['note'],'cards':found,'findUrl':find_url(found)}
+def sources(record):
+ out=[]
+ for s in record.get('sources',[]):
+  try: item={'title':s.get('title') or 'Source','url':safe_url(s.get('url'))}
+  except (AssertionError,TypeError): continue
+  if item not in out:out.append(item)
+ return out
+def related(name,addendum):
+ if name!='Attach':return []
+ ov=next(r for r in addendum['records'] if r['mechanic']=='Attach'); return [{'name':e['name'],'label':e['label'],'placements':e['placements'],'url':safe_url(addendum['sources'][e['source']]['url']),'note':'This historical 2017 placement describes the named effect, not every Attach action. It does not change 2021 or documented access.'} for e in ov['related_effects']]
+def legacy_cards():
+ out={}; main=read(LEGACY_A)
+ for assessment in main['assessments']:
+  for card in assessment['card_review']:
+   if card.get('include'): out[card['oracle_id']]={'name':card['name'],'scryfall_url':card.get('card_facts',{}).get('scryfall_uri')}
+ absorb=read(LEGACY_ABSORB)
+ for card in absorb['observed_population']['cards']: out[card['oracle_id']]={'name':card['name'],'scryfall_url':card.get('scryfall_url')}
+ return out
 def build():
-    main,ab,addendum=map(read,SOURCES)
-    supplement=read(ROOT/'data/mechanics-supplement.v1.json')
-    accepted={r['id']:r for r in supplement['records'] if r['name'].startswith('A') and r['target2021'] is None}
-    assert len(accepted)==25
-    overrides={r['mechanic']:r for r in addendum['records']}
-    contexts={a['name']:a.get('supporting_design_context') for a in main['assessments']}
-    contexts['Absorb']=ab['supporting_design_context']
-    rows=[]
-    for a in main['assessments']:
-        cards=[{'name':c['name'],'url':safe_url(c['card_facts']['scryfall_uri'])} for c in a['card_review'] if c['include']]
-        rows.append(dict(id=a['id'],name=a['name'],scope=a['scope'],confidence=a['confidence'],placements=a['placements'],rationale=a['rationale'],summary=a['summary'],limitations=a['limitations'],citationCards=cards))
-        # Four research-only IDs used the wrong population prefix. Preserve
-        # their source spelling while binding explicitly to the accepted IDs.
-        if a['name'] in {'Abandon','Activate','Actualize','Affinitycycling'}:
-            assert a['id']=='deck:vocabulary:'+a['name'].lower()
-            rows[-1]['researchRecordId']=a['id']
-            rows[-1]['id']='deck:catalog-gaps:'+a['name'].lower()
-    rows.append(dict(id=ab['mechanic_id'],name='Absorb',scope='Exact Absorb keyword and explicit native grants; one observed white design.',confidence='low-to-moderate',placements={r['color']:r['tier'] for r in ab['recommended_placements']},rationale={r['color']:r['rationale'] for r in ab['recommended_placements']},summary='Lymph Sliver supports white as a provisional home. Two printings represent one design.',limitations=ab['limitations'],citationCards=[{'name':c['name'],'url':safe_url(c['scryfall_url'])} for c in ab['observed_population']['cards']]))
-    for r in rows:
-        r.update(label=LABEL,researchDate='2026-10-26',kind='derived',classification='Provisional color placements',outsidePrimary=None,relatedEffects=[],sources=[])
-        if contexts.get(r['name']):
-            s=contexts[r['name']];r['sources'].append({'title':s['title'],'url':safe_url(s['url'])})
-        ov=overrides.get(r['name'])
-        if ov:
-            r['placements']=ov['wubrg_placements']
-            r['classification']=ov['classification']
-            r['outsidePrimary']=ov['outside_five_colors']['primary']
-            r['kind']='colorless' if r['outsidePrimary'] else 'rules'
-            r['label']=LABEL if r['kind']=='colorless' else 'Rules action - not ranked'
-            r['scope']=ov['classification'];r['summary']=ov['rationale']
-            r['rationale']={c:'No independent '+c+' placement is assigned; see the classification and rationale below.' for c in COLORS}
-            r['confidence']=ov.get('confidence','Not applicable to the general rules action')
-            r['limitations']=[]
-            titles={'wizards_activate':'Evergreen Eggs & Ham (2015)','wizards_archenemy':'Wizards: Archenemy','scryfall_enforcermite':"Sojourner's Enforcermite"}
-            for key in ov.get('sources',[]):
-                s=addendum['sources'][key]
-                if 'url' in s:r['sources'].append({'title':s.get('source_heading') or titles.get(key,key),'url':safe_url(s['url'])})
-            for e in ov.get('related_effects',[]):
-                r['relatedEffects'].append({'name':e['name'],'label':e['label'],'placements':e['placements'],'url':safe_url(addendum['sources'][e['source']]['url']),'note':'This 2017 placement describes the named effect, not every Attach action. It does not change the 2021 snapshot.'})
-        if r['name']=='Annihilator':
-            assert ov['label']=='Owner-directed classification; Scryfall-derived rationale'
-            r['label']='User-selected classification; Scryfall-derived rationale'
-            r['summary']='The observed population is dominated by colorless native uses and grants. Primary: Colorless. Secondary: None. Tertiary: None. A five-color playtest grant does not establish independent W/U/B/R/G tiers.'
-            r['confidence']='Strong evidence for a colorless home'
-            r['limitations']=['Colorless is outside the five colors; it is not a sixth Magic color or a synonym for the colorless mana symbol.']
-        if r['name']=='Affinitycycling':
-            r['summary']="Sojourner's Enforcermite is the sole observed Affinitycycling design and is colorless. Primary Colorless is a provisional home based on that small playtest sample; no W/U/B/R/G tiers are assigned."
-            r['limitations']=['Playtest-only evidence. This is not an official color-pie ranking or an ordinary format-availability claim.']
-        if r['name']=='Abandon':
-            r['limitations']=['Search t:scheme o:abandon include:extras to see the 20 relevant scheme designs. The default search excludes schemes and finds unrelated word matches.']
-        query='t:scheme o:abandon include:extras' if r['name']=='Abandon' else 'o:/\\b'+r['name']+'\\b/ include:extras'
-        r['queryUrl']=safe_url('https://scryfall.com/search?q='+quote(query))
-        assert r['id'] in accepted and accepted[r['id']]['name']==r['name']
-        assert set(r['placements'])==set(COLORS) and set(r['rationale'])==set(COLORS)
-        assert all(t in {None,'Primary','Secondary','Tertiary'} for t in r['placements'].values())
-        assert all(isinstance(r[f],str) and r[f].strip() for f in ('scope','summary','confidence'))
-        assert all(isinstance(t,str) and t.strip() for t in r['limitations']+list(r['rationale'].values()))
-        assert r['kind']=='derived' or not any(r['placements'].values())
-    assert len(rows)==len({r['id'] for r in rows})==25 and {r['id'] for r in rows}==set(accepted)
-    # Retained packets supply card links and the historical Attach effect.
-    # Protocol records exclusively own current judgments and player-facing copy.
-    reviews=[a for p in REVIEWS for a in read(p)['records']]
-    assert len(reviews)==len({a['mechanic']['name'] for a in reviews})==43
-    by_name={a['mechanic']['name']:a for a in reviews}
-    b_accepted={r['id']:r for r in supplement['records'] if r['name'].startswith('B') and r['target2021'] is None}
-    assert len(b_accepted)==18
-    for a in reviews:
-        name=a['mechanic']['name']
-        if not name.startswith('B'): continue
-        key=a['mechanic']['accepted_id']
-        assert key in b_accepted and b_accepted[key]['name']==name
-        cards=[]
-        for c in a['card_review']:
-            if not c['included']: continue
-            url=c.get('scryfall_url') or c.get('card_facts',{}).get('scryfall_uri')
-            cards.append({'name':c['name'],'url':safe_url(url)})
-        query='o:/\\b'+name+'\\b/ include:extras'
-        rows.append(dict(id=key,name=name,kind='derived',researchDate=a['provenance']['research_date'],
-                         relatedEffects=[],citationCards=cards,queryUrl=safe_url('https://scryfall.com/search?q='+quote(query))))
-    assert len(rows)==len({r['id'] for r in rows})==43
-    assert {r['id'] for r in rows}==set(accepted)|set(b_accepted)
-    assert set(by_name)=={r['name'] for r in rows}
-    statuses={'assigned','proposed_home','observed_tier_unresolved','no_support_in_sample','incomplete_evidence','conflicted','not_applicable'}
-    for r in rows:
-        a=by_name[r['name']]; ds=a['decisions']; outside=a['outside_five_colors']
-        player=a.get('player_copy')
-        assert a['protocol_version']=='1.0' and a['record_status'] in {'draft','reviewed'}
-        assert a['mechanic']['accepted_id']==r['id'],r['name']
-        assert set(ds)==set(COLORS)
-        assert isinstance(player,dict) and set(player)=={'scope','summary','rationale','limitations'}
-        assert set(player['rationale'])==set(COLORS)
-        assert all(isinstance(player[k],str) and player[k].strip() for k in ('scope','summary'))
-        assert all(isinstance(text,str) and text.strip() for text in list(player['rationale'].values())+player['limitations'])
-        for c,d in ds.items():
-            assert d['tier'] in {None,'Primary','Secondary','Tertiary'}
-            assert d['status'] in statuses and d['route'] in {None,'E1','E2','E3','E3_limited_sample','U'}
-            assert d['confidence'] in {'High','Moderate','Low','Not applicable'}
-            assert (d['tier'] is not None)==(d['status'] in {'assigned','proposed_home'}),(r['name'],c)
-            assert all(isinstance(d[k],str) and d[k].strip() for k in ('rationale','why_chosen','closest_alternative'))
-            if d['tier']:
-                assert d['route'] and (d['support_card_ids'] or d['support_source_ids'])
-                if d['route']=='E3_limited_sample':assert d['confidence']=='Low' and d['status']=='proposed_home'
-        routes={d['route'] for d in ds.values()}|{outside.get('route')}
-        short='Rules action' if r['kind']=='rules' else 'User-selected' if 'U' in routes else 'Source-informed' if 'E2' in routes or ('E1' in routes and bool(routes & {'E3','E3_limited_sample'})) else 'Official placement' if 'E1' in routes else 'Scryfall-derived'
-        r.update(protocolVersion='1.0',reviewStatus=a['record_status'],judgmentDate=a['provenance']['judgment_date'],shortLabel=short,
-                 label='Rules action - not ranked' if r['kind']=='rules' else 'User-selected classification' if 'U' in routes else 'Official placement' if short=='Official placement' else short+' assessment - provisional',
-                 scope=player['scope'],classification=a['mechanic']['classification'],summary=player['summary'],limitations=player['limitations'],
-                 placements={c:ds[c]['tier'] for c in COLORS},rationale=player['rationale'],
-                 decisionStatus={c:ds[c]['status'] for c in COLORS},decisionRoute={c:ds[c]['route'] for c in COLORS},decisionConfidence={c:ds[c]['confidence'] for c in COLORS},
-                 outsidePrimary='Colorless' if r['kind']=='colorless' and outside.get('proposed_tier')=='Primary' else None,
-                 outsideTier=outside.get('proposed_tier') if r['kind']=='colorless' else None,outsideStatus=outside['status'])
-        confidence=sorted({d['confidence'] for d in ds.values() if d['tier']})
-        r['confidence']=' / '.join(confidence) if confidence else 'Low; observed tiers unresolved' if r['kind']=='derived' else outside.get('confidence','Not applicable')
-        if r['name']=='Annihilator':r['confidence']='User-selected; evidence supports Colorless access'
-        r['sources']=[]
-        for s in a['sources']:
-            if s.get('url') and urlsplit(s['url']).hostname=='magic.wizards.com':
-                item={'title':s['title'],'url':safe_url(s['url'])}
-                if item not in r['sources']:r['sources'].append(item)
-        assert r['kind']=='derived' or not any(r['placements'].values())
-    return {'schemaVersion':2,'protocolVersion':'1.0','researchDate':'2026-10-27','judgmentDate':'2026-10-27','supplementCanonicalSha256':sha(canonical(supplement)),'sourceBindingFormat':'canonical-json-utf8','sourceBindings':[{'path':p.relative_to(ROOT).as_posix(),'sha256':sha(canonical(read(p)))} for p in SOURCES+REVIEWS],'records':sorted(rows,key=lambda r:r['name'])}
+ supplement=read(SUPPLEMENT); accepted={r['id']:r for r in supplement['records'] if r['name'].startswith(('A','B')) and r['target2021'] is None}; assert len(accepted)==43
+ reviews=[r for p in REVIEWS for r in read(p)['records']];assert len(reviews)==len({r['mechanic']['name'] for r in reviews})==43
+ addendum=read(ADDENDUM); legacy=legacy_cards(); rows=[]
+ for r in reviews:
+  name,key=r['mechanic']['name'],r['mechanic']['accepted_id'];assert key in accepted and accepted[key]['name']==name
+  a=r['access_review'];assert a.get('version')=='2.0' and a.get('review_date')=='2026-10-28';assert all(isinstance(a.get(k),str) and a[k].strip() for k in ('scope_label','scope','summary'))
+  rawcards={c['oracle_id']:c for c in r['card_review'] if c.get('included')}; cardmap=dict(rawcards); cardmap.update({key:value for key,value in legacy.items() if key in cardmap}); assert set(a.get('colors',{}))==set(COLORS)
+  excluded=set(a.get('excluded_access_card_ids',[])); assert excluded <= set(rawcards)
+  used=set()
+  for color in COLORS:
+   item=a['colors'][color]; ids=item.get('card_ids',[]); used.update(ids)
+   for oracle_id in ids:
+    assert oracle_id in rawcards; attributed=rawcards[oracle_id].get('attributed_colors',[])
+    if item['status']=='documented': assert attributed==[color],(name,color,oracle_id,attributed)
+    if item['status']=='multicolor_only': assert color in attributed and len(attributed)>1,(name,color,oracle_id,attributed)
+  for combo in a.get('combinations',[]):
+   for oracle_id in combo.get('card_ids',[]):
+    used.add(oracle_id); assert oracle_id in rawcards and set(rawcards[oracle_id].get('attributed_colors',[]))==set(combo['colors']),(name,combo['colors'],oracle_id)
+  for oracle_id in a.get('colorless',{}).get('card_ids',[]):
+   used.add(oracle_id); assert oracle_id in rawcards and rawcards[oracle_id].get('attributed_colors',[])==[],(name,oracle_id)
+  assert not used & excluded
+  if name in {'Abandon','Activate','Attach'}: assert not used
+  else:
+   allowed={'released_paper','released paper'}
+   if name=='Actualize': allowed={'digital'}
+   if name=='Affinitycycling': allowed={'designer_playtest'}
+   eligible={oracle_id for oracle_id,card in rawcards.items() if card.get('scope') in allowed and ({'native','explicit_grant','card_specific_label'} & set(card.get('roles',[])))} - excluded
+   assert used==eligible,(name,'access references must cover exactly the normalized qualifying scope',sorted(used),sorted(eligible))
+   for color in COLORS:
+    item=a['colors'][color]; ids=set(item.get('card_ids',[])); direct={oracle_id for oracle_id in eligible if rawcards[oracle_id].get('attributed_colors',[])==[color]}; joint={oracle_id for oracle_id in eligible if color in rawcards[oracle_id].get('attributed_colors',[]) and len(rawcards[oracle_id].get('attributed_colors',[]))>1}
+    if item['status']=='documented': assert ids==direct,(name,color,'documented bucket',sorted(ids),sorted(direct))
+    elif item['status']=='multicolor_only': assert ids==joint,(name,color,'joint bucket',sorted(ids),sorted(joint))
+    else: assert not ids and not direct,(name,color,'unrepresented direct qualifying access')
+   for combo in a.get('combinations',[]):
+    expected={oracle_id for oracle_id in eligible if set(rawcards[oracle_id].get('attributed_colors',[]))==set(combo['colors'])}
+    assert set(combo['card_ids'])==expected,(name,combo['colors'],'combination bucket',sorted(combo['card_ids']),sorted(expected))
+  colors={c:entry(a['colors'][c],cardmap) for c in COLORS}; combos=[]
+  for combo in a.get('combinations',[]):
+   cs=combo.get('colors');assert isinstance(cs,list) and len(cs)>=2 and cs==sorted(cs,key=COLORS.index) and all(c in COLORS for c in cs);found=cards_for(combo.get('card_ids'),cardmap);assert found and isinstance(combo.get('note'),str) and combo['note'].strip();combos.append({'colors':cs,'note':combo['note'],'cards':found,'findUrl':find_url(found)})
+  limitations=a.get('limitations');assert isinstance(limitations,list) and all(isinstance(x,str) and x.strip() for x in limitations)
+  rows.append({'id':key,'name':name,'kind':'rules' if all(x['status']=='not_applicable' for x in colors.values()) else 'access','researchDate':a['review_date'],'scopeLabel':a['scope_label'],'scope':a['scope'],'summary':a['summary'],'access':{'colors':colors,'combinations':combos,'colorless':entry(a.get('colorless'),cardmap,True),'limitations':limitations},'citationCards':[{'name':c['name'],'url':card_url(c)} for c in cardmap.values()],'sources':sources(r),'relatedEffects':related(name,addendum)})
+ assert len(rows)==len({r['id'] for r in rows})==43
+ return {'schemaVersion':3,'protocolVersion':'2.0','researchDate':'2026-10-28','supplementCanonicalSha256':sha(canonical(supplement)),'sourceBindingFormat':'canonical-json-utf8','sourceBindings':[{'path':p.relative_to(ROOT).as_posix(),'sha256':sha(canonical(read(p)))} for p in SOURCE_INPUTS],'records':sorted(rows,key=lambda r:r['name'])}
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--check',action='store_true');args=p.parse_args()
-    text=json.dumps(build(),indent=2,ensure_ascii=False)+'\n'
-    if args.check:
-        assert OUTPUT.read_text(encoding='utf-8')==text,'Generated assessment payload is stale'
-        print('PASS: 43 protocol v1.0 A/B records; deterministic payload and source bindings')
-    else:OUTPUT.write_text(text,encoding='utf-8');print('Wrote 43 A/B assessments')
+ p=argparse.ArgumentParser();p.add_argument('--check',action='store_true');args=p.parse_args();text=json.dumps(build(),indent=2,ensure_ascii=False)+'\n'
+ if args.check: assert OUTPUT.read_text(encoding='utf-8')==text,'Generated assessment payload is stale';print('PASS: 43 protocol v2.0 A/B documented-access records; deterministic payload and source bindings')
+ else:OUTPUT.write_text(text,encoding='utf-8');print('Wrote 43 A/B documented-access records')
 if __name__=='__main__':main()

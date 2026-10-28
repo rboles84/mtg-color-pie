@@ -1,3 +1,5 @@
+> Historical tier-assessment record. On October 28, 2026, the Owner replaced inferred supplemental A/B P/S/T with documented color access. Current display authority is [COLOR-ACCESS-PROTOCOL.md](COLOR-ACCESS-PROTOCOL.md) and each canonical packet's `access_review` field. The tier judgments below are preserved history and do not drive the current preview.
+
 # B mechanic protocol review
 
 Protocol **1.0**. Local research/judgment date: **October 27, 2026, America/Denver**. Fresh API receipts retain their actual October 28 UTC times. Task baseline: `a5a1c6b5463fdff20695aa26e2c6dc05ed4a6487`.

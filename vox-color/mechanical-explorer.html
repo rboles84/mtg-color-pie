@@ -406,6 +406,12 @@ button{font:inherit;color:inherit}
 .sc.t-t > .ms,.sc.t-n > .ms{display:none}
 .sc.t-t::after{content:'';width:calc(var(--sz,14px) * .32);height:calc(var(--sz,14px) * .32);border-radius:50%;background:var(--cc)}
 .sc.t-n{border:1px dashed rgba(237,230,211,.28)}
+/* Supplemental documented-access marks are intentionally a separate notation
+   from the 2021 Primary/Secondary/Tertiary tier strip. */
+.access-strip .sc{--cc:var(--ink-dim);border:1px solid rgba(237,230,211,.22)}
+.access-strip .sc > .ms{display:none;color:#15120c}
+.access-strip .sc.a-d{background:var(--ink);border-color:var(--ink)}
+.access-strip .sc.a-d > .ms{display:block}
 /* Optical centring of the glyphs inside Primary and Secondary circles. Each
    glyph's box is geometrically centred; these small per-symbol offsets
    correct where the shape's weight sits (the drop's bulb, the fireball's
@@ -1236,7 +1242,7 @@ function stripHTML(colors){
   return '<span class="strip" aria-hidden="true">' + ORDER.map(c => slotHTML(c, colors[c], ` data-c="${c}"`)).join('') + '</span>';
 }
 function assessmentStripHTML(a){
-  return stripHTML(Object.fromEntries(ORDER.map(c => [c, a.placements[c] ? {tier:a.placements[c].toLowerCase()} : null])));
+  return '<span class="strip access-strip" aria-hidden="true">' + ORDER.map(c => `<i class="sc ${a.access.colors[c].status === 'documented' ? 'a-d' : 'a-none'}" data-c="${c}" style="--cc:var(--ink)"><i class="ms ms-${c.toLowerCase()}"></i></i>`).join('') + '</span>';
 }
 function labelHTML(r){ return esc(curly(r.disp)).replace(/\//g, '/<wbr>') + (r.qual ? `<span class="e-q"> · ${esc(r.qual)}</span>` : ''); }
 
@@ -1247,9 +1253,9 @@ function buildEntries(){
     b.type = 'button'; b.className = 'ent'; b.dataset.k = k; b.tabIndex = -1;
     b.title = r.supplemental ? r.head : r.e.label;
     b.setAttribute('aria-pressed', 'false');
-    const a=ASSESSMENTS.byKey.get(k), derived=a && a.kind === 'derived';
-    b.innerHTML = `<span class="e-lab">${labelHTML(r)}${r.supplemental && !derived ? `<span class="e-tag">${esc(r.scope.evidenceLabel)} · ${esc(assessmentSummary(k))}</span>` : r.listOnly ? `<span class="e-tag">${esc(unmatchedCase(k).tag)}</span>` : ''}</span>${derived ? assessmentStripHTML(a) : r.supplemental ? '' : stripHTML(r.e.colors)}`;
-    if (derived) b.title = `${r.head}. ${assessmentSummary(k, true)}.`;
+    const a=ASSESSMENTS.byKey.get(k), access=a && a.kind === 'access';
+    b.innerHTML = `<span class="e-lab">${labelHTML(r)}${r.supplemental && !access ? `<span class="e-tag">${esc(r.scope.evidenceLabel)} · ${esc(assessmentSummary(k))}</span>` : r.listOnly ? `<span class="e-tag">${esc(unmatchedCase(k).tag)}</span>` : ''}</span>${access ? assessmentStripHTML(a) : r.supplemental ? '' : stripHTML(r.e.colors)}`;
+    if (access) b.title = `${r.head}. ${assessmentSummary(k, true)}.`;
     b._slots = [...b.querySelectorAll('.strip .sc')];
     entEl.set(k, b);
   }
@@ -1265,7 +1271,7 @@ function layoutList(){
     const r = REC.get(k), tag = el.querySelector('.e-tag');
     if (r.supplemental && tag){ tag.hidden = false; tag.textContent = `${r.scope.evidenceLabel} · ${assessmentSummary(k)}`; }
     const a = ASSESSMENTS.byKey.get(k);
-    if (a && a.kind === 'derived'){
+    if (a && a.kind === 'access'){
       if (tag) tag.remove();
       if (!el.querySelector('.strip')) el.insertAdjacentHTML('beforeend', assessmentStripHTML(a));
       el.title = `${r.head}. ${assessmentSummary(k, true)}.`;
@@ -1319,7 +1325,7 @@ function layoutList(){
     if (specialKeys.length){
       const special = document.createElement('section'); special.className = 'grp'; special.dataset.scope = 'special-material';
       special.setAttribute('aria-label', 'Special material');
-      special.innerHTML = `<h3 class="grp-h" id="special-material-heading" tabindex="-1">Special material<small>${specialKeys.length} entries</small></h3><p class="lo-note">Supplemental evidence and derived provisional assessments</p><div class="grp-in"></div>`;
+      special.innerHTML = `<h3 class="grp-h" id="special-material-heading" tabindex="-1">Special material<small>${specialKeys.length} entries</small></h3><p class="lo-note">Supplemental evidence and documented color access</p><div class="grp-in"></div>`;
       const returnTop = document.createElement('button'); returnTop.type = 'button'; returnTop.className = 'go'; returnTop.dataset.act = 'jump-main'; returnTop.textContent = 'Return to top'; returnTop.setAttribute('aria-label', 'Return to top of A–Z entries'); special.querySelector('.grp-h').appendChild(returnTop);
       const specialIn = special.querySelector('.grp-in');
       for (const group of specialGroups){
@@ -1721,19 +1727,19 @@ function renderResults(){
     const unplaced = lensOn ? articleHits.filter(h => !h.placed).length : 0;
     const unknown = S.hits.length - articleHits.length;
     ab.hidden = !(lensOn && P.phrase);
-    ab.textContent = `${unplaced} of ${articleHits.length} 2021 ${plural(articleHits.length, 'match', 'matches')} ${unplaced === 1 ? 'has' : 'have'} no 2021 placement in ${listWords(cnames(P.colours))}. That records Rosewater's design defaults on October 18, 2021; it is not evidence that no card of that color does this.` + (unknown ? ` ${unknown} supplemental ${plural(unknown, 'record is', 'records are')} outside these 2021 calculations; any provisional assessment is labeled separately.` : '');
+    ab.textContent = `${unplaced} of ${articleHits.length} 2021 ${plural(articleHits.length, 'match', 'matches')} ${unplaced === 1 ? 'has' : 'have'} no 2021 placement in ${listWords(cnames(P.colours))}. That records Rosewater's design defaults on October 18, 2021; it is not evidence that no card of that color does this.` + (unknown ? ` ${unknown} supplemental ${plural(unknown, 'record is', 'records are')} outside these 2021 calculations; documented access is labeled separately.` : '');
     resultPage = Math.min(resultPage, Math.max(0, Math.ceil(S.hits.length / MAX_RESULTS) - 1));
     const offset = resultPage * MAX_RESULTS;
     const shown = S.hits.slice(offset, offset + MAX_RESULTS);
     resList.innerHTML = shown.map((h, i) => {
       const r = REC.get(h.k), st = STAGES[h.stage];
-      const a = ASSESSMENTS.byKey.get(h.k), derived = a && a.kind === 'derived';
+      const a = ASSESSMENTS.byKey.get(h.k), derived = a && a.kind === 'access';
       const note = h.note ? ` <span>${st.player ? `<span class="pterm">“${esc(h.note)}”</span>` : '“' + esc(curly(h.note)) + '”'}</span>` : '';
       let lp = '';
       if (lensOn && !r.supplemental){ const pb = proj.best(h.k, P.colours), code = esc([...setKey(P.colours)].join(''));
         lp = `<span class="lensp">${code}: ${pb.sameTier ? (pb.catalog.best ? TIER[pb.catalog.best] : 'no placement')
           : `${TIER[pb.list.best]} ${READING_BY.list} · ${TIER[pb.catalog.best]} ${READING_BY.catalog}`}</span>`; }
-      if (r.supplemental) lp = `<span class="lensp">${esc(derived ? ASSESSMENTS.byKey.get(h.k).shortLabel + (ASSESSMENTS.byKey.get(h.k).shortLabel === 'Official placement' ? '' : ' · provisional') : isAssessmentTarget(h.k) ? assessmentSummary(h.k, true) : 'No sourced Primary/Secondary/Tertiary assignment is recorded')}</span>`;
+      if (r.supplemental) lp = `<span class="lensp">${esc(derived ? assessmentSummary(h.k, true) : isAssessmentTarget(h.k) ? assessmentSummary(h.k, true) : 'No sourced Primary/Secondary/Tertiary assignment is recorded')}</span>`;
       const tag = st.related ? ` <span class="pterm-tag rel">related · not what the term names</span>` : st.player ? ' <span class="pterm-tag">navigation aid</span>' : '';
       return `<div class="opt${st.related ? ' is-rel' : ''}" role="option" id="opt-${offset + i}" data-k="${esc(h.k)}" aria-selected="false"${derived ? ` aria-label="${esc(r.head + '. ' + assessmentSummary(h.k, true) + '. Outside the 2021 color calculations.')}"` : ''}>
         <span class="opt-l">${labelHTML(r)}</span>${derived ? assessmentStripHTML(a) : r.supplemental ? `<span class="calc scope-badge">${esc(scopeGroupLabel(r.scope))}</span>` : stripHTML(r.e.colors)}
@@ -1999,79 +2005,71 @@ function isAssessmentTarget(k){
 }
 function assessmentSummary(k, full = false){
   const a = ASSESSMENTS.byKey.get(k);
-  if (!a) return isAssessmentTarget(k) ? (ASSESSMENTS.status === 'unavailable' ? 'Assessment unavailable' : 'Assessment loading') : 'Rankings unassigned';
-  if (a.kind === 'rules') return 'Rules action · Not ranked' + (a.relatedEffects.length ? ' · Related 2017 placement' : '');
-  if (a.kind === 'colorless') return a.shortLabel + (a.outsidePrimary ? ' · Colorless Primary' : ' · Colorless access · Tier unassigned');
-  return (full ? a.label.replace(' - ', ' — ') + ' · ' : a.shortLabel + ' · ') + ORDER.filter(c => full || a.placements[c]).map(c => `${full ? CNAME[c] : c} ${a.placements[c] || 'Unassigned'}`).join(' · ');
+  if (!a) return isAssessmentTarget(k) ? (ASSESSMENTS.status === 'unavailable' ? 'Documented access unavailable' : 'Documented access loading') : 'Rankings unassigned';
+  if (a.kind === 'rules') return 'Rules action · Color access not applicable';
+  const documented=ORDER.filter(c => a.access.colors[c].status === 'documented');
+  const joint=a.access.combinations.length;
+  const colorless=a.access.colorless.status === 'documented';
+  return (full ? 'Documented color access · ' : 'Color access · ') + (documented.length ? documented.map(c => full ? CNAME[c] : c).join(' · ') : 'no independent WUBRG example') + (joint ? ` · ${joint} joint combination${joint===1?'':'s'}` : '') + (colorless ? ' · Colorless' : '');
 }
 function assessmentHTML(k){
   if (!isAssessmentTarget(k)) return '';
   const a = ASSESSMENTS.byKey.get(k);
-  if (!a) return `<section class="dx-sec supp-assessment" aria-label="Assessment status"><p class="dx-note">${esc(assessmentSummary(k))}. ${ASSESSMENTS.status === 'unavailable' ? 'The research could not be loaded. Reload to try again; rules and other evidence remain available.' : 'Rules and other evidence remain available while the research loads.'}</p></section>`;
-  const link = (name, url) => `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(name)}</a>`;
-  const rows = ORDER.map(c => `<li class="own-row${a.placements[c] ? '' : ' none'}" data-c="${c}">
-    <i class="sc t-${a.placements[c] ? a.placements[c][0].toLowerCase() : 'n'}" style="--cc:var(--${c.toLowerCase()})" aria-hidden="true"><i class="ms ms-${c.toLowerCase()}"></i></i>
-    <span class="own-c">${CNAME[c]}</span><span class="own-lead" aria-hidden="true"></span><span class="own-t">${esc(a.placements[c] || 'Unassigned')}</span></li>`).join('');
-  const placement = a.kind === 'derived' ? `<ul class="own" aria-label="Provisional placements">${rows}</ul>` :
-    a.kind === 'colorless' ? `<p class="dx-ex is-supplemental"><b>${a.outsidePrimary ? 'Primary: Colorless' : 'Colorless access · Tier unassigned'}</b></p><p class="dx-note">Outside the Five Colors${a.outsidePrimary ? ' · Secondary: None · Tertiary: None' : ' · Observed in the stated scope; no P/S/T tier established'}<br>W/U/B/R/G placements remain unassigned.</p>` :
-    '<p class="dx-ex is-supplemental"><b>Rules action · Not ranked</b></p><p class="dx-note">Primary, Secondary and Tertiary do not apply to this general rules action.</p>';
-  return `<section class="dx-sec supp-assessment" aria-label="${esc(a.label)}">
-    <h3 class="dx-h">${a.kind === 'rules' ? 'Classification' : 'Placements'}</h3><p class="dx-note">${esc(a.label)}</p>
-    ${placement}<p class="dx-note">${esc(a.scope)}</p>${a.kind === 'rules' ? '' : a.name === 'Annihilator' ? '<p class="dx-note">The cards support colorless access; Primary is the classification chosen for this page.</p>' : `<p class="dx-note">Confidence: ${esc(a.confidence.split(';')[0])}</p>`}
-    <p class="dx-note">${a.kind === 'rules' ? 'General rules terminology.' : a.shortLabel === 'Official placement' ? 'Placement attributed to the official source cited below.' : a.name === 'Annihilator' ? 'Colorless classification selected for this page; not an official Wizards ranking.' : 'Our assessment, not an official Wizards or Scryfall ranking.'} Based on evidence available ${esc(supplementalDate(a.researchDate))}. Outside the 2021 color calculations.</p>
-    <details class="assessment-notes"><summary>Rationale and evidence</summary><p>${esc(a.summary)}</p>
-      ${a.kind === 'derived' ? ORDER.map(c => `<p><b>${CNAME[c]} · ${esc(a.placements[c] || 'Unassigned')}.</b> ${esc(a.rationale[c])}</p><p class="dx-note">Confidence: ${esc(a.decisionConfidence[c])}</p>`).join('') : ''}
-      ${a.limitations.length ? `<h4>Scope and limitations</h4><ul class="dx-list">${a.limitations.map(t => `<li>${esc(t)}</li>`).join('')}</ul>` : ''}
-      <h4>Evidence</h4>${a.sources.map(s => `<p>${link(s.title, s.url)}</p>`).join('')}<p>${link('Scryfall search · includes special material', a.queryUrl)}</p>
+  if (!a) return `<section class="dx-sec supp-assessment" aria-label="Documented access status"><p class="dx-note">${esc(assessmentSummary(k))}. ${ASSESSMENTS.status === 'unavailable' ? 'The documented access record could not be loaded. Reload to try again; rules and other evidence remain available.' : 'Rules and other evidence remain available while the record loads.'}</p></section>`;
+  const link = (name, url) => url ? `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(name)}</a>` : esc(name);
+  const accessRows = a.kind === 'access' ? ORDER.map(c => { const item=a.access.colors[c]; return `<li class="own-row${item.status === 'documented' ? '' : ' none'}" data-c="${c}"><i class="sc ${item.status === 'documented' ? 'a-d' : 'a-none'}" style="--cc:var(--ink)" aria-hidden="true"><i class="ms ms-${c.toLowerCase()}"></i></i><span class="own-c">${CNAME[c]}</span><span class="own-lead" aria-hidden="true"></span><span class="own-t">${esc(item.status === 'documented' ? 'Documented access' : item.status === 'multicolor_only' ? 'Combination only' : item.status === 'not_applicable' ? 'Not applicable' : item.status === 'insufficient_evidence' ? 'Insufficient evidence' : 'No example found')}</span></li>`; }).join('') : '';
+  const reviewedCards = (item, label) => `${item.findUrl ? `<p>${link('Find reviewed ' + label + ' cards on Scryfall', item.findUrl)}</p>` : ''}${item.cards.length ? `<details><summary>${item.cards.length} reviewed card ${item.cards.length === 1 ? 'source' : 'sources'}</summary><ul class="dx-list">${item.cards.map(card => `<li>${link(card.name,card.url)}</li>`).join('')}</ul></details>` : ''}`;
+  const colorNotes = a.kind === 'access' ? `<h4>Color evidence</h4>${ORDER.map(c => { const item=a.access.colors[c]; return `<p><b>${CNAME[c]}.</b> ${esc(item.note)}</p>${reviewedCards(item,CNAME[c])}`; }).join('')}` : '';
+  const combos = a.kind === 'access' && a.access.combinations.length ? `<h4>Documented combinations</h4><ul class="dx-list">${a.access.combinations.map(x => `<li><b>${esc(x.colors.map(c=>CNAME[c]).join(' / '))}.</b> ${esc(x.note)}${reviewedCards(x,x.colors.map(c=>CNAME[c]).join(' / '))}</li>`).join('')}</ul>` : '';
+  const colorless = a.kind === 'access' ? `<p class="dx-note"><b>Colorless:</b> ${esc(a.access.colorless.status === 'documented' ? 'Documented access' : a.access.colorless.status === 'not_found' ? 'No example found' : a.access.colorless.status === 'not_applicable' ? 'Not applicable' : 'Insufficient evidence')}.</p>` : '';
+  const colorlessEvidence = a.kind === 'access' ? `<h4>Colorless evidence</h4><p>${esc(a.access.colorless.note)}</p>${reviewedCards(a.access.colorless,'Colorless')}` : '';
+  return `<section class="dx-sec supp-assessment" aria-label="Documented color access">
+    <h3 class="dx-h">${a.kind === 'rules' ? 'Color access' : 'Documented access'}</h3><p class="dx-note">${a.kind === 'rules' ? 'This is a general rules action; it has no color access map.' : 'Neutral mana marks show independently documented access only. They are not 2021 tier marks.'}</p>
+    ${a.kind === 'access' ? `<ul class="own access-strip" aria-label="Documented color access">${accessRows}</ul>${colorless}` : '<p class="dx-ex is-supplemental"><b>Rules action · Color access not applicable</b></p>'}<p class="dx-note"><b>${esc(a.scopeLabel)}.</b> ${esc(a.scope)}</p>
+    <p class="dx-note">Based on reviewed evidence October 28, 2026. Outside the 2021 color calculations.</p>
+    <details class="assessment-notes"><summary>Evidence and scope</summary><p>${esc(a.summary)}</p>${colorNotes}${combos}${colorlessEvidence}
+      ${a.access.limitations.length ? `<h4>Scope and limitations</h4><ul class="dx-list">${a.access.limitations.map(t => `<li>${esc(t)}</li>`).join('')}</ul>` : ''}
+      <h4>Sources</h4>${a.sources.map(s => `<p>${link(s.title, s.url)}</p>`).join('')}
       ${a.citationCards.length ? `<details><summary>${a.citationCards.length} reviewed card ${a.citationCards.length === 1 ? 'source' : 'sources'}</summary><ul class="dx-list">${a.citationCards.map(c => `<li>${link(c.name, c.url)}</li>`).join('')}</ul></details>` : ''}
     </details>${a.relatedEffects.map(e => `<section class="assessment-related" aria-label="Related historical placement"><h4>${esc(e.name)}</h4><p class="dx-note">${esc(e.label)}</p><p class="dx-ex is-supplemental">${ORDER.filter(c => e.placements[c]).map(c => `${CNAME[c]} · ${esc(e.placements[c])}`).join(' · ')}</p><p class="dx-note">${esc(e.note)}</p><p class="dx-note">${link('Mechanical Color Pie 2017', e.url)}</p></section>`).join('')}
   </section>`;
 }
 async function loadAssessments(data, status){
   try {
-    const payload = await getJSON('../data/mechanics-assessments.v1.json');
+    /* Keep this sidecar's cache key tied to the page revision; a previously
+       cached unversioned v1 payload must not silently bind to this renderer. */
+    const revision = new URL(location.href).searchParams.get('v') || 'access-2.0';
+    const payload = await getJSON('../data/mechanics-assessments.v1.json?v=' + encodeURIComponent(revision));
     const text = v => typeof v === 'string' && !!v.trim();
     const object = v => v !== null && typeof v === 'object' && !Array.isArray(v);
     const map = (v, check) => object(v) && Object.keys(v).length === 5 && ORDER.every(c => Object.hasOwn(v, c) && check(v[c]));
-    const placements = v => map(v, t => t === null || ['Primary','Secondary','Tertiary'].includes(t));
     const safeLink = v => !!supplementalURL(v) && ['scryfall.com','magic.wizards.com'].includes(new URL(v).hostname);
     const names = ['a-assessments-source.json','absorb-assessment-source.json','a-classification-addendum.json','a-protocol-core.json','a-protocol-extended.json','a-protocol-special.json','b-protocol-core.json','b-protocol-extended.json'];
     const expected = new Map(data.records.filter(r => /^[AB]/.test(r.name) && r.target2021 === null).map(r => [r.id,r]));
     const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(JSON.stringify(data)));
     const hash = [...new Uint8Array(digest)].map(n => n.toString(16).padStart(2,'0')).join('');
-    if (!payload || payload.schemaVersion !== 2 || payload.protocolVersion !== '1.0' || payload.judgmentDate !== '2026-10-27' || payload.researchDate !== '2026-10-27' || payload.supplementCanonicalSha256 !== hash || payload.sourceBindingFormat !== 'canonical-json-utf8' ||
+    if (!payload || payload.schemaVersion !== 3 || payload.protocolVersion !== '2.0' || payload.researchDate !== '2026-10-28' || payload.supplementCanonicalSha256 !== hash || payload.sourceBindingFormat !== 'canonical-json-utf8' ||
         !Array.isArray(payload.sourceBindings) || payload.sourceBindings.length !== names.length || !names.every((name,i) => payload.sourceBindings[i]?.path === 'docs/mechanics-research/' + name && /^[a-f0-9]{64}$/.test(payload.sourceBindings[i].sha256)) ||
         !Array.isArray(payload.records) || payload.records.length !== 43 || expected.size !== 43) throw new Error('Unsupported assessment schema or binding');
     const staged = new Map();
     for (const a of payload.records){
       const source = expected.get(a?.id);
-      if (!source || staged.has(a.id) || a.name !== source.name || a.researchDate !== (a.name.startsWith('A') ? '2026-10-26' : '2026-10-27') ||
-          !['derived','colorless','rules'].includes(a.kind) || !['label','shortLabel','scope','summary','confidence','classification'].every(k => text(a[k])) ||
-          a.protocolVersion !== payload.protocolVersion || a.judgmentDate !== payload.judgmentDate || !['draft','reviewed'].includes(a.reviewStatus) ||
-          !map(a.decisionStatus, s => ['assigned','proposed_home','observed_tier_unresolved','no_support_in_sample','incomplete_evidence','conflicted','not_applicable'].includes(s)) ||
-          !map(a.decisionRoute, s => s === null || ['E1','E2','E3','E3_limited_sample','U'].includes(s)) ||
-          !map(a.decisionConfidence, s => ['High','Moderate','Low','Not applicable'].includes(s)) ||
-          !placements(a.placements) || !map(a.rationale, text) || !Array.isArray(a.limitations) || !a.limitations.every(text) ||
-          !safeLink(a.queryUrl) || !Array.isArray(a.citationCards) || !a.citationCards.every(c => c && text(c.name) && safeLink(c.url) && new URL(c.url).hostname === 'scryfall.com') ||
+      const access = a?.access, statuses=['documented','multicolor_only','not_found','not_applicable','insufficient_evidence'];
+      const card = c => c && text(c.name) && (c.url === null || safeLink(c.url) && new URL(c.url).hostname === 'scryfall.com');
+      const entry = (value, colorless=false) => value && statuses.includes(value.status) && (!colorless || value.status !== 'multicolor_only') && text(value.note) && Array.isArray(value.cards) && value.cards.every(card) && (value.cards.length > 0) === ['documented','multicolor_only'].includes(value.status) && (value.findUrl === null || safeLink(value.findUrl) && new URL(value.findUrl).hostname === 'scryfall.com');
+      if (!source || staged.has(a.id) || a.name !== source.name || a.researchDate !== '2026-10-28' || !['access','rules'].includes(a.kind) || !['scopeLabel','scope','summary'].every(k => text(a[k])) ||
+          !object(access) || !map(access.colors, value => entry(value)) || !entry(access.colorless,true) || !Array.isArray(access.combinations) || !access.combinations.every(x => x && Array.isArray(x.colors) && x.colors.length >= 2 && x.colors.every(c => ORDER.includes(c)) && x.colors.join('') === ORDER.filter(c=>x.colors.includes(c)).join('') && text(x.note) && Array.isArray(x.cards) && x.cards.length && x.cards.every(card) && safeLink(x.findUrl)) || !Array.isArray(access.limitations) || !access.limitations.every(text) ||
+          !Array.isArray(a.citationCards) || !a.citationCards.every(card) ||
           !Array.isArray(a.sources) || !a.sources.every(s => s && text(s.title) && safeLink(s.url)) ||
-          !Array.isArray(a.relatedEffects) || !a.relatedEffects.every(e => e && text(e.name) && text(e.label) && text(e.note) && placements(e.placements) && safeLink(e.url))) throw new Error('Malformed assessment record');
-      const kind = ['Abandon','Activate','Attach'].includes(a.name) ? 'rules' : ['Annihilator','Affinitycycling'].includes(a.name) ? 'colorless' : 'derived';
-      const routes = new Set(Object.values(a.decisionRoute).filter(Boolean));
-      const short = kind === 'rules' ? 'Rules action' : a.name === 'Annihilator' ? 'User-selected' : routes.has('E2') || routes.has('E1') && (routes.has('E3') || routes.has('E3_limited_sample')) ? 'Source-informed' : routes.has('E1') ? 'Official placement' : 'Scryfall-derived';
-      const expectedLabel = kind === 'rules' ? 'Rules action - not ranked' : short === 'User-selected' ? 'User-selected classification' : short === 'Official placement' ? 'Official placement' : short + ' assessment - provisional';
-      if (a.kind !== kind || a.label !== expectedLabel || a.shortLabel !== short ||
-          a.outsidePrimary !== (a.name === 'Annihilator' ? 'Colorless' : null) || a.outsideTier !== (a.name === 'Annihilator' ? 'Primary' : null) ||
-          !['assigned','observed_tier_unresolved','not_applicable','no_support_in_sample'].includes(a.outsideStatus) ||
-          ORDER.some(c => Boolean(a.placements[c]) !== ['assigned','proposed_home'].includes(a.decisionStatus[c]) || a.placements[c] && !a.decisionRoute[c]) ||
-          kind !== 'derived' && Object.values(a.placements).some(Boolean) ||
-          a.relatedEffects.length !== (a.name === 'Attach' ? 1 : 0)) throw new Error('Assessment classification mismatch');
+          !Array.isArray(a.relatedEffects) || !a.relatedEffects.every(e => e && text(e.name) && text(e.label) && text(e.note) && map(e.placements, t => t === null || ['Primary','Secondary','Tertiary'].includes(t)) && safeLink(e.url)) ||
+          (a.kind === 'rules') !== ORDER.every(c => access.colors[c].status === 'not_applicable')) throw new Error('Malformed assessment record');
       staged.set(a.id, deepFreeze(a));
     }
     ASSESSMENTS.byKey = staged; ASSESSMENTS.status = 'ready';
-    status.textContent += ' 43 A/B mechanic assessments are available; derived placements remain outside the 2021 calculations.';
+    status.textContent += ' 43 A/B documented color-access records are available; 2021 tiers remain separate.';
   } catch (err){
     ASSESSMENTS.byKey = new Map(); ASSESSMENTS.status = 'unavailable';
-    status.textContent += ' A/B mechanic assessments are unavailable; rules and other evidence remain available.';
+    status.textContent += ' A/B documented color access is unavailable; rules and other evidence remain available.';
     console.warn('[mechanical-explorer] assessments unavailable:', err.message);
   }
   if (S.view === 'az') layoutList();

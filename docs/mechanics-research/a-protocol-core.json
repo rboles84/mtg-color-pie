@@ -578,6 +578,57 @@
         "limitations": [
           "These Alchemy examples do not establish a pattern for paper Magic or Commander."
         ]
+      },
+      "access_review": {
+        "version": "2.0",
+        "review_date": "2026-10-28",
+        "scope_label": "Digital cards",
+        "scope": "Digital Alchemy cards.",
+        "summary": "The reviewed digital cards use Actualize to reward spells that were not in your starting deck.",
+        "colors": {
+          "W": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No white example was found in the reviewed digital cards."
+          },
+          "U": {
+            "status": "documented",
+            "card_ids": [
+              "9affc6ea-ee6b-46e4-9623-f90e7f5bf451",
+              "e733e56d-9bef-4bd1-b8d8-2a28e58f550f"
+            ],
+            "note": "Crux of the Theory uses Actualize to empower Jace when you cast a spell that was not in your starting deck."
+          },
+          "B": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No black example was found in the reviewed digital cards."
+          },
+          "R": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No red example was found in the reviewed digital cards."
+          },
+          "G": {
+            "status": "documented",
+            "card_ids": [
+              "7e8e28e4-8df4-45bf-a338-e5a6a30348e7"
+            ],
+            "note": "Etali, Primal Garden costs less for each spell you have cast this game that was not in your starting deck."
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "documented",
+          "card_ids": [
+            "d9451fb3-b846-4a19-815b-4f696a627e99"
+          ],
+          "note": "Willbound Quill copies spells you cast that were not in your starting deck."
+        },
+        "limitations": [
+          "Access describes the colors of the reviewed cards or mechanic-bearing faces, not Commander deck legality. Multicolor cards and colorless grants do not establish separate single-color sources.",
+          "These examples are digital designs; they do not establish paper-card availability."
+        ]
       }
     },
     {
@@ -1722,6 +1773,73 @@
         },
         "limitations": [
           "The shared Primary placement is our interpretation of this balanced design, not an official ranking."
+        ]
+      },
+      "access_review": {
+        "version": "2.0",
+        "review_date": "2026-10-28",
+        "scope_label": "Released paper cards",
+        "scope": "The five-color Adamant design in Throne of Eldraine.",
+        "summary": "The reviewed cards show Adamant in all five colors, with additional colorless examples. The bonus depends on the mana spent to cast the spell.",
+        "colors": {
+          "W": {
+            "status": "documented",
+            "card_ids": [
+              "30393cb0-f461-4899-8aae-609bc8378f36",
+              "0a557383-596b-4b8f-b81f-21706fef7b63",
+              "d511573b-35c7-4934-aa46-906e14101664"
+            ],
+            "note": "Ardenvale Paladin enters with a +1/+1 counter if at least three white mana was spent to cast it."
+          },
+          "U": {
+            "status": "documented",
+            "card_ids": [
+              "cfda6f65-3755-40e5-8061-a21941c4b1bd",
+              "9f693483-f4df-497a-a6c7-fc269fc60ea8",
+              "1965ca0e-1357-4437-82d3-1a78353ab5f1"
+            ],
+            "note": "Turn into a Pumpkin creates a Food token if at least three blue mana was spent to cast it."
+          },
+          "B": {
+            "status": "documented",
+            "card_ids": [
+              "152bbb62-195b-4de1-90c6-10dd953f8c4b",
+              "33a162f3-e781-494f-ab8f-12a84801a694",
+              "6fea3c95-9663-4857-983e-eaf522efa1a8"
+            ],
+            "note": "Foreboding Fruit creates a Food token if at least three black mana was spent to cast it."
+          },
+          "R": {
+            "status": "documented",
+            "card_ids": [
+              "eec31fe0-a633-4424-84d2-90fe88016310",
+              "26c17025-1123-46d9-a8bd-edbad01c4b6e",
+              "1e94e647-9150-4b22-aa9f-d195f64fb20a"
+            ],
+            "note": "Slaying Fire deals 4 damage instead of 3 if at least three red mana was spent to cast it."
+          },
+          "G": {
+            "status": "documented",
+            "card_ids": [
+              "33fdbff6-0e89-4f02-b429-9b17869134cd",
+              "f666c38d-e601-4aa9-b140-4b6607bb12dd",
+              "185d84f4-6095-46ef-917f-3d662a86aa81"
+            ],
+            "note": "Once and Future returns both targeted cards to your hand if at least three green mana was spent to cast it."
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "documented",
+          "card_ids": [
+            "67dae813-907e-456d-9e91-2d7c85f1d574",
+            "c9cd57f6-1f69-4ea1-9672-ca944759c7e8",
+            "d4c13349-2faa-46ec-bd8e-80a4e59ef407"
+          ],
+          "note": "Clockwork Servant and Henge Walker check for three mana of the same color; Desecrate Reality instead checks for three colorless mana."
+        },
+        "limitations": [
+          "Access describes the colors of the reviewed cards or mechanic-bearing faces, not Commander deck legality. Multicolor cards and colorless grants do not establish separate single-color sources."
         ]
       }
     },
@@ -3228,6 +3346,98 @@
         "limitations": [
           "Multicolor cards add context, but do not by themselves establish a separate tier for each of their colors."
         ]
+      },
+      "access_review": {
+        "version": "2.0",
+        "review_date": "2026-10-28",
+        "scope_label": "Released paper cards",
+        "scope": "Adapt puts the stated number of +1/+1 counters on a permanent if it has no +1/+1 counters.",
+        "summary": "White, blue, black and green cards in the review have Adapt. Colorless and multicolor examples are listed separately.",
+        "colors": {
+          "W": {
+            "status": "documented",
+            "card_ids": [
+              "dfee20a6-7737-49a8-b1cb-0a4914ac0ad3"
+            ],
+            "note": "Knighted Myr has adapt 1. Putting a +1/+1 counter on it also triggers its ability to gain double strike for the turn."
+          },
+          "U": {
+            "status": "documented",
+            "card_ids": [
+              "b9000917-4f09-42f4-ae85-fc1ac7571d93",
+              "38de7183-81ef-4a79-b231-7195ba89a281",
+              "00187de2-bc48-4137-97d8-a9a0fafc76c1",
+              "49701c15-c6f7-4b72-9e89-d34148e5c675",
+              "75132177-0881-4158-9d65-73f5ba9d4402"
+            ],
+            "note": "Benthic Biomancer has adapt 1 and lets you draw, then discard, when one or more +1/+1 counters are put on it."
+          },
+          "B": {
+            "status": "documented",
+            "card_ids": [
+              "5b4e1163-09aa-4597-9a41-e1e384975056",
+              "cb70a360-898e-443a-b053-38e35ea2baa2",
+              "3e254cae-6e14-4a40-bc02-7ca23750bb26",
+              "b8c35a80-2c72-49ff-af5c-e8885c97f6fc"
+            ],
+            "note": "Dreamdrinker Vampire has adapt 1 and gains menace for the turn when one or more +1/+1 counters are put on it."
+          },
+          "R": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No red example was found in the reviewed paper cards."
+          },
+          "G": {
+            "status": "documented",
+            "card_ids": [
+              "0e07f1af-5ff6-4da5-8683-aea4cc390975",
+              "1a49ec1c-6150-4b46-b671-b7d6f4e301ae",
+              "c428cbe2-17fd-4bd2-9810-de2561519f14",
+              "34428f42-03ac-4795-8286-6cbea796df2b",
+              "559c9949-faaf-41bc-9349-b6738b4763a2",
+              "07b0b2ad-4364-4a8d-94d5-8bf984b23d05",
+              "e9c756a5-f4d4-4b84-be60-ad4bc0d1acf9"
+            ],
+            "note": "Evolution Witness has adapt 2 and returns a permanent card from your graveyard to your hand when one or more +1/+1 counters are put on it."
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "U",
+              "G"
+            ],
+            "card_ids": [
+              "a0cd19c1-9125-4627-83ba-d42c489b4e7d",
+              "9bc0ca04-26ab-4743-bc65-0b5f4115c8f7",
+              "fb8e43f2-41d5-4ffb-a61e-940477749e00",
+              "8420f73d-fdcf-4425-b9a7-c9d359fc028d",
+              "04260930-ff38-4b35-9ec4-e89196a4f2c7"
+            ],
+            "note": "Aeromunculus, Scuttlegator, Sharktocrab, Unruly Krasis, Zegana, Utopian Speaker provide blue-green examples. These cards document this combination, not separate single-color sources."
+          },
+          {
+            "colors": [
+              "B",
+              "G"
+            ],
+            "card_ids": [
+              "fd077d1a-f395-41c2-b1df-dd5e2f723abf",
+              "4feeb493-8db5-41d3-bd27-486052e61f28"
+            ],
+            "note": "Cursed Wombat, Expanding Ooze provide black-green examples. These cards document this combination, not separate single-color sources."
+          }
+        ],
+        "colorless": {
+          "status": "documented",
+          "card_ids": [
+            "a7c69802-99c4-4778-934e-cc09ba58c267"
+          ],
+          "note": "Basking Broodscale has adapt 1. Devoid makes this card colorless despite the green mana in its cost."
+        },
+        "limitations": [
+          "Access describes the colors of the reviewed cards or mechanic-bearing faces, not Commander deck legality. Multicolor cards and colorless grants do not establish separate single-color sources."
+        ]
       }
     },
     {
@@ -4087,6 +4297,71 @@
         },
         "limitations": [
           "Confidence is low because the evidence comes from a small guild-focused design."
+        ]
+      },
+      "access_review": {
+        "version": "2.0",
+        "review_date": "2026-10-28",
+        "scope_label": "Released paper cards",
+        "scope": "The white-blue Addendum design in Ravnica Allegiance.",
+        "summary": "The reviewed Addendum cards include white and blue spells, plus white-blue cards. Their extra effects depend on casting them during your main phase.",
+        "colors": {
+          "W": {
+            "status": "documented",
+            "card_ids": [
+              "6b70af46-ff27-4eec-9692-248b06248de6",
+              "8ac43884-9f03-4945-98ea-c744d0403f32",
+              "ac34bc09-ba8a-4bfb-bc45-e9c3e4d7bdc0",
+              "ae198ce9-097b-4204-b599-12bdb36f5195",
+              "97435e03-2fff-4fe0-8fa9-69ab0a046a33"
+            ],
+            "note": "Arrester's Zeal gives its target flying for the turn when cast during your main phase, in addition to its +2/+2 bonus."
+          },
+          "U": {
+            "status": "documented",
+            "card_ids": [
+              "ccfb612a-762d-41a7-bc3d-268c6abf8e85",
+              "b2f83483-24a4-45db-a04e-42ff732ca98a",
+              "275d0b90-a8d6-4388-b7db-34615287f532"
+            ],
+            "note": "Arrester's Admonition draws a card when cast during your main phase, in addition to returning a creature to its owner's hand."
+          },
+          "B": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No black example was found in the reviewed paper cards."
+          },
+          "R": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No red example was found in the reviewed paper cards."
+          },
+          "G": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No green example was found in the reviewed paper cards."
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "W",
+              "U"
+            ],
+            "card_ids": [
+              "9127ac59-4c7b-4652-b1e5-d82af47f2717",
+              "01f675c3-d1c4-45c8-8a2e-75f535db3025"
+            ],
+            "note": "Emergency Powers, Sphinx's Insight provide white-blue examples. These cards document this combination, not separate single-color sources."
+          }
+        ],
+        "colorless": {
+          "status": "not_found",
+          "card_ids": [],
+          "note": "No colorless example was found in the reviewed scope."
+        },
+        "limitations": [
+          "Access describes the colors of the reviewed cards or mechanic-bearing faces, not Commander deck legality. Multicolor cards and colorless grants do not establish separate single-color sources."
         ]
       }
     },
@@ -8249,6 +8524,218 @@
         "limitations": [
           "Preview, digital, and playtest examples are kept separate from the paper-card pattern. Colorless cards do not establish tiers for every color that can play them."
         ]
+      },
+      "access_review": {
+        "version": "2.0",
+        "review_date": "2026-10-28",
+        "scope_label": "Released paper cards",
+        "scope": "Affinity across paper releases; digital and special cards are considered separately.",
+        "summary": "The reviewed cards show Affinity in every color and on colorless cards. Individual cards name the permanents that reduce their cost.",
+        "colors": {
+          "W": {
+            "status": "documented",
+            "card_ids": [
+              "17df0fda-d726-4c9d-bf44-6f2e3a347117",
+              "1ca8d2cb-58ba-476b-a4f2-1bf273a54cf3",
+              "ae6ef097-bd52-4bf8-81a8-2e6c643fc805",
+              "499d76c1-97ff-4006-922c-be1684a7754c",
+              "e39bcfb8-cc45-42ab-a4b6-003f44d6b578",
+              "94dcbcc0-6941-4e8c-8741-4b47ae231eba",
+              "9bdc1e63-1cf9-4ddb-a7d5-f2a2eb91bdfd",
+              "1589d90d-411a-4e77-9771-51518b2b224b",
+              "50261b9d-48f2-4bad-a35b-14f13b3cdd32",
+              "dad767d4-e7d4-4fe0-8a18-bb434c5268eb",
+              "fd1b4523-2399-4771-89bf-1d65f5d67056"
+            ],
+            "note": "Angelic Observer has affinity for Citizens, reducing its cost for each Citizen you control."
+          },
+          "U": {
+            "status": "documented",
+            "card_ids": [
+              "085bc7be-bd44-40af-8e8f-a1a8006fe22c",
+              "8788f555-8c18-4842-9716-385afae2b9a4",
+              "4ecbaf6a-aa03-45c8-a09e-6c7fc598ab9e",
+              "428cc1cb-a491-4cc4-9436-28ee8acc37d6",
+              "534eb5bd-1eb0-4a12-8e98-e964495aa7e9",
+              "da3e7d3d-2ca0-40c3-9602-fca37c92f507",
+              "fdbd8a95-1dc8-4df2-bab0-a93d1941a405",
+              "01590ff3-34fa-47aa-b5da-f0b8c1b031c6",
+              "06df923f-916e-49f4-960a-7b3fb108c704",
+              "5b677e88-bcc9-4a55-9c89-8bbd0e2344dc",
+              "52562194-4a97-40d2-aa73-7827f7834f2f",
+              "dac33359-0317-4b11-9078-fccfd2321e53",
+              "799f31fc-3b6f-419a-8e70-b41c8e97f000",
+              "cec11318-4578-4c66-a9be-1704df0c296c",
+              "569da5d3-6af2-4021-a464-b30ebaaf6fa0",
+              "3c88108e-d983-427a-9b85-b9cdd2d5083b",
+              "a35ff288-0ba0-47de-9848-4ff4bef6b91b",
+              "9deded8b-cec4-4ede-a50b-131404d456d4",
+              "cce9bbff-82dc-4b2f-addd-d6715588de20",
+              "61e3709e-7ecd-4a59-bca1-019d16795740",
+              "976e1fe6-ac32-4ea9-9828-acd3c4791e01",
+              "1333d690-a6dc-4ef8-8c57-2ba16727c0a5"
+            ],
+            "note": "Assert Authority has affinity for artifacts, reducing the cost of its counterspell effect for each artifact you control."
+          },
+          "B": {
+            "status": "documented",
+            "card_ids": [
+              "88075828-a76e-412d-b738-182f50e3a133",
+              "009e1638-9055-4872-93e1-85841bce4648",
+              "655a2b78-6a6c-4b9e-b7c0-48d3768978f5"
+            ],
+            "note": "Refurbished Familiar has affinity for artifacts on a black artifact creature."
+          },
+          "R": {
+            "status": "documented",
+            "card_ids": [
+              "3f4d1ae1-d5c6-4afb-94c8-8e0ae4891501",
+              "13d92af9-a6e2-4847-b2e9-179fe0cc840e",
+              "647980b2-088c-43a4-bdc4-5865f03a4fc4",
+              "cf113674-f809-4b97-9e8d-e22385446ddb",
+              "81e5c62c-5aed-41e2-8bd1-610022e880bd",
+              "f308a1de-94a6-4f9f-8f46-6f2018959b40",
+              "a35b7fd3-fdef-4414-b720-978f7ce70bff",
+              "c7031047-5109-482f-b2e9-14800b9279bf",
+              "2b154d55-37dd-4e5f-aa99-d4bc547cdec0"
+            ],
+            "note": "Furnace Dragon has affinity for artifacts on a red creature."
+          },
+          "G": {
+            "status": "documented",
+            "card_ids": [
+              "c15e5e93-2eff-407d-ae75-437e36ef85ba",
+              "2d995c47-e548-4fc4-9182-fef46af20ca5",
+              "77c97dad-17cc-4a28-a48b-907c044d9034",
+              "efd2a4ca-1bd0-4762-a997-f099326b1746",
+              "8bcbae66-1854-480e-a449-33e5389610ab"
+            ],
+            "note": "Bartz and Boko has affinity for Birds, reducing its cost for each Bird you control."
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "W",
+              "G"
+            ],
+            "card_ids": [
+              "7f2579ef-0422-4cb1-a0f8-6ad0d942515b"
+            ],
+            "note": "Banquet Guests provides a white-green example. This card documents this combination, not separate single-color sources."
+          },
+          {
+            "colors": [
+              "U",
+              "R"
+            ],
+            "card_ids": [
+              "01758a4a-ac29-47ad-8e88-158374f1ae4c",
+              "0e084342-31ff-47a5-9fd8-5b385add7a1a"
+            ],
+            "note": "Don & Raph, Hard Science, Saheeli, the Gifted provide blue-red examples. These cards document this combination, not separate single-color sources."
+          },
+          {
+            "colors": [
+              "W",
+              "U"
+            ],
+            "card_ids": [
+              "71366469-04ea-4526-bf24-7abc02fdc5ab",
+              "71766a05-62a5-4839-b9bf-f5dcde710251",
+              "5c0cbc44-6c31-44fe-a3da-a97a37a01726"
+            ],
+            "note": "Ethersworn Sphinx, Millicent, Restless Revenant, Voyage Home provide white-blue examples. These cards document this combination, not separate single-color sources."
+          },
+          {
+            "colors": [
+              "B",
+              "R"
+            ],
+            "card_ids": [
+              "2494101a-2c6b-45d8-95fe-e62bf9a25130",
+              "07799012-7051-400e-adde-b54b41b80c70"
+            ],
+            "note": "Imskir Iron-Eater, The Dalek Emperor provide black-red examples. These cards document this combination, not separate single-color sources."
+          },
+          {
+            "colors": [
+              "W",
+              "R"
+            ],
+            "card_ids": [
+              "87966759-206a-4a2d-bf78-86f727c29972",
+              "c4175a34-70bb-47e5-8406-efdc4d2cd079"
+            ],
+            "note": "Nahiri, Forged in Fury, Sami, Wildcat Captain provide white-red examples. These cards document this combination, not separate single-color sources."
+          },
+          {
+            "colors": [
+              "U",
+              "B"
+            ],
+            "card_ids": [
+              "d097991c-41df-47de-a439-57a0693b9581"
+            ],
+            "note": "Tezzeret, Master of the Bridge provides a blue-black example. This card documents this combination, not separate single-color sources."
+          },
+          {
+            "colors": [
+              "W",
+              "B"
+            ],
+            "card_ids": [
+              "2ef0961a-0543-4371-8c2a-333881b735e5"
+            ],
+            "note": "Tomik, Wielder of Law provides a white-black example. This card documents this combination, not separate single-color sources."
+          },
+          {
+            "colors": [
+              "W",
+              "U",
+              "B"
+            ],
+            "card_ids": [
+              "9deced63-80d0-419e-a5ac-71b06ba1459e"
+            ],
+            "note": "Urza, Chief Artificer provides a white-blue-black example. This card documents this combination, not separate single-color sources."
+          },
+          {
+            "colors": [
+              "B",
+              "G"
+            ],
+            "card_ids": [
+              "fbb04a21-e513-4317-aac8-fa6df91c3438"
+            ],
+            "note": "Witherbloom, the Balancer provides a black-green example. This card documents this combination, not separate single-color sources."
+          }
+        ],
+        "colorless": {
+          "status": "documented",
+          "card_ids": [
+            "336d51cf-dcb3-4257-bd6c-926820a2f9de",
+            "a927fd33-f183-48d9-b582-55d379d70e13",
+            "ccc7de36-aafc-4d87-80f7-fc2effc976eb",
+            "386c5895-9713-4c28-9ba8-8ca0caa06c13",
+            "ebcd864a-b7dd-4330-89e1-80576a9437ec",
+            "422f0c13-6bd5-40d1-af03-00af5c01780e",
+            "2d8e1054-654f-42e8-8c29-12c3cf13a3eb",
+            "9c51d843-d155-44ed-ab1f-dfa2ff848f53",
+            "89115ed5-95bf-4b81-b352-5481c3addbed",
+            "c7b2188a-7571-48b8-ac66-ca741bf2e779",
+            "1ab0a315-0d0d-4247-9bb9-107b35b353d6",
+            "1cbfe1f2-776b-429d-9a60-8da32058a927",
+            "bfdc6bbc-7402-40ae-91be-658afca2f145",
+            "733c6e30-3c0c-41f0-b1e9-4c2eb76f7b82",
+            "04ea21b3-084b-4746-9b49-99b6ef4f0885",
+            "e5e7e7e4-a774-4d68-8767-8ba2bae38250"
+          ],
+          "note": "Frogmite and Myr Enforcer have affinity for artifacts. Mycosynth Golem also grants affinity for artifacts to artifact creature spells you cast."
+        },
+        "limitations": [
+          "Access describes the colors of the reviewed cards or mechanic-bearing faces, not Commander deck legality. Multicolor cards and colorless grants do not establish separate single-color sources."
+        ]
       }
     },
     {
@@ -9282,6 +9769,66 @@
           "The article ranks a broader effect. Applying its hierarchy to Afflict is our judgment, not a separate official ranking of the keyword.",
           "Colorless cards can grant Afflict to creatures of other colors without establishing tiers for those colors."
         ]
+      },
+      "access_review": {
+        "version": "2.0",
+        "review_date": "2026-10-28",
+        "scope_label": "Released paper cards",
+        "scope": "The named Afflict keyword, informed by the broader blocked-damage discussion in Mechanical Color Pie 2021.",
+        "summary": "The reviewed blue, black and red creatures have Afflict. Colorless cards also grant the ability; those grants do not establish a colored source.",
+        "colors": {
+          "W": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No white example was found in the reviewed paper cards."
+          },
+          "U": {
+            "status": "documented",
+            "card_ids": [
+              "5c09d646-afea-4fd0-9752-04820b81cc5b",
+              "71f3d3d3-3f82-43f6-b2a9-d21afbdd7739"
+            ],
+            "note": "Eternal of Harsh Truths and Spellweaver Eternal have Afflict, making the defending player lose life when they become blocked."
+          },
+          "B": {
+            "status": "documented",
+            "card_ids": [
+              "c2f6ddc2-86bc-43da-9bdd-0c2af79c62fd",
+              "91b46b22-8062-434b-8432-5ed1062ccaf9",
+              "2017d355-403a-4408-9779-94d1125e373f",
+              "626a979f-bed7-4cb1-9ab7-c3f2bbe37781",
+              "55c419e9-43f2-4d2d-8c13-057a48d47b53"
+            ],
+            "note": "Ammit Eternal and Khenra Eternal have Afflict. Lazotep Sliver also grants Afflict to Sliver creatures you control."
+          },
+          "R": {
+            "status": "documented",
+            "card_ids": [
+              "5ace15b8-f853-4c44-b9c7-d307367b612c",
+              "d859e9b3-7804-418d-be95-e03a5de290ca",
+              "b0d3fd57-1420-4dd1-8410-9d659655287f",
+              "195736a9-d8b0-4c74-abe9-0289aa83c67d"
+            ],
+            "note": "Frontline Devastator and Manticore Eternal have Afflict, so blocking them triggers life loss for the defending player."
+          },
+          "G": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No green example was found in the reviewed paper cards."
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "documented",
+          "card_ids": [
+            "1e51fab7-3ca5-4fbb-a1e9-b39c842895e8",
+            "459d7385-11b9-4f81-a6c1-0a77d163a0e5"
+          ],
+          "note": "Cyberman Patrol grants Afflict to artifact creatures you control. Dagger of the Worthy grants Afflict to its equipped creature."
+        },
+        "limitations": [
+          "Access describes the colors of the reviewed cards or mechanic-bearing faces, not Commander deck legality. Multicolor cards and colorless grants do not establish separate single-color sources."
+        ]
       }
     },
     {
@@ -10236,6 +10783,73 @@
         },
         "limitations": [
           "Confidence is low because the mechanic has a small, guild-focused range. The colors of its Spirit tokens do not change the colors of the cards that create them."
+        ]
+      },
+      "access_review": {
+        "version": "2.0",
+        "review_date": "2026-10-28",
+        "scope_label": "Released paper cards",
+        "scope": "Afterlife creates 1/1 white and black Spirit creature tokens with flying when the permanent goes from the battlefield to a graveyard.",
+        "summary": "The reviewed cards show Afterlife on white and black cards, as well as white-black combinations. The tokens being both colors does not determine the source card's color.",
+        "colors": {
+          "W": {
+            "status": "documented",
+            "card_ids": [
+              "c4c0a622-7325-4024-8b2e-6335f9a729e9",
+              "50f644d6-2597-4ad6-8ea8-6b09056f90c0",
+              "0cee5539-d10b-4de2-aee8-e02f0e24ac26",
+              "f5f4d78b-ed2b-471b-9ece-237fb55adc13",
+              "c916b81f-700e-4a1a-8c8e-c4685ceaecd2"
+            ],
+            "note": "Indebted Spirit has afterlife 1 and also grants afterlife 1 to the creature it enchants. Each trigger creates a 1/1 white and black Spirit token with flying."
+          },
+          "U": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No blue example was found in the reviewed paper cards."
+          },
+          "B": {
+            "status": "documented",
+            "card_ids": [
+              "72f89173-2998-45e6-94da-5b5bb9738a6b",
+              "f60b879e-82b4-442d-a544-2349429fe4c9",
+              "4f6c9cee-5af7-4b00-a2a4-2770dab0a2dc"
+            ],
+            "note": "Debtors' Transport has afterlife 2, creating two 1/1 white and black Spirit tokens with flying when it dies."
+          },
+          "R": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No red example was found in the reviewed paper cards."
+          },
+          "G": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No green example was found in the reviewed paper cards."
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "W",
+              "B"
+            ],
+            "card_ids": [
+              "05501e88-d4c3-4474-92a9-c02ab15b107b",
+              "b0381c2a-40e2-4002-82e3-ae2d687daed3",
+              "67791323-bf21-4c72-bf57-32197d3d5775",
+              "4a3acbf7-0699-4d7c-b4fa-aa15c7cde189"
+            ],
+            "note": "Afterlife Insurance, Imperious Oligarch, Knight of the Last Breath, Seraph of the Scales provide white-black examples. These cards document this combination, not separate single-color sources."
+          }
+        ],
+        "colorless": {
+          "status": "not_found",
+          "card_ids": [],
+          "note": "No colorless example was found in the reviewed scope."
+        },
+        "limitations": [
+          "Access describes the colors of the reviewed cards or mechanic-bearing faces, not Commander deck legality. Multicolor cards and colorless grants do not establish separate single-color sources."
         ]
       }
     },
@@ -11865,6 +12479,81 @@
         "limitations": [
           "A color on the other half of a split card does not by itself give that color Aftermath."
         ]
+      },
+      "access_review": {
+        "version": "2.0",
+        "review_date": "2026-10-28",
+        "scope_label": "Released paper cards",
+        "scope": "The half of each Amonkhet-block split card that has Aftermath.",
+        "summary": "The reviewed Aftermath spell halves cover all five colors. Access here follows the half with Aftermath, rather than the combined colors of the split card.",
+        "colors": {
+          "W": {
+            "status": "documented",
+            "card_ids": [
+              "3ecc4b57-3e0c-48b8-9952-e4b63b6bc45d",
+              "7bc3f92f-68a2-4934-afc4-89f6d0e8cf98",
+              "ed8184f8-f6a7-4f97-9f4e-bf72077af754",
+              "ab5b697b-ab62-4ee7-a10e-cc937fef3095",
+              "9a52c1ea-35ac-4028-8c1f-b7971c1df886"
+            ],
+            "note": "Dawn, the white half of Dusk // Dawn, returns creature cards with power 2 or less from your graveyard to your hand."
+          },
+          "U": {
+            "status": "documented",
+            "card_ids": [
+              "56fd8895-3be2-4591-86fa-87567d9cdc14",
+              "2ab857cc-64b9-4115-8fa5-6dfae9edbdb5",
+              "c2c66419-c2ca-4259-afc6-eaec6d3bb897",
+              "7db22241-fe43-4071-9af9-de1cf394f7f5",
+              "6dd7e861-7ae2-49e6-a9ab-8fd761939e22"
+            ],
+            "note": "Memory, the blue half of Commit // Memory, makes each player shuffle their hand and graveyard into their library, then draw seven cards."
+          },
+          "B": {
+            "status": "documented",
+            "card_ids": [
+              "8fe7436b-2467-486e-8a2d-7cbf21a65da9",
+              "98a5bf1a-1088-4339-9a9b-6ee5e4956cf1",
+              "87fca901-678d-4c9a-be4a-9dce2a53074b",
+              "bf276236-18a6-4a48-b47d-5227832d26e6",
+              "4ae2750e-3650-42df-a539-ea4cb72fa136"
+            ],
+            "note": "Ribbons, the black half of Cut // Ribbons, makes each opponent lose X life."
+          },
+          "R": {
+            "status": "documented",
+            "card_ids": [
+              "16da9e4b-c6ee-4e70-8653-31ca147f3b01",
+              "03d3fee8-f7de-4152-8c18-6d279cc6c125",
+              "abcb5b99-bf5e-402f-97a2-abb1ab39dd72",
+              "47543892-4d60-4c6b-a6a4-69b9172af01e",
+              "dff5d16f-3a41-4873-8188-076e77f18c75",
+              "cac993d5-28a1-48b6-9c2f-f216cb5f521d",
+              "f18d8939-7ee8-4a44-a1c8-6ae3a08f52fd"
+            ],
+            "note": "Fame, the red half of Claim // Fame, gives a creature +2/+0 and haste for the turn."
+          },
+          "G": {
+            "status": "documented",
+            "card_ids": [
+              "7ebde396-6672-491a-a6ce-1de49b12379b",
+              "980f6341-3c13-4405-8550-b838b228f788",
+              "fed7a6ad-68d8-4923-9ef0-619f73bfd6c2",
+              "e2b152ea-82d5-465e-8e13-3d62aacd6692",
+              "0b1f2522-960c-405f-9622-4cadbc7ba545"
+            ],
+            "note": "Feed, the green half of Mouth // Feed, draws a card for each creature you control with power 3 or greater."
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "not_found",
+          "card_ids": [],
+          "note": "No colorless example was found in the reviewed scope."
+        },
+        "limitations": [
+          "Access describes the colors of the reviewed cards or mechanic-bearing faces, not Commander deck legality. Multicolor cards and colorless grants do not establish separate single-color sources."
+        ]
       }
     },
     {
@@ -12857,6 +13546,75 @@
         },
         "limitations": [
           "Cards that reward airbending without performing or granting it do not establish another color placement."
+        ]
+      },
+      "access_review": {
+        "version": "2.0",
+        "review_date": "2026-10-28",
+        "scope_label": "Released paper cards",
+        "scope": "Airbend exiles a nonland permanent or a spell; while it remains exiled, its owner may cast it for {2} rather than its mana cost.",
+        "summary": "The reviewed cards show Airbend in white and blue, on a white-blue card, and on a colorless back face. The exiled card's owner may cast it for {2} while it remains exiled.",
+        "colors": {
+          "W": {
+            "status": "documented",
+            "card_ids": [
+              "f3176779-74f7-4136-a701-438feeead7a0",
+              "70564c3a-858f-498e-8b92-acb3ca54ae7e",
+              "c4d2fdf9-637d-4e97-ae33-45f2d27bf8cd",
+              "64e3791b-de99-4eed-af49-cbec218c28aa",
+              "e101b744-9175-4aa5-bf80-d6944359e538",
+              "c6e28cf0-81c7-4f52-a29b-988cc6fd31ee",
+              "03c141ca-11e4-4927-a6bd-980ee1203c73",
+              "e3431dae-969c-4896-9f9e-a80e7bec4bdf",
+              "823006a8-098c-457a-8546-77ae2457c459",
+              "ff92fa60-f0fe-496e-8155-d9d6f5af651b"
+            ],
+            "note": "Aang, Airbending Master airbends another target creature when it enters."
+          },
+          "U": {
+            "status": "documented",
+            "card_ids": [
+              "a4477852-66eb-4a54-b4c1-760cbf624f82"
+            ],
+            "note": "Whirlwind Technique can airbend up to two target creatures, alongside its draw-and-discard effect."
+          },
+          "B": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No black example was found in the reviewed paper cards."
+          },
+          "R": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No red example was found in the reviewed paper cards."
+          },
+          "G": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No green example was found in the reviewed paper cards."
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "W",
+              "U"
+            ],
+            "card_ids": [
+              "cbf09050-39d0-463b-96db-9e22011ae0d8"
+            ],
+            "note": "Aang, Swift Savior // Aang and La, Ocean's Fury provides a white-blue example. This card documents this combination, not separate single-color sources."
+          }
+        ],
+        "colorless": {
+          "status": "documented",
+          "card_ids": [
+            "521a63cf-5e83-4649-9800-c62b2fc474d6"
+          ],
+          "note": "Avatar Yangchen, the back face of The Legend of Yangchen, is colorless and has an Airbend ability. The white front face does not make that back face white."
+        },
+        "limitations": [
+          "Access describes the colors of the reviewed cards or mechanic-bearing faces, not Commander deck legality. Multicolor cards and colorless grants do not establish separate single-color sources."
         ]
       }
     }

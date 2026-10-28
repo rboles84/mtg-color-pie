@@ -1732,6 +1732,97 @@
         "limitations": [
           "A multicolor Alliance card does not automatically establish a separate tier for each of its colors."
         ]
+      },
+      "access_review": {
+        "version": "2.0",
+        "review_date": "2026-10-28",
+        "scope_label": "Released paper cards",
+        "scope": "Alliance in Streets of New Capenna and later releases.",
+        "summary": "The reviewed Alliance cards include independent white, red and green examples. Galadriel, Light of Valinor is a green-white-blue example, listed as a combination.",
+        "colors": {
+          "W": {
+            "status": "documented",
+            "card_ids": [
+              "5a6176cc-98bf-43ac-815a-1f19c4e9329c",
+              "39f7e59e-28dd-477e-be38-3fa515838ca4",
+              "e2ef355a-2472-47e0-9b2e-987994291921",
+              "212fdb7c-1c7e-4eed-b1ed-bcc14a425da8",
+              "fcdc7dfc-04b5-411a-ab49-282b9c2608e2",
+              "3ceca713-38de-4428-a4f1-2146f6e98393"
+            ],
+            "note": "Rumor Gatherer scries when another creature you control enters; the second resolution that turn draws a card instead."
+          },
+          "U": {
+            "status": "multicolor_only",
+            "card_ids": [
+              "faf44683-339d-4fc0-8029-1e867c69de0e"
+            ],
+            "note": "The reviewed blue examples are multicolor cards: Galadriel, Light of Valinor. They are listed under combinations; no single-color blue example was found in this scope."
+          },
+          "B": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No black example was found in the reviewed paper cards."
+          },
+          "R": {
+            "status": "documented",
+            "card_ids": [
+              "e1e0dc37-20c9-4236-ae01-e0891ce83afb",
+              "9f318ddc-3dc5-4e43-92b3-3a776e41c56e",
+              "eaf194a7-d95f-4738-9052-92ad00443a76",
+              "2c72e6d2-bbb0-42de-b465-438d584cbddc",
+              "d73f02e0-53fa-4437-ab3a-89a9a1db27c5",
+              "f8975d81-d373-49b1-be00-9513b92877d9",
+              "8abff7b5-fe27-46bd-b951-b5d9f93f3a14",
+              "392a71c7-8f6d-46b8-bcc3-613e086d86ed",
+              "34edbf1b-0826-49f1-a04d-15cc8c543b22"
+            ],
+            "note": "Devilish Valet doubles its power for the turn when another creature you control enters."
+          },
+          "G": {
+            "status": "documented",
+            "card_ids": [
+              "5f7c6fa9-4208-4dc8-a75b-9586200d8e19",
+              "e049eb22-a01a-463e-8de9-705d6eaf84e2",
+              "cce081eb-8820-415a-a7b2-3c5b9d4a2601",
+              "70af9a03-20d6-44e3-a181-b60e80bff643",
+              "03ebc100-68ac-4d53-adc2-d537212f7d31"
+            ],
+            "note": "Gala Greeters offers a +1/+1 counter, a tapped Treasure or 2 life when another creature you control enters, with each mode available once per turn."
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "W",
+              "R"
+            ],
+            "card_ids": [
+              "2dea1935-c227-46d5-9d98-e7d2cd612f98",
+              "b1462c82-7702-451b-b612-990353a79ac4"
+            ],
+            "note": "EPF Point Squad, The Neutrinos provide white-red examples. These cards document this combination, not separate single-color sources."
+          },
+          {
+            "colors": [
+              "W",
+              "U",
+              "G"
+            ],
+            "card_ids": [
+              "faf44683-339d-4fc0-8029-1e867c69de0e"
+            ],
+            "note": "Galadriel, Light of Valinor provides a white-blue-green example. This card documents this combination, not separate single-color sources."
+          }
+        ],
+        "colorless": {
+          "status": "not_found",
+          "card_ids": [],
+          "note": "No colorless example was found in the reviewed scope."
+        },
+        "limitations": [
+          "Access describes the colors of the reviewed cards or mechanic-bearing faces, not Commander deck legality. Multicolor cards and colorless grants do not establish separate single-color sources."
+        ]
       }
     },
     {
@@ -5708,6 +5799,167 @@
         "limitations": [
           "The black Army token does not make a blue or red Amass spell black."
         ]
+      },
+      "access_review": {
+        "version": "2.0",
+        "review_date": "2026-10-28",
+        "scope_label": "Released paper cards",
+        "scope": "Amass in paper releases; Un-set examples are considered separately.",
+        "summary": "The reviewed blue, black and red cards Amass alongside creature, spell and other effects. The Army token's color is separate from the color of the card that creates or strengthens it.",
+        "colors": {
+          "W": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No white example was found in the reviewed paper cards."
+          },
+          "U": {
+            "status": "documented",
+            "card_ids": [
+              "ba7aad10-6897-4e85-a976-1bf9282de5de",
+              "9219b7d5-642d-4470-a7c4-f3e56bfae8c7",
+              "fedb1947-9fa5-4655-8d02-b370fa63dd16",
+              "edc74fb9-a368-4f73-8147-f318a32a3d06",
+              "3ece897d-5b52-4fca-9f97-d7e864134c0b",
+              "a9720545-37f4-42f1-932f-13ef88c9ea72",
+              "324a30cc-bddd-463c-9f28-c94c93a26780",
+              "ba0082fb-2d4c-489e-8140-93a6fa693fd0",
+              "f54573d1-9950-46c3-b8f1-cd6f081d62ad",
+              "8ba24644-8dff-4f1e-a96a-7361baf46b5a",
+              "1b415806-a3e3-4d87-b4c1-ccd11a8ee589",
+              "65c5e120-7a3d-475f-9bb2-8ddb5062e4ba",
+              "b04ef0bd-5e96-45d4-afa8-1f3bc8544e1a"
+            ],
+            "note": "Aven Eternal amasses when it enters, and Callous Dismissal pairs Amass with returning a nonland permanent to its owner's hand."
+          },
+          "B": {
+            "status": "documented",
+            "card_ids": [
+              "f4437cb3-85f7-49b5-bb41-6a948549d987",
+              "a8b018a7-0350-4ee0-9582-8d391018bdee",
+              "308e551a-6d60-4a28-9e22-1181995ca068",
+              "e01860cd-0aa1-435a-9ef9-ee412bc458cd",
+              "01deabbb-af6a-4998-99a7-35b7cfa9ef77",
+              "9dd755a5-0bef-4bde-92fa-14ef2a1a1410",
+              "149887fa-6b2d-495e-b3e0-b2ac7d3dc838",
+              "85e1556d-c4da-4979-a5db-4ce3842c7797",
+              "f3817f63-7bde-46c5-93cb-b4756f5f821e",
+              "27e17542-549b-4c05-8091-c10a245c916b",
+              "8f98806e-c6b7-44af-b436-88acf36d25ec",
+              "9cdbe247-9dd3-4894-8e65-43d879c19321",
+              "85643f9b-49ea-434b-9f27-c1431064345e",
+              "2017d355-403a-4408-9779-94d1125e373f",
+              "9259e918-ace5-4f13-9035-d8bc8c820d25",
+              "bf65e547-9d81-4f4b-8adb-46aee9088906",
+              "492108b7-f831-4739-925f-c3a419859c52",
+              "ea5103f5-27e0-4eb1-902c-7f34652d6bf3",
+              "2f9a5e7c-f463-4773-bf67-a07339ce9b5d",
+              "8c7641b6-3a6c-4441-a98c-3b5d61d91f76",
+              "008a11c1-d283-49fe-abd7-ff4fe8b1fe79",
+              "8b70aad1-bcb1-4359-b27e-ba8b40ef2752",
+              "3a7c2e32-8585-4f7f-8635-199e3c6cd8a9",
+              "61897e1b-dea0-44c2-9e38-6e2627647e17",
+              "3f4dd9e2-6460-413e-a3b8-96b20bf57f8b"
+            ],
+            "note": "Lazotep Reaver amasses when it enters. Orcish Bowmasters pairs Amass with its damage trigger."
+          },
+          "R": {
+            "status": "documented",
+            "card_ids": [
+              "d2aa50d2-d22d-495e-afc9-23a51c8c8f32",
+              "4598c221-b111-4bde-b4dc-673186c4efe6",
+              "978e07fd-8b8c-4eab-850e-e4c0e712251e",
+              "4fbb8e03-22f1-4171-88e9-877244e25613",
+              "33c0a8c0-d1d9-4b03-869d-65dab8ace3df",
+              "60bfcaef-9014-4707-b681-cc3920bf223e",
+              "85ceb4ac-7a1c-4c7e-95a3-515a5b5d6116",
+              "96264dde-c0b6-4912-afc4-18757f938a4d",
+              "1f139012-fa71-4f5f-8c57-6847bff95678",
+              "5ce7780d-8a32-44c2-b779-aae732f5b05d",
+              "6e4bf4ee-317e-4c31-b121-6efbc6ae4fcf",
+              "c394b767-620c-4310-b78f-ece312259e46",
+              "c96402dc-1509-4136-bbfd-c86a85e3ee6f",
+              "5753f4d6-08d0-4e12-85c5-875ee6441626",
+              "7ca52e15-5a55-4d79-b0bf-0e2dc515ae6a"
+            ],
+            "note": "Grim Initiate amasses when it dies, while Honor the God-Pharaoh pairs Amass with discarding and drawing cards."
+          },
+          "G": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No green example was found in the reviewed paper cards."
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "B",
+              "R"
+            ],
+            "card_ids": [
+              "de08f5d4-8868-4d0f-8c0e-d0d3a2105581",
+              "88522a0f-5377-4522-97f4-4148bef954af",
+              "edbd3d4e-78a2-4c03-936d-dcb24cf7c87c",
+              "eda99a16-6a7c-4f39-8a6b-a284e6afd3fc",
+              "080f504f-20c8-4975-837c-d704e879d7f5",
+              "a598e824-ad8e-4947-896b-70c5275b615a",
+              "23db92aa-d4db-49e3-a5bc-7b120e02822f",
+              "3a06f4c1-2af1-495f-914f-1ac4e26f87d4"
+            ],
+            "note": "Angrath, Captain of Chaos, Bolg of the North, Fearsome Goblin Pair, Goblin Plate Mail, Great Goblin, Foul-Hearted, Moria Scavenger, Shagrat, Loot Bearer, Widespread Brutality provide black-red examples. These cards document this combination, not separate single-color sources."
+          },
+          {
+            "colors": [
+              "U",
+              "B"
+            ],
+            "card_ids": [
+              "67ee7c8b-afcc-4f09-a184-3db01f2ab175",
+              "f7716dff-5de7-4b52-966e-72ee3adc8d9a",
+              "c3e67b8f-1c91-4a2f-b924-35bbaff4bab9",
+              "49e3396a-a125-4cca-b02a-4a96102bcb16"
+            ],
+            "note": "Enter the God-Eternals, Gleaming Overseer, Lazotep Chancellor, The Mouth of Sauron provide blue-black examples. These cards document this combination, not separate single-color sources."
+          },
+          {
+            "colors": [
+              "U",
+              "R"
+            ],
+            "card_ids": [
+              "583a4744-89fb-4bd6-8d4c-c3d845e2e19c",
+              "aede5485-7b8c-4e29-a3a4-9a3513dc733f"
+            ],
+            "note": "Invade the City, Summons of Saruman provide blue-red examples. These cards document this combination, not separate single-color sources."
+          },
+          {
+            "colors": [
+              "U",
+              "B",
+              "R"
+            ],
+            "card_ids": [
+              "2bade11e-04e0-42a2-8861-9257c99a7c08",
+              "69c674c7-48a5-49c8-b0be-3f2b5c6a548c",
+              "9f8f29ba-7e64-455d-be05-ec7973f2bd0a"
+            ],
+            "note": "Saruman, the White Hand, Sauron, Lord of the Rings, Sauron, the Dark Lord provide blue-black-red examples. These cards document this combination, not separate single-color sources."
+          }
+        ],
+        "colorless": {
+          "status": "documented",
+          "card_ids": [
+            "88159872-d37d-4847-b048-e4a9af6437bd"
+          ],
+          "note": "Barad-dûr is a colorless land with an Amass ability. Black mana symbols in its ability do not make the card black."
+        },
+        "limitations": [
+          "Access describes the colors of the reviewed cards or mechanic-bearing faces, not Commander deck legality. Multicolor cards and colorless grants do not establish separate single-color sources.",
+          "Bin Chicken, The Sphere remain in the saved evidence but are excluded from this access list as playtest or plane-card material."
+        ],
+        "excluded_access_card_ids": [
+          "1aaff371-bf7b-4abb-bdf6-3799f57a06a6",
+          "bc7a3c30-79af-4c60-83b7-8b1984a12e61"
+        ]
       }
     },
     {
@@ -6632,6 +6884,62 @@
         },
         "limitations": [
           "These are tentative placements for a small historical mechanic."
+        ]
+      },
+      "access_review": {
+        "version": "2.0",
+        "review_date": "2026-10-28",
+        "scope_label": "Released paper cards",
+        "scope": "The small tribal Amplify design introduced in Legions.",
+        "summary": "White, black, red and green examples use Amplify to enter with counters by revealing cards of a shared creature type from hand.",
+        "colors": {
+          "W": {
+            "status": "documented",
+            "card_ids": [
+              "7d3e5d95-2658-4c1a-9ed3-df1f554d87ea",
+              "696bff10-4e46-48a7-b2af-13387b9d9da0"
+            ],
+            "note": "Aven Warhawk has amplify 1 for Bird or Soldier cards; Daru Stinger has amplify 1 for Soldier cards."
+          },
+          "U": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No blue example was found in the reviewed paper cards."
+          },
+          "B": {
+            "status": "documented",
+            "card_ids": [
+              "42e95ad5-c10a-46fe-ab97-c7a734138586",
+              "0eafe734-19f2-492d-bfc2-d0c75ece45b2",
+              "377177f3-65e5-4909-bf12-48a473b1861d"
+            ],
+            "note": "Embalmed Brawler has amplify 1 for Zombie cards revealed from your hand."
+          },
+          "R": {
+            "status": "documented",
+            "card_ids": [
+              "5cb73cd3-2cd2-45e2-a593-a498a73b2cf5"
+            ],
+            "note": "Kilnmouth Dragon has amplify 3 for Dragon cards and can deal damage based on its +1/+1 counters."
+          },
+          "G": {
+            "status": "documented",
+            "card_ids": [
+              "7fc60ae2-75fc-49e1-9d56-aa5a43844210",
+              "edb2d86f-d2c6-4230-a37d-b01210a99a32",
+              "e9ed7322-53d4-419a-809f-78824aeaf99e"
+            ],
+            "note": "Canopy Crawler has amplify 1 for Beast cards and can give another creature a bonus based on its +1/+1 counters."
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "not_found",
+          "card_ids": [],
+          "note": "No colorless example was found in the reviewed scope."
+        },
+        "limitations": [
+          "Access describes the colors of the reviewed cards or mechanic-bearing faces, not Commander deck legality. Multicolor cards and colorless grants do not establish separate single-color sources."
         ]
       }
     },
@@ -8609,6 +8917,108 @@
         "limitations": [
           "Event-specific variants are considered separately from these placements."
         ]
+      },
+      "access_review": {
+        "version": "2.0",
+        "review_date": "2026-10-28",
+        "scope_label": "Released paper cards",
+        "scope": "Ascend in Rivals of Ixalan and later releases.",
+        "summary": "The reviewed cards have Ascend in all five colors and on colorless cards. Their rewards for having the city's blessing differ.",
+        "colors": {
+          "W": {
+            "status": "documented",
+            "card_ids": [
+              "72adf091-4491-4afe-b893-b8d20ad38a86",
+              "b4ce2c8f-a19c-461e-8a2e-0ec2bd3ebca3",
+              "e45a1c99-a020-49ab-8971-35c6bcd096c8",
+              "068cbbe3-43c3-425e-80ec-d1ce5c02ea9b",
+              "0b6db929-1b6a-4372-8146-aa047258b552",
+              "fc8d3933-f7fe-4849-aae7-737ce6f067de",
+              "6bb88816-092f-491c-9794-e7dc52b9b004"
+            ],
+            "note": "Skymarcher Aspirant has flying while you have the city's blessing."
+          },
+          "U": {
+            "status": "documented",
+            "card_ids": [
+              "10d1d6ca-95f8-48da-8798-37c8aadb1f1f",
+              "a6e12be3-4166-4bd7-8254-e28b7c8588c7",
+              "f7a8066e-f8a4-4202-8825-0327d11e58c3",
+              "c0dda0d0-1fae-4777-ba86-9fe7990bf3a8",
+              "3c7ea8d0-d866-4c02-bdfc-13bbc87c094a",
+              "e8cfb24a-7e52-4e39-a9e1-969b4a65b62e",
+              "d0896996-ee31-402e-b642-4e7cca4929fe",
+              "909c673a-7136-4327-90d9-3abdbdafa795"
+            ],
+            "note": "Secrets of the Golden City draws three cards instead of two if you have the city's blessing."
+          },
+          "B": {
+            "status": "documented",
+            "card_ids": [
+              "e0190e13-89f6-4b51-a277-bf3eb842963e",
+              "e4648fa3-0343-414b-b04d-07fe0d132145",
+              "ba682da8-50f5-478f-99cc-60a57d229a04",
+              "a3afd8b9-d499-40f7-be41-f8fee6636a1d",
+              "da522912-1bc2-4d70-b426-94d10edb2afe"
+            ],
+            "note": "Golden Demise gives only opponents' creatures -2/-2 if you have the city's blessing, rather than affecting all creatures."
+          },
+          "R": {
+            "status": "documented",
+            "card_ids": [
+              "6640bcfc-4bdc-4380-8b51-61b906f9aee6",
+              "830d3450-18e7-4bac-b330-3906ef5e4514"
+            ],
+            "note": "Storm Fleet Swashbuckler has double strike while you have the city's blessing."
+          },
+          "G": {
+            "status": "documented",
+            "card_ids": [
+              "a336c10a-b5bd-47ff-ba2d-31e27af1e15a",
+              "3875aef0-3102-4fbf-be90-e4139f7a2348"
+            ],
+            "note": "Tendershoot Dryad gives Saprolings you control +2/+2 while you have the city's blessing."
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "U",
+              "B"
+            ],
+            "card_ids": [
+              "a7c36b66-4f58-41af-b1c5-704ff0d9eac8"
+            ],
+            "note": "Deadeye Brawler provides a blue-black example. This card documents this combination, not separate single-color sources."
+          },
+          {
+            "colors": [
+              "W",
+              "U"
+            ],
+            "card_ids": [
+              "f8bf5df2-b783-4796-b2c6-eb4dd4167d62"
+            ],
+            "note": "Resplendent Griffin provides a white-blue example. This card documents this combination, not separate single-color sources."
+          }
+        ],
+        "colorless": {
+          "status": "documented",
+          "card_ids": [
+            "b7d7c131-b628-4b35-b40b-1087589ebdd0",
+            "3bb518ff-399b-4ce7-b9ad-a1d563dd7792",
+            "48b84b58-1a06-4bb4-be1f-ad3ca69e66dc"
+          ],
+          "note": "Arch of Orazca has Ascend and lets you draw a card with its activated ability if you have the city's blessing."
+        },
+        "limitations": [
+          "Access describes the colors of the reviewed cards or mechanic-bearing faces, not Commander deck legality. Multicolor cards and colorless grants do not establish separate single-color sources.",
+          "Temur Elevator, The Golden City of Orazca remain in the saved evidence but are excluded from this access list as playtest or plane-card material."
+        ],
+        "excluded_access_card_ids": [
+          "cc36ec3e-ef7e-4d3c-84f2-80ee13cbad26",
+          "3c200cc0-02b1-4a32-a910-5cd3c4d716b7"
+        ]
       }
     },
     {
@@ -10301,6 +10711,78 @@
         "limitations": [
           "These placements describe Unstable, not ordinary Commander availability."
         ]
+      },
+      "access_review": {
+        "version": "2.0",
+        "review_date": "2026-10-28",
+        "scope_label": "Un-set cards",
+        "scope": "Contraptions in Unstable.",
+        "summary": "Unstable provides ways to assemble Contraptions in all five colors, with additional colorless examples. These are special-set mechanics.",
+        "colors": {
+          "W": {
+            "status": "documented",
+            "card_ids": [
+              "0812efc4-ae7b-474c-b385-55b5b73a811e",
+              "85670a50-91ba-428f-bd18-3240a93da040",
+              "a6d33c18-c217-4b35-b12d-0f8be1a04e9a"
+            ],
+            "note": "Aerial Toastmaster can sacrifice another artifact and pay mana to assemble a Contraption."
+          },
+          "U": {
+            "status": "documented",
+            "card_ids": [
+              "71c01e90-eaf8-462e-abf9-a378dfae6a84",
+              "4c8a729a-d30a-43f5-bb60-1cb5588760b1",
+              "3eb5dabf-1c38-4c79-b5df-aa52c97d2c3b",
+              "89e0fea2-2777-4533-85d8-6a88a1db2512",
+              "5d0fd8ee-2cc1-4ed8-9395-1660d15cc9f3"
+            ],
+            "note": "Incite Insight assembles X Contraptions."
+          },
+          "B": {
+            "status": "documented",
+            "card_ids": [
+              "b78c9f83-5f13-473f-9639-ddb4fd8fe926",
+              "391df15f-e346-46aa-8987-56dfb18c1844",
+              "4928262c-96eb-475f-ae91-2db82f749cd0"
+            ],
+            "note": "Finders, Keepers destroys a creature, then assembles a Contraption."
+          },
+          "R": {
+            "status": "documented",
+            "card_ids": [
+              "bce2c828-ab6a-4508-8454-295b1478d87f",
+              "92e34cfd-d27a-4352-9451-95ddfa3976dd",
+              "657de352-940f-4201-9c65-5d127de95055",
+              "0c2ba70e-6bc9-4df6-8be1-ea0ebf52289c",
+              "04bf6999-0d88-4a27-ad69-f3c4e08adc09",
+              "d5444ebd-11e0-4301-88b5-e5d72d85cfb2"
+            ],
+            "note": "Work a Double assembles two Contraptions."
+          },
+          "G": {
+            "status": "documented",
+            "card_ids": [
+              "5a4859f5-f8ae-4a6b-95a8-94d00f6249de",
+              "c3ed29c2-2d39-4397-855f-e9a3a40b3e07",
+              "97644280-f612-4918-b076-69a20f0a9f3b"
+            ],
+            "note": "First Pick destroys an artifact or enchantment and assembles a Contraption."
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "documented",
+          "card_ids": [
+            "7802dd26-b9fe-4b5f-bcab-f46ca92f64c9",
+            "ae6fb3d8-0da3-4d4d-b7d6-131866e8ed0f"
+          ],
+          "note": "Hard Hat Area and Widget Contraption provide colorless examples of assembling Contraptions in the reviewed special-set material."
+        },
+        "limitations": [
+          "Access describes the colors of the reviewed cards or mechanic-bearing faces, not Commander deck legality. Multicolor cards and colorless grants do not establish separate single-color sources.",
+          "These examples come from Un-set material, not ordinary Commander-legal mechanics."
+        ]
       }
     },
     {
@@ -11190,6 +11672,52 @@
         },
         "limitations": [
           "The representative set printings release November 13, 2026. One earlier promo does not make the rest of the preview set released material."
+        ]
+      },
+      "access_review": {
+        "version": "2.0",
+        "review_date": "2026-10-28",
+        "scope_label": "Released paper cards",
+        "scope": "Released paper example as of the October 26, 2026 card snapshot; later-release previews are separate.",
+        "summary": "Borg Queen, Perfection Manifest supplies the reviewed released-paper example. The other recorded Star Trek examples were previews at the card snapshot date.",
+        "colors": {
+          "W": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No white example was found in the reviewed paper cards."
+          },
+          "U": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No blue example was found in the reviewed paper cards."
+          },
+          "B": {
+            "status": "documented",
+            "card_ids": [
+              "f9b46a1a-474f-4fac-8d71-131c1720e4c0"
+            ],
+            "note": "Borg Queen, Perfection Manifest assimilates a creature card from an opponent's graveyard when it enters: the card enters under your control with a +1/+1 counter as a Borg artifact creature, losing its other creature types."
+          },
+          "R": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No red example was found in the reviewed paper cards."
+          },
+          "G": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No green example was found in the reviewed paper cards."
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "not_found",
+          "card_ids": [],
+          "note": "No colorless example was found in the reviewed scope."
+        },
+        "limitations": [
+          "Access describes the colors of the reviewed cards or mechanic-bearing faces, not Commander deck legality. Multicolor cards and colorless grants do not establish separate single-color sources.",
+          "The other saved examples were previews for November 13, 2026. They remain in the evidence list but do not expand the released-paper access shown here."
         ]
       }
     },
@@ -12539,6 +13067,81 @@
         },
         "limitations": [
           "The playtest card All-Star Kicker is a special variant. A card that grants Assist to other creatures does not establish a tier for every color that receives it."
+        ]
+      },
+      "access_review": {
+        "version": "2.0",
+        "review_date": "2026-10-28",
+        "scope_label": "Released paper cards",
+        "scope": "The multiplayer mechanic introduced in Battlebond.",
+        "summary": "The reviewed Assist cards include all five colors. Each allows another player to help pay the generic mana in its cost.",
+        "colors": {
+          "W": {
+            "status": "documented",
+            "card_ids": [
+              "05d2b89b-acc4-4289-95a3-a09ebb23a5d6",
+              "cb9210eb-f5cb-430d-b893-b1d814117043",
+              "337287d6-cd22-4b70-8bbb-318e3cf91bee",
+              "aaf6d66b-67b1-43f1-a8bf-db83644f7d04",
+              "f6841a6f-7dd3-4976-9891-539189c0e148"
+            ],
+            "note": "Bring Down and Play of the Game use Assist on removal spells; Dwarven Lightsmith uses it on a creature."
+          },
+          "U": {
+            "status": "documented",
+            "card_ids": [
+              "02746b0e-3ef9-46c0-9517-6c52c2905d0b",
+              "81776a16-bf38-450b-995b-beb29121cab2",
+              "431b2e52-1290-47b1-920d-2c1817553d96",
+              "1fd4204f-f627-4919-9d48-79b172f4560e"
+            ],
+            "note": "Huddle Up uses Assist on a draw spell, while Out of Bounds uses it on a counterspell."
+          },
+          "B": {
+            "status": "documented",
+            "card_ids": [
+              "37c1de8d-30d6-4b08-9368-279cf66d3e85",
+              "9991c9f2-cb6e-4cfe-a3b7-650212454195",
+              "dea311c3-9be3-4059-a206-5fbbdca4d6c9"
+            ],
+            "note": "Bloodborn Scoundrels and Fan Favorite are creatures with Assist; Gang Up is a sorcery with it."
+          },
+          "R": {
+            "status": "documented",
+            "card_ids": [
+              "f19a8c7e-1552-4786-a403-dd51c5cb2a7d",
+              "88f6575d-a6cb-4b2c-90dd-c6239f3c6e4d"
+            ],
+            "note": "Lava-Field Overlord and Magma Hellion are red creatures with Assist."
+          },
+          "G": {
+            "status": "documented",
+            "card_ids": [
+              "0f10f9d1-f9f9-4356-9208-0f21f44bfb97",
+              "21302f37-0632-4202-9823-f08c5aec016e"
+            ],
+            "note": "Charging Binox is a creature with Assist, while The Crowd Goes Wild uses it on a spell that adds counters."
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "U",
+              "B"
+            ],
+            "card_ids": [
+              "993bc179-4e24-4161-866f-5e146cbdd2f5"
+            ],
+            "note": "Vampire Charmseeker provides a blue-black example. This card documents this combination, not separate single-color sources."
+          }
+        ],
+        "colorless": {
+          "status": "not_found",
+          "card_ids": [],
+          "note": "No colorless example was found in the reviewed scope."
+        },
+        "limitations": [
+          "Access describes the colors of the reviewed cards or mechanic-bearing faces, not Commander deck legality. Multicolor cards and colorless grants do not establish separate single-color sources."
         ]
       }
     },
@@ -14018,6 +14621,70 @@
         "limitations": [
           "These placements describe the Un-set mechanic. Cards that help combine Hosts and Augment cards do not necessarily have or grant Augment themselves."
         ]
+      },
+      "access_review": {
+        "version": "2.0",
+        "review_date": "2026-10-28",
+        "scope_label": "Un-set cards",
+        "scope": "The Host-combining mechanic in Unstable and Unsanctioned.",
+        "summary": "The reviewed Un-set cards have Augment in every color and on colorless cards. They combine with Hosts rather than being cast as ordinary creature spells.",
+        "colors": {
+          "W": {
+            "status": "documented",
+            "card_ids": [
+              "d7e6fdc7-5c08-4832-9cf9-4e697db7eb4a",
+              "05c348e3-79f2-4193-863b-a64577839a97",
+              "7c5c5b63-deb7-4111-a0ab-bbc0ee12dee3"
+            ],
+            "note": "Half-Kitten, Half- combines with a Host and makes its ability trigger when you are dealt damage."
+          },
+          "U": {
+            "status": "documented",
+            "card_ids": [
+              "804941b4-86ef-4c3c-9a08-bf3cac231cc1"
+            ],
+            "note": "Half-Shark, Half- combines with a Host and makes its ability trigger at the beginning of your upkeep."
+          },
+          "B": {
+            "status": "documented",
+            "card_ids": [
+              "e2225848-bfde-4921-b47f-b93da10140a9",
+              "2a857df5-c3d8-4d95-bb2f-087d8aa6f478",
+              "54250eb8-6e77-437e-b8af-94690352c8d9"
+            ],
+            "note": "Bat- combines with a Host, adding flying and an end-step trigger if an opponent lost 3 or more life that turn."
+          },
+          "R": {
+            "status": "documented",
+            "card_ids": [
+              "7b3b5be0-8bec-43c9-bd61-39fd92e0d705"
+            ],
+            "note": "Half-Orc, Half- combines with a Host, adding trample and an end-step trigger if an opponent was dealt damage that turn."
+          },
+          "G": {
+            "status": "documented",
+            "card_ids": [
+              "50a6c19d-7ec7-4e19-8ac5-d0ca09a998e5",
+              "8937f17f-f052-416a-b5d4-b91b9f0793c9",
+              "8c1ca49b-8161-44d0-b4fc-a26a37e10c4a",
+              "b9d47d00-70ac-4cac-b087-e0f4d8fe6c77"
+            ],
+            "note": "Monkey- combines with a Host and makes its ability trigger when a nontoken creature you control dies."
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "documented",
+          "card_ids": [
+            "45f13c9d-cdbe-42c4-9563-cf539fe7e075",
+            "7ddc0b0a-75f6-413c-8bcc-c7a1bccb1c2f"
+          ],
+          "note": "Robo- and Steam-Powered have Augment costs paid with generic mana and are colorless examples."
+        },
+        "limitations": [
+          "Access describes the colors of the reviewed cards or mechanic-bearing faces, not Commander deck legality. Multicolor cards and colorless grants do not establish separate single-color sources.",
+          "These examples come from Un-set material, not ordinary Commander-legal mechanics."
+        ]
       }
     },
     {
@@ -14536,6 +15203,51 @@
         },
         "limitations": [
           "Swapping in an Aura of another color does not establish Aura Swap as an ability of that color."
+        ]
+      },
+      "access_review": {
+        "version": "2.0",
+        "review_date": "2026-10-28",
+        "scope_label": "Released paper cards",
+        "scope": "Aura Swap on Arcanum Wings.",
+        "summary": "Arcanum Wings establishes blue access to Aura Swap. Swapping in an Aura of another color does not create an Aura Swap source in that color.",
+        "colors": {
+          "W": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No white example was found in the reviewed paper cards."
+          },
+          "U": {
+            "status": "documented",
+            "card_ids": [
+              "b8cc7a78-a627-4e56-b1fc-0b2bd844ef68"
+            ],
+            "note": "Arcanum Wings lets you pay {2}{U} to exchange it with an Aura card in your hand."
+          },
+          "B": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No black example was found in the reviewed paper cards."
+          },
+          "R": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No red example was found in the reviewed paper cards."
+          },
+          "G": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No green example was found in the reviewed paper cards."
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "not_found",
+          "card_ids": [],
+          "note": "No colorless example was found in the reviewed scope."
+        },
+        "limitations": [
+          "Access describes the colors of the reviewed cards or mechanic-bearing faces, not Commander deck legality. Multicolor cards and colorless grants do not establish separate single-color sources."
         ]
       }
     },
@@ -15897,6 +16609,79 @@
         },
         "limitations": [
           "These placements concern the named Awaken mechanic, rather than all effects that turn lands into creatures."
+        ]
+      },
+      "access_review": {
+        "version": "2.0",
+        "review_date": "2026-10-28",
+        "scope_label": "Released paper cards",
+        "scope": "The Awaken design in Battle for Zendikar.",
+        "summary": "The reviewed Awaken spells include all five colors. Paying the Awaken cost adds counters to a land and turns it into an Elemental creature alongside the spell's other effect.",
+        "colors": {
+          "W": {
+            "status": "documented",
+            "card_ids": [
+              "39d7569e-62b0-4f37-813a-0985632c66c9",
+              "01081f81-f588-43ab-8d47-13593aa19ce1",
+              "ff0d05b9-0c9c-4217-abd2-7e7757a0c4c9",
+              "7c42123d-c8e2-4571-b07d-f782e9ad1f8b"
+            ],
+            "note": "Sheer Drop pairs removal with Awaken; Encircling Fissure pairs damage prevention with it."
+          },
+          "U": {
+            "status": "documented",
+            "card_ids": [
+              "2c6658c3-8c0e-46c9-8127-bc5b77eb0dab",
+              "f7c84690-8c7c-41a6-b430-a9771030f903",
+              "54dd35ee-6f89-460d-9370-72bc3fa6840a",
+              "e9d62416-c4b1-4982-9593-174d46e975c7",
+              "13d600e6-86b4-4813-8f34-75f23717f433"
+            ],
+            "note": "Clutch of Currents pairs returning a creature to its owner's hand with awaken 3. Coastal Discovery pairs card draw with Awaken."
+          },
+          "B": {
+            "status": "documented",
+            "card_ids": [
+              "1e7b18a3-43eb-4491-bb19-99f261a94719",
+              "83fb7dfb-64a4-4320-b544-830c29f24df9",
+              "7b4aa101-3c8a-44b3-9d87-91a4fe4fbae4"
+            ],
+            "note": "Mire's Malice pairs discard with Awaken; Ruinous Path pairs targeted removal with it."
+          },
+          "R": {
+            "status": "documented",
+            "card_ids": [
+              "fb34b671-b61a-47e2-90fa-dbe5cf6d3743"
+            ],
+            "note": "Boiling Earth deals damage to opposing creatures and has awaken 4 as an alternative casting cost."
+          },
+          "G": {
+            "status": "documented",
+            "card_ids": [
+              "2146fa14-dc6a-4e13-bed0-dda235784ee6"
+            ],
+            "note": "Earthen Arms puts counters on a permanent and has awaken 4 as an alternative casting cost."
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "W",
+              "U"
+            ],
+            "card_ids": [
+              "ebc1d343-26f1-4d85-ac3a-610da24c990e"
+            ],
+            "note": "Roil Spout provides a white-blue example. This card documents this combination, not separate single-color sources."
+          }
+        ],
+        "colorless": {
+          "status": "not_found",
+          "card_ids": [],
+          "note": "No colorless example was found in the reviewed scope."
+        },
+        "limitations": [
+          "Access describes the colors of the reviewed cards or mechanic-bearing faces, not Commander deck legality. Multicolor cards and colorless grants do not establish separate single-color sources."
         ]
       }
     }
