@@ -1,6 +1,6 @@
 # Active task — C mechanics Color Access
 
-- Status: ready-for-qa after bounded RobDev correction of the three findings against candidate `68ae0c8f47c08838bcc511972d3bef74ce8be5ae`. Owner authorizes all 35 supplemental C entries using the accepted Color Access protocol and presentation; update local preview, freeze 2021. Baseline `48f071a9b16a5b748f2515b1e51236feeeb95ece`; continue existing codex/a-mechanics-review checkout.
+- Status: qa-passed on exact corrected candidate `2dc68ca588f9fd3461b338408d692a197e2c01b6`; ready for Owner Review. Owner authorizes all 35 supplemental C entries using the accepted Color Access protocol and presentation; update local preview, freeze 2021. Baseline `48f071a9b16a5b748f2515b1e51236feeeb95ece`; continue existing codex/a-mechanics-review checkout.
 - Allowed files: HANDOFF.md; CONTEXT.md (coverage decision only); docs/mechanics-research/COLOR-ACCESS-PROTOCOL.md (batch scope/operational clarification only); new c-protocol-core.json, c-protocol-extended.json, c-protocol-special.json and C-ACCESS-REVIEW.md; new docs/mechanics-research/c-protocol-evidence/** captures/receipts; tools/build_mechanics_assessments.py; data/mechanics-assessments.v1.json (generated only); vox-color/mechanical-explorer.html (C target/binding/status inclusion only); tools/check_assessment_browser.mjs (C coverage). Temporary helpers outside checkout and ignored _site package permitted.
 - Ownership: RobDev core worker owns first 12 C records and core evidence; RobDev extended worker owns next 12 and extended evidence; coordinator owns remaining 11/special evidence, protocol, context, ledger, review notes and integration; runtime RobDev owns producer/payload/HTML/harness. Independent RobQA after committed candidate. Workers are not alone and must not revert other edits.
 - Evidence: inspect existing local sources first, then query Scryfall for exact keywords/actions/labels and explicit grants, save raw pages and UTC/hash receipts. Screen every returned unique card; preserve inclusions/exclusions, exact mechanic-bearing face colors, card text/links, special/digital scope and release qualification. Native monocolor use/colored grant establishes access; joint/colorless remain separate. No inferred ranks. Generic Cast/Counter/Create are rules vocabulary; avoid broad word hits as color evidence.
@@ -26,6 +26,271 @@
 - Finding 3, grant-versus-payoff qualification: Convoke treated Joyful Stormsculptor as a blue-red explicit grant and used it in the UR combination. Its captured Oracle text only rewards casting a spell that already has convoke; it neither has nor grants convoke.
 - Independent bounded crosschecks found no additional defect: all other positive explicit grants/token sources were genuine; other included ordinary-paper records had no acorn/silver/plane/token/scheme/Heroes/playtest leakage; single-face attributed colors matched captured card colors; Convert/Craft and Conjure face handling, Commander ninjutsu/Covercast/Companion combination-only treatment, and the named exclusions/corrections agreed with captured facts. All 43 A/B projected records deep-equal the baseline. Browser execution was deferred because a semantic candidate failure already required a corrected commit.
 - Required correction: preserve the original 429 evidence honestly and bind Coven to a separate complete recovered capture; exclude Overcooked from ordinary access; exclude Joyful Stormsculptor as a payoff and remove any now-unsupported UR Convoke combination. Regenerate and submit one new exact candidate for independent re-review.
+
+## Independent RobQA PASS — corrected candidate `2dc68ca588f9fd3461b338408d692a197e2c01b6`
+
+- Verdict: **RobQAPass PASS** for exact candidate `2dc68ca588f9fd3461b338408d692a197e2c01b6` against baseline `48f071a9b16a5b748f2515b1e51236feeeb95ece`. Execution mode: separate independent reviewer. QA tier: QA-4 semantic/schema qualification with bounded QA-2 browser-seam evidence. This advances the task to `qa-passed`; Owner acceptance, publication and integration remain separate.
+- Corrective review: Coven now preserves the original 429 body/receipt and binds Q3 to a separately named HTTP 200 capture containing all 59 printings. All 187 declared C evidence-file hashes recompute exactly. The recovered body and recovery receipt are both present in the canonical capture inventory with exact byte hashes. Overcooked is excluded as acorn/special paper and absent from Celebration access; Joyful Stormsculptor is excluded as a payoff, and the unsupported Convoke UR combination is absent.
+- Semantic evidence: all 35 C records and 1,725 screened candidates were reviewed proportionately from the committed packets and captured facts. No other positive grant/token source or native-operation false positive remained. Ordinary-paper qualifying records have no acorn/silver/plane/token/scheme/Heroes/playtest leakage; single-face attributed colors match captured card colors. Convert/Craft mechanic-bearing faces, Conjure split faces and digital scope, Commander ninjutsu/Covercast/Companion combination-only evidence, colorless lands, named exclusions and Expose the Culprit agree with the retained facts. Generic Cast/Counter/Create remain rules-only. Player copy is factual and contains no inferred P/S/T or backend language.
+- Static and protected evidence: `git diff --check baseline..candidate` passes. `python tools/build_mechanics_assessments.py --check` passes for 78 A/B/C records and 11 source bindings. All 43 A/B projected records deep-equal the baseline. Frozen checks pass: source invariants 217/216, taxonomy with zero miscellaneous, recon 53/53 and gate PASS. The final two-file delta from browser-passed parent `f549d82fb46812eed4d75300909819890b923e44` adds only the two missing capture-inventory entries and updates the generated source-binding hash; all 78 projected records deep-equal that parent.
+- Focused browser evidence: corrected parent `f549d82fb46812eed4d75300909819890b923e44` passed the elevated real-Edge harness: 78 A/B/C access maps, documented/no-example/joint/colorless/rules cases, exact-example and retained non-card links, atomic malformed fail-soft, search, keyboard/mobile behavior and unchanged 84/84 2021 checks. It was not repeated for the final inventory-only delta because exact comparison proves no projected record, renderer, loader, harness or runtime behavior changed.
+- Stateful/adversarial coverage: applicable only at the optional assessment-sidecar seam. The focused harness covers valid forward load and four malformed/missing/binding failures atomically without disturbing frozen 2021 state, plus search/view/lens and keyboard/mobile behavior. Reverse migration and representation round-trip are not contractual for this read-only sidecar. Structurally different rules, independent-color, combination-only, colorless and special-scope records were exercised.
+- CPU-heavy validation: **NOT REQUIRED**. Broad wheel, journey, mutation and engine stress suites were intentionally skipped because no 2021 decision logic, wheel behavior or ranking engine changed; exact A/B equality, frozen gates, packet qualification and the focused assessment harness cover the changed risk. No live provider query was rerun during final QA.
+- Findings: the rejected-candidate defects and the follow-up capture-inventory gap are closed. No blocker, major or acceptance-violating minor finding remains. OWNER-VISUAL remains open for readability, density and presentation feel in the refreshed local preview; engineering PASS does not certify aesthetics.
+
+
+## Preview verification
+
+- Final exact candidate `2dc68ca588f9fd3461b338408d692a197e2c01b6` packaged and verified: 23 byte-identical files, four syntax-clean inline scripts, 23 HTTP 200 paths and 24 excluded paths returning 404.
+- Existing localhost preview refreshed to this revision with Cycling open in A–Z, evidence expanded and search cleared. The page reports 78 A/B/C access records. WUBRG colors, colorless diamond, factual notes and per-bucket reviewed-card links are visible. Screenshot outside Git: `C:/Users/obake/.codex/visualizations/2026/10/27/01a17b8d-3467-7eb1-a917-efaf7184cd99/c-color-access-preview.png`.
+- Independent engineering PASS; Owner visual/content acceptance remains open. No publication, push or merge. Material sources and runtime are unchanged after the final candidate; this ledger is the evidence-only follow-up.
+
+## Material candidate
+
+- Baseline: `48f071a9b16a5b748f2515b1e51236feeeb95ece`
+- Candidate: `2dc68ca588f9fd3461b338408d692a197e2c01b6`
+- Changed paths: `221`
+
+## Files changed
+
+- `CONTEXT.md`
+- `HANDOFF.md`
+- `data/mechanics-assessments.v1.json`
+- `docs/mechanics-research/C-ACCESS-REVIEW.md`
+- `docs/mechanics-research/COLOR-ACCESS-PROTOCOL.md`
+- `docs/mechanics-research/c-protocol-core.json`
+- `docs/mechanics-research/c-protocol-evidence/core-cascade/keyword-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/core-cascade/oracle-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/core-cascade/printings-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/core-cascade/printings-page-2.json`
+- `docs/mechanics-research/c-protocol-evidence/core-cascade/query-receipts.json`
+- `docs/mechanics-research/c-protocol-evidence/core-casualty/keyword-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/core-casualty/oracle-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/core-casualty/printings-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/core-casualty/query-receipts.json`
+- `docs/mechanics-research/c-protocol-evidence/core-celebration/keyword-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/core-celebration/oracle-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/core-celebration/printings-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/core-celebration/query-receipts.json`
+- `docs/mechanics-research/c-protocol-evidence/core-champion/keyword-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/core-champion/oracle-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/core-champion/printings-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/core-champion/query-receipts.json`
+- `docs/mechanics-research/c-protocol-evidence/core-changeling/keyword-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/core-changeling/oracle-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/core-changeling/printings-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/core-changeling/printings-page-2.json`
+- `docs/mechanics-research/c-protocol-evidence/core-changeling/query-receipts.json`
+- `docs/mechanics-research/c-protocol-evidence/core-channel/keyword-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/core-channel/oracle-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/core-channel/printings-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/core-channel/query-receipts.json`
+- `docs/mechanics-research/c-protocol-evidence/core-chroma/keyword-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/core-chroma/oracle-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/core-chroma/printings-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/core-chroma/query-receipts.json`
+- `docs/mechanics-research/c-protocol-evidence/core-cipher/keyword-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/core-cipher/oracle-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/core-cipher/printings-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/core-cipher/query-receipts.json`
+- `docs/mechanics-research/c-protocol-evidence/core-clash/keyword-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/core-clash/oracle-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/core-clash/printings-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/core-clash/query-receipts.json`
+- `docs/mechanics-research/c-protocol-evidence/core-cleave/keyword-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/core-cleave/oracle-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/core-cleave/printings-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/core-cleave/query-receipts.json`
+- `docs/mechanics-research/c-protocol-evidence/core-cloak/keyword-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/core-cloak/oracle-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/core-cloak/printings-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/core-cloak/query-receipts.json`
+- `docs/mechanics-research/c-protocol-evidence/core-cohort/keyword-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/core-cohort/oracle-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/core-cohort/printings-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/core-cohort/query-receipts.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-collect-evidence/exact-oracle-term-page-1-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-collect-evidence/exact-oracle-term-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-collect-evidence/exact-oracle-term-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-collect-evidence/keyword-page-1-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-collect-evidence/keyword-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-collect-evidence/keyword-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-collect-evidence/released-paper-printings-page-1-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-collect-evidence/released-paper-printings-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-collect-evidence/released-paper-printings-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-companion/exact-oracle-term-page-1-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-companion/exact-oracle-term-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-companion/exact-oracle-term-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-companion/keyword-page-1-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-companion/keyword-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-companion/keyword-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-companion/released-paper-printings-page-1-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-companion/released-paper-printings-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-companion/released-paper-printings-page-2-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-companion/released-paper-printings-page-2.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-companion/released-paper-printings-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-compleated/exact-oracle-term-page-1-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-compleated/exact-oracle-term-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-compleated/exact-oracle-term-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-compleated/keyword-page-1-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-compleated/keyword-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-compleated/keyword-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-compleated/released-paper-printings-page-1-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-compleated/released-paper-printings-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-compleated/released-paper-printings-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-connive/exact-oracle-term-page-1-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-connive/exact-oracle-term-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-connive/exact-oracle-term-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-connive/keyword-page-1-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-connive/keyword-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-connive/keyword-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-connive/released-paper-printings-page-1-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-connive/released-paper-printings-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-connive/released-paper-printings-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-conspire/exact-oracle-term-page-1-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-conspire/exact-oracle-term-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-conspire/exact-oracle-term-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-conspire/keyword-page-1-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-conspire/keyword-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-conspire/keyword-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-conspire/released-paper-printings-page-1-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-conspire/released-paper-printings-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-conspire/released-paper-printings-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-constellation/exact-oracle-term-page-1-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-constellation/exact-oracle-term-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-constellation/exact-oracle-term-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-constellation/keyword-page-1-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-constellation/keyword-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-constellation/keyword-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-constellation/released-paper-printings-page-1-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-constellation/released-paper-printings-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-constellation/released-paper-printings-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-converge/exact-oracle-term-page-1-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-converge/exact-oracle-term-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-converge/exact-oracle-term-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-converge/keyword-page-1-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-converge/keyword-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-converge/keyword-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-converge/released-paper-printings-page-1-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-converge/released-paper-printings-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-converge/released-paper-printings-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-convoke/exact-oracle-term-page-1-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-convoke/exact-oracle-term-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-convoke/exact-oracle-term-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-convoke/keyword-page-1-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-convoke/keyword-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-convoke/keyword-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-convoke/released-paper-printings-page-1-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-convoke/released-paper-printings-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-convoke/released-paper-printings-page-2-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-convoke/released-paper-printings-page-2.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-convoke/released-paper-printings-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-corrupted/exact-oracle-term-page-1-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-corrupted/exact-oracle-term-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-corrupted/exact-oracle-term-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-corrupted/keyword-page-1-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-corrupted/keyword-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-corrupted/keyword-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-corrupted/released-paper-printings-page-1-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-corrupted/released-paper-printings-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-corrupted/released-paper-printings-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-councils-dilemma/exact-oracle-term-page-1-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-councils-dilemma/exact-oracle-term-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-councils-dilemma/exact-oracle-term-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-councils-dilemma/keyword-page-1-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-councils-dilemma/keyword-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-councils-dilemma/keyword-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-councils-dilemma/released-paper-printings-page-1-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-councils-dilemma/released-paper-printings-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-councils-dilemma/released-paper-printings-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-coven/exact-oracle-term-page-1-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-coven/exact-oracle-term-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-coven/exact-oracle-term-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-coven/keyword-page-1-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-coven/keyword-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-coven/keyword-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-coven/recovery-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-coven/released-paper-printings-page-1-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-coven/released-paper-printings-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-coven/released-paper-printings-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-coven/released-paper-recovered-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-craft/exact-oracle-term-page-1-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-craft/exact-oracle-term-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-craft/exact-oracle-term-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-craft/keyword-page-1-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-craft/keyword-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-craft/keyword-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-craft/released-paper-printings-page-1-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-craft/released-paper-printings-page-1.json`
+- `docs/mechanics-research/c-protocol-evidence/extended-craft/released-paper-printings-receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/special-choose-a-background/keyword-1.json`
+- `docs/mechanics-research/c-protocol-evidence/special-choose-a-background/oracle-1.json`
+- `docs/mechanics-research/c-protocol-evidence/special-choose-a-background/receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/special-choose-a-background/released-1.json`
+- `docs/mechanics-research/c-protocol-evidence/special-commander-ninjutsu/keyword-1.json`
+- `docs/mechanics-research/c-protocol-evidence/special-commander-ninjutsu/oracle-1.json`
+- `docs/mechanics-research/c-protocol-evidence/special-commander-ninjutsu/receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/special-commander-ninjutsu/released-1.json`
+- `docs/mechanics-research/c-protocol-evidence/special-conjure/keyword-1.json`
+- `docs/mechanics-research/c-protocol-evidence/special-conjure/keyword-2.json`
+- `docs/mechanics-research/c-protocol-evidence/special-conjure/keyword-complete-1.json`
+- `docs/mechanics-research/c-protocol-evidence/special-conjure/keyword-complete-2.json`
+- `docs/mechanics-research/c-protocol-evidence/special-conjure/oracle-1.json`
+- `docs/mechanics-research/c-protocol-evidence/special-conjure/oracle-2.json`
+- `docs/mechanics-research/c-protocol-evidence/special-conjure/receipt-aborted.json`
+- `docs/mechanics-research/c-protocol-evidence/special-conjure/receipt-complete.json`
+- `docs/mechanics-research/c-protocol-evidence/special-conjure/released-1.json`
+- `docs/mechanics-research/c-protocol-evidence/special-conjure/released-2.json`
+- `docs/mechanics-research/c-protocol-evidence/special-convert/keyword-1.json`
+- `docs/mechanics-research/c-protocol-evidence/special-convert/oracle-1.json`
+- `docs/mechanics-research/c-protocol-evidence/special-convert/receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/special-convert/released-1.json`
+- `docs/mechanics-research/c-protocol-evidence/special-covercast/keyword-complete-1.json`
+- `docs/mechanics-research/c-protocol-evidence/special-covercast/oracle-1.json`
+- `docs/mechanics-research/c-protocol-evidence/special-covercast/receipt-complete.json`
+- `docs/mechanics-research/c-protocol-evidence/special-covercast/released-1.json`
+- `docs/mechanics-research/c-protocol-evidence/special-crew/keyword-1.json`
+- `docs/mechanics-research/c-protocol-evidence/special-crew/keyword-2.json`
+- `docs/mechanics-research/c-protocol-evidence/special-crew/oracle-1.json`
+- `docs/mechanics-research/c-protocol-evidence/special-crew/oracle-2.json`
+- `docs/mechanics-research/c-protocol-evidence/special-crew/receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/special-crew/released-1.json`
+- `docs/mechanics-research/c-protocol-evidence/special-crew/released-2.json`
+- `docs/mechanics-research/c-protocol-evidence/special-cumulative-upkeep/keyword-1.json`
+- `docs/mechanics-research/c-protocol-evidence/special-cumulative-upkeep/oracle-1.json`
+- `docs/mechanics-research/c-protocol-evidence/special-cumulative-upkeep/receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/special-cumulative-upkeep/released-1.json`
+- `docs/mechanics-research/c-protocol-evidence/special-cycling/keyword-1.json`
+- `docs/mechanics-research/c-protocol-evidence/special-cycling/keyword-2.json`
+- `docs/mechanics-research/c-protocol-evidence/special-cycling/keyword-3.json`
+- `docs/mechanics-research/c-protocol-evidence/special-cycling/oracle-1.json`
+- `docs/mechanics-research/c-protocol-evidence/special-cycling/oracle-2.json`
+- `docs/mechanics-research/c-protocol-evidence/special-cycling/receipt.json`
+- `docs/mechanics-research/c-protocol-evidence/special-cycling/released-1.json`
+- `docs/mechanics-research/c-protocol-evidence/special-cycling/released-2.json`
+- `docs/mechanics-research/c-protocol-evidence/special-cycling/released-3.json`
+- `docs/mechanics-research/c-protocol-extended.json`
+- `docs/mechanics-research/c-protocol-special.json`
+- `tools/build_mechanics_assessments.py`
+- `tools/check_assessment_browser.mjs`
+- `vox-color/mechanical-explorer.html`
+
+## Evidence delta
+
+- Material candidate: `2dc68ca588f9fd3461b338408d692a197e2c01b6`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `1`
+- This is the later QA/preview/Git ledger evidence, not the full task material diff.
+
+## Evidence-only paths
+
+- `HANDOFF.md`
+
+## Final branch accounting
+
+- Current C task: 221 material paths against `48f071a9b16a5b748f2515b1e51236feeeb95ece`, largely retained source captures and receipts. The only later evidence path is HANDOFF.md.
+- Whole existing branch: 459 paths against `9a063b3a98cfcb7672783f83a102e8f968242490`, including all prior A/B work. This is separate from the current C task count.
+- Branch `codex/a-mechanics-review`; local commits only. The final change-report validator must PASS and the working tree must be clean before delivery.
 
 ---
 
