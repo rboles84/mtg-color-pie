@@ -280,7 +280,7 @@
 - Material candidate: `2dc68ca588f9fd3461b338408d692a197e2c01b6`
 - Evidence head: `HEAD`
 - Additional evidence-only paths: `1`
-- This is the later QA/preview/Git ledger evidence, not the full task material diff.
+- This records later QA, preview and Git ledger evidence; it is not the full task diff.
 
 ## Evidence-only paths
 
