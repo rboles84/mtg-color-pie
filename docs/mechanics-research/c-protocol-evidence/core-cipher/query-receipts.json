@@ -1,0 +1,93 @@
+{
+  "mechanic": "Cipher",
+  "retrieved_at_utc": "2026-10-28T20:22:23Z",
+  "queries": [
+    {
+      "query_id": "Q1",
+      "exact_query": "kw:\"Cipher\" include:extras",
+      "url": "https://api.scryfall.com/cards/search?q=kw%3A%22Cipher%22+include%3Aextras&unique=cards&order=released",
+      "parameters": {
+        "unique": "cards",
+        "include": "extras",
+        "order": "released"
+      },
+      "retrieved_at_utc": "2026-10-28T20:22:21Z",
+      "pages": [
+        {
+          "url": "https://api.scryfall.com/cards/search?q=kw%3A%22Cipher%22+include%3Aextras&unique=cards&order=released",
+          "receipt_path": "docs/mechanics-research/c-protocol-evidence/core-cipher/keyword-page-1.json",
+          "sha256": "5c0078d50877dafe0157119a38354283034f32b71c1f1933d8e2d70307fb6ead",
+          "retrieved_at_utc": "2026-10-28T20:22:21Z",
+          "http_status": 200
+        }
+      ],
+      "receipt_paths": [
+        "docs/mechanics-research/c-protocol-evidence/core-cipher/keyword-page-1.json"
+      ],
+      "expected_count": 15,
+      "retrieved_count": 15,
+      "completion": "complete",
+      "errors": [],
+      "exceptional_query_explanation": "Keyword-indexed candidate population.",
+      "receipt_paths_base": "repository_root"
+    },
+    {
+      "query_id": "Q2",
+      "exact_query": "o:/\\bCipher\\b/ include:extras",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%2F%5CbCipher%5Cb%2F+include%3Aextras&unique=cards&order=released",
+      "parameters": {
+        "unique": "cards",
+        "include": "extras",
+        "order": "released"
+      },
+      "retrieved_at_utc": "2026-10-28T20:22:22Z",
+      "pages": [
+        {
+          "url": "https://api.scryfall.com/cards/search?q=o%3A%2F%5CbCipher%5Cb%2F+include%3Aextras&unique=cards&order=released",
+          "receipt_path": "docs/mechanics-research/c-protocol-evidence/core-cipher/oracle-page-1.json",
+          "sha256": "5c0078d50877dafe0157119a38354283034f32b71c1f1933d8e2d70307fb6ead",
+          "retrieved_at_utc": "2026-10-28T20:22:22Z",
+          "http_status": 200
+        }
+      ],
+      "receipt_paths": [
+        "docs/mechanics-research/c-protocol-evidence/core-cipher/oracle-page-1.json"
+      ],
+      "expected_count": 15,
+      "retrieved_count": 15,
+      "completion": "complete",
+      "errors": [],
+      "exceptional_query_explanation": "Exact Oracle-term population, including grants and text-only references.",
+      "receipt_paths_base": "repository_root"
+    },
+    {
+      "query_id": "Q3",
+      "exact_query": "(kw:\"Cipher\" or o:/\\bCipher\\b/) game:paper date<=2026-10-28 include:extras",
+      "url": "https://api.scryfall.com/cards/search?q=%28kw%3A%22Cipher%22+or+o%3A%2F%5CbCipher%5Cb%2F%29+game%3Apaper+date%3C%3D2026-10-28+include%3Aextras&unique=prints&order=released",
+      "parameters": {
+        "unique": "prints",
+        "include": "extras",
+        "order": "released"
+      },
+      "retrieved_at_utc": "2026-10-28T20:22:23Z",
+      "pages": [
+        {
+          "url": "https://api.scryfall.com/cards/search?q=%28kw%3A%22Cipher%22+or+o%3A%2F%5CbCipher%5Cb%2F%29+game%3Apaper+date%3C%3D2026-10-28+include%3Aextras&unique=prints&order=released",
+          "receipt_path": "docs/mechanics-research/c-protocol-evidence/core-cipher/printings-page-1.json",
+          "sha256": "6585a5abec692faa30390a8a6b4d77cc0329d748ea4806163167bec40532474e",
+          "retrieved_at_utc": "2026-10-28T20:22:23Z",
+          "http_status": 200
+        }
+      ],
+      "receipt_paths": [
+        "docs/mechanics-research/c-protocol-evidence/core-cipher/printings-page-1.json"
+      ],
+      "expected_count": 27,
+      "retrieved_count": 27,
+      "completion": "complete",
+      "errors": [],
+      "exceptional_query_explanation": "Paper-printing chronology and original printing facts; it does not inflate the unique design population.",
+      "receipt_paths_base": "repository_root"
+    }
+  ]
+}

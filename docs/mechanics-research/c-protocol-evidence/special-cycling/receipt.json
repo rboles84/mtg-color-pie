@@ -1,0 +1,78 @@
+{
+  "name": "Cycling",
+  "cutoff": "2026-10-28",
+  "receipts": [
+    {
+      "kind": "keyword",
+      "query": "kw:\"Cycling\" include:extras",
+      "url": "https://api.scryfall.com/cards/search?unique=cards&order=name&q=kw%3A%22Cycling%22%20include%3Aextras",
+      "path": "docs/mechanics-research/c-protocol-evidence/special-cycling/keyword-1.json",
+      "retrieved_at_utc": "2026-10-28T20:24:43.740Z",
+      "http_status": 200,
+      "sha256": "3fadbfd9f119250126fa1eab9e9ae13c3af8eb7a0e1055dabe618104cf75f83f"
+    },
+    {
+      "kind": "keyword",
+      "query": "kw:\"Cycling\" include:extras",
+      "url": "https://api.scryfall.com/cards/search?format=json&include_extras=true&include_multilingual=false&include_variations=false&order=name&page=2&q=kw%3A%22cycling%22+include%3Aextras&unique=cards",
+      "path": "docs/mechanics-research/c-protocol-evidence/special-cycling/keyword-2.json",
+      "retrieved_at_utc": "2026-10-28T20:24:44.955Z",
+      "http_status": 200,
+      "sha256": "4bd78d71fc6541bbbb44078fde72cda1bdb342b9f9400e187e124aa78816a80c"
+    },
+    {
+      "kind": "keyword",
+      "query": "kw:\"Cycling\" include:extras",
+      "url": "https://api.scryfall.com/cards/search?format=json&include_extras=true&include_multilingual=false&include_variations=false&order=name&page=3&q=kw%3A%22cycling%22+include%3Aextras&unique=cards",
+      "path": "docs/mechanics-research/c-protocol-evidence/special-cycling/keyword-3.json",
+      "retrieved_at_utc": "2026-10-28T20:24:45.836Z",
+      "http_status": 200,
+      "sha256": "b9867ee5521a60ab6d415e44c191163704d76b4436e8a45d9b8758cf2511f310"
+    },
+    {
+      "kind": "oracle",
+      "query": "o:/\\bCycling\\b/ include:extras",
+      "url": "https://api.scryfall.com/cards/search?unique=cards&order=name&q=o%3A%2F%5CbCycling%5Cb%2F%20include%3Aextras",
+      "path": "docs/mechanics-research/c-protocol-evidence/special-cycling/oracle-1.json",
+      "retrieved_at_utc": "2026-10-28T20:24:47.207Z",
+      "http_status": 200,
+      "sha256": "59f981a06a779fd7369e76eb04be1c25ac2426feb6b22661f29bb3d83d46b892"
+    },
+    {
+      "kind": "oracle",
+      "query": "o:/\\bCycling\\b/ include:extras",
+      "url": "https://api.scryfall.com/cards/search?format=json&include_extras=true&include_multilingual=false&include_variations=false&order=name&page=2&q=o%3A%2F%5Cbcycling%5Cb%2F+include%3Aextras&unique=cards",
+      "path": "docs/mechanics-research/c-protocol-evidence/special-cycling/oracle-2.json",
+      "retrieved_at_utc": "2026-10-28T20:24:48.413Z",
+      "http_status": 200,
+      "sha256": "ccc9a0903ac2148d3477b55655caeffa3b234130d1d01b291c29e3f55c6aafb7"
+    },
+    {
+      "kind": "released",
+      "query": "(kw:\"Cycling\" or o:/\\bCycling\\b/) game:paper date<=2026-10-28 include:extras",
+      "url": "https://api.scryfall.com/cards/search?unique=cards&order=name&q=(kw%3A%22Cycling%22%20or%20o%3A%2F%5CbCycling%5Cb%2F)%20game%3Apaper%20date%3C%3D2026-10-28%20include%3Aextras",
+      "path": "docs/mechanics-research/c-protocol-evidence/special-cycling/released-1.json",
+      "retrieved_at_utc": "2026-10-28T20:24:49.471Z",
+      "http_status": 200,
+      "sha256": "49e4fd6c799223ae5b07498ab769cfc4acac1e728e8802f3005aebe396b5dbe2"
+    },
+    {
+      "kind": "released",
+      "query": "(kw:\"Cycling\" or o:/\\bCycling\\b/) game:paper date<=2026-10-28 include:extras",
+      "url": "https://api.scryfall.com/cards/search?format=json&include_extras=true&include_multilingual=false&include_variations=false&order=name&page=2&q=%28kw%3A%22cycling%22+or+o%3A%2F%5Cbcycling%5Cb%2F%29+game%3Apaper+date%3C%3D2026-10-28+include%3Aextras&unique=cards",
+      "path": "docs/mechanics-research/c-protocol-evidence/special-cycling/released-2.json",
+      "retrieved_at_utc": "2026-10-28T20:24:50.688Z",
+      "http_status": 200,
+      "sha256": "3806041f108644ecfb76ecc73f71a444f0e025ac175ba9d03cc7346cef31eaa0"
+    },
+    {
+      "kind": "released",
+      "query": "(kw:\"Cycling\" or o:/\\bCycling\\b/) game:paper date<=2026-10-28 include:extras",
+      "url": "https://api.scryfall.com/cards/search?format=json&include_extras=true&include_multilingual=false&include_variations=false&order=name&page=3&q=%28kw%3A%22cycling%22+or+o%3A%2F%5Cbcycling%5Cb%2F%29+game%3Apaper+date%3C%3D2026-10-28+include%3Aextras&unique=cards",
+      "path": "docs/mechanics-research/c-protocol-evidence/special-cycling/released-3.json",
+      "retrieved_at_utc": "2026-10-28T20:24:51.744Z",
+      "http_status": 200,
+      "sha256": "800c3b1f605ee3bdccac867ea17df7fe3dcd5dbfc51cfd6348f1db773f050ebc"
+    }
+  ]
+}

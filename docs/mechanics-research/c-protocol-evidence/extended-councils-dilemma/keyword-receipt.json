@@ -1,0 +1,25 @@
+{
+  "query_id": "keyword",
+  "exact_query": "kw:\"Council's dilemma\" game:paper date<=2026-10-28",
+  "unique": "cards",
+  "base_url": "https://api.scryfall.com/cards/search",
+  "parameters": {
+    "q": "kw:\"Council's dilemma\" game:paper date<=2026-10-28",
+    "unique": "cards",
+    "order": "released",
+    "include_extras": "true"
+  },
+  "pages": [
+    {
+      "url": "https://api.scryfall.com/cards/search?q=kw%3A%22Council%27s+dilemma%22+game%3Apaper+date%3C%3D2026-10-28&unique=cards&order=released&include_extras=true",
+      "receipt_path": "docs/mechanics-research/c-protocol-evidence/extended-councils-dilemma/keyword-page-1.json",
+      "sha256": "794c62e481ea6a93aa6dfcaf3f71b3ed5803821ac7d003e10e289c858121cbce",
+      "http_status": 200,
+      "retrieved_at_utc": "2026-10-28T20:24:56.718Z",
+      "receipt": "docs/mechanics-research/c-protocol-evidence/extended-councils-dilemma/keyword-page-1-receipt.json"
+    }
+  ],
+  "retrieved_count": 9,
+  "completion": "complete",
+  "errors": []
+}

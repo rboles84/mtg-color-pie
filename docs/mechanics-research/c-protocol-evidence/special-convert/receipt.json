@@ -1,0 +1,33 @@
+{
+  "name": "Convert",
+  "cutoff": "2026-10-28",
+  "receipts": [
+    {
+      "kind": "keyword",
+      "query": "kw:\"Convert\" include:extras",
+      "url": "https://api.scryfall.com/cards/search?unique=cards&order=name&q=kw%3A%22Convert%22%20include%3Aextras",
+      "path": "docs/mechanics-research/c-protocol-evidence/special-convert/keyword-1.json",
+      "retrieved_at_utc": "2026-10-28T20:24:29.480Z",
+      "http_status": 200,
+      "sha256": "0c4a16cb981fd8b17103741b3edf9e37f1350b4fd9b03e4e23f6d4a34e92bfd0"
+    },
+    {
+      "kind": "oracle",
+      "query": "o:/\\bConvert\\b/ include:extras",
+      "url": "https://api.scryfall.com/cards/search?unique=cards&order=name&q=o%3A%2F%5CbConvert%5Cb%2F%20include%3Aextras",
+      "path": "docs/mechanics-research/c-protocol-evidence/special-convert/oracle-1.json",
+      "retrieved_at_utc": "2026-10-28T20:24:30.491Z",
+      "http_status": 200,
+      "sha256": "4cd38895faf6cd5548bcec2b62c6ffc76fbc8bf90ab58d3c615f3600fd07b718"
+    },
+    {
+      "kind": "released",
+      "query": "(kw:\"Convert\" or o:/\\bConvert\\b/) game:paper date<=2026-10-28 include:extras",
+      "url": "https://api.scryfall.com/cards/search?unique=cards&order=name&q=(kw%3A%22Convert%22%20or%20o%3A%2F%5CbConvert%5Cb%2F)%20game%3Apaper%20date%3C%3D2026-10-28%20include%3Aextras",
+      "path": "docs/mechanics-research/c-protocol-evidence/special-convert/released-1.json",
+      "retrieved_at_utc": "2026-10-28T20:24:31.375Z",
+      "http_status": 200,
+      "sha256": "4cd38895faf6cd5548bcec2b62c6ffc76fbc8bf90ab58d3c615f3600fd07b718"
+    }
+  ]
+}

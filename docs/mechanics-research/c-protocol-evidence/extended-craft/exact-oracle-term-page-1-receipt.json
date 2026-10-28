@@ -1,0 +1,10 @@
+{
+  "query_id": "exact-oracle-term",
+  "requested_url": "https://api.scryfall.com/cards/search?q=o%3A%2F%5CbCraft%5Cb%2F+game%3Apaper+date%3C%3D2026-10-28&unique=cards&order=released&include_extras=true",
+  "final_url": "https://api.scryfall.com/cards/search?q=o%3A%2F%5CbCraft%5Cb%2F+game%3Apaper+date%3C%3D2026-10-28&unique=cards&order=released&include_extras=true",
+  "retrieved_at_utc": "2026-10-28T20:24:06.898Z",
+  "http_status": 200,
+  "sha256": "ceac1ab5137ee6e573db39fe00d93a2ba290127514bdbecf73dc077877413c5e",
+  "bytes": 184925,
+  "error": null
+}

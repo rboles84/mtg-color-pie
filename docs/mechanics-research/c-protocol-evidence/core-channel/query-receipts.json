@@ -1,0 +1,93 @@
+{
+  "mechanic": "Channel",
+  "retrieved_at_utc": "2026-10-28T20:22:18Z",
+  "queries": [
+    {
+      "query_id": "Q1",
+      "exact_query": "kw:\"Channel\" include:extras",
+      "url": "https://api.scryfall.com/cards/search?q=kw%3A%22Channel%22+include%3Aextras&unique=cards&order=released",
+      "parameters": {
+        "unique": "cards",
+        "include": "extras",
+        "order": "released"
+      },
+      "retrieved_at_utc": "2026-10-28T20:22:16Z",
+      "pages": [
+        {
+          "url": "https://api.scryfall.com/cards/search?q=kw%3A%22Channel%22+include%3Aextras&unique=cards&order=released",
+          "receipt_path": "docs/mechanics-research/c-protocol-evidence/core-channel/keyword-page-1.json",
+          "sha256": "f4c87564164398ef7190d7cfe6d2a9cd9540b49d7cff477d2624af0809a0e162",
+          "retrieved_at_utc": "2026-10-28T20:22:16Z",
+          "http_status": 200
+        }
+      ],
+      "receipt_paths": [
+        "docs/mechanics-research/c-protocol-evidence/core-channel/keyword-page-1.json"
+      ],
+      "expected_count": 39,
+      "retrieved_count": 39,
+      "completion": "complete",
+      "errors": [],
+      "exceptional_query_explanation": "Keyword-indexed candidate population.",
+      "receipt_paths_base": "repository_root"
+    },
+    {
+      "query_id": "Q2",
+      "exact_query": "o:/\\bChannel\\b/ include:extras",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%2F%5CbChannel%5Cb%2F+include%3Aextras&unique=cards&order=released",
+      "parameters": {
+        "unique": "cards",
+        "include": "extras",
+        "order": "released"
+      },
+      "retrieved_at_utc": "2026-10-28T20:22:17Z",
+      "pages": [
+        {
+          "url": "https://api.scryfall.com/cards/search?q=o%3A%2F%5CbChannel%5Cb%2F+include%3Aextras&unique=cards&order=released",
+          "receipt_path": "docs/mechanics-research/c-protocol-evidence/core-channel/oracle-page-1.json",
+          "sha256": "333dca7613a99a74445053a38143ee046fce2f197618576fa7905a696e8673d6",
+          "retrieved_at_utc": "2026-10-28T20:22:17Z",
+          "http_status": 200
+        }
+      ],
+      "receipt_paths": [
+        "docs/mechanics-research/c-protocol-evidence/core-channel/oracle-page-1.json"
+      ],
+      "expected_count": 41,
+      "retrieved_count": 41,
+      "completion": "complete",
+      "errors": [],
+      "exceptional_query_explanation": "Exact Oracle-term population, including grants and text-only references.",
+      "receipt_paths_base": "repository_root"
+    },
+    {
+      "query_id": "Q3",
+      "exact_query": "(kw:\"Channel\" or o:/\\bChannel\\b/) game:paper date<=2026-10-28 include:extras",
+      "url": "https://api.scryfall.com/cards/search?q=%28kw%3A%22Channel%22+or+o%3A%2F%5CbChannel%5Cb%2F%29+game%3Apaper+date%3C%3D2026-10-28+include%3Aextras&unique=prints&order=released",
+      "parameters": {
+        "unique": "prints",
+        "include": "extras",
+        "order": "released"
+      },
+      "retrieved_at_utc": "2026-10-28T20:22:18Z",
+      "pages": [
+        {
+          "url": "https://api.scryfall.com/cards/search?q=%28kw%3A%22Channel%22+or+o%3A%2F%5CbChannel%5Cb%2F%29+game%3Apaper+date%3C%3D2026-10-28+include%3Aextras&unique=prints&order=released",
+          "receipt_path": "docs/mechanics-research/c-protocol-evidence/core-channel/printings-page-1.json",
+          "sha256": "531d171fdd2bbec1fc4113840124e540f18884404369adc097b50eaaaf06862f",
+          "retrieved_at_utc": "2026-10-28T20:22:18Z",
+          "http_status": 200
+        }
+      ],
+      "receipt_paths": [
+        "docs/mechanics-research/c-protocol-evidence/core-channel/printings-page-1.json"
+      ],
+      "expected_count": 87,
+      "retrieved_count": 87,
+      "completion": "complete",
+      "errors": [],
+      "exceptional_query_explanation": "Paper-printing chronology and original printing facts; it does not inflate the unique design population.",
+      "receipt_paths_base": "repository_root"
+    }
+  ]
+}

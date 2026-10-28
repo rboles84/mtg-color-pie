@@ -1,0 +1,101 @@
+{
+  "mechanic": "Changeling",
+  "retrieved_at_utc": "2026-10-28T20:22:15Z",
+  "queries": [
+    {
+      "query_id": "Q1",
+      "exact_query": "kw:\"Changeling\" include:extras",
+      "url": "https://api.scryfall.com/cards/search?q=kw%3A%22Changeling%22+include%3Aextras&unique=cards&order=released",
+      "parameters": {
+        "unique": "cards",
+        "include": "extras",
+        "order": "released"
+      },
+      "retrieved_at_utc": "2026-10-28T20:22:11Z",
+      "pages": [
+        {
+          "url": "https://api.scryfall.com/cards/search?q=kw%3A%22Changeling%22+include%3Aextras&unique=cards&order=released",
+          "receipt_path": "docs/mechanics-research/c-protocol-evidence/core-changeling/keyword-page-1.json",
+          "sha256": "426328f6f864ad497eb121116d2917d43183f1d11661f8cf33cf76a8c3acb9db",
+          "retrieved_at_utc": "2026-10-28T20:22:11Z",
+          "http_status": 200
+        }
+      ],
+      "receipt_paths": [
+        "docs/mechanics-research/c-protocol-evidence/core-changeling/keyword-page-1.json"
+      ],
+      "expected_count": 72,
+      "retrieved_count": 72,
+      "completion": "complete",
+      "errors": [],
+      "exceptional_query_explanation": "Keyword-indexed candidate population.",
+      "receipt_paths_base": "repository_root"
+    },
+    {
+      "query_id": "Q2",
+      "exact_query": "o:/\\bChangeling\\b/ include:extras",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%2F%5CbChangeling%5Cb%2F+include%3Aextras&unique=cards&order=released",
+      "parameters": {
+        "unique": "cards",
+        "include": "extras",
+        "order": "released"
+      },
+      "retrieved_at_utc": "2026-10-28T20:22:12Z",
+      "pages": [
+        {
+          "url": "https://api.scryfall.com/cards/search?q=o%3A%2F%5CbChangeling%5Cb%2F+include%3Aextras&unique=cards&order=released",
+          "receipt_path": "docs/mechanics-research/c-protocol-evidence/core-changeling/oracle-page-1.json",
+          "sha256": "c7bf4f7c1202f5cddac6de2961b2d5c9fcd3ef86333151f78ab50d17d6b3a66c",
+          "retrieved_at_utc": "2026-10-28T20:22:12Z",
+          "http_status": 200
+        }
+      ],
+      "receipt_paths": [
+        "docs/mechanics-research/c-protocol-evidence/core-changeling/oracle-page-1.json"
+      ],
+      "expected_count": 85,
+      "retrieved_count": 85,
+      "completion": "complete",
+      "errors": [],
+      "exceptional_query_explanation": "Exact Oracle-term population, including grants and text-only references.",
+      "receipt_paths_base": "repository_root"
+    },
+    {
+      "query_id": "Q3",
+      "exact_query": "(kw:\"Changeling\" or o:/\\bChangeling\\b/) game:paper date<=2026-10-28 include:extras",
+      "url": "https://api.scryfall.com/cards/search?q=%28kw%3A%22Changeling%22+or+o%3A%2F%5CbChangeling%5Cb%2F%29+game%3Apaper+date%3C%3D2026-10-28+include%3Aextras&unique=prints&order=released",
+      "parameters": {
+        "unique": "prints",
+        "include": "extras",
+        "order": "released"
+      },
+      "retrieved_at_utc": "2026-10-28T20:22:14Z",
+      "pages": [
+        {
+          "url": "https://api.scryfall.com/cards/search?q=%28kw%3A%22Changeling%22+or+o%3A%2F%5CbChangeling%5Cb%2F%29+game%3Apaper+date%3C%3D2026-10-28+include%3Aextras&unique=prints&order=released",
+          "receipt_path": "docs/mechanics-research/c-protocol-evidence/core-changeling/printings-page-1.json",
+          "sha256": "a0a5547211ce02efff844da067b4ba89e081c1b89068c7d67c3047dcdf50457f",
+          "retrieved_at_utc": "2026-10-28T20:22:14Z",
+          "http_status": 200
+        },
+        {
+          "url": "https://api.scryfall.com/cards/search?format=json&include_extras=true&include_multilingual=false&include_variations=false&order=released&page=2&q=%28kw%3A%22changeling%22+or+o%3A%2F%5Cbchangeling%5Cb%2F%29+game%3Apaper+date%3C%3D2026-10-28+include%3Aextras&unique=prints",
+          "receipt_path": "docs/mechanics-research/c-protocol-evidence/core-changeling/printings-page-2.json",
+          "sha256": "5840215e1b4ed6667e8cf71b1694da65c431586adea2d81926b4f903d134b896",
+          "retrieved_at_utc": "2026-10-28T20:22:15Z",
+          "http_status": 200
+        }
+      ],
+      "receipt_paths": [
+        "docs/mechanics-research/c-protocol-evidence/core-changeling/printings-page-1.json",
+        "docs/mechanics-research/c-protocol-evidence/core-changeling/printings-page-2.json"
+      ],
+      "expected_count": 277,
+      "retrieved_count": 277,
+      "completion": "complete",
+      "errors": [],
+      "exceptional_query_explanation": "Paper-printing chronology and original printing facts; it does not inflate the unique design population.",
+      "receipt_paths_base": "repository_root"
+    }
+  ]
+}

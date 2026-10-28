@@ -1,0 +1,10 @@
+{
+  "query_id": "keyword",
+  "requested_url": "https://api.scryfall.com/cards/search?q=kw%3A%22Constellation%22+game%3Apaper+date%3C%3D2026-10-28&unique=cards&order=released&include_extras=true",
+  "final_url": "https://api.scryfall.com/cards/search?q=kw%3A%22Constellation%22+game%3Apaper+date%3C%3D2026-10-28&unique=cards&order=released&include_extras=true",
+  "retrieved_at_utc": "2026-10-28T20:24:47.842Z",
+  "http_status": 200,
+  "sha256": "3eac02694d85a031baba31d31216fb8d3df69a43373f3425b76a8bea391a7fee",
+  "bytes": 187767,
+  "error": null
+}

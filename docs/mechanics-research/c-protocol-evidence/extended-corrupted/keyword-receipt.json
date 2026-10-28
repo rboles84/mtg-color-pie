@@ -1,0 +1,25 @@
+{
+  "query_id": "keyword",
+  "exact_query": "kw:\"Corrupted\" game:paper date<=2026-10-28",
+  "unique": "cards",
+  "base_url": "https://api.scryfall.com/cards/search",
+  "parameters": {
+    "q": "kw:\"Corrupted\" game:paper date<=2026-10-28",
+    "unique": "cards",
+    "order": "released",
+    "include_extras": "true"
+  },
+  "pages": [
+    {
+      "url": "https://api.scryfall.com/cards/search?q=kw%3A%22Corrupted%22+game%3Apaper+date%3C%3D2026-10-28&unique=cards&order=released&include_extras=true",
+      "receipt_path": "docs/mechanics-research/c-protocol-evidence/extended-corrupted/keyword-page-1.json",
+      "sha256": "2872f7b6a8f17d68c7f69b366c6757c1ea2033ca7aa629a5eb63d21b103328b7",
+      "http_status": 200,
+      "retrieved_at_utc": "2026-10-28T20:24:54.703Z",
+      "receipt": "docs/mechanics-research/c-protocol-evidence/extended-corrupted/keyword-page-1-receipt.json"
+    }
+  ],
+  "retrieved_count": 24,
+  "completion": "complete",
+  "errors": []
+}

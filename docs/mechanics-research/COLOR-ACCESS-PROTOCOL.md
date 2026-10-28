@@ -1,6 +1,6 @@
 # Supplemental color access — protocol 2.0
 
-Owner decision, October 28, 2026: supplemental A/B records document observed color access for discovery. They do not infer Primary, Secondary or Tertiary. Frozen 2021 placements remain separate and unchanged. This supersedes protocol 1.0 tier judgments for the current supplemental presentation; retained v1 research and captures are historical evidence, not current placement authority.
+Owner decision, October 28, 2026: supplemental A/B/C records document observed color access for discovery. They do not infer Primary, Secondary or Tertiary. Frozen 2021 placements remain separate and unchanged. This supersedes protocol 1.0 tier judgments for the current supplemental presentation; retained v1 research and captures are historical evidence, not current placement authority.
 
 ## Evidence rules
 
@@ -43,4 +43,14 @@ Allowed color statuses: `documented`, `multicolor_only`, `not_found`, `not_appli
 
 The existing assessment producer emits a new access-only schema from these canonical fields. Existing card/source links and separately attributed historical related-effect notes are retained without importing their ranks into access symbols. Current supplemental list/search/detail surfaces use the existing mana colors and a colorless diamond where supported, labeled Color Access without tier notation. Reviewed card lists stay with their color evidence; a separate Sources section contains only non-card references, not a repeated aggregate card list or card search. Rules, examples, search navigation, safety validation and fail-soft behavior remain available.
 
-Review every A/B entry for exact scoped support, face colors, combinations, colorless grants, fact-only prose and valid example links. Confirm producer determinism, malformed-data isolation, accessible search/detail behavior and frozen 2021 content/calculations. Independent review follows the committed material candidate.
+Review every covered entry for exact scoped support, face colors, combinations, colorless grants, fact-only prose and valid example links. Confirm producer determinism, malformed-data isolation, accessible search/detail behavior and frozen 2021 content/calculations. Independent review follows the committed material candidate.
+
+## C batch, October 28, 2026
+
+The same access contract now covers 35 supplemental C entries, bringing current coverage to 78 A/B/C records. New C packets contain access reviews without inventing historical tier fields. Generic Cast, Counter and Create remain rules references. Conjure and Covercast explicitly declare digital evidence scope; ordinary C mechanics use released paper cards.
+
+An optional `access_review.evidence_scope` array declares allowed card-review scope strings for special material. Ordinary records default to released paper. This is evidence qualification, not a new placement system. The producer requires complete exact single-color, combination and colorless buckets; combination membership is compared in WUBRG order even if raw source arrays use another order.
+
+Ordinary paper evidence excludes standalone token objects, planes, schemes, playtest cards, Heroes of the Realm commemorative cards, and acorn or silver-bordered cards. Ordinary non-acorn Unfinity cards can qualify. A colored card that explicitly creates a token with the named ability establishes access from that source card; the created token's colors are not substituted for its source. Digital source cards are handled in their expressly labeled scope.
+
+Card text and mechanic-bearing face colors govern screening. Keyword indexes are discovery aids: self-name matches, payoff-only cards and related variants need explicit exclusion. Review raw evidence before rejecting an unexpected operation. For example, the captured Expose the Culprit text actually cloaks creatures, while Burning Cloak is name-only. Raw response bodies remain immutable; any normalization of text encoding is confined to derived records.

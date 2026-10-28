@@ -1,0 +1,10 @@
+{
+  "query_id": "released-paper-printings",
+  "requested_url": "https://api.scryfall.com/cards/search?q=%28kw%3A%22Connive%22+game%3Apaper+date%3C%3D2026-10-28+or+o%3A%2F%5CbConnive%5Cb%2F+game%3Apaper+date%3C%3D2026-10-28%29&unique=prints&order=released&include_extras=true",
+  "final_url": "https://api.scryfall.com/cards/search?q=%28kw%3A%22Connive%22+game%3Apaper+date%3C%3D2026-10-28+or+o%3A%2F%5CbConnive%5Cb%2F+game%3Apaper+date%3C%3D2026-10-28%29&unique=prints&order=released&include_extras=true",
+  "retrieved_at_utc": "2026-10-28T20:24:45.568Z",
+  "http_status": 200,
+  "sha256": "356601ec35c304f332d2bd6f6d856aeaf1fd37815b30f342b1110687e3ec7d11",
+  "bytes": 620739,
+  "error": null
+}

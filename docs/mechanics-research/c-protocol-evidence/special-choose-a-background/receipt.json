@@ -1,0 +1,33 @@
+{
+  "name": "Choose a background",
+  "cutoff": "2026-10-28",
+  "receipts": [
+    {
+      "kind": "keyword",
+      "query": "kw:\"Choose a background\" include:extras",
+      "url": "https://api.scryfall.com/cards/search?unique=cards&order=name&q=kw%3A%22Choose%20a%20background%22%20include%3Aextras",
+      "path": "docs/mechanics-research/c-protocol-evidence/special-choose-a-background/keyword-1.json",
+      "retrieved_at_utc": "2026-10-28T20:24:52.607Z",
+      "http_status": 200,
+      "sha256": "0ea0b99fcdec8200778a47b2916869bb5f0f49b035f538fc7fb799f3249b8ec3"
+    },
+    {
+      "kind": "oracle",
+      "query": "o:/\\bChoose\\s+a\\s+background\\b/ include:extras",
+      "url": "https://api.scryfall.com/cards/search?unique=cards&order=name&q=o%3A%2F%5CbChoose%5Cs%2Ba%5Cs%2Bbackground%5Cb%2F%20include%3Aextras",
+      "path": "docs/mechanics-research/c-protocol-evidence/special-choose-a-background/oracle-1.json",
+      "retrieved_at_utc": "2026-10-28T20:24:53.722Z",
+      "http_status": 200,
+      "sha256": "0ea0b99fcdec8200778a47b2916869bb5f0f49b035f538fc7fb799f3249b8ec3"
+    },
+    {
+      "kind": "released",
+      "query": "(kw:\"Choose a background\" or o:/\\bChoose\\s+a\\s+background\\b/) game:paper date<=2026-10-28 include:extras",
+      "url": "https://api.scryfall.com/cards/search?unique=cards&order=name&q=(kw%3A%22Choose%20a%20background%22%20or%20o%3A%2F%5CbChoose%5Cs%2Ba%5Cs%2Bbackground%5Cb%2F)%20game%3Apaper%20date%3C%3D2026-10-28%20include%3Aextras",
+      "path": "docs/mechanics-research/c-protocol-evidence/special-choose-a-background/released-1.json",
+      "retrieved_at_utc": "2026-10-28T20:24:54.656Z",
+      "http_status": 200,
+      "sha256": "0ea0b99fcdec8200778a47b2916869bb5f0f49b035f538fc7fb799f3249b8ec3"
+    }
+  ]
+}

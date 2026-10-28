@@ -1,0 +1,93 @@
+{
+  "mechanic": "Cleave",
+  "retrieved_at_utc": "2026-10-28T20:22:28Z",
+  "queries": [
+    {
+      "query_id": "Q1",
+      "exact_query": "kw:\"Cleave\" include:extras",
+      "url": "https://api.scryfall.com/cards/search?q=kw%3A%22Cleave%22+include%3Aextras&unique=cards&order=released",
+      "parameters": {
+        "unique": "cards",
+        "include": "extras",
+        "order": "released"
+      },
+      "retrieved_at_utc": "2026-10-28T20:22:26Z",
+      "pages": [
+        {
+          "url": "https://api.scryfall.com/cards/search?q=kw%3A%22Cleave%22+include%3Aextras&unique=cards&order=released",
+          "receipt_path": "docs/mechanics-research/c-protocol-evidence/core-cleave/keyword-page-1.json",
+          "sha256": "20f4b504f5e76783a16c926a79cea462287bbafe21110bcea2cafa65484a8367",
+          "retrieved_at_utc": "2026-10-28T20:22:26Z",
+          "http_status": 200
+        }
+      ],
+      "receipt_paths": [
+        "docs/mechanics-research/c-protocol-evidence/core-cleave/keyword-page-1.json"
+      ],
+      "expected_count": 12,
+      "retrieved_count": 12,
+      "completion": "complete",
+      "errors": [],
+      "exceptional_query_explanation": "Keyword-indexed candidate population.",
+      "receipt_paths_base": "repository_root"
+    },
+    {
+      "query_id": "Q2",
+      "exact_query": "o:/\\bCleave\\b/ include:extras",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%2F%5CbCleave%5Cb%2F+include%3Aextras&unique=cards&order=released",
+      "parameters": {
+        "unique": "cards",
+        "include": "extras",
+        "order": "released"
+      },
+      "retrieved_at_utc": "2026-10-28T20:22:27Z",
+      "pages": [
+        {
+          "url": "https://api.scryfall.com/cards/search?q=o%3A%2F%5CbCleave%5Cb%2F+include%3Aextras&unique=cards&order=released",
+          "receipt_path": "docs/mechanics-research/c-protocol-evidence/core-cleave/oracle-page-1.json",
+          "sha256": "fdbcc327b90cdd8ea7553174a606f2d76ef9669c60e000e33c098a7be48bbb09",
+          "retrieved_at_utc": "2026-10-28T20:22:27Z",
+          "http_status": 200
+        }
+      ],
+      "receipt_paths": [
+        "docs/mechanics-research/c-protocol-evidence/core-cleave/oracle-page-1.json"
+      ],
+      "expected_count": 13,
+      "retrieved_count": 13,
+      "completion": "complete",
+      "errors": [],
+      "exceptional_query_explanation": "Exact Oracle-term population, including grants and text-only references.",
+      "receipt_paths_base": "repository_root"
+    },
+    {
+      "query_id": "Q3",
+      "exact_query": "(kw:\"Cleave\" or o:/\\bCleave\\b/) game:paper date<=2026-10-28 include:extras",
+      "url": "https://api.scryfall.com/cards/search?q=%28kw%3A%22Cleave%22+or+o%3A%2F%5CbCleave%5Cb%2F%29+game%3Apaper+date%3C%3D2026-10-28+include%3Aextras&unique=prints&order=released",
+      "parameters": {
+        "unique": "prints",
+        "include": "extras",
+        "order": "released"
+      },
+      "retrieved_at_utc": "2026-10-28T20:22:28Z",
+      "pages": [
+        {
+          "url": "https://api.scryfall.com/cards/search?q=%28kw%3A%22Cleave%22+or+o%3A%2F%5CbCleave%5Cb%2F%29+game%3Apaper+date%3C%3D2026-10-28+include%3Aextras&unique=prints&order=released",
+          "receipt_path": "docs/mechanics-research/c-protocol-evidence/core-cleave/printings-page-1.json",
+          "sha256": "cd89c8b9da78c680660524d9e9b7580a0c72006bbde868687a057a10b28fb789",
+          "retrieved_at_utc": "2026-10-28T20:22:28Z",
+          "http_status": 200
+        }
+      ],
+      "receipt_paths": [
+        "docs/mechanics-research/c-protocol-evidence/core-cleave/printings-page-1.json"
+      ],
+      "expected_count": 45,
+      "retrieved_count": 45,
+      "completion": "complete",
+      "errors": [],
+      "exceptional_query_explanation": "Paper-printing chronology and original printing facts; it does not inflate the unique design population.",
+      "receipt_paths_base": "repository_root"
+    }
+  ]
+}

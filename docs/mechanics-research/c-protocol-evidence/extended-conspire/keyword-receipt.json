@@ -1,0 +1,25 @@
+{
+  "query_id": "keyword",
+  "exact_query": "kw:\"Conspire\" game:paper date<=2026-10-28",
+  "unique": "cards",
+  "base_url": "https://api.scryfall.com/cards/search",
+  "parameters": {
+    "q": "kw:\"Conspire\" game:paper date<=2026-10-28",
+    "unique": "cards",
+    "order": "released",
+    "include_extras": "true"
+  },
+  "pages": [
+    {
+      "url": "https://api.scryfall.com/cards/search?q=kw%3A%22Conspire%22+game%3Apaper+date%3C%3D2026-10-28&unique=cards&order=released&include_extras=true",
+      "receipt_path": "docs/mechanics-research/c-protocol-evidence/extended-conspire/keyword-page-1.json",
+      "sha256": "939862ee33aa1f473efbbc84f41e4e9296e6495aa52feaa2dedaf029f3fceac6",
+      "http_status": 200,
+      "retrieved_at_utc": "2026-10-28T20:24:46.156Z",
+      "receipt": "docs/mechanics-research/c-protocol-evidence/extended-conspire/keyword-page-1-receipt.json"
+    }
+  ],
+  "retrieved_count": 11,
+  "completion": "complete",
+  "errors": []
+}

@@ -1,0 +1,18 @@
+{
+  "query": "kw:\"Conjure\" include:extras",
+  "outcome": "Page 2 returned HTTP 429 with an instruction to wait 60 seconds. All callers stopped. A later, sequential full capture after the required cooldown is in receipt-complete.json. Initial raw bytes retained; no request timestamps invented.",
+  "files": [
+    {
+      "path": "docs/mechanics-research/c-protocol-evidence/special-conjure/keyword-1.json",
+      "sha256": "0b52281e4f7608b318131fc9d228f19edc6c951cd0ca6de025fad6ac18a3afaa",
+      "saved_at_utc_from_filesystem": "2026-10-28T20:24:58.985222+00:00",
+      "request_timestamp_available": false
+    },
+    {
+      "path": "docs/mechanics-research/c-protocol-evidence/special-conjure/keyword-2.json",
+      "sha256": "e3ce34d4d4b4bf20fe9ecd4412e7e38dc0b6930deeaaa821edd6a39b53ead76e",
+      "saved_at_utc_from_filesystem": "2026-10-28T20:24:59.579715+00:00",
+      "request_timestamp_available": false
+    }
+  ]
+}

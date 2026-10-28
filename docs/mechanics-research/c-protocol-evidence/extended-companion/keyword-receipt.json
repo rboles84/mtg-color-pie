@@ -1,0 +1,25 @@
+{
+  "query_id": "keyword",
+  "exact_query": "kw:\"Companion\" game:paper date<=2026-10-28",
+  "unique": "cards",
+  "base_url": "https://api.scryfall.com/cards/search",
+  "parameters": {
+    "q": "kw:\"Companion\" game:paper date<=2026-10-28",
+    "unique": "cards",
+    "order": "released",
+    "include_extras": "true"
+  },
+  "pages": [
+    {
+      "url": "https://api.scryfall.com/cards/search?q=kw%3A%22Companion%22+game%3Apaper+date%3C%3D2026-10-28&unique=cards&order=released&include_extras=true",
+      "receipt_path": "docs/mechanics-research/c-protocol-evidence/extended-companion/keyword-page-1.json",
+      "sha256": "4065c4239309679429c5d6ac9b38b5f90e9adf4c29b63333177a2053184e3529",
+      "http_status": 200,
+      "retrieved_at_utc": "2026-10-28T20:24:39.249Z",
+      "receipt": "docs/mechanics-research/c-protocol-evidence/extended-companion/keyword-page-1-receipt.json"
+    }
+  ],
+  "retrieved_count": 12,
+  "completion": "complete",
+  "errors": []
+}

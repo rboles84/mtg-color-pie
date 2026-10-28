@@ -1,0 +1,36 @@
+{
+  "name": "Covercast",
+  "cutoff": "2026-10-28",
+  "receipts": [
+    {
+      "kind": "keyword-complete",
+      "query": "kw:\"Covercast\" include:extras",
+      "url": "https://api.scryfall.com/cards/search?unique=cards&order=name&q=kw%3A%22Covercast%22%20include%3Aextras",
+      "path": "docs/mechanics-research/c-protocol-evidence/special-covercast/keyword-complete-1.json",
+      "retrieved_at_utc": "2026-10-28T20:30:26.765Z",
+      "http_status": 200,
+      "retry_after": null,
+      "sha256": "d9cbc91d900ef6cc9d4bf31dafc0ed425d28e5d11059abbc11800b8d36bd2464"
+    },
+    {
+      "kind": "oracle",
+      "query": "o:/\\bCovercast(s)?\\b/ include:extras",
+      "url": "https://api.scryfall.com/cards/search?unique=cards&order=name&q=o%3A%2F%5CbCovercast(s)%3F%5Cb%2F%20include%3Aextras",
+      "path": "docs/mechanics-research/c-protocol-evidence/special-covercast/oracle-1.json",
+      "retrieved_at_utc": "2026-10-28T20:30:29.323Z",
+      "http_status": 200,
+      "retry_after": null,
+      "sha256": "d9cbc91d900ef6cc9d4bf31dafc0ed425d28e5d11059abbc11800b8d36bd2464"
+    },
+    {
+      "kind": "released",
+      "query": "(kw:\"Covercast\" or o:/\\bCovercast(s)?\\b/) game:arena date<=2026-10-28 include:extras",
+      "url": "https://api.scryfall.com/cards/search?unique=cards&order=name&q=(kw%3A%22Covercast%22%20or%20o%3A%2F%5CbCovercast(s)%3F%5Cb%2F)%20game%3Aarena%20date%3C%3D2026-10-28%20include%3Aextras",
+      "path": "docs/mechanics-research/c-protocol-evidence/special-covercast/released-1.json",
+      "retrieved_at_utc": "2026-10-28T20:30:31.944Z",
+      "http_status": 200,
+      "retry_after": null,
+      "sha256": "d9cbc91d900ef6cc9d4bf31dafc0ed425d28e5d11059abbc11800b8d36bd2464"
+    }
+  ]
+}

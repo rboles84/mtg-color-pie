@@ -1,4 +1,4 @@
-// Focused A/B assessment checks using externally supplied Playwright; no new dependency.
+// Focused A/B/C assessment checks using externally supplied Playwright; no new dependency.
 import fs from 'node:fs';
 import path from 'node:path';
 import http from 'node:http';
@@ -37,7 +37,23 @@ try{
   await page.waitForFunction(()=>document.querySelector('#selftest').textContent.includes('84 of 84 passed'));
   const baseline=await page.evaluate(math);
   assert.equal(await page.locator('#list .ent').count(),216);
-  assert.equal(await page.evaluate(()=>VMX.assessments().records.length),43);
+  assert.equal(await page.evaluate(()=>VMX.assessments().records.length),78);
+  const expectedAssessmentIds=supplement.records.filter(r=>/^[ABC]/.test(r.name)&&r.target2021===null).map(r=>r.id).sort();
+  assert.deepEqual(payload.records.map(r=>r.id).sort(),expectedAssessmentIds,'every admitted A/B/C target has exactly one assessment');
+  assert.deepEqual(payload.sourceBindings.map(x=>x.path),[
+    'docs/mechanics-research/a-assessments-source.json',
+    'docs/mechanics-research/absorb-assessment-source.json',
+    'docs/mechanics-research/a-classification-addendum.json',
+    'docs/mechanics-research/a-protocol-core.json',
+    'docs/mechanics-research/a-protocol-extended.json',
+    'docs/mechanics-research/a-protocol-special.json',
+    'docs/mechanics-research/b-protocol-core.json',
+    'docs/mechanics-research/b-protocol-extended.json',
+    'docs/mechanics-research/c-protocol-core.json',
+    'docs/mechanics-research/c-protocol-extended.json',
+    'docs/mechanics-research/c-protocol-special.json'
+  ],'all eleven canonical packet bindings are present');
+  assert.deepEqual(['Cast','Counter','Create'].map(name=>payload.records.find(r=>r.name===name)?.kind),['rules','rules','rules'],'generic C rules actions have no invented color access');
   await page.evaluate(()=>VMX.setView('az'));
   assert.equal(await page.locator('#list .ent').count(),587);
   assert.equal(await page.locator('#list > .grp[data-scope="main"] .ent').count(),543);
@@ -111,7 +127,7 @@ try{
       assert.equal(await fail.evaluate(()=>VMX.assessments().records.length),0); assert.equal(await fail.locator('#list .access-strip').count(),0); await fail.close();
     }
     assert.deepEqual(errors,[]);
-    results.push('43 access maps; documented/no-example/joint/colorless/rules cases; exact-example links; atomic malformed fail-soft; search keyboard/mobile; unchanged 2021 84 checks');
+    results.push('78 A/B/C access maps; documented/no-example/joint/colorless/rules cases; exact-example and retained non-card links; atomic malformed fail-soft; search keyboard/mobile; unchanged 2021 84 checks');
   }
   await page.close();
   console.log(JSON.stringify({result:'PASS',checks:results},null,2));

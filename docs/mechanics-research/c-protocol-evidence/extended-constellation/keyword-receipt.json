@@ -1,0 +1,25 @@
+{
+  "query_id": "keyword",
+  "exact_query": "kw:\"Constellation\" game:paper date<=2026-10-28",
+  "unique": "cards",
+  "base_url": "https://api.scryfall.com/cards/search",
+  "parameters": {
+    "q": "kw:\"Constellation\" game:paper date<=2026-10-28",
+    "unique": "cards",
+    "order": "released",
+    "include_extras": "true"
+  },
+  "pages": [
+    {
+      "url": "https://api.scryfall.com/cards/search?q=kw%3A%22Constellation%22+game%3Apaper+date%3C%3D2026-10-28&unique=cards&order=released&include_extras=true",
+      "receipt_path": "docs/mechanics-research/c-protocol-evidence/extended-constellation/keyword-page-1.json",
+      "sha256": "3eac02694d85a031baba31d31216fb8d3df69a43373f3425b76a8bea391a7fee",
+      "http_status": 200,
+      "retrieved_at_utc": "2026-10-28T20:24:47.842Z",
+      "receipt": "docs/mechanics-research/c-protocol-evidence/extended-constellation/keyword-page-1-receipt.json"
+    }
+  ],
+  "retrieved_count": 36,
+  "completion": "complete",
+  "errors": []
+}

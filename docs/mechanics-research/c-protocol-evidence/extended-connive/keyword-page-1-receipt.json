@@ -1,0 +1,10 @@
+{
+  "query_id": "keyword",
+  "requested_url": "https://api.scryfall.com/cards/search?q=kw%3A%22Connive%22+game%3Apaper+date%3C%3D2026-10-28&unique=cards&order=released&include_extras=true",
+  "final_url": "https://api.scryfall.com/cards/search?q=kw%3A%22Connive%22+game%3Apaper+date%3C%3D2026-10-28&unique=cards&order=released&include_extras=true",
+  "retrieved_at_utc": "2026-10-28T20:24:44.381Z",
+  "http_status": 200,
+  "sha256": "fe7a874ff1d06e3bba0647c2c26cdca0b749e10d0bbf045fe9e8417584874c0b",
+  "bytes": 270703,
+  "error": null
+}

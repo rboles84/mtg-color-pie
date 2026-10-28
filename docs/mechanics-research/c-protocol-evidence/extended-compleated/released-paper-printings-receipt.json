@@ -1,0 +1,25 @@
+{
+  "query_id": "released-paper-printings",
+  "exact_query": "(kw:\"Compleated\" game:paper date<=2026-10-28 or o:/\\bCompleated\\b/ game:paper date<=2026-10-28)",
+  "unique": "prints",
+  "base_url": "https://api.scryfall.com/cards/search",
+  "parameters": {
+    "q": "(kw:\"Compleated\" game:paper date<=2026-10-28 or o:/\\bCompleated\\b/ game:paper date<=2026-10-28)",
+    "unique": "prints",
+    "order": "released",
+    "include_extras": "true"
+  },
+  "pages": [
+    {
+      "url": "https://api.scryfall.com/cards/search?q=%28kw%3A%22Compleated%22+game%3Apaper+date%3C%3D2026-10-28+or+o%3A%2F%5CbCompleated%5Cb%2F+game%3Apaper+date%3C%3D2026-10-28%29&unique=prints&order=released&include_extras=true",
+      "receipt_path": "docs/mechanics-research/c-protocol-evidence/extended-compleated/released-paper-printings-page-1.json",
+      "sha256": "49bca6ac297b5a98f80473442b332c1411e06b2e6568100d3878529c5f3d5eea",
+      "http_status": 200,
+      "retrieved_at_utc": "2026-10-28T20:24:43.560Z",
+      "receipt": "docs/mechanics-research/c-protocol-evidence/extended-compleated/released-paper-printings-page-1-receipt.json"
+    }
+  ],
+  "retrieved_count": 62,
+  "completion": "complete",
+  "errors": []
+}

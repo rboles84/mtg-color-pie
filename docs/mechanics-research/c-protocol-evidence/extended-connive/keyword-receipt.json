@@ -1,0 +1,25 @@
+{
+  "query_id": "keyword",
+  "exact_query": "kw:\"Connive\" game:paper date<=2026-10-28",
+  "unique": "cards",
+  "base_url": "https://api.scryfall.com/cards/search",
+  "parameters": {
+    "q": "kw:\"Connive\" game:paper date<=2026-10-28",
+    "unique": "cards",
+    "order": "released",
+    "include_extras": "true"
+  },
+  "pages": [
+    {
+      "url": "https://api.scryfall.com/cards/search?q=kw%3A%22Connive%22+game%3Apaper+date%3C%3D2026-10-28&unique=cards&order=released&include_extras=true",
+      "receipt_path": "docs/mechanics-research/c-protocol-evidence/extended-connive/keyword-page-1.json",
+      "sha256": "fe7a874ff1d06e3bba0647c2c26cdca0b749e10d0bbf045fe9e8417584874c0b",
+      "http_status": 200,
+      "retrieved_at_utc": "2026-10-28T20:24:44.381Z",
+      "receipt": "docs/mechanics-research/c-protocol-evidence/extended-connive/keyword-page-1-receipt.json"
+    }
+  ],
+  "retrieved_count": 50,
+  "completion": "complete",
+  "errors": []
+}

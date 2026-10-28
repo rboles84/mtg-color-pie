@@ -1,0 +1,25 @@
+{
+  "query_id": "released-paper-printings",
+  "exact_query": "(kw:\"Conspire\" game:paper date<=2026-10-28 or o:/\\bConspire\\b/ game:paper date<=2026-10-28)",
+  "unique": "prints",
+  "base_url": "https://api.scryfall.com/cards/search",
+  "parameters": {
+    "q": "(kw:\"Conspire\" game:paper date<=2026-10-28 or o:/\\bConspire\\b/ game:paper date<=2026-10-28)",
+    "unique": "prints",
+    "order": "released",
+    "include_extras": "true"
+  },
+  "pages": [
+    {
+      "url": "https://api.scryfall.com/cards/search?q=%28kw%3A%22Conspire%22+game%3Apaper+date%3C%3D2026-10-28+or+o%3A%2F%5CbConspire%5Cb%2F+game%3Apaper+date%3C%3D2026-10-28%29&unique=prints&order=released&include_extras=true",
+      "receipt_path": "docs/mechanics-research/c-protocol-evidence/extended-conspire/released-paper-printings-page-1.json",
+      "sha256": "fed650937ca970010bf8ddd8882847ee9e44b6e8bd2e3d94f3d1d4c1c1508024",
+      "http_status": 200,
+      "retrieved_at_utc": "2026-10-28T20:24:47.135Z",
+      "receipt": "docs/mechanics-research/c-protocol-evidence/extended-conspire/released-paper-printings-page-1-receipt.json"
+    }
+  ],
+  "retrieved_count": 27,
+  "completion": "complete",
+  "errors": []
+}

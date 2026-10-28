@@ -1,0 +1,33 @@
+{
+  "query_id": "released-paper-printings",
+  "exact_query": "(kw:\"Convoke\" game:paper date<=2026-10-28 or o:/\\bConvoke\\b/ game:paper date<=2026-10-28)",
+  "unique": "prints",
+  "base_url": "https://api.scryfall.com/cards/search",
+  "parameters": {
+    "q": "(kw:\"Convoke\" game:paper date<=2026-10-28 or o:/\\bConvoke\\b/ game:paper date<=2026-10-28)",
+    "unique": "prints",
+    "order": "released",
+    "include_extras": "true"
+  },
+  "pages": [
+    {
+      "url": "https://api.scryfall.com/cards/search?q=%28kw%3A%22Convoke%22+game%3Apaper+date%3C%3D2026-10-28+or+o%3A%2F%5CbConvoke%5Cb%2F+game%3Apaper+date%3C%3D2026-10-28%29&unique=prints&order=released&include_extras=true",
+      "receipt_path": "docs/mechanics-research/c-protocol-evidence/extended-convoke/released-paper-printings-page-1.json",
+      "sha256": "fa12262fc35ad4ffcd49b8c609a76098216ed91aa4b467efa15764a6438b3436",
+      "http_status": 200,
+      "retrieved_at_utc": "2026-10-28T20:24:53.507Z",
+      "receipt": "docs/mechanics-research/c-protocol-evidence/extended-convoke/released-paper-printings-page-1-receipt.json"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?format=json&include_extras=true&include_multilingual=false&include_variations=false&order=released&page=2&q=%28kw%3A%22convoke%22+game%3Apaper+date%3C%3D2026-10-28+or+o%3A%2F%5Cbconvoke%5Cb%2F+game%3Apaper+date%3C%3D2026-10-28%29&unique=prints",
+      "receipt_path": "docs/mechanics-research/c-protocol-evidence/extended-convoke/released-paper-printings-page-2.json",
+      "sha256": "00fe6b4352eadf221f4ebac0a790da16df944170e1e04162ef8b54a613393d02",
+      "http_status": 200,
+      "retrieved_at_utc": "2026-10-28T20:24:54.129Z",
+      "receipt": "docs/mechanics-research/c-protocol-evidence/extended-convoke/released-paper-printings-page-2-receipt.json"
+    }
+  ],
+  "retrieved_count": 338,
+  "completion": "complete",
+  "errors": []
+}

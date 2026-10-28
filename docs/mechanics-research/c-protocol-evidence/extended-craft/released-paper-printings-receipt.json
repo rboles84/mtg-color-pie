@@ -1,0 +1,25 @@
+{
+  "query_id": "released-paper-printings",
+  "exact_query": "(kw:\"Craft\" game:paper date<=2026-10-28 or o:/\\bCraft\\b/ game:paper date<=2026-10-28)",
+  "unique": "prints",
+  "base_url": "https://api.scryfall.com/cards/search",
+  "parameters": {
+    "q": "(kw:\"Craft\" game:paper date<=2026-10-28 or o:/\\bCraft\\b/ game:paper date<=2026-10-28)",
+    "unique": "prints",
+    "order": "released",
+    "include_extras": "true"
+  },
+  "pages": [
+    {
+      "url": "https://api.scryfall.com/cards/search?q=%28kw%3A%22Craft%22+game%3Apaper+date%3C%3D2026-10-28+or+o%3A%2F%5CbCraft%5Cb%2F+game%3Apaper+date%3C%3D2026-10-28%29&unique=prints&order=released&include_extras=true",
+      "receipt_path": "docs/mechanics-research/c-protocol-evidence/extended-craft/released-paper-printings-page-1.json",
+      "sha256": "8a532c41683c52d2469242cf69c456ade4ad4c6e3e45cf201338e9b63e6e443a",
+      "http_status": 200,
+      "retrieved_at_utc": "2026-10-28T20:24:07.925Z",
+      "receipt": "docs/mechanics-research/c-protocol-evidence/extended-craft/released-paper-printings-page-1-receipt.json"
+    }
+  ],
+  "retrieved_count": 35,
+  "completion": "complete",
+  "errors": []
+}

@@ -1,0 +1,25 @@
+{
+  "query_id": "released-paper-printings",
+  "exact_query": "(kw:\"Connive\" game:paper date<=2026-10-28 or o:/\\bConnive\\b/ game:paper date<=2026-10-28)",
+  "unique": "prints",
+  "base_url": "https://api.scryfall.com/cards/search",
+  "parameters": {
+    "q": "(kw:\"Connive\" game:paper date<=2026-10-28 or o:/\\bConnive\\b/ game:paper date<=2026-10-28)",
+    "unique": "prints",
+    "order": "released",
+    "include_extras": "true"
+  },
+  "pages": [
+    {
+      "url": "https://api.scryfall.com/cards/search?q=%28kw%3A%22Connive%22+game%3Apaper+date%3C%3D2026-10-28+or+o%3A%2F%5CbConnive%5Cb%2F+game%3Apaper+date%3C%3D2026-10-28%29&unique=prints&order=released&include_extras=true",
+      "receipt_path": "docs/mechanics-research/c-protocol-evidence/extended-connive/released-paper-printings-page-1.json",
+      "sha256": "356601ec35c304f332d2bd6f6d856aeaf1fd37815b30f342b1110687e3ec7d11",
+      "http_status": 200,
+      "retrieved_at_utc": "2026-10-28T20:24:45.568Z",
+      "receipt": "docs/mechanics-research/c-protocol-evidence/extended-connive/released-paper-printings-page-1-receipt.json"
+    }
+  ],
+  "retrieved_count": 115,
+  "completion": "complete",
+  "errors": []
+}

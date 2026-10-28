@@ -1,0 +1,60 @@
+{
+  "name": "Crew",
+  "cutoff": "2026-10-28",
+  "receipts": [
+    {
+      "kind": "keyword",
+      "query": "kw:\"Crew\" include:extras",
+      "url": "https://api.scryfall.com/cards/search?unique=cards&order=name&q=kw%3A%22Crew%22%20include%3Aextras",
+      "path": "docs/mechanics-research/c-protocol-evidence/special-crew/keyword-1.json",
+      "retrieved_at_utc": "2026-10-28T20:24:33.012Z",
+      "http_status": 200,
+      "sha256": "702bfe8f894c8d2651bae3bd73ff50157bf765c210c1678cfdf36f5bbddf6c9a"
+    },
+    {
+      "kind": "keyword",
+      "query": "kw:\"Crew\" include:extras",
+      "url": "https://api.scryfall.com/cards/search?format=json&include_extras=true&include_multilingual=false&include_variations=false&order=name&page=2&q=kw%3A%22crew%22+include%3Aextras&unique=cards",
+      "path": "docs/mechanics-research/c-protocol-evidence/special-crew/keyword-2.json",
+      "retrieved_at_utc": "2026-10-28T20:24:34.028Z",
+      "http_status": 200,
+      "sha256": "31177a5530aede50d99b7bc733b8944888d104386854c3072222017467f9dd0c"
+    },
+    {
+      "kind": "oracle",
+      "query": "o:/\\bCrew\\b/ include:extras",
+      "url": "https://api.scryfall.com/cards/search?unique=cards&order=name&q=o%3A%2F%5CbCrew%5Cb%2F%20include%3Aextras",
+      "path": "docs/mechanics-research/c-protocol-evidence/special-crew/oracle-1.json",
+      "retrieved_at_utc": "2026-10-28T20:24:35.564Z",
+      "http_status": 200,
+      "sha256": "05820bf9d71209ea155c92693ecd4404cab2e560064f509ecbbc8efe1c8a2051"
+    },
+    {
+      "kind": "oracle",
+      "query": "o:/\\bCrew\\b/ include:extras",
+      "url": "https://api.scryfall.com/cards/search?format=json&include_extras=true&include_multilingual=false&include_variations=false&order=name&page=2&q=o%3A%2F%5Cbcrew%5Cb%2F+include%3Aextras&unique=cards",
+      "path": "docs/mechanics-research/c-protocol-evidence/special-crew/oracle-2.json",
+      "retrieved_at_utc": "2026-10-28T20:24:36.676Z",
+      "http_status": 200,
+      "sha256": "9a15093c72077b8405c211e78fd75e039f25bf6758f70f6824df4dd076736af3"
+    },
+    {
+      "kind": "released",
+      "query": "(kw:\"Crew\" or o:/\\bCrew\\b/) game:paper date<=2026-10-28 include:extras",
+      "url": "https://api.scryfall.com/cards/search?unique=cards&order=name&q=(kw%3A%22Crew%22%20or%20o%3A%2F%5CbCrew%5Cb%2F)%20game%3Apaper%20date%3C%3D2026-10-28%20include%3Aextras",
+      "path": "docs/mechanics-research/c-protocol-evidence/special-crew/released-1.json",
+      "retrieved_at_utc": "2026-10-28T20:24:38.242Z",
+      "http_status": 200,
+      "sha256": "3df742ca89e0c67d48894c6b252dd050b8527c36a2c4b1546a925c2ae4d7e8fc"
+    },
+    {
+      "kind": "released",
+      "query": "(kw:\"Crew\" or o:/\\bCrew\\b/) game:paper date<=2026-10-28 include:extras",
+      "url": "https://api.scryfall.com/cards/search?format=json&include_extras=true&include_multilingual=false&include_variations=false&order=name&page=2&q=%28kw%3A%22crew%22+or+o%3A%2F%5Cbcrew%5Cb%2F%29+game%3Apaper+date%3C%3D2026-10-28+include%3Aextras&unique=cards",
+      "path": "docs/mechanics-research/c-protocol-evidence/special-crew/released-2.json",
+      "retrieved_at_utc": "2026-10-28T20:24:39.120Z",
+      "http_status": 200,
+      "sha256": "47b7286a718b491bee7ef00c05cdf8180eb8fb352268765dfe6b28b11d52ebab"
+    }
+  ]
+}

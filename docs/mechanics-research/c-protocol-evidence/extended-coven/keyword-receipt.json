@@ -1,0 +1,25 @@
+{
+  "query_id": "keyword",
+  "exact_query": "kw:\"Coven\" game:paper date<=2026-10-28",
+  "unique": "cards",
+  "base_url": "https://api.scryfall.com/cards/search",
+  "parameters": {
+    "q": "kw:\"Coven\" game:paper date<=2026-10-28",
+    "unique": "cards",
+    "order": "released",
+    "include_extras": "true"
+  },
+  "pages": [
+    {
+      "url": "https://api.scryfall.com/cards/search?q=kw%3A%22Coven%22+game%3Apaper+date%3C%3D2026-10-28&unique=cards&order=released&include_extras=true",
+      "receipt_path": "docs/mechanics-research/c-protocol-evidence/extended-coven/keyword-page-1.json",
+      "sha256": "d54ce360523404552bc17f955f02980cd6931214db7991a838cbc4a6f99b58e8",
+      "http_status": 200,
+      "retrieved_at_utc": "2026-10-28T20:24:58.259Z",
+      "receipt": "docs/mechanics-research/c-protocol-evidence/extended-coven/keyword-page-1-receipt.json"
+    }
+  ],
+  "retrieved_count": 20,
+  "completion": "complete",
+  "errors": []
+}

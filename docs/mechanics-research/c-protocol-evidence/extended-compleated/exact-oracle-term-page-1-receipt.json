@@ -1,0 +1,10 @@
+{
+  "query_id": "exact-oracle-term",
+  "requested_url": "https://api.scryfall.com/cards/search?q=o%3A%2F%5CbCompleated%5Cb%2F+game%3Apaper+date%3C%3D2026-10-28&unique=cards&order=released&include_extras=true",
+  "final_url": "https://api.scryfall.com/cards/search?q=o%3A%2F%5CbCompleated%5Cb%2F+game%3Apaper+date%3C%3D2026-10-28&unique=cards&order=released&include_extras=true",
+  "retrieved_at_utc": "2026-10-28T20:24:42.802Z",
+  "http_status": 200,
+  "sha256": "c62d7d1a22c7283061ac6ea2bad4f2fed735cfb81a64ce7da929033d12b9ac2a",
+  "bytes": 75792,
+  "error": null
+}

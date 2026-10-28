@@ -1,0 +1,33 @@
+{
+  "name": "Cumulative Upkeep",
+  "cutoff": "2026-10-28",
+  "receipts": [
+    {
+      "kind": "keyword",
+      "query": "kw:\"Cumulative Upkeep\" include:extras",
+      "url": "https://api.scryfall.com/cards/search?unique=cards&order=name&q=kw%3A%22Cumulative%20Upkeep%22%20include%3Aextras",
+      "path": "docs/mechanics-research/c-protocol-evidence/special-cumulative-upkeep/keyword-1.json",
+      "retrieved_at_utc": "2026-10-28T20:24:40.026Z",
+      "http_status": 200,
+      "sha256": "729e6ac9d0258ed21bdec7f2b9132fcccda0f29d28ae70dd1c5e0cd14e778f5b"
+    },
+    {
+      "kind": "oracle",
+      "query": "o:/\\bCumulative\\s+Upkeep\\b/ include:extras",
+      "url": "https://api.scryfall.com/cards/search?unique=cards&order=name&q=o%3A%2F%5CbCumulative%5Cs%2BUpkeep%5Cb%2F%20include%3Aextras",
+      "path": "docs/mechanics-research/c-protocol-evidence/special-cumulative-upkeep/oracle-1.json",
+      "retrieved_at_utc": "2026-10-28T20:24:41.238Z",
+      "http_status": 200,
+      "sha256": "1672a7d3f36ec827f45ff1eed05765f9ffd5fc5123c442b48ec5f151fddb0305"
+    },
+    {
+      "kind": "released",
+      "query": "(kw:\"Cumulative Upkeep\" or o:/\\bCumulative\\s+Upkeep\\b/) game:paper date<=2026-10-28 include:extras",
+      "url": "https://api.scryfall.com/cards/search?unique=cards&order=name&q=(kw%3A%22Cumulative%20Upkeep%22%20or%20o%3A%2F%5CbCumulative%5Cs%2BUpkeep%5Cb%2F)%20game%3Apaper%20date%3C%3D2026-10-28%20include%3Aextras",
+      "path": "docs/mechanics-research/c-protocol-evidence/special-cumulative-upkeep/released-1.json",
+      "retrieved_at_utc": "2026-10-28T20:24:42.383Z",
+      "http_status": 200,
+      "sha256": "e6c56429ffed4394308a658c52cc95fc4ead3d4791bcb02fd3db38b048ab8054"
+    }
+  ]
+}

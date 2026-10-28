@@ -1,0 +1,25 @@
+{
+  "query_id": "exact-oracle-term",
+  "exact_query": "o:/\\bCraft\\b/ game:paper date<=2026-10-28",
+  "unique": "cards",
+  "base_url": "https://api.scryfall.com/cards/search",
+  "parameters": {
+    "q": "o:/\\bCraft\\b/ game:paper date<=2026-10-28",
+    "unique": "cards",
+    "order": "released",
+    "include_extras": "true"
+  },
+  "pages": [
+    {
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%2F%5CbCraft%5Cb%2F+game%3Apaper+date%3C%3D2026-10-28&unique=cards&order=released&include_extras=true",
+      "receipt_path": "docs/mechanics-research/c-protocol-evidence/extended-craft/exact-oracle-term-page-1.json",
+      "sha256": "ceac1ab5137ee6e573db39fe00d93a2ba290127514bdbecf73dc077877413c5e",
+      "http_status": 200,
+      "retrieved_at_utc": "2026-10-28T20:24:06.898Z",
+      "receipt": "docs/mechanics-research/c-protocol-evidence/extended-craft/exact-oracle-term-page-1-receipt.json"
+    }
+  ],
+  "retrieved_count": 25,
+  "completion": "complete",
+  "errors": []
+}

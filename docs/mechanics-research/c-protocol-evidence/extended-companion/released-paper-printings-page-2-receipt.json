@@ -1,0 +1,10 @@
+{
+  "query_id": "released-paper-printings",
+  "requested_url": "https://api.scryfall.com/cards/search?format=json&include_extras=true&include_multilingual=false&include_variations=false&order=released&page=2&q=%28kw%3A%22companion%22+game%3Apaper+date%3C%3D2026-10-28+or+o%3A%2F%5Cbcompanion%5Cb%2F+game%3Apaper+date%3C%3D2026-10-28%29&unique=prints",
+  "final_url": "https://api.scryfall.com/cards/search?format=json&include_extras=true&include_multilingual=false&include_variations=false&order=released&page=2&q=%28kw%3A%22companion%22+game%3Apaper+date%3C%3D2026-10-28+or+o%3A%2F%5Cbcompanion%5Cb%2F+game%3Apaper+date%3C%3D2026-10-28%29&unique=prints",
+  "retrieved_at_utc": "2026-10-28T20:24:41.447Z",
+  "http_status": 200,
+  "sha256": "1b3860f9e3f7e8dc1ae066b5b18adbbba2f9c933eb0c2fafb824006ab6d704e4",
+  "bytes": 157115,
+  "error": null
+}

@@ -1,0 +1,25 @@
+{
+  "query_id": "exact-oracle-term",
+  "exact_query": "o:/\\bConnive\\b/ game:paper date<=2026-10-28",
+  "unique": "cards",
+  "base_url": "https://api.scryfall.com/cards/search",
+  "parameters": {
+    "q": "o:/\\bConnive\\b/ game:paper date<=2026-10-28",
+    "unique": "cards",
+    "order": "released",
+    "include_extras": "true"
+  },
+  "pages": [
+    {
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%2F%5CbConnive%5Cb%2F+game%3Apaper+date%3C%3D2026-10-28&unique=cards&order=released&include_extras=true",
+      "receipt_path": "docs/mechanics-research/c-protocol-evidence/extended-connive/exact-oracle-term-page-1.json",
+      "sha256": "cf74c4ebf80b40281ceac681b8b8b7816d263820c3074addf28b105ad4747e32",
+      "http_status": 200,
+      "retrieved_at_utc": "2026-10-28T20:24:45.056Z",
+      "receipt": "docs/mechanics-research/c-protocol-evidence/extended-connive/exact-oracle-term-page-1-receipt.json"
+    }
+  ],
+  "retrieved_count": 3,
+  "completion": "complete",
+  "errors": []
+}

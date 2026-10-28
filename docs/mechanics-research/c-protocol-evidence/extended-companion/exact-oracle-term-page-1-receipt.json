@@ -1,0 +1,10 @@
+{
+  "query_id": "exact-oracle-term",
+  "requested_url": "https://api.scryfall.com/cards/search?q=o%3A%2F%5CbCompanion%5Cb%2F+game%3Apaper+date%3C%3D2026-10-28&unique=cards&order=released&include_extras=true",
+  "final_url": "https://api.scryfall.com/cards/search?q=o%3A%2F%5CbCompanion%5Cb%2F+game%3Apaper+date%3C%3D2026-10-28&unique=cards&order=released&include_extras=true",
+  "retrieved_at_utc": "2026-10-28T20:24:39.829Z",
+  "http_status": 200,
+  "sha256": "2c5cdfc31a2be7b87e6cfb5b5cfb82ef89e8c341c52f23e39deda8b7a2e46132",
+  "bytes": 228838,
+  "error": null
+}

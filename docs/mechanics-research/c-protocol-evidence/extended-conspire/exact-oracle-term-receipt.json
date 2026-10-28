@@ -1,0 +1,25 @@
+{
+  "query_id": "exact-oracle-term",
+  "exact_query": "o:/\\bConspire\\b/ game:paper date<=2026-10-28",
+  "unique": "cards",
+  "base_url": "https://api.scryfall.com/cards/search",
+  "parameters": {
+    "q": "o:/\\bConspire\\b/ game:paper date<=2026-10-28",
+    "unique": "cards",
+    "order": "released",
+    "include_extras": "true"
+  },
+  "pages": [
+    {
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%2F%5CbConspire%5Cb%2F+game%3Apaper+date%3C%3D2026-10-28&unique=cards&order=released&include_extras=true",
+      "receipt_path": "docs/mechanics-research/c-protocol-evidence/extended-conspire/exact-oracle-term-page-1.json",
+      "sha256": "ae5a283a106274ff7a43131fdd89553c9f6b4012c5f2bbc7c16b18aaf5c3a571",
+      "http_status": 200,
+      "retrieved_at_utc": "2026-10-28T20:24:46.623Z",
+      "receipt": "docs/mechanics-research/c-protocol-evidence/extended-conspire/exact-oracle-term-page-1-receipt.json"
+    }
+  ],
+  "retrieved_count": 14,
+  "completion": "complete",
+  "errors": []
+}

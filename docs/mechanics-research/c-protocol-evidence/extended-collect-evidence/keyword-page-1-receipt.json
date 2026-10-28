@@ -1,0 +1,10 @@
+{
+  "query_id": "keyword",
+  "requested_url": "https://api.scryfall.com/cards/search?q=kw%3A%22Collect+Evidence%22+game%3Apaper+date%3C%3D2026-10-28&unique=cards&order=released&include_extras=true",
+  "final_url": "https://api.scryfall.com/cards/search?q=kw%3A%22Collect+Evidence%22+game%3Apaper+date%3C%3D2026-10-28&unique=cards&order=released&include_extras=true",
+  "retrieved_at_utc": "2026-10-28T20:24:36.746Z",
+  "http_status": 200,
+  "sha256": "87ed8190fc67329c7ad774e06909db3b9981acdae2e703aa67740ca2b0af5542",
+  "bytes": 118297,
+  "error": null
+}

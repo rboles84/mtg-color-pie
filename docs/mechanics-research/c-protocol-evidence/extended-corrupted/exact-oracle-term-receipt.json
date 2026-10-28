@@ -1,0 +1,25 @@
+{
+  "query_id": "exact-oracle-term",
+  "exact_query": "o:/\\bCorrupted\\b/ game:paper date<=2026-10-28",
+  "unique": "cards",
+  "base_url": "https://api.scryfall.com/cards/search",
+  "parameters": {
+    "q": "o:/\\bCorrupted\\b/ game:paper date<=2026-10-28",
+    "unique": "cards",
+    "order": "released",
+    "include_extras": "true"
+  },
+  "pages": [
+    {
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%2F%5CbCorrupted%5Cb%2F+game%3Apaper+date%3C%3D2026-10-28&unique=cards&order=released&include_extras=true",
+      "receipt_path": "docs/mechanics-research/c-protocol-evidence/extended-corrupted/exact-oracle-term-page-1.json",
+      "sha256": "5427237121be7079780673b2276a11e2b961b4ea9bebc88e4932a3549c8aa42e",
+      "http_status": 200,
+      "retrieved_at_utc": "2026-10-28T20:24:55.324Z",
+      "receipt": "docs/mechanics-research/c-protocol-evidence/extended-corrupted/exact-oracle-term-page-1-receipt.json"
+    }
+  ],
+  "retrieved_count": 26,
+  "completion": "complete",
+  "errors": []
+}

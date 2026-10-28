@@ -1,0 +1,25 @@
+{
+  "query_id": "exact-oracle-term",
+  "exact_query": "o:/\\bConvoke\\b/ game:paper date<=2026-10-28",
+  "unique": "cards",
+  "base_url": "https://api.scryfall.com/cards/search",
+  "parameters": {
+    "q": "o:/\\bConvoke\\b/ game:paper date<=2026-10-28",
+    "unique": "cards",
+    "order": "released",
+    "include_extras": "true"
+  },
+  "pages": [
+    {
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%2F%5CbConvoke%5Cb%2F+game%3Apaper+date%3C%3D2026-10-28&unique=cards&order=released&include_extras=true",
+      "receipt_path": "docs/mechanics-research/c-protocol-evidence/extended-convoke/exact-oracle-term-page-1.json",
+      "sha256": "2996f46220496252f2e14391a086d3179f6df8e64e9468ed7ed86aa201f795c8",
+      "http_status": 200,
+      "retrieved_at_utc": "2026-10-28T20:24:52.765Z",
+      "receipt": "docs/mechanics-research/c-protocol-evidence/extended-convoke/exact-oracle-term-page-1-receipt.json"
+    }
+  ],
+  "retrieved_count": 117,
+  "completion": "complete",
+  "errors": []
+}

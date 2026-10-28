@@ -1,0 +1,25 @@
+{
+  "query_id": "released-paper-printings",
+  "exact_query": "(kw:\"Constellation\" game:paper date<=2026-10-28 or o:/\\bConstellation\\b/ game:paper date<=2026-10-28)",
+  "unique": "prints",
+  "base_url": "https://api.scryfall.com/cards/search",
+  "parameters": {
+    "q": "(kw:\"Constellation\" game:paper date<=2026-10-28 or o:/\\bConstellation\\b/ game:paper date<=2026-10-28)",
+    "unique": "prints",
+    "order": "released",
+    "include_extras": "true"
+  },
+  "pages": [
+    {
+      "url": "https://api.scryfall.com/cards/search?q=%28kw%3A%22Constellation%22+game%3Apaper+date%3C%3D2026-10-28+or+o%3A%2F%5CbConstellation%5Cb%2F+game%3Apaper+date%3C%3D2026-10-28%29&unique=prints&order=released&include_extras=true",
+      "receipt_path": "docs/mechanics-research/c-protocol-evidence/extended-constellation/released-paper-printings-page-1.json",
+      "sha256": "224294da9e0c5bbaba00feebb1c9d5528132a96685fd0011407db12fd2d5e7b8",
+      "http_status": 200,
+      "retrieved_at_utc": "2026-10-28T20:24:49.297Z",
+      "receipt": "docs/mechanics-research/c-protocol-evidence/extended-constellation/released-paper-printings-page-1-receipt.json"
+    }
+  ],
+  "retrieved_count": 82,
+  "completion": "complete",
+  "errors": []
+}

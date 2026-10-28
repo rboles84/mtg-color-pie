@@ -1,0 +1,10 @@
+{
+  "query_id": "exact-oracle-term",
+  "requested_url": "https://api.scryfall.com/cards/search?q=o%3A%2F%5CbConverge%5Cb%2F+game%3Apaper+date%3C%3D2026-10-28&unique=cards&order=released&include_extras=true",
+  "final_url": "https://api.scryfall.com/cards/search?q=o%3A%2F%5CbConverge%5Cb%2F+game%3Apaper+date%3C%3D2026-10-28&unique=cards&order=released&include_extras=true",
+  "retrieved_at_utc": "2026-10-28T20:24:50.836Z",
+  "http_status": 200,
+  "sha256": "e525ef6dccec6c6a03a4c71c8578253b3aa58d84095e06a6e2155dbe42b7c737",
+  "bytes": 146865,
+  "error": null
+}

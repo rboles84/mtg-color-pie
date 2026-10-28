@@ -1,0 +1,10 @@
+{
+  "query_id": "keyword",
+  "requested_url": "https://api.scryfall.com/cards/search?q=kw%3A%22Conspire%22+game%3Apaper+date%3C%3D2026-10-28&unique=cards&order=released&include_extras=true",
+  "final_url": "https://api.scryfall.com/cards/search?q=kw%3A%22Conspire%22+game%3Apaper+date%3C%3D2026-10-28&unique=cards&order=released&include_extras=true",
+  "retrieved_at_utc": "2026-10-28T20:24:46.156Z",
+  "http_status": 200,
+  "sha256": "939862ee33aa1f473efbbc84f41e4e9296e6495aa52feaa2dedaf029f3fceac6",
+  "bytes": 56993,
+  "error": null
+}

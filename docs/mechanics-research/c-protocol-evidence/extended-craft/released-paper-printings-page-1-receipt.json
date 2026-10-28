@@ -1,0 +1,10 @@
+{
+  "query_id": "released-paper-printings",
+  "requested_url": "https://api.scryfall.com/cards/search?q=%28kw%3A%22Craft%22+game%3Apaper+date%3C%3D2026-10-28+or+o%3A%2F%5CbCraft%5Cb%2F+game%3Apaper+date%3C%3D2026-10-28%29&unique=prints&order=released&include_extras=true",
+  "final_url": "https://api.scryfall.com/cards/search?q=%28kw%3A%22Craft%22+game%3Apaper+date%3C%3D2026-10-28+or+o%3A%2F%5CbCraft%5Cb%2F+game%3Apaper+date%3C%3D2026-10-28%29&unique=prints&order=released&include_extras=true",
+  "retrieved_at_utc": "2026-10-28T20:24:07.925Z",
+  "http_status": 200,
+  "sha256": "8a532c41683c52d2469242cf69c456ade4ad4c6e3e45cf201338e9b63e6e443a",
+  "bytes": 260846,
+  "error": null
+}

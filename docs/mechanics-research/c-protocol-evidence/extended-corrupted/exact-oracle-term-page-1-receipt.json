@@ -1,0 +1,10 @@
+{
+  "query_id": "exact-oracle-term",
+  "requested_url": "https://api.scryfall.com/cards/search?q=o%3A%2F%5CbCorrupted%5Cb%2F+game%3Apaper+date%3C%3D2026-10-28&unique=cards&order=released&include_extras=true",
+  "final_url": "https://api.scryfall.com/cards/search?q=o%3A%2F%5CbCorrupted%5Cb%2F+game%3Apaper+date%3C%3D2026-10-28&unique=cards&order=released&include_extras=true",
+  "retrieved_at_utc": "2026-10-28T20:24:55.324Z",
+  "http_status": 200,
+  "sha256": "5427237121be7079780673b2276a11e2b961b4ea9bebc88e4932a3549c8aa42e",
+  "bytes": 140789,
+  "error": null
+}

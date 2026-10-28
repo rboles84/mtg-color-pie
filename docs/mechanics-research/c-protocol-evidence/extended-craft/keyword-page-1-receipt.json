@@ -1,0 +1,10 @@
+{
+  "query_id": "keyword",
+  "requested_url": "https://api.scryfall.com/cards/search?q=kw%3A%22Craft%22+game%3Apaper+date%3C%3D2026-10-28&unique=cards&order=released&include_extras=true",
+  "final_url": "https://api.scryfall.com/cards/search?q=kw%3A%22Craft%22+game%3Apaper+date%3C%3D2026-10-28&unique=cards&order=released&include_extras=true",
+  "retrieved_at_utc": "2026-10-28T20:24:05.955Z",
+  "http_status": 200,
+  "sha256": "ff40a7d24b47aab7462168e8f82fc713b0d9a4fcd1eee40d53b3fe225d37a0b0",
+  "bytes": 179622,
+  "error": null
+}

@@ -1,0 +1,25 @@
+{
+  "query_id": "keyword",
+  "exact_query": "kw:\"Collect Evidence\" game:paper date<=2026-10-28",
+  "unique": "cards",
+  "base_url": "https://api.scryfall.com/cards/search",
+  "parameters": {
+    "q": "kw:\"Collect Evidence\" game:paper date<=2026-10-28",
+    "unique": "cards",
+    "order": "released",
+    "include_extras": "true"
+  },
+  "pages": [
+    {
+      "url": "https://api.scryfall.com/cards/search?q=kw%3A%22Collect+Evidence%22+game%3Apaper+date%3C%3D2026-10-28&unique=cards&order=released&include_extras=true",
+      "receipt_path": "docs/mechanics-research/c-protocol-evidence/extended-collect-evidence/keyword-page-1.json",
+      "sha256": "87ed8190fc67329c7ad774e06909db3b9981acdae2e703aa67740ca2b0af5542",
+      "http_status": 200,
+      "retrieved_at_utc": "2026-10-28T20:24:36.746Z",
+      "receipt": "docs/mechanics-research/c-protocol-evidence/extended-collect-evidence/keyword-page-1-receipt.json"
+    }
+  ],
+  "retrieved_count": 22,
+  "completion": "complete",
+  "errors": []
+}

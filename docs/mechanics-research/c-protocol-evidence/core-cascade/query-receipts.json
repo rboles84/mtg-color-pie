@@ -1,0 +1,101 @@
+{
+  "mechanic": "Cascade",
+  "retrieved_at_utc": "2026-10-28T20:22:01Z",
+  "queries": [
+    {
+      "query_id": "Q1",
+      "exact_query": "kw:\"Cascade\" include:extras",
+      "url": "https://api.scryfall.com/cards/search?q=kw%3A%22Cascade%22+include%3Aextras&unique=cards&order=released",
+      "parameters": {
+        "unique": "cards",
+        "include": "extras",
+        "order": "released"
+      },
+      "retrieved_at_utc": "2026-10-28T20:21:58Z",
+      "pages": [
+        {
+          "url": "https://api.scryfall.com/cards/search?q=kw%3A%22Cascade%22+include%3Aextras&unique=cards&order=released",
+          "receipt_path": "docs/mechanics-research/c-protocol-evidence/core-cascade/keyword-page-1.json",
+          "sha256": "9c58c96c37294c9561893871c1e29af813bd7182743b74b75d06d995b5e5002d",
+          "retrieved_at_utc": "2026-10-28T20:21:58Z",
+          "http_status": 200
+        }
+      ],
+      "receipt_paths": [
+        "docs/mechanics-research/c-protocol-evidence/core-cascade/keyword-page-1.json"
+      ],
+      "expected_count": 38,
+      "retrieved_count": 38,
+      "completion": "complete",
+      "errors": [],
+      "exceptional_query_explanation": "Keyword-indexed candidate population.",
+      "receipt_paths_base": "repository_root"
+    },
+    {
+      "query_id": "Q2",
+      "exact_query": "o:/\\bCascade\\b/ include:extras",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%2F%5CbCascade%5Cb%2F+include%3Aextras&unique=cards&order=released",
+      "parameters": {
+        "unique": "cards",
+        "include": "extras",
+        "order": "released"
+      },
+      "retrieved_at_utc": "2026-10-28T20:21:59Z",
+      "pages": [
+        {
+          "url": "https://api.scryfall.com/cards/search?q=o%3A%2F%5CbCascade%5Cb%2F+include%3Aextras&unique=cards&order=released",
+          "receipt_path": "docs/mechanics-research/c-protocol-evidence/core-cascade/oracle-page-1.json",
+          "sha256": "160aa13698b808f41aa52ed523b5bb60b50383c8af49d26db1494c5d9493b502",
+          "retrieved_at_utc": "2026-10-28T20:21:59Z",
+          "http_status": 200
+        }
+      ],
+      "receipt_paths": [
+        "docs/mechanics-research/c-protocol-evidence/core-cascade/oracle-page-1.json"
+      ],
+      "expected_count": 57,
+      "retrieved_count": 57,
+      "completion": "complete",
+      "errors": [],
+      "exceptional_query_explanation": "Exact Oracle-term population, including grants and text-only references.",
+      "receipt_paths_base": "repository_root"
+    },
+    {
+      "query_id": "Q3",
+      "exact_query": "(kw:\"Cascade\" or o:/\\bCascade\\b/) game:paper date<=2026-10-28 include:extras",
+      "url": "https://api.scryfall.com/cards/search?q=%28kw%3A%22Cascade%22+or+o%3A%2F%5CbCascade%5Cb%2F%29+game%3Apaper+date%3C%3D2026-10-28+include%3Aextras&unique=prints&order=released",
+      "parameters": {
+        "unique": "prints",
+        "include": "extras",
+        "order": "released"
+      },
+      "retrieved_at_utc": "2026-10-28T20:22:00Z",
+      "pages": [
+        {
+          "url": "https://api.scryfall.com/cards/search?q=%28kw%3A%22Cascade%22+or+o%3A%2F%5CbCascade%5Cb%2F%29+game%3Apaper+date%3C%3D2026-10-28+include%3Aextras&unique=prints&order=released",
+          "receipt_path": "docs/mechanics-research/c-protocol-evidence/core-cascade/printings-page-1.json",
+          "sha256": "cf8414b9a5df0816613d8f4bef96a7635eae7119607869d7eb8f221c20718a2b",
+          "retrieved_at_utc": "2026-10-28T20:22:00Z",
+          "http_status": 200
+        },
+        {
+          "url": "https://api.scryfall.com/cards/search?format=json&include_extras=true&include_multilingual=false&include_variations=false&order=released&page=2&q=%28kw%3A%22cascade%22+or+o%3A%2F%5Cbcascade%5Cb%2F%29+game%3Apaper+date%3C%3D2026-10-28+include%3Aextras&unique=prints",
+          "receipt_path": "docs/mechanics-research/c-protocol-evidence/core-cascade/printings-page-2.json",
+          "sha256": "0a79905a314d896b44e61f2f0793c8fcebf98b400be0d2335876585a76e82a8a",
+          "retrieved_at_utc": "2026-10-28T20:22:01Z",
+          "http_status": 200
+        }
+      ],
+      "receipt_paths": [
+        "docs/mechanics-research/c-protocol-evidence/core-cascade/printings-page-1.json",
+        "docs/mechanics-research/c-protocol-evidence/core-cascade/printings-page-2.json"
+      ],
+      "expected_count": 210,
+      "retrieved_count": 210,
+      "completion": "complete",
+      "errors": [],
+      "exceptional_query_explanation": "Paper-printing chronology and original printing facts; it does not inflate the unique design population.",
+      "receipt_paths_base": "repository_root"
+    }
+  ]
+}
