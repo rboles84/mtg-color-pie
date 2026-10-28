@@ -1,0 +1,21 @@
+{
+  "kind": "exact-term",
+  "query": "o:/\\bBerzerker\\b/ include:extras",
+  "unique": "cards",
+  "pages": [
+    {
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%2F%5CbBerzerker%5Cb%2F%20include%3Aextras&unique=cards&order=released",
+      "file": "docs/mechanics-research/b-protocol-evidence/extended-berzerker/label-exact-term-page-1.json",
+      "sha256": "17901d5231b541472ef6dfd2f5971f9043898d43c13a5b3f919b9b6c251aa0a2",
+      "retrieved_utc": "2026-10-28T04:42:41.795Z",
+      "http_status": 200,
+      "count": 1,
+      "ids": [
+        "3246eff5-8739-469f-a401-e5de927dd6bb"
+      ]
+    }
+  ],
+  "total_cards": 1,
+  "complete": true,
+  "receipt_path": "docs/mechanics-research/b-protocol-evidence/extended-berzerker/label-exact-term-receipt.json"
+}

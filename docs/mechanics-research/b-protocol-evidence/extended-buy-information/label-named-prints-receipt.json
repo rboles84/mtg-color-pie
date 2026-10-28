@@ -1,0 +1,30 @@
+{
+  "kind": "named-prints",
+  "query": "!\"Black Market Connections\" include:extras",
+  "unique": "prints",
+  "pages": [
+    {
+      "url": "https://api.scryfall.com/cards/search?q=!%22Black%20Market%20Connections%22%20include%3Aextras&unique=prints&order=released",
+      "file": "docs/mechanics-research/b-protocol-evidence/extended-buy-information/label-named-prints-page-1.json",
+      "sha256": "7720bb09a51cbaeb96340f0ef8e759c0f98299912a79c0ffc5dedd55c38c23be",
+      "retrieved_utc": "2026-10-28T04:42:40.942Z",
+      "http_status": 200,
+      "count": 10,
+      "ids": [
+        "d2664f28-49e1-46f8-a863-b217e961a57c",
+        "d2664f28-49e1-46f8-a863-b217e961a57c",
+        "d2664f28-49e1-46f8-a863-b217e961a57c",
+        "d2664f28-49e1-46f8-a863-b217e961a57c",
+        "d2664f28-49e1-46f8-a863-b217e961a57c",
+        "d2664f28-49e1-46f8-a863-b217e961a57c",
+        "d2664f28-49e1-46f8-a863-b217e961a57c",
+        "d2664f28-49e1-46f8-a863-b217e961a57c",
+        "d2664f28-49e1-46f8-a863-b217e961a57c",
+        "d2664f28-49e1-46f8-a863-b217e961a57c"
+      ]
+    }
+  ],
+  "total_cards": 10,
+  "complete": true,
+  "receipt_path": "docs/mechanics-research/b-protocol-evidence/extended-buy-information/label-named-prints-receipt.json"
+}

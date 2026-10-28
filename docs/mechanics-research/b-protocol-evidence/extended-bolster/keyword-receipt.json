@@ -1,0 +1,44 @@
+{
+  "kind": "keyword",
+  "query": "kw:\"Bolster\"",
+  "unique": "cards",
+  "pages": [
+    {
+      "url": "https://api.scryfall.com/cards/search?q=kw%3A%22Bolster%22&unique=cards&order=name",
+      "file": "docs/mechanics-research/b-protocol-evidence/extended-bolster/keyword-page-1.json",
+      "sha256": "6f8b81efd57e7649d822b599b57ce7df888b82db54a50cf911ae2528c7e5fe62",
+      "retrieved_utc": "2026-10-28T04:22:34.088Z",
+      "http_status": 200,
+      "ids": [
+        "e7b2f844-2ba2-4465-bb80-358a4d915f36",
+        "866fc4b9-f661-444b-b7fd-929814dbc69d",
+        "f7fa6ac0-70db-4586-b881-5a19db644dfb",
+        "f2d5949b-3cdc-4efd-9841-7d450e12dbbe",
+        "0e564f52-94fb-4c44-926f-0eebedc7d4c0",
+        "9fc6e1db-cf09-4b8c-be4f-bb02ffe7a188",
+        "74333718-2a05-4643-9a37-013df39b32e0",
+        "1264da2f-4767-4bec-b4ed-1c625ac3cf95",
+        "73520b5a-3d55-40c9-af60-90fdd811934f",
+        "9863a7da-6f51-4d3e-9ace-e8ff201faf13",
+        "b90af42d-edb6-4654-b7dc-10f0f272c883",
+        "955ff3bf-4323-452e-a8b1-b7662034473d",
+        "68a91b87-1845-419b-aae7-ee1237554946",
+        "87e6aabb-41f5-41d2-b662-cd09ad61a1c8",
+        "b845e69b-5d49-40ff-9cf7-d5cf2ccec7be",
+        "199c4a1a-2082-417c-a174-f479d7334d15",
+        "9812bdf9-98b6-4b4d-8381-a7bbb25069d8",
+        "6bf9c91f-f278-4b97-8517-d062118c4e56",
+        "99fa202b-052c-4627-b78c-f0b323f7bdf3",
+        "747ee321-f2dc-4d27-90cd-c4e610086958",
+        "461c0c37-7213-4ece-91f7-934e6a1a8d64",
+        "a7157ec5-9e6a-4771-b3db-6760640d6c6c",
+        "bbfced8f-0f83-4cc9-9143-aa2473828b48",
+        "4413cb03-d6e9-4e6c-b5fe-9240ca0ebd13"
+      ],
+      "count": 24
+    }
+  ],
+  "total_cards": 24,
+  "complete": true,
+  "receipt_path": "docs/mechanics-research/b-protocol-evidence/extended-bolster/keyword-receipt.json"
+}

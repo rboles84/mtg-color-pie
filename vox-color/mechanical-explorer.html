@@ -1733,7 +1733,7 @@ function renderResults(){
       if (lensOn && !r.supplemental){ const pb = proj.best(h.k, P.colours), code = esc([...setKey(P.colours)].join(''));
         lp = `<span class="lensp">${code}: ${pb.sameTier ? (pb.catalog.best ? TIER[pb.catalog.best] : 'no placement')
           : `${TIER[pb.list.best]} ${READING_BY.list} · ${TIER[pb.catalog.best]} ${READING_BY.catalog}`}</span>`; }
-      if (r.supplemental) lp = `<span class="lensp">${esc(derived ? ASSESSMENTS.byKey.get(h.k).shortLabel + ' · provisional' : isAssessmentTarget(h.k) ? assessmentSummary(h.k, true) : 'No sourced Primary/Secondary/Tertiary assignment is recorded')}</span>`;
+      if (r.supplemental) lp = `<span class="lensp">${esc(derived ? ASSESSMENTS.byKey.get(h.k).shortLabel + (ASSESSMENTS.byKey.get(h.k).shortLabel === 'Official placement' ? '' : ' · provisional') : isAssessmentTarget(h.k) ? assessmentSummary(h.k, true) : 'No sourced Primary/Secondary/Tertiary assignment is recorded')}</span>`;
       const tag = st.related ? ` <span class="pterm-tag rel">related · not what the term names</span>` : st.player ? ' <span class="pterm-tag">navigation aid</span>' : '';
       return `<div class="opt${st.related ? ' is-rel' : ''}" role="option" id="opt-${offset + i}" data-k="${esc(h.k)}" aria-selected="false"${derived ? ` aria-label="${esc(r.head + '. ' + assessmentSummary(h.k, true) + '. Outside the 2021 color calculations.')}"` : ''}>
         <span class="opt-l">${labelHTML(r)}</span>${derived ? assessmentStripHTML(a) : r.supplemental ? `<span class="calc scope-badge">${esc(scopeGroupLabel(r.scope))}</span>` : stripHTML(r.e.colors)}
@@ -1995,7 +1995,7 @@ function supplementalDetailHTML(k){
 }
 function isAssessmentTarget(k){
   const r = REC.get(k);
-  return !!r && r.supplemental && r.head.startsWith('A');
+  return !!r && r.supplemental && /^[AB]/.test(r.head);
 }
 function assessmentSummary(k, full = false){
   const a = ASSESSMENTS.byKey.get(k);
@@ -2018,7 +2018,7 @@ function assessmentHTML(k){
   return `<section class="dx-sec supp-assessment" aria-label="${esc(a.label)}">
     <h3 class="dx-h">${a.kind === 'rules' ? 'Classification' : 'Placements'}</h3><p class="dx-note">${esc(a.label)}</p>
     ${placement}<p class="dx-note">${esc(a.scope)}</p>${a.kind === 'rules' ? '' : a.name === 'Annihilator' ? '<p class="dx-note">The cards support colorless access; Primary is the classification chosen for this page.</p>' : `<p class="dx-note">Confidence: ${esc(a.confidence.split(';')[0])}</p>`}
-    <p class="dx-note">${a.kind === 'rules' ? 'General rules terminology.' : a.name === 'Annihilator' ? 'Colorless classification selected for this page; not an official Wizards ranking.' : 'Our assessment, not an official Wizards or Scryfall ranking.'} Based on evidence available ${esc(supplementalDate(a.researchDate))}. Outside the 2021 color calculations.</p>
+    <p class="dx-note">${a.kind === 'rules' ? 'General rules terminology.' : a.shortLabel === 'Official placement' ? 'Placement attributed to the official source cited below.' : a.name === 'Annihilator' ? 'Colorless classification selected for this page; not an official Wizards ranking.' : 'Our assessment, not an official Wizards or Scryfall ranking.'} Based on evidence available ${esc(supplementalDate(a.researchDate))}. Outside the 2021 color calculations.</p>
     <details class="assessment-notes"><summary>Rationale and evidence</summary><p>${esc(a.summary)}</p>
       ${a.kind === 'derived' ? ORDER.map(c => `<p><b>${CNAME[c]} · ${esc(a.placements[c] || 'Unassigned')}.</b> ${esc(a.rationale[c])}</p><p class="dx-note">Confidence: ${esc(a.decisionConfidence[c])}</p>`).join('') : ''}
       ${a.limitations.length ? `<h4>Scope and limitations</h4><ul class="dx-list">${a.limitations.map(t => `<li>${esc(t)}</li>`).join('')}</ul>` : ''}
@@ -2035,17 +2035,17 @@ async function loadAssessments(data, status){
     const map = (v, check) => object(v) && Object.keys(v).length === 5 && ORDER.every(c => Object.hasOwn(v, c) && check(v[c]));
     const placements = v => map(v, t => t === null || ['Primary','Secondary','Tertiary'].includes(t));
     const safeLink = v => !!supplementalURL(v) && ['scryfall.com','magic.wizards.com'].includes(new URL(v).hostname);
-    const names = ['a-assessments-source.json','absorb-assessment-source.json','a-classification-addendum.json','a-protocol-core.json','a-protocol-extended.json','a-protocol-special.json'];
-    const expected = new Map(data.records.filter(r => r.name.startsWith('A') && r.target2021 === null).map(r => [r.id,r]));
+    const names = ['a-assessments-source.json','absorb-assessment-source.json','a-classification-addendum.json','a-protocol-core.json','a-protocol-extended.json','a-protocol-special.json','b-protocol-core.json','b-protocol-extended.json'];
+    const expected = new Map(data.records.filter(r => /^[AB]/.test(r.name) && r.target2021 === null).map(r => [r.id,r]));
     const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(JSON.stringify(data)));
     const hash = [...new Uint8Array(digest)].map(n => n.toString(16).padStart(2,'0')).join('');
-    if (!payload || payload.schemaVersion !== 2 || payload.protocolVersion !== '1.0' || payload.judgmentDate !== '2026-10-27' || payload.researchDate !== '2026-10-26' || payload.supplementCanonicalSha256 !== hash || payload.sourceBindingFormat !== 'canonical-json-utf8' ||
+    if (!payload || payload.schemaVersion !== 2 || payload.protocolVersion !== '1.0' || payload.judgmentDate !== '2026-10-27' || payload.researchDate !== '2026-10-27' || payload.supplementCanonicalSha256 !== hash || payload.sourceBindingFormat !== 'canonical-json-utf8' ||
         !Array.isArray(payload.sourceBindings) || payload.sourceBindings.length !== names.length || !names.every((name,i) => payload.sourceBindings[i]?.path === 'docs/mechanics-research/' + name && /^[a-f0-9]{64}$/.test(payload.sourceBindings[i].sha256)) ||
-        !Array.isArray(payload.records) || payload.records.length !== 25 || expected.size !== 25) throw new Error('Unsupported assessment schema or binding');
+        !Array.isArray(payload.records) || payload.records.length !== 43 || expected.size !== 43) throw new Error('Unsupported assessment schema or binding');
     const staged = new Map();
     for (const a of payload.records){
       const source = expected.get(a?.id);
-      if (!source || staged.has(a.id) || a.name !== source.name || a.researchDate !== payload.researchDate ||
+      if (!source || staged.has(a.id) || a.name !== source.name || a.researchDate !== (a.name.startsWith('A') ? '2026-10-26' : '2026-10-27') ||
           !['derived','colorless','rules'].includes(a.kind) || !['label','shortLabel','scope','summary','confidence','classification'].every(k => text(a[k])) ||
           a.protocolVersion !== payload.protocolVersion || a.judgmentDate !== payload.judgmentDate || !['draft','reviewed'].includes(a.reviewStatus) ||
           !map(a.decisionStatus, s => ['assigned','proposed_home','observed_tier_unresolved','no_support_in_sample','incomplete_evidence','conflicted','not_applicable'].includes(s)) ||
@@ -2056,8 +2056,10 @@ async function loadAssessments(data, status){
           !Array.isArray(a.sources) || !a.sources.every(s => s && text(s.title) && safeLink(s.url)) ||
           !Array.isArray(a.relatedEffects) || !a.relatedEffects.every(e => e && text(e.name) && text(e.label) && text(e.note) && placements(e.placements) && safeLink(e.url))) throw new Error('Malformed assessment record');
       const kind = ['Abandon','Activate','Attach'].includes(a.name) ? 'rules' : ['Annihilator','Affinitycycling'].includes(a.name) ? 'colorless' : 'derived';
-      const expectedLabel = kind === 'rules' ? 'Rules action - not ranked' : a.name === 'Annihilator' ? 'User-selected classification' : a.name === 'Afflict' ? 'Source-informed assessment - provisional' : 'Scryfall-derived assessment - provisional';
-      if (a.kind !== kind || a.label !== expectedLabel || a.shortLabel !== (kind === 'rules' ? 'Rules action' : a.name === 'Annihilator' ? 'User-selected' : a.name === 'Afflict' ? 'Source-informed' : 'Scryfall-derived') ||
+      const routes = new Set(Object.values(a.decisionRoute).filter(Boolean));
+      const short = kind === 'rules' ? 'Rules action' : a.name === 'Annihilator' ? 'User-selected' : routes.has('E2') || routes.has('E1') && (routes.has('E3') || routes.has('E3_limited_sample')) ? 'Source-informed' : routes.has('E1') ? 'Official placement' : 'Scryfall-derived';
+      const expectedLabel = kind === 'rules' ? 'Rules action - not ranked' : short === 'User-selected' ? 'User-selected classification' : short === 'Official placement' ? 'Official placement' : short + ' assessment - provisional';
+      if (a.kind !== kind || a.label !== expectedLabel || a.shortLabel !== short ||
           a.outsidePrimary !== (a.name === 'Annihilator' ? 'Colorless' : null) || a.outsideTier !== (a.name === 'Annihilator' ? 'Primary' : null) ||
           !['assigned','observed_tier_unresolved','not_applicable','no_support_in_sample'].includes(a.outsideStatus) ||
           ORDER.some(c => Boolean(a.placements[c]) !== ['assigned','proposed_home'].includes(a.decisionStatus[c]) || a.placements[c] && !a.decisionRoute[c]) ||
@@ -2066,10 +2068,10 @@ async function loadAssessments(data, status){
       staged.set(a.id, deepFreeze(a));
     }
     ASSESSMENTS.byKey = staged; ASSESSMENTS.status = 'ready';
-    status.textContent += ' 25 A-mechanic assessments are available; derived placements remain outside the 2021 calculations.';
+    status.textContent += ' 43 A/B mechanic assessments are available; derived placements remain outside the 2021 calculations.';
   } catch (err){
     ASSESSMENTS.byKey = new Map(); ASSESSMENTS.status = 'unavailable';
-    status.textContent += ' A-mechanic assessments are unavailable; rules and other evidence remain available.';
+    status.textContent += ' A/B mechanic assessments are unavailable; rules and other evidence remain available.';
     console.warn('[mechanical-explorer] assessments unavailable:', err.message);
   }
   if (S.view === 'az') layoutList();

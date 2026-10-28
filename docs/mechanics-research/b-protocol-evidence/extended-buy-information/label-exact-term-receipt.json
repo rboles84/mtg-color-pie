@@ -1,0 +1,21 @@
+{
+  "kind": "exact-term",
+  "query": "o:/\\bBuy\\s+Information\\b/ include:extras",
+  "unique": "cards",
+  "pages": [
+    {
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%2F%5CbBuy%5Cs%2BInformation%5Cb%2F%20include%3Aextras&unique=cards&order=released",
+      "file": "docs/mechanics-research/b-protocol-evidence/extended-buy-information/label-exact-term-page-1.json",
+      "sha256": "0edeb024acb0c599bb7109b07f45ca7fe7697de90886df21a34bceebafb6c0a0",
+      "retrieved_utc": "2026-10-28T04:42:40.142Z",
+      "http_status": 200,
+      "count": 1,
+      "ids": [
+        "d2664f28-49e1-46f8-a863-b217e961a57c"
+      ]
+    }
+  ],
+  "total_cards": 1,
+  "complete": true,
+  "receipt_path": "docs/mechanics-research/b-protocol-evidence/extended-buy-information/label-exact-term-receipt.json"
+}

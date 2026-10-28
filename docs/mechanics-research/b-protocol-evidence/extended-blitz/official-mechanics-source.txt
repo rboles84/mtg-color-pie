@@ -1,0 +1,4 @@
+Official source capture — Streets of New Capenna Mechanics, Matt Tabak, 2022-04-07.
+URL: https://magic.wizards.com/en/news/feature/streets-of-new-capenna-mechanics-2022-04-07
+
+The article identifies the Riveteers as the black-red-green family and says blitz is their signature mechanic. It describes blitz as an alternative cost on Riveteer creature cards; casting for the cost grants haste, a death-draw trigger, and a next-end-step sacrifice.

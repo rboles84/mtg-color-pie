@@ -1,0 +1,70 @@
+{
+  "name": "Blight",
+  "receipts": [
+    {
+      "url": "https://api.scryfall.com/cards/search?q=kw%3A%22Blight%22%20include%3Aextras&unique=cards&order=name",
+      "file": "docs/mechanics-research/b-protocol-evidence/core-blight/keyword-page-1.json",
+      "sha256": "d687ff6dc469ebf46f4741a16d756eb45207ba0bea6f7c220afa95c256fb89b5",
+      "retrieved_at_utc": "2026-10-28T04:22:27.305Z",
+      "http_status": 200,
+      "kind": "keyword",
+      "query": "kw:\"Blight\" include:extras",
+      "unique": "cards"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%2F%5CbBlight%5Cb%2F%20include%3Aextras&unique=cards&order=name",
+      "file": "docs/mechanics-research/b-protocol-evidence/core-blight/oracle-page-1.json",
+      "sha256": "608194617f3842ef9163c0e45a172f9dc44c651cdc139a5aa8599b1d222c0c00",
+      "retrieved_at_utc": "2026-10-28T04:22:28.131Z",
+      "http_status": 200,
+      "kind": "oracle",
+      "query": "o:/\\bBlight\\b/ include:extras",
+      "unique": "cards"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?q=(kw%3A%22Blight%22%20or%20o%3A%2F%5CbBlight%5Cb%2F)%20include%3Aextras&unique=prints&order=released",
+      "file": "docs/mechanics-research/b-protocol-evidence/core-blight/prints-page-1.json",
+      "sha256": "d04c03020abc7cd28e60dab6a98bd92859b194284ae91e537afd010ca871c99b",
+      "retrieved_at_utc": "2026-10-28T04:22:29.106Z",
+      "http_status": 200,
+      "kind": "prints",
+      "query": "(kw:\"Blight\" or o:/\\bBlight\\b/) include:extras",
+      "unique": "prints"
+    }
+  ],
+  "union_ids": [
+    "f00656a7-9684-4538-bc76-18e08c2fd465",
+    "e3cd53c1-86bd-4177-adb0-a1fa693b44c6",
+    "a294968e-9a7f-4d66-bde0-e775ae5f8197",
+    "ac65ed8c-abe8-4044-9ce5-70b1370d0e19",
+    "21695c70-f746-4d77-b6d3-e2713a5c929e",
+    "7f420633-901d-47f9-ae0f-0f5b0ea8359c",
+    "1726f9cd-6f18-4509-b95b-bca82ba795a4",
+    "77217a66-4ba8-443f-b915-178cfcc233e1",
+    "54421e69-d79e-4c2e-8ce6-96994d168835",
+    "2cabf7a4-17af-45c7-b314-a84f5dc0d070",
+    "f852bc33-e2f8-43be-9e6e-7badd1f894ef",
+    "c7e4bc5d-e1d9-4fbc-8d53-0cec73086828",
+    "b5bc4adf-9105-4901-989c-63612314af5c",
+    "b7163800-41fc-410a-9650-50ae90842170",
+    "180286e4-67fa-44d5-9e90-4a4e99c016a7",
+    "322c1c8f-ef8a-4a9f-b9ce-927720bad1d6",
+    "dd27c5fa-4355-4e5c-8219-b74cfe209da0",
+    "5ea1d89c-8650-4373-9835-e369587020ef",
+    "eda16b31-33db-4ad2-901a-80fbe6273733",
+    "af38d683-77a3-4599-ad2a-1c293ae01d45",
+    "86bd332f-ba61-49a4-ad31-de4d7e3638c6",
+    "fcd2142e-ba84-4693-9b29-ecc43feba2b8",
+    "6b087ae1-1412-4dd9-9b96-3b45be52d386",
+    "d8599f06-f030-4575-8497-307a4d7ec182",
+    "945a4a4d-fdfd-4c39-9975-5b22d17a4e70",
+    "20c3c8ab-e996-462e-a1f6-87421fc3ee55",
+    "dd1a4219-437b-494f-ae0e-1d3181ffcd63",
+    "00f06814-0419-4956-8003-c6a0b58ee330",
+    "11132bbe-985d-44fa-a5b4-4b4e0dc3a7cf",
+    "2c75623c-59f4-4449-ab43-9d1225185ad9",
+    "338747e8-bed8-4e60-8b19-5c2b80799477",
+    "baa337ce-edc6-4ee5-a898-68e9dbb4ab93"
+  ],
+  "retrieved_at_utc": "2026-10-28T04:22:29.106Z"
+}

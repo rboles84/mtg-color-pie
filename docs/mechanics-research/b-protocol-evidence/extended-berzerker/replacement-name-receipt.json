@@ -1,0 +1,22 @@
+{
+  "kind": "replacement_named_card",
+  "query": "!\"Kharn the Betrayer\"",
+  "unique": "cards",
+  "pages": [
+    {
+      "url": "https://api.scryfall.com/cards/search?q=%21%22Kharn+the+Betrayer%22&unique=cards&order=name",
+      "file": "docs/mechanics-research/b-protocol-evidence/extended-berzerker/replacement-name-page-1.json",
+      "sha256": "17901d5231b541472ef6dfd2f5971f9043898d43c13a5b3f919b9b6c251aa0a2",
+      "retrieved_utc": "2026-10-28T04:24:55.788Z",
+      "http_status": 200,
+      "ids": [
+        "3246eff5-8739-469f-a401-e5de927dd6bb"
+      ],
+      "count": 1
+    }
+  ],
+  "total_cards": 1,
+  "complete": true,
+  "receipt_path": "docs/mechanics-research/b-protocol-evidence/extended-berzerker/replacement-name-receipt.json",
+  "exceptional_query_explanation": "Berzerker is the card-specific spelling/flavor label on this named card; name fetch replaces no-match term search."
+}

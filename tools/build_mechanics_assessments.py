@@ -1,10 +1,10 @@
-"""Deterministic display projection of reviewed A research. No network or 2021 edits."""
+"""Deterministic display projection of A/B research. No network or 2021 edits."""
 import argparse, hashlib, json
 from pathlib import Path
 from urllib.parse import urlsplit, quote
 ROOT = Path(__file__).resolve().parents[1]
 SOURCES = [ROOT/'docs/mechanics-research'/n for n in ('a-assessments-source.json','absorb-assessment-source.json','a-classification-addendum.json')]
-REVIEWS = [ROOT/'docs/mechanics-research'/n for n in ('a-protocol-core.json','a-protocol-extended.json','a-protocol-special.json')]
+REVIEWS = [ROOT/'docs/mechanics-research'/n for n in ('a-protocol-core.json','a-protocol-extended.json','a-protocol-special.json','b-protocol-core.json','b-protocol-extended.json')]
 OUTPUT = ROOT/'data/mechanics-assessments.v1.json'
 COLORS = 'WUBRG'
 LABEL = 'Scryfall-derived assessment - provisional'
@@ -79,8 +79,25 @@ def build():
     # Retained packets supply card links and the historical Attach effect.
     # Protocol records exclusively own current judgments and player-facing copy.
     reviews=[a for p in REVIEWS for a in read(p)['records']]
-    assert len(reviews)==len({a['mechanic']['name'] for a in reviews})==25
+    assert len(reviews)==len({a['mechanic']['name'] for a in reviews})==43
     by_name={a['mechanic']['name']:a for a in reviews}
+    b_accepted={r['id']:r for r in supplement['records'] if r['name'].startswith('B') and r['target2021'] is None}
+    assert len(b_accepted)==18
+    for a in reviews:
+        name=a['mechanic']['name']
+        if not name.startswith('B'): continue
+        key=a['mechanic']['accepted_id']
+        assert key in b_accepted and b_accepted[key]['name']==name
+        cards=[]
+        for c in a['card_review']:
+            if not c['included']: continue
+            url=c.get('scryfall_url') or c.get('card_facts',{}).get('scryfall_uri')
+            cards.append({'name':c['name'],'url':safe_url(url)})
+        query='o:/\\b'+name+'\\b/ include:extras'
+        rows.append(dict(id=key,name=name,kind='derived',researchDate=a['provenance']['research_date'],
+                         relatedEffects=[],citationCards=cards,queryUrl=safe_url('https://scryfall.com/search?q='+quote(query))))
+    assert len(rows)==len({r['id'] for r in rows})==43
+    assert {r['id'] for r in rows}==set(accepted)|set(b_accepted)
     assert set(by_name)=={r['name'] for r in rows}
     statuses={'assigned','proposed_home','observed_tier_unresolved','no_support_in_sample','incomplete_evidence','conflicted','not_applicable'}
     for r in rows:
@@ -103,9 +120,9 @@ def build():
                 assert d['route'] and (d['support_card_ids'] or d['support_source_ids'])
                 if d['route']=='E3_limited_sample':assert d['confidence']=='Low' and d['status']=='proposed_home'
         routes={d['route'] for d in ds.values()}|{outside.get('route')}
-        short='Rules action' if r['kind']=='rules' else 'User-selected' if 'U' in routes else 'Source-informed' if 'E2' in routes else 'Official placement' if 'E1' in routes else 'Scryfall-derived'
+        short='Rules action' if r['kind']=='rules' else 'User-selected' if 'U' in routes else 'Source-informed' if 'E2' in routes or ('E1' in routes and bool(routes & {'E3','E3_limited_sample'})) else 'Official placement' if 'E1' in routes else 'Scryfall-derived'
         r.update(protocolVersion='1.0',reviewStatus=a['record_status'],judgmentDate=a['provenance']['judgment_date'],shortLabel=short,
-                 label='Rules action - not ranked' if r['kind']=='rules' else 'User-selected classification' if 'U' in routes else short+' assessment - provisional',
+                 label='Rules action - not ranked' if r['kind']=='rules' else 'User-selected classification' if 'U' in routes else 'Official placement' if short=='Official placement' else short+' assessment - provisional',
                  scope=player['scope'],classification=a['mechanic']['classification'],summary=player['summary'],limitations=player['limitations'],
                  placements={c:ds[c]['tier'] for c in COLORS},rationale=player['rationale'],
                  decisionStatus={c:ds[c]['status'] for c in COLORS},decisionRoute={c:ds[c]['route'] for c in COLORS},decisionConfidence={c:ds[c]['confidence'] for c in COLORS},
@@ -120,12 +137,12 @@ def build():
                 item={'title':s['title'],'url':safe_url(s['url'])}
                 if item not in r['sources']:r['sources'].append(item)
         assert r['kind']=='derived' or not any(r['placements'].values())
-    return {'schemaVersion':2,'protocolVersion':'1.0','researchDate':'2026-10-26','judgmentDate':'2026-10-27','supplementCanonicalSha256':sha(canonical(supplement)),'sourceBindingFormat':'canonical-json-utf8','sourceBindings':[{'path':p.relative_to(ROOT).as_posix(),'sha256':sha(canonical(read(p)))} for p in SOURCES+REVIEWS],'records':sorted(rows,key=lambda r:r['name'])}
+    return {'schemaVersion':2,'protocolVersion':'1.0','researchDate':'2026-10-27','judgmentDate':'2026-10-27','supplementCanonicalSha256':sha(canonical(supplement)),'sourceBindingFormat':'canonical-json-utf8','sourceBindings':[{'path':p.relative_to(ROOT).as_posix(),'sha256':sha(canonical(read(p)))} for p in SOURCES+REVIEWS],'records':sorted(rows,key=lambda r:r['name'])}
 def main():
     p=argparse.ArgumentParser();p.add_argument('--check',action='store_true');args=p.parse_args()
     text=json.dumps(build(),indent=2,ensure_ascii=False)+'\n'
     if args.check:
         assert OUTPUT.read_text(encoding='utf-8')==text,'Generated assessment payload is stale'
-        print('PASS: 25 protocol v1.0 A records; deterministic payload and source bindings')
-    else:OUTPUT.write_text(text,encoding='utf-8');print('Wrote 25 reviewed A assessments')
+        print('PASS: 43 protocol v1.0 A/B records; deterministic payload and source bindings')
+    else:OUTPUT.write_text(text,encoding='utf-8');print('Wrote 43 A/B assessments')
 if __name__=='__main__':main()

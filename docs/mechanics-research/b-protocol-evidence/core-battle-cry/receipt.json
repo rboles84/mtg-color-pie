@@ -1,0 +1,56 @@
+{
+  "name": "Battle Cry",
+  "receipts": [
+    {
+      "url": "https://api.scryfall.com/cards/search?q=kw%3A%22Battle%20Cry%22%20include%3Aextras&unique=cards&order=name",
+      "file": "docs/mechanics-research/b-protocol-evidence/core-battle-cry/keyword-page-1.json",
+      "sha256": "659f9a4ffce5dc0f306478a2567789451df0c33afd341f7d696cb86777f5861e",
+      "retrieved_at_utc": "2026-10-28T04:22:19.112Z",
+      "http_status": 200,
+      "kind": "keyword",
+      "query": "kw:\"Battle Cry\" include:extras",
+      "unique": "cards"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%2F%5CbBattle%5Cs%2BCry%5Cb%2F%20include%3Aextras&unique=cards&order=name",
+      "file": "docs/mechanics-research/b-protocol-evidence/core-battle-cry/oracle-page-1.json",
+      "sha256": "1c96e5d3a3ab0ee610fb3263f4917e010a243a3b8de90ade7582f9955c8f1fd5",
+      "retrieved_at_utc": "2026-10-28T04:22:20.100Z",
+      "http_status": 200,
+      "kind": "oracle",
+      "query": "o:/\\bBattle\\s+Cry\\b/ include:extras",
+      "unique": "cards"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?q=(kw%3A%22Battle%20Cry%22%20or%20o%3A%2F%5CbBattle%5Cs%2BCry%5Cb%2F)%20include%3Aextras&unique=prints&order=released",
+      "file": "docs/mechanics-research/b-protocol-evidence/core-battle-cry/prints-page-1.json",
+      "sha256": "42f491198bfc1447ab1fa2b8eb7b02d0810bc4ee76484895993553c53194cb2e",
+      "retrieved_at_utc": "2026-10-28T04:22:21.300Z",
+      "http_status": 200,
+      "kind": "prints",
+      "query": "(kw:\"Battle Cry\" or o:/\\bBattle\\s+Cry\\b/) include:extras",
+      "unique": "prints"
+    }
+  ],
+  "union_ids": [
+    "6891c8b7-7112-40dc-8b94-b84ad1885e5e",
+    "9f10e977-25b5-4505-a56c-65bf1dfca64a",
+    "10849bbb-50ca-4194-a7cb-fa872272b29b",
+    "454a8902-8120-4373-96ee-bbf352b04e8d",
+    "f18799c4-ec54-4435-be51-03ea25809289",
+    "52925539-423a-42ec-91b9-0d39e7df565c",
+    "dff72513-b67a-4732-a8fc-269cbf21ae99",
+    "9d2bfbb2-84df-4d7c-9989-7f5577f90d97",
+    "bd024849-3005-4509-ad83-65a9bcf956ac",
+    "a681c6ea-b10a-4061-abf4-7b45e06ccebd",
+    "785f55bb-d47c-470c-94d4-95f69055e35f",
+    "86f7d513-1f5f-4551-83e6-56d24da5ab39",
+    "a70d9645-7c25-4fcb-9d16-fb73ce8b55e2",
+    "724f3d2f-0513-4efd-961f-56a7ea7b5731",
+    "fd29fdbd-b4c5-4d23-9388-df0a798fbbba",
+    "dcd91d2b-8cf2-411b-8fa1-e199590c8838",
+    "65c35934-796c-4495-a6b5-eea654dfcd55",
+    "b7d76572-fa63-4514-ade3-28700c9cfde0"
+  ],
+  "retrieved_at_utc": "2026-10-28T04:22:21.300Z"
+}

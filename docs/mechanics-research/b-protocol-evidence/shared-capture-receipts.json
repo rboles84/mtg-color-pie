@@ -1,0 +1,398 @@
+[
+  {
+    "slug": "backup",
+    "url": "https://magic.wizards.com/en/news/feature/march-of-the-machine-mechanics",
+    "resolved_url": "https://magic.wizards.com/en/news/feature/march-of-the-machine-mechanics",
+    "http_status": 200,
+    "title": "March of the Machine Mechanics",
+    "retrieved_at_utc": "2026-10-28T04:38:01.669270+00:00",
+    "verified_term": "Backup",
+    "pages": 3,
+    "capture": {
+      "html_or_text_path": "docs/mechanics-research/b-protocol-evidence/shared-backup.html",
+      "pdf_path": "docs/mechanics-research/b-protocol-evidence/shared-backup.pdf",
+      "files": [
+        {
+          "path": "docs/mechanics-research/b-protocol-evidence/shared-backup.html",
+          "format": "html",
+          "sha256": "23f1b8ce32ac79d318e65a78fad787a02129ca9bff232a1b38b25d975743f784"
+        },
+        {
+          "path": "docs/mechanics-research/b-protocol-evidence/shared-backup.txt",
+          "format": "txt",
+          "sha256": "3e6287314ac793e17896f718effddbb2ac1b1207779abe05e65efb6b26a7294f"
+        },
+        {
+          "path": "docs/mechanics-research/b-protocol-evidence/shared-backup.pdf",
+          "format": "pdf",
+          "sha256": "5f3ee7c72d1e9dc8b33d4132eec86c1d46b3ee9f06e6bcfc68b2fc13392acbf4"
+        }
+      ],
+      "status": "complete",
+      "notes": "Full original HTML plus readable publisher-page transcription. PDF generated locally, not publisher-issued."
+    }
+  },
+  {
+    "slug": "banding",
+    "url": "https://magic.wizards.com/en/news/making-magic/evergreen-eggs-ham-2015-06-08",
+    "resolved_url": "https://magic.wizards.com/en/news/making-magic/evergreen-eggs-ham-2015-06-08",
+    "http_status": 200,
+    "title": "Evergreen Eggs & Ham",
+    "retrieved_at_utc": "2026-10-28T04:38:01.950066+00:00",
+    "verified_term": "Banding",
+    "pages": 21,
+    "capture": {
+      "html_or_text_path": "docs/mechanics-research/b-protocol-evidence/shared-banding.html",
+      "pdf_path": "docs/mechanics-research/b-protocol-evidence/shared-banding.pdf",
+      "files": [
+        {
+          "path": "docs/mechanics-research/b-protocol-evidence/shared-banding.html",
+          "format": "html",
+          "sha256": "61e1057f65245d5cfee90cfb3013fa46fe8ab2e88124293c0cc899cdba913854"
+        },
+        {
+          "path": "docs/mechanics-research/b-protocol-evidence/shared-banding.txt",
+          "format": "txt",
+          "sha256": "66c4a14ad3874bc36191207f30613f358d9c8b1315416aa5d204fb7a63568c70"
+        },
+        {
+          "path": "docs/mechanics-research/b-protocol-evidence/shared-banding.pdf",
+          "format": "pdf",
+          "sha256": "25a6896b473b94b7884b3e7d4410e90dcd03ab2435b2137cbf717087e1306962"
+        }
+      ],
+      "status": "complete",
+      "notes": "Full original HTML plus readable publisher-page transcription. PDF generated locally, not publisher-issued."
+    }
+  },
+  {
+    "slug": "bargain",
+    "url": "https://magic.wizards.com/en/news/feature/wilds-of-eldraine-mechanics",
+    "resolved_url": "https://magic.wizards.com/en/news/feature/wilds-of-eldraine-mechanics",
+    "http_status": 200,
+    "title": "Wilds of Eldraine Mechanics",
+    "retrieved_at_utc": "2026-10-28T04:38:02.383685+00:00",
+    "verified_term": "Bargain",
+    "pages": 4,
+    "capture": {
+      "html_or_text_path": "docs/mechanics-research/b-protocol-evidence/shared-bargain.html",
+      "pdf_path": "docs/mechanics-research/b-protocol-evidence/shared-bargain.pdf",
+      "files": [
+        {
+          "path": "docs/mechanics-research/b-protocol-evidence/shared-bargain.html",
+          "format": "html",
+          "sha256": "3872b4063b3ec656b73b3515fca98e2f9f6fcc99176f229c6c018daaf3ea9c55"
+        },
+        {
+          "path": "docs/mechanics-research/b-protocol-evidence/shared-bargain.txt",
+          "format": "txt",
+          "sha256": "dfac3086eeee6f6d976428541192e05a2046861da612d103a191b68f94129b90"
+        },
+        {
+          "path": "docs/mechanics-research/b-protocol-evidence/shared-bargain.pdf",
+          "format": "pdf",
+          "sha256": "00982d5719841739697042ba60df40d85e5476461a083f9643e4e8c6c2e7ced1"
+        }
+      ],
+      "status": "complete",
+      "notes": "Full original HTML plus readable publisher-page transcription. PDF generated locally, not publisher-issued."
+    }
+  },
+  {
+    "slug": "basic-landcycling",
+    "url": "https://magic.wizards.com/en/news/feature/conflux-prerelease-primer",
+    "resolved_url": "https://magic.wizards.com/en/news/feature/conflux-prerelease-primer",
+    "http_status": 200,
+    "title": "Conflux Prerelease Primer",
+    "retrieved_at_utc": "2026-10-28T04:38:02.628202+00:00",
+    "verified_term": "basic landcycling",
+    "pages": 3,
+    "capture": {
+      "html_or_text_path": "docs/mechanics-research/b-protocol-evidence/shared-basic-landcycling.html",
+      "pdf_path": "docs/mechanics-research/b-protocol-evidence/shared-basic-landcycling.pdf",
+      "files": [
+        {
+          "path": "docs/mechanics-research/b-protocol-evidence/shared-basic-landcycling.html",
+          "format": "html",
+          "sha256": "089467bacdf4d54794309bfcb061407d99a3f2b4d27f64e5ddf0ca727479b129"
+        },
+        {
+          "path": "docs/mechanics-research/b-protocol-evidence/shared-basic-landcycling.txt",
+          "format": "txt",
+          "sha256": "493db67679f030fa77cfba19c371579219113f1fa63d6beb6cfc87fb7d3cfd07"
+        },
+        {
+          "path": "docs/mechanics-research/b-protocol-evidence/shared-basic-landcycling.pdf",
+          "format": "pdf",
+          "sha256": "94220c6473d37baa8ab959da3e2b7234d1ffc97a4b5f26c17ed8b8ad71588bbb"
+        }
+      ],
+      "status": "complete",
+      "notes": "Full original HTML plus readable publisher-page transcription. PDF generated locally, not publisher-issued."
+    }
+  },
+  {
+    "slug": "gatecrash",
+    "url": "https://magic.wizards.com/en/news/feature/gatecrash-mechanics",
+    "resolved_url": "https://magic.wizards.com/en/news/feature/gatecrash-mechanics",
+    "http_status": 200,
+    "title": "Gatecrash Mechanics",
+    "retrieved_at_utc": "2026-10-28T04:38:02.962660+00:00",
+    "verified_term": "Battalion",
+    "pages": 4,
+    "capture": {
+      "html_or_text_path": "docs/mechanics-research/b-protocol-evidence/shared-gatecrash.html",
+      "pdf_path": "docs/mechanics-research/b-protocol-evidence/shared-gatecrash.pdf",
+      "files": [
+        {
+          "path": "docs/mechanics-research/b-protocol-evidence/shared-gatecrash.html",
+          "format": "html",
+          "sha256": "04cf96c8363f3a60bc68c572878123258224056ace8a6f270406efde72ff812d"
+        },
+        {
+          "path": "docs/mechanics-research/b-protocol-evidence/shared-gatecrash.txt",
+          "format": "txt",
+          "sha256": "5d7f3d843e4458f97d674046477e9346cdcfca1d034fcaf214731057716cf004"
+        },
+        {
+          "path": "docs/mechanics-research/b-protocol-evidence/shared-gatecrash.pdf",
+          "format": "pdf",
+          "sha256": "6b74ab6104e3a2f30940273f472f4de1cadf82ccf59d3ca6a14e25bafe53329b"
+        }
+      ],
+      "status": "complete",
+      "notes": "Full original HTML plus readable publisher-page transcription. PDF generated locally, not publisher-issued."
+    }
+  },
+  {
+    "slug": "battle-cry",
+    "url": "https://magic.wizards.com/en/news/feature/mirrodin-besieged-mechanics",
+    "resolved_url": "https://magic.wizards.com/en/news/feature/mirrodin-besieged-mechanics",
+    "http_status": 200,
+    "title": "Mirrodin Besieged Mechanics",
+    "retrieved_at_utc": "2026-10-28T04:38:03.215312+00:00",
+    "verified_term": "Battle Cry",
+    "pages": 4,
+    "capture": {
+      "html_or_text_path": "docs/mechanics-research/b-protocol-evidence/shared-battle-cry.html",
+      "pdf_path": "docs/mechanics-research/b-protocol-evidence/shared-battle-cry.pdf",
+      "files": [
+        {
+          "path": "docs/mechanics-research/b-protocol-evidence/shared-battle-cry.html",
+          "format": "html",
+          "sha256": "86527763997195ef1c5d204405380ba9732774648ccb20325966c83d9d2a7f44"
+        },
+        {
+          "path": "docs/mechanics-research/b-protocol-evidence/shared-battle-cry.txt",
+          "format": "txt",
+          "sha256": "cb496cd4cbf7a7eadfa1ca8866bff499053fed0f956e973cb296919fa28c96f6"
+        },
+        {
+          "path": "docs/mechanics-research/b-protocol-evidence/shared-battle-cry.pdf",
+          "format": "pdf",
+          "sha256": "a996dc0a30f4d8d77d94d9781bd538eb7cb0e0554b221b31437d43bb4cd70eaf"
+        }
+      ],
+      "status": "complete",
+      "notes": "Full original HTML plus readable publisher-page transcription. PDF generated locally, not publisher-issued."
+    }
+  },
+  {
+    "slug": "bestow",
+    "url": "https://magic.wizards.com/en/news/feature/born-of-the-gods-mechanics",
+    "resolved_url": "https://magic.wizards.com/en/news/feature/born-of-the-gods-mechanics",
+    "http_status": 200,
+    "title": "Born of the Gods Mechanics",
+    "retrieved_at_utc": "2026-10-28T04:38:03.459527+00:00",
+    "verified_term": "Bestow",
+    "pages": 4,
+    "capture": {
+      "html_or_text_path": "docs/mechanics-research/b-protocol-evidence/shared-bestow.html",
+      "pdf_path": "docs/mechanics-research/b-protocol-evidence/shared-bestow.pdf",
+      "files": [
+        {
+          "path": "docs/mechanics-research/b-protocol-evidence/shared-bestow.html",
+          "format": "html",
+          "sha256": "bb05781e5a192f4f432b4b8d8d4346a78430ee27b8c896683aad35dd57e32076"
+        },
+        {
+          "path": "docs/mechanics-research/b-protocol-evidence/shared-bestow.txt",
+          "format": "txt",
+          "sha256": "f1c33ab5ce631436665e2b016f43de388dd0e7a08822af654655300595f8c8e0"
+        },
+        {
+          "path": "docs/mechanics-research/b-protocol-evidence/shared-bestow.pdf",
+          "format": "pdf",
+          "sha256": "b1d9b6e51cfa1544bc08e7917bb066716e3746f42e67d14c2309729de5f74896"
+        }
+      ],
+      "status": "complete",
+      "notes": "Full original HTML plus readable publisher-page transcription. PDF generated locally, not publisher-issued."
+    }
+  },
+  {
+    "slug": "bloodthirst",
+    "url": "https://magic.wizards.com/en/news/making-magic/now-i-know-my-abcs-2006-01-23",
+    "resolved_url": "https://magic.wizards.com/en/news/making-magic/now-i-know-my-abcs-2006-01-23",
+    "http_status": 200,
+    "title": "Now I Know My ABC’s | MAGIC: THE GATHERING",
+    "retrieved_at_utc": "2026-10-28T04:38:03.703736+00:00",
+    "verified_term": "Bloodthirst",
+    "pages": 9,
+    "capture": {
+      "html_or_text_path": "docs/mechanics-research/b-protocol-evidence/shared-bloodthirst.html",
+      "pdf_path": "docs/mechanics-research/b-protocol-evidence/shared-bloodthirst.pdf",
+      "files": [
+        {
+          "path": "docs/mechanics-research/b-protocol-evidence/shared-bloodthirst.html",
+          "format": "html",
+          "sha256": "07015bd5cffd8275c846e1546f046d808a38d77eeb1b72c1db03cde5eadfa360"
+        },
+        {
+          "path": "docs/mechanics-research/b-protocol-evidence/shared-bloodthirst.txt",
+          "format": "txt",
+          "sha256": "1086ba38dd45cde03455b88631753f7fa7de612630c972b1aedcc4fb365bf1de"
+        },
+        {
+          "path": "docs/mechanics-research/b-protocol-evidence/shared-bloodthirst.pdf",
+          "format": "pdf",
+          "sha256": "4b52d8cf1917b684934efa592af658434836d5d091095d5aebc3135b8b4ad69d"
+        }
+      ],
+      "status": "complete",
+      "notes": "Full original HTML plus readable publisher-page transcription. PDF generated locally, not publisher-issued."
+    }
+  },
+  {
+    "slug": "boast",
+    "url": "https://magic.wizards.com/en/news/feature/leading-kaldheim-set-design-2021-01-19",
+    "resolved_url": "https://magic.wizards.com/en/news/feature/leading-kaldheim-set-design-2021-01-19",
+    "http_status": 200,
+    "title": "Leading Kaldheim Set Design | MAGIC: THE GATHERING",
+    "retrieved_at_utc": "2026-10-28T04:38:04.036526+00:00",
+    "verified_term": "Boast",
+    "pages": 4,
+    "capture": {
+      "html_or_text_path": "docs/mechanics-research/b-protocol-evidence/shared-boast.html",
+      "pdf_path": "docs/mechanics-research/b-protocol-evidence/shared-boast.pdf",
+      "files": [
+        {
+          "path": "docs/mechanics-research/b-protocol-evidence/shared-boast.html",
+          "format": "html",
+          "sha256": "3a078f7feda9af7b68c312bd2f3a2000e45f924a54f1675dd16d7bdb5d5419e5"
+        },
+        {
+          "path": "docs/mechanics-research/b-protocol-evidence/shared-boast.txt",
+          "format": "txt",
+          "sha256": "74414b5ac67108355193dc30ba938a3b8dd48bce342b628b2c5c38123080fd13"
+        },
+        {
+          "path": "docs/mechanics-research/b-protocol-evidence/shared-boast.pdf",
+          "format": "pdf",
+          "sha256": "c790463ca28b3188bc223927e58f22568bcb42a1762892973e8f5491945e2b77"
+        }
+      ],
+      "status": "complete",
+      "notes": "Full original HTML plus readable publisher-page transcription. PDF generated locally, not publisher-issued."
+    }
+  },
+  {
+    "slug": "bolster",
+    "url": "https://magic.wizards.com/en/news/feature/mechanics-fate-reforged-2014-12-29",
+    "resolved_url": "https://magic.wizards.com/en/news/feature/mechanics-fate-reforged-2014-12-29",
+    "http_status": 200,
+    "title": "Fate Reforged Mechanics",
+    "retrieved_at_utc": "2026-10-28T04:38:04.273804+00:00",
+    "verified_term": "Bolster",
+    "pages": 4,
+    "capture": {
+      "html_or_text_path": "docs/mechanics-research/b-protocol-evidence/shared-bolster.html",
+      "pdf_path": "docs/mechanics-research/b-protocol-evidence/shared-bolster.pdf",
+      "files": [
+        {
+          "path": "docs/mechanics-research/b-protocol-evidence/shared-bolster.html",
+          "format": "html",
+          "sha256": "0af6312f2321e62dd963835ac70c014251cc255836b42f035a524475b92e55dc"
+        },
+        {
+          "path": "docs/mechanics-research/b-protocol-evidence/shared-bolster.txt",
+          "format": "txt",
+          "sha256": "a8e537ba5b5a3366606193963ff971bb36a757474021710aaacb78e1684f52e3"
+        },
+        {
+          "path": "docs/mechanics-research/b-protocol-evidence/shared-bolster.pdf",
+          "format": "pdf",
+          "sha256": "578ec218de9fbe1b9898b69872fcbd66a643d4b13538662bb4806acd68d11177"
+        }
+      ],
+      "status": "complete",
+      "notes": "Full original HTML plus readable publisher-page transcription. PDF generated locally, not publisher-issued."
+    }
+  },
+  {
+    "slug": "bushido",
+    "url": "https://magic.wizards.com/en/news/making-magic/horizons-part-1-2021-06-07",
+    "resolved_url": "https://magic.wizards.com/en/news/making-magic/horizons-part-1-2021-06-07",
+    "http_status": 200,
+    "title": "On the Horizons, Part 1",
+    "retrieved_at_utc": "2026-10-28T04:38:04.572609+00:00",
+    "verified_term": "Bushido",
+    "pages": 7,
+    "capture": {
+      "html_or_text_path": "docs/mechanics-research/b-protocol-evidence/shared-bushido.html",
+      "pdf_path": "docs/mechanics-research/b-protocol-evidence/shared-bushido.pdf",
+      "files": [
+        {
+          "path": "docs/mechanics-research/b-protocol-evidence/shared-bushido.html",
+          "format": "html",
+          "sha256": "893e98db86ccff964df549d3dfc4623f714478fd08bcbc70584b908a6923c838"
+        },
+        {
+          "path": "docs/mechanics-research/b-protocol-evidence/shared-bushido.txt",
+          "format": "txt",
+          "sha256": "16de1fcf516a519134453b19380886838cbbdd25fb70e6f8d43126dd148720e1"
+        },
+        {
+          "path": "docs/mechanics-research/b-protocol-evidence/shared-bushido.pdf",
+          "format": "pdf",
+          "sha256": "bcfb3e670f9bb0ac231305f770cafa39ad983218fa79294161f00175242c1307"
+        }
+      ],
+      "status": "complete",
+      "notes": "Full original HTML plus readable publisher-page transcription. PDF generated locally, not publisher-issued."
+    }
+  },
+  {
+    "slug": "buyback",
+    "url": "https://magic.wizards.com/en/news/feature/time-spiral-remastered-release-notes-2021-03-23",
+    "resolved_url": "https://magic.wizards.com/en/news/feature/time-spiral-remastered-release-notes-2021-03-23",
+    "http_status": 200,
+    "title": "Time Spiral Remastered Release Notes | MAGIC: THE GATHERING",
+    "retrieved_at_utc": "2026-10-28T04:38:04.938964+00:00",
+    "verified_term": "Buyback",
+    "pages": 94,
+    "capture": {
+      "html_or_text_path": "docs/mechanics-research/b-protocol-evidence/shared-buyback.html",
+      "pdf_path": "docs/mechanics-research/b-protocol-evidence/shared-buyback.pdf",
+      "files": [
+        {
+          "path": "docs/mechanics-research/b-protocol-evidence/shared-buyback.html",
+          "format": "html",
+          "sha256": "812b0b82fa92f7b504e5ebb27d306fb5394d73f51c09503d4d11c5404cdd3a02"
+        },
+        {
+          "path": "docs/mechanics-research/b-protocol-evidence/shared-buyback.txt",
+          "format": "txt",
+          "sha256": "85abec6999cfb62c96a0d0e9663e4471ced9caecdb595ae4a64f84a7bec9550e"
+        },
+        {
+          "path": "docs/mechanics-research/b-protocol-evidence/shared-buyback.pdf",
+          "format": "pdf",
+          "sha256": "e3c6a028cfb666f175db022dbecd1bf992f43aa1a32eda59476217d197f65e9c"
+        }
+      ],
+      "status": "complete",
+      "notes": "Full original HTML plus readable publisher-page transcription. PDF generated locally, not publisher-issued."
+    }
+  }
+]

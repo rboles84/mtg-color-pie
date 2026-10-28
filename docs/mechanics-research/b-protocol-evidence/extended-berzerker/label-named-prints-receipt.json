@@ -1,0 +1,22 @@
+{
+  "kind": "named-prints",
+  "query": "oracleid:3246eff5-8739-469f-a401-e5de927dd6bb include:extras",
+  "unique": "prints",
+  "pages": [
+    {
+      "url": "https://api.scryfall.com/cards/search?q=oracleid%3A3246eff5-8739-469f-a401-e5de927dd6bb%20include%3Aextras&unique=prints&order=released",
+      "file": "docs/mechanics-research/b-protocol-evidence/extended-berzerker/label-named-prints-page-1.json",
+      "sha256": "d26b533188573fd1ca5ada96f3d4ecc662e644c183c8dee7e2afc7f9adad786a",
+      "retrieved_utc": "2026-10-28T04:43:53.586Z",
+      "http_status": 200,
+      "count": 2,
+      "ids": [
+        "3246eff5-8739-469f-a401-e5de927dd6bb",
+        "3246eff5-8739-469f-a401-e5de927dd6bb"
+      ]
+    }
+  ],
+  "total_cards": 2,
+  "complete": true,
+  "receipt_path": "docs/mechanics-research/b-protocol-evidence/extended-berzerker/label-named-prints-receipt.json"
+}

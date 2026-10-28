@@ -1,4 +1,4 @@
-// Focused A-assessment checks using externally supplied Playwright; no new dependency.
+// Focused A/B assessment checks using externally supplied Playwright; no new dependency.
 import fs from 'node:fs';
 import path from 'node:path';
 import http from 'node:http';
@@ -9,6 +9,7 @@ const root=path.resolve(opt('--root','.'));
 const copyOnly=args.includes('--copy-only');
 const {chromium}=createRequire(import.meta.url)(opt('--playwright','playwright'));
 const payload=JSON.parse(fs.readFileSync(path.join(root,'data/mechanics-assessments.v1.json'),'utf8'));
+const derivedCount=payload.records.filter(r=>r.kind==='derived').length;
 const supplement=JSON.parse(fs.readFileSync(path.join(root,'data/mechanics-supplement.v1.json'),'utf8'));
 const server=http.createServer((req,res)=>{
   const pathname=decodeURIComponent(new URL(req.url,'http://localhost').pathname);
@@ -37,7 +38,7 @@ try{
   await page.waitForFunction(()=>document.querySelector('#selftest').textContent.includes('84 of 84 passed'));
   const baseline=await page.evaluate(math);
   assert.equal(await page.locator('#list .ent').count(),216);
-  assert.equal(await page.evaluate(()=>VMX.assessments().records.length),25);
+  assert.equal(await page.evaluate(()=>VMX.assessments().records.length),43);
   await page.evaluate(()=>VMX.setView('az'));
   assert.equal(await page.locator('#list .ent').count(),587);
   assert.equal(await page.locator('#list > .grp[data-scope="main"] .ent').count(),543);
@@ -55,11 +56,11 @@ try{
     await page.locator('#q').fill(record.name);
     const result=page.locator(`.opt[data-k="${record.id}"]`);
     assert.deepEqual(await result.locator('.strip > .sc').evaluateAll(slots=>slots.map(e=>[e.dataset.c,[...e.classList].find(c=>c.startsWith('t-'))])),expected);
-    assert.equal(await result.locator('.lensp').innerText(),record.shortLabel+' · provisional');
-    assert.match(await result.getAttribute('aria-label'),/provisional/);
+    assert.equal(await result.locator('.lensp').innerText(),record.shortLabel+(record.shortLabel==='Official placement'?'':' · provisional'));
+    assert.match(await result.getAttribute('aria-label'),record.shortLabel==='Official placement'?/Official placement/:/provisional/);
   }
   await page.evaluate(()=>{VMX.setQuery('');VMX.chooseCombo('W');VMX.setView('article');VMX.setView('az');});
-  assert.equal(await page.locator('#list .ent[data-k^="deck:"] .strip').count(),20);
+  assert.equal(await page.locator('#list .ent[data-k^="deck:"] .strip').count(),derivedCount);
   assert.equal(await page.locator('#list .ent[data-k^="deck:"] .strip .bx').count(),0);
   assert.equal(await page.evaluate(math),baseline);
   await page.evaluate(()=>VMX.clearColors());
@@ -72,7 +73,7 @@ try{
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
   assert.equal(await page.locator('#list .ent[data-k^="deck:"] .strip').evaluateAll(strips=>strips.every(e=>e.getBoundingClientRect().right<=e.closest('.ent').getBoundingClientRect().right)),true);
   assert.deepEqual(errors,[]);
-  results.push('20 exact WUBRG strips in rows/search; no verbose subtitle; accessible provisional/Unassigned labels; no fake Colorless/rules strips; Article/lens roundtrip; keyboard; 360px containment');
+  results.push('Exact WUBRG strips in rows/search; no verbose subtitle; accessible provisional/Unassigned labels; no fake Colorless/rules strips; Article/lens roundtrip; keyboard; 360px containment');
   await page.setViewportSize({width:1440,height:900});
   }
   if(!args.includes('--symbols-only')){
@@ -83,7 +84,7 @@ try{
     assert.equal(await panel.getAttribute('aria-label'),record.label,record.name);
     assert.equal(await page.locator('#dx-title').innerText(),record.name);
     assert.match(await panel.innerText(),/Outside the 2021 color calculations/);
-    assert.match(await panel.innerText(),/Based on evidence available October 26, 2026/);
+    assert.match(await panel.innerText(),new RegExp('Based on evidence available October '+(record.name.startsWith('A')?'26':'27')+', 2026'));
     assert.ok((await panel.innerText()).includes(record.scope));
     assert.equal(await page.locator('#supp-ranking-note').count(),0);
     const summary=await page.locator(`#list .ent[data-k="${record.id}"]`).getAttribute('aria-label');
@@ -119,6 +120,14 @@ try{
     if(scopeWitness) assert.match(await page.locator('#detail').innerText(),scopeWitness,record.name+' scope warning retained');
     assert.equal(await notes.locator('a').count(),record.sources.length+1+record.citationCards.length);
     assert.deepEqual(await notes.locator('a').evaluateAll(links=>links.filter(a=>a.protocol!=='https:'||!['scryfall.com','magic.wizards.com'].includes(a.hostname)||a.rel!=='noopener noreferrer').map(a=>a.href)),[]);
+    if(record.name.startsWith('B')){
+      assert.ok(record.citationCards.length>0,record.name+' has concrete card evidence');
+      assert.ok(record.summary.length>30,record.name+' explains the judgment');
+      if(['Berzerker','Buy Information'].includes(record.name)){
+        assert.ok(Object.values(record.placements).every(t=>t===null),record.name+' single-card label is not a general tier');
+        assert.match(playerText,/card|label|ability/i);
+      }
+    }
     if(record.name==='Attach'){
       const related=panel.locator('.assessment-related');
       assert.match(await related.innerText(),/Blue · Primary/);assert.match(await related.innerText(),/2017/);
@@ -136,7 +145,7 @@ try{
     }
   }
   assert.equal(assigned,payload.records.reduce((n,r)=>n+Object.values(r.placements).filter(Boolean).length,0));
-  results.push('25 protocol assessments; all projected colored tiers; unresolved Colorless access and user-selected Colorless home; rules actions; scoped 2017 note; evidence links');
+  results.push('43 protocol assessments; all projected colored tiers; unresolved Colorless access and user-selected Colorless home; rules actions; scoped 2017 note; evidence links');
   const training=supplement.records.find(r=>r.name==='Training');
   await page.evaluate(id=>VMX.open(id),training.id);
   assert.equal(await page.locator('#detail .supp-assessment').count(),0);
@@ -145,7 +154,7 @@ try{
   await page.locator('#q').fill('Flying');await page.locator('#q').press('Enter');
   assert.equal(await page.locator('#dx-title').innerText(),'Flying');
   assert.equal(await page.locator('#detail .supp-assessment').count(),0);
-  results.push('Player copy for all 25; no research bookkeeping; Adapt uncertainty, special scope, non-A and 2021 controls preserved');
+  results.push('Player copy for all 43; no research bookkeeping; Adapt uncertainty, special scope, non-A and 2021 controls preserved');
   if(!copyOnly){
   await page.evaluate(()=>{VMX.close();VMX.clearColors();VMX.setQuery('');});
   await page.locator('#q').fill('Absorb');await page.locator('#q').press('Enter');

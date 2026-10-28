@@ -1,0 +1,106 @@
+March of the Machine Mechanics
+https://magic.wizards.com/en/news/feature/march-of-the-machine-mechanics
+Retrieved UTC: 2026-10-28T04:38:01.669270+00:00
+Archive transcription of publisher page; original HTML retained.
+
+News
+
+/
+
+Feature
+
+March of the Machine Mechanics
+
+Feature
+
+Mar 29, 2023
+
+Matt Tabak
+
+The glory of Phyrexia is marching to your town! You may have mixed feelings about this, and that's understandable. But no matter where you stand on the "please compleat me" to "free will is kind of cool" spectrum, March of the Machine has plenty of awesome new cards featuring several awesome new mechanics, so let's take a look.
+
+For a visual overview of all the mechanics, check out the video below:
+
+Battles
+
+Phyrexia had success invading Mirrodin, so they're trying it again. Everywhere. But, just like the Mirrans, the residents of all the planes being marched on aren't taking it lying down. There are battles to be fought, so many that we have a new card type to represent them: battles.
+
+Turn Over
+
+Invasion of Fiora // Marchesa, Resolute Monarch
+
+Each battle in March of the Machine is a transforming double-faced card. The front faces (the faces you cast) are the first permanents to feature beautiful landscape art—landscapes being attacked, but as you'll see, that's thematic. But first, let's get them onto the battlefield. Battles can be cast during your main phase if the stack is empty, just like creatures, sorceries, and other non-instant spells.
+
+Each battle enters the battlefield with a number of defense counters on it equal to its defense, found in the lower right corner of the front face. This tells you how much damage it takes to defeat a battle. Much like planeswalkers, battles can be attacked and damaged. But unlike with planeswalkers, the general idea isn't to cast them, protect them, and hope they stick around. You're battling to take them out.
+
+A battle's subtype provides rules for how it can be attacked. Since every battle in this set has the subtype Siege, they all play by the same rules. (Could future battles have different subtypes and have different combat rules? It would certainly seem some bright, forward-thinking people set the system up that way.) As a Siege battle enters the battlefield, its controller chooses an opponent to be its protector. Every player except a battle's protector may attack it. Only a battle's protector may block creatures attacking it. Don't confuse protector for controller. You're going to attack battles that you control, the first time you've been able to attack your own permanents. Fun!
+
+Battles are susceptible to more than just combat damage, though. Some spells and abilities may specifically say that they cause damage to be dealt to battles. Also, any spell or ability that says "any target" can target a battle, so get ready to stoke the flames of war.
+
+Stoke the Flames
+
+Any damage dealt to a battle causes that many defense counters to be removed from it. When the last defense counter is removed from a Siege battle, the battle is defeated and a triggered ability triggers. As this ability resolves, the battle's controller exiles it then casts the back face from exile without paying its mana cost—and there won't be a mana cost, so that part's easy. The back faces are a variety of things; most of them are permanents like Marchesa, Resolute Monarch (long may she reign), but there are some sorceries in the mix.
+
+Turn Over
+
+Invasion of Fiora // Marchesa, Resolute Monarch
+
+Transforming Double-Faced Cards
+
+In addition to battles, there are other transforming double-faced cards in the set. As a quick refresher, here are some of the key things you should know. The front faces of transforming double-faced cards are marked with a triangle facing up on the top left. The back faces are marked with a triangle facing down on the top right.
+
+Turn Over
+
+Elesh Norn // The Argent Etchings
+
+Turn Over
+
+Planar Booster Fun
+
+Transforming double-faced cards, or TDFCs as we in the biz call them, have only the characteristics of their front faces while not on the battlefield. So, if you're searching your library for a creature card, you could find Elesh Norn, but if you're searching for an enchantment card, you couldn't find The Argent Etchings. You always cast the front face, and a TDFC always enters the battlefield with its front face up unless something explicitly says otherwise, such as Elesh Norn's last ability.
+
+One last thing in this refresher course: mana value. The back face doesn't have a mana cost, but its mana value is based on the mana cost of the front face. So, The Argent Etchings has the same mana value as Elesh Norn: 4. Thanks for heading down memory lane with me. Back up to the new stuff!
+
+Backup
+
+The forces defending their homeworlds aren't doing so alone. They brought plenty of backup. Backup is a new triggered ability that allows creatures to help a friend . . . or even themselves . . . in a pinch.
+
+Boon-Bringer Valkyrie
+
+Extended Art
+
+Backup always comes with a number. Whenever a creature with backup enters the battlefield, you put that many +1/+1 counters on a target creature. If you chose another creature as the target, that creature also gets every ability of the original creature that is printed below backup until end of turn.
+
+For example, when Boon-Bringer Valkyrie enters the battlefield, you can either put a +1/+1 counter on Boon-Bringer Valkyrie itself, or you can put a +1/+1 counter on another creature and have that creature gain flying, first strike, and lifelink until end of turn. Note that even if you have another creature gain those abilities until end of turn, Boon-Bringer Valkyrie will keep them.
+
+Note that backup confers only abilities that are printed below the backup ability. You can't respond to the backup ability by giving Boon-Bringer Valkyrie additional abilities and have backup give those abilities to the backup target. However, token copies of a creature with backup work just like the original. For example, if a token enters the battlefield as a copy of Boon-Bringer Valkyrie, that backup ability can have another creature gain its keywords until end of turn.
+
+On a few creatures, abilities that wouldn't make much sense to have another creature gain until end of turn, such as flash or landcycling, are printed above backup. Creatures that are the targets of backup abilities don't gain any abilities printed above backup.
+
+Incubate
+
+If the glory of Phyrexia is not apparent to you, perhaps baby Phyrexians would be more convincing? Incubate is a new keyword action that allows you, yes you, blessed spreader of Elesh Norn's perfection, to create Incubator tokens. This sounds wonderful, no?
+
+Traumatic Revelation
+
+An Incubator token is a new kind of predefined token, joining ones such as Food and Treasure. An Incubator token is a colorless artifact token with "{2}: Transform this artifact." Oh, did I mention it was a transforming double-faced token? That's new. It's a transforming double-faced token. The back face is a 0/0 colorless Phyrexian artifact creature.
+
+Turn Over
+
+Incubator // Phyrexian token
+
+The instruction to incubate will include a number which indicates how many +1/+1 counters to put on the Incubator token. Those counters don't do much while the token has its front face up, but they do a great job of keeping the Phyrexian artifact creature alive once it transforms.
+
+Chaos Ensues
+
+It really does.
+
+Towashi
+
+Planechase is a major feature of the Commander decks in March of the Machine. On previous plane cards, chaos abilities had the trigger condition, "Whenever you roll [CHAOS]." Starting with March of the Machine, this condition has been replaced by "whenever chaos ensues." With respect to the planar die, nothing has changed; rolling [CHAOS] will still cause these abilities to trigger. However, now there are ways to have these abilities trigger that don't involve the planar die at all.
+
+Of course, that only makes sense if you already know what Planechase is. You can gain this knowledge now with an explainer on Planechase by Gavin Verhey.
+
+March On
+
+New keywords, new strategies, even a new card type. March of the Machine promises to bring the Phyrexian threat to a close. Learn whether the threat has been removed or taken over the Multiverse in Magic Story. You can also preorder March of the Machine products before they arrive on April 21 from retailers like Amazon and at your local game store. Stay tuned and enjoy the new cards.

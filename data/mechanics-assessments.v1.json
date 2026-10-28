@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "protocolVersion": "1.0",
-  "researchDate": "2026-10-26",
+  "researchDate": "2026-10-27",
   "judgmentDate": "2026-10-27",
   "supplementCanonicalSha256": "467835fcfa96c096d4a6c5956465c4043b093c5e4a64ad8b79c5c48a88e8bd0b",
   "sourceBindingFormat": "canonical-json-utf8",
@@ -29,6 +29,14 @@
     {
       "path": "docs/mechanics-research/a-protocol-special.json",
       "sha256": "ea9fe9cd24d65935a1593a8b3b7f5860cff80b221bf944847443e1280c6c3904"
+    },
+    {
+      "path": "docs/mechanics-research/b-protocol-core.json",
+      "sha256": "1dc5ad3e13fd17c4e33dd941ed789bc163c54f865e5e1ec3a7557350af480749"
+    },
+    {
+      "path": "docs/mechanics-research/b-protocol-extended.json",
+      "sha256": "81ef4da973840cce8127eddd613f7a3b6cca42c0fe3b96e3b67b72f5ae467fd3"
     }
   ],
   "records": [
@@ -3538,6 +3546,3018 @@
       },
       "outsideTier": null,
       "outsideStatus": "not_applicable"
+    },
+    {
+      "id": "deck:vocabulary:backup",
+      "name": "Backup",
+      "kind": "derived",
+      "researchDate": "2026-10-27",
+      "relatedEffects": [],
+      "citationCards": [
+        {
+          "name": "Archpriest of Shadows",
+          "url": "https://scryfall.com/card/mom/89/archpriest-of-shadows?utm_source=api"
+        },
+        {
+          "name": "Bola Slinger",
+          "url": "https://scryfall.com/card/mom/8/bola-slinger?utm_source=api"
+        },
+        {
+          "name": "Boon-Bringer Valkyrie",
+          "url": "https://scryfall.com/card/mom/9/boon-bringer-valkyrie?utm_source=api"
+        },
+        {
+          "name": "Bright-Palm, Soul Awakener",
+          "url": "https://scryfall.com/card/moc/1/bright-palm-soul-awakener?utm_source=api"
+        },
+        {
+          "name": "Chomping Kavu",
+          "url": "https://scryfall.com/card/mom/179/chomping-kavu?utm_source=api"
+        },
+        {
+          "name": "Conclave Sledge-Captain",
+          "url": "https://scryfall.com/card/moc/36/conclave-sledge-captain?utm_source=api"
+        },
+        {
+          "name": "Consuming Aetherborn",
+          "url": "https://scryfall.com/card/mom/97/consuming-aetherborn?utm_source=api"
+        },
+        {
+          "name": "Cragsmasher Yeti",
+          "url": "https://scryfall.com/card/mom/333/cragsmasher-yeti?utm_source=api"
+        },
+        {
+          "name": "Death-Greeter's Champion",
+          "url": "https://scryfall.com/card/moc/30/death-greeters-champion?utm_source=api"
+        },
+        {
+          "name": "Doomskar Warrior",
+          "url": "https://scryfall.com/card/mom/185/doomskar-warrior?utm_source=api"
+        },
+        {
+          "name": "Emergent Woodwurm",
+          "url": "https://scryfall.com/card/moc/37/emergent-woodwurm?utm_source=api"
+        },
+        {
+          "name": "Enduring Bondwarden",
+          "url": "https://scryfall.com/card/mom/14/enduring-bondwarden?utm_source=api"
+        },
+        {
+          "name": "Fearless Skald",
+          "url": "https://scryfall.com/card/mom/138/fearless-skald?utm_source=api"
+        },
+        {
+          "name": "Gloomfang Mauler",
+          "url": "https://scryfall.com/card/mom/108/gloomfang-mauler?utm_source=api"
+        },
+        {
+          "name": "Golden-Scale Aeronaut",
+          "url": "https://scryfall.com/card/mom/15/golden-scale-aeronaut?utm_source=api"
+        },
+        {
+          "name": "Guardian Scalelord",
+          "url": "https://scryfall.com/card/soc/149/guardian-scalelord?utm_source=api"
+        },
+        {
+          "name": "Hangar Scrounger",
+          "url": "https://scryfall.com/card/mom/142/hangar-scrounger?utm_source=api"
+        },
+        {
+          "name": "Joven and Chandler",
+          "url": "https://scryfall.com/card/unk/UR05/joven-and-chandler?utm_source=api"
+        },
+        {
+          "name": "Mirror-Style Master",
+          "url": "https://scryfall.com/card/moc/32/mirror-style-master?utm_source=api"
+        },
+        {
+          "name": "Redcap Heelslasher",
+          "url": "https://scryfall.com/card/mom/161/redcap-heelslasher?utm_source=api"
+        },
+        {
+          "name": "Saiba Cryptomancer",
+          "url": "https://scryfall.com/card/mom/76/saiba-cryptomancer?utm_source=api"
+        },
+        {
+          "name": "Scorn-Blade Berserker",
+          "url": "https://scryfall.com/card/mom/124/scorn-blade-berserker?utm_source=api"
+        },
+        {
+          "name": "Serpent-Blade Assailant",
+          "url": "https://scryfall.com/card/mom/205/serpent-blade-assailant?utm_source=api"
+        },
+        {
+          "name": "Sigiled Sentinel",
+          "url": "https://scryfall.com/card/mom/37/sigiled-sentinel?utm_source=api"
+        },
+        {
+          "name": "Streetwise Negotiator",
+          "url": "https://scryfall.com/card/mom/207/streetwise-negotiator?utm_source=api"
+        },
+        {
+          "name": "Voldaren Thrillseeker",
+          "url": "https://scryfall.com/card/mom/171/voldaren-thrillseeker?utm_source=api"
+        }
+      ],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbBackup%5Cb/%20include%3Aextras",
+      "protocolVersion": "1.0",
+      "reviewStatus": "draft",
+      "judgmentDate": "2026-10-27",
+      "shortLabel": "Scryfall-derived",
+      "label": "Scryfall-derived assessment - provisional",
+      "scope": "Backup puts counters on a creature and can lend it the source creature's listed abilities for the turn.",
+      "classification": "keyword ability",
+      "summary": "White, black, red and green each use Backup as a regular part of their March of the Machine creatures. Blue has a verified example, but its tier remains open.",
+      "limitations": [
+        "These judgments concern Backup itself. They do not rank every effect that puts counters on creatures or grants abilities.",
+        "The original set and its Commander decks form one release context; playtest cards do not expand the paper-card placements."
+      ],
+      "placements": {
+        "W": "Primary",
+        "U": null,
+        "B": "Primary",
+        "R": "Primary",
+        "G": "Primary"
+      },
+      "rationale": {
+        "W": "Enduring Bondwarden supports a small creature, while Boon-Bringer Valkyrie and Guardian Scalelord share substantial combat abilities. This range from early support to large threats makes white a core home, rather than a restricted Secondary use.",
+        "U": "Saiba Cryptomancer can lend hexproof through Backup. That establishes blue access, but this one design does not distinguish a normal Secondary role from an exceptional Tertiary use.",
+        "B": "Scorn-Blade Berserker shares its sacrifice ability, while Archpriest of Shadows shares a combat-damage reward. Black uses Backup for different creature roles and at different rarities in the original release, supporting Primary rather than a narrow side use.",
+        "R": "Hangar Scrounger shares a trigger for becoming tapped and Voldaren Thrillseeker shares a damage ability. Alongside red's combat-focused Backup creatures, these are a substantial part of the mechanic's original design, supporting Primary.",
+        "G": "Streetwise Negotiator, Doomskar Warrior and Conclave Sledge-Captain put Backup on creatures with different sizes and combat rewards. Green participates fully in the original mechanic, so Primary fits better than a restricted Secondary role."
+      },
+      "decisionStatus": {
+        "W": "assigned",
+        "U": "observed_tier_unresolved",
+        "B": "assigned",
+        "R": "assigned",
+        "G": "assigned"
+      },
+      "decisionRoute": {
+        "W": "E3",
+        "U": null,
+        "B": "E3",
+        "R": "E3",
+        "G": "E3"
+      },
+      "decisionConfidence": {
+        "W": "Moderate",
+        "U": "Low",
+        "B": "Moderate",
+        "R": "Moderate",
+        "G": "Moderate"
+      },
+      "outsidePrimary": null,
+      "outsideTier": null,
+      "outsideStatus": "no_support_in_sample",
+      "confidence": "Moderate",
+      "sources": [
+        {
+          "title": "March of the Machine Mechanics",
+          "url": "https://magic.wizards.com/en/news/feature/march-of-the-machine-mechanics"
+        }
+      ]
+    },
+    {
+      "id": "deck:vocabulary:banding",
+      "name": "Banding",
+      "kind": "derived",
+      "researchDate": "2026-10-27",
+      "relatedEffects": [],
+      "citationCards": [
+        {
+          "name": "Ayesha Tanaka",
+          "url": "https://scryfall.com/card/chr/73/ayesha-tanaka?utm_source=api"
+        },
+        {
+          "name": "Benalish Hero",
+          "url": "https://scryfall.com/card/me1/5/benalish-hero?utm_source=api"
+        },
+        {
+          "name": "Benalish Infantry",
+          "url": "https://scryfall.com/card/wth/8/benalish-infantry?utm_source=api"
+        },
+        {
+          "name": "Camel",
+          "url": "https://scryfall.com/card/arn/3/camel?utm_source=api"
+        },
+        {
+          "name": "Chatzuk, Mighty Guitarist",
+          "url": "https://scryfall.com/card/mb2/590/chatzuk-mighty-guitarist?utm_source=api"
+        },
+        {
+          "name": "Icatian Phalanx",
+          "url": "https://scryfall.com/card/me2/16/icatian-phalanx?utm_source=api"
+        },
+        {
+          "name": "Icatian Skirmishers",
+          "url": "https://scryfall.com/card/fem/14/icatian-skirmishers?utm_source=api"
+        },
+        {
+          "name": "Kjeldoran Escort",
+          "url": "https://scryfall.com/card/all/7a/kjeldoran-escort?utm_source=api"
+        },
+        {
+          "name": "Kjeldoran Knight",
+          "url": "https://scryfall.com/card/ice/36/kjeldoran-knight?utm_source=api"
+        },
+        {
+          "name": "Kjeldoran Phalanx",
+          "url": "https://scryfall.com/card/ice/37/kjeldoran-phalanx?utm_source=api"
+        },
+        {
+          "name": "Kjeldoran Skycaptain",
+          "url": "https://scryfall.com/card/me2/23/kjeldoran-skycaptain?utm_source=api"
+        },
+        {
+          "name": "Kjeldoran Skyknight",
+          "url": "https://scryfall.com/card/ice/40/kjeldoran-skyknight?utm_source=api"
+        },
+        {
+          "name": "Kjeldoran Warrior",
+          "url": "https://scryfall.com/card/ice/41/kjeldoran-warrior?utm_source=api"
+        },
+        {
+          "name": "Knights of Thorn",
+          "url": "https://scryfall.com/card/me1/19/knights-of-thorn?utm_source=api"
+        },
+        {
+          "name": "Mesa Pegasus",
+          "url": "https://scryfall.com/card/me1/20/mesa-pegasus?utm_source=api"
+        },
+        {
+          "name": "Mishra's War Machine",
+          "url": "https://scryfall.com/card/4ed/337/mishras-war-machine?utm_source=api"
+        },
+        {
+          "name": "Nalathni Dragon",
+          "url": "https://scryfall.com/card/mb2/197/nalathni-dragon?utm_source=api"
+        },
+        {
+          "name": "Noble Elephant",
+          "url": "https://scryfall.com/card/mir/30/noble-elephant?utm_source=api"
+        },
+        {
+          "name": "Pikemen",
+          "url": "https://scryfall.com/card/5ed/52/pikemen?utm_source=api"
+        },
+        {
+          "name": "Shield Bearer",
+          "url": "https://scryfall.com/card/me2/35/shield-bearer?utm_source=api"
+        },
+        {
+          "name": "Teremko Griffin",
+          "url": "https://scryfall.com/card/mir/43/teremko-griffin?utm_source=api"
+        },
+        {
+          "name": "Timber Wolves",
+          "url": "https://scryfall.com/card/4ed/275/timber-wolves?utm_source=api"
+        },
+        {
+          "name": "Volunteer Reserves",
+          "url": "https://scryfall.com/card/wth/29/volunteer-reserves?utm_source=api"
+        },
+        {
+          "name": "Wall of Shields",
+          "url": "https://scryfall.com/card/ice/347/wall-of-shields?utm_source=api"
+        },
+        {
+          "name": "War Elephant",
+          "url": "https://scryfall.com/card/chr/13/war-elephant?utm_source=api"
+        },
+        {
+          "name": "Banding Sliver",
+          "url": "https://scryfall.com/card/cmb2/2/banding-sliver?utm_source=api"
+        },
+        {
+          "name": "Baton of Morale",
+          "url": "https://scryfall.com/card/ice/313/baton-of-morale?utm_source=api"
+        },
+        {
+          "name": "Battering Ram",
+          "url": "https://scryfall.com/card/5ed/353/battering-ram?utm_source=api"
+        },
+        {
+          "name": "Beast Walkers",
+          "url": "https://scryfall.com/card/hml/6/beast-walkers?utm_source=api"
+        },
+        {
+          "name": "Cooperation",
+          "url": "https://scryfall.com/card/ice/18/cooperation?utm_source=api"
+        },
+        {
+          "name": "Dire Wolves",
+          "url": "https://scryfall.com/card/ice/230/dire-wolves?utm_source=api"
+        },
+        {
+          "name": "Errand of Duty",
+          "url": "https://scryfall.com/card/me2/12/errand-of-duty?utm_source=api"
+        },
+        {
+          "name": "Formation",
+          "url": "https://scryfall.com/card/ice/25/formation?utm_source=api"
+        },
+        {
+          "name": "Fortified Area",
+          "url": "https://scryfall.com/card/4ed/26/fortified-area?utm_source=api"
+        },
+        {
+          "name": "Greater Morphling",
+          "url": "https://scryfall.com/card/unh/34/greater-morphling?utm_source=api"
+        },
+        {
+          "name": "Helm of Chatzuk",
+          "url": "https://scryfall.com/card/5ed/376/helm-of-chatzuk?utm_source=api"
+        },
+        {
+          "name": "Icatian Infantry",
+          "url": "https://scryfall.com/card/fem/7a/icatian-infantry?utm_source=api"
+        },
+        {
+          "name": "Nature's Blessing",
+          "url": "https://scryfall.com/card/me2/196/natures-blessing?utm_source=api"
+        },
+        {
+          "name": "Oddric, Lunar Marquis",
+          "url": "https://scryfall.com/card/mb2/551/oddric-lunar-marquis?utm_source=api"
+        },
+        {
+          "name": "Soraya the Falconer",
+          "url": "https://scryfall.com/card/hml/18/soraya-the-falconer?utm_source=api"
+        },
+        {
+          "name": "Urza's Avenger",
+          "url": "https://scryfall.com/card/5ed/405/urzas-avenger?utm_source=api"
+        },
+        {
+          "name": "Urza's Engine",
+          "url": "https://scryfall.com/card/all/135/urzas-engine?utm_source=api"
+        },
+        {
+          "name": "Wall of Caltrops",
+          "url": "https://scryfall.com/card/leg/42/wall-of-caltrops?utm_source=api"
+        }
+      ],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbBanding%5Cb/%20include%3Aextras",
+      "protocolVersion": "1.0",
+      "reviewStatus": "draft",
+      "judgmentDate": "2026-10-27",
+      "shortLabel": "Scryfall-derived",
+      "label": "Scryfall-derived assessment - provisional",
+      "scope": "Banding on released paper cards, including cards that explicitly grant it.",
+      "classification": "keyword ability",
+      "summary": "White is Banding's clearest home. Other colors have isolated or multicolor examples that do not settle their individual tiers.",
+      "limitations": [
+        "Colorless cards such as Helm of Chatzuk can grant Banding without assigning the ability to every recipient's color.",
+        "'Bands with other' is a related variant, not the exact ability assessed here. Playtest and Un-set cards remain separate."
+      ],
+      "placements": {
+        "W": "Primary",
+        "U": null,
+        "B": null,
+        "R": null,
+        "G": null
+      },
+      "rationale": {
+        "W": "Benalish Hero and Mesa Pegasus establish Banding in Alpha; later creatures, Cooperation and Soraya the Falconer extend it to several creature and granting roles. Rosewater also describes Banding as a way for white's small creatures to work together. That sustained, varied use supports Primary.",
+        "U": "Ayesha Tanaka has Banding, but she is both white and blue. This does not establish an independent blue role. Greater Morphling is an Un-set example and does not resolve the paper-card tier.",
+        "B": "No qualifying ordinary paper example was found for black. Oddric, Lunar Marquis grants Banding in playtest material; that separate context does not establish a black tier here.",
+        "R": "Nalathni Dragon has Banding. Its isolated appearance establishes red access, but does not tell us whether to call that Secondary or Tertiary.",
+        "G": "Timber Wolves has Banding, and Dire Wolves gains it while you control a Plains. Those cards show green access, but the mix of an unrestricted early card and a white-linked condition does not establish a clear Secondary or Tertiary pattern."
+      },
+      "decisionStatus": {
+        "W": "assigned",
+        "U": "observed_tier_unresolved",
+        "B": "no_support_in_sample",
+        "R": "observed_tier_unresolved",
+        "G": "observed_tier_unresolved"
+      },
+      "decisionRoute": {
+        "W": "E3",
+        "U": null,
+        "B": null,
+        "R": null,
+        "G": null
+      },
+      "decisionConfidence": {
+        "W": "Moderate",
+        "U": "Low",
+        "B": "Low",
+        "R": "Low",
+        "G": "Low"
+      },
+      "outsidePrimary": null,
+      "outsideTier": null,
+      "outsideStatus": "observed_tier_unresolved",
+      "confidence": "Moderate",
+      "sources": [
+        {
+          "title": "Evergreen Eggs & Ham",
+          "url": "https://magic.wizards.com/en/news/making-magic/evergreen-eggs-ham-2015-06-08"
+        }
+      ]
+    },
+    {
+      "id": "deck:vocabulary:bargain",
+      "name": "Bargain",
+      "kind": "derived",
+      "researchDate": "2026-10-27",
+      "relatedEffects": [],
+      "citationCards": [
+        {
+          "name": "Agatha's Champion",
+          "url": "https://scryfall.com/card/woe/160/agathas-champion?utm_source=api"
+        },
+        {
+          "name": "Archon's Glory",
+          "url": "https://scryfall.com/card/woe/2/archons-glory?utm_source=api"
+        },
+        {
+          "name": "Back for Seconds",
+          "url": "https://scryfall.com/card/woe/80/back-for-seconds?utm_source=api"
+        },
+        {
+          "name": "Beseech the Mirror",
+          "url": "https://scryfall.com/card/woe/82/beseech-the-mirror?utm_source=api"
+        },
+        {
+          "name": "Brave the Wilds",
+          "url": "https://scryfall.com/card/woe/165/brave-the-wilds?utm_source=api"
+        },
+        {
+          "name": "Candy Grapple",
+          "url": "https://scryfall.com/card/woe/83/candy-grapple?utm_source=api"
+        },
+        {
+          "name": "Diminisher Witch",
+          "url": "https://scryfall.com/card/woe/46/diminisher-witch?utm_source=api"
+        },
+        {
+          "name": "Dunbarrow Revivalist",
+          "url": "https://scryfall.com/card/ywoe/7/dunbarrow-revivalist?utm_source=api"
+        },
+        {
+          "name": "Farsight Ritual",
+          "url": "https://scryfall.com/card/woe/49/farsight-ritual?utm_source=api"
+        },
+        {
+          "name": "Hamlet Glutton",
+          "url": "https://scryfall.com/card/woe/173/hamlet-glutton?utm_source=api"
+        },
+        {
+          "name": "High Fae Negotiator",
+          "url": "https://scryfall.com/card/woe/94/high-fae-negotiator?utm_source=api"
+        },
+        {
+          "name": "Ice Out",
+          "url": "https://scryfall.com/card/woe/54/ice-out?utm_source=api"
+        },
+        {
+          "name": "Johann's Stopgap",
+          "url": "https://scryfall.com/card/woe/58/johanns-stopgap?utm_source=api"
+        },
+        {
+          "name": "Kellan's Lightblades",
+          "url": "https://scryfall.com/card/woe/18/kellans-lightblades?utm_source=api"
+        },
+        {
+          "name": "Realm-Scorcher Hellkite",
+          "url": "https://scryfall.com/card/woe/145/realm-scorcher-hellkite?utm_source=api"
+        },
+        {
+          "name": "Rowan's Grim Search",
+          "url": "https://scryfall.com/card/woe/104/rowans-grim-search?utm_source=api"
+        },
+        {
+          "name": "Stonesplitter Bolt",
+          "url": "https://scryfall.com/card/woe/151/stonesplitter-bolt?utm_source=api"
+        },
+        {
+          "name": "Talion's Throneguard",
+          "url": "https://scryfall.com/card/ywoe/5/talions-throneguard?utm_source=api"
+        },
+        {
+          "name": "Tenacious Tomeseeker",
+          "url": "https://scryfall.com/card/woe/74/tenacious-tomeseeker?utm_source=api"
+        },
+        {
+          "name": "Thunderous Debut",
+          "url": "https://scryfall.com/card/woe/190/thunderous-debut?utm_source=api"
+        },
+        {
+          "name": "Torch the Tower",
+          "url": "https://scryfall.com/card/woe/153/torch-the-tower?utm_source=api"
+        },
+        {
+          "name": "Troublemaker Ouphe",
+          "url": "https://scryfall.com/card/woe/194/troublemaker-ouphe?utm_source=api"
+        }
+      ],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbBargain%5Cb/%20include%3Aextras",
+      "protocolVersion": "1.0",
+      "reviewStatus": "draft",
+      "judgmentDate": "2026-10-27",
+      "shortLabel": "Scryfall-derived",
+      "label": "Scryfall-derived assessment - provisional",
+      "scope": "The Bargain keyword: sacrificing an artifact, enchantment or token as an optional additional casting cost.",
+      "classification": "keyword ability",
+      "summary": "All five colors use Bargain directly in Wilds of Eldraine. The rewards vary by color, but the shared casting mechanic has no demonstrated restricted color role.",
+      "limitations": [
+        "The evidence is chiefly one set's deliberate implementation, not proof of frequent use throughout Magic.",
+        "Cards that merely contain 'Bargain' in their names, digital designs and playtest modifications do not determine these tiers."
+      ],
+      "placements": {
+        "W": "Primary",
+        "U": "Primary",
+        "B": "Primary",
+        "R": "Primary",
+        "G": "Primary"
+      },
+      "rationale": {
+        "W": "Archon's Glory upgrades a combat trick, and Kellan's Lightblades upgrades removal. These are direct uses of Bargain in different white spell roles in its original set. They support Primary within that rollout rather than an inferred lower tier simply because white has fewer cards.",
+        "U": "Ice Out and Johann's Stopgap use Bargain for cost reductions; Farsight Ritual and Tenacious Tomeseeker use it for card selection or recovery. That range makes blue a full participant, supporting Primary rather than a narrow Secondary application.",
+        "B": "Candy Grapple improves removal, Back for Seconds improves recursion, and Beseech the Mirror improves a search spell. These independent applications make Bargain a core black mechanic in the set, supporting Primary.",
+        "R": "Torch the Tower and Stonesplitter Bolt upgrade damage, while Realm-Scorcher Hellkite rewards Bargain with mana. Red uses the mechanic on both spells and a major creature threat, supporting Primary rather than a restricted exception.",
+        "G": "Brave the Wilds adds land animation, Troublemaker Ouphe removes an artifact or enchantment, and Hamlet Glutton becomes cheaper. These varied uses show a core green implementation, supporting Primary."
+      },
+      "decisionStatus": {
+        "W": "assigned",
+        "U": "assigned",
+        "B": "assigned",
+        "R": "assigned",
+        "G": "assigned"
+      },
+      "decisionRoute": {
+        "W": "E3",
+        "U": "E3",
+        "B": "E3",
+        "R": "E3",
+        "G": "E3"
+      },
+      "decisionConfidence": {
+        "W": "Moderate",
+        "U": "Moderate",
+        "B": "Moderate",
+        "R": "Moderate",
+        "G": "Moderate"
+      },
+      "outsidePrimary": null,
+      "outsideTier": null,
+      "outsideStatus": "no_support_in_sample",
+      "confidence": "Moderate",
+      "sources": [
+        {
+          "title": "Wilds of Eldraine Mechanics",
+          "url": "https://magic.wizards.com/en/news/feature/wilds-of-eldraine-mechanics"
+        }
+      ]
+    },
+    {
+      "id": "deck:variants:basic landcycling",
+      "name": "Basic landcycling",
+      "kind": "derived",
+      "researchDate": "2026-10-27",
+      "relatedEffects": [],
+      "citationCards": [
+        {
+          "name": "Absorb Vis",
+          "url": "https://scryfall.com/card/cn2/126/absorb-vis?utm_source=api"
+        },
+        {
+          "name": "A.I.M. Scientists",
+          "url": "https://scryfall.com/card/msh/44/aim-scientists?utm_source=api"
+        },
+        {
+          "name": "Ancient Excavation",
+          "url": "https://scryfall.com/card/cm2/150/ancient-excavation?utm_source=api"
+        },
+        {
+          "name": "Apex Witchstalker",
+          "url": "https://scryfall.com/card/fra/48/apex-witchstalker?utm_source=api"
+        },
+        {
+          "name": "Ash Barrens",
+          "url": "https://scryfall.com/card/tmc/60/ash-barrens?utm_source=api"
+        },
+        {
+          "name": "Awaken the Inferno",
+          "url": "https://scryfall.com/card/fra/74/awaken-the-inferno?utm_source=api"
+        },
+        {
+          "name": "Battle Plan",
+          "url": "https://scryfall.com/card/mh2/114/battle-plan?utm_source=api"
+        },
+        {
+          "name": "Borough Backup",
+          "url": "https://scryfall.com/card/msh/7/borough-backup?utm_source=api"
+        },
+        {
+          "name": "Cold-Blooded Crew",
+          "url": "https://scryfall.com/card/trk/189/cold-blooded-crew?utm_source=api"
+        },
+        {
+          "name": "Colossal Collision",
+          "url": "https://scryfall.com/card/msc/558/colossal-collision?utm_source=api"
+        },
+        {
+          "name": "Dismissive Denial",
+          "url": "https://scryfall.com/card/msc/619/dismissive-denial?utm_source=api"
+        },
+        {
+          "name": "Fall to Earth",
+          "url": "https://scryfall.com/card/msc/517/fall-to-earth?utm_source=api"
+        },
+        {
+          "name": "Fiery Fall",
+          "url": "https://scryfall.com/card/2x2/109/fiery-fall?utm_source=api"
+        },
+        {
+          "name": "Free Borg Revolutionaries",
+          "url": "https://scryfall.com/card/trk/19/free-borg-revolutionaries?utm_source=api"
+        },
+        {
+          "name": "Gleam of Resistance",
+          "url": "https://scryfall.com/card/cn2/87/gleam-of-resistance?utm_source=api"
+        },
+        {
+          "name": "Grave Upheaval",
+          "url": "https://scryfall.com/card/c16/31/grave-upheaval?utm_source=api"
+        },
+        {
+          "name": "Hexhaven Battalion",
+          "url": "https://scryfall.com/card/fra/12/hexhaven-battalion?utm_source=api"
+        },
+        {
+          "name": "Horta",
+          "url": "https://scryfall.com/card/trk/152/horta?utm_source=api"
+        },
+        {
+          "name": "Humpback Whales",
+          "url": "https://scryfall.com/card/trk/65/humpback-whales?utm_source=api"
+        },
+        {
+          "name": "Infernal Rebirth",
+          "url": "https://scryfall.com/card/msc/537/infernal-rebirth?utm_source=api"
+        },
+        {
+          "name": "Kree Sentinel",
+          "url": "https://scryfall.com/card/msh/141/kree-sentinel?utm_source=api"
+        },
+        {
+          "name": "Kulrath Zealot",
+          "url": "https://scryfall.com/card/ecl/148/kulrath-zealot?utm_source=api"
+        },
+        {
+          "name": "Landscaper Colos",
+          "url": "https://scryfall.com/card/mh2/18/landscaper-colos?utm_source=api"
+        },
+        {
+          "name": "Lunar Hatchling",
+          "url": "https://scryfall.com/card/who/141/lunar-hatchling?utm_source=api"
+        },
+        {
+          "name": "Marvelous Melee",
+          "url": "https://scryfall.com/card/msc/549/marvelous-melee?utm_source=api"
+        },
+        {
+          "name": "Mental Journey",
+          "url": "https://scryfall.com/card/mh2/51/mental-journey?utm_source=api"
+        },
+        {
+          "name": "Migratory Route",
+          "url": "https://scryfall.com/card/moc/336/migratory-route?utm_source=api"
+        },
+        {
+          "name": "Orchard Strider",
+          "url": "https://scryfall.com/card/mh2/169/orchard-strider?utm_source=api"
+        },
+        {
+          "name": "Rogue Artificial Intelligence",
+          "url": "https://scryfall.com/card/trk/126/rogue-artificial-intelligence?utm_source=api"
+        },
+        {
+          "name": "Roxxon Brutes",
+          "url": "https://scryfall.com/card/msh/113/roxxon-brutes?utm_source=api"
+        },
+        {
+          "name": "Savage Land Dinosaur",
+          "url": "https://scryfall.com/card/msh/185/savage-land-dinosaur?utm_source=api"
+        },
+        {
+          "name": "Shardless Outlander",
+          "url": "https://scryfall.com/card/j25/28/shardless-outlander?utm_source=api"
+        },
+        {
+          "name": "Stratosoarer",
+          "url": "https://scryfall.com/card/ecl/72/stratosoarer?utm_source=api"
+        },
+        {
+          "name": "Sylvan Bounty",
+          "url": "https://scryfall.com/card/e01/74/sylvan-bounty?utm_source=api"
+        },
+        {
+          "name": "Sylvan Reclamation",
+          "url": "https://scryfall.com/card/dmc/170/sylvan-reclamation?utm_source=api"
+        },
+        {
+          "name": "Topiary Panther",
+          "url": "https://scryfall.com/card/mkm/179/topiary-panther?utm_source=api"
+        },
+        {
+          "name": "Traumatic Visions",
+          "url": "https://scryfall.com/card/c21/132/traumatic-visions?utm_source=api"
+        },
+        {
+          "name": "Treacherous Terrain",
+          "url": "https://scryfall.com/card/znc/105/treacherous-terrain?utm_source=api"
+        },
+        {
+          "name": "Undulating Witness",
+          "url": "https://scryfall.com/card/fra/45/undulating-witness?utm_source=api"
+        },
+        {
+          "name": "Unicycling Automaton",
+          "url": "https://scryfall.com/card/unk/CA03/unicycling-automaton?utm_source=api"
+        },
+        {
+          "name": "Vinelasher Adept",
+          "url": "https://scryfall.com/card/fra/119/vinelasher-adept?utm_source=api"
+        },
+        {
+          "name": "World-Weary",
+          "url": "https://scryfall.com/card/mh2/109/world-weary?utm_source=api"
+        }
+      ],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbBasic%20landcycling%5Cb/%20include%3Aextras",
+      "protocolVersion": "1.0",
+      "reviewStatus": "draft",
+      "judgmentDate": "2026-10-27",
+      "shortLabel": "Scryfall-derived",
+      "label": "Scryfall-derived assessment - provisional",
+      "scope": "Basic landcycling searches for any basic land. Plainscycling, Islandcycling and other narrower variants are separate.",
+      "classification": "keyword ability variant",
+      "summary": "Basic landcycling is shared across all five colors through repeated cycles. It serves as a land-finding alternative to each card's main spell.",
+      "limitations": [
+        "A five-card cycle is one design context, not five independent releases. Here the pattern also returns in later releases.",
+        "Colorless examples such as Ash Barrens are separate from WUBRG. Announced cards without a released paper printing do not set these tiers."
+      ],
+      "placements": {
+        "W": "Primary",
+        "U": "Primary",
+        "B": "Primary",
+        "R": "Primary",
+        "G": "Primary"
+      },
+      "rationale": {
+        "W": "Gleam of Resistance and Landscaper Colos pair white spells or creatures with the same basic-land search option. White participates in both the Conflux and Modern Horizons 2 cycles, supporting Primary rather than a special exception.",
+        "U": "Traumatic Visions and Mental Journey offer basic landcycling alongside a counterspell and a draw spell. Blue's repeated place in complete cycles supports Primary for this variant; it does not imply unrestricted land searching in general.",
+        "B": "Absorb Vis and World-Weary give black the same basic-land option found in the other colors' cycles. This repeated, deliberately shared role supports Primary rather than a narrower Secondary interpretation.",
+        "R": "Fiery Fall and Battle Plan use basic landcycling as an alternative to damage and combat support. Red receives the full variant in repeated cycles, which supports Primary.",
+        "G": "Sylvan Bounty and Orchard Strider participate in the same cycles, with further green examples such as Topiary Panther. Green is a core home, but its other land-search abilities are not a reason to demote the four colors that share this variant."
+      },
+      "decisionStatus": {
+        "W": "assigned",
+        "U": "assigned",
+        "B": "assigned",
+        "R": "assigned",
+        "G": "assigned"
+      },
+      "decisionRoute": {
+        "W": "E3",
+        "U": "E3",
+        "B": "E3",
+        "R": "E3",
+        "G": "E3"
+      },
+      "decisionConfidence": {
+        "W": "Moderate",
+        "U": "Moderate",
+        "B": "Moderate",
+        "R": "Moderate",
+        "G": "Moderate"
+      },
+      "outsidePrimary": null,
+      "outsideTier": null,
+      "outsideStatus": "observed_tier_unresolved",
+      "confidence": "Moderate",
+      "sources": [
+        {
+          "title": "Conflux Prerelease Primer",
+          "url": "https://magic.wizards.com/en/news/feature/conflux-prerelease-primer"
+        }
+      ]
+    },
+    {
+      "id": "deck:vocabulary:battalion",
+      "name": "Battalion",
+      "kind": "derived",
+      "researchDate": "2026-10-27",
+      "relatedEffects": [],
+      "citationCards": [
+        {
+          "name": "Bomber Corps",
+          "url": "https://scryfall.com/card/rvr/102/bomber-corps?utm_source=api"
+        },
+        {
+          "name": "Boros Elite",
+          "url": "https://scryfall.com/card/rvr/10/boros-elite?utm_source=api"
+        },
+        {
+          "name": "Boros Mastiff",
+          "url": "https://scryfall.com/card/dgm/1/boros-mastiff?utm_source=api"
+        },
+        {
+          "name": "Boros Strike-Captain",
+          "url": "https://scryfall.com/card/clu/25/boros-strike-captain?utm_source=api"
+        },
+        {
+          "name": "Captain America, Skybound",
+          "url": "https://scryfall.com/card/msc/588/captain-america-skybound?utm_source=api"
+        },
+        {
+          "name": "Daring Skyjek",
+          "url": "https://scryfall.com/card/gtc/9/daring-skyjek?utm_source=api"
+        },
+        {
+          "name": "Falcon, Joaquin Torres",
+          "url": "https://scryfall.com/card/msc/593/falcon-joaquin-torres?utm_source=api"
+        },
+        {
+          "name": "Firefist Striker",
+          "url": "https://scryfall.com/card/clu/134/firefist-striker?utm_source=api"
+        },
+        {
+          "name": "Firemane Avenger",
+          "url": "https://scryfall.com/card/clu/189/firemane-avenger?utm_source=api"
+        },
+        {
+          "name": "Frontline Medic",
+          "url": "https://scryfall.com/card/clb/693/frontline-medic?utm_source=api"
+        },
+        {
+          "name": "Garbage Elemental",
+          "url": "https://scryfall.com/card/ust/82f/garbage-elemental?utm_source=api"
+        },
+        {
+          "name": "General Thunderbolt Ross",
+          "url": "https://scryfall.com/card/msc/595/general-thunderbolt-ross?utm_source=api"
+        },
+        {
+          "name": "Legion Loyalist",
+          "url": "https://scryfall.com/card/gtc/97/legion-loyalist?utm_source=api"
+        },
+        {
+          "name": "Makeshift Battalion",
+          "url": "https://scryfall.com/card/rvr/22/makeshift-battalion?utm_source=api"
+        },
+        {
+          "name": "Nav Squad Commandos",
+          "url": "https://scryfall.com/card/gtc/22/nav-squad-commandos?utm_source=api"
+        },
+        {
+          "name": "Ordruun Veteran",
+          "url": "https://scryfall.com/card/gtc/184/ordruun-veteran?utm_source=api"
+        },
+        {
+          "name": "Paladin Elizabeth Taggerdy",
+          "url": "https://scryfall.com/card/pip/114/paladin-elizabeth-taggerdy?utm_source=api"
+        },
+        {
+          "name": "Sentinel Sarah Lyons",
+          "url": "https://scryfall.com/card/pip/118/sentinel-sarah-lyons?utm_source=api"
+        },
+        {
+          "name": "Sontaran General",
+          "url": "https://scryfall.com/card/who/96/sontaran-general?utm_source=api"
+        },
+        {
+          "name": "Tajic, Blade of the Legion",
+          "url": "https://scryfall.com/card/dmc/171/tajic-blade-of-the-legion?utm_source=api"
+        },
+        {
+          "name": "Warmind Infantry",
+          "url": "https://scryfall.com/card/gtc/111/warmind-infantry?utm_source=api"
+        },
+        {
+          "name": "Wojek Halberdiers",
+          "url": "https://scryfall.com/card/gtc/208/wojek-halberdiers?utm_source=api"
+        }
+      ],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbBattalion%5Cb/%20include%3Aextras",
+      "protocolVersion": "1.0",
+      "reviewStatus": "draft",
+      "judgmentDate": "2026-10-27",
+      "shortLabel": "Scryfall-derived",
+      "label": "Scryfall-derived assessment - provisional",
+      "scope": "The named ability word for attacking with this creature and at least two others.",
+      "classification": "ability word",
+      "summary": "White and red are Battalion's independent homes, matching its original Boros role.",
+      "limitations": [
+        "White-red cards reinforce the shared Boros context; the separate monocolor examples establish each color's role.",
+        "A card name containing 'Battalion' is not enough to count as the named mechanic."
+      ],
+      "placements": {
+        "W": "Primary",
+        "U": null,
+        "B": null,
+        "R": "Primary",
+        "G": null
+      },
+      "rationale": {
+        "W": "Boros Elite and Daring Skyjek improve individual attackers, while Frontline Medic protects the attacking team. This range of ordinary Boros creatures and a rare team payoff supports Primary rather than a restricted Secondary use.",
+        "U": "No qualifying blue Battalion design or explicit grant was found in the reviewed paper cards.",
+        "B": "No qualifying black Battalion design or explicit grant was found in the reviewed paper cards.",
+        "R": "Bomber Corps deals damage, Firefist Striker prevents blocking, and Legion Loyalist grants combat abilities to the team. Red uses Battalion as a core attacking mechanic across roles, supporting Primary alongside white.",
+        "G": "No qualifying green Battalion design or explicit grant was found in the reviewed paper cards."
+      },
+      "decisionStatus": {
+        "W": "assigned",
+        "U": "no_support_in_sample",
+        "B": "no_support_in_sample",
+        "R": "assigned",
+        "G": "no_support_in_sample"
+      },
+      "decisionRoute": {
+        "W": "E3",
+        "U": null,
+        "B": null,
+        "R": "E3",
+        "G": null
+      },
+      "decisionConfidence": {
+        "W": "Moderate",
+        "U": "Low",
+        "B": "Low",
+        "R": "Moderate",
+        "G": "Low"
+      },
+      "outsidePrimary": null,
+      "outsideTier": null,
+      "outsideStatus": "no_support_in_sample",
+      "confidence": "Moderate",
+      "sources": [
+        {
+          "title": "Gatecrash Mechanics",
+          "url": "https://magic.wizards.com/en/news/feature/gatecrash-mechanics"
+        }
+      ]
+    },
+    {
+      "id": "deck:vocabulary:battle cry",
+      "name": "Battle Cry",
+      "kind": "derived",
+      "researchDate": "2026-10-27",
+      "relatedEffects": [],
+      "citationCards": [
+        {
+          "name": "Accorder Paladin",
+          "url": "https://scryfall.com/card/mbs/1/accorder-paladin?utm_source=api"
+        },
+        {
+          "name": "Garbage Elemental",
+          "url": "https://scryfall.com/card/ust/82c/garbage-elemental?utm_source=api"
+        },
+        {
+          "name": "Goblin Wardriver",
+          "url": "https://scryfall.com/card/ddt/50/goblin-wardriver?utm_source=api"
+        },
+        {
+          "name": "Hero of Bladehold",
+          "url": "https://scryfall.com/card/tdc/119/hero-of-bladehold?utm_source=api"
+        },
+        {
+          "name": "Hero of Oxid Ridge",
+          "url": "https://scryfall.com/card/mbs/66/hero-of-oxid-ridge?utm_source=api"
+        },
+        {
+          "name": "Iraxxa, Empress of Mars",
+          "url": "https://scryfall.com/card/who/89/iraxxa-empress-of-mars?utm_source=api"
+        },
+        {
+          "name": "Kuldotha Ringleader",
+          "url": "https://scryfall.com/card/mbs/70/kuldotha-ringleader?utm_source=api"
+        },
+        {
+          "name": "Loxodon Partisan",
+          "url": "https://scryfall.com/card/ddo/17/loxodon-partisan?utm_source=api"
+        },
+        {
+          "name": "Primaris Chaplain",
+          "url": "https://scryfall.com/card/40k/137/primaris-chaplain?utm_source=api"
+        },
+        {
+          "name": "Rhox Veteran",
+          "url": "https://scryfall.com/card/mh1/24/rhox-veteran?utm_source=api"
+        },
+        {
+          "name": "Ria Ivor, Bane of Bladehold",
+          "url": "https://scryfall.com/card/one/214/ria-ivor-bane-of-bladehold?utm_source=api"
+        },
+        {
+          "name": "Rosnakht, Heir of Rohgahh",
+          "url": "https://scryfall.com/card/dmc/25/rosnakht-heir-of-rohgahh?utm_source=api"
+        },
+        {
+          "name": "Sanguine Evangelist",
+          "url": "https://scryfall.com/card/lci/34/sanguine-evangelist?utm_source=api"
+        },
+        {
+          "name": "Signal Pest",
+          "url": "https://scryfall.com/card/mbs/131/signal-pest?utm_source=api"
+        },
+        {
+          "name": "Space Fungus Snickerdoodle",
+          "url": "https://scryfall.com/card/sunf/29/space-fungus-snickerdoodle?utm_source=api"
+        },
+        {
+          "name": "Marshland Hordemaster",
+          "url": "https://scryfall.com/card/yblb/27/marshland-hordemaster?utm_source=api"
+        },
+        {
+          "name": "Reckless Pyrosurfer",
+          "url": "https://scryfall.com/card/mh3/133/reckless-pyrosurfer?utm_source=api"
+        },
+        {
+          "name": "Syr Joshua and Syr Saxon",
+          "url": "https://scryfall.com/card/ywoe/27/syr-joshua-and-syr-saxon?utm_source=api"
+        }
+      ],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbBattle%20Cry%5Cb/%20include%3Aextras",
+      "protocolVersion": "1.0",
+      "reviewStatus": "draft",
+      "judgmentDate": "2026-10-27",
+      "shortLabel": "Scryfall-derived",
+      "label": "Scryfall-derived assessment - provisional",
+      "scope": "The Battle Cry keyword gives each other attacking creature +1/+0.",
+      "classification": "keyword ability",
+      "summary": "White and red have recurring independent Battle Cry designs. Black appears on white-black cards; green's example is digital.",
+      "limitations": [
+        "Signal Pest is colorless evidence, not evidence that every color receives Battle Cry.",
+        "Digital, sticker and Un-set examples are recorded separately."
+      ],
+      "placements": {
+        "W": "Primary",
+        "U": null,
+        "B": null,
+        "R": "Primary",
+        "G": null
+      },
+      "rationale": {
+        "W": "Accorder Paladin and Hero of Bladehold establish white's small-attacker and token-team uses; Rhox Veteran and Sanguine Evangelist continue the pattern in later releases. These are recurring core applications, supporting Primary.",
+        "U": "No qualifying blue Battle Cry design or explicit grant was found in the reviewed paper cards.",
+        "B": "Ria Ivor, Bane of Bladehold and Primaris Chaplain have Battle Cry on white-black cards. Because white already has an independent home for it, those joint examples do not settle black's own tier.",
+        "R": "Goblin Wardriver and Hero of Oxid Ridge establish aggressive red uses; Rosnakht, Heir of Rohgahh and Reckless Pyrosurfer extend them in later releases. That recurring role supports Primary rather than isolated Secondary access.",
+        "G": "No qualifying ordinary paper green example was found. Syr Joshua and Syr Saxon is a digital white-green design, so it does not establish a green paper-card tier."
+      },
+      "decisionStatus": {
+        "W": "assigned",
+        "U": "no_support_in_sample",
+        "B": "observed_tier_unresolved",
+        "R": "assigned",
+        "G": "no_support_in_sample"
+      },
+      "decisionRoute": {
+        "W": "E3",
+        "U": null,
+        "B": null,
+        "R": "E3",
+        "G": null
+      },
+      "decisionConfidence": {
+        "W": "Moderate",
+        "U": "Low",
+        "B": "Low",
+        "R": "Moderate",
+        "G": "Low"
+      },
+      "outsidePrimary": null,
+      "outsideTier": null,
+      "outsideStatus": "observed_tier_unresolved",
+      "confidence": "Moderate",
+      "sources": [
+        {
+          "title": "Mirrodin Besieged Mechanics",
+          "url": "https://magic.wizards.com/en/news/feature/mirrodin-besieged-mechanics"
+        }
+      ]
+    },
+    {
+      "id": "deck:vocabulary:behold",
+      "name": "Behold",
+      "kind": "derived",
+      "researchDate": "2026-10-27",
+      "relatedEffects": [],
+      "citationCards": [
+        {
+          "name": "Caustic Exhale",
+          "url": "https://scryfall.com/card/tdm/74/caustic-exhale?utm_source=api"
+        },
+        {
+          "name": "Celestial Reunion",
+          "url": "https://scryfall.com/card/ecl/170/celestial-reunion?utm_source=api"
+        },
+        {
+          "name": "Champion of the Clachan",
+          "url": "https://scryfall.com/card/ecl/9/champion-of-the-clachan?utm_source=api"
+        },
+        {
+          "name": "Champion of the Path",
+          "url": "https://scryfall.com/card/ecl/130/champion-of-the-path?utm_source=api"
+        },
+        {
+          "name": "Champion of the Weird",
+          "url": "https://scryfall.com/card/ecl/95/champion-of-the-weird?utm_source=api"
+        },
+        {
+          "name": "Champions of the Perfect",
+          "url": "https://scryfall.com/card/ecl/171/champions-of-the-perfect?utm_source=api"
+        },
+        {
+          "name": "Champions of the Shoal",
+          "url": "https://scryfall.com/card/ecl/46/champions-of-the-shoal?utm_source=api"
+        },
+        {
+          "name": "Countersculpt",
+          "url": "https://scryfall.com/card/fra/25/countersculpt?utm_source=api"
+        },
+        {
+          "name": "Dispelling Exhale",
+          "url": "https://scryfall.com/card/tdm/41/dispelling-exhale?utm_source=api"
+        },
+        {
+          "name": "Draconic Fealty",
+          "url": "https://scryfall.com/card/ytdm/7/draconic-fealty?utm_source=api"
+        },
+        {
+          "name": "Elven Passage",
+          "url": "https://scryfall.com/card/hob/181/elven-passage?utm_source=api"
+        },
+        {
+          "name": "Hulk's Thunderclap",
+          "url": "https://scryfall.com/card/msc/725/hulks-thunderclap?utm_source=api"
+        },
+        {
+          "name": "Hyperion's Atomic Vision",
+          "url": "https://scryfall.com/card/msc/600/hyperions-atomic-vision?utm_source=api"
+        },
+        {
+          "name": "Kindle the Inner Flame",
+          "url": "https://scryfall.com/card/ecl/147/kindle-the-inner-flame?utm_source=api"
+        },
+        {
+          "name": "Kinsbaile Aspirant",
+          "url": "https://scryfall.com/card/ecl/21/kinsbaile-aspirant?utm_source=api"
+        },
+        {
+          "name": "Lys Alana Dignitary",
+          "url": "https://scryfall.com/card/ecl/180/lys-alana-dignitary?utm_source=api"
+        },
+        {
+          "name": "Molten Exhale",
+          "url": "https://scryfall.com/card/tdm/113/molten-exhale?utm_source=api"
+        },
+        {
+          "name": "Mudbutton Cursetosser",
+          "url": "https://scryfall.com/card/ecl/112/mudbutton-cursetosser?utm_source=api"
+        },
+        {
+          "name": "Osseous Exhale",
+          "url": "https://scryfall.com/card/tdm/17/osseous-exhale?utm_source=api"
+        },
+        {
+          "name": "Piercing Exhale",
+          "url": "https://scryfall.com/card/tdm/151/piercing-exhale?utm_source=api"
+        },
+        {
+          "name": "Prophet of the Planeswalker",
+          "url": "https://scryfall.com/card/yfra/2/prophet-of-the-planeswalker?utm_source=api"
+        },
+        {
+          "name": "Sarkhan, Dragon Ascendant",
+          "url": "https://scryfall.com/card/tdm/118/sarkhan-dragon-ascendant?utm_source=api"
+        },
+        {
+          "name": "Silvergill Mentor",
+          "url": "https://scryfall.com/card/ecl/69/silvergill-mentor?utm_source=api"
+        },
+        {
+          "name": "Soulbright Seeker",
+          "url": "https://scryfall.com/card/ecl/157/soulbright-seeker?utm_source=api"
+        },
+        {
+          "name": "Territorial Strike",
+          "url": "https://scryfall.com/card/ytdm/27/territorial-strike?utm_source=api"
+        },
+        {
+          "name": "Theorist's Sanctum",
+          "url": "https://scryfall.com/card/fra/191/theorists-sanctum?utm_source=api"
+        }
+      ],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbBehold%5Cb/%20include%3Aextras",
+      "protocolVersion": "1.0",
+      "reviewStatus": "draft",
+      "judgmentDate": "2026-10-27",
+      "shortLabel": "Scryfall-derived",
+      "label": "Scryfall-derived assessment - provisional",
+      "scope": "Behold chooses a matching permanent you control or reveals a matching card from your hand; each card specifies the required quality.",
+      "classification": "keyword action",
+      "summary": "All five colors use Behold to connect spells and creatures to a chosen type. The Lorwyn Eclipsed cycles provide a deliberate shared implementation.",
+      "limitations": [
+        "Older cards now worded with Behold are counted as their original designs, not as new designs created by an Oracle wording update.",
+        "Digital examples and colorless lands remain separate; a land's mana production does not make it a colored card."
+      ],
+      "placements": {
+        "W": "Primary",
+        "U": "Primary",
+        "B": "Primary",
+        "R": "Primary",
+        "G": "Primary"
+      },
+      "rationale": {
+        "W": "Kinsbaile Aspirant uses a Kithkin to avoid an extra cost, while Champion of the Clachan uses one in its exile-and-return ability. Together with white's Dragon-related spells, this is a full use of the shared mechanic, supporting Primary.",
+        "U": "Silvergill Mentor and Champions of the Shoal apply Behold to Merfolk; Dispelling Exhale ties it to a stronger counterspell. Blue has both creature and spell applications, supporting Primary rather than a narrow exception.",
+        "B": "Mudbutton Cursetosser and Champion of the Weird use Goblins, while Caustic Exhale uses a Dragon to avoid an extra cost. Black participates directly in the same broad mechanic as the other colors, supporting Primary.",
+        "R": "Soulbright Seeker and Champion of the Path use Elementals; Kindle the Inner Flame also uses Behold in a flashback cost. These several roles make red a core participant, supporting Primary.",
+        "G": "Lys Alana Dignitary and Champions of the Perfect use Elves, while Celestial Reunion can reward a matching creature type with a creature put onto the battlefield. Green uses the mechanic across mana, creatures and spells, supporting Primary."
+      },
+      "decisionStatus": {
+        "W": "assigned",
+        "U": "assigned",
+        "B": "assigned",
+        "R": "assigned",
+        "G": "assigned"
+      },
+      "decisionRoute": {
+        "W": "E3",
+        "U": "E3",
+        "B": "E3",
+        "R": "E3",
+        "G": "E3"
+      },
+      "decisionConfidence": {
+        "W": "Moderate",
+        "U": "Moderate",
+        "B": "Moderate",
+        "R": "Moderate",
+        "G": "Moderate"
+      },
+      "outsidePrimary": null,
+      "outsideTier": null,
+      "outsideStatus": "observed_tier_unresolved",
+      "confidence": "Moderate",
+      "sources": [
+        {
+          "title": "Lorwyn Eclipsed Mechanics",
+          "url": "https://magic.wizards.com/en/news/feature/lorwyn-eclipsed-mechanics"
+        }
+      ]
+    },
+    {
+      "id": "deck:shortlist:berzerker",
+      "name": "Berzerker",
+      "kind": "derived",
+      "researchDate": "2026-10-27",
+      "relatedEffects": [],
+      "citationCards": [
+        {
+          "name": "Khârn the Betrayer",
+          "url": "https://scryfall.com/card/40k/79/kh%C3%A2rn-the-betrayer?utm_source=api"
+        }
+      ],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbBerzerker%5Cb/%20include%3Aextras",
+      "protocolVersion": "1.0",
+      "reviewStatus": "draft",
+      "judgmentDate": "2026-10-27",
+      "shortLabel": "Scryfall-derived",
+      "label": "Scryfall-derived assessment - provisional",
+      "scope": "Berzerker is the flavor label for Khârn the Betrayer's requirement to attack or block each combat if able.",
+      "classification": "card-specific flavor label",
+      "summary": "The label is verified on Khârn, but one card does not establish a general tier.",
+      "limitations": [
+        "The spelling follows the card. Similar forced-attack or forced-block effects are separate subjects and are not used to fill a tier here."
+      ],
+      "placements": {
+        "W": null,
+        "U": null,
+        "B": null,
+        "R": null,
+        "G": null
+      },
+      "rationale": {
+        "W": "The reviewed card provides no white example of this label.",
+        "U": "The reviewed card provides no blue example of this label.",
+        "B": "The reviewed card provides no black example of this label.",
+        "R": "Khârn the Betrayer is red and uses Berzerker to label its combat requirement. That establishes this card's use, but not a pattern that distinguishes Primary, Secondary or Tertiary for the label.",
+        "G": "The reviewed card provides no green example of this label."
+      },
+      "decisionStatus": {
+        "W": "no_support_in_sample",
+        "U": "no_support_in_sample",
+        "B": "no_support_in_sample",
+        "R": "observed_tier_unresolved",
+        "G": "no_support_in_sample"
+      },
+      "decisionRoute": {
+        "W": null,
+        "U": null,
+        "B": null,
+        "R": null,
+        "G": null
+      },
+      "decisionConfidence": {
+        "W": "Low",
+        "U": "Low",
+        "B": "Low",
+        "R": "Low",
+        "G": "Low"
+      },
+      "outsidePrimary": null,
+      "outsideTier": null,
+      "outsideStatus": "no_support_in_sample",
+      "confidence": "Low; observed tiers unresolved",
+      "sources": []
+    },
+    {
+      "id": "deck:vocabulary:bestow",
+      "name": "Bestow",
+      "kind": "derived",
+      "researchDate": "2026-10-27",
+      "relatedEffects": [],
+      "citationCards": [
+        {
+          "name": "Baleful Eidolon",
+          "url": "https://scryfall.com/card/ths/78/baleful-eidolon?utm_source=api"
+        },
+        {
+          "name": "Boon Satyr",
+          "url": "https://scryfall.com/card/c18/132/boon-satyr?utm_source=api"
+        },
+        {
+          "name": "Cavern Lampad",
+          "url": "https://scryfall.com/card/ths/81/cavern-lampad?utm_source=api"
+        },
+        {
+          "name": "Celestial Archon",
+          "url": "https://scryfall.com/card/c18/64/celestial-archon?utm_source=api"
+        },
+        {
+          "name": "Chromanticore",
+          "url": "https://scryfall.com/card/dmc/146/chromanticore?utm_source=api"
+        },
+        {
+          "name": "Crystalline Nautilus",
+          "url": "https://scryfall.com/card/jou/34/crystalline-nautilus?utm_source=api"
+        },
+        {
+          "name": "Detective's Phoenix",
+          "url": "https://scryfall.com/card/mh3/116/detectives-phoenix?utm_source=api"
+        },
+        {
+          "name": "Eidolon of Countless Battles",
+          "url": "https://scryfall.com/card/soc/144/eidolon-of-countless-battles?utm_source=api"
+        },
+        {
+          "name": "Erebos's Emissary",
+          "url": "https://scryfall.com/card/ths/86/ereboss-emissary?utm_source=api"
+        },
+        {
+          "name": "Everflame Eidolon",
+          "url": "https://scryfall.com/card/bng/92/everflame-eidolon?utm_source=api"
+        },
+        {
+          "name": "Flitterstep Eidolon",
+          "url": "https://scryfall.com/card/bng/40/flitterstep-eidolon?utm_source=api"
+        },
+        {
+          "name": "Ghostblade Eidolon",
+          "url": "https://scryfall.com/card/c15/70/ghostblade-eidolon?utm_source=api"
+        },
+        {
+          "name": "Glyph Elemental",
+          "url": "https://scryfall.com/card/mh3/27/glyph-elemental?utm_source=api"
+        },
+        {
+          "name": "Gnarled Scarhide",
+          "url": "https://scryfall.com/card/jou/72/gnarled-scarhide?utm_source=api"
+        },
+        {
+          "name": "Heliod's Emissary",
+          "url": "https://scryfall.com/card/ths/18/heliods-emissary?utm_source=api"
+        },
+        {
+          "name": "Herald of Torment",
+          "url": "https://scryfall.com/card/bng/75/herald-of-torment?utm_source=api"
+        },
+        {
+          "name": "Hopeful Eidolon",
+          "url": "https://scryfall.com/card/ths/19/hopeful-eidolon?utm_source=api"
+        },
+        {
+          "name": "Hypnotic Siren",
+          "url": "https://scryfall.com/card/jou/42/hypnotic-siren?utm_source=api"
+        },
+        {
+          "name": "Indebted Spirit",
+          "url": "https://scryfall.com/card/mh3/31/indebted-spirit?utm_source=api"
+        },
+        {
+          "name": "Kestia, the Cultivator",
+          "url": "https://scryfall.com/card/c18/42/kestia-the-cultivator?utm_source=api"
+        },
+        {
+          "name": "Leafcrown Dryad",
+          "url": "https://scryfall.com/card/ths/161/leafcrown-dryad?utm_source=api"
+        },
+        {
+          "name": "Mogis's Warhound",
+          "url": "https://scryfall.com/card/jou/104/mogiss-warhound?utm_source=api"
+        },
+        {
+          "name": "Nighthowler",
+          "url": "https://scryfall.com/card/clb/764/nighthowler?utm_source=api"
+        },
+        {
+          "name": "Nimbus Naiad",
+          "url": "https://scryfall.com/card/ths/56/nimbus-naiad?utm_source=api"
+        },
+        {
+          "name": "Noble Quarry",
+          "url": "https://scryfall.com/card/c15/193/noble-quarry?utm_source=api"
+        },
+        {
+          "name": "Nylea's Emissary",
+          "url": "https://scryfall.com/card/ths/168/nyleas-emissary?utm_source=api"
+        },
+        {
+          "name": "Nyxborn Eidolon",
+          "url": "https://scryfall.com/card/bng/78/nyxborn-eidolon?utm_source=api"
+        },
+        {
+          "name": "Nyxborn Hydra",
+          "url": "https://scryfall.com/card/mh3/164/nyxborn-hydra?utm_source=api"
+        },
+        {
+          "name": "Nyxborn Rollicker",
+          "url": "https://scryfall.com/card/bng/102/nyxborn-rollicker?utm_source=api"
+        },
+        {
+          "name": "Nyxborn Shieldmate",
+          "url": "https://scryfall.com/card/bng/21/nyxborn-shieldmate?utm_source=api"
+        },
+        {
+          "name": "Nyxborn Triton",
+          "url": "https://scryfall.com/card/bng/46/nyxborn-triton?utm_source=api"
+        },
+        {
+          "name": "Nyxborn Unicorn",
+          "url": "https://scryfall.com/card/mh3/37/nyxborn-unicorn?utm_source=api"
+        },
+        {
+          "name": "Nyxborn Wolf",
+          "url": "https://scryfall.com/card/bng/131/nyxborn-wolf?utm_source=api"
+        },
+        {
+          "name": "Observant Alseid",
+          "url": "https://scryfall.com/card/ths/24/observant-alseid?utm_source=api"
+        },
+        {
+          "name": "Purphoros's Emissary",
+          "url": "https://scryfall.com/card/2x2/121/purphoross-emissary?utm_source=api"
+        },
+        {
+          "name": "Sightless Brawler",
+          "url": "https://scryfall.com/card/jou/24/sightless-brawler?utm_source=api"
+        },
+        {
+          "name": "Spearpoint Oread",
+          "url": "https://scryfall.com/card/ths/141/spearpoint-oread?utm_source=api"
+        },
+        {
+          "name": "Spirespine",
+          "url": "https://scryfall.com/card/jou/142/spirespine?utm_source=api"
+        },
+        {
+          "name": "Spiteful Returned",
+          "url": "https://scryfall.com/card/bng/84/spiteful-returned?utm_source=api"
+        },
+        {
+          "name": "Springheart Nantuko",
+          "url": "https://scryfall.com/card/mh3/171/springheart-nantuko?utm_source=api"
+        },
+        {
+          "name": "Thassa's Emissary",
+          "url": "https://scryfall.com/card/ths/68/thassas-emissary?utm_source=api"
+        },
+        {
+          "name": "Trickster's Elk",
+          "url": "https://scryfall.com/card/mh3/175/tricksters-elk?utm_source=api"
+        },
+        {
+          "name": "Triton Wavebreaker",
+          "url": "https://scryfall.com/card/mh3/74/triton-wavebreaker?utm_source=api"
+        }
+      ],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbBestow%5Cb/%20include%3Aextras",
+      "protocolVersion": "1.0",
+      "reviewStatus": "draft",
+      "judgmentDate": "2026-10-27",
+      "shortLabel": "Scryfall-derived",
+      "label": "Scryfall-derived assessment - provisional",
+      "scope": "Bestow lets an enchantment creature be cast as an Aura and become a creature again when it is no longer attached.",
+      "classification": "keyword ability",
+      "summary": "All five colors have substantial independent Bestow designs. Their different granted abilities are variations of a shared mechanic.",
+      "limitations": [
+        "The Theros block's cycles are shared design contexts. Multicolor cards are supporting examples, not separate proof for each of their colors."
+      ],
+      "placements": {
+        "W": "Primary",
+        "U": "Primary",
+        "B": "Primary",
+        "R": "Primary",
+        "G": "Primary"
+      },
+      "rationale": {
+        "W": "Hopeful Eidolon grants lifelink, Observant Alseid grants vigilance, and Celestial Archon supplies a larger flying threat. White uses Bestow across sizes and rarities, supporting Primary rather than a restricted Secondary role.",
+        "U": "Nimbus Naiad grants flying, Thassa's Emissary rewards combat damage with cards, and Hypnotic Siren can take control of a creature. This range within the original block supports Primary.",
+        "B": "Baleful Eidolon grants deathtouch, Herald of Torment grants flying, and Nighthowler scales with graveyards. Black has several full applications of Bestow, supporting Primary.",
+        "R": "Spearpoint Oread grants first strike and Everflame Eidolon provides a power boost; Detective's Phoenix later adds haste and graveyard casting. Red's varied original and returning uses support Primary.",
+        "G": "Leafcrown Dryad provides reach, Boon Satyr can be cast with flash, and Springheart Nantuko later adds a landfall copying ability. This breadth and return support Primary."
+      },
+      "decisionStatus": {
+        "W": "assigned",
+        "U": "assigned",
+        "B": "assigned",
+        "R": "assigned",
+        "G": "assigned"
+      },
+      "decisionRoute": {
+        "W": "E3",
+        "U": "E3",
+        "B": "E3",
+        "R": "E3",
+        "G": "E3"
+      },
+      "decisionConfidence": {
+        "W": "Moderate",
+        "U": "Moderate",
+        "B": "Moderate",
+        "R": "Moderate",
+        "G": "Moderate"
+      },
+      "outsidePrimary": null,
+      "outsideTier": null,
+      "outsideStatus": "no_support_in_sample",
+      "confidence": "Moderate",
+      "sources": [
+        {
+          "title": "Born of the Gods Mechanics",
+          "url": "https://magic.wizards.com/en/news/feature/born-of-the-gods-mechanics"
+        }
+      ]
+    },
+    {
+      "id": "deck:vocabulary:blight",
+      "name": "Blight",
+      "kind": "derived",
+      "researchDate": "2026-10-27",
+      "relatedEffects": [],
+      "citationCards": [
+        {
+          "name": "Auntie Ool, Cursewretch",
+          "url": "https://scryfall.com/card/ecc/2/auntie-ool-cursewretch?utm_source=api"
+        },
+        {
+          "name": "Blighted Blackthorn",
+          "url": "https://scryfall.com/card/ecl/90/blighted-blackthorn?utm_source=api"
+        },
+        {
+          "name": "Boggart Mischief",
+          "url": "https://scryfall.com/card/ecl/92/boggart-mischief?utm_source=api"
+        },
+        {
+          "name": "Bogslither's Embrace",
+          "url": "https://scryfall.com/card/ecl/94/bogslithers-embrace?utm_source=api"
+        },
+        {
+          "name": "Burning Curiosity",
+          "url": "https://scryfall.com/card/ecl/129/burning-curiosity?utm_source=api"
+        },
+        {
+          "name": "Champion of the Weird",
+          "url": "https://scryfall.com/card/ecl/95/champion-of-the-weird?utm_source=api"
+        },
+        {
+          "name": "Chaos Spewer",
+          "url": "https://scryfall.com/card/ecl/210/chaos-spewer?utm_source=api"
+        },
+        {
+          "name": "Cinder Strike",
+          "url": "https://scryfall.com/card/ecl/131/cinder-strike?utm_source=api"
+        },
+        {
+          "name": "Dawnhand Dissident",
+          "url": "https://scryfall.com/card/ecl/98/dawnhand-dissident?utm_source=api"
+        },
+        {
+          "name": "Dose of Dawnglow",
+          "url": "https://scryfall.com/card/ecl/100/dose-of-dawnglow?utm_source=api"
+        },
+        {
+          "name": "Dream Seizer",
+          "url": "https://scryfall.com/card/ecl/101/dream-seizer?utm_source=api"
+        },
+        {
+          "name": "Evershrike's Gift",
+          "url": "https://scryfall.com/card/ecl/15/evershrikes-gift?utm_source=api"
+        },
+        {
+          "name": "Gristle Glutton",
+          "url": "https://scryfall.com/card/ecl/144/gristle-glutton?utm_source=api"
+        },
+        {
+          "name": "Grub, Storied Matriarch // Grub, Notorious Auntie",
+          "url": "https://scryfall.com/card/ecl/105/grub-storied-matriarch-grub-notorious-auntie?utm_source=api"
+        },
+        {
+          "name": "Gutsplitter Gang",
+          "url": "https://scryfall.com/card/ecl/106/gutsplitter-gang?utm_source=api"
+        },
+        {
+          "name": "High Perfect Morcant",
+          "url": "https://scryfall.com/card/ecl/229/high-perfect-morcant?utm_source=api"
+        },
+        {
+          "name": "Pyrrhic Strike",
+          "url": "https://scryfall.com/card/ecl/30/pyrrhic-strike?utm_source=api"
+        },
+        {
+          "name": "Requiting Hex",
+          "url": "https://scryfall.com/card/ecl/116/requiting-hex?utm_source=api"
+        },
+        {
+          "name": "Scuzzback Scrounger",
+          "url": "https://scryfall.com/card/ecl/153/scuzzback-scrounger?utm_source=api"
+        },
+        {
+          "name": "Shadow Urchin",
+          "url": "https://scryfall.com/card/ecl/242/shadow-urchin?utm_source=api"
+        },
+        {
+          "name": "Sinister Gnarlbark",
+          "url": "https://scryfall.com/card/ecc/12/sinister-gnarlbark?utm_source=api"
+        },
+        {
+          "name": "Sourbread Auntie",
+          "url": "https://scryfall.com/card/ecl/158/sourbread-auntie?utm_source=api"
+        },
+        {
+          "name": "Spiral into Solitude",
+          "url": "https://scryfall.com/card/ecl/36/spiral-into-solitude?utm_source=api"
+        },
+        {
+          "name": "Sting-Slinger",
+          "url": "https://scryfall.com/card/ecl/161/sting-slinger?utm_source=api"
+        },
+        {
+          "name": "Warren Torchmaster",
+          "url": "https://scryfall.com/card/ecl/163/warren-torchmaster?utm_source=api"
+        },
+        {
+          "name": "Wild Unraveling",
+          "url": "https://scryfall.com/card/ecl/84/wild-unraveling?utm_source=api"
+        },
+        {
+          "name": "Blighted Nightmare",
+          "url": "https://scryfall.com/card/yecl/8/blighted-nightmare?utm_source=api"
+        },
+        {
+          "name": "Soul Immolation",
+          "url": "https://scryfall.com/card/ecl/156/soul-immolation?utm_source=api"
+        }
+      ],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbBlight%5Cb/%20include%3Aextras",
+      "protocolVersion": "1.0",
+      "reviewStatus": "draft",
+      "judgmentDate": "2026-10-27",
+      "shortLabel": "Scryfall-derived",
+      "label": "Scryfall-derived assessment - provisional",
+      "scope": "The Blight action puts -1/-1 counters on a creature controlled by the player who blights.",
+      "classification": "keyword action",
+      "summary": "Black and red use Blight throughout their creature and spell designs. White uses it in a narrower set of spell and Aura costs; blue and green remain unassigned.",
+      "limitations": [
+        "Blight counters on Ultima, Origin of Oblivion and Rottenmouth Viper are different mechanics and do not count.",
+        "The action appears on Grub's red back face; the black front face does not itself supply Blight. Digital and playtest variants remain separate."
+      ],
+      "placements": {
+        "W": "Secondary",
+        "U": null,
+        "B": "Primary",
+        "R": "Primary",
+        "G": null
+      },
+      "rationale": {
+        "W": "Spiral into Solitude uses Blight to turn an Aura into exile removal, Evershrike's Gift uses it to return the Aura from the graveyard, and Pyrrhic Strike uses it to unlock both modes. These repeated spell upgrades support Secondary over a one-off Tertiary exception. The paper examples stay within these costs, without the recurring creature engines seen in black and red.",
+        "U": "Wild Unraveling lets blue pay for a counterspell partly through Blight. One direct design shows access, but does not establish whether blue should be Secondary or Tertiary.",
+        "B": "Blighted Blackthorn exchanges Blight for cards, Dawnhand Dissident uses it in activated abilities, and Bogslither's Embrace uses it in removal. Black has repeatable creature engines as well as spell costs, making Primary a better fit than a restricted Secondary role.",
+        "R": "Gristle Glutton uses Blight for repeated looting, Scuzzback Scrounger makes Treasure with it, and Cinder Strike uses it to strengthen removal. This mix of engines and spells makes Blight a core red mechanic, supporting Primary.",
+        "G": "High Perfect Morcant and Auntie Ool, Cursewretch show Blight on multicolor cards that include green. Their other colors already have direct Blight designs, so these cards do not establish an independent green tier."
+      },
+      "decisionStatus": {
+        "W": "assigned",
+        "U": "observed_tier_unresolved",
+        "B": "assigned",
+        "R": "assigned",
+        "G": "observed_tier_unresolved"
+      },
+      "decisionRoute": {
+        "W": "E3",
+        "U": null,
+        "B": "E3",
+        "R": "E3",
+        "G": null
+      },
+      "decisionConfidence": {
+        "W": "Moderate",
+        "U": "Low",
+        "B": "Moderate",
+        "R": "Moderate",
+        "G": "Low"
+      },
+      "outsidePrimary": null,
+      "outsideTier": null,
+      "outsideStatus": "no_support_in_sample",
+      "confidence": "Moderate",
+      "sources": [
+        {
+          "title": "Lorwyn Eclipsed Mechanics",
+          "url": "https://magic.wizards.com/en/news/feature/lorwyn-eclipsed-mechanics"
+        }
+      ]
+    },
+    {
+      "id": "deck:vocabulary:blitz",
+      "name": "Blitz",
+      "kind": "derived",
+      "researchDate": "2026-10-27",
+      "relatedEffects": [],
+      "citationCards": [
+        {
+          "name": "Caldaia Guardian",
+          "url": "https://scryfall.com/card/ncc/56/caldaia-guardian?utm_source=api"
+        },
+        {
+          "name": "Caldaia Strongarm",
+          "url": "https://scryfall.com/card/snc/138/caldaia-strongarm?utm_source=api"
+        },
+        {
+          "name": "Effluence Devourer",
+          "url": "https://scryfall.com/card/ysnc/23/effluence-devourer?utm_source=api"
+        },
+        {
+          "name": "Girder Goons",
+          "url": "https://scryfall.com/card/snc/80/girder-goons?utm_source=api"
+        },
+        {
+          "name": "Jaxis, the Troublemaker",
+          "url": "https://scryfall.com/card/snc/112/jaxis-the-troublemaker?utm_source=api"
+        },
+        {
+          "name": "Mayhem Patrol",
+          "url": "https://scryfall.com/card/snc/114/mayhem-patrol?utm_source=api"
+        },
+        {
+          "name": "Mezzio Mugger",
+          "url": "https://scryfall.com/card/ncc/49/mezzio-mugger?utm_source=api"
+        },
+        {
+          "name": "Night Clubber",
+          "url": "https://scryfall.com/card/snc/89/night-clubber?utm_source=api"
+        },
+        {
+          "name": "Plasma Jockey",
+          "url": "https://scryfall.com/card/snc/115/plasma-jockey?utm_source=api"
+        },
+        {
+          "name": "Pugnacious Pugilist",
+          "url": "https://scryfall.com/card/snc/117/pugnacious-pugilist?utm_source=api"
+        },
+        {
+          "name": "Riveteers Decoy",
+          "url": "https://scryfall.com/card/snc/156/riveteers-decoy?utm_source=api"
+        },
+        {
+          "name": "Riveteers Provocateur",
+          "url": "https://scryfall.com/card/ysnc/26/riveteers-provocateur?utm_source=api"
+        },
+        {
+          "name": "Riveteers Requisitioner",
+          "url": "https://scryfall.com/card/snc/121/riveteers-requisitioner?utm_source=api"
+        },
+        {
+          "name": "Sabin, Master Monk",
+          "url": "https://scryfall.com/card/fic/57/sabin-master-monk?utm_source=api"
+        },
+        {
+          "name": "Star Athlete",
+          "url": "https://scryfall.com/card/dsc/29/star-athlete?utm_source=api"
+        },
+        {
+          "name": "Tenacious Underdog",
+          "url": "https://scryfall.com/card/snc/97/tenacious-underdog?utm_source=api"
+        },
+        {
+          "name": "Wave of Rats",
+          "url": "https://scryfall.com/card/ncc/41/wave-of-rats?utm_source=api"
+        },
+        {
+          "name": "Workshop Warchief",
+          "url": "https://scryfall.com/card/snc/165/workshop-warchief?utm_source=api"
+        },
+        {
+          "name": "Ziatora's Envoy",
+          "url": "https://scryfall.com/card/snc/232/ziatoras-envoy?utm_source=api"
+        },
+        {
+          "name": "Henzie \"Toolbox\" Torre",
+          "url": "https://scryfall.com/card/ncc/2/henzie-toolbox-torre?utm_source=api"
+        },
+        {
+          "name": "The Caldaia",
+          "url": "https://scryfall.com/card/moc/47/the-caldaia?utm_source=api"
+        }
+      ],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbBlitz%5Cb/%20include%3Aextras",
+      "protocolVersion": "1.0",
+      "reviewStatus": "draft",
+      "judgmentDate": "2026-10-27",
+      "shortLabel": "Scryfall-derived",
+      "label": "Scryfall-derived assessment - provisional",
+      "scope": "Blitz is an alternative casting cost that gives the creature haste and a card-draw death trigger, then sacrifices it at the next end step.",
+      "classification": "keyword",
+      "summary": "Black, red and green each have a full native Blitz role in the Riveteers release.",
+      "limitations": [
+        "Henzie \"Toolbox\" Torre grants Blitz on a black-red-green card. It supports that shared context, while the monocolor cards establish the independent placements.",
+        "Digital grants are recorded separately. Blitz of the Thunder-Raptor is a name match, not a Blitz card."
+      ],
+      "placements": {
+        "W": null,
+        "U": null,
+        "B": "Primary",
+        "R": "Primary",
+        "G": "Primary"
+      },
+      "rationale": {
+        "W": "No qualifying white Blitz design or explicit grant was found in the reviewed paper cards.",
+        "U": "No qualifying blue Blitz design or explicit grant was found in the reviewed paper cards.",
+        "B": "Girder Goons leaves a token when it dies, Night Clubber affects the opposing team on arrival, and Tenacious Underdog can Blitz from the graveyard. These different uses make black a core home, supporting Primary rather than a narrow Secondary role.",
+        "R": "Mayhem Patrol and Plasma Jockey reward an immediate attack, while Riveteers Requisitioner leaves Treasure when it dies. Later designs such as Sabin, Master Monk continue red's use. This breadth and recurrence support Primary.",
+        "G": "Caldaia Strongarm contributes counters immediately, Riveteers Decoy pressures blockers, and Workshop Warchief leaves a Rhino when it dies. Green has a substantial native role in the original release, supporting Primary rather than merely borrowing Blitz through a multicolor card."
+      },
+      "decisionStatus": {
+        "W": "no_support_in_sample",
+        "U": "no_support_in_sample",
+        "B": "assigned",
+        "R": "assigned",
+        "G": "assigned"
+      },
+      "decisionRoute": {
+        "W": null,
+        "U": null,
+        "B": "E3",
+        "R": "E3",
+        "G": "E3"
+      },
+      "decisionConfidence": {
+        "W": "Low",
+        "U": "Low",
+        "B": "Moderate",
+        "R": "Moderate",
+        "G": "Moderate"
+      },
+      "outsidePrimary": null,
+      "outsideTier": null,
+      "outsideStatus": "no_support_in_sample",
+      "confidence": "Moderate",
+      "sources": [
+        {
+          "title": "Streets of New Capenna Mechanics",
+          "url": "https://magic.wizards.com/en/news/feature/streets-of-new-capenna-mechanics-2022-04-07"
+        }
+      ]
+    },
+    {
+      "id": "deck:vocabulary:bloodrush",
+      "name": "Bloodrush",
+      "kind": "derived",
+      "researchDate": "2026-10-27",
+      "relatedEffects": [],
+      "citationCards": [
+        {
+          "name": "Ghor-Clan Rampager",
+          "url": "https://scryfall.com/card/2xm/198/ghor-clan-rampager?utm_source=api"
+        },
+        {
+          "name": "Pyrewild Shaman",
+          "url": "https://scryfall.com/card/clu/144/pyrewild-shaman?utm_source=api"
+        },
+        {
+          "name": "Rubblebelt Maaka",
+          "url": "https://scryfall.com/card/rvr/121/rubblebelt-maaka?utm_source=api"
+        },
+        {
+          "name": "Rubblehulk",
+          "url": "https://scryfall.com/card/c18/189/rubblehulk?utm_source=api"
+        },
+        {
+          "name": "Scab-Clan Charger",
+          "url": "https://scryfall.com/card/gtc/131/scab-clan-charger?utm_source=api"
+        },
+        {
+          "name": "Scorchwalker",
+          "url": "https://scryfall.com/card/gtc/104/scorchwalker?utm_source=api"
+        },
+        {
+          "name": "Skarrg Goliath",
+          "url": "https://scryfall.com/card/gtc/133/skarrg-goliath?utm_source=api"
+        },
+        {
+          "name": "Skinbrand Goblin",
+          "url": "https://scryfall.com/card/2xm/144/skinbrand-goblin?utm_source=api"
+        },
+        {
+          "name": "Slaughterhorn",
+          "url": "https://scryfall.com/card/mm3/136/slaughterhorn?utm_source=api"
+        },
+        {
+          "name": "Viashino Shanktail",
+          "url": "https://scryfall.com/card/gtc/110/viashino-shanktail?utm_source=api"
+        },
+        {
+          "name": "Wasteland Viper",
+          "url": "https://scryfall.com/card/rvr/160/wasteland-viper?utm_source=api"
+        },
+        {
+          "name": "Wrecking Ogre",
+          "url": "https://scryfall.com/card/gtc/112/wrecking-ogre?utm_source=api"
+        },
+        {
+          "name": "Zhur-Taa Swine",
+          "url": "https://scryfall.com/card/gtc/210/zhur-taa-swine?utm_source=api"
+        }
+      ],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbBloodrush%5Cb/%20include%3Aextras",
+      "protocolVersion": "1.0",
+      "reviewStatus": "draft",
+      "judgmentDate": "2026-10-27",
+      "shortLabel": "Scryfall-derived",
+      "label": "Scryfall-derived assessment - provisional",
+      "scope": "Bloodrush turns a creature card in hand into an activated bonus for an attacking creature.",
+      "classification": "keyword",
+      "summary": "Red and green both use Bloodrush as a core part of the Gruul combat mechanic.",
+      "limitations": [
+        "The Gatecrash design context is shared by both colors. Multicolor Gruul cards reinforce it without being counted as independent monocolor designs."
+      ],
+      "placements": {
+        "W": null,
+        "U": null,
+        "B": null,
+        "R": "Primary",
+        "G": "Primary"
+      },
+      "rationale": {
+        "W": "No qualifying white Bloodrush design or explicit grant was found in the reviewed paper cards.",
+        "U": "No qualifying blue Bloodrush design or explicit grant was found in the reviewed paper cards.",
+        "B": "No qualifying black Bloodrush design or explicit grant was found in the reviewed paper cards.",
+        "R": "Skinbrand Goblin provides a small efficient boost, Viashino Shanktail adds first strike, and Wrecking Ogre adds double strike. Red covers basic and more elaborate uses across rarities, supporting Primary rather than a limited Secondary branch.",
+        "G": "Slaughterhorn supplies an efficient boost, Wasteland Viper adds deathtouch, and Skarrg Goliath supplies a large trampling finish. Green has the same full combat role as red, supporting Primary."
+      },
+      "decisionStatus": {
+        "W": "no_support_in_sample",
+        "U": "no_support_in_sample",
+        "B": "no_support_in_sample",
+        "R": "assigned",
+        "G": "assigned"
+      },
+      "decisionRoute": {
+        "W": null,
+        "U": null,
+        "B": null,
+        "R": "E3",
+        "G": "E3"
+      },
+      "decisionConfidence": {
+        "W": "Low",
+        "U": "Low",
+        "B": "Low",
+        "R": "Moderate",
+        "G": "Moderate"
+      },
+      "outsidePrimary": null,
+      "outsideTier": null,
+      "outsideStatus": "no_support_in_sample",
+      "confidence": "Moderate",
+      "sources": [
+        {
+          "title": "Gatecrash Mechanics",
+          "url": "https://magic.wizards.com/en/news/feature/gatecrash-mechanics"
+        }
+      ]
+    },
+    {
+      "id": "deck:vocabulary:bloodthirst",
+      "name": "Bloodthirst",
+      "kind": "derived",
+      "researchDate": "2026-10-27",
+      "relatedEffects": [],
+      "citationCards": [
+        {
+          "name": "Battering Wurm",
+          "url": "https://scryfall.com/card/gpt/79/battering-wurm?utm_source=api"
+        },
+        {
+          "name": "Bloodlord of Vaasgoth",
+          "url": "https://scryfall.com/card/voc/121/bloodlord-of-vaasgoth?utm_source=api"
+        },
+        {
+          "name": "Blood Ogre",
+          "url": "https://scryfall.com/card/e01/41/blood-ogre?utm_source=api"
+        },
+        {
+          "name": "Bloodrage Vampire",
+          "url": "https://scryfall.com/card/ddk/10/bloodrage-vampire?utm_source=api"
+        },
+        {
+          "name": "Bloodscale Prowler",
+          "url": "https://scryfall.com/card/gpt/64/bloodscale-prowler?utm_source=api"
+        },
+        {
+          "name": "Bogardan Lancer",
+          "url": "https://scryfall.com/card/fut/95/bogardan-lancer?utm_source=api"
+        },
+        {
+          "name": "Burning-Tree Bloodscale",
+          "url": "https://scryfall.com/card/gpt/104/burning-tree-bloodscale?utm_source=api"
+        },
+        {
+          "name": "Carnage Wurm",
+          "url": "https://scryfall.com/card/m12/168/carnage-wurm?utm_source=api"
+        },
+        {
+          "name": "Duskhunter Bat",
+          "url": "https://scryfall.com/card/mm2/81/duskhunter-bat?utm_source=api"
+        },
+        {
+          "name": "Furyborn Hellkite",
+          "url": "https://scryfall.com/card/m12/135/furyborn-hellkite?utm_source=api"
+        },
+        {
+          "name": "Ghor-Clan Savage",
+          "url": "https://scryfall.com/card/ddl/53/ghor-clan-savage?utm_source=api"
+        },
+        {
+          "name": "Gorehorn Minotaurs",
+          "url": "https://scryfall.com/card/e01/49/gorehorn-minotaurs?utm_source=api"
+        },
+        {
+          "name": "Gristleback",
+          "url": "https://scryfall.com/card/gpt/87/gristleback?utm_source=api"
+        },
+        {
+          "name": "Indoraptor, the Perfect Hybrid",
+          "url": "https://scryfall.com/card/rex/15/indoraptor-the-perfect-hybrid?utm_source=api"
+        },
+        {
+          "name": "Lurking Crocodile",
+          "url": "https://scryfall.com/card/m12/184/lurking-crocodile?utm_source=api"
+        },
+        {
+          "name": "Petrified Wood-Kin",
+          "url": "https://scryfall.com/card/gpt/91/petrified-wood-kin?utm_source=api"
+        },
+        {
+          "name": "Rabble-Rouser",
+          "url": "https://scryfall.com/card/gpt/73/rabble-rouser?utm_source=api"
+        },
+        {
+          "name": "Scab-Clan Mauler",
+          "url": "https://scryfall.com/card/rvr/219/scab-clan-mauler?utm_source=api"
+        },
+        {
+          "name": "Skarrgan Firebird",
+          "url": "https://scryfall.com/card/e01/57/skarrgan-firebird?utm_source=api"
+        },
+        {
+          "name": "Skarrgan Pit-Skulk",
+          "url": "https://scryfall.com/card/dds/50/skarrgan-pit-skulk?utm_source=api"
+        },
+        {
+          "name": "Skarrgan Skybreaker",
+          "url": "https://scryfall.com/card/ddl/60/skarrgan-skybreaker?utm_source=api"
+        },
+        {
+          "name": "Stormblood Berserker",
+          "url": "https://scryfall.com/card/clu/149/stormblood-berserker?utm_source=api"
+        },
+        {
+          "name": "Vampire Outcasts",
+          "url": "https://scryfall.com/card/mm2/102/vampire-outcasts?utm_source=api"
+        },
+        {
+          "name": "Twins of Discord",
+          "url": "https://scryfall.com/card/m3c/37/twins-of-discord?utm_source=api"
+        }
+      ],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbBloodthirst%5Cb/%20include%3Aextras",
+      "protocolVersion": "1.0",
+      "reviewStatus": "draft",
+      "judgmentDate": "2026-10-27",
+      "shortLabel": "Scryfall-derived",
+      "label": "Scryfall-derived assessment - provisional",
+      "scope": "Bloodthirst rewards damage dealt to an opponent by adding counters as a creature enters.",
+      "classification": "keyword",
+      "summary": "Red and green establish Bloodthirst's original Gruul role. Magic 2012 gives black a substantial independent role as well.",
+      "limitations": [
+        "Black's judgment rests on its Magic 2012 designs, not an inference from red-green cards.",
+        "Twins of Discord grants Bloodthirst to colorless creatures. That grant does not assign the ability to all five colors."
+      ],
+      "placements": {
+        "W": null,
+        "U": null,
+        "B": "Primary",
+        "R": "Primary",
+        "G": "Primary"
+      },
+      "rationale": {
+        "W": "No qualifying white Bloodthirst design or explicit grant was found in the reviewed paper cards.",
+        "U": "No qualifying blue Bloodthirst design or explicit grant was found in the reviewed paper cards.",
+        "B": "Duskhunter Bat and Vampire Outcasts use Bloodthirst on evasive or lifelinking threats, while Bloodlord of Vaasgoth also grants it to Vampire spells. Magic 2012 develops the mechanic across ordinary creatures and a tribal payoff. That deliberate implementation supports Primary; arriving later does not by itself make black Secondary.",
+        "R": "Bloodscale Prowler and Skarrgan Firebird establish different sizes of Bloodthirst threat; Blood Ogre and Stormblood Berserker continue the mechanic in Magic 2012. These repeated combat roles support Primary.",
+        "G": "Skarrgan Pit-Skulk, Ghor-Clan Savage and Petrified Wood-Kin cover small threats, larger bodies and a scaling reward; Carnage Wurm continues the pattern in Magic 2012. Green's varied original and returning uses support Primary."
+      },
+      "decisionStatus": {
+        "W": "no_support_in_sample",
+        "U": "no_support_in_sample",
+        "B": "assigned",
+        "R": "assigned",
+        "G": "assigned"
+      },
+      "decisionRoute": {
+        "W": null,
+        "U": null,
+        "B": "E3",
+        "R": "E3",
+        "G": "E3"
+      },
+      "decisionConfidence": {
+        "W": "Low",
+        "U": "Low",
+        "B": "Moderate",
+        "R": "Moderate",
+        "G": "Moderate"
+      },
+      "outsidePrimary": null,
+      "outsideTier": null,
+      "outsideStatus": "observed_tier_unresolved",
+      "confidence": "Moderate",
+      "sources": [
+        {
+          "title": "Now I Know My ABC’s | MAGIC: THE GATHERING",
+          "url": "https://magic.wizards.com/en/news/making-magic/now-i-know-my-abcs-2006-01-23"
+        }
+      ]
+    },
+    {
+      "id": "deck:vocabulary:boast",
+      "name": "Boast",
+      "kind": "derived",
+      "researchDate": "2026-10-27",
+      "relatedEffects": [],
+      "citationCards": [
+        {
+          "name": "Arni Brokenbrow",
+          "url": "https://scryfall.com/card/khm/120/arni-brokenbrow?utm_source=api"
+        },
+        {
+          "name": "Axgard Braggart",
+          "url": "https://scryfall.com/card/khm/1/axgard-braggart?utm_source=api"
+        },
+        {
+          "name": "Baron Helmut Zemo",
+          "url": "https://scryfall.com/card/msh/87/baron-helmut-zemo?utm_source=api"
+        },
+        {
+          "name": "Battershield Warrior",
+          "url": "https://scryfall.com/card/khm/2/battershield-warrior?utm_source=api"
+        },
+        {
+          "name": "Broadside Bombardiers",
+          "url": "https://scryfall.com/card/lcc/86/broadside-bombardiers?utm_source=api"
+        },
+        {
+          "name": "Dragonkin Berserker",
+          "url": "https://scryfall.com/card/khm/131/dragonkin-berserker?utm_source=api"
+        },
+        {
+          "name": "Draugr Recruiter",
+          "url": "https://scryfall.com/card/khm/87/draugr-recruiter?utm_source=api"
+        },
+        {
+          "name": "Duskwielder",
+          "url": "https://scryfall.com/card/khm/91/duskwielder?utm_source=api"
+        },
+        {
+          "name": "Eradicator Valkyrie",
+          "url": "https://scryfall.com/card/khm/94/eradicator-valkyrie?utm_source=api"
+        },
+        {
+          "name": "Fearless Liberator",
+          "url": "https://scryfall.com/card/khm/135/fearless-liberator?utm_source=api"
+        },
+        {
+          "name": "Fearless Pup",
+          "url": "https://scryfall.com/card/khm/136/fearless-pup?utm_source=api"
+        },
+        {
+          "name": "Goldmaw Champion",
+          "url": "https://scryfall.com/card/khm/14/goldmaw-champion?utm_source=api"
+        },
+        {
+          "name": "Hagi Mob",
+          "url": "https://scryfall.com/card/khm/140/hagi-mob?utm_source=api"
+        },
+        {
+          "name": "Horizon Seeker",
+          "url": "https://scryfall.com/card/khm/175/horizon-seeker?utm_source=api"
+        },
+        {
+          "name": "Sigurd, Jarl of Ravensthorpe",
+          "url": "https://scryfall.com/card/acr/66/sigurd-jarl-of-ravensthorpe?utm_source=api"
+        },
+        {
+          "name": "Tuskeri Firewalker",
+          "url": "https://scryfall.com/card/khm/157/tuskeri-firewalker?utm_source=api"
+        },
+        {
+          "name": "Usher of the Fallen",
+          "url": "https://scryfall.com/card/khm/35/usher-of-the-fallen?utm_source=api"
+        },
+        {
+          "name": "Varragoth, Bloodsky Sire",
+          "url": "https://scryfall.com/card/khm/115/varragoth-bloodsky-sire?utm_source=api"
+        },
+        {
+          "name": "Besieged Viking Village",
+          "url": "https://scryfall.com/card/who/570/besieged-viking-village?utm_source=api"
+        }
+      ],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbBoast%5Cb/%20include%3Aextras",
+      "protocolVersion": "1.0",
+      "reviewStatus": "draft",
+      "judgmentDate": "2026-10-27",
+      "shortLabel": "Scryfall-derived",
+      "label": "Scryfall-derived assessment - provisional",
+      "scope": "Boast abilities can be activated once each turn after the creature attacks.",
+      "classification": "keyword",
+      "summary": "White, black and red have substantial Boast roles, matching Kaldheim's design account. Green's one independent example leaves its tier unresolved.",
+      "limitations": [
+        "Birgi and Frenzied Raider modify or reward Boast; they do not themselves have a Boast activation.",
+        "Kaldheim's designer identifies the main colors, but does not publish the P/S/T tiers proposed here."
+      ],
+      "placements": {
+        "W": "Primary",
+        "U": null,
+        "B": "Primary",
+        "R": "Primary",
+        "G": null
+      },
+      "rationale": {
+        "W": "Usher of the Fallen makes a token, Goldmaw Champion taps a creature, and Axgard Braggart grows and untaps itself. These varied attack rewards are part of the mechanic's intended white home, supporting Primary.",
+        "U": "No qualifying blue Boast design or explicit grant was found in the reviewed paper cards.",
+        "B": "Duskwielder drains life, Draugr Recruiter recovers a creature, and Varragoth, Bloodsky Sire searches for a card. Black has a deliberate range of repeatable attack rewards, supporting Primary rather than a restricted side use.",
+        "R": "Fearless Liberator creates creatures, Hagi Mob deals damage, and Tuskeri Firewalker provides cards to play. Red's broad original role and later Broadside Bombardiers support Primary.",
+        "G": "Horizon Seeker uses Boast to find a basic land. Sigurd, Jarl of Ravensthorpe adds a multicolor example, but neither establishes a second independent green design. Green access is clear; a Secondary or Tertiary tier is not."
+      },
+      "decisionStatus": {
+        "W": "assigned",
+        "U": "no_support_in_sample",
+        "B": "assigned",
+        "R": "assigned",
+        "G": "observed_tier_unresolved"
+      },
+      "decisionRoute": {
+        "W": "E3",
+        "U": null,
+        "B": "E3",
+        "R": "E3",
+        "G": null
+      },
+      "decisionConfidence": {
+        "W": "Moderate",
+        "U": "Low",
+        "B": "Moderate",
+        "R": "Moderate",
+        "G": "Low"
+      },
+      "outsidePrimary": null,
+      "outsideTier": null,
+      "outsideStatus": "no_support_in_sample",
+      "confidence": "Moderate",
+      "sources": [
+        {
+          "title": "Leading Kaldheim Set Design | MAGIC: THE GATHERING",
+          "url": "https://magic.wizards.com/en/news/feature/leading-kaldheim-set-design-2021-01-19"
+        }
+      ]
+    },
+    {
+      "id": "deck:vocabulary:bolster",
+      "name": "Bolster",
+      "kind": "derived",
+      "researchDate": "2026-10-27",
+      "relatedEffects": [],
+      "citationCards": [
+        {
+          "name": "Abzan Advantage",
+          "url": "https://scryfall.com/card/frf/2/abzan-advantage?utm_source=api"
+        },
+        {
+          "name": "Abzan Skycaptain",
+          "url": "https://scryfall.com/card/frf/4/abzan-skycaptain?utm_source=api"
+        },
+        {
+          "name": "Anafenza, Kin-Tree Spirit",
+          "url": "https://scryfall.com/card/cmm/11/anafenza-kin-tree-spirit?utm_source=api"
+        },
+        {
+          "name": "Aven Tactician",
+          "url": "https://scryfall.com/card/dtk/6/aven-tactician?utm_source=api"
+        },
+        {
+          "name": "Cached Defenses",
+          "url": "https://scryfall.com/card/frf/126/cached-defenses?utm_source=api"
+        },
+        {
+          "name": "Dragonscale General",
+          "url": "https://scryfall.com/card/frf/11/dragonscale-general?utm_source=api"
+        },
+        {
+          "name": "Dromoka Captain",
+          "url": "https://scryfall.com/card/dtk/12/dromoka-captain?utm_source=api"
+        },
+        {
+          "name": "Dromoka's Gift",
+          "url": "https://scryfall.com/card/dtk/184/dromokas-gift?utm_source=api"
+        },
+        {
+          "name": "Dromoka, the Eternal",
+          "url": "https://scryfall.com/card/c17/170/dromoka-the-eternal?utm_source=api"
+        },
+        {
+          "name": "Echoes of the Kin Tree",
+          "url": "https://scryfall.com/card/dtk/15/echoes-of-the-kin-tree?utm_source=api"
+        },
+        {
+          "name": "Elite Scaleguard",
+          "url": "https://scryfall.com/card/cmm/22/elite-scaleguard?utm_source=api"
+        },
+        {
+          "name": "Enduring Victory",
+          "url": "https://scryfall.com/card/dtk/16/enduring-victory?utm_source=api"
+        },
+        {
+          "name": "Gleam of Authority",
+          "url": "https://scryfall.com/card/dtk/19/gleam-of-authority?utm_source=api"
+        },
+        {
+          "name": "Honor's Reward",
+          "url": "https://scryfall.com/card/frf/14/honors-reward?utm_source=api"
+        },
+        {
+          "name": "Map the Wastes",
+          "url": "https://scryfall.com/card/frf/134/map-the-wastes?utm_source=api"
+        },
+        {
+          "name": "Optimus Prime, Hero // Optimus Prime, Autobot Leader",
+          "url": "https://scryfall.com/card/bot/13/optimus-prime-hero-optimus-prime-autobot-leader?utm_source=api"
+        },
+        {
+          "name": "Pinion Feast",
+          "url": "https://scryfall.com/card/dtk/195/pinion-feast?utm_source=api"
+        },
+        {
+          "name": "Sandcrafter Mage",
+          "url": "https://scryfall.com/card/dtk/33/sandcrafter-mage?utm_source=api"
+        },
+        {
+          "name": "Sandsteppe Mastodon",
+          "url": "https://scryfall.com/card/frf/137/sandsteppe-mastodon?utm_source=api"
+        },
+        {
+          "name": "Sandsteppe Scavenger",
+          "url": "https://scryfall.com/card/dtk/200/sandsteppe-scavenger?utm_source=api"
+        },
+        {
+          "name": "Sandsteppe War Riders",
+          "url": "https://scryfall.com/card/moc/39/sandsteppe-war-riders?utm_source=api"
+        },
+        {
+          "name": "Scale Blessing",
+          "url": "https://scryfall.com/card/2x2/27/scale-blessing?utm_source=api"
+        },
+        {
+          "name": "Sunbringer's Touch",
+          "url": "https://scryfall.com/card/dtk/209/sunbringers-touch?utm_source=api"
+        },
+        {
+          "name": "The Great Aerie",
+          "url": "https://scryfall.com/card/moc/53/the-great-aerie?utm_source=api"
+        },
+        {
+          "name": "Unsanctioned Ancient Juggler",
+          "url": "https://scryfall.com/card/sunf/13/unsanctioned-ancient-juggler?utm_source=api"
+        }
+      ],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbBolster%5Cb/%20include%3Aextras",
+      "protocolVersion": "1.0",
+      "reviewStatus": "draft",
+      "judgmentDate": "2026-10-27",
+      "shortLabel": "Scryfall-derived",
+      "label": "Scryfall-derived assessment - provisional",
+      "scope": "Bolster puts counters on a creature with the least toughness among creatures you control.",
+      "classification": "keyword",
+      "summary": "White and green both use Bolster broadly. Blue and red appear only as part of Optimus Prime's multicolor design.",
+      "limitations": [
+        "The original Abzan setting does not give black a placement without qualifying black evidence.",
+        "Sticker abilities remain a separate kind of evidence and do not establish colored access."
+      ],
+      "placements": {
+        "W": "Primary",
+        "U": null,
+        "B": null,
+        "R": null,
+        "G": "Primary"
+      },
+      "rationale": {
+        "W": "Sandcrafter Mage supplies counters on arrival, Enduring Victory combines them with removal, and Anafenza, Kin-Tree Spirit provides repeated Bolster triggers. This combination of spells, creatures and engines supports Primary.",
+        "U": "Optimus Prime, Hero has Bolster and is white-blue-red. Its colorless reverse side also has Bolster. This joint design does not establish an independent blue tier.",
+        "B": "No qualifying black Bolster design or explicit grant was found in the reviewed paper cards.",
+        "R": "Optimus Prime, Hero is a white-blue-red Bolster card, with another Bolster ability on its colorless reverse side. That does not establish an independent red tier.",
+        "G": "Map the Wastes pairs Bolster with ramp, Pinion Feast pairs it with removal, and Sandsteppe Mastodon supplies a large creature-based boost. Sandsteppe War Riders later adds a repeatable engine. Green's range supports Primary rather than ranking it Secondary merely because white has more examples."
+      },
+      "decisionStatus": {
+        "W": "assigned",
+        "U": "observed_tier_unresolved",
+        "B": "no_support_in_sample",
+        "R": "observed_tier_unresolved",
+        "G": "assigned"
+      },
+      "decisionRoute": {
+        "W": "E3",
+        "U": null,
+        "B": null,
+        "R": null,
+        "G": "E3"
+      },
+      "decisionConfidence": {
+        "W": "Moderate",
+        "U": "Low",
+        "B": "Low",
+        "R": "Low",
+        "G": "Moderate"
+      },
+      "outsidePrimary": null,
+      "outsideTier": null,
+      "outsideStatus": "no_support_in_sample",
+      "confidence": "Moderate",
+      "sources": [
+        {
+          "title": "Fate Reforged Mechanics",
+          "url": "https://magic.wizards.com/en/news/feature/mechanics-fate-reforged-2014-12-29"
+        }
+      ]
+    },
+    {
+      "id": "deck:vocabulary:bushido",
+      "name": "Bushido",
+      "kind": "derived",
+      "researchDate": "2026-10-27",
+      "relatedEffects": [],
+      "citationCards": [
+        {
+          "name": "Araba Mothrider",
+          "url": "https://scryfall.com/card/sok/2/araba-mothrider?utm_source=api"
+        },
+        {
+          "name": "Battle-Mad Ronin",
+          "url": "https://scryfall.com/card/chk/156/battle-mad-ronin?utm_source=api"
+        },
+        {
+          "name": "Brothers Yamazaki",
+          "url": "https://scryfall.com/card/chk/160a/brothers-yamazaki?utm_source=api"
+        },
+        {
+          "name": "Bushi Tenderfoot // Kenzo the Hardhearted",
+          "url": "https://scryfall.com/card/chk/2/bushi-tenderfoot-kenzo-the-hardhearted?utm_source=api"
+        },
+        {
+          "name": "Cursed Ronin",
+          "url": "https://scryfall.com/card/chk/107/cursed-ronin?utm_source=api"
+        },
+        {
+          "name": "Devoted Retainer",
+          "url": "https://scryfall.com/card/chk/7/devoted-retainer?utm_source=api"
+        },
+        {
+          "name": "Hand of Cruelty",
+          "url": "https://scryfall.com/card/sok/71/hand-of-cruelty?utm_source=api"
+        },
+        {
+          "name": "Hand of Honor",
+          "url": "https://scryfall.com/card/sok/12/hand-of-honor?utm_source=api"
+        },
+        {
+          "name": "Iizuka the Ruthless",
+          "url": "https://scryfall.com/card/sok/104/iizuka-the-ruthless?utm_source=api"
+        },
+        {
+          "name": "Indebted Samurai",
+          "url": "https://scryfall.com/card/bok/9/indebted-samurai?utm_source=api"
+        },
+        {
+          "name": "Inner-Chamber Guard",
+          "url": "https://scryfall.com/card/sok/13/inner-chamber-guard?utm_source=api"
+        },
+        {
+          "name": "Isao, Enlightened Bushi",
+          "url": "https://scryfall.com/card/bok/129/isao-enlightened-bushi?utm_source=api"
+        },
+        {
+          "name": "Jade Avenger",
+          "url": "https://scryfall.com/card/mh2/167/jade-avenger?utm_source=api"
+        },
+        {
+          "name": "Kentaro, the Smiling Cat",
+          "url": "https://scryfall.com/card/bok/13/kentaro-the-smiling-cat?utm_source=api"
+        },
+        {
+          "name": "Kevin, Questing Dragon",
+          "url": "https://scryfall.com/card/unk/RR08a/kevin-questing-dragon?utm_source=api"
+        },
+        {
+          "name": "Kitsune Blademaster",
+          "url": "https://scryfall.com/card/chk/25/kitsune-blademaster?utm_source=api"
+        },
+        {
+          "name": "Kitsune Dawnblade",
+          "url": "https://scryfall.com/card/sok/16/kitsune-dawnblade?utm_source=api"
+        },
+        {
+          "name": "Konda, Lord of Eiganjo",
+          "url": "https://scryfall.com/card/chk/30/konda-lord-of-eiganjo?utm_source=api"
+        },
+        {
+          "name": "Konda's Hatamoto",
+          "url": "https://scryfall.com/card/chk/31/kondas-hatamoto?utm_source=api"
+        },
+        {
+          "name": "Kuro's Taken",
+          "url": "https://scryfall.com/card/sok/79/kuros-taken?utm_source=api"
+        },
+        {
+          "name": "Mothrider Samurai",
+          "url": "https://scryfall.com/card/chk/34/mothrider-samurai?utm_source=api"
+        },
+        {
+          "name": "Nagao, Bound by Honor",
+          "url": "https://scryfall.com/card/chk/36/nagao-bound-by-honor?utm_source=api"
+        },
+        {
+          "name": "Nezumi Ronin",
+          "url": "https://scryfall.com/card/chk/130/nezumi-ronin?utm_source=api"
+        },
+        {
+          "name": "Numai Outcast",
+          "url": "https://scryfall.com/card/chk/134/numai-outcast?utm_source=api"
+        },
+        {
+          "name": "Opal-Eye, Konda's Yojimbo",
+          "url": "https://scryfall.com/card/bok/17/opal-eye-kondas-yojimbo?utm_source=api"
+        },
+        {
+          "name": "Ronin Cavekeeper",
+          "url": "https://scryfall.com/card/sok/111/ronin-cavekeeper?utm_source=api"
+        },
+        {
+          "name": "Ronin Cliffrider",
+          "url": "https://scryfall.com/card/bok/116/ronin-cliffrider?utm_source=api"
+        },
+        {
+          "name": "Ronin Houndmaster",
+          "url": "https://scryfall.com/card/chk/184/ronin-houndmaster?utm_source=api"
+        },
+        {
+          "name": "Samurai Enforcers",
+          "url": "https://scryfall.com/card/chk/42/samurai-enforcers?utm_source=api"
+        },
+        {
+          "name": "Samurai of the Pale Curtain",
+          "url": "https://scryfall.com/card/chk/43/samurai-of-the-pale-curtain?utm_source=api"
+        },
+        {
+          "name": "Sensei Golden-Tail",
+          "url": "https://scryfall.com/card/chk/44/sensei-golden-tail?utm_source=api"
+        },
+        {
+          "name": "Silverstorm Samurai",
+          "url": "https://scryfall.com/card/bok/22/silverstorm-samurai?utm_source=api"
+        },
+        {
+          "name": "Slimy Burrito Illusion",
+          "url": "https://scryfall.com/card/sunf/9/slimy-burrito-illusion?utm_source=api"
+        },
+        {
+          "name": "Sokenzan Renegade",
+          "url": "https://scryfall.com/card/sok/114/sokenzan-renegade?utm_source=api"
+        },
+        {
+          "name": "Sokenzan Spellblade",
+          "url": "https://scryfall.com/card/sok/115/sokenzan-spellblade?utm_source=api"
+        },
+        {
+          "name": "Takeno, Samurai General",
+          "url": "https://scryfall.com/card/chk/46/takeno-samurai-general?utm_source=api"
+        },
+        {
+          "name": "Takeno's Cavalry",
+          "url": "https://scryfall.com/card/bok/24/takenos-cavalry?utm_source=api"
+        },
+        {
+          "name": "Toshiro Umezawa",
+          "url": "https://scryfall.com/card/bok/89/toshiro-umezawa?utm_source=api"
+        },
+        {
+          "name": "Fumiko the Lowblood",
+          "url": "https://scryfall.com/card/c20/152/fumiko-the-lowblood?utm_source=api"
+        },
+        {
+          "name": "Greater Morphling",
+          "url": "https://scryfall.com/card/unh/34/greater-morphling?utm_source=api"
+        }
+      ],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbBushido%5Cb/%20include%3Aextras",
+      "protocolVersion": "1.0",
+      "reviewStatus": "draft",
+      "judgmentDate": "2026-10-27",
+      "shortLabel": "Scryfall-derived",
+      "label": "Scryfall-derived assessment - provisional",
+      "scope": "Bushido gives a creature a temporary power and toughness bonus when it blocks or becomes blocked.",
+      "classification": "keyword",
+      "summary": "White, black and red use Bushido throughout the original Samurai designs. Green has two distinct examples, but their contexts do not settle a tier.",
+      "limitations": [
+        "The original Kamigawa block is a connected design context, not three independent returns.",
+        "The ability is assessed separately from similar unkeyworded combat bonuses, Un-set cards and sticker abilities."
+      ],
+      "placements": {
+        "W": "Primary",
+        "U": null,
+        "B": "Primary",
+        "R": "Primary",
+        "G": null
+      },
+      "rationale": {
+        "W": "Devoted Retainer and Kitsune Blademaster cover ordinary Samurai combat roles; Konda, Lord of Eiganjo and Sensei Golden-Tail extend Bushido to large threats and granting. White's full implementation supports Primary.",
+        "U": "Greater Morphling can gain Bushido in Unhinged. No qualifying ordinary paper blue example was found, so that Un-set card does not establish a tier here.",
+        "B": "Nezumi Ronin and Cursed Ronin use Bushido on ordinary Samurai, while Hand of Cruelty and Toshiro Umezawa put it on more specialized threats. Black uses the same core combat mechanic across the block, supporting Primary rather than a lower tier based on fewer cards.",
+        "R": "Ronin Houndmaster combines Bushido with haste, Ronin Cliffrider adds an attack trigger, and Fumiko the Lowblood scales the bonus with attackers. These are varied native combat roles across the block, supporting Primary.",
+        "G": "Isao, Enlightened Bushi and Jade Avenger both have Bushido. Rosewater explains Jade Avenger as a deliberate callback to Chub Toad, while Isao belongs to the original Samurai setting. Those two different contexts show access but do not clearly distinguish regular Secondary use from exceptional Tertiary use."
+      },
+      "decisionStatus": {
+        "W": "assigned",
+        "U": "no_support_in_sample",
+        "B": "assigned",
+        "R": "assigned",
+        "G": "observed_tier_unresolved"
+      },
+      "decisionRoute": {
+        "W": "E3",
+        "U": null,
+        "B": "E3",
+        "R": "E3",
+        "G": null
+      },
+      "decisionConfidence": {
+        "W": "Moderate",
+        "U": "Low",
+        "B": "Moderate",
+        "R": "Moderate",
+        "G": "Low"
+      },
+      "outsidePrimary": null,
+      "outsideTier": null,
+      "outsideStatus": "no_support_in_sample",
+      "confidence": "Moderate",
+      "sources": [
+        {
+          "title": "On the Horizons, Part 1",
+          "url": "https://magic.wizards.com/en/news/making-magic/horizons-part-1-2021-06-07"
+        }
+      ]
+    },
+    {
+      "id": "deck:shortlist:buy information",
+      "name": "Buy Information",
+      "kind": "derived",
+      "researchDate": "2026-10-27",
+      "relatedEffects": [],
+      "citationCards": [
+        {
+          "name": "Black Market Connections",
+          "url": "https://scryfall.com/card/msc/155/black-market-connections?utm_source=api"
+        }
+      ],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbBuy%20Information%5Cb/%20include%3Aextras",
+      "protocolVersion": "1.0",
+      "reviewStatus": "draft",
+      "judgmentDate": "2026-10-27",
+      "shortLabel": "Scryfall-derived",
+      "label": "Scryfall-derived assessment - provisional",
+      "scope": "Buy Information is the name of one mode on Black Market Connections.",
+      "classification": "card-specific flavor label",
+      "summary": "This card-specific label is recorded without assigning a general color-pie tier.",
+      "limitations": [
+        "This assessment does not inherit a ranking from the broader effects of drawing cards or paying life."
+      ],
+      "placements": {
+        "W": null,
+        "U": null,
+        "B": null,
+        "R": null,
+        "G": null
+      },
+      "rationale": {
+        "W": "The reviewed card provides no white example of this label.",
+        "U": "The reviewed card provides no blue example of this label.",
+        "B": "Black Market Connections uses Buy Information for its draw-a-card, lose-two-life mode. That verifies the label on a black card. One named mode does not establish a wider mechanic or justify a Primary, Secondary or Tertiary tier.",
+        "R": "The reviewed card provides no red example of this label.",
+        "G": "The reviewed card provides no green example of this label."
+      },
+      "decisionStatus": {
+        "W": "no_support_in_sample",
+        "U": "no_support_in_sample",
+        "B": "observed_tier_unresolved",
+        "R": "no_support_in_sample",
+        "G": "no_support_in_sample"
+      },
+      "decisionRoute": {
+        "W": null,
+        "U": null,
+        "B": null,
+        "R": null,
+        "G": null
+      },
+      "decisionConfidence": {
+        "W": "Low",
+        "U": "Low",
+        "B": "Low",
+        "R": "Low",
+        "G": "Low"
+      },
+      "outsidePrimary": null,
+      "outsideTier": null,
+      "outsideStatus": "no_support_in_sample",
+      "confidence": "Low; observed tiers unresolved",
+      "sources": []
+    },
+    {
+      "id": "deck:vocabulary:buyback",
+      "name": "Buyback",
+      "kind": "derived",
+      "researchDate": "2026-10-27",
+      "relatedEffects": [],
+      "citationCards": [
+        {
+          "name": "Allay",
+          "url": "https://scryfall.com/card/exo/1/allay?utm_source=api"
+        },
+        {
+          "name": "Anoint",
+          "url": "https://scryfall.com/card/tpr/3/anoint?utm_source=api"
+        },
+        {
+          "name": "Blast from the Past",
+          "url": "https://scryfall.com/card/und/48/blast-from-the-past?utm_source=api"
+        },
+        {
+          "name": "Brush with Death",
+          "url": "https://scryfall.com/card/sth/52/brush-with-death?utm_source=api"
+        },
+        {
+          "name": "Capsize",
+          "url": "https://scryfall.com/card/tpr/42/capsize?utm_source=api"
+        },
+        {
+          "name": "Change of Heart",
+          "url": "https://scryfall.com/card/sth/3/change-of-heart?utm_source=api"
+        },
+        {
+          "name": "Clockspinning",
+          "url": "https://scryfall.com/card/tsp/53/clockspinning?utm_source=api"
+        },
+        {
+          "name": "Constant Mists",
+          "url": "https://scryfall.com/card/sth/104/constant-mists?utm_source=api"
+        },
+        {
+          "name": "Corpse Dance",
+          "url": "https://scryfall.com/card/tpr/89/corpse-dance?utm_source=api"
+        },
+        {
+          "name": "Demonic Collusion",
+          "url": "https://scryfall.com/card/tsp/103/demonic-collusion?utm_source=api"
+        },
+        {
+          "name": "Disturbed Burial",
+          "url": "https://scryfall.com/card/tmp/129/disturbed-burial?utm_source=api"
+        },
+        {
+          "name": "Elvish Fury",
+          "url": "https://scryfall.com/card/mh1/162/elvish-fury?utm_source=api"
+        },
+        {
+          "name": "Evangelize",
+          "url": "https://scryfall.com/card/tsp/16/evangelize?utm_source=api"
+        },
+        {
+          "name": "Evincar's Justice",
+          "url": "https://scryfall.com/card/cma/58/evincars-justice?utm_source=api"
+        },
+        {
+          "name": "Fanning the Flames",
+          "url": "https://scryfall.com/card/tpr/130/fanning-the-flames?utm_source=api"
+        },
+        {
+          "name": "Flowstone Flood",
+          "url": "https://scryfall.com/card/exo/83/flowstone-flood?utm_source=api"
+        },
+        {
+          "name": "Forbid",
+          "url": "https://scryfall.com/card/tpr/50/forbid?utm_source=api"
+        },
+        {
+          "name": "Haze of Rage",
+          "url": "https://scryfall.com/card/tsr/169/haze-of-rage?utm_source=api"
+        },
+        {
+          "name": "Imps' Taunt",
+          "url": "https://scryfall.com/card/tmp/138/imps-taunt?utm_source=api"
+        },
+        {
+          "name": "Innocuous Insect",
+          "url": "https://scryfall.com/card/cmb2/23/innocuous-insect?utm_source=api"
+        },
+        {
+          "name": "Invulnerability",
+          "url": "https://scryfall.com/card/tmp/25/invulnerability?utm_source=api"
+        },
+        {
+          "name": "Lab Rats",
+          "url": "https://scryfall.com/card/tpr/108/lab-rats?utm_source=api"
+        },
+        {
+          "name": "Mind Games",
+          "url": "https://scryfall.com/card/sth/38/mind-games?utm_source=api"
+        },
+        {
+          "name": "Mind Peel",
+          "url": "https://scryfall.com/card/sth/63/mind-peel?utm_source=api"
+        },
+        {
+          "name": "Mystic Speculation",
+          "url": "https://scryfall.com/card/fut/41/mystic-speculation?utm_source=api"
+        },
+        {
+          "name": "Pegasus Stampede",
+          "url": "https://scryfall.com/card/tpr/24/pegasus-stampede?utm_source=api"
+        },
+        {
+          "name": "Reaping the Rewards",
+          "url": "https://scryfall.com/card/exo/16/reaping-the-rewards?utm_source=api"
+        },
+        {
+          "name": "Recruit the Worthy",
+          "url": "https://scryfall.com/card/mh1/22/recruit-the-worthy?utm_source=api"
+        },
+        {
+          "name": "Reiterate",
+          "url": "https://scryfall.com/card/tsr/182/reiterate?utm_source=api"
+        },
+        {
+          "name": "Searing Touch",
+          "url": "https://scryfall.com/card/tpr/155/searing-touch?utm_source=api"
+        },
+        {
+          "name": "Seething Anger",
+          "url": "https://scryfall.com/card/tpr/156/seething-anger?utm_source=api"
+        },
+        {
+          "name": "Shattering Pulse",
+          "url": "https://scryfall.com/card/exo/102/shattering-pulse?utm_source=api"
+        },
+        {
+          "name": "Slaughter",
+          "url": "https://scryfall.com/card/exo/74/slaughter?utm_source=api"
+        },
+        {
+          "name": "Spell Burst",
+          "url": "https://scryfall.com/card/tsr/88/spell-burst?utm_source=api"
+        },
+        {
+          "name": "Sprout Swarm",
+          "url": "https://scryfall.com/card/fut/138/sprout-swarm?utm_source=api"
+        },
+        {
+          "name": "Verdant Touch",
+          "url": "https://scryfall.com/card/tpr/203/verdant-touch?utm_source=api"
+        },
+        {
+          "name": "Walk the Aeons",
+          "url": "https://scryfall.com/card/tsr/98/walk-the-aeons?utm_source=api"
+        },
+        {
+          "name": "Whim of Volrath",
+          "url": "https://scryfall.com/card/tmp/102/whim-of-volrath?utm_source=api"
+        },
+        {
+          "name": "Whispers of the Muse",
+          "url": "https://scryfall.com/card/tpr/79/whispers-of-the-muse?utm_source=api"
+        },
+        {
+          "name": "Worthy Cause",
+          "url": "https://scryfall.com/card/tmp/53/worthy-cause?utm_source=api"
+        },
+        {
+          "name": "Wurmcalling",
+          "url": "https://scryfall.com/card/tsp/234/wurmcalling?utm_source=api"
+        }
+      ],
+      "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbBuyback%5Cb/%20include%3Aextras",
+      "protocolVersion": "1.0",
+      "reviewStatus": "draft",
+      "judgmentDate": "2026-10-27",
+      "shortLabel": "Scryfall-derived",
+      "label": "Scryfall-derived assessment - provisional",
+      "scope": "Buyback returns a resolving spell to its owner's hand when its additional cost was paid.",
+      "classification": "keyword",
+      "summary": "Every color has recurring native Buyback spells. Their effects differ, while the repeatable-spell mechanic is shared.",
+      "limitations": [
+        "An old card represented by a digital reprint still counts as a paper design when its paper printing is verified.",
+        "Blast from the Past is an Un-set example. Memory Crystal reduces Buyback costs but does not grant the ability."
+      ],
+      "placements": {
+        "W": "Primary",
+        "U": "Primary",
+        "B": "Primary",
+        "R": "Primary",
+        "G": "Primary"
+      },
+      "rationale": {
+        "W": "Allay repeatedly removes enchantments, Invulnerability prevents damage, and Recruit the Worthy later makes tokens. White uses Buyback across effects and releases, supporting Primary rather than a restricted exception.",
+        "U": "Whispers of the Muse draws cards, Capsize returns permanents, and Forbid counters spells; Time Spiral adds further applications. Blue has a broad recurring role, supporting Primary.",
+        "B": "Disturbed Burial recovers creatures, Evincar's Justice damages the board, and Demonic Collusion later searches for a card. These varied spell roles support Primary.",
+        "R": "Searing Touch and Fanning the Flames deal damage, Shattering Pulse removes artifacts, and Reiterate later copies spells. Red's sustained range supports Primary rather than a narrow Secondary use.",
+        "G": "Elvish Fury boosts a creature, Constant Mists prevents combat damage, and Sprout Swarm and Wurmcalling create tokens. Green uses Buyback across several effects and release contexts, supporting Primary."
+      },
+      "decisionStatus": {
+        "W": "assigned",
+        "U": "assigned",
+        "B": "assigned",
+        "R": "assigned",
+        "G": "assigned"
+      },
+      "decisionRoute": {
+        "W": "E3",
+        "U": "E3",
+        "B": "E3",
+        "R": "E3",
+        "G": "E3"
+      },
+      "decisionConfidence": {
+        "W": "Moderate",
+        "U": "Moderate",
+        "B": "Moderate",
+        "R": "Moderate",
+        "G": "Moderate"
+      },
+      "outsidePrimary": null,
+      "outsideTier": null,
+      "outsideStatus": "no_support_in_sample",
+      "confidence": "Moderate",
+      "sources": [
+        {
+          "title": "Time Spiral Remastered Release Notes | MAGIC: THE GATHERING",
+          "url": "https://magic.wizards.com/en/news/feature/time-spiral-remastered-release-notes-2021-03-23"
+        }
+      ]
     }
   ]
 }

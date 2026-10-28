@@ -1,0 +1,22 @@
+{
+  "kind": "replacement_named_card",
+  "query": "!\"Black Market Connections\"",
+  "unique": "cards",
+  "pages": [
+    {
+      "url": "https://api.scryfall.com/cards/search?q=%21%22Black+Market+Connections%22&unique=cards&order=name",
+      "file": "docs/mechanics-research/b-protocol-evidence/extended-buy-information/replacement-name-page-1.json",
+      "sha256": "0edeb024acb0c599bb7109b07f45ca7fe7697de90886df21a34bceebafb6c0a0",
+      "retrieved_utc": "2026-10-28T04:24:55.209Z",
+      "http_status": 200,
+      "ids": [
+        "d2664f28-49e1-46f8-a863-b217e961a57c"
+      ],
+      "count": 1
+    }
+  ],
+  "total_cards": 1,
+  "complete": true,
+  "receipt_path": "docs/mechanics-research/b-protocol-evidence/extended-buy-information/replacement-name-receipt.json",
+  "exceptional_query_explanation": "Buy Information is flavor text on this card; name fetch replaces no-match term search."
+}

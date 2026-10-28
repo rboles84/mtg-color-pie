@@ -1,0 +1,43 @@
+{
+  "kind": "keyword",
+  "query": "kw:\"Bloodthirst\" include:extras",
+  "unique": "cards",
+  "pages": [
+    {
+      "url": "https://api.scryfall.com/cards/search?q=kw%3A%22Bloodthirst%22%20include%3Aextras&unique=cards&order=name",
+      "file": "docs/mechanics-research/b-protocol-evidence/extended-bloodthirst/extras-keyword-page-1.json",
+      "sha256": "059a00c26ac5f86db5c109b125667820f77141dbb6cad8e560038673ebff60d8",
+      "retrieved_utc": "2026-10-28T04:41:46.808Z",
+      "http_status": 200,
+      "count": 23,
+      "ids": [
+        "fdcfa49a-70ed-48a4-b424-527a1698fd85",
+        "d8560ee9-8cbb-440b-a132-e102a1eb3e89",
+        "8bbe3f0d-41d0-4c58-ad65-6675a234cad3",
+        "b1b6a840-2dc6-4af3-869a-b3bfe64ff7c0",
+        "655a584c-5280-4317-b707-101b7e31dcb1",
+        "67953edb-9681-4339-a5d2-917082925c24",
+        "a9be4be0-71fe-41d9-8f30-351385753fc9",
+        "007161cb-a44b-4443-a53a-dfaacc6cfb86",
+        "6082f84a-3af2-4007-ab88-7b4b59b5c154",
+        "8c4aba38-7fbd-463e-8454-21037090c71e",
+        "28f35fa1-befa-40b4-95ab-30bb53d339ab",
+        "be8ad29c-2232-426d-bda9-a289dcc6c265",
+        "36f4d359-f46c-4da4-a8c2-1fe1799ac3f7",
+        "0dd4bc7b-2ddf-4ca4-912c-59685c41c3b5",
+        "b0df3389-5959-4ee2-a921-9324732f7ce8",
+        "3bc9649c-4350-4c6a-8441-dc76a5f833af",
+        "1d591c00-7086-4337-bdb8-a5f35568f04e",
+        "db0b6e35-d7f2-435a-87d7-9e8c36426f4d",
+        "42a96276-fddc-435e-bd47-04f9c6001ec7",
+        "e2ce99b9-7098-4de1-95bf-609bd448848d",
+        "0a45d8d4-2a5e-4b5b-b430-fc2fd5fd82c0",
+        "84e56125-3fbb-4229-8aa0-8f8acff27038",
+        "25ad4e88-b5ee-4853-a4fc-0a0420c746f6"
+      ]
+    }
+  ],
+  "total_cards": 23,
+  "complete": true,
+  "receipt_path": "docs/mechanics-research/b-protocol-evidence/extended-bloodthirst/extras-keyword-receipt.json"
+}

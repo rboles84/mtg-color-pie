@@ -1,0 +1,69 @@
+{
+  "name": "Backup",
+  "receipts": [
+    {
+      "url": "https://api.scryfall.com/cards/search?q=kw%3A%22Backup%22%20include%3Aextras&unique=cards&order=name",
+      "file": "docs/mechanics-research/b-protocol-evidence/core-backup/keyword-page-1.json",
+      "sha256": "d25a59cb8a2e09f18db6bc8f775fbc42b8581e23dcf0f8cbba05184109b88fee",
+      "retrieved_at_utc": "2026-10-28T04:22:05.798Z",
+      "http_status": 200,
+      "kind": "keyword",
+      "query": "kw:\"Backup\" include:extras",
+      "unique": "cards"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%2F%5CbBackup%5Cb%2F%20include%3Aextras&unique=cards&order=name",
+      "file": "docs/mechanics-research/b-protocol-evidence/core-backup/oracle-page-1.json",
+      "sha256": "b96f346255ce738f91e6035c9269d6a0cb9faa8516c2e8ac5494a41a9b19da35",
+      "retrieved_at_utc": "2026-10-28T04:22:06.775Z",
+      "http_status": 200,
+      "kind": "oracle",
+      "query": "o:/\\bBackup\\b/ include:extras",
+      "unique": "cards"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?q=(kw%3A%22Backup%22%20or%20o%3A%2F%5CbBackup%5Cb%2F)%20include%3Aextras&unique=prints&order=released",
+      "file": "docs/mechanics-research/b-protocol-evidence/core-backup/prints-page-1.json",
+      "sha256": "bf8e576b05437c9153deaa85891df2792dfa185377d31960988c93f383e50547",
+      "retrieved_at_utc": "2026-10-28T04:22:07.736Z",
+      "http_status": 200,
+      "kind": "prints",
+      "query": "(kw:\"Backup\" or o:/\\bBackup\\b/) include:extras",
+      "unique": "prints"
+    }
+  ],
+  "union_ids": [
+    "7b03910a-2ca7-40cb-9c71-1c2cc856a287",
+    "6ff995f9-080d-4316-8fbe-39bf195db91b",
+    "8652d88f-edca-4235-b942-6e7467608de8",
+    "f74888ee-5086-49a6-ae74-fd9894f46332",
+    "20a362c3-d278-437f-881c-e7d9fe78fc2d",
+    "e09e7bb8-2665-4081-b75a-628a8bc0a3cd",
+    "4d472308-5bc7-4a3c-81b5-0a757f00d9e2",
+    "57120486-0316-4591-abca-438ab8283d3f",
+    "81abb451-5ee0-4f90-bacc-a8ff69726a27",
+    "7ac00312-8963-4fee-8561-1a54e533adbb",
+    "a74e41b4-6284-453c-a586-d575735dca65",
+    "c17d4818-5825-4bff-8fc5-5fd740cc0c70",
+    "f055a941-8b83-464e-a57f-8f188dc69aaa",
+    "5437f560-7f61-4326-be8e-15d74bf4e6ec",
+    "d388080d-5ad4-4e27-b361-340f410423a7",
+    "d6c7d7a6-2d38-4c06-ab83-bee9cc18de52",
+    "d1b74fb9-8ef3-40be-bc79-45ffb4c597eb",
+    "86b47725-1764-4716-993d-e4dfcea2346c",
+    "6a871d70-a46d-4357-8c7d-876f7a004eb7",
+    "d2134b68-d73f-4090-aaec-b2ee5c9f9f04",
+    "15f89b06-5025-4c9f-bf51-e25bc5c2dd6b",
+    "93107139-b743-4d62-b0ac-9997202e0562",
+    "66a131ae-dbb2-4e7b-b6ce-7695f47c8f87",
+    "79c90a68-1c31-4e16-be53-1304132da80f",
+    "74b631c5-9420-496e-8845-3b050d3d5340",
+    "b3cc2ed9-1da3-4ad2-a9a7-de7665d800ff",
+    "ac069d94-75df-47b1-85aa-1e9081d40b84",
+    "17c125b7-3c1c-4e44-98cb-11ea79e282c8",
+    "1fc6eb23-45ab-42fd-820e-b5dd5dbaef80",
+    "23f01235-b5a5-4b2e-a90b-b49fc0c7b18d",
+    "441844b1-c6c7-472e-828b-6cca74d69f98"
+  ],
+  "retrieved_at_utc": "2026-10-28T04:22:07.736Z"
+}

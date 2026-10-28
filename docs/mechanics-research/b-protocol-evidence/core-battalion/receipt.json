@@ -1,0 +1,61 @@
+{
+  "name": "Battalion",
+  "receipts": [
+    {
+      "url": "https://api.scryfall.com/cards/search?q=kw%3A%22Battalion%22%20include%3Aextras&unique=cards&order=name",
+      "file": "docs/mechanics-research/b-protocol-evidence/core-battalion/keyword-page-1.json",
+      "sha256": "d2ea5e285f8b751e11bc91aed2110417e87b24fb7d2fa0f4ece8b6dc30a95204",
+      "retrieved_at_utc": "2026-10-28T04:22:16.384Z",
+      "http_status": 200,
+      "kind": "keyword",
+      "query": "kw:\"Battalion\" include:extras",
+      "unique": "cards"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%2F%5CbBattalion%5Cb%2F%20include%3Aextras&unique=cards&order=name",
+      "file": "docs/mechanics-research/b-protocol-evidence/core-battalion/oracle-page-1.json",
+      "sha256": "eeb1b5d0581b39235bc1891eccf94629c52b2f4615981f8dcb1eb9f42f89a599",
+      "retrieved_at_utc": "2026-10-28T04:22:17.375Z",
+      "http_status": 200,
+      "kind": "oracle",
+      "query": "o:/\\bBattalion\\b/ include:extras",
+      "unique": "cards"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?q=(kw%3A%22Battalion%22%20or%20o%3A%2F%5CbBattalion%5Cb%2F)%20include%3Aextras&unique=prints&order=released",
+      "file": "docs/mechanics-research/b-protocol-evidence/core-battalion/prints-page-1.json",
+      "sha256": "3d50a0e2a5278f2b4260a7899ef7c7861e1cb55313eeb478320b5fdc1b78d476",
+      "retrieved_at_utc": "2026-10-28T04:22:18.383Z",
+      "http_status": 200,
+      "kind": "prints",
+      "query": "(kw:\"Battalion\" or o:/\\bBattalion\\b/) include:extras",
+      "unique": "prints"
+    }
+  ],
+  "union_ids": [
+    "a429c351-d281-4e49-8564-bd96bdf5c41b",
+    "7c83fb45-03af-4f1a-b7e3-2c4f47511658",
+    "bcbaef07-1d5b-457b-b373-77d3a2884b39",
+    "30b20932-0d9a-447f-b934-1daa8c44a678",
+    "e9566303-15cf-4444-a044-fc19540f21b6",
+    "f15a202d-c1c4-49bd-924a-7a0a5667ff70",
+    "46399b09-1b5c-4c28-9134-cc2ed573b6aa",
+    "a017ab43-7d73-441a-8931-2a038306083f",
+    "7ea71a36-8fa8-4ba3-9cb1-7fc6917c3ddd",
+    "36a3c910-95b8-45a2-9f84-5681336d868c",
+    "f6900374-1862-4195-9e12-c2592f4b9b8f",
+    "57ffb558-3a1c-43ea-a79c-bcfacad22ca4",
+    "560a5452-0dc3-421d-bf16-8843a35dae6f",
+    "8b6e2feb-9e8f-4912-ada0-1614502d9813",
+    "affdf41e-c851-4f5d-bd3a-7ca7ada4416a",
+    "119af12a-b767-4408-9bb5-72a6d0ec63d1",
+    "3cfea32e-6b52-441b-90aa-d8a137997297",
+    "b368b1bd-3273-40a9-8102-27501f4d0e15",
+    "76a416fa-d97b-4c24-af41-b2382f1fd546",
+    "8951d797-6356-4f27-a6de-e013216274d6",
+    "9e32750a-8e5f-4d81-92a8-c3d4ea1477fd",
+    "96d6a400-f1bc-40f8-91ef-1d3cb96926f1",
+    "f6f39a85-28b9-49f3-ab90-2ff99169de42"
+  ],
+  "retrieved_at_utc": "2026-10-28T04:22:18.383Z"
+}

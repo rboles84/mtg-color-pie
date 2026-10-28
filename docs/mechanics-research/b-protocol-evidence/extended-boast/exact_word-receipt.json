@@ -1,0 +1,40 @@
+{
+  "kind": "exact_word",
+  "query": "o:/\\bBoast\\b/",
+  "unique": "cards",
+  "pages": [
+    {
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%2F%5CbBoast%5Cb%2F&unique=cards&order=name",
+      "file": "docs/mechanics-research/b-protocol-evidence/extended-boast/exact-word-page-1.json",
+      "sha256": "e3170927a906e2dbd27ca7e39332c4b2bdc6d7aecf66e14fee16a75a9819b9cc",
+      "retrieved_utc": "2026-10-28T04:22:32.493Z",
+      "http_status": 200,
+      "ids": [
+        "3dce6c6c-599f-4e35-ae15-728c5e78dee1",
+        "d0d4ab83-8b9b-49cd-86b8-720abd0550f4",
+        "0fe6c042-1182-4392-8938-fee36149d74f",
+        "f8e8cdc6-5685-4986-a14b-20bb9e31d9cf",
+        "fb81e4d3-1d8c-4779-be62-87cf49277e51",
+        "e0c00a74-bdf8-4fee-8042-42c5878e9e3c",
+        "06b77a80-4968-4385-960a-fb66bb4faa94",
+        "f854ea0d-aae3-4b6a-9767-6ac1788f2190",
+        "b9227f38-7db7-4ea1-9482-94e5de3984fe",
+        "06b7987d-c876-4369-9c2d-ce1d35a01097",
+        "b0b93253-6432-401e-9a01-94c41fb72c10",
+        "61295adf-9a58-479a-b6e5-403aa0876c22",
+        "1207881c-4c03-48e1-9ca7-a2330e8053d1",
+        "9cbc8765-1735-48ca-bbc2-411aa7da2ed3",
+        "c19aaf86-b098-4e7d-af50-9e02ae3cda55",
+        "e0610ab1-88d3-4502-84b7-3a08d0170167",
+        "eedd74c4-42d1-41ba-9051-dc518e45ebbb",
+        "36dda03b-a3c1-4ef4-ae62-da318028a39e",
+        "a6eb06dc-a62d-4fdb-b336-e304d8d68c92",
+        "68b41a04-8cb0-4edf-b488-a219494453ae"
+      ],
+      "count": 20
+    }
+  ],
+  "total_cards": 20,
+  "complete": true,
+  "receipt_path": "docs/mechanics-research/b-protocol-evidence/extended-boast/exact_word-receipt.json"
+}
