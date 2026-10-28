@@ -1,4 +1,11 @@
-Official source capture — Now I Know My ABC's, Mark Rosewater, 2006-01-23.
+SUPERSEDED RESEARCH NOTE — analyst summary, not an original-source capture
+
+This early draft note is preserved for history and is not a source authority or a bound capture. The original article is archived at:
+docs/mechanics-research/b-protocol-evidence/shared-bloodthirst.html
+docs/mechanics-research/b-protocol-evidence/shared-bloodthirst.txt
+docs/mechanics-research/b-protocol-evidence/shared-bloodthirst.pdf
+
+Earlier analyst summary follows:
 URL: https://magic.wizards.com/en/news/making-magic/now-i-know-my-abcs-2006-01-23
 
 The Bloodthirst section says Ravnica-block keywords had to line up with a guild. It identifies Gruul as red-green, built around attacking, and says that the attacking-focused design became bloodthirst. The article also cautions that later returns need not remain limited to the colors of their original guild.

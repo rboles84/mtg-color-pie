@@ -1,4 +1,11 @@
-Official source capture — Fate Reforged Mechanics, Matt Tabak, 2014-12-30.
+SUPERSEDED RESEARCH NOTE — analyst summary, not an original-source capture
+
+This early draft note is preserved for history and is not a source authority or a bound capture. The original article is archived at:
+docs/mechanics-research/b-protocol-evidence/shared-bolster.html
+docs/mechanics-research/b-protocol-evidence/shared-bolster.txt
+docs/mechanics-research/b-protocol-evidence/shared-bolster.pdf
+
+Earlier analyst summary follows:
 URL: https://magic.wizards.com/en/news/feature/mechanics-fate-reforged-2014-12-29
 
 The article describes bolster as the mechanic used by the Abzan, the white-black-green clan, to avoid weak links in its defenses. It defines the action as choosing a creature with the least toughness and putting the stated number of +1/+1 counters on it.

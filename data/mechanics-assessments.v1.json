@@ -32,11 +32,11 @@
     },
     {
       "path": "docs/mechanics-research/b-protocol-core.json",
-      "sha256": "1dc5ad3e13fd17c4e33dd941ed789bc163c54f865e5e1ec3a7557350af480749"
+      "sha256": "0297f83acc1fb33e29c1d963ff429fa41b263482904967322b62b9640fbb3170"
     },
     {
       "path": "docs/mechanics-research/b-protocol-extended.json",
-      "sha256": "81ef4da973840cce8127eddd613f7a3b6cca42c0fe3b96e3b67b72f5ae467fd3"
+      "sha256": "ce7a76002f9b1a9624122ab4fec08f7ef1f29e3e516e34d7c570ebea3973cd9a"
     }
   ],
   "records": [

@@ -101,7 +101,7 @@
               {
                 "path": "docs/mechanics-research/b-protocol-evidence/shared-backup.txt",
                 "format": "txt",
-                "sha256": "3e6287314ac793e17896f718effddbb2ac1b1207779abe05e65efb6b26a7294f"
+                "sha256": "b87fbf0d677d15d4107948d55e71af155db2d962daaec35624ef48209703a676"
               },
               {
                 "path": "docs/mechanics-research/b-protocol-evidence/shared-backup.pdf",
@@ -110,7 +110,8 @@
               }
             ],
             "status": "complete",
-            "notes": "Full original HTML plus readable publisher-page transcription. PDF generated locally, not publisher-issued."
+            "notes": "Full original HTML plus readable publisher-page transcription. PDF generated locally, not publisher-issued.",
+            "serialization": "Original HTML bytes; generated UTF-8/LF text transcription and local PDF. SHA-256 binds repository file bytes."
           }
         }
       ],
@@ -3298,7 +3299,7 @@
               {
                 "path": "docs/mechanics-research/b-protocol-evidence/shared-banding.txt",
                 "format": "txt",
-                "sha256": "66c4a14ad3874bc36191207f30613f358d9c8b1315416aa5d204fb7a63568c70"
+                "sha256": "ee69634f0e0bf141f28fdfbc1bd3f5af9a50f29b7042afe9ee3316585db8f7f9"
               },
               {
                 "path": "docs/mechanics-research/b-protocol-evidence/shared-banding.pdf",
@@ -3307,7 +3308,8 @@
               }
             ],
             "status": "complete",
-            "notes": "Full original HTML plus readable publisher-page transcription. PDF generated locally, not publisher-issued."
+            "notes": "Full original HTML plus readable publisher-page transcription. PDF generated locally, not publisher-issued.",
+            "serialization": "Original HTML bytes; generated UTF-8/LF text transcription and local PDF. SHA-256 binds repository file bytes."
           }
         }
       ],
@@ -8236,7 +8238,7 @@
               {
                 "path": "docs/mechanics-research/b-protocol-evidence/shared-bargain.txt",
                 "format": "txt",
-                "sha256": "dfac3086eeee6f6d976428541192e05a2046861da612d103a191b68f94129b90"
+                "sha256": "108f78ced9da42b0d72f99d466cb9eac71451c38124460fd6b7723ddc93d3242"
               },
               {
                 "path": "docs/mechanics-research/b-protocol-evidence/shared-bargain.pdf",
@@ -8245,7 +8247,8 @@
               }
             ],
             "status": "complete",
-            "notes": "Full original HTML plus readable publisher-page transcription. PDF generated locally, not publisher-issued."
+            "notes": "Full original HTML plus readable publisher-page transcription. PDF generated locally, not publisher-issued.",
+            "serialization": "Original HTML bytes; generated UTF-8/LF text transcription and local PDF. SHA-256 binds repository file bytes."
           }
         }
       ],
@@ -10871,7 +10874,7 @@
               {
                 "path": "docs/mechanics-research/b-protocol-evidence/shared-basic-landcycling.txt",
                 "format": "txt",
-                "sha256": "493db67679f030fa77cfba19c371579219113f1fa63d6beb6cfc87fb7d3cfd07"
+                "sha256": "19d15714cf2124f6b302b7c61c1ff97be741de96033c676eae048139d9575222"
               },
               {
                 "path": "docs/mechanics-research/b-protocol-evidence/shared-basic-landcycling.pdf",
@@ -10880,7 +10883,8 @@
               }
             ],
             "status": "complete",
-            "notes": "Full original HTML plus readable publisher-page transcription. PDF generated locally, not publisher-issued."
+            "notes": "Full original HTML plus readable publisher-page transcription. PDF generated locally, not publisher-issued.",
+            "serialization": "Original HTML bytes; generated UTF-8/LF text transcription and local PDF. SHA-256 binds repository file bytes."
           }
         }
       ],
@@ -15843,7 +15847,7 @@
               {
                 "path": "docs/mechanics-research/b-protocol-evidence/shared-gatecrash.txt",
                 "format": "txt",
-                "sha256": "5d7f3d843e4458f97d674046477e9346cdcfca1d034fcaf214731057716cf004"
+                "sha256": "5bea962a662ce3590c4b9bda3022b5b3c5a793ce7c62b68b63d42261623325df"
               },
               {
                 "path": "docs/mechanics-research/b-protocol-evidence/shared-gatecrash.pdf",
@@ -15852,7 +15856,8 @@
               }
             ],
             "status": "complete",
-            "notes": "Full original HTML plus readable publisher-page transcription. PDF generated locally, not publisher-issued."
+            "notes": "Full original HTML plus readable publisher-page transcription. PDF generated locally, not publisher-issued.",
+            "serialization": "Original HTML bytes; generated UTF-8/LF text transcription and local PDF. SHA-256 binds repository file bytes."
           }
         }
       ],
@@ -18483,7 +18488,7 @@
               {
                 "path": "docs/mechanics-research/b-protocol-evidence/shared-battle-cry.txt",
                 "format": "txt",
-                "sha256": "cb496cd4cbf7a7eadfa1ca8866bff499053fed0f956e973cb296919fa28c96f6"
+                "sha256": "43ecd8665fe2ed401c9fc90fc412975dec09db0b774d70ef75ad7f4ba8d97d5a"
               },
               {
                 "path": "docs/mechanics-research/b-protocol-evidence/shared-battle-cry.pdf",
@@ -18492,7 +18497,8 @@
               }
             ],
             "status": "complete",
-            "notes": "Full original HTML plus readable publisher-page transcription. PDF generated locally, not publisher-issued."
+            "notes": "Full original HTML plus readable publisher-page transcription. PDF generated locally, not publisher-issued.",
+            "serialization": "Original HTML bytes; generated UTF-8/LF text transcription and local PDF. SHA-256 binds repository file bytes."
           }
         }
       ],
@@ -23413,7 +23419,7 @@
               {
                 "path": "docs/mechanics-research/b-protocol-evidence/shared-bestow.txt",
                 "format": "txt",
-                "sha256": "f1c33ab5ce631436665e2b016f43de388dd0e7a08822af654655300595f8c8e0"
+                "sha256": "35c19b365d612a3a47323979baa107ad16c49b7f7c6414c9ea5a317f47be3f53"
               },
               {
                 "path": "docs/mechanics-research/b-protocol-evidence/shared-bestow.pdf",
@@ -23422,7 +23428,8 @@
               }
             ],
             "status": "complete",
-            "notes": "Full original HTML plus readable publisher-page transcription. PDF generated locally, not publisher-issued."
+            "notes": "Full original HTML plus readable publisher-page transcription. PDF generated locally, not publisher-issued.",
+            "serialization": "Original HTML bytes; generated UTF-8/LF text transcription and local PDF. SHA-256 binds repository file bytes."
           }
         }
       ],

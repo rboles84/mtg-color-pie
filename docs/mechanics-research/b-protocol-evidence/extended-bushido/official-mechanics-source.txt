@@ -1,4 +1,11 @@
-Official source capture — On the Horizons, Part 1, Mark Rosewater, 2021-06-07.
+SUPERSEDED RESEARCH NOTE — analyst summary, not an original-source capture
+
+This early draft note is preserved for history and is not a source authority or a bound capture. The original article is archived at:
+docs/mechanics-research/b-protocol-evidence/shared-bushido.html
+docs/mechanics-research/b-protocol-evidence/shared-bushido.txt
+docs/mechanics-research/b-protocol-evidence/shared-bushido.pdf
+
+Earlier analyst summary follows:
 URL: https://magic.wizards.com/en/news/making-magic/horizons-part-1-2021-06-07
 
 The article says bushido was made from an earlier combat-stat ability as a simple combat ability for Samurai, and that Champions of Kamigawa's top-down approach gave it an in-world name. It explains the historical flavor framing but does not assign a complete modern color hierarchy.

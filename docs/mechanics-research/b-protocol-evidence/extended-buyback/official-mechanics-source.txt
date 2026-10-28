@@ -1,4 +1,11 @@
-Official source capture — Time Spiral Remastered Release Notes, Wizards of the Coast, 2021-03-23.
+SUPERSEDED RESEARCH NOTE — analyst summary, not an original-source capture
+
+This early draft note is preserved for history and is not a source authority or a bound capture. The original article is archived at:
+docs/mechanics-research/b-protocol-evidence/shared-buyback.html
+docs/mechanics-research/b-protocol-evidence/shared-buyback.txt
+docs/mechanics-research/b-protocol-evidence/shared-buyback.pdf
+
+Earlier analyst summary follows:
 URL: https://magic.wizards.com/en/news/feature/time-spiral-remastered-release-notes-2021-03-23
 
 The Buyback section defines the additional cost and return-to-hand replacement effect, illustrated by red Reiterate. The same official release-note source explains rules operation, not a complete color-pie hierarchy.

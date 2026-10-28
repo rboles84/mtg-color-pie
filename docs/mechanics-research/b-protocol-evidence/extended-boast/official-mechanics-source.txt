@@ -1,4 +1,11 @@
-Official source capture — Leading Kaldheim Set Design, Wizards of the Coast, 2021-01-19.
+SUPERSEDED RESEARCH NOTE — analyst summary, not an original-source capture
+
+This early draft note is preserved for history and is not a source authority or a bound capture. The original article is archived at:
+docs/mechanics-research/b-protocol-evidence/shared-boast.html
+docs/mechanics-research/b-protocol-evidence/shared-boast.txt
+docs/mechanics-research/b-protocol-evidence/shared-boast.pdf
+
+Earlier analyst summary follows:
 URL: https://magic.wizards.com/en/news/feature/leading-kaldheim-set-design-2021-01-19
 
 The Boast section explains that boast was developed as an aggressive attacking-combat mechanic. It expressly says boast mostly found a home in white, red, and black, and notes the design avoided naturally evasive creatures so users had to risk the creature in combat.

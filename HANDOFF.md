@@ -1,7 +1,7 @@
 # Active handoff - Protocol v1.0 B mechanics
 
 ## Control
-- Status: `ready-for-qa`. Owner authorized the next alphabet batch, local preview update, evidence and plain-language rationale; 2021 remains frozen. Exact candidate will be recorded with the independent review below.
+- Status: `ready-for-qa` (`qa-failed -> dev-in-progress -> ready-for-qa`). The three named evidence/metadata findings are repaired; all substantive decisions and player-facing fields are unchanged.
 - Branch: `codex/a-mechanics-review`; task baseline `a5a1c6b5463fdff20695aa26e2c6dc05ed4a6487`; branch baseline `9a063b3a98cfcb7672783f83a102e8f968242490`. Reuse the existing preview checkout; no additional branch or worktree.
 - Allowed files: `HANDOFF.md`; new `docs/mechanics-research/b-protocol-core.json`, `b-protocol-extended.json`, `B-PROTOCOL-REVIEW.md`; new evidence files under `docs/mechanics-research/b-protocol-evidence/`; `tools/build_mechanics_assessments.py`; `data/mechanics-assessments.v1.json`; `vox-color/mechanical-explorer.html`; `tools/check_assessment_browser.mjs`; `tools/check_supplement_browser.mjs`. Ignored preview package and temporary external research scripts permitted.
 - Ownership: two RobDev researchers own disjoint nine-record B packets and uniquely prefixed evidence files; coordinator owns integration/generator/runtime/payload/harness/review table/ledger. Independent RobQA owns ledger only after committed ready-for-qa.
@@ -23,6 +23,52 @@
 - Extended the existing producer and assessment-loader envelope from A25 to A/B43, retaining the same symbol/list/detail/evidence rendering. All 25 A payload records compare exactly equal to baseline; A canonical records/captures and all 2021 source, fixtures, raw supplement, examples and scope owners remain diff-zero. No dependency, route or new subsystem.
 - Validation: deterministic producer --check PASS; Node syntax PASS; source and taxonomy gates PASS; all 53 recon assertions PASS. Focused Edge browser PASS over 43 assessments, concrete B links/copy, exact symbol tiers, unchanged 84/84 built-in checks, Article216/A–Z543+44/math, keyboard/360px containment, six malformed/missing-payload failure cases, late-load focus and escaping. No broad wheel or 780-query supplemental sweep. One browser run used an authorized escalation for the local Edge process.
 - RobQA requested: independent QA-4 substantive review of all18 decisions, exact original/capture/query references and scopes, player wording, deterministic materialization, A/2021 isolation, and candidate Git envelope. After pass, root will record reviewed metadata, obtain a bounded exact-candidate confirmation, package the local preview and leave Owner review open. No push/merge/publication.
+
+---
+## RobDev bounded evidence repair
+
+- Normalized the twelve generated text transcriptions to UTF-8/LF and rebound their exact repository-byte hashes in the shared receipt and B packets. Original HTML and PDF bytes are unchanged. The canonical payload changes only its two B source-binding digests.
+- Derived query parameters from their saved URLs, correcting only the two flavor-label order values. Relabeled the seven preserved early summaries as superseded analyst notes and pointed to the actual archived originals. No tier, status, rationale, card ledger, scope, confidence, public copy, runtime or A/2021 change.
+- Producer determinism and pre-commit semantic isolation checked; independent review must verify the committed blob hashes at the repair SHA.
+
+## Independent RobQA — candidate `1bda62107ffd5666bcd28bed42fdf1bbdadca84f`
+
+### Change classification
+
+- QA tier: **QA-4** for 18 new semantic qualification/tier decisions and their shared runtime projection; player-facing explanation is a nested QA-1 seam.
+- Changed behavior: adds the complete B assessment batch, its evidence, deterministic projection and focused assessment-surface coverage.
+- Protected behavior intentionally untouched: all 25 A payload rows and their canonical records/captures; frozen 2021 source/runtime/fixtures/math; existing supplemental corpus, scope and examples; unrelated wheel behavior.
+- QA execution: **SEPARATE**, Independent RobQA. The candidate changes protected semantic authority and shared qualification output, so implementation self-review cannot supply the required independence.
+- Exact candidate/evidence reference: `1bda62107ffd5666bcd28bed42fdf1bbdadca84f` over task baseline `a5a1c6b5463fdff20695aa26e2c6dc05ed4a6487`; this section is the durable review record.
+
+### Tests selected and objective results
+
+- Candidate scope and whitespace: `git status --short` was empty and `git rev-parse HEAD` returned the exact candidate. `git diff --name-only baseline..candidate` returned 187 paths, all inside the declared envelope. `git diff --check` is clean for authored/material paths outside immutable evidence captures; raw captured HTML and the readable PDF bytes retain source whitespace and make the unfiltered command noisy.
+- All-record protocol audit: parsed all 18 records and checked exact W/U/B/R/G dispositions, tier/status/route enums, support/contrary references, population references and totals, special-scope separation, and E3 minimum support. Result: 18 records, zero structural/reference/decision-status errors and no E3 assignment supported by fewer than two qualifying designs.
+- Query/screening/chronology audit: independently rebuilt each keyword/exact-term `include:extras` card union from committed pages, compared it with every screened ledger, checked counts, completion/errors and `has_more`, then compared each included card's `first_release` with the minimum eligible committed printing. Result: all 18 unions fully screened; all page/count/completion and first-release checks pass. Two query-parameter metadata mismatches remain below.
+- Card-role and tier review: read all 18 candidate ledgers, decision rationales and player explanations, including native versus grant/recipient/interactor/false-positive, face/multicolor attribution, special scopes, nearest alternatives and qualitative Primary/Secondary/Tertiary boundaries. Result: no substantive card-scope or tier defect found. Bargain W Primary is supported by two different native spell roles in a deliberately all-color original rollout; Blight W Secondary is supported by repeated spell/Aura/modal cost upgrades but lacks the repeatable creature-engine role that distinguishes B/R. The distinction is qualitative rather than count-derived.
+- Capture/source audit: all source URLs are original external URLs; all capture paths resolve. Bundled `pypdf` reopened 13 referenced PDFs with extractable text and found the cited mechanic term/section in each. SHA-256 was recomputed from **committed Git blobs**, not Windows working-tree bytes: 122 of 134 record capture bindings match; twelve unique shared TXT captures fail, appearing in thirteen record bindings because the Gatecrash capture is reused.
+- Deterministic projection: `python tools/build_mechanics_assessments.py --check` exited 0 with `PASS: 43 protocol v1.0 A/B records; deterministic payload and source bindings`.
+- A/2021 isolation: recursive JSON comparison found all 25 baseline A payload rows exactly equal in the 43-row candidate. Direct protected-path diff returned `PROTECTED_DIFF_ZERO` for A canonical packets/captures, frozen 2021 owners and existing supplement/scope/example owners.
+- Player-language review: read all 18 summaries, 90 per-color explanations and material limitations in order. They name concrete cards/roles, preserve uncertainty and avoid raw receipt/hash/protocol/status language. Final appearance, hierarchy and reading feel remain Owner judgment.
+
+### Findings and verdict
+
+- **MAJOR — committed evidence hashes are not reproducible.** Reproduction: hash each `sources[].capture.files[]` path from `git show 1bda621:<path>`, then compare it with the bound SHA-256. Twelve unique `shared-*.txt` blobs mismatch (thirteen record bindings because `shared-gatecrash.txt` is used by Battalion and Bloodrush). Expected: each recorded byte hash identifies the exact committed capture. Actual: the records bind CRLF working-tree bytes while Git stores LF blobs. Impact: the exact candidate cannot reproduce its claimed source bindings. Narrow repair: normalize those generated transcriptions to LF, bind the committed LF hashes, update `shared-capture-receipts.json`, affected B records and generated payload only.
+- **MINOR — two query parameter objects contradict their exact URLs.** Buy Information Q1 and Berzerker Q1 retain `parameters.order: "name"`, while their exact URLs and committed receipts use `order=released`. Expected: normalized parameters describe the saved request. Actual: the duplicated metadata disagrees. Repair only those two parameter values and deterministic derivatives.
+- **MINOR — seven archived drafts mislabel summaries as source captures.** `extended-{blitz,bloodrush,bloodthirst,boast,bolster,bushido,buyback}/official-mechanics-source.txt` are unbound agent-written summaries headed `Official source capture`; the actual bound shared captures are valid. Expected: archival notes cannot be mistaken for original evidence. Relabel each retained file as a superseded research note/non-authority and point to its actual shared capture; do not delete it or promote it into `sources`.
+- Verdict: **RobQAPass FAIL / `qa-failed`** for this exact candidate. The substantive all-18 decision review is otherwise positive. Return only these named repairs to RobDev; do not reopen tiers, card screening, copy, UI or protected data without new evidence.
+
+### Tests intentionally skipped / proportionality
+
+- Focused Edge assessment harness: not independently rerun after the committed-hash failure made this candidate non-passable. The developer's exact-candidate run covers 43 assessments and six fail-soft cases; the named repairs are evidence/metadata and deterministic-binding changes. Reconsider only if a repair touches projected player content or runtime behavior.
+- Broad wheel, 780-query supplement, exhaustive journey, screenshot and viewport matrices: not required; no corresponding protected behavior changed. Owner-visual remains active.
+- CPU-heavy validation: **NOT REQUIRED**. No placement engine, score, route or frozen calculation changed.
+- Stateful adversarial coverage: **NOT APPLICABLE**. These are immutable semantic records and deterministic payload projection, not a state-ownership/history transition. Focused malformed/missing-payload behavior is already a transport-failure integration case, not Section 13A state ownership.
+
+### Owner review boundary
+
+- Owner review is not open on this failed candidate. After a committed bounded repair, RobQA should compare only the named evidence bytes/hashes, two parameter values, seven note labels/pointers and deterministic derivatives; rerun committed-blob hashes, producer `--check`, A25/protected-zero checks, and confirm no tier/rationale/card-role/player-copy/runtime change.
 
 ---
 # Prior handoff - Player-facing A mechanic explanations

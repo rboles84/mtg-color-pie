@@ -2748,7 +2748,7 @@
               {
                 "path": "docs/mechanics-research/b-protocol-evidence/shared-gatecrash.txt",
                 "format": "txt",
-                "sha256": "5d7f3d843e4458f97d674046477e9346cdcfca1d034fcaf214731057716cf004"
+                "sha256": "5bea962a662ce3590c4b9bda3022b5b3c5a793ce7c62b68b63d42261623325df"
               },
               {
                 "path": "docs/mechanics-research/b-protocol-evidence/shared-gatecrash.pdf",
@@ -2757,7 +2757,8 @@
               }
             ],
             "status": "complete",
-            "notes": "Full original HTML plus readable publisher-page transcription. PDF generated locally, not publisher-issued."
+            "notes": "Full original HTML plus readable publisher-page transcription. PDF generated locally, not publisher-issued.",
+            "serialization": "Original HTML bytes; generated UTF-8/LF text transcription and local PDF. SHA-256 binds repository file bytes."
           }
         }
       ],
@@ -4539,7 +4540,7 @@
               {
                 "path": "docs/mechanics-research/b-protocol-evidence/shared-bloodthirst.txt",
                 "format": "txt",
-                "sha256": "1086ba38dd45cde03455b88631753f7fa7de612630c972b1aedcc4fb365bf1de"
+                "sha256": "506b824f0d048ef61b1f839d50761aee759649d86dd414f87e34a244e7a166fa"
               },
               {
                 "path": "docs/mechanics-research/b-protocol-evidence/shared-bloodthirst.pdf",
@@ -4548,7 +4549,8 @@
               }
             ],
             "status": "complete",
-            "notes": "Full original HTML plus readable publisher-page transcription. PDF generated locally, not publisher-issued."
+            "notes": "Full original HTML plus readable publisher-page transcription. PDF generated locally, not publisher-issued.",
+            "serialization": "Original HTML bytes; generated UTF-8/LF text transcription and local PDF. SHA-256 binds repository file bytes."
           }
         }
       ],
@@ -7373,7 +7375,7 @@
               {
                 "path": "docs/mechanics-research/b-protocol-evidence/shared-boast.txt",
                 "format": "txt",
-                "sha256": "74414b5ac67108355193dc30ba938a3b8dd48bce342b628b2c5c38123080fd13"
+                "sha256": "527d11e9584ba8b444fa51126f976c35ee0a65e426d50f5cdabf2bfd7f2557c0"
               },
               {
                 "path": "docs/mechanics-research/b-protocol-evidence/shared-boast.pdf",
@@ -7382,7 +7384,8 @@
               }
             ],
             "status": "complete",
-            "notes": "Full original HTML plus readable publisher-page transcription. PDF generated locally, not publisher-issued."
+            "notes": "Full original HTML plus readable publisher-page transcription. PDF generated locally, not publisher-issued.",
+            "serialization": "Original HTML bytes; generated UTF-8/LF text transcription and local PDF. SHA-256 binds repository file bytes."
           }
         }
       ],
@@ -9970,7 +9973,7 @@
               {
                 "path": "docs/mechanics-research/b-protocol-evidence/shared-bolster.txt",
                 "format": "txt",
-                "sha256": "a8e537ba5b5a3366606193963ff971bb36a757474021710aaacb78e1684f52e3"
+                "sha256": "eadad0968e6c7fdcd05ff7baff5b677a4b64f54314b9a85e0cc9767d0ac21334"
               },
               {
                 "path": "docs/mechanics-research/b-protocol-evidence/shared-bolster.pdf",
@@ -9979,7 +9982,8 @@
               }
             ],
             "status": "complete",
-            "notes": "Full original HTML plus readable publisher-page transcription. PDF generated locally, not publisher-issued."
+            "notes": "Full original HTML plus readable publisher-page transcription. PDF generated locally, not publisher-issued.",
+            "serialization": "Original HTML bytes; generated UTF-8/LF text transcription and local PDF. SHA-256 binds repository file bytes."
           }
         }
       ],
@@ -12814,7 +12818,7 @@
               {
                 "path": "docs/mechanics-research/b-protocol-evidence/shared-bushido.txt",
                 "format": "txt",
-                "sha256": "16de1fcf516a519134453b19380886838cbbdd25fb70e6f8d43126dd148720e1"
+                "sha256": "97da6d92e91a6d2393041d8279a1886c7015de2060bca8111448ca6067118dc6"
               },
               {
                 "path": "docs/mechanics-research/b-protocol-evidence/shared-bushido.pdf",
@@ -12823,7 +12827,8 @@
               }
             ],
             "status": "complete",
-            "notes": "Full original HTML plus readable publisher-page transcription. PDF generated locally, not publisher-issued."
+            "notes": "Full original HTML plus readable publisher-page transcription. PDF generated locally, not publisher-issued.",
+            "serialization": "Original HTML bytes; generated UTF-8/LF text transcription and local PDF. SHA-256 binds repository file bytes."
           }
         }
       ],
@@ -16529,7 +16534,7 @@
               {
                 "path": "docs/mechanics-research/b-protocol-evidence/shared-buyback.txt",
                 "format": "txt",
-                "sha256": "85abec6999cfb62c96a0d0e9663e4471ced9caecdb595ae4a64f84a7bec9550e"
+                "sha256": "4a4d07392303c12728b2ea23a9ac47c2e22a8918886a9e521c5e217a19a21768"
               },
               {
                 "path": "docs/mechanics-research/b-protocol-evidence/shared-buyback.pdf",
@@ -16538,7 +16543,8 @@
               }
             ],
             "status": "complete",
-            "notes": "Full original HTML plus readable publisher-page transcription. PDF generated locally, not publisher-issued."
+            "notes": "Full original HTML plus readable publisher-page transcription. PDF generated locally, not publisher-issued.",
+            "serialization": "Original HTML bytes; generated UTF-8/LF text transcription and local PDF. SHA-256 binds repository file bytes."
           }
         }
       ],
@@ -20835,7 +20841,7 @@
           "url": "https://api.scryfall.com/cards/search?q=o%3A%2F%5CbBuy%5Cs%2BInformation%5Cb%2F%20include%3Aextras&unique=cards&order=released",
           "parameters": {
             "unique": "cards",
-            "order": "name"
+            "order": "released"
           },
           "retrieved_at_utc": "2026-10-28T04:42:40.142Z",
           "pages": [
@@ -21405,7 +21411,7 @@
           "url": "https://api.scryfall.com/cards/search?q=o%3A%2F%5CbBerzerker%5Cb%2F%20include%3Aextras&unique=cards&order=released",
           "parameters": {
             "unique": "cards",
-            "order": "name"
+            "order": "released"
           },
           "retrieved_at_utc": "2026-10-28T04:42:41.795Z",
           "pages": [
