@@ -516,10 +516,10 @@
         "The limited-sample route cannot apply because qualifying colored evidence occurs in both blue and green."
       ],
       "review": {
-        "evidence_completeness": "Saved keyword, exact-word, and prints receipts mapped; full independent review pending.",
+        "evidence_completeness": "Saved keyword, exact-word, and prints receipts mapped; independent evidence review completed; see the cited passing candidate.",
         "source_scope_check": "Card facts are card evidence only; Afflict E2 bridge explicitly bounded.",
         "attribution_check": "Per-card colors, faces and joint evidence are explicit.",
-        "tier_and_alternative_check": "Each assigned decision names its nearest alternative in decision text; independent check pending.",
+        "tier_and_alternative_check": "Each assigned decision names its nearest alternative in decision text; independent tier and alternative check completed; see the cited passing candidate.",
         "isolation_check": "Only new core protocol record is authored; 2021 baseline and original packets remain unchanged.",
         "unresolved_findings": [],
         "reviewer_verdict": "pass",
@@ -541,7 +541,7 @@
           "outside-five-colors separation"
         ],
         "new_evidence_or_reason": "Bounded v1.0 conformance review of retained card evidence; unsupported count-only wording removed or limited.",
-        "protocol_version_change": "Prior assessment was not protocol-certified; this is v1.0 draft conformance output.",
+        "protocol_version_change": "Prior assessment was not protocol-certified; this is v1.0 reviewed conformance output.",
         "review_date": "2026-10-27",
         "application_import_authorization": "User explicitly authorized applying protocol to all A mechanics and updating the local preview; 2021 remains untouched. No publication or integration authorization."
       },
@@ -1647,10 +1647,10 @@
         "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch."
       ],
       "review": {
-        "evidence_completeness": "Saved keyword, exact-word, and prints receipts mapped; full independent review pending.",
+        "evidence_completeness": "Saved keyword, exact-word, and prints receipts mapped; independent evidence review completed; see the cited passing candidate.",
         "source_scope_check": "Card facts are card evidence only; Afflict E2 bridge explicitly bounded.",
         "attribution_check": "Per-card colors, faces and joint evidence are explicit.",
-        "tier_and_alternative_check": "Each assigned decision names its nearest alternative in decision text; independent check pending.",
+        "tier_and_alternative_check": "Each assigned decision names its nearest alternative in decision text; independent tier and alternative check completed; see the cited passing candidate.",
         "isolation_check": "Only new core protocol record is authored; 2021 baseline and original packets remain unchanged.",
         "unresolved_findings": [],
         "reviewer_verdict": "pass",
@@ -1672,7 +1672,7 @@
           "outside-five-colors separation"
         ],
         "new_evidence_or_reason": "Bounded v1.0 conformance review of retained card evidence; unsupported count-only wording removed or limited.",
-        "protocol_version_change": "Prior assessment was not protocol-certified; this is v1.0 draft conformance output.",
+        "protocol_version_change": "Prior assessment was not protocol-certified; this is v1.0 reviewed conformance output.",
         "review_date": "2026-10-27",
         "application_import_authorization": "User explicitly authorized applying protocol to all A mechanics and updating the local preview; 2021 remains untouched. No publication or integration authorization."
       },
@@ -3138,10 +3138,10 @@
         "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch."
       ],
       "review": {
-        "evidence_completeness": "Saved keyword, exact-word, and prints receipts mapped; full independent review pending.",
+        "evidence_completeness": "Saved keyword, exact-word, and prints receipts mapped; independent evidence review completed; see the cited passing candidate.",
         "source_scope_check": "Card facts are card evidence only; Afflict E2 bridge explicitly bounded.",
         "attribution_check": "Per-card colors, faces and joint evidence are explicit.",
-        "tier_and_alternative_check": "Each assigned decision names its nearest alternative in decision text; independent check pending.",
+        "tier_and_alternative_check": "Each assigned decision names its nearest alternative in decision text; independent tier and alternative check completed; see the cited passing candidate.",
         "isolation_check": "Only new core protocol record is authored; 2021 baseline and original packets remain unchanged.",
         "unresolved_findings": [],
         "reviewer_verdict": "pass",
@@ -3163,7 +3163,7 @@
           "outside-five-colors separation"
         ],
         "new_evidence_or_reason": "Bounded v1.0 conformance review of retained card evidence; unsupported count-only wording removed or limited.",
-        "protocol_version_change": "Prior assessment was not protocol-certified; this is v1.0 draft conformance output.",
+        "protocol_version_change": "Prior assessment was not protocol-certified; this is v1.0 reviewed conformance output.",
         "review_date": "2026-10-27",
         "application_import_authorization": "User explicitly authorized applying protocol to all A mechanics and updating the local preview; 2021 remains untouched. No publication or integration authorization."
       },
@@ -3984,10 +3984,10 @@
         "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch."
       ],
       "review": {
-        "evidence_completeness": "Saved keyword, exact-word, and prints receipts mapped; full independent review pending.",
+        "evidence_completeness": "Saved keyword, exact-word, and prints receipts mapped; independent evidence review completed; see the cited passing candidate.",
         "source_scope_check": "Card facts are card evidence only; Afflict E2 bridge explicitly bounded.",
         "attribution_check": "Per-card colors, faces and joint evidence are explicit.",
-        "tier_and_alternative_check": "Each assigned decision names its nearest alternative in decision text; independent check pending.",
+        "tier_and_alternative_check": "Each assigned decision names its nearest alternative in decision text; independent tier and alternative check completed; see the cited passing candidate.",
         "isolation_check": "Only new core protocol record is authored; 2021 baseline and original packets remain unchanged.",
         "unresolved_findings": [],
         "reviewer_verdict": "pass",
@@ -4009,7 +4009,7 @@
           "outside-five-colors separation"
         ],
         "new_evidence_or_reason": "Bounded v1.0 conformance review of retained card evidence; unsupported count-only wording removed or limited.",
-        "protocol_version_change": "Prior assessment was not protocol-certified; this is v1.0 draft conformance output.",
+        "protocol_version_change": "Prior assessment was not protocol-certified; this is v1.0 reviewed conformance output.",
         "review_date": "2026-10-27",
         "application_import_authorization": "User explicitly authorized applying protocol to all A mechanics and updating the local preview; 2021 remains untouched. No publication or integration authorization."
       },
@@ -8131,10 +8131,10 @@
         "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch."
       ],
       "review": {
-        "evidence_completeness": "Saved keyword, exact-word, and prints receipts mapped; full independent review pending.",
+        "evidence_completeness": "Saved keyword, exact-word, and prints receipts mapped; independent evidence review completed; see the cited passing candidate.",
         "source_scope_check": "Card facts are card evidence only; Afflict E2 bridge explicitly bounded.",
         "attribution_check": "Per-card colors, faces and joint evidence are explicit.",
-        "tier_and_alternative_check": "Each assigned decision names its nearest alternative in decision text; independent check pending.",
+        "tier_and_alternative_check": "Each assigned decision names its nearest alternative in decision text; independent tier and alternative check completed; see the cited passing candidate.",
         "isolation_check": "Only new core protocol record is authored; 2021 baseline and original packets remain unchanged.",
         "unresolved_findings": [],
         "reviewer_verdict": "pass",
@@ -8156,7 +8156,7 @@
           "outside-five-colors separation"
         ],
         "new_evidence_or_reason": "Bounded v1.0 conformance review of retained card evidence; unsupported count-only wording removed or limited.",
-        "protocol_version_change": "Prior assessment was not protocol-certified; this is v1.0 draft conformance output.",
+        "protocol_version_change": "Prior assessment was not protocol-certified; this is v1.0 reviewed conformance output.",
         "review_date": "2026-10-27",
         "application_import_authorization": "User explicitly authorized applying protocol to all A mechanics and updating the local preview; 2021 remains untouched. No publication or integration authorization."
       },
@@ -9149,10 +9149,10 @@
         "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch."
       ],
       "review": {
-        "evidence_completeness": "Saved keyword, exact-word, and prints receipts mapped; full independent review pending.",
+        "evidence_completeness": "Saved keyword, exact-word, and prints receipts mapped; independent evidence review completed; see the cited passing candidate.",
         "source_scope_check": "Card facts are card evidence only; Afflict E2 bridge explicitly bounded.",
         "attribution_check": "Per-card colors, faces and joint evidence are explicit.",
-        "tier_and_alternative_check": "Each assigned decision names its nearest alternative in decision text; independent check pending.",
+        "tier_and_alternative_check": "Each assigned decision names its nearest alternative in decision text; independent tier and alternative check completed; see the cited passing candidate.",
         "isolation_check": "Only new core protocol record is authored; 2021 baseline and original packets remain unchanged.",
         "unresolved_findings": [],
         "reviewer_verdict": "pass",
@@ -9174,7 +9174,7 @@
           "outside-five-colors separation"
         ],
         "new_evidence_or_reason": "Bounded v1.0 conformance review of retained card evidence; unsupported count-only wording removed or limited.",
-        "protocol_version_change": "Prior assessment was not protocol-certified; this is v1.0 draft conformance output.",
+        "protocol_version_change": "Prior assessment was not protocol-certified; this is v1.0 reviewed conformance output.",
         "review_date": "2026-10-27",
         "application_import_authorization": "User explicitly authorized applying protocol to all A mechanics and updating the local preview; 2021 remains untouched. No publication or integration authorization."
       },
@@ -10090,10 +10090,10 @@
         "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch."
       ],
       "review": {
-        "evidence_completeness": "Saved keyword, exact-word, and prints receipts mapped; full independent review pending.",
+        "evidence_completeness": "Saved keyword, exact-word, and prints receipts mapped; independent evidence review completed; see the cited passing candidate.",
         "source_scope_check": "Card facts are card evidence only; Afflict E2 bridge explicitly bounded.",
         "attribution_check": "Per-card colors, faces and joint evidence are explicit.",
-        "tier_and_alternative_check": "Each assigned decision names its nearest alternative in decision text; independent check pending.",
+        "tier_and_alternative_check": "Each assigned decision names its nearest alternative in decision text; independent tier and alternative check completed; see the cited passing candidate.",
         "isolation_check": "Only new core protocol record is authored; 2021 baseline and original packets remain unchanged.",
         "unresolved_findings": [],
         "reviewer_verdict": "pass",
@@ -10115,7 +10115,7 @@
           "outside-five-colors separation"
         ],
         "new_evidence_or_reason": "Bounded v1.0 conformance review of retained card evidence; unsupported count-only wording removed or limited.",
-        "protocol_version_change": "Prior assessment was not protocol-certified; this is v1.0 draft conformance output.",
+        "protocol_version_change": "Prior assessment was not protocol-certified; this is v1.0 reviewed conformance output.",
         "review_date": "2026-10-27",
         "application_import_authorization": "User explicitly authorized applying protocol to all A mechanics and updating the local preview; 2021 remains untouched. No publication or integration authorization."
       },
@@ -11704,10 +11704,10 @@
         "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch."
       ],
       "review": {
-        "evidence_completeness": "Saved keyword, exact-word, and prints receipts mapped; full independent review pending.",
+        "evidence_completeness": "Saved keyword, exact-word, and prints receipts mapped; independent evidence review completed; see the cited passing candidate.",
         "source_scope_check": "Card facts are card evidence only; Afflict E2 bridge explicitly bounded.",
         "attribution_check": "Per-card colors, faces and joint evidence are explicit.",
-        "tier_and_alternative_check": "Each assigned decision names its nearest alternative in decision text; independent check pending.",
+        "tier_and_alternative_check": "Each assigned decision names its nearest alternative in decision text; independent tier and alternative check completed; see the cited passing candidate.",
         "isolation_check": "Only new core protocol record is authored; 2021 baseline and original packets remain unchanged.",
         "unresolved_findings": [],
         "reviewer_verdict": "pass",
@@ -11729,7 +11729,7 @@
           "outside-five-colors separation"
         ],
         "new_evidence_or_reason": "Bounded v1.0 conformance review of retained card evidence; unsupported count-only wording removed or limited.",
-        "protocol_version_change": "Prior assessment was not protocol-certified; this is v1.0 draft conformance output.",
+        "protocol_version_change": "Prior assessment was not protocol-certified; this is v1.0 reviewed conformance output.",
         "review_date": "2026-10-27",
         "application_import_authorization": "User explicitly authorized applying protocol to all A mechanics and updating the local preview; 2021 remains untouched. No publication or integration authorization."
       },
@@ -12683,10 +12683,10 @@
         "Inherited receipts were collected before this review; timestamps are normalized to UTC and are not represented as a new fetch."
       ],
       "review": {
-        "evidence_completeness": "Saved keyword, exact-word, and prints receipts mapped; full independent review pending.",
+        "evidence_completeness": "Saved keyword, exact-word, and prints receipts mapped; independent evidence review completed; see the cited passing candidate.",
         "source_scope_check": "Card facts are card evidence only; Afflict E2 bridge explicitly bounded.",
         "attribution_check": "Per-card colors, faces and joint evidence are explicit.",
-        "tier_and_alternative_check": "Each assigned decision names its nearest alternative in decision text; independent check pending.",
+        "tier_and_alternative_check": "Each assigned decision names its nearest alternative in decision text; independent tier and alternative check completed; see the cited passing candidate.",
         "isolation_check": "Only new core protocol record is authored; 2021 baseline and original packets remain unchanged.",
         "unresolved_findings": [],
         "reviewer_verdict": "pass",
@@ -12708,7 +12708,7 @@
           "outside-five-colors separation"
         ],
         "new_evidence_or_reason": "Bounded v1.0 conformance review of retained card evidence; unsupported count-only wording removed or limited.",
-        "protocol_version_change": "Prior assessment was not protocol-certified; this is v1.0 draft conformance output.",
+        "protocol_version_change": "Prior assessment was not protocol-certified; this is v1.0 reviewed conformance output.",
         "review_date": "2026-10-27",
         "application_import_authorization": "User explicitly authorized applying protocol to all A mechanics and updating the local preview; 2021 remains untouched. No publication or integration authorization."
       },

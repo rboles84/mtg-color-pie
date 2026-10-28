@@ -1668,10 +1668,10 @@
       "summary": "White, red and green are proposed principal homes in the native Alliance implementation. Blue has only joint evidence in the saved sample, and black has no qualifying source.",
       "limitations": [
         "Back-Alley Gardener is digital. Multicolor Galadriel supports the mechanic's breadth but does not independently establish a blue tier. The exact Primary/Secondary boundary is a qualitative sample judgment.",
-        "Draft conformance record; saved timestamps are historical cutoffs, not fresh queries."
+        "Reviewed conformance record; saved timestamps are historical cutoffs, not fresh queries."
       ],
       "review": {
-        "evidence_completeness": "Developer conformance mapping complete; independent review pending.",
+        "evidence_completeness": "Developer conformance mapping complete; independent evidence review completed; see the cited passing candidate.",
         "source_scope_check": "E3 only; Scryfall supports facts/population, not official ranking.",
         "attribution_check": "Assignments explicitly use E3 and special scopes remain separate.",
         "tier_and_alternative_check": "Reassessed against original roles and first-print contexts; weak singleton and special-only non-driving observations left unresolved.",
@@ -5630,10 +5630,10 @@
       "summary": "Black is proposed Primary, with blue and red Secondary in the released-paper sample. Green special-set evidence is recorded separately and does not establish a paper tier.",
       "limitations": [
         "The black Army token created by a blue/red spell does not make that spell black. Special sources such as Bin Chicken and You and Ooze Army? are not evidence of ordinary format availability. Barad-dur is colorless despite black identity.",
-        "Draft conformance record; saved timestamps are historical cutoffs, not fresh queries."
+        "Reviewed conformance record; saved timestamps are historical cutoffs, not fresh queries."
       ],
       "review": {
-        "evidence_completeness": "Developer conformance mapping complete; independent review pending.",
+        "evidence_completeness": "Developer conformance mapping complete; independent evidence review completed; see the cited passing candidate.",
         "source_scope_check": "E3 only; Scryfall supports facts/population, not official ranking.",
         "attribution_check": "Assignments explicitly use E3 and special scopes remain separate.",
         "tier_and_alternative_check": "Reassessed against original roles and first-print contexts; weak singleton and special-only non-driving observations left unresolved.",
@@ -6541,10 +6541,10 @@
       "summary": "Black and green have broad original tribal implementations; white is proposed Secondary. Red access is observed, but the saved evidence does not justify a tier for its singleton.",
       "limitations": [
         "This is a small historical mechanic; rarity and functional breadth inform the proposal alongside counts. Reprints do not add independent designs.",
-        "Draft conformance record; saved timestamps are historical cutoffs, not fresh queries."
+        "Reviewed conformance record; saved timestamps are historical cutoffs, not fresh queries."
       ],
       "review": {
-        "evidence_completeness": "Developer conformance mapping complete; independent review pending.",
+        "evidence_completeness": "Developer conformance mapping complete; independent evidence review completed; see the cited passing candidate.",
         "source_scope_check": "E3 only; Scryfall supports facts/population, not official ranking.",
         "attribution_check": "Assignments explicitly use E3 and special scopes remain separate.",
         "tier_and_alternative_check": "Reassessed against original roles and first-print contexts; weak singleton and special-only non-driving observations left unresolved.",
@@ -8503,10 +8503,10 @@
       "summary": "White, blue and black each have broad original implementations and are proposed Primary. Red and green native access is retained without an unsupported Tertiary label.",
       "limitations": [
         "Windy City Aven and Windy City Elemental are event-specific Ascend variants; they are qualified context and do not drive the primary homes. Colorless lands and equipment are separate; Ascend from Avernus is an unrelated name hit.",
-        "Draft conformance record; saved timestamps are historical cutoffs, not fresh queries."
+        "Reviewed conformance record; saved timestamps are historical cutoffs, not fresh queries."
       ],
       "review": {
-        "evidence_completeness": "Developer conformance mapping complete; independent review pending.",
+        "evidence_completeness": "Developer conformance mapping complete; independent evidence review completed; see the cited passing candidate.",
         "source_scope_check": "E3 only; Scryfall supports facts/population, not official ranking.",
         "attribution_check": "Assignments explicitly use E3 and special scopes remain separate.",
         "tier_and_alternative_check": "Reassessed against original roles and first-print contexts; weak singleton and special-only non-driving observations left unresolved.",
@@ -10181,10 +10181,10 @@
       "summary": "Within Unstable’s Contraption environment, red is proposed Primary and the other colors Secondary. These scoped judgments do not describe ordinary-paper keyword availability.",
       "limitations": [
         "Special-set scope does not imply ordinary Commander legality. Cogmentor and Suspicious Nanny only reassemble. Steamflogger Boss doubles another assembly source and is retained as contextual red support, not a native source.",
-        "Draft conformance record; saved timestamps are historical cutoffs, not fresh queries."
+        "Reviewed conformance record; saved timestamps are historical cutoffs, not fresh queries."
       ],
       "review": {
-        "evidence_completeness": "Developer conformance mapping complete; independent review pending.",
+        "evidence_completeness": "Developer conformance mapping complete; independent evidence review completed; see the cited passing candidate.",
         "source_scope_check": "E3 only; Scryfall supports facts/population, not official ranking.",
         "attribution_check": "Assignments explicitly use E3 and special scopes remain separate.",
         "tier_and_alternative_check": "Reassessed against original roles and first-print contexts; weak singleton and special-only non-driving observations left unresolved.",
@@ -11056,11 +11056,11 @@
       "summary": "The saved population is chiefly Star Trek previews. Borg Queen, Perfection Manifest has an earlier promo printing, but the limited released-paper evidence and preview-only independent colors do not establish WUBRG tiers.",
       "limitations": [
         "Preview-era assessment: all eight representative set printings release November 13, 2026, but one design has an earlier PURL promo. Incomplete set exposure can change these judgments. Empty games/legality fields on previews are not treated as invalid cards. No final release color policy or Commander availability is asserted.",
-        "Draft conformance record; saved timestamps are historical cutoffs, not fresh queries.",
+        "Reviewed conformance record; saved timestamps are historical cutoffs, not fresh queries.",
         "The recorded October 8 promo is not treated as though every Star Trek preview were already released."
       ],
       "review": {
-        "evidence_completeness": "Developer conformance mapping complete; independent review pending.",
+        "evidence_completeness": "Developer conformance mapping complete; independent evidence review completed; see the cited passing candidate.",
         "source_scope_check": "E3 only; Scryfall supports facts/population, not official ranking.",
         "attribution_check": "Assignments explicitly use E3 and special scopes remain separate.",
         "tier_and_alternative_check": "Reassessed against original roles and first-print contexts; weak singleton and special-only non-driving observations left unresolved.",
@@ -12392,10 +12392,10 @@
       "summary": "Within Battlebond’s multiplayer implementation, white, blue, black and green have varied original roles and proposed Primary homes. Red’s original applications are confined to creatures and are assessed Secondary; its later playtest variant is separate.",
       "limitations": [
         "All-Star Kicker modifies the payment of a kicker cost and is treated as a special variant, not another ordinary Assist spell. Receiving Assist from Yume does not assign the mechanic independently to every recipient color.",
-        "Draft conformance record; saved timestamps are historical cutoffs, not fresh queries."
+        "Reviewed conformance record; saved timestamps are historical cutoffs, not fresh queries."
       ],
       "review": {
-        "evidence_completeness": "Developer conformance mapping complete; independent review pending.",
+        "evidence_completeness": "Developer conformance mapping complete; independent evidence review completed; see the cited passing candidate.",
         "source_scope_check": "E3 only; Scryfall supports facts/population, not official ranking.",
         "attribution_check": "Assignments explicitly use E3 and special scopes remain separate.",
         "tier_and_alternative_check": "Reassessed against original roles and first-print contexts; weak singleton and special-only non-driving observations left unresolved.",
@@ -13856,10 +13856,10 @@
       "summary": "White, black and green have multiple native Host-combining designs and proposed Primary homes within the special-set environment. Blue and red singleton access remains tier-unresolved.",
       "limitations": [
         "Support cards such as Dr. Julius Jumblemorph and Teacher's Pet can combine cards but do not themselves have or grant Augment; their excluded status concerns native counts, not practical support. The small G/W/B difference makes exact tier boundaries tentative.",
-        "Draft conformance record; saved timestamps are historical cutoffs, not fresh queries."
+        "Reviewed conformance record; saved timestamps are historical cutoffs, not fresh queries."
       ],
       "review": {
-        "evidence_completeness": "Developer conformance mapping complete; independent review pending.",
+        "evidence_completeness": "Developer conformance mapping complete; independent evidence review completed; see the cited passing candidate.",
         "source_scope_check": "E3 only; Scryfall supports facts/population, not official ranking.",
         "attribution_check": "Assignments explicitly use E3 and special scopes remain separate.",
         "tier_and_alternative_check": "Reassessed against original roles and first-print contexts; weak singleton and special-only non-driving observations left unresolved.",
@@ -14360,10 +14360,10 @@
       "summary": "Blue Aura Swap access is observed, but its singleton and general design history do not establish the color-specific context required for a proposed tier.",
       "limitations": [
         "One design cannot establish a broad enduring color policy. An Aura swapped in from another color does not supply a native Aura Swap source of that color.",
-        "Draft conformance record; saved timestamps are historical cutoffs, not fresh queries."
+        "Reviewed conformance record; saved timestamps are historical cutoffs, not fresh queries."
       ],
       "review": {
-        "evidence_completeness": "Developer conformance mapping complete; independent review pending.",
+        "evidence_completeness": "Developer conformance mapping complete; independent evidence review completed; see the cited passing candidate.",
         "source_scope_check": "E3 only; Scryfall supports facts/population, not official ranking.",
         "attribution_check": "Assignments explicitly use E3 and special scopes remain separate.",
         "tier_and_alternative_check": "Reassessed against original roles and first-print contexts; weak singleton and special-only non-driving observations left unresolved.",
@@ -15708,10 +15708,10 @@
       "summary": "White, blue and black each have varied original spell roles and proposed Primary homes. Red and green access is observed but remains unresolved rather than automatically Tertiary.",
       "limitations": [
         "The 2021 land-animation entry is untouched and not mapped to Awaken. Halimar Tidecaller is support; Awaken the Inferno and Awaken the Maelstrom are unrelated name matches. Tertiary here describes narrow keyword use, not a universal rarity requirement.",
-        "Draft conformance record; saved timestamps are historical cutoffs, not fresh queries."
+        "Reviewed conformance record; saved timestamps are historical cutoffs, not fresh queries."
       ],
       "review": {
-        "evidence_completeness": "Developer conformance mapping complete; independent review pending.",
+        "evidence_completeness": "Developer conformance mapping complete; independent evidence review completed; see the cited passing candidate.",
         "source_scope_check": "E3 only; Scryfall supports facts/population, not official ranking.",
         "attribution_check": "Assignments explicitly use E3 and special scopes remain separate.",
         "tier_and_alternative_check": "Reassessed against original roles and first-print contexts; weak singleton and special-only non-driving observations left unresolved.",
