@@ -50,7 +50,7 @@ try{
       const row=page.locator(`#list .ent[data-k="${record.id}"]`), access=record.access;
       assert.equal(await row.locator('.access-strip').count(),record.kind==='access'?1:0,record.name);
       if(record.kind==='access'){
-        assert.deepEqual(await row.locator('.access-strip > .sc').evaluateAll(slots=>slots.map(s=>s.dataset.c)),[...'WUBRG']);
+        assert.deepEqual(await row.locator('.access-strip > .sc').evaluateAll(slots=>slots.map(s=>s.dataset.c)),[...'WUBRG',...(access.colorless.status==='documented'?['C']:[])]);
         assert.equal(await row.locator('.access-strip .t-p,.access-strip .t-s,.access-strip .t-t,.access-strip .t-n').count(),0);
         for(const color of 'WUBRG') assert.equal(await row.locator(`.access-strip .sc[data-c="${color}"].a-d`).count(),access.colors[color].status==='documented'?1:0);
         for(const item of [...Object.values(access.colors),...access.combinations,access.colorless]){
@@ -62,20 +62,35 @@ try{
       await page.evaluate(id=>VMX.open(id),record.id);
       const panel=page.locator('#detail .supp-assessment');
       const notes=panel.locator('.assessment-notes');
-      assert.match(await panel.innerText(),/Color access|Documented access/);
+      assert.match(await panel.innerText(),/Color Access/);
       assert.match(await panel.innerText(),/Outside the 2021 color calculations/);
       assert.doesNotMatch(await panel.innerText(),/Our assessment|Confidence:|Primary:|Secondary:|Tertiary:|assessment - provisional/i);
       if(record.kind==='access'){
-        assert.equal(await panel.locator('.own-row').count(),5);
+        assert.equal(await panel.locator('.own-row').count(),5+(access.colorless.status==='documented'?1:0));
         assert.ok((await panel.innerText()).includes(record.scopeLabel));
         for(const color of 'WUBRG'){
           const item=access.colors[color], rowText=await panel.locator(`.own-row[data-c="${color}"]`).innerText();
-          assert.match(rowText,new RegExp(item.status==='documented'?'Documented access':item.status==='multicolor_only'?'Combination only':item.status==='not_found'?'No example found':item.status==='not_applicable'?'Not applicable':'Insufficient evidence'));
+          assert.match(rowText,new RegExp(item.status==='documented'?'Access':item.status==='multicolor_only'?'Combination only':item.status==='not_found'?'No example found':item.status==='not_applicable'?'Not applicable':'Insufficient evidence'));
         }
       }
       await notes.locator(':scope > summary').focus(); await page.keyboard.press('Enter'); assert.equal(await notes.getAttribute('open'),'');
       assert.ok((await notes.innerText()).includes(record.summary));
       if(record.kind==='access') for(const color of 'WUBRG') assert.ok((await notes.innerText()).includes(access.colors[color].note),record.name+' '+color+' authored evidence note visible after opening evidence');
+      assert.doesNotMatch((await panel.locator('.dx-h,.own-t').allTextContents()).join(' '),/Documented access/i);
+      assert.doesNotMatch(await panel.innerText(),/Neutral mana marks/i);
+      const hasColorless=record.kind==='access' && access.colorless.status==='documented';
+      assert.equal(await row.locator('.access-strip .ms-c').count(),hasColorless?1:0,record.name+' colorless list glyph');
+      assert.equal(await panel.locator('.own-row[data-c="C"] .ms-c').count(),hasColorless?1:0,record.name+' colorless detail glyph');
+      const colored=await row.locator('.access-strip .sc.a-d').evaluateAll(slots=>slots.map(s=>({color:s.dataset.c,background:getComputedStyle(s).backgroundColor,token:getComputedStyle(document.documentElement).getPropertyValue(s.dataset.c==='C'?'--ink-dim':'--'+s.dataset.c.toLowerCase()).trim()})));
+      for(const item of colored){
+        const actual=await page.evaluate(token=>{const el=document.createElement('i');el.style.color=token;document.body.append(el);const color=getComputedStyle(el).color;el.remove();return color;},item.token);
+        assert.equal(item.background,actual,record.name+' '+item.color+' palette binding');
+      }
+      const expectedSources=record.sources.filter(s=>{const u=new URL(s.url);return u.hostname!=='scryfall.com'||!/^\/(?:cards?(?:\/|$)|search(?:\/|$))/.test(u.pathname);});
+      assert.deepEqual(await notes.locator('.assessment-sources a').evaluateAll(links=>links.map(a=>a.href)),expectedSources.map(s=>s.url),record.name+' non-card references retained');
+      const cardBuckets=[...Object.values(access.colors),...access.combinations,access.colorless];
+      const expectedCardLinks=(record.kind==='rules'?record.citationCards:cardBuckets.flatMap(x=>x.cards)).filter(c=>c.url).map(c=>c.url).sort();
+      assert.deepEqual(await notes.locator('a').evaluateAll(links=>links.filter(a=>a.hostname==='scryfall.com'&&a.pathname.startsWith('/card/')).map(a=>a.href).sort()),expectedCardLinks,record.name+' no redundant aggregate card list');
       const linkedBuckets=[...Object.values(access.colors),...access.combinations,access.colorless].filter(item=>item.findUrl);
       for(const findUrl of new Set(linkedBuckets.map(item=>item.findUrl))) assert.equal(await notes.locator(`a[href="${findUrl}"]`).count(),linkedBuckets.filter(item=>item.findUrl===findUrl).length,record.name+' renders every exact reviewed-card bucket link');
       assert.deepEqual(await notes.locator('a').evaluateAll(links=>links.filter(a=>a.protocol!=='https:'||!['scryfall.com','magic.wizards.com'].includes(a.hostname)||a.rel!=='noopener noreferrer').map(a=>a.href)),[]);

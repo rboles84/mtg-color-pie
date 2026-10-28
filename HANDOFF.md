@@ -1,4 +1,21 @@
-# Active task — A/B documented color access
+# Active task — Access presentation refinement
+
+- Status: ready-for-qa. Owner requests actual mana colors, a colorless glyph where evidence supports it, the label Color Access, and removal of redundant aggregate card citations. Same branch/worktree; baseline `193c92e4cde43aca06bc1687d97875572815f1e7`.
+- Allowed files: HANDOFF.md, CONTEXT.md (approved presentation decision), docs/mechanics-research/COLOR-ACCESS-PROTOCOL.md (presentation paragraph only), vox-color/mechanical-explorer.html, tools/check_assessment_browser.mjs. Ignored local preview package permitted.
+- Owner: coordinator implements the supplemental presenter. No changes to payloads, canonical evidence, scope, access statuses, 2021 data/calculations/notation, dependencies, routes or other mechanics. Existing WUBRG palette and mana-font colorless glyph are reused.
+- Acceptance: supported WUBRG marks use their existing colors; colorless sources show the diamond in list/search/details; labels say Color Access/Access; per-color Reviewed Card Sources remain, aggregate repeated cards/search citations disappear; non-card references remain under Sources. Rules entries without color buckets may keep a single reviewed-card list.
+- QA plan: QA-1 presentation with focused DOM checks for symbols, CSS color bindings, source deduplication and retained references; reuse existing browser harness for shared list/search/detail presentation and narrow layout. No new semantic research or engine certification. Candidate-bound QA follows the implementation commit; Owner judges appearance.
+
+## Presentation implementation handoff
+
+- Shared supplemental mark presenter uses existing WUBRG CSS tokens and ms-c for supported colorless access, including a sixth inline slot where needed. The 2021 tier renderer and all data remain unchanged.
+- Labels now say Color Access/Access. Removed the neutral-notation explanation and redundant aggregate card lists/search references. Per-bucket Reviewed Card Sources remain; non-card references keep the Sources section. Rules actions with no buckets retain one nonredundant card list.
+- Focused Edge harness PASS for all 43 supplemental records, computed palette bindings, conditional colorless list/detail glyphs, label copy, exact retained non-card references, absence of aggregate card duplication, existing links, keyboard/mobile containment and 84/84 2021 checks. One test initially overmatched historical prose; corrected to assert presentation labels specifically. No product requirement waived.
+- Five-path scope: HTML presenter, existing focused harness, presentation protocol paragraph, approved context note and ledger. No payload, evidence, source-scope, rank or dependency edits. QA-1 with a bounded DOM/browser check of the shared presentation; prior semantic certification remains applicable.
+
+---
+
+# Prior task — A/B documented color access
 
 ## Control and admission
 
