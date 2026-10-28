@@ -1,7 +1,7 @@
 # Active handoff - Apply protocol v1.0 to A mechanics
 
 ## Control
-- Status: `ready-for-qa` (`qa-failed -> dev-in-progress -> ready-for-qa`). Corrected all 47 remaining stale review-status phrases and regenerated bindings; evidence, tiers and rationale judgments unchanged. Final bounded confirmation follows.
+- Status: `qa-passed` (`qa-failed -> dev-in-progress -> ready-for-qa -> qa-passed`) for exact candidate `12ec713e52490c34f3e46b61cf02df243ca79db4`. All stale review-status prose is resolved without semantic assessment changes. This engineering verdict does not infer Owner acceptance, publication authorization or integration.
 - Branch: `codex/a-mechanics-review`; baseline `130e095`; total branch baseline `9a063b3a98cfcb7672783f83a102e8f968242490`.
 - Scope: all 25 accepted unmapped supplemental A mechanics. Apply protocol v1.0 to saved evidence, resolve supported judgments, retain uncertainty, and update the local preview. Frozen/mapped 2021 entries and calculations stay unchanged.
 - Exact allowed files: `HANDOFF.md`; new `docs/mechanics-research/a-protocol-core.json`, `a-protocol-extended.json`, `a-protocol-special.json`, `A-PROTOCOL-REVIEW.md`; source capture files only under `docs/mechanics-research/a-protocol-evidence/`; `tools/build_mechanics_assessments.py`; `data/mechanics-assessments.v1.json`; `vox-color/mechanical-explorer.html`; `tools/check_assessment_browser.mjs`; `tools/check_supplement_browser.mjs`. Generated ignored local `_site/` preview and temporary research scripts are permitted. Existing three research JSON packets and all original captures remain unchanged.
@@ -64,6 +64,88 @@
 - Exact repair evidence: `git rev-parse HEAD` resolved to the named candidate. The committed delta is exactly `HANDOFF.md`, `docs/mechanics-research/a-protocol-core.json`, and regenerated `data/mechanics-assessments.v1.json`; `git diff --check` is clean. Semantic comparison found exactly nine `review.unresolved_findings` arrays changed from `["Independent review not yet performed."]` to `[]`, with no other core-record content change. The payload changed only its core protocol source-binding hash. Bundled Python `tools/build_mechanics_assessments.py --check` passed for 25 protocol v1.0 records and deterministic source bindings, and protected/material owners outside the authorized metadata/payload repair remain unchanged.
 - **Major — other pending/draft review assertions remain after finalized PASS:** the nine reviewed/pass core records retain 18 review-check statements saying independent evidence/tier review is pending; the ten reviewed/pass extended records retain ten evidence-completeness statements saying independent review is pending. The same 19 records also retain nine core revision statements calling the output `draft conformance` and ten extended player limitations calling each record `Draft conformance`. These 47 workflow-state phrases contradict `record_status: reviewed`, `reviewer_verdict: pass`, and the cited passing candidate even though the substantive timestamp caveats remain valid.
 - Narrow correction/recheck: replace only those 47 stale status phrases with completed/reviewed wording while preserving the historical timestamp caveats and every tier, rationale, scope, evidence, card, receipt and actual unresolved research limitation; regenerate payload/source bindings. Final independent confirmation should compare only those prose fields and bindings against `1110daa`, search all three protocol packets for stale `pending`, `not yet`, `draft conformance`, and `await` review markers, rerun producer `--check`, and reassert protected zero. No browser, recon, package, source, capture or substantive research sweep is warranted. Owner review remains pending.
+
+### Independent RobQA — final review-wording confirmation, 2026-10-27
+
+- Mode/class/verdict: separate non-implementing reviewer; **QA-4, `qa-passed`** for exact candidate `12ec713e52490c34f3e46b61cf02df243ca79db4` over failed candidate `1110daa4d96903896fd28544346fdf373578256e`. The 47 stale workflow-status phrases are corrected and no blocker or major correctness defect remains. QA wrote only `HANDOFF.md`; it made no protocol record, payload, runtime, generator, harness, capture, branch, commit, publication, push, merge or deployment change.
+- Exact/semantic isolation: `git rev-parse HEAD` resolved to the named candidate. The committed delta contains exactly `HANDOFF.md`, core and extended protocol JSON, and regenerated payload; `git diff --check` is clean. Recursive JSON comparison found exactly 47 changed protocol leaves: 27 authorized core review/revision strings and 20 authorized extended review/limitation strings. No tier, rationale, scope, evidence, card, receipt, query, source, actual unresolved limitation, special record, renderer, harness, capture or frozen 2021 owner changed.
+- Generated/protected evidence: the payload differs only in the two regenerated core/extended source-binding hashes and the ten extended limitations it projects. Bundled Python `tools/build_mechanics_assessments.py --check` passed for 25 protocol v1.0 records and deterministic source bindings. A case-insensitive scan of all three protocol packets found no stale `pending`, `not yet`, `draft conformance`, or `await` marker. The retained timestamp/freshness caveats remain intact and no substantive research claim was broadened.
+- Proportional disposition: browser, recon, package, source/capture and research sweeps were intentionally not repeated because the exact candidate changes review-status prose and deterministic bindings only; the passing substantive candidate and prior focused UI evidence remain applicable. Stateful-adversarial coverage is not applicable to this static metadata correction. Owner review remains limited to the already prepared preview/product judgment; engineering QA does not claim appearance acceptance, publication or integration.
+
+## Material candidate
+
+- Baseline: `130e0958bb82e14e3157d09a6c16b4432d24bfc2`
+- Candidate: `12ec713e52490c34f3e46b61cf02df243ca79db4`
+- Changed paths: `54`
+
+## Files changed
+
+- `HANDOFF.md`
+- `data/mechanics-assessments.v1.json`
+- `docs/mechanics-research/A-PROTOCOL-REVIEW.md`
+- `docs/mechanics-research/a-protocol-core.json`
+- `docs/mechanics-research/a-protocol-evidence/extended-alliance.html`
+- `docs/mechanics-research/a-protocol-evidence/extended-alliance.pdf`
+- `docs/mechanics-research/a-protocol-evidence/extended-alliance.txt`
+- `docs/mechanics-research/a-protocol-evidence/extended-amass.html`
+- `docs/mechanics-research/a-protocol-evidence/extended-amass.pdf`
+- `docs/mechanics-research/a-protocol-evidence/extended-amass.txt`
+- `docs/mechanics-research/a-protocol-evidence/extended-amplify.html`
+- `docs/mechanics-research/a-protocol-evidence/extended-amplify.pdf`
+- `docs/mechanics-research/a-protocol-evidence/extended-amplify.txt`
+- `docs/mechanics-research/a-protocol-evidence/extended-ascend.html`
+- `docs/mechanics-research/a-protocol-evidence/extended-ascend.pdf`
+- `docs/mechanics-research/a-protocol-evidence/extended-ascend.txt`
+- `docs/mechanics-research/a-protocol-evidence/extended-assemble.html`
+- `docs/mechanics-research/a-protocol-evidence/extended-assemble.pdf`
+- `docs/mechanics-research/a-protocol-evidence/extended-assemble.txt`
+- `docs/mechanics-research/a-protocol-evidence/extended-assimilate.html`
+- `docs/mechanics-research/a-protocol-evidence/extended-assimilate.pdf`
+- `docs/mechanics-research/a-protocol-evidence/extended-assimilate.txt`
+- `docs/mechanics-research/a-protocol-evidence/extended-assist.html`
+- `docs/mechanics-research/a-protocol-evidence/extended-assist.pdf`
+- `docs/mechanics-research/a-protocol-evidence/extended-assist.txt`
+- `docs/mechanics-research/a-protocol-evidence/extended-aura-swap.html`
+- `docs/mechanics-research/a-protocol-evidence/extended-aura-swap.pdf`
+- `docs/mechanics-research/a-protocol-evidence/extended-aura-swap.txt`
+- `docs/mechanics-research/a-protocol-evidence/extended-awaken.html`
+- `docs/mechanics-research/a-protocol-evidence/extended-awaken.pdf`
+- `docs/mechanics-research/a-protocol-evidence/extended-awaken.txt`
+- `docs/mechanics-research/a-protocol-evidence/extended-capture-receipts.json`
+- `docs/mechanics-research/a-protocol-evidence/special-absorb.html`
+- `docs/mechanics-research/a-protocol-evidence/special-absorb.pdf`
+- `docs/mechanics-research/a-protocol-evidence/special-absorb.txt`
+- `docs/mechanics-research/a-protocol-evidence/special-archenemy.html`
+- `docs/mechanics-research/a-protocol-evidence/special-archenemy.pdf`
+- `docs/mechanics-research/a-protocol-evidence/special-archenemy.txt`
+- `docs/mechanics-research/a-protocol-evidence/special-capture-receipts.json`
+- `docs/mechanics-research/a-protocol-evidence/special-evergreen.html`
+- `docs/mechanics-research/a-protocol-evidence/special-evergreen.pdf`
+- `docs/mechanics-research/a-protocol-evidence/special-evergreen.txt`
+- `docs/mechanics-research/a-protocol-evidence/special-mcp2017.html`
+- `docs/mechanics-research/a-protocol-evidence/special-mcp2017.pdf`
+- `docs/mechanics-research/a-protocol-evidence/special-mcp2017.txt`
+- `docs/mechanics-research/a-protocol-evidence/special-mcp2021.html`
+- `docs/mechanics-research/a-protocol-evidence/special-mcp2021.pdf`
+- `docs/mechanics-research/a-protocol-evidence/special-mcp2021.txt`
+- `docs/mechanics-research/a-protocol-extended.json`
+- `docs/mechanics-research/a-protocol-special.json`
+- `tools/build_mechanics_assessments.py`
+- `tools/check_assessment_browser.mjs`
+- `tools/check_supplement_browser.mjs`
+- `vox-color/mechanical-explorer.html`
+
+## Evidence delta
+
+- Material candidate: `12ec713e52490c34f3e46b61cf02df243ca79db4`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `1`
+
+This ledger-only evidence delta is not the full task diff. Final branch delta from task baseline remains 54 paths. Preview package is stamped with the material candidate. Packaging verification passed: 23 byte-identical files, 4 syntax-clean inline scripts, 23 expected HTTP 200 and 24 excluded 404. The open preview shows the revised Afflict rationale. No push or merge performed; no remote-tracking branch contains the candidate, and master does not contain it.
+
+## Evidence-only paths
+
+- `HANDOFF.md`
 
 ---
 # Prior handoff - Repeatable supplemental assessment protocol
