@@ -1,4 +1,28 @@
-# Active handoff - Afflict judgment and rationale
+# Active handoff - Repeatable supplemental assessment protocol
+
+## Control
+- Status: `ready-for-qa` (Owner requires a structured, repeatable and predictable approach for remaining mechanics).
+- Branch: `codex/a-mechanics-review`; baseline `82c8add`; total branch baseline `9a063b3a98cfcb7672783f83a102e8f968242490`.
+- Exact allowed files: `HANDOFF.md`, `AGENTS.md`, `docs/mechanics-research/ASSESSMENT-PROTOCOL.md`, `docs/mechanics-research/ASSESSMENT-TEMPLATE.json`.
+- Scope: write a versioned supplemental research decision protocol, reusable research-record template, and a narrow discoverability/usage pointer in AGENTS. These are research workflow documents; no runtime schema migration, data reassessment, application change, 2021 edit, deployment or publication.
+
+## Acceptance criteria
+1. Fixed evidence hierarchy and explicit rule for direct official tiers versus contextual inference, card-derived judgment and user-selected classification; wiki is a locator, Scryfall verifies card facts, counts alone do not assign tiers.
+2. Fixed scope, queries, deduplication, card-role/color attribution, chronology, rarity and special-material handling, complete saved-source receipts/PDF practice, and repeatable evidence table.
+3. Ordered tier decision rules with a bounded small-sample path, confidence per color, unassigned versus not-applicable/conflicted distinctions, closest-alternative reasoning and no arbitrary scoring.
+4. Mandatory player-facing rationale structure, source/decision provenance, versioned revisions and independent review gate; no silently changed criteria between letters or retroactive certification of existing A work.
+5. Machine-readable blank template matches the documented protocol and worked cases explain Afflict, Absorb, Annihilator, Affinitycycling and generic rules actions without silently changing existing placements.
+- QA: QA-0 documentation/template syntax plus independent consistency review because the document governs future judgment. Check JSON shape and links, compare worked cases with saved records, and Git scope/whitespace. No app/browser/gate sweep is necessary when runtime/data remain unchanged.
+
+## Implementation / QA
+- Added protocol v1.0, a blank JSON research-record template, and the scoped AGENTS usage pointer. The protocol fixes evidence routes, scope/capture/screening steps, qualitative tier tests, per-color alternatives/confidence/status, small-sample limits, rationale format and revision/review rules. The coordinator authored the protocol and final consistency corrections; the separate RobDev template worker authored only the template and reported JSON/field/whitespace checks.
+- Exact implementation envelope remains four files. No application, assessment source/payload, generator, 2021 data or existing evidence changed. Earlier A work requires a bounded conformance review before claiming v1.0 compliance; this task performs no reassessment. In particular, a singleton Colorless example proves access, not a tier without the specified additional support or user decision.
+- Developer validation: PowerShell ConvertFrom-Json parses the template; protocol version 1.0 and exact WUBRG decision keys PASS. Both new documents received full content inspection and `git diff --no-index --check -- NUL <file>` with no whitespace defects; tracked `git diff --check` is clean apart from expected line-ending warnings. `git diff --quiet 82c8add -- data tools vox-color` exits 0. Protocol/template cross-links and AGENTS pointer resolve to the two authored files.
+- Independent QA-0 consistency review is next, after the local candidate commit. Browser/application tests are intentionally skipped because those files and behavior are unchanged. No automatic protocol validator or importer is claimed. No push, merge, deployment or publication.
+
+---
+
+# Prior handoff - Afflict judgment and rationale
 
 ## Control
 - Status: `qa-passed` (Owner requests revisiting the reasoning behind tiers; dev-in-progress -> ready-for-qa -> qa-passed on the same local review branch). Only the coordinator or Owner may mark complete.

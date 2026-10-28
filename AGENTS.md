@@ -290,6 +290,12 @@ requires. Visual judgement goes on the Owner's checklist.
 
 ## Completion standard
 
+For supplemental mechanic color-placement research or reassessment, apply
+[Supplemental mechanic assessment protocol](docs/mechanics-research/ASSESSMENT-PROTOCOL.md)
+and its research-record template. Record the protocol version, source scope,
+per-color decision route and rationale. This does not authorize app import or
+changes to the frozen 2021 catalog; the normal task envelope and QA gates still apply.
+
 A task is ready to complete only when the diff stays inside the declared
 envelope, acceptance criteria are met, required checks have recorded evidence,
 QA has passed, or QA is blocked only by a limitation the user explicitly

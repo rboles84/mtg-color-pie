@@ -1,0 +1,217 @@
+{
+  "protocol_version": "1.0",
+  "record_status": "draft",
+  "mechanic": {
+    "accepted_id": null,
+    "name": null,
+    "definition": null,
+    "aliases": [],
+    "classification": null
+  },
+  "scope": {
+    "population": null,
+    "included_special_scopes": [],
+    "excluded_special_scopes": [],
+    "evidence_cutoff": null,
+    "research_timezone": "America/Denver",
+    "definition_boundaries": [],
+    "variant_boundaries": []
+  },
+  "provenance": {
+    "researcher": null,
+    "reviewer": null,
+    "research_date": null,
+    "judgment_date": null,
+    "source_revision": null,
+    "previous_assessment_reference": null,
+    "protected_2021_baseline_reference": null
+  },
+  "sources": [
+    {
+      "source_id": null,
+      "type": null,
+      "role": null,
+      "url": null,
+      "title": null,
+      "author": null,
+      "publication_date": null,
+      "claim_scope": null,
+      "exact_section": null,
+      "retrieved_at_utc": null,
+      "capture": {
+        "html_or_text_path": null,
+        "pdf_path": null,
+        "files": [{ "path": null, "format": null, "sha256": null }],
+        "canonical_json_sha256": null,
+        "serialization": null,
+        "status": null,
+        "notes": null
+      }
+    }
+  ],
+  "queries": [
+    {
+      "query_id": null,
+      "exact_query": null,
+      "url": null,
+      "parameters": {},
+      "retrieved_at_utc": null,
+      "pages": [],
+      "receipt_paths": [],
+      "expected_count": null,
+      "retrieved_count": null,
+      "completion": null,
+      "errors": [],
+      "exceptional_query_explanation": null
+    }
+  ],
+  "card_review": [
+    {
+      "oracle_id": null,
+      "name": null,
+      "face": null,
+      "colors": [],
+      "color_identity": [],
+      "scope": null,
+      "roles": [],
+      "included": null,
+      "inclusion_reason": null,
+      "exclusion_reason": null,
+      "attributed_colors": [],
+      "attribution_justification": null,
+      "first_release": null,
+      "release_context": null,
+      "original_rarity": null,
+      "printing_history": [],
+      "source_references": []
+    }
+  ],
+  "population_summary": {
+    "scoped_totals": {},
+    "excluded_totals": {},
+    "per_color": {
+      "W": { "native": [], "explicit_grant": [], "joint_only": [], "release_contexts": [], "rarity_coverage": [], "role_coverage": [] },
+      "U": { "native": [], "explicit_grant": [], "joint_only": [], "release_contexts": [], "rarity_coverage": [], "role_coverage": [] },
+      "B": { "native": [], "explicit_grant": [], "joint_only": [], "release_contexts": [], "rarity_coverage": [], "role_coverage": [] },
+      "R": { "native": [], "explicit_grant": [], "joint_only": [], "release_contexts": [], "rarity_coverage": [], "role_coverage": [] },
+      "G": { "native": [], "explicit_grant": [], "joint_only": [], "release_contexts": [], "rarity_coverage": [], "role_coverage": [] }
+    },
+    "colorless_evidence": []
+  },
+  "context_scope_test": {
+    "source_ids": [],
+    "names_or_describes_exact_operation": null,
+    "matching_and_differing_effect_parts": null,
+    "color_specific_explanation": null,
+    "bridge_rationale_and_inference_limit": null,
+    "not_applicable_reason": null
+  },
+  "decisions": {
+    "W": {
+      "tier": null,
+      "status": null,
+      "route": null,
+      "confidence": null,
+      "support_source_ids": [],
+      "contrary_source_ids": [],
+      "support_card_ids": [],
+      "contrary_card_ids": [],
+      "rubric_conditions": [],
+      "closest_alternative": null,
+      "why_chosen": null,
+      "rationale": null
+    },
+    "U": {
+      "tier": null,
+      "status": null,
+      "route": null,
+      "confidence": null,
+      "support_source_ids": [],
+      "contrary_source_ids": [],
+      "support_card_ids": [],
+      "contrary_card_ids": [],
+      "rubric_conditions": [],
+      "closest_alternative": null,
+      "why_chosen": null,
+      "rationale": null
+    },
+    "B": {
+      "tier": null,
+      "status": null,
+      "route": null,
+      "confidence": null,
+      "support_source_ids": [],
+      "contrary_source_ids": [],
+      "support_card_ids": [],
+      "contrary_card_ids": [],
+      "rubric_conditions": [],
+      "closest_alternative": null,
+      "why_chosen": null,
+      "rationale": null
+    },
+    "R": {
+      "tier": null,
+      "status": null,
+      "route": null,
+      "confidence": null,
+      "support_source_ids": [],
+      "contrary_source_ids": [],
+      "support_card_ids": [],
+      "contrary_card_ids": [],
+      "rubric_conditions": [],
+      "closest_alternative": null,
+      "why_chosen": null,
+      "rationale": null
+    },
+    "G": {
+      "tier": null,
+      "status": null,
+      "route": null,
+      "confidence": null,
+      "support_source_ids": [],
+      "contrary_source_ids": [],
+      "support_card_ids": [],
+      "contrary_card_ids": [],
+      "rubric_conditions": [],
+      "closest_alternative": null,
+      "why_chosen": null,
+      "rationale": null
+    }
+  },
+  "outside_five_colors": {
+    "classification": null,
+    "proposed_tier": null,
+    "status": null,
+    "scope": null,
+    "route": null,
+    "confidence": null,
+    "evidence_source_ids": [],
+    "evidence_card_ids": [],
+    "contrary_source_ids": [],
+    "contrary_card_ids": [],
+    "rubric_conditions": [],
+    "closest_alternative": null,
+    "why_chosen": null,
+    "rationale": null,
+    "limitations": []
+  },
+  "summary": null,
+  "limitations": [],
+  "review": {
+    "evidence_completeness": null,
+    "source_scope_check": null,
+    "attribution_check": null,
+    "tier_and_alternative_check": null,
+    "isolation_check": null,
+    "unresolved_findings": [],
+    "reviewer_verdict": null
+  },
+  "revision": {
+    "prior_decision": null,
+    "changed_fields": [],
+    "new_evidence_or_reason": null,
+    "protocol_version_change": null,
+    "review_date": null,
+    "application_import_authorization": null
+  }
+}
