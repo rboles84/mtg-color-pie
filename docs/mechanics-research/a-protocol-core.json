@@ -3,7 +3,7 @@
   "records": [
     {
       "protocol_version": "1.0",
-      "record_status": "draft",
+      "record_status": "reviewed",
       "mechanic": {
         "accepted_id": "deck:catalog-gaps:actualize",
         "name": "Actualize",
@@ -34,7 +34,7 @@
       },
       "provenance": {
         "researcher": "RobDev core researcher",
-        "reviewer": null,
+        "reviewer": "Independent RobQA",
         "research_date": "2026-10-26",
         "judgment_date": "2026-10-27",
         "source_revision": "inherited saved A assessment packet collected 2026-10-26 America/Denver; protocol judgment 2026-10-27",
@@ -524,7 +524,9 @@
         "unresolved_findings": [
           "Independent review not yet performed."
         ],
-        "reviewer_verdict": null
+        "reviewer_verdict": "pass",
+        "reviewed_candidate": "fc7ad64ee17f3e66711d2909d24bf45daf169c36",
+        "evidence_reference": "HANDOFF.md: Independent RobQA protocol application and four-finding repair recheck"
       },
       "revision": {
         "prior_decision": {
@@ -542,7 +544,7 @@
         ],
         "new_evidence_or_reason": "Bounded v1.0 conformance review of retained card evidence; unsupported count-only wording removed or limited.",
         "protocol_version_change": "Prior assessment was not protocol-certified; this is v1.0 draft conformance output.",
-        "review_date": null,
+        "review_date": "2026-10-27",
         "application_import_authorization": "User explicitly authorized applying protocol to all A mechanics and updating the local preview; 2021 remains untouched. No publication or integration authorization."
       },
       "evidence_binding": {
@@ -568,7 +570,7 @@
     },
     {
       "protocol_version": "1.0",
-      "record_status": "draft",
+      "record_status": "reviewed",
       "mechanic": {
         "accepted_id": "deck:vocabulary:adamant",
         "name": "Adamant",
@@ -599,7 +601,7 @@
       },
       "provenance": {
         "researcher": "RobDev core researcher",
-        "reviewer": null,
+        "reviewer": "Independent RobQA",
         "research_date": "2026-10-26",
         "judgment_date": "2026-10-27",
         "source_revision": "inherited saved A assessment packet collected 2026-10-26 America/Denver; protocol judgment 2026-10-27",
@@ -1655,7 +1657,9 @@
         "unresolved_findings": [
           "Independent review not yet performed."
         ],
-        "reviewer_verdict": null
+        "reviewer_verdict": "pass",
+        "reviewed_candidate": "fc7ad64ee17f3e66711d2909d24bf45daf169c36",
+        "evidence_reference": "HANDOFF.md: Independent RobQA protocol application and four-finding repair recheck"
       },
       "revision": {
         "prior_decision": {
@@ -1673,7 +1677,7 @@
         ],
         "new_evidence_or_reason": "Bounded v1.0 conformance review of retained card evidence; unsupported count-only wording removed or limited.",
         "protocol_version_change": "Prior assessment was not protocol-certified; this is v1.0 draft conformance output.",
-        "review_date": null,
+        "review_date": "2026-10-27",
         "application_import_authorization": "User explicitly authorized applying protocol to all A mechanics and updating the local preview; 2021 remains untouched. No publication or integration authorization."
       },
       "evidence_binding": {
@@ -1699,7 +1703,7 @@
     },
     {
       "protocol_version": "1.0",
-      "record_status": "draft",
+      "record_status": "reviewed",
       "mechanic": {
         "accepted_id": "deck:vocabulary:adapt",
         "name": "Adapt",
@@ -1730,7 +1734,7 @@
       },
       "provenance": {
         "researcher": "RobDev core researcher",
-        "reviewer": null,
+        "reviewer": "Independent RobQA",
         "research_date": "2026-10-26",
         "judgment_date": "2026-10-27",
         "source_revision": "inherited saved A assessment packet collected 2026-10-26 America/Denver; protocol judgment 2026-10-27",
@@ -3146,7 +3150,9 @@
         "unresolved_findings": [
           "Independent review not yet performed."
         ],
-        "reviewer_verdict": null
+        "reviewer_verdict": "pass",
+        "reviewed_candidate": "fc7ad64ee17f3e66711d2909d24bf45daf169c36",
+        "evidence_reference": "HANDOFF.md: Independent RobQA protocol application and four-finding repair recheck"
       },
       "revision": {
         "prior_decision": {
@@ -3164,7 +3170,7 @@
         ],
         "new_evidence_or_reason": "Bounded v1.0 conformance review of retained card evidence; unsupported count-only wording removed or limited.",
         "protocol_version_change": "Prior assessment was not protocol-certified; this is v1.0 draft conformance output.",
-        "review_date": null,
+        "review_date": "2026-10-27",
         "application_import_authorization": "User explicitly authorized applying protocol to all A mechanics and updating the local preview; 2021 remains untouched. No publication or integration authorization."
       },
       "evidence_binding": {
@@ -3190,7 +3196,7 @@
     },
     {
       "protocol_version": "1.0",
-      "record_status": "draft",
+      "record_status": "reviewed",
       "mechanic": {
         "accepted_id": "deck:vocabulary:addendum",
         "name": "Addendum",
@@ -3221,7 +3227,7 @@
       },
       "provenance": {
         "researcher": "RobDev core researcher",
-        "reviewer": null,
+        "reviewer": "Independent RobQA",
         "research_date": "2026-10-26",
         "judgment_date": "2026-10-27",
         "source_revision": "inherited saved A assessment packet collected 2026-10-26 America/Denver; protocol judgment 2026-10-27",
@@ -3992,7 +3998,9 @@
         "unresolved_findings": [
           "Independent review not yet performed."
         ],
-        "reviewer_verdict": null
+        "reviewer_verdict": "pass",
+        "reviewed_candidate": "fc7ad64ee17f3e66711d2909d24bf45daf169c36",
+        "evidence_reference": "HANDOFF.md: Independent RobQA protocol application and four-finding repair recheck"
       },
       "revision": {
         "prior_decision": {
@@ -4010,7 +4018,7 @@
         ],
         "new_evidence_or_reason": "Bounded v1.0 conformance review of retained card evidence; unsupported count-only wording removed or limited.",
         "protocol_version_change": "Prior assessment was not protocol-certified; this is v1.0 draft conformance output.",
-        "review_date": null,
+        "review_date": "2026-10-27",
         "application_import_authorization": "User explicitly authorized applying protocol to all A mechanics and updating the local preview; 2021 remains untouched. No publication or integration authorization."
       },
       "evidence_binding": {
@@ -4036,7 +4044,7 @@
     },
     {
       "protocol_version": "1.0",
-      "record_status": "draft",
+      "record_status": "reviewed",
       "mechanic": {
         "accepted_id": "deck:vocabulary:affinity",
         "name": "Affinity",
@@ -4067,7 +4075,7 @@
       },
       "provenance": {
         "researcher": "RobDev core researcher",
-        "reviewer": null,
+        "reviewer": "Independent RobQA",
         "research_date": "2026-10-26",
         "judgment_date": "2026-10-27",
         "source_revision": "inherited saved A assessment packet collected 2026-10-26 America/Denver; protocol judgment 2026-10-27",
@@ -8139,7 +8147,9 @@
         "unresolved_findings": [
           "Independent review not yet performed."
         ],
-        "reviewer_verdict": null
+        "reviewer_verdict": "pass",
+        "reviewed_candidate": "fc7ad64ee17f3e66711d2909d24bf45daf169c36",
+        "evidence_reference": "HANDOFF.md: Independent RobQA protocol application and four-finding repair recheck"
       },
       "revision": {
         "prior_decision": {
@@ -8157,7 +8167,7 @@
         ],
         "new_evidence_or_reason": "Bounded v1.0 conformance review of retained card evidence; unsupported count-only wording removed or limited.",
         "protocol_version_change": "Prior assessment was not protocol-certified; this is v1.0 draft conformance output.",
-        "review_date": null,
+        "review_date": "2026-10-27",
         "application_import_authorization": "User explicitly authorized applying protocol to all A mechanics and updating the local preview; 2021 remains untouched. No publication or integration authorization."
       },
       "evidence_binding": {
@@ -8183,7 +8193,7 @@
     },
     {
       "protocol_version": "1.0",
-      "record_status": "draft",
+      "record_status": "reviewed",
       "mechanic": {
         "accepted_id": "deck:vocabulary:afflict",
         "name": "Afflict",
@@ -8214,7 +8224,7 @@
       },
       "provenance": {
         "researcher": "RobDev core researcher",
-        "reviewer": null,
+        "reviewer": "Independent RobQA",
         "research_date": "2026-10-26",
         "judgment_date": "2026-10-27",
         "source_revision": "inherited saved A assessment packet collected 2026-10-26 America/Denver; protocol judgment 2026-10-27",
@@ -9157,7 +9167,9 @@
         "unresolved_findings": [
           "Independent review not yet performed."
         ],
-        "reviewer_verdict": null
+        "reviewer_verdict": "pass",
+        "reviewed_candidate": "fc7ad64ee17f3e66711d2909d24bf45daf169c36",
+        "evidence_reference": "HANDOFF.md: Independent RobQA protocol application and four-finding repair recheck"
       },
       "revision": {
         "prior_decision": {
@@ -9175,7 +9187,7 @@
         ],
         "new_evidence_or_reason": "Bounded v1.0 conformance review of retained card evidence; unsupported count-only wording removed or limited.",
         "protocol_version_change": "Prior assessment was not protocol-certified; this is v1.0 draft conformance output.",
-        "review_date": null,
+        "review_date": "2026-10-27",
         "application_import_authorization": "User explicitly authorized applying protocol to all A mechanics and updating the local preview; 2021 remains untouched. No publication or integration authorization."
       },
       "evidence_binding": {
@@ -9201,7 +9213,7 @@
     },
     {
       "protocol_version": "1.0",
-      "record_status": "draft",
+      "record_status": "reviewed",
       "mechanic": {
         "accepted_id": "deck:vocabulary:afterlife",
         "name": "Afterlife",
@@ -9232,7 +9244,7 @@
       },
       "provenance": {
         "researcher": "RobDev core researcher",
-        "reviewer": null,
+        "reviewer": "Independent RobQA",
         "research_date": "2026-10-26",
         "judgment_date": "2026-10-27",
         "source_revision": "inherited saved A assessment packet collected 2026-10-26 America/Denver; protocol judgment 2026-10-27",
@@ -10098,7 +10110,9 @@
         "unresolved_findings": [
           "Independent review not yet performed."
         ],
-        "reviewer_verdict": null
+        "reviewer_verdict": "pass",
+        "reviewed_candidate": "fc7ad64ee17f3e66711d2909d24bf45daf169c36",
+        "evidence_reference": "HANDOFF.md: Independent RobQA protocol application and four-finding repair recheck"
       },
       "revision": {
         "prior_decision": {
@@ -10116,7 +10130,7 @@
         ],
         "new_evidence_or_reason": "Bounded v1.0 conformance review of retained card evidence; unsupported count-only wording removed or limited.",
         "protocol_version_change": "Prior assessment was not protocol-certified; this is v1.0 draft conformance output.",
-        "review_date": null,
+        "review_date": "2026-10-27",
         "application_import_authorization": "User explicitly authorized applying protocol to all A mechanics and updating the local preview; 2021 remains untouched. No publication or integration authorization."
       },
       "evidence_binding": {
@@ -10142,7 +10156,7 @@
     },
     {
       "protocol_version": "1.0",
-      "record_status": "draft",
+      "record_status": "reviewed",
       "mechanic": {
         "accepted_id": "deck:vocabulary:aftermath",
         "name": "Aftermath",
@@ -10173,7 +10187,7 @@
       },
       "provenance": {
         "researcher": "RobDev core researcher",
-        "reviewer": null,
+        "reviewer": "Independent RobQA",
         "research_date": "2026-10-26",
         "judgment_date": "2026-10-27",
         "source_revision": "inherited saved A assessment packet collected 2026-10-26 America/Denver; protocol judgment 2026-10-27",
@@ -11712,7 +11726,9 @@
         "unresolved_findings": [
           "Independent review not yet performed."
         ],
-        "reviewer_verdict": null
+        "reviewer_verdict": "pass",
+        "reviewed_candidate": "fc7ad64ee17f3e66711d2909d24bf45daf169c36",
+        "evidence_reference": "HANDOFF.md: Independent RobQA protocol application and four-finding repair recheck"
       },
       "revision": {
         "prior_decision": {
@@ -11730,7 +11746,7 @@
         ],
         "new_evidence_or_reason": "Bounded v1.0 conformance review of retained card evidence; unsupported count-only wording removed or limited.",
         "protocol_version_change": "Prior assessment was not protocol-certified; this is v1.0 draft conformance output.",
-        "review_date": null,
+        "review_date": "2026-10-27",
         "application_import_authorization": "User explicitly authorized applying protocol to all A mechanics and updating the local preview; 2021 remains untouched. No publication or integration authorization."
       },
       "evidence_binding": {
@@ -11756,7 +11772,7 @@
     },
     {
       "protocol_version": "1.0",
-      "record_status": "draft",
+      "record_status": "reviewed",
       "mechanic": {
         "accepted_id": "deck:vocabulary:airbend",
         "name": "Airbend",
@@ -11787,7 +11803,7 @@
       },
       "provenance": {
         "researcher": "RobDev core researcher",
-        "reviewer": null,
+        "reviewer": "Independent RobQA",
         "research_date": "2026-10-26",
         "judgment_date": "2026-10-27",
         "source_revision": "inherited saved A assessment packet collected 2026-10-26 America/Denver; protocol judgment 2026-10-27",
@@ -12691,7 +12707,9 @@
         "unresolved_findings": [
           "Independent review not yet performed."
         ],
-        "reviewer_verdict": null
+        "reviewer_verdict": "pass",
+        "reviewed_candidate": "fc7ad64ee17f3e66711d2909d24bf45daf169c36",
+        "evidence_reference": "HANDOFF.md: Independent RobQA protocol application and four-finding repair recheck"
       },
       "revision": {
         "prior_decision": {
@@ -12709,7 +12727,7 @@
         ],
         "new_evidence_or_reason": "Bounded v1.0 conformance review of retained card evidence; unsupported count-only wording removed or limited.",
         "protocol_version_change": "Prior assessment was not protocol-certified; this is v1.0 draft conformance output.",
-        "review_date": null,
+        "review_date": "2026-10-27",
         "application_import_authorization": "User explicitly authorized applying protocol to all A mechanics and updating the local preview; 2021 remains untouched. No publication or integration authorization."
       },
       "evidence_binding": {

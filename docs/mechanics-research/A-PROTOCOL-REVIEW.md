@@ -39,7 +39,7 @@ P/S/T = Primary/Secondary/Tertiary. A dash means unassigned; each record disting
 - a-protocol-core.json, a-protocol-extended.json, and a-protocol-special.json are canonical current judgments. The generator combines them with retained evidence links.
 - Original-source HTML/text/PDF captures and per-file SHA-256 receipts are in a-protocol-evidence/. PDFs are archival text renderings of original pages, including navigation, rather than publisher-issued PDFs.
 - Card facts and query receipts are retained in the prior research packets and their referenced external raw-capture directories. A record does not claim a newly fetched card population.
-- Independent exact-candidate review and check results are recorded in HANDOFF.md. Draft record status remains until independent review passes.
+- Independent exact-candidate review and check results are recorded in HANDOFF.md. All 25 records are marked reviewed after the independent repair-candidate PASS recorded there.
 - Some tiers remain unresolved: this is an explicit research result, not missing work or a claim that the mechanic cannot appear in that color.
 
 16 mechanics have a changed colored tier or Colorless tier. All 25 receive protocol records and reviewed rationale.

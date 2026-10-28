@@ -3,7 +3,7 @@
   "records": [
     {
       "protocol_version": "1.0",
-      "record_status": "draft",
+      "record_status": "reviewed",
       "mechanic": {
         "accepted_id": "deck:catalog-gaps:abandon",
         "name": "Abandon",
@@ -30,7 +30,7 @@
       },
       "provenance": {
         "researcher": "Codex coordinator",
-        "reviewer": null,
+        "reviewer": "Independent RobQA",
         "research_date": "2026-10-26",
         "judgment_date": "2026-10-27",
         "source_revision": "130e095",
@@ -916,7 +916,9 @@
         "tier_and_alternative_check": "Each assigned or unresolved decision records its alternative.",
         "isolation_check": "Only supplemental review records authored; 2021 untouched.",
         "unresolved_findings": [],
-        "reviewer_verdict": null
+        "reviewer_verdict": "pass",
+        "reviewed_candidate": "fc7ad64ee17f3e66711d2909d24bf45daf169c36",
+        "evidence_reference": "HANDOFF.md: Independent RobQA protocol application and four-finding repair recheck"
       },
       "revision": {
         "prior_decision": {
@@ -958,7 +960,7 @@
     },
     {
       "protocol_version": "1.0",
-      "record_status": "draft",
+      "record_status": "reviewed",
       "mechanic": {
         "accepted_id": "deck:catalog-gaps:absorb",
         "name": "Absorb",
@@ -986,7 +988,7 @@
       },
       "provenance": {
         "researcher": "Codex coordinator",
-        "reviewer": null,
+        "reviewer": "Independent RobQA",
         "research_date": "2026-10-26",
         "judgment_date": "2026-10-27",
         "source_revision": "130e095",
@@ -1308,7 +1310,9 @@
         "tier_and_alternative_check": "Each assigned or unresolved decision records its alternative.",
         "isolation_check": "Only supplemental review records authored; 2021 untouched.",
         "unresolved_findings": [],
-        "reviewer_verdict": null
+        "reviewer_verdict": "pass",
+        "reviewed_candidate": "fc7ad64ee17f3e66711d2909d24bf45daf169c36",
+        "evidence_reference": "HANDOFF.md: Independent RobQA protocol application and four-finding repair recheck"
       },
       "revision": {
         "prior_decision": {
@@ -1350,7 +1354,7 @@
     },
     {
       "protocol_version": "1.0",
-      "record_status": "draft",
+      "record_status": "reviewed",
       "mechanic": {
         "accepted_id": "deck:catalog-gaps:activate",
         "name": "Activate",
@@ -1377,7 +1381,7 @@
       },
       "provenance": {
         "researcher": "Codex coordinator",
-        "reviewer": null,
+        "reviewer": "Independent RobQA",
         "research_date": "2026-10-26",
         "judgment_date": "2026-10-27",
         "source_revision": "130e095",
@@ -6468,7 +6472,9 @@
         "tier_and_alternative_check": "Each assigned or unresolved decision records its alternative.",
         "isolation_check": "Only supplemental review records authored; 2021 untouched.",
         "unresolved_findings": [],
-        "reviewer_verdict": null
+        "reviewer_verdict": "pass",
+        "reviewed_candidate": "fc7ad64ee17f3e66711d2909d24bf45daf169c36",
+        "evidence_reference": "HANDOFF.md: Independent RobQA protocol application and four-finding repair recheck"
       },
       "revision": {
         "prior_decision": {
@@ -6510,7 +6516,7 @@
     },
     {
       "protocol_version": "1.0",
-      "record_status": "draft",
+      "record_status": "reviewed",
       "mechanic": {
         "accepted_id": "deck:catalog-gaps:affinitycycling",
         "name": "Affinitycycling",
@@ -6537,7 +6543,7 @@
       },
       "provenance": {
         "researcher": "Codex coordinator",
-        "reviewer": null,
+        "reviewer": "Independent RobQA",
         "research_date": "2026-10-26",
         "judgment_date": "2026-10-27",
         "source_revision": "130e095",
@@ -6849,7 +6855,9 @@
         "tier_and_alternative_check": "Each assigned or unresolved decision records its alternative.",
         "isolation_check": "Only supplemental review records authored; 2021 untouched.",
         "unresolved_findings": [],
-        "reviewer_verdict": null
+        "reviewer_verdict": "pass",
+        "reviewed_candidate": "fc7ad64ee17f3e66711d2909d24bf45daf169c36",
+        "evidence_reference": "HANDOFF.md: Independent RobQA protocol application and four-finding repair recheck"
       },
       "revision": {
         "prior_decision": {
@@ -6892,7 +6900,7 @@
     },
     {
       "protocol_version": "1.0",
-      "record_status": "draft",
+      "record_status": "reviewed",
       "mechanic": {
         "accepted_id": "deck:vocabulary:annihilator",
         "name": "Annihilator",
@@ -6920,7 +6928,7 @@
       },
       "provenance": {
         "researcher": "Codex coordinator",
-        "reviewer": null,
+        "reviewer": "Independent RobQA",
         "research_date": "2026-10-26",
         "judgment_date": "2026-10-27",
         "source_revision": "130e095",
@@ -7920,7 +7928,9 @@
         "tier_and_alternative_check": "Each assigned or unresolved decision records its alternative.",
         "isolation_check": "Only supplemental review records authored; 2021 untouched.",
         "unresolved_findings": [],
-        "reviewer_verdict": null
+        "reviewer_verdict": "pass",
+        "reviewed_candidate": "fc7ad64ee17f3e66711d2909d24bf45daf169c36",
+        "evidence_reference": "HANDOFF.md: Independent RobQA protocol application and four-finding repair recheck"
       },
       "revision": {
         "prior_decision": {
@@ -7962,7 +7972,7 @@
     },
     {
       "protocol_version": "1.0",
-      "record_status": "draft",
+      "record_status": "reviewed",
       "mechanic": {
         "accepted_id": "deck:catalog-gaps:attach",
         "name": "Attach",
@@ -7989,7 +7999,7 @@
       },
       "provenance": {
         "researcher": "Codex coordinator",
-        "reviewer": null,
+        "reviewer": "Independent RobQA",
         "research_date": "2026-10-26",
         "judgment_date": "2026-10-27",
         "source_revision": "130e095",
@@ -13130,7 +13140,9 @@
         "tier_and_alternative_check": "Each assigned or unresolved decision records its alternative.",
         "isolation_check": "Only supplemental review records authored; 2021 untouched.",
         "unresolved_findings": [],
-        "reviewer_verdict": null
+        "reviewer_verdict": "pass",
+        "reviewed_candidate": "fc7ad64ee17f3e66711d2909d24bf45daf169c36",
+        "evidence_reference": "HANDOFF.md: Independent RobQA protocol application and four-finding repair recheck"
       },
       "revision": {
         "prior_decision": {

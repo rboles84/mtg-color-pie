@@ -20,15 +20,15 @@
     },
     {
       "path": "docs/mechanics-research/a-protocol-core.json",
-      "sha256": "86142102d6a9179de3e38949fbe678f5db8642fca661796a533e39fc990c8900"
+      "sha256": "81cec14527f95b15463da206c29bcb11db94de94c7ab640c59f8923fa92709da"
     },
     {
       "path": "docs/mechanics-research/a-protocol-extended.json",
-      "sha256": "adddfb862c167ebd64a1de86cff520e9460c79aa39832e03339672bc13f8ad3f"
+      "sha256": "d124467c822090ce317e2d81b1c88fec625398b2d2e94b1d5ca7b76da046cd07"
     },
     {
       "path": "docs/mechanics-research/a-protocol-special.json",
-      "sha256": "d94b424ee9080fda089f93630e4d628c82667ad8701b72b30ee31dfd54483627"
+      "sha256": "718c01516e59110d3b853a79874e07d1a248ec5e8fe5930ffa51d82c932c03be"
     }
   ],
   "records": [
@@ -153,7 +153,7 @@
       ],
       "queryUrl": "https://scryfall.com/search?q=t%3Ascheme%20o%3Aabandon%20include%3Aextras",
       "protocolVersion": "1.0",
-      "reviewStatus": "draft",
+      "reviewStatus": "reviewed",
       "judgmentDate": "2026-10-27",
       "shortLabel": "Rules action",
       "decisionStatus": {
@@ -225,7 +225,7 @@
       ],
       "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAbsorb%5Cb/%20include%3Aextras",
       "protocolVersion": "1.0",
-      "reviewStatus": "draft",
+      "reviewStatus": "reviewed",
       "judgmentDate": "2026-10-27",
       "shortLabel": "Scryfall-derived",
       "decisionStatus": {
@@ -293,7 +293,7 @@
       ],
       "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbActivate%5Cb/%20include%3Aextras",
       "protocolVersion": "1.0",
-      "reviewStatus": "draft",
+      "reviewStatus": "reviewed",
       "judgmentDate": "2026-10-27",
       "shortLabel": "Rules action",
       "decisionStatus": {
@@ -372,7 +372,7 @@
       "sources": [],
       "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbActualize%5Cb/%20include%3Aextras",
       "protocolVersion": "1.0",
-      "reviewStatus": "draft",
+      "reviewStatus": "reviewed",
       "judgmentDate": "2026-10-27",
       "shortLabel": "Scryfall-derived",
       "decisionStatus": {
@@ -506,7 +506,7 @@
       "sources": [],
       "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAdamant%5Cb/%20include%3Aextras",
       "protocolVersion": "1.0",
-      "reviewStatus": "draft",
+      "reviewStatus": "reviewed",
       "judgmentDate": "2026-10-27",
       "shortLabel": "Scryfall-derived",
       "decisionStatus": {
@@ -668,7 +668,7 @@
       "sources": [],
       "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAdapt%5Cb/%20include%3Aextras",
       "protocolVersion": "1.0",
-      "reviewStatus": "draft",
+      "reviewStatus": "reviewed",
       "judgmentDate": "2026-10-27",
       "shortLabel": "Scryfall-derived",
       "decisionStatus": {
@@ -770,7 +770,7 @@
       "sources": [],
       "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAddendum%5Cb/%20include%3Aextras",
       "protocolVersion": "1.0",
-      "reviewStatus": "draft",
+      "reviewStatus": "reviewed",
       "judgmentDate": "2026-10-27",
       "shortLabel": "Scryfall-derived",
       "decisionStatus": {
@@ -1180,7 +1180,7 @@
       "sources": [],
       "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAffinity%5Cb/%20include%3Aextras",
       "protocolVersion": "1.0",
-      "reviewStatus": "draft",
+      "reviewStatus": "reviewed",
       "judgmentDate": "2026-10-27",
       "shortLabel": "Scryfall-derived",
       "decisionStatus": {
@@ -1248,7 +1248,7 @@
       "sources": [],
       "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAffinitycycling%5Cb/%20include%3Aextras",
       "protocolVersion": "1.0",
-      "reviewStatus": "draft",
+      "reviewStatus": "reviewed",
       "judgmentDate": "2026-10-27",
       "shortLabel": "Scryfall-derived",
       "decisionStatus": {
@@ -1373,7 +1373,7 @@
       ],
       "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAfflict%5Cb/%20include%3Aextras",
       "protocolVersion": "1.0",
-      "reviewStatus": "draft",
+      "reviewStatus": "reviewed",
       "judgmentDate": "2026-10-27",
       "shortLabel": "Source-informed",
       "decisionStatus": {
@@ -1483,7 +1483,7 @@
       "sources": [],
       "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAfterlife%5Cb/%20include%3Aextras",
       "protocolVersion": "1.0",
-      "reviewStatus": "draft",
+      "reviewStatus": "reviewed",
       "judgmentDate": "2026-10-27",
       "shortLabel": "Scryfall-derived",
       "decisionStatus": {
@@ -1653,7 +1653,7 @@
       "sources": [],
       "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAftermath%5Cb/%20include%3Aextras",
       "protocolVersion": "1.0",
-      "reviewStatus": "draft",
+      "reviewStatus": "reviewed",
       "judgmentDate": "2026-10-27",
       "shortLabel": "Scryfall-derived",
       "decisionStatus": {
@@ -1767,7 +1767,7 @@
       "sources": [],
       "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAirbend%5Cb/%20include%3Aextras",
       "protocolVersion": "1.0",
-      "reviewStatus": "draft",
+      "reviewStatus": "reviewed",
       "judgmentDate": "2026-10-27",
       "shortLabel": "Scryfall-derived",
       "decisionStatus": {
@@ -1930,7 +1930,7 @@
       ],
       "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAlliance%5Cb/%20include%3Aextras",
       "protocolVersion": "1.0",
-      "reviewStatus": "draft",
+      "reviewStatus": "reviewed",
       "judgmentDate": "2026-10-27",
       "shortLabel": "Scryfall-derived",
       "decisionStatus": {
@@ -2293,7 +2293,7 @@
       ],
       "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAmass%5Cb/%20include%3Aextras",
       "protocolVersion": "1.0",
-      "reviewStatus": "draft",
+      "reviewStatus": "reviewed",
       "judgmentDate": "2026-10-27",
       "shortLabel": "Scryfall-derived",
       "decisionStatus": {
@@ -2396,7 +2396,7 @@
       ],
       "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAmplify%5Cb/%20include%3Aextras",
       "protocolVersion": "1.0",
-      "reviewStatus": "draft",
+      "reviewStatus": "reviewed",
       "judgmentDate": "2026-10-27",
       "shortLabel": "Scryfall-derived",
       "decisionStatus": {
@@ -2559,7 +2559,7 @@
       "sources": [],
       "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAnnihilator%5Cb/%20include%3Aextras",
       "protocolVersion": "1.0",
-      "reviewStatus": "draft",
+      "reviewStatus": "reviewed",
       "judgmentDate": "2026-10-27",
       "shortLabel": "User-selected",
       "decisionStatus": {
@@ -2750,7 +2750,7 @@
       ],
       "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAscend%5Cb/%20include%3Aextras",
       "protocolVersion": "1.0",
-      "reviewStatus": "draft",
+      "reviewStatus": "reviewed",
       "judgmentDate": "2026-10-27",
       "shortLabel": "Scryfall-derived",
       "decisionStatus": {
@@ -2905,7 +2905,7 @@
       ],
       "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAssemble%5Cb/%20include%3Aextras",
       "protocolVersion": "1.0",
-      "reviewStatus": "draft",
+      "reviewStatus": "reviewed",
       "judgmentDate": "2026-10-27",
       "shortLabel": "Scryfall-derived",
       "decisionStatus": {
@@ -3005,7 +3005,7 @@
       ],
       "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAssimilate%5Cb/%20include%3Aextras",
       "protocolVersion": "1.0",
-      "reviewStatus": "draft",
+      "reviewStatus": "reviewed",
       "judgmentDate": "2026-10-27",
       "shortLabel": "Scryfall-derived",
       "decisionStatus": {
@@ -3144,7 +3144,7 @@
       ],
       "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAssist%5Cb/%20include%3Aextras",
       "protocolVersion": "1.0",
-      "reviewStatus": "draft",
+      "reviewStatus": "reviewed",
       "judgmentDate": "2026-10-27",
       "shortLabel": "Scryfall-derived",
       "decisionStatus": {
@@ -3229,7 +3229,7 @@
       ],
       "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAttach%5Cb/%20include%3Aextras",
       "protocolVersion": "1.0",
-      "reviewStatus": "draft",
+      "reviewStatus": "reviewed",
       "judgmentDate": "2026-10-27",
       "shortLabel": "Rules action",
       "decisionStatus": {
@@ -3352,7 +3352,7 @@
       ],
       "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAugment%5Cb/%20include%3Aextras",
       "protocolVersion": "1.0",
-      "reviewStatus": "draft",
+      "reviewStatus": "reviewed",
       "judgmentDate": "2026-10-27",
       "shortLabel": "Scryfall-derived",
       "decisionStatus": {
@@ -3423,7 +3423,7 @@
       ],
       "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAura%20Swap%5Cb/%20include%3Aextras",
       "protocolVersion": "1.0",
-      "reviewStatus": "draft",
+      "reviewStatus": "reviewed",
       "judgmentDate": "2026-10-27",
       "shortLabel": "Scryfall-derived",
       "decisionStatus": {
@@ -3550,7 +3550,7 @@
       ],
       "queryUrl": "https://scryfall.com/search?q=o%3A/%5CbAwaken%5Cb/%20include%3Aextras",
       "protocolVersion": "1.0",
-      "reviewStatus": "draft",
+      "reviewStatus": "reviewed",
       "judgmentDate": "2026-10-27",
       "shortLabel": "Scryfall-derived",
       "decisionStatus": {
