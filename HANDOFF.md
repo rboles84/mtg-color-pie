@@ -1,3 +1,25 @@
+# Active correction — E mana symbols
+
+- Status: ready-for-qa. Baseline `16ef7cdcd2170042f45913ce1e068c6cebd24368`; same codex/a-mechanics-review checkout. Owner found literal {1}/{B} in Explore and requests checking all28 E records for brace notation and replacing it visually with mana symbols.
+- Allowed files: HANDOFF.md; vox-color/mechanical-explorer.html; tools/check_assessment_browser.mjs. Temporary helpers outside checkout and ignored _site packaging permitted. No source JSON, captured evidence, frozen2021, other-letter content, dependency/palette, publication/push/merge changes.
+- Implementation: reuse existing supplemental symbol renderer and pinned Mana font, supply E token vocabulary and render E assessment prose through it. Preserve escaped prose/URLs, card links, accessible labels and text fallback when font unavailable. Existing supplemental rules already use the symbol renderer; verify E rules/reference coverage as well.
+- Inventory: braces occur in14 E access records plus Extort’s rule. Required current tokens:0,1,2,3,4,5,6,12,B,G,R,U,W,X,R/G,R/W,U/B,W/B. All28 E entries must be inspected, including ones without tokens.
+- Acceptance: no visible literal mana braces in E details when font loaded; all actual tokens render the correct font glyph and accessible label; original source notation survives in data and no-font fallback. One linked example per represented color/combination remains. A–D presentation/data and2021 preserved.
+- QA: focused browser checks all28 E entries, multi-symbol costs, black/generic12/X/hybrids, authored-text preservation, link integrity, no-font fallback and escaping; existing frozen84 checks and source/recon gates remain. Separate independent RobQA on committed candidate; Owner sees refreshed Explore preview. No unrelated source research or broad engine stress tests needed.
+
+## E symbol implementation packet
+
+- E assessment prose now uses the existing escaped supplementalTextHTML renderer. E_MANA adds the six missing tokens (4,12,B,R/G,R/W,U/B) to the unchanged base map. E rules/reference excerpts use that same map; other letters and mapped2021 supplemental render paths retain their prior formatter/table.
+- No source records, payload, captured facts, costs, access maps, card URLs, font dependency or palette changed. Source brace notation remains authoritative; presentation emits role=img symbols with readable labels and existing no-font fallback.
+- All28 E records checked in real Edge. Actual braces occur in14 access records plus Extort’s rule; every current cost token renders, including black/generic12/X and both halves of four hybrid forms. No visible raw braces with font loaded. Explore labels are1 generic,1 generic,one black; Encore12 and Evoke hybrid sets are asserted.
+- Browser PASS also covers exact authored prose after token normalization, all133 access maps/links, no duplicate citations, no-font Explore fallback, escaped HTML/unknown tokens via a substituted sidecar, malformed sidecar isolation, keyboard/mobile and frozen84/84. First test run reached all entry/fallback checks but its final helper-isolation check incorrectly called a private IIFE function; corrected to exercise the public sidecar-load path, then the complete harness passed.
+- Producer133/13 deterministic check PASS (data unchanged), existing source/taxonomy/fixture gates and53 recon assertions PASS, syntax and diff whitespace PASS. Pinned Mana stylesheet verified for numeric/black/hybrid classes; no dependency change.
+- Independent QA request: review this bounded presentation change on committed candidate vs16ef7cdcd2170042f45913ce1e068c6cebd24368; confirm source/payload unchanged, E-only formatting, symbols/accessibility/fallback/escaping, links, protected2021 and focused exact-candidate harness. No new source audit needed. Reviewer owns HANDOFF.md only; parent freezes product edits. Owner visual check will open Explore with the reported costs visible.
+
+---
+
+## Previous E work (historical)
+
 # Active task — E Color Access
 
 - Status: qa-passed. Continue codex/a-mechanics-review; exact candidate `34137eb07b39c9babd3a6e69b15fb9b30d407ab2`, baseline `9bf9b7d61aa6bee4dedd5bfbf23596aa327f7392`. Owner requests supplemental E with the accepted A–D Color Access approach and refreshed local preview.

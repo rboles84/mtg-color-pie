@@ -1910,11 +1910,17 @@ const SUP_MANA = {
   W:['w','One white mana'], U:['u','One blue mana'], G:['g','One green mana'], R:['r','One red mana'],
   'W/B':['wb','One white or black mana'], T:['tap','Tap'], X:['x','X generic mana']
 };
-function supplementalTextHTML(value){
+// E's reviewed costs use additional symbols; keep prior supplemental rendering unchanged.
+const E_MANA = {
+  ...SUP_MANA, '4':['4','4 generic mana'], '12':['12','12 generic mana'],
+  B:['b','One black mana'], 'R/G':['rg','One red or green mana'],
+  'R/W':['rw','One red or white mana'], 'U/B':['ub','One blue or black mana']
+};
+function supplementalTextHTML(value, symbols = SUP_MANA){
   let html = '', cursor = 0;
   for (const match of value.matchAll(/\{[^{}\r\n]+\}/g)){
     html += esc(value.slice(cursor, match.index));
-    const symbol = Object.hasOwn(SUP_MANA, match[0].slice(1,-1)) ? SUP_MANA[match[0].slice(1,-1)] : null;
+    const symbol = Object.hasOwn(symbols, match[0].slice(1,-1)) ? symbols[match[0].slice(1,-1)] : null;
     html += symbol ? `<span class="supp-symbol" role="img" aria-label="${esc(symbol[1])}" title="${esc(symbol[1])}"><i class="ms ms-cost ms-${symbol[0]}" aria-hidden="true"></i><span class="supp-symbol-text" aria-hidden="true">${esc(match[0])}</span></span>` : esc(match[0]);
     cursor = match.index + match[0].length;
   }
@@ -1967,6 +1973,7 @@ function supplementalClassificationHTML(scope, mapped){
     </${mapped ? 'section' : 'div'}>`;
 }
 function supplementalRecordHTML(a, mapped = false){
+  const text = value => supplementalTextHTML(value, a.name.startsWith('E') && !mapped ? E_MANA : SUP_MANA);
   const ref = a.reference, review = a.qualifications.acceptedSourceReview, locator = review && review.locator || {};
   const classification = SUP_SCOPE.get(a.id), upfront = new Set([classification.scopeNote, ...classification.qualifications]);
   const kind = ref && ref.referenceKind;
@@ -1974,14 +1981,14 @@ function supplementalRecordHTML(a, mapped = false){
   const heading = kind === 'designer-card-example' ? 'Designer card example' : kind === 'archived-mechanic-discussion' ? 'Archived design discussion' : kind === 'playtest-card-example' ? 'Playtest card example' : example ? 'Card example' : 'Reference';
   const excerpts = [...new Set([ref && ref.quote, ref && ref.summary, review && review.exactExcerpt].filter(Boolean))];
   const rules = a.clauses.length ? `<section class="dx-sec supp-rules" aria-label="${mapped ? 'Supplemental rules' : 'Rules'}"><h3 class="dx-h">${mapped ? 'Supplemental rules' : 'Rules'}</h3>
-    ${a.clauses.map(c => `<p class="dx-ex is-supplemental"><b class="supp-rule-number">${esc(c.number)}</b> ${supplementalTextHTML(c.text)}</p>`).join('')}
+    ${a.clauses.map(c => `<p class="dx-ex is-supplemental"><b class="supp-rule-number">${esc(c.number)}</b> ${text(c.text)}</p>`).join('')}
     <p class="dx-note supp-citation"><a href="${esc(supplementalURL(a.rulesSource.sourceUrl))}" target="_blank" rel="noopener noreferrer">Wizards Comprehensive Rules · ${esc(supplementalDate(a.rulesSource.date))}</a></p></section>` : '';
   const reference = ref && ref.source ? `<section class="dx-sec supp-reference" aria-label="${mapped ? 'Supplemental reference' : heading}"><h3 class="dx-h">${mapped ? 'Supplemental ' + heading.toLowerCase() : heading}</h3>
     ${ref.source.section ? `<p class="dx-note">${esc(ref.source.section)}</p>` : ''}
     ${example ? '<p class="dx-note">Card-specific evidence; this is not a general definition.</p>' : ''}
     ${ref.generalReference ? '<p class="dx-note">The numbered rule describes flavor words as a group.</p>' : ''}
     ${a.category === 'ability word' && a.clauses.length ? '<p class="dx-note">The numbered rule describes ability words as a group.</p>' : ''}
-    ${excerpts.map(text => `<blockquote class="dx-ex is-supplemental supp-quote">${supplementalTextHTML(text)}</blockquote>`).join('')}
+    ${excerpts.map(excerpt => `<blockquote class="dx-ex is-supplemental supp-quote">${text(excerpt)}</blockquote>`).join('')}
     ${!a.clauses.length && !excerpts.length ? '<p class="dx-note">No definition text is reproduced in this reference.</p>' : ''}
     ${supplementalSources(a)}</section>` : '';
   const scope = review || ref && (ref.definitionVerified === false || ref.playtest) ? `<section class="dx-sec supp-scope" aria-label="Scope and limitations"><h3 class="dx-h">Scope and limitations</h3>
@@ -2022,6 +2029,7 @@ function assessmentHTML(k){
   const a = ASSESSMENTS.byKey.get(k);
   if (!a) return `<section class="dx-sec supp-assessment" aria-label="Color access status"><p class="dx-note">${esc(assessmentSummary(k))}. ${ASSESSMENTS.status === 'unavailable' ? 'The color access record could not be loaded. Reload to try again; rules and other evidence remain available.' : 'Rules and other evidence remain available while the record loads.'}</p></section>`;
   const link = (name, url) => url ? `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(name)}</a>` : esc(name);
+  const text = a.name.startsWith('E') ? value => supplementalTextHTML(value, E_MANA) : esc;
   const compactExamples = /^[CDE]/.test(a.name);
   const displayColors = [...ORDER, ...(a.access.colorless.status === 'documented' ? ['C'] : [])];
   const accessRows = a.kind === 'access' ? displayColors.map(c => { const item=c === 'C' ? a.access.colorless : a.access.colors[c]; return `<li class="own-row${item.status === 'documented' ? '' : ' none'}" data-c="${c}">${accessMarkHTML(c,item.status)}<span class="own-c">${c === 'C' ? 'Colorless' : CNAME[c]}</span><span class="own-lead" aria-hidden="true"></span><span class="own-t">${esc(item.status === 'documented' ? 'Access' : item.status === 'multicolor_only' ? 'Combination only' : item.status === 'not_applicable' ? 'Not applicable' : item.status === 'insufficient_evidence' ? 'Insufficient evidence' : 'No example found')}</span></li>`; }).join('') : '';
@@ -2035,11 +2043,11 @@ function assessmentHTML(k){
     return `${item.findUrl ? `<p>${link('Find reviewed ' + label + ' cards on Scryfall', item.findUrl)}</p>` : ''}${item.cards.length ? `<details><summary>${item.cards.length} reviewed card ${item.cards.length === 1 ? 'source' : 'sources'}</summary><ul class="dx-list">${item.cards.map(card => `<li>${link(card.name,card.url)}</li>`).join('')}</ul></details>` : ''}`;
   };
   const exampleNote = item => {
-    if (!compactExamples || !item.cards.length) return esc(item.note);
+    if (!compactExamples || !item.cards.length) return text(item.note);
     const card = item.cards[0];
     const names = [card.name, ...card.name.split(' // ')];
     const mention = names.flatMap(name => [name, name.replaceAll("'", '’')]).find(name => item.note.includes(name));
-    return mention ? esc(item.note).replace(esc(mention), link(mention, card.url)) : `${link(card.name, card.url)} — ${esc(item.note)}`;
+    return mention ? text(item.note).replace(esc(mention), link(mention, card.url)) : `${link(card.name, card.url)} — ${text(item.note)}`;
   };
   const colorNotes = a.kind === 'access' && (!compactExamples || ORDER.some(c => a.access.colors[c].status === 'documented')) ? `<h4>Color evidence</h4>${ORDER.filter(c => !compactExamples || a.access.colors[c].status === 'documented').map(c => { const item=a.access.colors[c]; return `<p${compactExamples ? ' class="assessment-example"' : ''}><b>${CNAME[c]}.</b> ${exampleNote(item)}</p>${reviewedCards(item,CNAME[c])}`; }).join('')}` : '';
   const combos = a.kind === 'access' && a.access.combinations.length ? `<h4>Color combinations</h4><ul class="dx-list">${a.access.combinations.map(x => `<li${compactExamples ? ' class="assessment-example"' : ''}><b>${esc(x.colors.map(c=>CNAME[c]).join(' / '))}.</b> ${exampleNote(x)}${reviewedCards(x,x.colors.map(c=>CNAME[c]).join(' / '))}</li>`).join('')}</ul>` : '';
@@ -2047,10 +2055,10 @@ function assessmentHTML(k){
   const colorlessEvidence = a.kind === 'access' && (!compactExamples || a.access.colorless.status === 'documented') ? `<h4>Colorless evidence</h4><p${compactExamples ? ' class="assessment-example"' : ''}>${exampleNote(a.access.colorless)}</p>${reviewedCards(a.access.colorless,'Colorless')}` : '';
   return `<section class="dx-sec supp-assessment" aria-label="Color access">
     <h3 class="dx-h">Color Access</h3>${a.kind === 'rules' ? '<p class="dx-note">This is a general rules action; it has no color access map.</p>' : ''}
-    ${a.kind === 'access' ? `<ul class="own access-strip" aria-label="Color access">${accessRows}</ul>` : '<p class="dx-ex is-supplemental"><b>Rules action · Color access not applicable</b></p>'}<p class="dx-note"><b>${esc(a.scopeLabel)}.</b>${compactExamples ? '' : ' ' + esc(a.scope)}</p>
+    ${a.kind === 'access' ? `<ul class="own access-strip" aria-label="Color access">${accessRows}</ul>` : '<p class="dx-ex is-supplemental"><b>Rules action · Color access not applicable</b></p>'}<p class="dx-note"><b>${esc(a.scopeLabel)}.</b>${compactExamples ? '' : ' ' + text(a.scope)}</p>
     <p class="dx-note">Based on reviewed evidence October 28, 2026. Outside the 2021 color calculations.</p>
-    <details class="assessment-notes"><summary>${compactExamples && a.kind === 'access' ? 'Reviewed card examples' : 'Evidence and scope'}</summary><p>${esc(a.summary)}</p>${colorNotes}${combos}${colorlessEvidence}
-      ${a.access.limitations.length ? `<h4>Scope and limitations</h4><ul class="dx-list">${a.access.limitations.map(t => `<li>${esc(t)}</li>`).join('')}</ul>` : ''}
+    <details class="assessment-notes"><summary>${compactExamples && a.kind === 'access' ? 'Reviewed card examples' : 'Evidence and scope'}</summary><p>${text(a.summary)}</p>${colorNotes}${combos}${colorlessEvidence}
+      ${a.access.limitations.length ? `<h4>Scope and limitations</h4><ul class="dx-list">${a.access.limitations.map(t => `<li>${text(t)}</li>`).join('')}</ul>` : ''}
       ${nonCardSources.length ? `<section class="assessment-sources"><h4>Sources</h4>${nonCardSources.map(s => `<p>${link(s.title, s.url)}</p>`).join('')}</section>` : ''}
       ${a.kind === 'rules' && a.citationCards.length ? `<details class="assessment-rule-cards"><summary>${a.citationCards.length} reviewed card ${a.citationCards.length === 1 ? 'source' : 'sources'}</summary><ul class="dx-list">${a.citationCards.map(c => `<li>${link(c.name, c.url)}</li>`).join('')}</ul></details>` : ''}
     </details>${a.relatedEffects.map(e => `<section class="assessment-related" aria-label="Related historical placement"><h4>${esc(e.name)}</h4><p class="dx-note">${esc(e.label)}</p><p class="dx-ex is-supplemental">${ORDER.filter(c => e.placements[c]).map(c => `${CNAME[c]} · ${esc(e.placements[c])}`).join(' · ')}</p><p class="dx-note">${esc(e.note)}</p><p class="dx-note">${link('Mechanical Color Pie 2017', e.url)}</p></section>`).join('')}

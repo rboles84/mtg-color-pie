@@ -115,9 +115,16 @@ try{
         }
       }
       await notes.locator(':scope > summary').focus(); await page.keyboard.press('Enter'); assert.equal(await notes.getAttribute('open'),'');
-      assert.ok((await notes.innerText()).includes(record.summary));
+      // Restore symbol fallback text only for exact authored-prose comparisons.
+      // Separate visible-DOM assertions below prove the braces are not displayed.
+      const noteText = record.name.startsWith('E') ? await notes.evaluate(el=>{
+        const copy=el.cloneNode(true);
+        copy.querySelectorAll('.supp-symbol').forEach(symbol=>symbol.replaceWith(symbol.querySelector('.supp-symbol-text').textContent));
+        return copy.textContent;
+      }) : await notes.innerText();
+      assert.ok(noteText.includes(record.summary));
       if(record.kind==='access') for(const color of 'WUBRG') {
-        if(!compactExamples || access.colors[color].status==='documented') assert.ok((await notes.innerText()).includes(access.colors[color].note),record.name+' '+color+' authored example visible');
+        if(!compactExamples || access.colors[color].status==='documented') assert.ok(noteText.includes(access.colors[color].note),record.name+' '+color+' authored example visible');
       }
       assert.doesNotMatch((await panel.locator('.dx-h,.own-t').allTextContents()).join(' '),/Documented access/i);
       assert.doesNotMatch(await panel.innerText(),/Neutral mana marks/i);
@@ -143,13 +150,52 @@ try{
           assert.equal(await notes.getByRole('link',{name:'Blitzwing, Adaptive Assailant',exact:true}).count(),1,'Convert links the mechanic-bearing back face');
         }
         assert.doesNotMatch(await notes.innerText(),/under its stated conditions|present votes provide a separate effect|independent example|reviewed scope/,record.name+' no filler or internal qualification prose');
-        for(const item of [...access.combinations,...(access.colorless.status==='documented'?[access.colorless]:[])]) assert.ok((await notes.innerText()).includes(item.note),record.name+' combination/colorless example visible');
+        for(const item of [...access.combinations,...(access.colorless.status==='documented'?[access.colorless]:[])]) assert.ok(noteText.includes(item.note),record.name+' combination/colorless example visible');
       }
       assert.deepEqual(await notes.locator('a').evaluateAll(links=>links.filter(a=>a.hostname==='scryfall.com'&&a.pathname.startsWith('/card/')).map(a=>a.href).sort()),expectedCardLinks,record.name+' no redundant aggregate card list');
       const linkedBuckets=cardBuckets.filter(item=>item.findUrl && (!compactExamples || item.cards.length>1));
       for(const findUrl of new Set(linkedBuckets.map(item=>item.findUrl))) assert.equal(await notes.locator(`a[href="${findUrl}"]`).count(),linkedBuckets.filter(item=>item.findUrl===findUrl).length,record.name+' renders every exact reviewed-card bucket link');
       assert.deepEqual(await notes.locator('a').evaluateAll(links=>links.filter(a=>a.protocol!=='https:'||!['scryfall.com','magic.wizards.com'].includes(a.hostname)||a.rel!=='noopener noreferrer').map(a=>a.href)),[]);
+      if(record.name.startsWith('E')) {
+        await page.waitForFunction(()=>document.documentElement.classList.contains('supp-mana-ready'));
+        const symbols=await page.locator('#detail').evaluate(el=>{
+          const copy=el.cloneNode(true);
+          copy.querySelectorAll('.supp-symbol').forEach(s=>s.replaceWith(s.querySelector('.supp-symbol-text').textContent));
+          return {tokens:copy.textContent.match(/\{[^{}\r\n]+\}/g)||[],visible:el.innerText,
+            rendered:[...el.querySelectorAll('.supp-symbol')].map(s=>({token:s.querySelector('.supp-symbol-text').textContent,label:s.getAttribute('aria-label'),role:s.getAttribute('role'),fallback:getComputedStyle(s.querySelector('.supp-symbol-text')).display,glyph:getComputedStyle(s.querySelector('.ms')).display,before:getComputedStyle(s.querySelector('.ms'),'::before').content,after:getComputedStyle(s.querySelector('.ms'),'::after').content}))};
+        });
+        assert.deepEqual(symbols.rendered.map(s=>s.token),symbols.tokens,record.name+' every brace token becomes a symbol');
+        assert.doesNotMatch(symbols.visible,/\{[^{}\r\n]+\}/,record.name+' no visible raw costs');
+        for(const symbol of symbols.rendered){
+          assert.equal(symbol.role,'img');assert.ok(symbol.label);assert.equal(symbol.fallback,'none');assert.notEqual(symbol.glyph,'none');
+          assert.ok(symbol.before && !['none','normal','""'].includes(symbol.before),record.name+' real font glyph');
+          if(symbol.token.includes('/'))assert.ok(symbol.after && !['none','normal','""'].includes(symbol.after),record.name+' both hybrid halves');
+        }
+        if(record.name==='Explore') assert.deepEqual(symbols.rendered.map(s=>s.label),['1 generic mana','1 generic mana','One black mana']);
+        if(record.name==='Encore') assert.ok(symbols.rendered.some(s=>s.token==='{12}'&&s.label==='12 generic mana'));
+        if(record.name==='Evoke') assert.deepEqual([...new Set(symbols.rendered.filter(s=>s.token.includes('/')).map(s=>s.token))].sort(),['{R/G}','{R/W}','{U/B}','{W/B}']);
+      }
+
     }
+    const noFont=await browser.newPage();
+    await noFont.route('**/mana-font@1.18.0/**',route=>route.abort());
+    await noFont.goto(url);await noFont.waitForFunction(()=>VMX.assessments().status==='ready');
+    await noFont.evaluate(()=>VMX.open('deck:vocabulary:explore'));
+    await noFont.locator('.assessment-notes > summary').click();
+    const fallback=await noFont.locator('.assessment-notes .supp-symbol').evaluateAll(symbols=>symbols.map(s=>({label:s.getAttribute('aria-label'),text:s.innerText,glyph:getComputedStyle(s.querySelector('.ms')).display,fallback:getComputedStyle(s.querySelector('.supp-symbol-text')).display})));
+    assert.deepEqual(fallback.map(s=>s.text),['{1}','{1}','{B}'],'costs remain readable without font');
+    assert.ok(fallback.every(s=>s.label&&s.glyph==='none'&&s.fallback!=='none'));await noFont.close();
+    const escaped=await browser.newPage(), injected=structuredClone(payload);
+    injected.records.find(r=>r.name==='Explore').summary='<img src=x onerror=alert(1)> {unknown} {B}';
+    await escaped.route(assessmentRoute,route=>route.fulfill({contentType:'application/json',body:JSON.stringify(injected)}));
+    await escaped.goto(url);await escaped.waitForFunction(()=>VMX.assessments().status==='ready');
+    await escaped.evaluate(()=>VMX.open('deck:vocabulary:explore'));
+    await escaped.locator('.assessment-notes > summary').click();
+    const escapedSummary=escaped.locator('.assessment-notes > p').first();
+    assert.equal(await escapedSummary.locator('img').count(),0,'prose markup is escaped');
+    assert.ok((await escapedSummary.textContent()).includes('<img src=x onerror=alert(1)> {unknown}'),'unknown notation remains readable');
+    assert.equal(await escapedSummary.locator('.supp-symbol').getAttribute('aria-label'),'One black mana');
+    await escaped.close();
     const blue=payload.records.find(r=>r.access.colors.U.status==='documented'); assert.ok(blue,'a documented blue example exists');
     await page.locator('#q').fill(blue.name); await page.locator('#q').press('Enter'); assert.equal(await page.locator('#dx-title').innerText(),blue.name);
     const accessBefore=await page.locator('.access-strip .sc').evaluateAll(slots=>slots.map(s=>s.className));
@@ -166,7 +212,7 @@ try{
       assert.equal(await fail.evaluate(()=>VMX.assessments().records.length),0); assert.equal(await fail.locator('#list .access-strip').count(),0); await fail.close();
     }
     assert.deepEqual(errors,[]);
-    results.push('C/D/E representative sources, unique combination citations and concise copy; 133 A/B/C/D/E access maps; documented/no-example/joint/colorless/rules cases; exact-example and retained non-card links; atomic malformed fail-soft; search keyboard/mobile; unchanged 2021 84 checks');
+    results.push('All28 E mana symbols, accessible names, hybrid halves, no-font fallback and escaping; C/D/E representative sources, unique combination citations and concise copy; 133 A/B/C/D/E access maps; documented/no-example/joint/colorless/rules cases; exact-example and retained non-card links; atomic malformed fail-soft; search keyboard/mobile; unchanged 2021 84 checks');
   }
   await page.close();
   console.log(JSON.stringify({result:'PASS',checks:results},null,2));
