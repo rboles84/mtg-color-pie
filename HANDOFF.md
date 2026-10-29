@@ -1,3 +1,73 @@
+# Owner Review — H Hexproof from presentation correction
+
+- Status: qa-passed / Owner Review. Owner finding: "hexproof needs the same treatment of friends forever and fuse", with Hexproof from selected in the screenshot. This is bounded rework of the H task, not authorization to change frozen 2021 Hexproof. Correction baseline `98e7efaee7663fed8d0b149b9ab2a6253e4195e1`; exact material candidate `301132c3e3ad4702fa0e57355be540c1deae83a9`; existing branch `codex/a-mechanics-review`.
+- Classification: QA-1 presentation. Execution SEPARATE: coordinator `/root` independently reviewed and tested the material authored by configured RobDev Terra medium `/root/h_implementation`. QA writes only HANDOFF.md. Earlier whole-H source and protected-gate evidence remains applicable because every source packet, generated payload, producer, scope, card fact and selected link is unchanged by this correction.
+- Delivered: Hexproof from list/search shows independent W/U/B/G/colorless marks and exact WR/WB/WUB/UG/WUBRG combination symbols. The Color Access summary has five independent rows followed by five separate combination rows using the existing Friends forever/Fuse treatment. Red is represented through its actual combinations, with no misleading independent socket. Each reviewed card remains linked once. Existing paired and three-color vectors are reused; WUB and WUBRG use the pinned Mana CI-3/CI-5 classes, accessible combination labels and readable font-failure text. Five-column wrapping reuses the existing combination layout.
+- Independent diff PASS: reviewed both correction commits and full affected renderer/harness paths; exact three-file envelope. `git diff --check 98e7efa..301132c` returned exit 0. No source, data, producer, dependency, frozen 2021, route or interaction-owner change. First candidate `9643ff2` needed top-summary combination rows and updated full-harness expectations; both were corrected before final QA.
+- Independent focused browser PASS: `node tools/check_assessment_browser.mjs --root _site --combinations-only --playwright C:/Users/obake/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright` returned exit 0 and JSON result PASS on the exact material package. The selected loop now includes Hexproof from alongside Fuse/Friends forever. It verifies exact independent and combination markers, ten summary rows, actual CI class selection, accessible labels, centered marker geometry, selected links once, and blocked-font fallback for list/detail. The command's older concise result label still names only the F examples; inspected executed assertions include Hexproof from. Browser justified by mixed DOM/glyph/fallback risk that source-class presence alone cannot verify. Developer syntax and focused check also returned exit 0.
+- Package PASS: resolved `_site` was verified as this checkout's direct child and not a symlink before replacement. `python .github/pages/package.py --rev 301132c3e3ad4702fa0e57355be540c1deae83a9 --out <absolute _site> --verify` returned exit 0: 23 byte-identical allowlisted files, four clean inline scripts, 23 expected HTTP 200 paths and 24 excluded paths 404. Existing localhost preview now serves the corrected package. No server creation, publication, push or merge.
+- Preview limitation: CUA reload and one bounded reconnect both failed with `browser.user is unavailable`, before UI interaction. This is an app browser connection limitation, not a product PASS. The purpose-built open-in-Codex request was queued. No new screenshot or successful refresh of the user's existing tab is claimed. The independently served packaged real-browser check above passed; Owner can refresh `http://127.0.0.1:8020/#mechanical-color-pie` and open Hexproof from to inspect the corrected mixed symbols and rows.
+- Tests intentionally skipped: full 177-entry browser replay and source research/gate reruns; source authority and qualification did not change and retain prior exact evidence. CPU-heavy validation NOT REQUIRED. Stateful-adversarial coverage NOT APPLICABLE because routes, persistence and ownership are unchanged. No unresolved material defect. Remaining Owner judgment: visual readability of the mixed symbols and rows; no Owner acceptance inferred.
+- Correction delta from `98e7efaee7663fed8d0b149b9ab2a6253e4195e1`: 3 paths — HANDOFF.md, tools/check_assessment_browser.mjs, vox-color/mechanical-explorer.html. Whole H task accounting follows, distinct from this correction and from evidence-only commits.
+
+## Material candidate
+
+- Baseline: `6ef4ccb64e48ae2510faf05ec14ae8f1448b4c84`
+- Candidate: `301132c3e3ad4702fa0e57355be540c1deae83a9`
+- Changed paths: `31`
+
+## Files changed
+
+- `HANDOFF.md`
+- `data/mechanics-assessments.v1.json`
+- `docs/mechanics-research/COLOR-ACCESS-PROTOCOL.md`
+- `docs/mechanics-research/H-ACCESS-REVIEW.md`
+- `docs/mechanics-research/h-protocol-evidence/halflingcycling-discovery-1.json`
+- `docs/mechanics-research/h-protocol-evidence/harmonize-discovery-1.json`
+- `docs/mechanics-research/h-protocol-evidence/harness-discovery-1.json`
+- `docs/mechanics-research/h-protocol-evidence/haunt-discovery-1.json`
+- `docs/mechanics-research/h-protocol-evidence/heal-discovery-1.json`
+- `docs/mechanics-research/h-protocol-evidence/heal-fulloracle-followup-1.json`
+- `docs/mechanics-research/h-protocol-evidence/heist-discovery-1.json`
+- `docs/mechanics-research/h-protocol-evidence/heist-original.html`
+- `docs/mechanics-research/h-protocol-evidence/hellbent-discovery-1.json`
+- `docs/mechanics-research/h-protocol-evidence/hero-s-reward-discovery-1.json`
+- `docs/mechanics-research/h-protocol-evidence/heroic-discovery-1.json`
+- `docs/mechanics-research/h-protocol-evidence/heros-reward-discovery-1.json`
+- `docs/mechanics-research/h-protocol-evidence/hexproof-from-discovery-1.json`
+- `docs/mechanics-research/h-protocol-evidence/hidden-agenda-discovery-1.json`
+- `docs/mechanics-research/h-protocol-evidence/hideaway-discovery-1.json`
+- `docs/mechanics-research/h-protocol-evidence/hire-a-mercenary-discovery-1.json`
+- `docs/mechanics-research/h-protocol-evidence/horsemanship-discovery-1.json`
+- `docs/mechanics-research/h-protocol-evidence/receipts.json`
+- `docs/mechanics-research/h-protocol-evidence/repair-source-receipts.json`
+- `docs/mechanics-research/h-protocol-evidence/rules-20260925.txt`
+- `docs/mechanics-research/h-protocol-evidence/selected-cards-collection-receipt.json`
+- `docs/mechanics-research/h-protocol-evidence/selected-cards-collection-request.json`
+- `docs/mechanics-research/h-protocol-evidence/selected-cards-collection-verified.json`
+- `docs/mechanics-research/h-protocol.json`
+- `tools/build_mechanics_assessments.py`
+- `tools/check_assessment_browser.mjs`
+- `vox-color/mechanical-explorer.html`
+
+## Evidence delta
+
+- Material candidate: `301132c3e3ad4702fa0e57355be540c1deae83a9`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `1`
+- Independent correction QA and Git accounting in HANDOFF.md only; not the full task diff.
+
+## Evidence-only paths
+
+- `HANDOFF.md`
+
+## Final branch delta
+
+- Original H baseline `6ef4ccb64e48ae2510faf05ec14ae8f1448b4c84` to evidence HEAD:31 changed paths. Correction adds no new path to the whole H task.
+- Final worktree cleanliness, local/remote-tracking containment and canonical change-report validation are checked after this evidence commit. Local work only; no push, merge or publication.
+
+---
+
 # Owner Review — H supplemental Color Access
 
 - Status: qa-passed / Owner Review. Engineering is complete for all fourteen H supplemental entries and 59 selected examples. Owner visual/product acceptance remains pending; no integration is implied. This entry supersedes the earlier ready-for-qa reports below. Task baseline was freshly established at `6ef4ccb64e48ae2510faf05ec14ae8f1448b4c84` on existing branch `codex/a-mechanics-review`; final material is `eac746338738c0fb1eb99d2c852e29b63ea36d7a`.
