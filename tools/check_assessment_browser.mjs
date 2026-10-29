@@ -95,6 +95,16 @@ try{
   assert.equal(fRecord("Hero's Reward").access.colorless.cards[0].name,'Hydra Head');
   assert.equal(fRecord('Harness').access.colors.W.cards[0].name,'The Mind Stone');
   assert.equal(fRecord('Harness').access.colors.B.cards[0].name,'The Soul Stone');
+  const hexproofFrom=fRecord('Hexproof from');
+  await page.evaluate(()=>VMX.setView('az'));
+  const hexproofRow=page.locator(`#list .ent[data-k="${hexproofFrom.id}"]`);
+  assert.deepEqual(await hexproofRow.locator('.access-strip .sc').evaluateAll(items=>items.map(item=>item.dataset.c)),['W','U','B','G','C'],'Hexproof from list/search strip exposes only independent colors and colorless slots');
+  assert.deepEqual(await hexproofRow.locator('.access-strip .combo-mark').evaluateAll(items=>items.map(item=>item.dataset.combo)),hexproofFrom.access.combinations.map(item=>item.colors.join('')),'Hexproof from list/search strip retains every documented combination');
+  assert.equal(await hexproofRow.locator('.combo-mark[data-combo="WUB"] .ms-ci-3.ms-ci-wub').count(),1,'Hexproof from uses the pinned Mana CI-3 glyph for WUB');
+  assert.equal(await hexproofRow.locator('.combo-mark[data-combo="WUBRG"] .ms-ci-5.ms-ci-wubrg').count(),1,'Hexproof from uses the pinned Mana CI-5 glyph for WUBRG');
+  await page.evaluate(id=>VMX.open(id),hexproofFrom.id);
+  assert.deepEqual(await page.locator('#detail .own-row[data-c]').evaluateAll(items=>items.map(item=>item.dataset.c)),['W','U','B','G','C'],'Hexproof from detail rows expose only independent colors and colorless');
+  assert.deepEqual(await page.locator('#detail .dx-list .combo-mark').evaluateAll(items=>items.map(item=>item.dataset.combo)),hexproofFrom.access.combinations.map(item=>item.colors.join('')),'Hexproof from detail retains every combination as separate evidence');
   const hBuckets=record=>[...Object.values(record.access.colors).filter(b=>b.status==='documented'),...record.access.combinations,...(record.access.colorless.status==='documented'?[record.access.colorless]:[])];
   const hMaps={Harmonize:['U','R','G','UR','URG'],Haunt:['W','B','WB'],Heal:['W','B','R','G','RG','BR','C'],Hellbent:['B','R','BR','C'],Heroic:['W','U','B','R','G','WU','WR'],'Hidden Agenda':['C'],Hideaway:['W','U','B','R','G','C'],Horsemanship:['W','U','B','R','G'],'Hexproof from':['W','U','B','G','WR','WB','WUB','UG','WUBRG','C'],'Hire a Mercenary':['B'],Halflingcycling:['C'],Harness:['W','B'],Heist:['U','B','R','BR','UB','UBR'],"Hero's Reward":['C']};
   for(const record of hRecords){

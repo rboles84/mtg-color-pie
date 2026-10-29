@@ -414,6 +414,7 @@ button{font:inherit;color:inherit}
 .access-strip .sc.a-d{background:var(--cc);border-color:var(--cc)}
 .access-strip .sc.a-d > .ms{display:block}
 .access-strip.combo-access{grid-auto-flow:row;grid-template-columns:repeat(5,minmax(0,1fr));grid-auto-columns:auto;width:100%;gap:4px}
+.access-strip.mixed-access{grid-auto-flow:row;grid-template-columns:repeat(5,minmax(0,1fr));grid-auto-columns:auto;width:100%;gap:4px}
 .combo-mark{display:inline-flex;align-items:center;justify-content:center;gap:2px;width:18px;height:18px;flex:0 0 18px;border:1px solid rgba(237,230,211,.22);border-radius:50%;color:var(--bone)}
 .combo-mark .ms,.combo-mark .ci3-svg{display:none;flex:none;font-size:14px}.supp-mana-ready .combo-mark{border:0}.supp-mana-ready .combo-mark .ms{display:inline-block}.supp-mana-ready .combo-mark .ci3-svg{display:block;width:18px;height:18px}.supp-mana-ready .combo-mark .combo-text{display:none}
 .combo-mark .combo-text{font:600 10px/1 var(--f-mono);letter-spacing:-.06em;white-space:nowrap}
@@ -1253,6 +1254,7 @@ function accessMarkHTML(c, status){
 }
 function assessmentStripHTML(a){
   if (a.name === 'Fuse' || a.name === 'Friends forever') return '<span class="strip access-strip combo-access" aria-label="Documented color combinations">' + a.access.combinations.map(comboMarkHTML).join('') + '</span>';
+  if (a.name === 'Hexproof from') return '<span class="strip access-strip mixed-access" aria-label="Independent color access and documented color combinations">' + ORDER.filter(c => a.access.colors[c].status === 'documented').map(c => accessMarkHTML(c,'documented')).join('') + (a.access.colorless.status === 'documented' ? accessMarkHTML('C','documented') : '') + a.access.combinations.map(comboMarkHTML).join('') + '</span>';
   return '<span class="strip access-strip" aria-hidden="true">' + ORDER.map(c => accessMarkHTML(c,a.access.colors[c].status)).join('') + (a.access.colorless.status === 'documented' ? accessMarkHTML('C','documented') : '') + '</span>';
 }
 const CI3_OUTLINE='M512 938.667c282.77 0 512-229.23 512-512s-229.23-512-512-512c-282.77 0-512 229.23-512 512s229.23 512 512 512v0z';
@@ -1260,7 +1262,7 @@ const CI3_PARTS={left:'M115.88 637.341c-35.408-64.442-51.642-137.532-52.568-210.
 const CI3_COLORS={WUG:['#3b6ba0','#3d684b','#fff'],UBR:['#c6553e','#3b6ba0','#383431'],WUR:['#c6553e','#fff','#3b6ba0'],BRG:['#3d684b','#383431','#c6553e'],WBG:['#383431','#3d684b','#fff']};
 function ci3SVG(key){const [top,right,left]=CI3_COLORS[key];return `<svg class="ci3-svg" viewBox="0 0 1024 1024" aria-hidden="true" focusable="false"><g transform="translate(0 938.667) scale(1 -1)"><path class="ci3-outline" fill="#010101" d="${CI3_OUTLINE}"/><path class="ci3-top" fill="${top}" d="${CI3_PARTS.top}"/><path class="ci3-right" fill="${right}" d="${CI3_PARTS.right}"/><path class="ci3-left" fill="${left}" d="${CI3_PARTS.left}"/></g></svg>`;}
 function comboMarkHTML(item){
-  const key=item.colors.join(''), pair=key.length===2, pairCode={WR:'rw',WG:'gw',UG:'gu'}[key] || key.toLowerCase(), glyph=pair ? `<i class="ms ms-cost ms-${pairCode}" aria-hidden="true"></i>` : ci3SVG(key);
+  const key=item.colors.join(''), pair=key.length===2, triple=Object.hasOwn(CI3_COLORS,key), pairCode={WR:'rw',WG:'gw',UG:'gu'}[key] || key.toLowerCase(), glyph=pair ? `<i class="ms ms-cost ms-${pairCode}" aria-hidden="true"></i>` : triple ? ci3SVG(key) : `<i class="ms ms-ci ms-ci-${key.length} ms-ci-${key.toLowerCase()}" aria-hidden="true"></i>`;
   const label=item.colors.map(c=>CNAME[c]).join(' / ');
   return `<span class="combo-mark" role="img" data-combo="${key}" title="${esc(label)} — Combination only" aria-label="${esc(label)} combination only">${glyph}<span class="combo-text">${esc(key)}</span></span>`;
 }
@@ -2057,7 +2059,8 @@ function assessmentHTML(k){
   const compactExamples = /^[CDEFGH]/.test(a.name);
   const displayColors = [...ORDER, ...(a.access.colorless.status === 'documented' ? ['C'] : [])];
   const comboOnly = a.name === 'Fuse' || a.name === 'Friends forever';
-  const accessRows = a.kind === 'access' ? (comboOnly ? a.access.combinations.map(item => `<li class="own-row combo-row" data-combo="${item.colors.join('')}">${comboMarkHTML(item)}<span class="own-c">${esc(item.colors.map(c=>CNAME[c]).join(' / '))}</span><span class="own-lead" aria-hidden="true"></span><span class="own-t">Combination only</span></li>`).join('') : displayColors.map(c => { const item=c === 'C' ? a.access.colorless : a.access.colors[c]; return `<li class="own-row${item.status === 'documented' ? '' : ' none'}" data-c="${c}">${accessMarkHTML(c,item.status)}<span class="own-c">${c === 'C' ? 'Colorless' : CNAME[c]}</span><span class="own-lead" aria-hidden="true"></span><span class="own-t">${esc(item.status === 'documented' ? 'Access' : item.status === 'multicolor_only' ? 'Combination only' : item.status === 'not_applicable' ? 'Not applicable' : item.status === 'insufficient_evidence' ? 'Insufficient evidence' : 'No example found')}</span></li>`; }).join('')) : '';
+  const independentOnly = a.name === 'Hexproof from';
+  const accessRows = a.kind === 'access' ? (comboOnly ? a.access.combinations.map(item => `<li class="own-row combo-row" data-combo="${item.colors.join('')}">${comboMarkHTML(item)}<span class="own-c">${esc(item.colors.map(c=>CNAME[c]).join(' / '))}</span><span class="own-lead" aria-hidden="true"></span><span class="own-t">Combination only</span></li>`).join('') : displayColors.filter(c => !independentOnly || c === 'C' || a.access.colors[c].status === 'documented').map(c => { const item=c === 'C' ? a.access.colorless : a.access.colors[c]; return `<li class="own-row${item.status === 'documented' ? '' : ' none'}" data-c="${c}">${accessMarkHTML(c,item.status)}<span class="own-c">${c === 'C' ? 'Colorless' : CNAME[c]}</span><span class="own-lead" aria-hidden="true"></span><span class="own-t">${esc(item.status === 'documented' ? 'Access' : item.status === 'multicolor_only' ? 'Combination only' : item.status === 'not_applicable' ? 'Not applicable' : item.status === 'insufficient_evidence' ? 'Insufficient evidence' : 'No example found')}</span></li>`; }).join('')) : '';
   // One qualifying example establishes access. Retain the full reviewed set
   // for discovery, without making its size a player-facing requirement.
   const reviewedCards = (item, label) => {
@@ -2075,7 +2078,7 @@ function assessmentHTML(k){
     return mention ? text(item.note).replace(esc(mention), link(mention, card.url)) : `${link(card.name, card.url)} — ${text(item.note)}`;
   };
   const colorNotes = a.kind === 'access' && (!compactExamples || ORDER.some(c => a.access.colors[c].status === 'documented')) ? `<h4>Color evidence</h4>${ORDER.filter(c => !compactExamples || a.access.colors[c].status === 'documented').map(c => { const item=a.access.colors[c]; return `<p${compactExamples ? ' class="assessment-example"' : ''}><b>${CNAME[c]}.</b> ${exampleNote(item)}</p>${reviewedCards(item,CNAME[c])}`; }).join('')}` : '';
-  const combos = a.kind === 'access' && a.access.combinations.length ? `<h4>Color combinations</h4><ul class="dx-list">${a.access.combinations.map(x => `<li${compactExamples ? ' class="assessment-example"' : ''}><b>${esc(x.colors.map(c=>CNAME[c]).join(' / '))}.</b> ${exampleNote(x)}${reviewedCards(x,x.colors.map(c=>CNAME[c]).join(' / '))}</li>`).join('')}</ul>` : '';
+  const combos = a.kind === 'access' && a.access.combinations.length ? `<h4>Color combinations</h4><ul class="dx-list">${a.access.combinations.map(x => `<li${compactExamples ? ' class="assessment-example"' : ''}>${a.name === 'Hexproof from' ? comboMarkHTML(x) : ''}<b>${esc(x.colors.map(c=>CNAME[c]).join(' / '))}.</b> ${exampleNote(x)}${reviewedCards(x,x.colors.map(c=>CNAME[c]).join(' / '))}</li>`).join('')}</ul>` : '';
   const nonCardSources = a.sources.filter(s => { const u=new URL(s.url); return !(u.hostname === 'scryfall.com' && /^\/(?:card(?:s)?(?:\/|$)|search(?:\/|$))/.test(u.pathname)); });
   const colorlessEvidence = a.kind === 'access' && (!compactExamples || a.access.colorless.status === 'documented') ? `<h4>Colorless evidence</h4><p${compactExamples ? ' class="assessment-example"' : ''}>${exampleNote(a.access.colorless)}</p>${reviewedCards(a.access.colorless,'Colorless')}` : '';
   return `<section class="dx-sec supp-assessment" aria-label="Color access">
