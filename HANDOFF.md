@@ -1,6 +1,6 @@
 # Active correction — E mana symbols
 
-- Status: ready-for-qa. Baseline `16ef7cdcd2170042f45913ce1e068c6cebd24368`; same codex/a-mechanics-review checkout. Owner found literal {1}/{B} in Explore and requests checking all28 E records for brace notation and replacing it visually with mana symbols.
+- Status: qa-passed. Exact candidate `1908cef81a7b8da0544502a77a63568d785b1237`; baseline `16ef7cdcd2170042f45913ce1e068c6cebd24368`; same codex/a-mechanics-review checkout. Owner found literal {1}/{B} in Explore and requests checking all28 E records for brace notation and replacing it visually with mana symbols.
 - Allowed files: HANDOFF.md; vox-color/mechanical-explorer.html; tools/check_assessment_browser.mjs. Temporary helpers outside checkout and ignored _site packaging permitted. No source JSON, captured evidence, frozen2021, other-letter content, dependency/palette, publication/push/merge changes.
 - Implementation: reuse existing supplemental symbol renderer and pinned Mana font, supply E token vocabulary and render E assessment prose through it. Preserve escaped prose/URLs, card links, accessible labels and text fallback when font unavailable. Existing supplemental rules already use the symbol renderer; verify E rules/reference coverage as well.
 - Inventory: braces occur in14 E access records plus Extort’s rule. Required current tokens:0,1,2,3,4,5,6,12,B,G,R,U,W,X,R/G,R/W,U/B,W/B. All28 E entries must be inspected, including ones without tokens.
@@ -15,6 +15,48 @@
 - Browser PASS also covers exact authored prose after token normalization, all133 access maps/links, no duplicate citations, no-font Explore fallback, escaped HTML/unknown tokens via a substituted sidecar, malformed sidecar isolation, keyboard/mobile and frozen84/84. First test run reached all entry/fallback checks but its final helper-isolation check incorrectly called a private IIFE function; corrected to exercise the public sidecar-load path, then the complete harness passed.
 - Producer133/13 deterministic check PASS (data unchanged), existing source/taxonomy/fixture gates and53 recon assertions PASS, syntax and diff whitespace PASS. Pinned Mana stylesheet verified for numeric/black/hybrid classes; no dependency change.
 - Independent QA request: review this bounded presentation change on committed candidate vs16ef7cdcd2170042f45913ce1e068c6cebd24368; confirm source/payload unchanged, E-only formatting, symbols/accessibility/fallback/escaping, links, protected2021 and focused exact-candidate harness. No new source audit needed. Reviewer owns HANDOFF.md only; parent freezes product edits. Owner visual check will open Explore with the reported costs visible.
+
+## Independent RobQA PASS — exact candidate `1908cef81a7b8da0544502a77a63568d785b1237`
+
+- Classification: QA-1 bounded presentation correction, SEPARATE review by `/root/c_qa`. The candidate changes only this ledger, `mechanical-explorer.html` and the focused harness; data, evidence, access maps, card URLs and frozen 2021 sources are byte-unchanged from baseline `16ef7cdcd2170042f45913ce1e068c6cebd24368`.
+- Objective review: all 28 E assessment records were included. Their complete brace-token vocabulary (`0,1,2,3,4,5,6,12,B,G,R,U,W,X,R/G,R/W,U/B,W/B`) is covered by the E-only map. The shared formatter still defaults to the prior map, so A–D and mapped 2021 paths retain prior behavior. Text segments are escaped before symbol markup, unknown notation remains text, and validated card/source links retain their existing safe construction.
+- Checks PASS: `git diff --check`; harness syntax; deterministic producer (133 records/13 bindings); source/taxonomy/fixture gates and all 53 recon assertions; focused elevated Edge harness on the exact candidate. The browser check covered every E entry, actual numeric/black/X/hybrid glyphs and labels, both hybrid halves, no visible braces with the font loaded, readable no-font fallback, injected-markup/unknown-token escaping through the public sidecar path, exact links, malformed fail-soft behavior, search/keyboard/mobile, all 133 maps and unchanged 84/84 frozen checks.
+- CPU-heavy validation: **NOT REQUIRED**. No repeated 194-card semantic audit or broad wheel/journey suite was run because source data and qualification are unchanged. Stateful adversarial coverage is not applicable beyond the exercised public sidecar replacement/fail-soft cases; no persistent ownership seam changed. No correctness finding remains; engineering verdict is **PASS**, with Owner visual judgment still open.
+
+## Verified E symbol preview
+
+- Packaged exact candidate `1908cef81a7b8da0544502a77a63568d785b1237`:23 byte-identical allowed files, four inline scripts clean,23 local paths200 and24 excluded paths404. Package PASS.
+- Refreshed existing IAB tab3 at http://127.0.0.1:8020/#mechanical-color-pie; the frame visibly carries the exact candidate revision. Opened Explore, expanded reviewed examples, cleared search/colors and left A–Z selected. Tab retained as deliverable.
+- Visible confirmation: Guidestone Compass shows generic1; Deadeye Tracker shows generic1 plus black mana. Accessibility tree reports image labels rather than literal brace text. Screenshot outside repo: ../e-mana-symbols-preview.png. No content/source/cost/access changes. Independent review and all28 symbol checks PASS; Owner visual judgment remains open.
+
+## Material candidate
+
+- Baseline: `16ef7cdcd2170042f45913ce1e068c6cebd24368`
+- Candidate: `1908cef81a7b8da0544502a77a63568d785b1237`
+- Changed paths: `3`
+
+## Files changed
+
+- `HANDOFF.md`
+- `tools/check_assessment_browser.mjs`
+- `vox-color/mechanical-explorer.html`
+
+## Evidence delta
+
+- Material candidate: `1908cef81a7b8da0544502a77a63568d785b1237`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `1`
+- QA/preview/report evidence only; this is not the full task diff.
+
+## Evidence-only paths
+
+- `HANDOFF.md`
+
+## Final branch delta
+
+- Baseline: `16ef7cdcd2170042f45913ce1e068c6cebd24368` → evidence `HEAD`.
+- Total changed paths: `3`; the evidence-only update adds no material path.
+- Branch codex/a-mechanics-review; local commits only, no push/publication/merge. Worktree cleanliness verified after evidence commit.
 
 ---
 
