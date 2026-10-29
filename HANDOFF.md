@@ -1,4 +1,9 @@
-# Active task — F marker alignment and tri-package review
+# Active task — F CI scale alignment
+
+- Status: ready-for-qa. Baseline `22495cf101c65989e2a7d8e3f0b11d694c7c6885`; allowed paths remain HANDOFF.md, `vox-color/mechanical-explorer.html`, and `tools/check_assessment_browser.mjs`. The existing Mana CI glyph alone scales to 18px inside the fixed 18px combination host, matching the pair-cost footprint. Native line-height factors remain untouched; no SVG package assets, new glyphs, palette, font, data or other entries change.
+- Focused regression compares pair/CI computed native line-height factors at their scoped font sizes and comparable rendered footprints/centers in combination-only list, search and detail contexts. `node --check tools/check_assessment_browser.mjs` and `git diff --check` pass. Independent QA owns the focused browser run and preview.
+
+# Previous task — F marker alignment and tri-package review
 
 - Status: qa-passed on exact candidate `dbabe149338c163f8c687d27d798c1a50cfe98c4`. Baseline `ece0daca1a9208dbcc2087e31468697582966e16`. Existing checkout/branch reused. Owner authorized existing Fuse/Friends forever centering repair and read-only review of Downloads/tri-mana-original-glyphs-v2; expressly withheld tri-package integration. No package assets were copied, imported or added. Owner visual acceptance remains pending.
 - Scope: fixed 18px square hosts, nonshrinking native glyphs, centered detail labels and removal of the redundant ready-font outer ring. Mana's native pair/CI line heights are preserved. No source records, payload, card links/examples, palette, dependencies, A–E/other-F branches or frozen2021 calculations changed. Final material diff is confined to the three paths below.
