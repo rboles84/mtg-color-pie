@@ -1,3 +1,27 @@
+# Active task — E Color Access
+
+- Status: ready-for-qa. Continue codex/a-mechanics-review; baseline `9bf9b7d61aa6bee4dedd5bfbf23596aa327f7392`. Owner requests supplemental E with the accepted A–D Color Access approach and refreshed local preview.
+- Allowed files: HANDOFF.md; docs/mechanics-research/e-protocol.json; docs/mechanics-research/e-protocol-evidence/**; docs/mechanics-research/E-ACCESS-REVIEW.md; docs/mechanics-research/COLOR-ACCESS-PROTOCOL.md; tools/build_mechanics_assessments.py; data/mechanics-assessments.v1.json (producer only); vox-color/mechanical-explorer.html; tools/check_assessment_browser.mjs. Temporary helpers outside checkout and ignored _site packaging allowed.
+- Scope: 28 supplemental E records, extending105 to133. Exchange and Exile stay generic rules references; Enchant and Equip are named abilities with card evidence. Preserve all105 A–D records and frozen2021 data, mappings, counts and behavior. No dependency/theme changes, other-letter changes, push/merge/publication.
+- Access contract: one verified qualifying card is sufficient. One linked example per independent color, colorless or multicolor combination. No ranks, confidence labels, frequency comparisons, inferred monocolor access or impossible-color claims. Brief definition once and named-card factual notes; no repeated aggregate card sources. Actual mana colors and colorless diamond retained.
+- Evidence: inspect local sources first; save targeted Scryfall discovery bodies, requests, dates/statuses/hashes. Individually check selected witnesses against source text and mechanic-bearing face colors; use source color for grants/token creators, not recipient color, activation cost or Commander identity. Retain unselected query hits locally without claiming they were all reviewed/excluded. Ordinary paper excludes playtest/acorn/silver/digital/standalone tokens/planes. Explicit special scope only where supported.
+- Key checks: Emerge variants and true colorlessness, Embalm/Eternalize source vs token colors, Eminence combinations, Extort hybrid reminder text vs source color, name/payoff-only false matches. Qualify Empower Jace against actual source rules/cards rather than assuming blue from token color.
+- Ownership: coordinator implements source/copy/runtime; independent RobQA reviews committed exact candidate. QA owns HANDOFF only after freeze. Owner judges readability.
+- Validation: deterministic133-record/13-binding payload; raw source integrity and all selected witness/face/link entailment; A–D exact baseline equality; frozen existing gates/recon and focused browser with one example per E bucket, safe links/fail-soft, palette and protected2021 checks. Package and refresh existing localhost tab, show E entry and save proof. Broad unrelated stress suites not required.
+
+## E implementation packet
+
+- Owning source e-protocol.json adds28 supplemental E records, extending105 to133 with13 canonical source bindings. The existing compact presenter now includes E; no schema, dependency or styling change. Exchange/Exile remain rules references, leaving26 access entries.
+- Source/copy:194 selected witnesses, one per represented independent color/colorless/combination; full discovery responses and immutable receipts retained locally. Named native abilities, direct actions and explicit grants qualify; no ranks/count-strength claims. Existing Eerie/Eminence/Enrage reference metadata remains attributed to its original verification, not described as newly fetched.
+- Targeted distinctions: Emerge artifact variant; Foul Emissary/Shadowed Caravel and other payoff/name-only matches excluded; token colors do not recolor Embalm/Eternalize/Empower Jace/Endure sources; Extort hybrid reminder cost does not recolor its source; Eminence joint evidence only; Propagator Drone colorless through devoid. Native Sliver Gravemother encore is5, distinct from its granted X cost, with focused regression.
+- Development PASS: producer133/13 deterministic; all194 selected facts exactly match a declared capture and face-color attribution; raw receipt hashes and HTTP200; existing source/taxonomy/fixture gates and53 recon assertions; A–D105 projected records deep-equal baseline; diff whitespace. Real-Edge focused harness PASS on all133 records, one example per C/D/E bucket, links/palette/colorless/rules/joint states, targeted E source traps, malformed sidecar isolation, keyboard/mobile and unchanged84/84 frozen checks.
+- Final diff is inside envelope. Frozen2021 data/engine and previous A–D source packets unchanged. No push/merge/publication. No all-card census or inferred impossible-color claim. Broad wheel/journey/stress suites skipped because source qualification and bounded presenter targeting are the changed risk.
+- Independent RobQA handoff: review committed exact candidate vs9bf9b7d61aa6bee4dedd5bfbf23596aa327f7392. Check actual saved facts, not memory, including all notes/native costs, scopes, faces and projected URLs (legacy-card join). Reviewer owns HANDOFF.md only; coordinator freezes product edits until findings. Owner review follows verified local package/refresh.
+
+---
+
+## Previous D work (historical)
+
 # Active task — D Color Access
 
 - Status: qa-passed on exact candidate `cf98992aba48c63cbc1e7a9325ec55b74bdf9ea8`. Continue existing codex/a-mechanics-review checkout; baseline `ae27a75ed107f4e6eb09c0d154004ac1d1903ac2`. Owner requests supplemental D using the latest A–C decisions, local evidence, concise one-example presentation and refreshed preview; 2021 is frozen.

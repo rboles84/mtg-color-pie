@@ -1,0 +1,71 @@
+{
+  "name": "Enchant",
+  "cutoff": "2026-10-28",
+  "selection": "Discovery capture only; individually checked representative witnesses enter the access review. Unselected hits are not classified as exclusions.",
+  "receipts": [
+    {
+      "query": "o:/\\bEnchant\\b/ game:paper date<=2026-10-28 include:extras",
+      "url": "https://api.scryfall.com/cards/search?unique=cards&order=name&q=o%3A%2F%5CbEnchant%5Cb%2F%20game%3Apaper%20date%3C%3D2026-10-28%20include%3Aextras",
+      "path": "docs/mechanics-research/e-protocol-evidence/enchant/search-1.json",
+      "retrieved_at_utc": "2026-10-29T03:56:54.941Z",
+      "http_status": 200,
+      "sha256": "14967f3f187bcaa27338a9619bb19c3b5b5c0878f82c6745ee9f49a882d9d933"
+    },
+    {
+      "query": "o:/\\bEnchant\\b/ game:paper date<=2026-10-28 include:extras",
+      "url": "https://api.scryfall.com/cards/search?format=json&include_extras=true&include_multilingual=false&include_variations=false&order=name&page=2&q=o%3A%2F%5Cbenchant%5Cb%2F+game%3Apaper+date%3C%3D2026-10-28+include%3Aextras&unique=cards",
+      "path": "docs/mechanics-research/e-protocol-evidence/enchant/search-2.json",
+      "retrieved_at_utc": "2026-10-29T03:56:56.300Z",
+      "http_status": 200,
+      "sha256": "a3a875ffd1adab26306a2576f5b610641babbf2eba9e28f6dbd22beb3e228062"
+    },
+    {
+      "query": "o:/\\bEnchant\\b/ game:paper date<=2026-10-28 include:extras",
+      "url": "https://api.scryfall.com/cards/search?format=json&include_extras=true&include_multilingual=false&include_variations=false&order=name&page=3&q=o%3A%2F%5Cbenchant%5Cb%2F+game%3Apaper+date%3C%3D2026-10-28+include%3Aextras&unique=cards",
+      "path": "docs/mechanics-research/e-protocol-evidence/enchant/search-3.json",
+      "retrieved_at_utc": "2026-10-29T03:56:57.967Z",
+      "http_status": 200,
+      "sha256": "bcf5aab902ce1d1a061f47e2e65b21ed648e7184604e1ab68019969d69812365"
+    },
+    {
+      "query": "o:/\\bEnchant\\b/ game:paper date<=2026-10-28 include:extras",
+      "url": "https://api.scryfall.com/cards/search?format=json&include_extras=true&include_multilingual=false&include_variations=false&order=name&page=4&q=o%3A%2F%5Cbenchant%5Cb%2F+game%3Apaper+date%3C%3D2026-10-28+include%3Aextras&unique=cards",
+      "path": "docs/mechanics-research/e-protocol-evidence/enchant/search-4.json",
+      "retrieved_at_utc": "2026-10-29T03:56:59.336Z",
+      "http_status": 200,
+      "sha256": "66810e65aa86b7099d353db0c4ff5b2df27b29e0049ebc14e4ef723ad9a0772a"
+    },
+    {
+      "query": "o:/\\bEnchant\\b/ game:paper date<=2026-10-28 include:extras",
+      "url": "https://api.scryfall.com/cards/search?format=json&include_extras=true&include_multilingual=false&include_variations=false&order=name&page=5&q=o%3A%2F%5Cbenchant%5Cb%2F+game%3Apaper+date%3C%3D2026-10-28+include%3Aextras&unique=cards",
+      "path": "docs/mechanics-research/e-protocol-evidence/enchant/search-5.json",
+      "retrieved_at_utc": "2026-10-29T03:57:00.612Z",
+      "http_status": 200,
+      "sha256": "a190938c6534360e8832b5d9ed21dfe85bb054674af308e1e5969a5bfb32778d"
+    },
+    {
+      "query": "o:/\\bEnchant\\b/ game:paper date<=2026-10-28 include:extras",
+      "url": "https://api.scryfall.com/cards/search?format=json&include_extras=true&include_multilingual=false&include_variations=false&order=name&page=6&q=o%3A%2F%5Cbenchant%5Cb%2F+game%3Apaper+date%3C%3D2026-10-28+include%3Aextras&unique=cards",
+      "path": "docs/mechanics-research/e-protocol-evidence/enchant/search-6.json",
+      "retrieved_at_utc": "2026-10-29T03:57:02.187Z",
+      "http_status": 200,
+      "sha256": "20e28574bf2eb1ced308cf492cf1cd6d07376a818a3713ad5630c2548bd9d3cc"
+    },
+    {
+      "query": "o:/\\bEnchant\\b/ game:paper date<=2026-10-28 include:extras",
+      "url": "https://api.scryfall.com/cards/search?format=json&include_extras=true&include_multilingual=false&include_variations=false&order=name&page=7&q=o%3A%2F%5Cbenchant%5Cb%2F+game%3Apaper+date%3C%3D2026-10-28+include%3Aextras&unique=cards",
+      "path": "docs/mechanics-research/e-protocol-evidence/enchant/search-7.json",
+      "retrieved_at_utc": "2026-10-29T03:57:03.456Z",
+      "http_status": 200,
+      "sha256": "1ffd71ffc0bf14ec9d8fc7a7a8e51a5a6a5e4faf2253ddf86cb0fd55ee155da5"
+    },
+    {
+      "query": "o:/\\bEnchant\\b/ game:paper date<=2026-10-28 include:extras",
+      "url": "https://api.scryfall.com/cards/search?format=json&include_extras=true&include_multilingual=false&include_variations=false&order=name&page=8&q=o%3A%2F%5Cbenchant%5Cb%2F+game%3Apaper+date%3C%3D2026-10-28+include%3Aextras&unique=cards",
+      "path": "docs/mechanics-research/e-protocol-evidence/enchant/search-8.json",
+      "retrieved_at_utc": "2026-10-29T03:57:04.626Z",
+      "http_status": 200,
+      "sha256": "b5edacc4a3a5f6706c6fc94e90057ed86f2f4c6b164a044e9c603341ae6086fa"
+    }
+  ]
+}

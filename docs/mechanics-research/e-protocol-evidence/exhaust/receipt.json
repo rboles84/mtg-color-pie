@@ -1,0 +1,15 @@
+{
+  "name": "Exhaust",
+  "cutoff": "2026-10-28",
+  "selection": "Discovery capture only; individually checked representative witnesses enter the access review. Unselected hits are not classified as exclusions.",
+  "receipts": [
+    {
+      "query": "o:/\\bExhaust\\b/ game:paper date<=2026-10-28 include:extras",
+      "url": "https://api.scryfall.com/cards/search?unique=cards&order=name&q=o%3A%2F%5CbExhaust%5Cb%2F%20game%3Apaper%20date%3C%3D2026-10-28%20include%3Aextras",
+      "path": "docs/mechanics-research/e-protocol-evidence/exhaust/search-1.json",
+      "retrieved_at_utc": "2026-10-29T03:57:26.274Z",
+      "http_status": 200,
+      "sha256": "214449cad0baabb98eb6e4d3041e4ea91a58bb36d7f201e04b49171d87246990"
+    }
+  ]
+}

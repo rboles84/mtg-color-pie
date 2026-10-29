@@ -1,0 +1,15 @@
+{
+  "name": "Explore",
+  "cutoff": "2026-10-28",
+  "selection": "Discovery capture only; individually checked representative witnesses enter the access review. Unselected hits are not classified as exclusions.",
+  "receipts": [
+    {
+      "query": "o:/\\bexplor(e|es|ed|ing)\\b/ game:paper date<=2026-10-28 include:extras",
+      "url": "https://api.scryfall.com/cards/search?unique=cards&order=name&q=o%3A%2F%5Cbexplor(e%7Ces%7Ced%7Cing)%5Cb%2F%20game%3Apaper%20date%3C%3D2026-10-28%20include%3Aextras",
+      "path": "docs/mechanics-research/e-protocol-evidence/explore/search-1.json",
+      "retrieved_at_utc": "2026-10-29T03:57:28.730Z",
+      "http_status": 200,
+      "sha256": "1545bc1d7bbc1b5615ff04537044ba347e1d96369f981ba238bbaecf2df6db97"
+    }
+  ]
+}

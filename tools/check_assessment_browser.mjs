@@ -1,4 +1,4 @@
-// Focused A/B/C/D assessment checks using externally supplied Playwright; no new dependency.
+// Focused A/B/C/D/E assessment checks using externally supplied Playwright; no new dependency.
 import fs from 'node:fs';
 import path from 'node:path';
 import http from 'node:http';
@@ -37,9 +37,9 @@ try{
   await page.waitForFunction(()=>document.querySelector('#selftest').textContent.includes('84 of 84 passed'));
   const baseline=await page.evaluate(math);
   assert.equal(await page.locator('#list .ent').count(),216);
-  assert.equal(await page.evaluate(()=>VMX.assessments().records.length),105);
-  const expectedAssessmentIds=supplement.records.filter(r=>/^[ABCD]/.test(r.name)&&r.target2021===null).map(r=>r.id).sort();
-  assert.deepEqual(payload.records.map(r=>r.id).sort(),expectedAssessmentIds,'every admitted A/B/C/D target has exactly one assessment');
+  assert.equal(await page.evaluate(()=>VMX.assessments().records.length),133);
+  const expectedAssessmentIds=supplement.records.filter(r=>/^[ABCDE]/.test(r.name)&&r.target2021===null).map(r=>r.id).sort();
+  assert.deepEqual(payload.records.map(r=>r.id).sort(),expectedAssessmentIds,'every admitted A/B/C/D/E target has exactly one assessment');
   assert.deepEqual(payload.sourceBindings.map(x=>x.path),[
     'docs/mechanics-research/a-assessments-source.json',
     'docs/mechanics-research/absorb-assessment-source.json',
@@ -52,8 +52,9 @@ try{
     'docs/mechanics-research/c-protocol-core.json',
     'docs/mechanics-research/c-protocol-extended.json',
     'docs/mechanics-research/c-protocol-special.json',
-    'docs/mechanics-research/d-protocol.json'
-  ],'all twelve canonical packet bindings are present');
+    'docs/mechanics-research/d-protocol.json',
+    'docs/mechanics-research/e-protocol.json'
+  ],'all thirteen canonical packet bindings are present');
   assert.deepEqual(['Cast','Counter','Create'].map(name=>payload.records.find(r=>r.name===name)?.kind),['rules','rules','rules'],'generic C rules actions have no invented color access');
   const dRecord=name=>payload.records.find(r=>r.name===name);
   assert.deepEqual(['Double','Destroy','Discard'].map(name=>dRecord(name).kind),['rules','rules','rules'],'generic D actions remain references');
@@ -66,6 +67,18 @@ try{
   assert.match(dRecord('Descend').summary,/descend 4, descend 8 and fathomless descent/);
   assert.equal(dRecord('Double agenda').scopeLabel,'Conspiracy cards');
   assert.equal(dRecord('Double team').scopeLabel,'Arena cards');
+  const eRecord=name=>payload.records.find(r=>r.name===name);
+  assert.deepEqual(['Exchange','Exile'].map(name=>eRecord(name).kind),['rules','rules'],'generic E actions remain references');
+  assert.equal(eRecord('Emerge').access.colors.G.status,'not_found','Foul Emissary rewards Emerge but does not perform or grant it');
+  assert.equal(eRecord('Explore').access.colorless.status,'not_found','Shadowed Caravel rewards Explore but does not perform or grant it');
+  assert.equal(eRecord('Echo').access.colors.U.cards[0].name,'Raven Familiar');
+  assert.ok(!eRecord('Echo').access.combinations.some(x=>x.colors.join('')==='UB'),'Echo flavor labels do not invent an ability');
+  assert.ok(Object.values(eRecord('Eminence').access.colors).every(x=>x.status==='multicolor_only'),'Eminence combinations do not imply monocolor access');
+  assert.equal(eRecord('Encore').access.combinations.find(x=>x.colors.join('')==='WUBRG').note,'Sliver Gravemother has encore {5}.','native encore cost is distinct from the granted cost');
+  assert.equal(eRecord('Evolve').access.colorless.cards[0].name,'Propagator Drone','devoid grant is colorless despite colored costs');
+  assert.equal(eRecord('Embalm').access.colors.B.cards[0].name,'Cursecloth Wrappings','grant source establishes black despite white tokens');
+  assert.equal(eRecord('Extort').access.colors.W.cards[0].name,'Basilica Guards','hybrid reminder cost does not change source color');
+  assert.equal(eRecord('Empower Jace').access.colors.R.cards[0].name,'No Admittance','blue Jace token does not recolor its red source');
   await page.evaluate(()=>VMX.setView('az'));
   assert.equal(await page.locator('#list .ent').count(),587);
   assert.equal(await page.locator('#list > .grp[data-scope="main"] .ent').count(),543);
@@ -75,7 +88,7 @@ try{
        rules actions have no invented map, and no access strip uses tier classes. */
     await page.evaluate(()=>VMX.setView('az'));
     for(const record of payload.records){
-      const row=page.locator(`#list .ent[data-k="${record.id}"]`), access=record.access, compactExamples=/^[CD]/.test(record.name);
+      const row=page.locator(`#list .ent[data-k="${record.id}"]`), access=record.access, compactExamples=/^[CDE]/.test(record.name);
       assert.equal(await row.locator('.access-strip').count(),record.kind==='access'?1:0,record.name);
       if(record.kind==='access'){
         assert.deepEqual(await row.locator('.access-strip > .sc').evaluateAll(slots=>slots.map(s=>s.dataset.c)),[...'WUBRG',...(access.colorless.status==='documented'?['C']:[])]);
@@ -153,7 +166,7 @@ try{
       assert.equal(await fail.evaluate(()=>VMX.assessments().records.length),0); assert.equal(await fail.locator('#list .access-strip').count(),0); await fail.close();
     }
     assert.deepEqual(errors,[]);
-    results.push('C/D representative sources, unique combination citations and concise copy; 105 A/B/C/D access maps; documented/no-example/joint/colorless/rules cases; exact-example and retained non-card links; atomic malformed fail-soft; search keyboard/mobile; unchanged 2021 84 checks');
+    results.push('C/D/E representative sources, unique combination citations and concise copy; 133 A/B/C/D/E access maps; documented/no-example/joint/colorless/rules cases; exact-example and retained non-card links; atomic malformed fail-soft; search keyboard/mobile; unchanged 2021 84 checks');
   }
   await page.close();
   console.log(JSON.stringify({result:'PASS',checks:results},null,2));

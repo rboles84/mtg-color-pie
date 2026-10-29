@@ -1,0 +1,15 @@
+{
+  "name": "Enlist",
+  "cutoff": "2026-10-28",
+  "selection": "Discovery capture only; individually checked representative witnesses enter the access review. Unselected hits are not classified as exclusions.",
+  "receipts": [
+    {
+      "query": "o:/\\bEnlist\\b/ game:paper date<=2026-10-28 include:extras",
+      "url": "https://api.scryfall.com/cards/search?unique=cards&order=name&q=o%3A%2F%5CbEnlist%5Cb%2F%20game%3Apaper%20date%3C%3D2026-10-28%20include%3Aextras",
+      "path": "docs/mechanics-research/e-protocol-evidence/enlist/search-1.json",
+      "retrieved_at_utc": "2026-10-29T03:57:08.321Z",
+      "http_status": 200,
+      "sha256": "aaf6b1f7ef4ab63a1a7d6f6f1e6f99b52e5ba51f7db68eb94a16c55b0791889c"
+    }
+  ]
+}
