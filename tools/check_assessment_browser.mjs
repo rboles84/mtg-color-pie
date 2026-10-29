@@ -104,7 +104,7 @@ try{
   assert.equal(await hexproofRow.locator('.combo-mark[data-combo="WUBRG"] .ms-ci-5.ms-ci-wubrg').count(),1,'Hexproof from uses the pinned Mana CI-5 glyph for WUBRG');
   await page.evaluate(id=>VMX.open(id),hexproofFrom.id);
   assert.deepEqual(await page.locator('#detail .own-row[data-c]').evaluateAll(items=>items.map(item=>item.dataset.c)),['W','U','B','G','C'],'Hexproof from detail rows expose only independent colors and colorless');
-  assert.deepEqual(await page.locator('#detail .dx-list .combo-mark').evaluateAll(items=>items.map(item=>item.dataset.combo)),hexproofFrom.access.combinations.map(item=>item.colors.join('')),'Hexproof from detail retains every combination as separate evidence');
+  assert.deepEqual(await page.locator('#detail .own-row[data-combo] .combo-mark').evaluateAll(items=>items.map(item=>item.dataset.combo)),hexproofFrom.access.combinations.map(item=>item.colors.join('')),'Hexproof from detail retains every combination in the Color Access summary');
   const hBuckets=record=>[...Object.values(record.access.colors).filter(b=>b.status==='documented'),...record.access.combinations,...(record.access.colorless.status==='documented'?[record.access.colorless]:[])];
   const hMaps={Harmonize:['U','R','G','UR','URG'],Haunt:['W','B','WB'],Heal:['W','B','R','G','RG','BR','C'],Hellbent:['B','R','BR','C'],Heroic:['W','U','B','R','G','WU','WR'],'Hidden Agenda':['C'],Hideaway:['W','U','B','R','G','C'],Horsemanship:['W','U','B','R','G'],'Hexproof from':['W','U','B','G','WR','WB','WUB','UG','WUBRG','C'],'Hire a Mercenary':['B'],Halflingcycling:['C'],Harness:['W','B'],Heist:['U','B','R','BR','UB','UBR'],"Hero's Reward":['C']};
   for(const record of hRecords){
@@ -187,22 +187,22 @@ try{
     /* Access-only contract: every supplemental A/B record retains five colors,
        rules actions have no invented map, and no access strip uses tier classes. */
     await page.evaluate(()=>VMX.setView('az'));
-    for(const record of combinationsOnly ? payload.records.filter(r=>['Fuse','Friends forever'].includes(r.name)) : payload.records){
+    for(const record of combinationsOnly ? payload.records.filter(r=>['Fuse','Friends forever','Hexproof from'].includes(r.name)) : payload.records){
       const row=page.locator(`#list .ent[data-k="${record.id}"]`), access=record.access, compactExamples=/^[CDEFGH]/.test(record.name);
       assert.equal(await row.locator('.access-strip').count(),record.kind==='access'?1:0,record.name);
       if(record.kind==='access'){
-        const comboPresentation=['Fuse','Friends forever'].includes(record.name);
-        if(comboPresentation){
+        const comboPresentation=['Fuse','Friends forever'].includes(record.name), mixedPresentation=record.name==='Hexproof from';
+        if(comboPresentation || mixedPresentation){
           assert.deepEqual(await row.locator('.combo-mark').evaluateAll(marks=>marks.map(mark=>mark.dataset.combo)),access.combinations.map(item=>item.colors.join('')));
           assert.equal(await row.locator('.combo-mark').evaluateAll(marks=>marks.every(mark=>mark.getAttribute('role')==='img'&&mark.getAttribute('aria-label').includes('combination only'))),true);
           assert.equal(await row.locator('.combo-mark .ms-wu,.combo-mark .ms-wb,.combo-mark .ms-ub,.combo-mark .ms-ur,.combo-mark .ms-br,.combo-mark .ms-bg,.combo-mark .ms-rg,.combo-mark .ms-rw,.combo-mark .ms-gw,.combo-mark .ms-gu').count(),access.combinations.filter(item=>item.colors.length===2).length);
-          assert.equal(await row.locator('.combo-mark .ci3-svg').count(),access.combinations.filter(item=>item.colors.length===3).length);
+          assert.equal(await row.locator('.combo-mark .ci3-svg').count(),access.combinations.filter(item=>['WUG','UBR','WUR','BRG','WBG'].includes(item.colors.join(''))).length);
           if(record.name==='Fuse') assert.deepEqual(await row.locator('.combo-mark .ci3-svg').evaluateAll(glyphs=>glyphs.map(glyph=>glyph.closest('.combo-mark').dataset.combo)),['WUG','UBR','WUR','BRG','WBG'],'Fuse covers every rendered three-color CI combination');
           assert.ok(await row.locator('.combo-mark .ms-cost').evaluateAll(glyphs=>glyphs.every(glyph=>{const style=getComputedStyle(glyph), size=parseFloat(style.fontSize);return Math.abs(parseFloat(style.lineHeight)-size*1.35)<=1;})),record.name+' keeps Mana-native pair metrics at the scoped glyph size');
           assert.ok(await row.locator('.combo-mark').evaluateAll(marks=>{const pair=marks.find(mark=>mark.querySelector('.ms-cost')), ci=marks.find(mark=>mark.querySelector('.ci3-svg'));if(!pair||!ci)return true;const a=pair.querySelector('.ms').getBoundingClientRect(),b=ci.querySelector('.ci3-svg').getBoundingClientRect();return Math.abs(a.width-b.width)<=.5&&Math.abs(a.height-b.height)<=.5;}),record.name+' normalizes pair and CI circle footprints');
           assert.ok(await row.locator('.combo-mark .ci3-svg').evaluateAll(glyphs=>glyphs.every(svg=>{const expected={WUG:['#3b6ba0','#3d684b','#fff'],UBR:['#c6553e','#3b6ba0','#383431'],WUR:['#c6553e','#fff','#3b6ba0'],BRG:['#3d684b','#383431','#c6553e'],WBG:['#383431','#3d684b','#fff']}[svg.closest('.combo-mark').dataset.combo], paths=[...svg.querySelectorAll('path')];return svg.getAttribute('viewBox')==='0 0 1024 1024'&&svg.querySelector('g')?.getAttribute('transform')==='translate(0 938.667) scale(1 -1)'&&paths.length===4&&paths[0].getAttribute('fill')==='#010101'&&paths.slice(1).map(path=>path.getAttribute('fill')).join('|')===expected.join('|');})),record.name+' renders the pinned Mana CI-3 outline and native interior colors in one shared vector frame');
           assert.ok(await row.locator('.combo-mark').evaluateAll(marks=>marks.every(mark=>{const r=mark.getBoundingClientRect(), g=mark.querySelector('.ms,.ci3-svg').getBoundingClientRect();return Math.abs(r.width-18)<=.5&&Math.abs(r.height-18)<=.5&&Math.abs((r.left+r.width/2)-(g.left+g.width/2))<=.5&&Math.abs((r.top+r.height/2)-(g.top+g.height/2))<=.5;})),record.name+' markers are stable square centered glyph hosts');
-          assert.equal(await row.locator('.access-strip > .sc').count(),0);
+          assert.deepEqual(await row.locator('.access-strip > .sc').evaluateAll(slots=>slots.map(s=>s.dataset.c)),comboPresentation?[]:['W','U','B','G','C']);
         } else assert.deepEqual(await row.locator('.access-strip > .sc').evaluateAll(slots=>slots.map(s=>s.dataset.c)),[...'WUBRG',...(access.colorless.status==='documented'?['C']:[])]);
         assert.equal(await row.locator('.access-strip .t-p,.access-strip .t-s,.access-strip .t-t,.access-strip .t-n').count(),0);
         for(const color of 'WUBRG') assert.equal(await row.locator(`.access-strip .sc[data-c="${color}"].a-d`).count(),access.colors[color].status==='documented'?1:0);
@@ -220,8 +220,8 @@ try{
       assert.ok((await panel.innerText()).includes(/^[GH]/.test(record.name)?'October 29, 2026':'October 28, 2026'),record.name+' displayed review date');
       assert.doesNotMatch(await panel.innerText(),/Our assessment|Confidence:|Primary:|Secondary:|Tertiary:|assessment - provisional/i);
       if(record.kind==='access'){
-        const comboPresentation=['Fuse','Friends forever'].includes(record.name);
-        assert.equal(await panel.locator('.own-row').count(),comboPresentation?access.combinations.length:5+(access.colorless.status==='documented'?1:0));
+        const comboPresentation=['Fuse','Friends forever'].includes(record.name), mixedPresentation=record.name==='Hexproof from';
+        assert.equal(await panel.locator('.own-row').count(),comboPresentation?access.combinations.length:mixedPresentation?5+access.combinations.length:5+(access.colorless.status==='documented'?1:0));
         if(comboPresentation){
           assert.equal(await panel.locator('.own-row[data-c]').count(),0,record.name+' has no implied monocolor rows');
           assert.deepEqual(await panel.locator('.own-row[data-combo]').evaluateAll(rows=>rows.map(row=>row.dataset.combo)),access.combinations.map(item=>item.colors.join('')));
@@ -229,9 +229,12 @@ try{
           assert.deepEqual(await row.locator('.combo-mark').evaluateAll(marks=>marks.map(mark=>mark.dataset.combo)),access.combinations.map(item=>item.colors.join('')));
           assert.ok(await panel.locator('.own-row .ci3-svg').evaluateAll(glyphs=>glyphs.every(svg=>svg.getAttribute('viewBox')==='0 0 1024 1024'&&svg.querySelectorAll('path').length===4&&svg.querySelector('g')?.getAttribute('transform')==='translate(0 938.667) scale(1 -1)')),record.name+' detail keeps the four-path Mana CI-3 vector in its shared frame');
           assert.ok(await panel.locator('.own-row.combo-row').evaluateAll(rows=>rows.every(item=>{const mark=item.querySelector('.combo-mark').getBoundingClientRect(), glyph=item.querySelector('.combo-mark .ms,.combo-mark .ci3-svg').getBoundingClientRect(), label=item.querySelector('.own-c').getBoundingClientRect();return Math.abs(mark.width-mark.height)<=.5&&Math.abs(glyph.width-glyph.height)<=.5&&Math.abs((mark.left+mark.width/2)-(glyph.left+glyph.width/2))<=.5&&Math.abs((mark.top+mark.height/2)-(glyph.top+glyph.height/2))<=.5&&Math.abs((mark.top+mark.height/2)-(label.top+label.height/2))<=.5;})),record.name+' detail markers and labels remain centered');
+        } else if(mixedPresentation){
+          assert.deepEqual(await panel.locator('.own-row[data-c]').evaluateAll(rows=>rows.map(row=>row.dataset.c)),['W','U','B','G','C']);
+          assert.deepEqual(await panel.locator('.own-row[data-combo]').evaluateAll(rows=>rows.map(row=>row.dataset.combo)),access.combinations.map(item=>item.colors.join('')));
         }
         assert.ok((await panel.innerText()).includes(record.scopeLabel));
-        if(!comboPresentation) for(const color of 'WUBRG'){
+        if(!comboPresentation && !mixedPresentation) for(const color of 'WUBRG'){
           const item=access.colors[color], rowText=await panel.locator(`.own-row[data-c="${color}"]`).innerText();
           assert.match(rowText,new RegExp(item.status==='documented'?'Access':item.status==='multicolor_only'?'Combination only':item.status==='not_found'?'No example found':item.status==='not_applicable'?'Not applicable':'Insufficient evidence'));
         }
@@ -326,7 +329,7 @@ try{
       assert.ok(symbols.every(s=>s.text===s.raw&&s.label&&s.glyph==='none'),record.name+' readable F/G/H font-failure fallback');
       if(/^[GH]/.test(record.name)&&!combinationsOnly) assert.deepEqual(symbols.map(s=>s.raw),(record.name.startsWith('H')?normalHTokens:normalGTokens).get(record.name),record.name+' same actual tokens in normal and blocked-font states');
     }
-    for(const record of payload.records.filter(r=>['Fuse','Friends forever'].includes(r.name))){
+    for(const record of payload.records.filter(r=>['Fuse','Friends forever','Hexproof from'].includes(r.name))){
       await noFont.evaluate(()=>VMX.setView('az'));
       await noFont.evaluate(id=>VMX.open(id),record.id);
       const expected=record.access.combinations.map(item=>item.colors.join(''));
