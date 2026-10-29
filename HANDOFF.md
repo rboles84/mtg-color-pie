@@ -1,3 +1,70 @@
+# Owner Review — I supplemental Color Access delivery
+
+- Status: qa-passed / Owner Review. All fifteen supplemental I records are complete with 96 selected witnesses; 192 A–I access records are available. Owner visual/product acceptance remains pending. Indestructible and all frozen 2021 names, explanations, placements and calculations remain unchanged, as do the 177 A–H rows and sixteen prior bindings.
+- Exact material: `dae37b8313add1751b18e1e44e601db63fea834f`; task baseline `a96178cba60ecef07c9eb3d7d39d0a9a4037b4a4`; branch `codex/a-mechanics-review`. Independent RobQA evidence commit `483da9ae630b52c6f6c8900ca7d6833d9eca0e92` follows the developer evidence commit. This coordinator update changes HANDOFF only and preserves that material binding.
+- Roles: initial configured RobDev Terra medium worker stopped at partial discovery twice without a blocker. Announced bounded escalation to explicitly requested Sol (`gpt-6.1-sol`) high worker `/root/i_completion` completed material implementation. Separate configured RobQA Sol medium reviewer `/root/i_qa` independently reviewed the exact candidate. These are requested/configured routes, not verified backend telemetry. Coordinator `/root` owns delivery/package/Git accounting and made no material product edits.
+- Independent evidence: the following QA packet records all 96 complete selected objects and actual source/face colors, 21 receipt and committed-blob hashes, 28 rules clauses, fifteen inventory records and unchanged prior rows/bindings. Producer, invariants, taxonomy, all 53 reconciliation assertions, gate and focused browser checks passed. The browser's first sandbox launch stopped Edge before tests; one escalated run completed exit 0 PASS. No unresolved defect or harness debt. Authored whitespace is clean; the unrestricted material diff retains exactly twelve immutable source whitespace findings (nine CR, three Incorporate HTML), not an unrestricted whitespace PASS.
+- Package: verified the resolved `_site` is a direct child of this checkout and not a reparse point, then ran `python .github/pages/package.py --rev dae37b8313add1751b18e1e44e601db63fea834f --out <absolute _site> --verify`, exit 0. Observed 23 byte-identical allowlisted files, four syntax-clean inline scripts, 23 expected HTTP 200 paths and 24 excluded HTTP 404 paths. Existing localhost 8020 server reused; no publication or new server.
+- Live preview: refreshed `http://127.0.0.1:8020/#mechanical-color-pie`; actual iframe revision is `dae37b8313add1751b18e1e44e601db63fea834f`. Incubate is open with Reviewed card examples expanded, empty search, all five color filters false and A–Z active. Seven selected card links occur once, followed by the separate CR source link. Visible numeric mana symbols and the five independent color marks were inspected. Screenshot: `C:/Users/obake/.codex/visualizations/2026/10/29/01a18965-8451-71b0-a50a-1fb5ffadaaf5/i-color-access-preview.jpg`. The preview tab is retained as a deliverable. One missing-attribute selector and one unavailable iframe DOM evaluation were replaced with direct frame-locator reads; final UI state was successfully verified.
+- Owner check: inspect the open Incubate example for wording and reading flow; optionally open Ingest for its colorless bucket or Intensity for its labeled digital scope. Objective facts, link uniqueness, symbols, accessible labels, escaped text and unavailable-font fallback have engineering evidence. No additional tools or manual fact audit are required of the Owner.
+- Git state before this evidence-only update: clean. Local branch containment lists only `codex/a-mechanics-review`; no local remote-tracking ref contains the material candidate. No push, merge or publication command was performed. Final post-commit cleanliness and the canonical change-report validator are checked before delivery.
+
+## Material candidate
+
+- Baseline: `a96178cba60ecef07c9eb3d7d39d0a9a4037b4a4`
+- Candidate: `dae37b8313add1751b18e1e44e601db63fea834f`
+- Changed paths: `30`
+
+## Files changed
+
+- `HANDOFF.md`
+- `data/mechanics-assessments.v1.json`
+- `docs/mechanics-research/COLOR-ACCESS-PROTOCOL.md`
+- `docs/mechanics-research/I-ACCESS-REVIEW.md`
+- `docs/mechanics-research/i-protocol-evidence/comprehensive-rules.txt`
+- `docs/mechanics-research/i-protocol-evidence/impending-discovery-1.json`
+- `docs/mechanics-research/i-protocol-evidence/imprint-discovery-1.json`
+- `docs/mechanics-research/i-protocol-evidence/imprint-official.html`
+- `docs/mechanics-research/i-protocol-evidence/improvise-discovery-1.json`
+- `docs/mechanics-research/i-protocol-evidence/incorporate-discovery-1.json`
+- `docs/mechanics-research/i-protocol-evidence/incorporate-official.html`
+- `docs/mechanics-research/i-protocol-evidence/increment-discovery-1.json`
+- `docs/mechanics-research/i-protocol-evidence/incubate-discovery-1.json`
+- `docs/mechanics-research/i-protocol-evidence/infect-discovery-1.json`
+- `docs/mechanics-research/i-protocol-evidence/infusion-discovery-1.json`
+- `docs/mechanics-research/i-protocol-evidence/infusion-official.html`
+- `docs/mechanics-research/i-protocol-evidence/ingest-discovery-1.json`
+- `docs/mechanics-research/i-protocol-evidence/inspired-discovery-1.json`
+- `docs/mechanics-research/i-protocol-evidence/inspired-official.html`
+- `docs/mechanics-research/i-protocol-evidence/intensity-discovery-1.json`
+- `docs/mechanics-research/i-protocol-evidence/intensity-official.html`
+- `docs/mechanics-research/i-protocol-evidence/intimidate-discovery-1.json`
+- `docs/mechanics-research/i-protocol-evidence/investigate-discovery-1.json`
+- `docs/mechanics-research/i-protocol-evidence/islandcycling-discovery-1.json`
+- `docs/mechanics-research/i-protocol-evidence/islandwalk-discovery-1.json`
+- `docs/mechanics-research/i-protocol-evidence/retrieval-receipts.json`
+- `docs/mechanics-research/i-protocol.json`
+- `tools/build_mechanics_assessments.py`
+- `tools/check_assessment_browser.mjs`
+- `vox-color/mechanical-explorer.html`
+
+## Evidence delta
+
+- Material candidate: `dae37b8313add1751b18e1e44e601db63fea834f`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `1`
+- Developer binding, independent QA, preview delivery and Git accounting updates in HANDOFF only; not the full task diff.
+
+## Evidence-only paths
+
+- `HANDOFF.md`
+
+## Final branch delta
+
+- Baseline to evidence HEAD: 30 Git-derived changed paths. Evidence-only commits add no path outside the material set. Material and evidence scopes are reported separately above.
+
+---
+
 # RobQA PASS / Owner Review — I supplemental Color Access
 
 - Status: `qa-passed` / Owner Review. Exact material candidate `dae37b8313add1751b18e1e44e601db63fea834f` on `codex/a-mechanics-review`; task baseline `a96178cba60ecef07c9eb3d7d39d0a9a4037b4a4`; developer receipt HEAD before QA `f0a9d1191268a3c004401e316da82b52792bea07`. This verdict is candidate-bound and local only. No Owner acceptance, push, merge, integration or publication is claimed.
