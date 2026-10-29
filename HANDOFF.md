@@ -1,4 +1,47 @@
-# Active task — F CI scale alignment
+# Active task — retain Mana CI and match combination sizes
+
+- Status: qa-passed on exact candidate `26a07d86e991443f43a43f7a673cd2f4939ea191`. Owner elected to retain the existing Mana indicators and omit the reviewed custom tri-glyph package. Reused this checkout and codex/a-mechanics-review; no imported assets or new dependencies.
+- Changed behavior: only the scoped .combo-mark .ms-ci font size becomes18px, matching the native pair circle18.1875px inside their shared18px host. Native Mana line-height factors, borders, palette and glyphs remain in use. The same selector applies to Fuse/Friends forever list, search and detail. No data, selected cards/links, other entry branches or frozen2021 paths changed.
+- QA classification: QA-1. Execution: SEPARATE; configured RobDev worker /root/f_implementation implemented, non-implementing coordinator /root reviewed the committed material. QA wrote only HANDOFF.md. CPU-heavy validation NOT REQUIRED. Stateful-adversarial coverage NOT APPLICABLE: one CSS size rule, with no ownership, persistence, routing or execution change.
+- Escape/invariant: prior center-only checks allowed a14px CI circle next to an18.1875px pair circle. Reusable invariant is comparable rendered circle width/height within.5px plus each glyph centered within its own host and native proportional metrics. A preliminary harness assertion incorrectly compared different cells' absolute positions; corrected before the final browser run. No product change was needed for that harness correction.
+- Persistent focused PASS: node tools/check_assessment_browser.mjs --root . --combinations-only --playwright C:/Users/obake/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright. Protects the two named entries, comparable pair/CI footprint, native metrics, centered hosts/detail rows, exact combinations/labels/links and no implied independent monocolor sockets. node --check and git diff --check PASS.
+- Independent focused PASS: C:/Users/obake/.codex/visualizations/2026/10/29/01a185f4-a2f8-7dd1-998c-7692190f20e8/check-ci-size.mjs. Baseline reproduces pair18.1875px versus CI14px in both entries. Candidate list/search/detail in both entries measures pair18.1875px versus CI18px and0px host-center offsets; native metric factors and square geometry pass. Both entries also pass visible font-failure letter fallback, full labels, exact selected card hrefs and360px page/list/detail containment. No claim of live HTTP review of every card link.
+- Named browser risk: real font/CSS layout determines circle dimensions and pseudo-element metrics, which source inspection alone cannot prove. Enlarged row captures inspected for clipping/ink alignment; this is five-device-pixel magnification, not a full500% browser-zoom journey. No screenshot/viewport matrix or engine/data revalidation. Owner retains aesthetic acceptance.
+- Package PASS: exact candidate in the guarded existing _site directory;23 byte-identical allowlisted files,4 clean inline scripts,23 expected HTTP200 paths and24 excluded404 paths. Existing localhost8020 tab refreshed to candidate, Friends forever detail open with both changed list strips visible. Live DOM independently confirms18.1875px pair /18px CI squares. Screenshot C:/Users/obake/.codex/visualizations/2026/10/29/01a185f4-a2f8-7dd1-998c-7692190f20e8/f-mana-ci-size-preview.png.
+- Engineering verdict PASS / Owner Review. Remaining Owner check: compare neighboring circles in Fuse and Friends forever at normal size and optional magnification. No push, merge, publication or custom tri-package adoption.
+
+## Material candidate
+
+- Baseline: `22495cf101c65989e2a7d8e3f0b11d694c7c6885`
+- Candidate: `26a07d86e991443f43a43f7a673cd2f4939ea191`
+- Changed paths: `3`
+
+## Files changed
+
+- `HANDOFF.md`
+- `tools/check_assessment_browser.mjs`
+- `vox-color/mechanical-explorer.html`
+
+## Evidence delta
+
+- Material candidate: `26a07d86e991443f43a43f7a673cd2f4939ea191`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `1`
+- QA/preview/report evidence only; not the full task diff.
+
+## Evidence-only paths
+
+- `HANDOFF.md`
+
+## Final branch delta
+
+- Baseline `22495cf101c65989e2a7d8e3f0b11d694c7c6885` → evidence `HEAD`.
+- Total changed paths: `3`; evidence adds no material path.
+- codex/a-mechanics-review, local commits only. Worktree cleanliness checked after evidence commit. No push, merge or publication.
+
+---
+
+# Implementation packet — F CI scale alignment
 
 - Status: ready-for-qa. Baseline `22495cf101c65989e2a7d8e3f0b11d694c7c6885`; allowed paths remain HANDOFF.md, `vox-color/mechanical-explorer.html`, and `tools/check_assessment_browser.mjs`. The existing Mana CI glyph alone scales to 18px inside the fixed 18px combination host, matching the pair-cost footprint. Native line-height factors remain untouched; no SVG package assets, new glyphs, palette, font, data or other entries change.
 - Focused regression compares pair/CI computed native line-height factors at their scoped font sizes and comparable rendered footprints in the shared combination strip; each glyph center is measured against its own host, not another grid cell. The existing focused interaction coverage exercises list, search and detail. `node --check tools/check_assessment_browser.mjs` and `git diff --check` pass. Independent QA owns the focused browser run and preview.
