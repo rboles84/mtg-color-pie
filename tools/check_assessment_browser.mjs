@@ -1,9 +1,10 @@
-// Focused A/B/C/D/E/F assessment checks using externally supplied Playwright; no new dependency.
+// Focused A/B/C/D/E/F/G assessment checks using externally supplied Playwright; no new dependency.
 import fs from 'node:fs';
 import path from 'node:path';
 import http from 'node:http';
 import assert from 'node:assert/strict';
 import {createRequire} from 'node:module';
+import {createHash} from 'node:crypto';
 const args=process.argv.slice(2), opt=(n,d)=>args.includes(n)?args[args.indexOf(n)+1]:d;
 const root=path.resolve(opt('--root','.'));
 const copyOnly=args.includes('--copy-only');
@@ -85,7 +86,34 @@ try{
   assert.equal(fRecord('Forestwalk').access.colorless.status,'not_found');
   assert.equal(fRecord('Food').access.colors.B.cards[0].name,'Bake into a Pie');
   assert.equal(fRecord('Food').access.colors.R.status,'multicolor_only');
-  const gRecord=name=>payload.records.find(r=>r.name===name);
+  const gRecords=payload.records.filter(r=>r.name.startsWith('G'));
+  const gRecord=name=>gRecords.find(r=>r.name===name);
+  const gBuckets=record=>[...Object.values(record.access.colors).filter(b=>b.status==='documented'),...record.access.combinations,...(record.access.colorless.status==='documented'?[record.access.colorless]:[])];
+  const gMaps={Gift:['W','U','B','R','G','UG','C'],Goad:['W','U','B','R','G','UB','BRG','UR','BR','RG','WB','WRG','WUG','UBR','WR','BG','C'],Graft:['U','G','UG','C'],Grandeur:['W','U','B','R','G','C'],Gravestorm:['U','B']};
+  for(const record of payload.records) assert.equal(record.researchDate,record.name.startsWith('G')?'2026-10-29':'2026-10-28',record.name+' historical review date');
+  assert.equal(payload.researchDate,'2026-10-29');
+  for(const record of gRecords){
+    assert.deepEqual([...Object.entries(record.access.colors).filter(([,b])=>b.status==='documented').map(([c])=>c),...record.access.combinations.map(b=>b.colors.join('')),...(record.access.colorless.status==='documented'?['C']:[])],gMaps[record.name],record.name+' exact access map');
+    assert.ok(gBuckets(record).every(b=>b.cards.length===1),record.name+' exactly one selected card per bucket');
+  }
+  assert.equal(gRecords.flatMap(gBuckets).length,36,'exactly 36 selected G witnesses');
+  const goadNote=name=>gBuckets(gRecord('Goad')).find(b=>b.cards[0].name===name).note;
+  for(const [name,required,forbidden] of [
+    ['Frenzied Gorespawn',/entry trigger.*each opponent/i,/combat damage/i],
+    ['Killian, Decisive Mentor',/whenever an enchantment you control enters/i,/activated ability/i],
+    ['Kitt Kanto, Mayhem Diva',/tap two untapped creatures you control.*start of combat on each player's turn/i,/attacks with a Citizen/i],
+    ['Kros, Defense Contractor',/creature you don't control whenever you put counters on it/i,/goads.*upkeep|goads.*with \+1\/\+1 counters/i],
+    ['Maestros Confluence',/goads every creature controlled by a target player/i,/goads a creature\./i],
+    ['Nelly Borca, Impulsive Accuser',/when she attacks.*goads all suspected creatures/i,/as it enters/i],
+    ['Bhaal, Lord of Murder',/another nontoken creature you control dies/i,/after another nontoken creature dies/i],
+    ['Alela, Cunning Conqueror',/player dealt combat damage by one or more Faeries you control/i,/after its Faeries deal combat damage/i]
+  ]){assert.match(goadNote(name),required,name+' preserves its actual trigger and scope');assert.doesNotMatch(goadNote(name),forbidden,name+' rejects escaped factual error');}
+  assert.match(gRecord('Goad').summary,/normally lasts until the next turn.*continuous effects or explicit durations can differ/i,'Goad preserves normal duration and exceptions');
+  assert.match(gRecord('Graft').access.colorless.note,/after it enters/i,'graft transfer follows creature entry');
+  assert.match(gRecord('Gift').summary,/while casting.*instant or sorcery.*before.*resolves.*permanent.*triggered ability.*enters/i,'Gift distinguishes promise, spell resolution and permanent entry');
+  assert.match(gRecord('Gravestorm').access.colors.B.note,/triggers when cast.*copies each exile/i,'Bitter Ordeal cast trigger precedes its search effect');
+  assert.doesNotMatch(gRecord('Gravestorm').access.colors.B.note,/when cast after searching/i);
+  const normalGTokens=new Map(); let gVisibleCardLinks=0;
   assert.equal(payload.records.filter(r=>r.name.startsWith('G')).length,5);
   assert.equal(gRecord('Gift').access.colors.G.cards[0].name,'Longstalk Brawl');
   assert.equal(gRecord('Gift').access.colorless.cards[0].name,'Starforged Sword');
@@ -149,6 +177,7 @@ try{
       const notes=panel.locator('.assessment-notes');
       assert.match(await panel.innerText(),/Color Access/);
       assert.match(await panel.innerText(),/Outside the 2021 color calculations/);
+      assert.ok((await panel.innerText()).includes(record.name.startsWith('G')?'October 29, 2026':'October 28, 2026'),record.name+' displayed review date');
       assert.doesNotMatch(await panel.innerText(),/Our assessment|Confidence:|Primary:|Secondary:|Tertiary:|assessment - provisional/i);
       if(record.kind==='access'){
         const comboPresentation=['Fuse','Friends forever'].includes(record.name);
@@ -170,7 +199,7 @@ try{
       await notes.locator(':scope > summary').focus(); await page.keyboard.press('Enter'); assert.equal(await notes.getAttribute('open'),'');
       // Restore symbol fallback text only for exact authored-prose comparisons.
       // Separate visible-DOM assertions below prove the braces are not displayed.
-      const noteText = /^[EF]/.test(record.name) ? await notes.evaluate(el=>{
+      const noteText = /^[EFG]/.test(record.name) ? await notes.evaluate(el=>{
         const copy=el.cloneNode(true);
         copy.querySelectorAll('.supp-symbol').forEach(symbol=>symbol.replaceWith(symbol.querySelector('.supp-symbol-text').textContent));
         return copy.textContent;
@@ -210,10 +239,11 @@ try{
         assert.equal(await page.locator('#detail .dx-eg,#detail .cite').count(),0,record.name+' no inherited extra example/image');
         assert.deepEqual(await page.locator('#detail a').evaluateAll(links=>links.filter(a=>a.hostname==='scryfall.com'&&a.pathname.startsWith('/card/')).map(a=>a.href).sort()),expectedCardLinks,record.name+' whole-detail one-example link contract');
       }
+      if(record.name.startsWith('G')) gVisibleCardLinks+=expectedCardLinks.length;
       const linkedBuckets=cardBuckets.filter(item=>item.findUrl && (!compactExamples || item.cards.length>1));
       for(const findUrl of new Set(linkedBuckets.map(item=>item.findUrl))) assert.equal(await notes.locator(`a[href="${findUrl}"]`).count(),linkedBuckets.filter(item=>item.findUrl===findUrl).length,record.name+' renders every exact reviewed-card bucket link');
       assert.deepEqual(await notes.locator('a').evaluateAll(links=>links.filter(a=>a.protocol!=='https:'||!['scryfall.com','magic.wizards.com'].includes(a.hostname)||a.rel!=='noopener noreferrer').map(a=>a.href)),[]);
-      if(/^[EF]/.test(record.name)) {
+      if(/^[EFG]/.test(record.name)) {
         await page.waitForFunction(()=>document.documentElement.classList.contains('supp-mana-ready'));
         const symbols=await page.locator('#detail').evaluate(el=>{
           const copy=el.cloneNode(true);
@@ -222,6 +252,7 @@ try{
             rendered:[...el.querySelectorAll('.supp-symbol')].map(s=>({token:s.querySelector('.supp-symbol-text').textContent,label:s.getAttribute('aria-label'),role:s.getAttribute('role'),fallback:getComputedStyle(s.querySelector('.supp-symbol-text')).display,glyph:getComputedStyle(s.querySelector('.ms')).display,before:getComputedStyle(s.querySelector('.ms'),'::before').content,after:getComputedStyle(s.querySelector('.ms'),'::after').content}))};
         });
         assert.deepEqual(symbols.rendered.map(s=>s.token),symbols.tokens,record.name+' every brace token becomes a symbol');
+        if(record.name.startsWith('G')) normalGTokens.set(record.name,symbols.tokens);
         assert.doesNotMatch(symbols.visible,/\{[^{}\r\n]+\}/,record.name+' no visible raw costs');
         for(const symbol of symbols.rendered){
           assert.equal(symbol.role,'img');assert.ok(symbol.label);assert.equal(symbol.fallback,'none');assert.notEqual(symbol.glyph,'none');
@@ -237,6 +268,7 @@ try{
         if(record.name==='Evoke') assert.deepEqual([...new Set(symbols.rendered.filter(s=>s.token.includes('/')).map(s=>s.token))].sort(),['{R/G}','{R/W}','{U/B}','{W/B}']);
       }
     }
+    if(!combinationsOnly) assert.equal(gVisibleCardLinks,36,'all G detail panels show exactly the 36 selected links');
     const noFont=await browser.newPage();
     await noFont.route('**/mana-font@1.18.0/**',route=>route.abort());
     await noFont.goto(url);await noFont.waitForFunction(()=>VMX.assessments().status==='ready');
@@ -249,7 +281,8 @@ try{
       await noFont.evaluate(id=>VMX.open(id),record.id);
       await noFont.locator('.assessment-notes > summary').click();
       const symbols=await noFont.locator('#detail .supp-symbol').evaluateAll(items=>items.map(s=>({text:s.innerText,raw:s.querySelector('.supp-symbol-text').textContent,label:s.getAttribute('aria-label'),glyph:getComputedStyle(s.querySelector('.ms')).display})));
-      assert.ok(symbols.every(s=>s.text===s.raw&&s.label&&s.glyph==='none'),record.name+' readable F font-failure fallback');
+      assert.ok(symbols.every(s=>s.text===s.raw&&s.label&&s.glyph==='none'),record.name+' readable F/G font-failure fallback');
+      if(record.name.startsWith('G')&&!combinationsOnly) assert.deepEqual(symbols.map(s=>s.raw),normalGTokens.get(record.name),record.name+' same actual tokens in normal and blocked-font states');
     }
     for(const record of payload.records.filter(r=>['Fuse','Friends forever'].includes(r.name))){
       await noFont.evaluate(()=>VMX.setView('az'));
@@ -280,23 +313,56 @@ try{
     assert.equal(await fSummary.locator('img').count(),0);assert.ok((await fSummary.textContent()).includes('<img src=x onerror=alert(1)> {unknown}'));
     assert.deepEqual(await fSummary.locator('.supp-symbol').evaluateAll(items=>items.map(s=>s.getAttribute('aria-label'))),['One black or green mana','9 generic mana']);
     await fEscaped.close();
+    const gTokenText='{9} {W} {U} {B} {R} {G} {C} {X} {B/G} {G/U} {B/R} {G/W} {U/R} {W/B}';
+    const gTokenLabels=['9 generic mana','One white mana','One blue mana','One black mana','One red mana','One green mana','One colorless mana','X generic mana','One black or green mana','One green or blue mana','One black or red mana','One green or white mana','One blue or red mana','One white or black mana'];
+    const gUnsafe='<img src=x onerror=alert(1)> {unknown} '+gTokenText;
+    for(const blocked of [false,true]){
+      const gSafe=await browser.newPage(),gInjected=structuredClone(payload),gSupplement=structuredClone(supplement);
+      const gScopes=JSON.parse(fs.readFileSync(path.join(root,'data/mechanics-supplement-scope.v1.json'),'utf8'));
+      for(const record of gSupplement.records.filter(r=>r.name.startsWith('G')&&r.target2021===null)){
+        record.clauses=[{number:'fixture',text:gUnsafe}];
+        record.reference={title:'Fixture',verification:'fixture',rules:[],summary:gUnsafe,source:{title:'Fixture',url:'https://magic.wizards.com/en/news/making-magic/back-future-sight-part-3-2020-08-24'}};
+      }
+      const fixtureHash=createHash('sha256').update(JSON.stringify(gSupplement)).digest('hex');
+      gScopes.payloadCanonicalSha256=fixtureHash;gInjected.supplementCanonicalSha256=fixtureHash;
+      await gSafe.route('**/data/mechanics-supplement.v1.json*',route=>route.fulfill({contentType:'application/json',body:JSON.stringify(gSupplement)}));
+      await gSafe.route('**/data/mechanics-supplement-scope.v1.json*',route=>route.fulfill({contentType:'application/json',body:JSON.stringify(gScopes)}));
+      for(const record of gInjected.records.filter(r=>r.name.startsWith('G'))) record.summary=gUnsafe;
+      if(blocked) await gSafe.route('**/mana-font@1.18.0/**',route=>route.abort());
+      await gSafe.route(assessmentRoute,route=>route.fulfill({contentType:'application/json',body:JSON.stringify(gInjected)}));
+      await gSafe.goto(url);await gSafe.waitForFunction(()=>VMX.assessments().status==='ready');
+      if(!blocked) await gSafe.waitForFunction(()=>document.documentElement.classList.contains('supp-mana-ready'));
+      for(const record of gRecords){
+        await gSafe.evaluate(id=>VMX.open(id),record.id);await gSafe.locator('.assessment-notes > summary').click();
+        for(const selector of ['.assessment-notes > p','#detail .supp-rules .dx-ex','#detail .supp-reference .supp-quote']){
+          const prose=gSafe.locator(selector).first();assert.equal(await prose.locator('img').count(),0,record.name+' escapes markup in '+selector);
+          assert.ok((await prose.textContent()).includes('<img src=x onerror=alert(1)> {unknown}'),record.name+' preserves unknown notation as text');
+          const symbols=await prose.locator('.supp-symbol').evaluateAll(items=>items.map(s=>({label:s.getAttribute('aria-label'),role:s.getAttribute('role'),raw:s.querySelector('.supp-symbol-text').textContent,text:s.innerText,glyph:getComputedStyle(s.querySelector('.ms')).display,fallback:getComputedStyle(s.querySelector('.supp-symbol-text')).display,before:getComputedStyle(s.querySelector('.ms'),'::before').content,after:getComputedStyle(s.querySelector('.ms'),'::after').content})));
+          assert.deepEqual(symbols.map(s=>s.label),gTokenLabels,record.name+' all G numeric/colored/colorless/X/hybrid tokens in '+selector);
+          assert.ok(symbols.every(s=>s.role==='img'&&(blocked?s.glyph==='none'&&s.text===s.raw&&s.fallback!=='none':s.glyph!=='none'&&s.fallback==='none'&&s.before&&!['none','normal','""'].includes(s.before)&&(s.raw.includes('/')?s.after&&!['none','normal','""'].includes(s.after):true))),record.name+' accessible real glyphs or readable fallback');
+          if(!blocked) assert.doesNotMatch(await prose.innerText(),/\{(?:9|W|U|B|R|G|C|X|B\/G|G\/U|B\/R|G\/W|U\/R|W\/B)\}/);
+        }
+      }
+      await gSafe.close();
+    }
     const blue=payload.records.find(r=>r.access.colors.U.status==='documented'); assert.ok(blue,'a documented blue example exists');
     await page.locator('#q').fill(blue.name); await page.locator('#q').press('Enter'); assert.equal(await page.locator('#dx-title').innerText(),blue.name);
     const accessBefore=await page.locator('.access-strip .sc').evaluateAll(slots=>slots.map(s=>s.className));
     await page.evaluate(()=>{VMX.chooseCombo('W');VMX.clearColors();VMX.setView('article');VMX.setView('az');}); assert.equal(await page.evaluate(math),baseline);
     assert.deepEqual(await page.locator('.access-strip .sc').evaluateAll(slots=>slots.map(s=>s.className)),accessBefore,'color lens never retiers access symbols');
     await page.setViewportSize({width:360,height:900}); assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true); await page.setViewportSize({width:1440,height:900});
-    for(const scenario of ['missing','bad-status','unsafe-url','bad-binding']){
+    for(const scenario of ['missing','bad-status','unsafe-url','bad-binding','bad-g-date']){
       const fail=await browser.newPage(), bad=structuredClone(payload);
       if(scenario==='bad-status') bad.records[0].access.colors.W.status='invented';
       if(scenario==='unsafe-url') bad.records.find(r=>r.kind==='access').access.colors.W.findUrl='https://scryfall.com@evil.example/';
       if(scenario==='bad-binding') bad.sourceBindings[0].path='docs/mechanics-research/tampered.json';
+      if(scenario==='bad-g-date') bad.records.find(r=>r.name==='Gift').researchDate='2026-10-28';
       await fail.route(assessmentRoute,route=>route.fulfill(scenario==='missing'?{status:404,body:'Missing'}:{contentType:'application/json',body:JSON.stringify(bad)}));
       await fail.goto(url); await fail.waitForFunction(()=>VMX.assessments().status==='unavailable');
       assert.equal(await fail.evaluate(()=>VMX.assessments().records.length),0); assert.equal(await fail.locator('#list .access-strip').count(),0); await fail.close();
     }
     assert.deepEqual(errors,[]);
-    results.push(combinationsOnly ? 'Fuse and Friends forever combination-only strips and detail rows: exact combinations, pinned Mana CI-3 vectors, accessible labels, readable no-font fallback, and no implied monocolor sockets.' : 'All28 E and25 F mana symbols, accessible names, hybrid halves, no-font fallback and escaping; C/D/E/F representative sources, unique combination citations and concise copy; 158 A/B/C/D/E/F access maps; documented/no-example/joint/colorless/rules cases; exact-example and retained non-card links; atomic malformed fail-soft; search keyboard/mobile; unchanged 2021 84 checks');
+    results.push(combinationsOnly ? 'Fuse and Friends forever combination-only strips and detail rows: exact combinations, pinned Mana CI-3 vectors, accessible labels, readable no-font fallback, and no implied monocolor sockets.' : 'All28 E,25 F and5 G mana-symbol paths: actual tokens plus G numeric/colored/colorless/X/hybrid fixtures in assessment/rules/reference, accessible real glyphs, no-font fallback and escaping; 36 exact G selected links, factual trigger/timing regressions and Oct29 dates; C/D/E/F/G representative sources, unique combination citations and concise copy; 163 A/B/C/D/E/F/G access maps; documented/no-example/joint/colorless/rules cases; exact-example and retained non-card links; atomic malformed fail-soft; search keyboard/mobile; unchanged 2021 84 checks');
   }
   await page.close();
   console.log(JSON.stringify({result:'PASS',checks:results},null,2));

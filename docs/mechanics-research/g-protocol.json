@@ -1231,43 +1231,43 @@
         "version": "2.0",
         "review_date": "2026-10-29",
         "scope_label": "Released paper cards",
-        "scope": "Gift is an optional additional cost while casting a spell; its named effect happens before the spell's other effects when that gift was promised.",
-        "summary": "Gift is an optional additional cost while casting a spell; its named effect happens before the spell's other effects when that gift was promised.",
+        "scope": "Gift lets you promise an opponent a gift while casting a spell. For an instant or sorcery, they receive it before the spell's other effects as it resolves; for a permanent, a triggered ability gives the gift when it enters.",
+        "summary": "Gift lets you promise an opponent a gift while casting a spell. For an instant or sorcery, they receive it before the spell's other effects as it resolves; for a permanent, a triggered ability gives the gift when it enters.",
         "colors": {
           "W": {
             "status": "documented",
             "card_ids": [
               "ef71ef07-8a35-41ec-a851-d95e9e3a221b"
             ],
-            "note": "Bilbo's Gambit offers a Treasure before returning a target spell."
+            "note": "Bilbo's Gambit returns a spell to its owner's hand; promising its Treasure gift also prevents players from casting spells that turn."
           },
           "U": {
             "status": "documented",
             "card_ids": [
               "8cb36a67-9206-4665-a03f-64f52ba559c4"
             ],
-            "note": "Into the Flood Maw offers a tapped Fish before returning a creature or nonland permanent."
+            "note": "Into the Flood Maw returns an opponent's creature, or any nonland permanent they control if its tapped Fish gift was promised."
           },
           "B": {
             "status": "documented",
             "card_ids": [
               "27a91ebd-39f4-432d-b6cc-cd86b4a3979a"
             ],
-            "note": "Coiling Rebirth offers a card before returning a creature card from its controller's graveyard."
+            "note": "Coiling Rebirth returns a creature from your graveyard; promising its card gift also makes a 1/1 copy if that creature isn't legendary."
           },
           "R": {
             "status": "documented",
             "card_ids": [
               "2e5b8973-4f6e-4abe-bbbe-81fdca784997"
             ],
-            "note": "Blooming Blast offers a Treasure before dealing damage."
+            "note": "Blooming Blast deals 2 damage to a creature; promising its Treasure gift adds 3 damage to that creature's controller."
           },
           "G": {
             "status": "documented",
             "card_ids": [
               "adc8976a-0871-4fd6-9c4c-822ba9549b4b"
             ],
-            "note": "Longstalk Brawl offers a tapped Fish before the chosen creatures fight."
+            "note": "Longstalk Brawl makes your creature fight one you don't control; promising its tapped Fish gift first gives your creature a +1/+1 counter."
           }
         },
         "combinations": [
@@ -1279,7 +1279,7 @@
             "card_ids": [
               "1cf7e5a0-cc8f-4bf7-9767-2f3bcae26339"
             ],
-            "note": "Octomancer offers an Octopus when it enters if its gift was promised."
+            "note": "Octomancer's promised gift creates an 8/8 Octopus for an opponent when it enters."
           }
         ],
         "colorless": {
@@ -1287,7 +1287,7 @@
           "card_ids": [
             "2cdc1d82-30dc-4f0a-af20-33dde90269b1"
           ],
-          "note": "Starforged Sword offers a tapped Fish when it enters if its gift was promised."
+          "note": "Starforged Sword's promised gift creates a tapped Fish for an opponent when it enters, and a separate entry trigger attaches the Equipment to a creature you control."
         },
         "limitations": [
           "Digital gift cards in the saved discovery response are outside this released-paper review."
@@ -4060,43 +4060,43 @@
         "version": "2.0",
         "review_date": "2026-10-29",
         "scope_label": "Released paper cards",
-        "scope": "A goaded creature attacks each combat if able and, if able, attacks a player other than the controller of the effect that goaded it; cards set their own duration.",
-        "summary": "A goaded creature attacks each combat if able and, if able, attacks a player other than the controller of the effect that goaded it; cards set their own duration.",
+        "scope": "A goaded creature attacks each combat if able and attacks a player other than the controller of the permanent, spell, or ability that goaded it if able. Goad normally lasts until the next turn of the spell or ability's controller; continuous effects or explicit durations can differ.",
+        "summary": "A goaded creature attacks each combat if able and attacks a player other than the controller of the permanent, spell, or ability that goaded it if able. Goad normally lasts until the next turn of the spell or ability's controller; continuous effects or explicit durations can differ.",
         "colors": {
           "W": {
             "status": "documented",
             "card_ids": [
               "d7cfe3a3-e8e6-446d-a855-46c845f657fa"
             ],
-            "note": "The War Games makes its Warrior tokens goaded while the Saga remains."
+            "note": "The War Games has each player create three tapped Warriors; those tokens stay goaded while the Saga remains on the battlefield."
           },
           "U": {
             "status": "documented",
             "card_ids": [
               "e6ad5e92-c1ab-4c91-95ca-1af295e71b23"
             ],
-            "note": "Coveted Peacock can goad a defending player's creature when it attacks."
+            "note": "Coveted Peacock's attack trigger can goad a creature controlled by the defending player."
           },
           "B": {
             "status": "documented",
             "card_ids": [
               "dbb8a3d9-6b1b-4ad1-b8b9-f92ead03d1d9"
             ],
-            "note": "Coercive Impetus makes its enchanted creature goaded."
+            "note": "Coercive Impetus keeps the enchanted creature goaded and gives it +1/+1; its attacks draw you a card and cost you 1 life."
           },
           "R": {
             "status": "documented",
             "card_ids": [
               "9ecd53b0-4551-4505-b5d2-02ae49d4cbdb"
             ],
-            "note": "Acquired Mutation makes its enchanted creature goaded."
+            "note": "Acquired Mutation keeps the enchanted creature goaded and gives it +2/+2; its attacks give the defending player two rad counters."
           },
           "G": {
             "status": "documented",
             "card_ids": [
               "87f22ec6-6668-4e15-b38c-fa1ac0292c6b"
             ],
-            "note": "Predatory Impetus makes its enchanted creature goaded."
+            "note": "Predatory Impetus keeps the enchanted creature goaded, gives it +3/+3, and requires it to be blocked if able."
           }
         },
         "combinations": [
@@ -4108,7 +4108,7 @@
             "card_ids": [
               "1cae5752-b4af-4a8f-8c8c-2493e163083b"
             ],
-            "note": "Alela, Cunning Conqueror can goad a creature after its Faeries deal combat damage."
+            "note": "Alela, Cunning Conqueror goads a creature controlled by a player dealt combat damage by one or more Faeries you control."
           },
           {
             "colors": [
@@ -4119,7 +4119,7 @@
             "card_ids": [
               "0d2dd78c-103c-4286-a3a1-e471dc77ed91"
             ],
-            "note": "Bhaal, Lord of Murder can goad a creature after another nontoken creature dies."
+            "note": "Bhaal, Lord of Murder puts a +1/+1 counter on a creature and goads it whenever another nontoken creature you control dies."
           },
           {
             "colors": [
@@ -4129,7 +4129,7 @@
             "card_ids": [
               "c880fbdc-bdd9-4f80-81d4-e3e1124f76ca"
             ],
-            "note": "Bjorna, Nightfall Alchemist can goad a creature with its activated ability."
+            "note": "Bjorna, Nightfall Alchemist taps and sacrifices an artifact to deal 1 damage to a creature and goad it."
           },
           {
             "colors": [
@@ -4139,7 +4139,7 @@
             "card_ids": [
               "197809b7-1ddb-4329-8d82-7651696538a8"
             ],
-            "note": "Frenzied Gorespawn can goad a creature after it deals combat damage to a player."
+            "note": "Frenzied Gorespawn's entry trigger goads one target creature controlled by each opponent."
           },
           {
             "colors": [
@@ -4149,7 +4149,7 @@
             "card_ids": [
               "3d8f9b58-d011-4ed2-99ae-c626243fab26"
             ],
-            "note": "Kaima, the Fractured Calm can goad a creature enchanted by an Aura its controller controls."
+            "note": "Kaima, the Fractured Calm goads each opponent's creature enchanted by an Aura you control at the start of your end step, gaining a +1/+1 counter for each."
           },
           {
             "colors": [
@@ -4159,7 +4159,7 @@
             "card_ids": [
               "9c54bd34-667d-415c-ad26-82e0eb0ff409"
             ],
-            "note": "Killian, Decisive Mentor can goad a creature with its activated ability."
+            "note": "Killian, Decisive Mentor can tap and goad a creature whenever an enchantment you control enters."
           },
           {
             "colors": [
@@ -4170,7 +4170,7 @@
             "card_ids": [
               "b6e3af71-0d68-4bf0-b886-c29dae15e9ae"
             ],
-            "note": "Kitt Kanto, Mayhem Diva can goad a creature when it attacks with a Citizen."
+            "note": "Kitt Kanto, Mayhem Diva lets you tap two untapped creatures you control at the start of combat on each player's turn to give one of that player's creatures +2/+2 and trample, then goad it."
           },
           {
             "colors": [
@@ -4181,7 +4181,7 @@
             "card_ids": [
               "debeb004-3157-43cf-95fd-220777417ff7"
             ],
-            "note": "Kros, Defense Contractor goads creatures with +1/+1 counters during its controller's upkeep."
+            "note": "Kros, Defense Contractor taps and goads a creature you don't control whenever you put counters on it, also giving it trample until your next turn."
           },
           {
             "colors": [
@@ -4192,7 +4192,7 @@
             "card_ids": [
               "ef67a41b-a2a6-4f1b-a0d5-15560e99e387"
             ],
-            "note": "Maestros Confluence has a mode that goads a creature."
+            "note": "Maestros Confluence offers a mode that goads every creature controlled by a target player."
           },
           {
             "colors": [
@@ -4202,7 +4202,7 @@
             "card_ids": [
               "7ef5b2b6-86da-4e4a-9456-dcbb878936c4"
             ],
-            "note": "Nelly Borca, Impulsive Accuser can goad a creature as it enters."
+            "note": "Nelly Borca, Impulsive Accuser suspects a target creature when she attacks, then goads all suspected creatures."
           },
           {
             "colors": [
@@ -4212,7 +4212,7 @@
             "card_ids": [
               "2207fb3f-45a1-401b-99e9-f75723495c3f"
             ],
-            "note": "Rendmaw, Creaking Nest creates Bird tokens that are goaded for the rest of the game."
+            "note": "Rendmaw, Creaking Nest gives each player a tapped Bird when it enters or you play a card with two or more card types; those tokens stay goaded for the rest of the game."
           }
         ],
         "colorless": {
@@ -4220,7 +4220,7 @@
           "card_ids": [
             "b2747459-05ec-42a6-81be-e97e182bc778"
           ],
-          "note": "Bloodthirsty Blade makes its equipped creature goaded."
+          "note": "Bloodthirsty Blade keeps the equipped creature goaded and gives it +2/+0; its {1} ability attaches it to an opponent's creature at sorcery speed."
         },
         "limitations": [
           "The selected cards show their own goad durations or conditions; this review does not generalize them."
@@ -4851,8 +4851,8 @@
         "version": "2.0",
         "review_date": "2026-10-29",
         "scope_label": "Released paper cards",
-        "scope": "Graft makes a permanent enter with +1/+1 counters and triggers when another creature enters to allow moving a counter.",
-        "summary": "Graft makes a permanent enter with +1/+1 counters and triggers when another creature enters to allow moving a counter.",
+        "scope": "Graft puts the stated number of +1/+1 counters on a permanent as it enters. When another creature enters, you may move one of those counters onto it.",
+        "summary": "Graft puts the stated number of +1/+1 counters on a permanent as it enters. When another creature enters, you may move one of those counters onto it.",
         "colors": {
           "W": {
             "status": "not_found",
@@ -4864,7 +4864,7 @@
             "card_ids": [
               "026ef98e-4f0a-4a6d-b74f-d17ac8b10e37"
             ],
-            "note": "Cytoplast Manipulator has graft 2 and can take control of a creature with a +1/+1 counter."
+            "note": "Cytoplast Manipulator has graft 2; its {U}, {T} ability takes control of a creature with a +1/+1 counter while the Manipulator remains on the battlefield."
           },
           "B": {
             "status": "not_found",
@@ -4881,7 +4881,7 @@
             "card_ids": [
               "cea79fa0-2a76-41f3-846f-4d1a6ff5f629"
             ],
-            "note": "Aquastrand Spider has graft 2 and can give a countered creature reach."
+            "note": "Aquastrand Spider has graft 2 and can give a creature with a +1/+1 counter reach for the turn for {G}."
           }
         },
         "combinations": [
@@ -4893,7 +4893,7 @@
             "card_ids": [
               "8c1ea1a5-5966-4d14-8361-ffc6a8d1bd79"
             ],
-            "note": "Plaxcaster Frogling has graft 3 and can give a countered creature shroud."
+            "note": "Plaxcaster Frogling has graft 3 and can give a creature with a +1/+1 counter shroud for the turn for {2}."
           }
         ],
         "colorless": {
@@ -4901,7 +4901,7 @@
           "card_ids": [
             "92acb789-0e42-465c-ac16-40fefec48805"
           ],
-          "note": "Llanowar Reborn enters tapped with graft 1."
+          "note": "Llanowar Reborn enters tapped with a +1/+1 counter from graft that can move onto a creature after it enters."
         },
         "limitations": []
       }
@@ -5850,43 +5850,43 @@
         "version": "2.0",
         "review_date": "2026-10-29",
         "scope_label": "Released paper cards",
-        "scope": "Grandeur is an ability word for abilities that discard another card with the same name for the listed effect.",
-        "summary": "Grandeur is an ability word for abilities that discard another card with the same name for the listed effect.",
+        "scope": "Grandeur labels abilities activated by discarding another card with the same name as the permanent. Each ability supplies its own effect.",
+        "summary": "Grandeur labels abilities activated by discarding another card with the same name as the permanent. Each ability supplies its own effect.",
         "colors": {
           "W": {
             "status": "documented",
             "card_ids": [
               "8d6e0dab-400a-4761-8343-92c7eb7e8735"
             ],
-            "note": "Oriss, Samite Guardian can discard another Oriss to stop a player casting spells and attacking that turn."
+            "note": "Oriss, Samite Guardian's grandeur ability prevents a target player from casting spells and that player's creatures from attacking for the turn."
           },
           "U": {
             "status": "documented",
             "card_ids": [
               "64337db7-a66b-42c5-89fd-c9dfc203c0dd"
             ],
-            "note": "Linessa, Zephyr Mage can discard another Linessa to return a creature, artifact, enchantment, and land."
+            "note": "Linessa, Zephyr Mage's grandeur ability makes a target player return a creature, then an artifact, enchantment, and land they control to their owners' hands."
           },
           "B": {
             "status": "documented",
             "card_ids": [
               "09f99b5a-66cf-4178-ae64-29f2004fe899"
             ],
-            "note": "Korlash, Heir to Blackblade can discard another Korlash to find up to two Swamps."
+            "note": "Korlash, Heir to Blackblade's grandeur ability finds up to two Swamp cards and puts them onto the battlefield tapped, then shuffles your library."
           },
           "R": {
             "status": "documented",
             "card_ids": [
               "e195f2f8-2db7-46b8-948c-c3c27f2e5825"
             ],
-            "note": "Tarox Bladewing can discard another Tarox to gain power and toughness."
+            "note": "Tarox Bladewing's grandeur ability gives him +X/+X for the turn, using his power when the ability resolves for X."
           },
           "G": {
             "status": "documented",
             "card_ids": [
               "b6021700-992a-4faa-8f83-a9af03dc7296"
             ],
-            "note": "Baru, Fist of Krosa can discard another Baru to create a Wurm sized by lands controlled."
+            "note": "Baru, Fist of Krosa's grandeur ability creates a green Wurm whose power and toughness each equal the number of lands you control."
           }
         },
         "combinations": [],
@@ -5895,7 +5895,7 @@
           "card_ids": [
             "3bbad38b-7d88-4ff2-9fd3-5081536e7c56"
           ],
-          "note": "Page, Loose Leaf can discard another Page to reveal until an instant or sorcery card is found."
+          "note": "Page, Loose Leaf's grandeur ability reveals cards until an instant or sorcery appears, puts it into your hand, and puts the rest on the bottom in random order."
         },
         "limitations": []
       }
@@ -6240,8 +6240,8 @@
         "version": "2.0",
         "review_date": "2026-10-29",
         "scope_label": "Released paper cards",
-        "scope": "Gravestorm copies a spell for each permanent put into a graveyard from the battlefield that turn.",
-        "summary": "Gravestorm copies a spell for each permanent put into a graveyard from the battlefield that turn.",
+        "scope": "Gravestorm triggers when you cast a spell, copying it for each permanent put into a graveyard from the battlefield that turn. You may choose new targets for the copies.",
+        "summary": "Gravestorm triggers when you cast a spell, copying it for each permanent put into a graveyard from the battlefield that turn. You may choose new targets for the copies.",
         "colors": {
           "W": {
             "status": "not_found",
@@ -6253,14 +6253,14 @@
             "card_ids": [
               "2d6a0d89-7ebd-420e-9892-be1506ab3714"
             ],
-            "note": "Follow the Bodies uses gravestorm before it investigates."
+            "note": "Follow the Bodies' gravestorm triggers when cast; the spell and its copies each investigate to create a Clue."
           },
           "B": {
             "status": "documented",
             "card_ids": [
               "c02fdb2e-10bb-49fc-bce0-b31b6fad8e38"
             ],
-            "note": "Bitter Ordeal uses gravestorm when cast after searching a library."
+            "note": "Bitter Ordeal's gravestorm triggers when cast; the spell and its copies each exile a card from a target player's library, then that player shuffles."
           },
           "R": {
             "status": "not_found",

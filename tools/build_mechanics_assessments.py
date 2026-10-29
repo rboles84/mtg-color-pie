@@ -1,4 +1,4 @@
-"""Deterministic access-only projection from the admitted A/B/C/D/E/F protocol packets."""
+"""Deterministic access-only projection from the admitted A/B/C/D/E/F/G protocol packets."""
 import argparse, hashlib, json
 from pathlib import Path
 from urllib.parse import quote, urlsplit
@@ -58,7 +58,7 @@ def build():
  addendum=read(ADDENDUM); legacy=legacy_cards(); rows=[]
  for r in reviews:
   name,key=r['mechanic']['name'],r['mechanic']['accepted_id'];assert key in accepted and accepted[key]['name']==name
-  a=r['access_review'];assert a.get('version')=='2.0' and a.get('review_date') in {'2026-10-28','2026-10-29'};assert all(isinstance(a.get(k),str) and a[k].strip() for k in ('scope_label','scope','summary'))
+  a=r['access_review'];assert a.get('version')=='2.0' and a.get('review_date')==('2026-10-29' if name.startswith('G') else '2026-10-28');assert all(isinstance(a.get(k),str) and a[k].strip() for k in ('scope_label','scope','summary'))
   rawcards={c['oracle_id']:c for c in r['card_review'] if c.get('included')}; cardmap=dict(rawcards); cardmap.update({key:value for key,value in legacy.items() if key in cardmap}); assert set(a.get('colors',{}))==set(COLORS)
   excluded=set(a.get('excluded_access_card_ids',[])); assert excluded <= set(rawcards)
   used=set()
