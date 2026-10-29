@@ -1,6 +1,6 @@
 # Active task — D Color Access
 
-- Status: dev-in-progress. Continue existing codex/a-mechanics-review checkout; baseline `ae27a75ed107f4e6eb09c0d154004ac1d1903ac2`. Owner requests supplemental D using the latest A–C decisions, local evidence, concise one-example presentation and refreshed preview; 2021 is frozen.
+- Status: qa-passed on exact candidate `cf98992aba48c63cbc1e7a9325ec55b74bdf9ea8`. Continue existing codex/a-mechanics-review checkout; baseline `ae27a75ed107f4e6eb09c0d154004ac1d1903ac2`. Owner requests supplemental D using the latest A–C decisions, local evidence, concise one-example presentation and refreshed preview; 2021 is frozen.
 - Allowed files: HANDOFF.md; docs/mechanics-research/d-protocol.json; docs/mechanics-research/d-protocol-evidence/**; docs/mechanics-research/D-ACCESS-REVIEW.md; docs/mechanics-research/COLOR-ACCESS-PROTOCOL.md; tools/build_mechanics_assessments.py; data/mechanics-assessments.v1.json (producer only); vox-color/mechanical-explorer.html; tools/check_assessment_browser.mjs. External temporary helpers and ignored _site packaging permitted.
 - Scope: 27 unmapped supplemental D entries. Deathtouch, Defender and Double Strike stay mapped to their unchanged 2021 entries. Double, Destroy and Discard retain generic rules-reference treatment, consistent with Cast/Counter/Create. Digital and special-format examples keep explicit labels. Verify Descend’s current family scope and Devoid’s actual colorlessness.
 - Accepted behavior: one qualifying card proves access, one linked named example per independent color/colorless/combination, brief definition once and factual notes only. Actual mana colors/colorless symbol; no P/S/T or confidence/rank claims; no repeated multicolor-only evidence or aggregate card-source lists. Absence means no example found, not impossible. Positive access does not require exhaustive card enumeration.
@@ -23,6 +23,110 @@
 - First candidate 8dea92839602312c5ede856a820fd0cbff897426 held for a stale Spellbook source fingerprint inherited from the earlier verified supplement reference. Both fresh Arena references now bind their D capture path, actual receipt hash and current verification date. Raw captures are unchanged.
 - Four concise copy corrections: Prophetic Titan chooses both modes of one enter ability; Caparocti specifies permanents you control; Akawalli states its exact blocking restriction; Devour says the player may sacrifice as the creature enters. No card/color/combo access map changed.
 - Independent source review found all141 selected facts identical to their captured source objects, source URLs and mechanic-bearing face colors correct, no special-material leakage, and all capture hashes/statuses valid. Corrected exact candidate requires final independent verification before PASS.
+
+## Independent RobQA PASS — D Color Access
+
+- Verdict: **RobQAPass PASS** for exact candidate `cf98992aba48c63cbc1e7a9325ec55b74bdf9ea8` against baseline `ae27a75ed107f4e6eb09c0d154004ac1d1903ac2`. Execution mode: separate independent reviewer. Classification: QA-4 evidence qualification with bounded QA-1/QA-2 copy and rendered-sidecar behavior. This advances D to `qa-passed`; Owner acceptance, preview refresh, publication and integration remain separate.
+- Semantic/source evidence: all 27 D records and all 141 selected witnesses were independently checked against saved evidence. Every `card_facts` object deep-equals its captured Scryfall object; every selected ID occurs in its declared capture; selected URLs, mechanic-bearing face colors and attributed color sets agree. All 27 query receipts recompute with HTTP 200 and exact hashes. The saved Double team article supports its nontoken restriction, and the Spellbook article supports three offered choices. No selected Unknown Event, Mystery Booster playtest/Commander, standalone token/plane/scheme, acorn or silver-border object enters ordinary access. Query-derived face-color comparison found no omitted represented color set; `Day // Night` is a reminder object, not a source.
+- Targeted boundaries: Devoid is correctly colorless despite colored mana costs; Aveline remains green despite a black-green disguise cost; Branch of Vitu-Ghazi supplies colorless Disguise; DFCs use the mechanic-bearing face. Descend is limited to descend 4, descend 8 and fathomless descent rather than descended-this-turn text. Clara is colorless unless its pregame choice applies. Decayed token creators are attributed to their source cards. Double team and Draft from a spellbook remain Arena-scoped; Double agenda remains Conspiracy-scoped. Double, Destroy and Discard remain rules references.
+- Corrected-candidate finding: candidate `8dea92839602312c5ede856a820fd0cbff897426` bound Draft from a spellbook to stale SHA `d77c8d...` while the retained D receipt and saved page recomputed as `c58097...`. The final candidate binds both official pages to explicit capture paths, current verification dates and their exact saved hashes (`c58097...` Spellbook; `e7c91f...` Double team). It also makes the saved-fact wording precise for Prophetic Titan, Caparocti Sunborn, Akawalli and Devour. The finding is closed.
+- Static/protected evidence: `git diff --check baseline..candidate` PASS; deterministic producer `--check` PASS for 105 records and 12 bindings; source/taxonomy/fixture gates and all 53 recon assertions PASS; harness syntax PASS. All 78 A/B/C projected records are exactly equal to baseline. All 151 D bucket references project to the selected saved D printing URLs, including shared Oracle IDs, so the legacy join introduces no stale card link. Frozen 2021 files and calculations remain untouched.
+- Focused browser evidence: independent elevated real-Edge harness PASS on the exact candidate. It verifies all 105 A/B/C/D maps, one linked C/D witness per represented bucket, unique combination citations, D-specific Devoid/Decayed/Disguise/Descend/scope cases, exact discovery and non-card links, A/B/C/D ready/unavailable behavior, atomic malformed-sidecar isolation, search, keyboard/mobile behavior and unchanged 84/84 frozen checks.
+- Stateful/adversarial coverage: the optional read-only assessment sidecar is the relevant seam. Valid forward load and missing/malformed/binding replacement cases are covered atomically without contaminating frozen state; structurally different rules, monocolor, combination, colorless and digital records are exercised. Reverse migration and representation round-trip are not contractual.
+- CPU-heavy validation: **NOT REQUIRED**. Broad wheel, journey, mutation, live research and engine stress suites were skipped because D adds a read-only evidence projection and does not change the frozen 2021 engine. Saved-fact qualification, deterministic projection/gates and the focused browser seam cover the changed risks.
+- Remaining Owner judgment: readability and density of the one-example D presentation. Suggested short review: Devoid for colorlessness, Disguise for Aveline and Branch of Vitu-Ghazi, Descend for family scope, Doctor’s companion for Clara, and Double team for the Arena restriction. OWNER-VISUAL remains open.
+
+## Verified D preview
+
+- Packaged exact material candidate `cf98992aba48c63cbc1e7a9325ec55b74bdf9ea8`: 23 byte-identical allowed files, four inline scripts syntax-clean, all23 local routes200 and24 excluded paths404. Package PASS.
+- Refreshed existing IAB tab3 at http://127.0.0.1:8020/#mechanical-color-pie. The frame URL visibly carries the exact candidate revision. Visible status reports105 A/B/C/D access records. Opened Decayed, expanded Reviewed card examples, cleared the search/colors, and left A–Z at D for review.
+- UI confirms blue Falcon Abomination, black Curse of the Restless Dead, black-green Ghoulcaller’s Harvest and blue-black Wilhelt, each linked once in the reviewed examples. Colorless D glyphs and existing color palette remain visible. Screenshot retained outside repository at ../d-color-access-preview.png. Browser tab marked as deliverable.
+- This is a local preview; no push, publication or merge performed. Owner visual/readability acceptance is pending.
+
+## Material candidate
+
+- Baseline: `ae27a75ed107f4e6eb09c0d154004ac1d1903ac2`
+- Candidate: `cf98992aba48c63cbc1e7a9325ec55b74bdf9ea8`
+- Changed paths: `59`
+
+## Files changed
+
+- `HANDOFF.md`
+- `data/mechanics-assessments.v1.json`
+- `docs/mechanics-research/COLOR-ACCESS-PROTOCOL.md`
+- `docs/mechanics-research/D-ACCESS-REVIEW.md`
+- `docs/mechanics-research/d-protocol-evidence/dash/receipt.json`
+- `docs/mechanics-research/d-protocol-evidence/dash/search-1.json`
+- `docs/mechanics-research/d-protocol-evidence/daybound/receipt.json`
+- `docs/mechanics-research/d-protocol-evidence/daybound/search-1.json`
+- `docs/mechanics-research/d-protocol-evidence/death-ray/receipt.json`
+- `docs/mechanics-research/d-protocol-evidence/death-ray/search-1.json`
+- `docs/mechanics-research/d-protocol-evidence/decayed/receipt.json`
+- `docs/mechanics-research/d-protocol-evidence/decayed/search-1.json`
+- `docs/mechanics-research/d-protocol-evidence/delirium/receipt.json`
+- `docs/mechanics-research/d-protocol-evidence/delirium/search-1.json`
+- `docs/mechanics-research/d-protocol-evidence/delve/receipt.json`
+- `docs/mechanics-research/d-protocol-evidence/delve/search-1.json`
+- `docs/mechanics-research/d-protocol-evidence/demonstrate/receipt.json`
+- `docs/mechanics-research/d-protocol-evidence/demonstrate/search-1.json`
+- `docs/mechanics-research/d-protocol-evidence/descend/receipt.json`
+- `docs/mechanics-research/d-protocol-evidence/descend/search-1.json`
+- `docs/mechanics-research/d-protocol-evidence/desertwalk/receipt.json`
+- `docs/mechanics-research/d-protocol-evidence/desertwalk/search-1.json`
+- `docs/mechanics-research/d-protocol-evidence/detain/receipt.json`
+- `docs/mechanics-research/d-protocol-evidence/detain/search-1.json`
+- `docs/mechanics-research/d-protocol-evidence/dethrone/receipt.json`
+- `docs/mechanics-research/d-protocol-evidence/dethrone/search-1.json`
+- `docs/mechanics-research/d-protocol-evidence/devoid/receipt.json`
+- `docs/mechanics-research/d-protocol-evidence/devoid/search-1.json`
+- `docs/mechanics-research/d-protocol-evidence/devour/receipt.json`
+- `docs/mechanics-research/d-protocol-evidence/devour/search-1.json`
+- `docs/mechanics-research/d-protocol-evidence/disappear/receipt.json`
+- `docs/mechanics-research/d-protocol-evidence/disappear/search-1.json`
+- `docs/mechanics-research/d-protocol-evidence/discover/receipt.json`
+- `docs/mechanics-research/d-protocol-evidence/discover/search-1.json`
+- `docs/mechanics-research/d-protocol-evidence/disguise/receipt.json`
+- `docs/mechanics-research/d-protocol-evidence/disguise/search-1.json`
+- `docs/mechanics-research/d-protocol-evidence/disintegration-ray/receipt.json`
+- `docs/mechanics-research/d-protocol-evidence/disintegration-ray/search-1.json`
+- `docs/mechanics-research/d-protocol-evidence/disturb/receipt.json`
+- `docs/mechanics-research/d-protocol-evidence/disturb/search-1.json`
+- `docs/mechanics-research/d-protocol-evidence/doctor-s-companion/receipt.json`
+- `docs/mechanics-research/d-protocol-evidence/doctor-s-companion/search-1.json`
+- `docs/mechanics-research/d-protocol-evidence/domain/receipt.json`
+- `docs/mechanics-research/d-protocol-evidence/domain/search-1.json`
+- `docs/mechanics-research/d-protocol-evidence/double-agenda/receipt.json`
+- `docs/mechanics-research/d-protocol-evidence/double-agenda/search-1.json`
+- `docs/mechanics-research/d-protocol-evidence/double-team/receipt.json`
+- `docs/mechanics-research/d-protocol-evidence/double-team/search-1.json`
+- `docs/mechanics-research/d-protocol-evidence/draft-from-a-spellbook/receipt.json`
+- `docs/mechanics-research/d-protocol-evidence/draft-from-a-spellbook/search-1.json`
+- `docs/mechanics-research/d-protocol-evidence/dredge/receipt.json`
+- `docs/mechanics-research/d-protocol-evidence/dredge/search-1.json`
+- `docs/mechanics-research/d-protocol-evidence/official/double-team.html`
+- `docs/mechanics-research/d-protocol-evidence/official/receipt.json`
+- `docs/mechanics-research/d-protocol-evidence/official/spellbook.html`
+- `docs/mechanics-research/d-protocol.json`
+- `tools/build_mechanics_assessments.py`
+- `tools/check_assessment_browser.mjs`
+- `vox-color/mechanical-explorer.html`
+
+## Evidence delta
+
+- Material candidate: `cf98992aba48c63cbc1e7a9325ec55b74bdf9ea8`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `1`
+- This delta contains QA/preview/report evidence only; it is not the full task diff.
+
+## Evidence-only paths
+
+- `HANDOFF.md`
+
+## Final branch delta
+
+- Baseline: `ae27a75ed107f4e6eb09c0d154004ac1d1903ac2` → current evidence `HEAD`.
+- Total changed paths: `59`; the evidence-only HANDOFF update adds no path beyond the material set.
+- Branch: `codex/a-mechanics-review`. Local commit/report evidence only; no push/merge operation performed. Git worktree state is checked after the evidence commit.
 
 ---
 
