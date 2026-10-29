@@ -29,6 +29,30 @@ const math=()=>{
   }
   return JSON.stringify({values,summary:VMX.wubrgSummary()});
 };
+// Exact subpaths/palettes from the pinned Mana 1.18 SVG/CSS, not the rejected font/gradient composition.
+// SVG SHA256 da399dc513828acc373e187a457574c7e10515ee5b89caa1b91fac1bd69c2a8e.
+const ciPathHashes={"3":["131d51ed29e20c9aa775ebb5094d4be8f3511907ad59b88edcfb61f5c5856f06","9d849d80b8320c3cbeb1c3080963c9c5ac6b94b4bfb2b1ea0d6794b5d0775395","a3d12eec27e1749efe27593db8cc60562a46c5cbcb67752c5cb1346d260458a7","a420efa8bb78d81ed9fb8b2004e0eaa87f88042e798ffcc03dd4f181d6e0a165"],"5":["131d51ed29e20c9aa775ebb5094d4be8f3511907ad59b88edcfb61f5c5856f06","4db0f8df52032341284cb588466593dc48353ffad3313892196810bcfb0ffeb5","9301a76f180030b5a3d1a1cb8f5e10a1ffb1b7006cb4dd335b53e2826efaf826","01a8768565729464c95fce3b30418f57e377bf673c0f82e30ef45990529d7603","17ee6820251767f8a3e4a9542e1e2b8598d9f766470940f71504afd1dc776f13","7c284a93d686ba6abb0920657cb8650f218b545237d308893cc5b5a996d8c308"]};
+const ciPalettes={"WUG":["#3b6ba0","#3d684b","#fff"],"UBR":["#c6553e","#3b6ba0","#383431"],"WUR":["#c6553e","#fff","#3b6ba0"],"BRG":["#3d684b","#383431","#c6553e"],"WBG":["#383431","#3d684b","#fff"],"WUB":["#383431","#fff","#3b6ba0"],"WUBRG":["#c6553e","#383431","#3b6ba0","#3d684b","#fff"]};
+async function checkCIVectors(host,label){
+  assert.equal(await host.locator('.combo-mark .ms-ci').count(),0,label+' has no independent CI font/gradient layer');
+  const glyphs=await host.locator('.ci3-svg,.ci5-svg').evaluateAll(items=>items.map(svg=>{
+    const paths=[...svg.querySelectorAll('path')],outer=paths[0],box=svg.getBoundingClientRect(),ink=outer.getBoundingClientRect(),mark=svg.closest('.combo-mark').getBoundingClientRect();
+    return {key:svg.closest('.combo-mark').dataset.combo,viewBox:svg.getAttribute('viewBox'),transform:svg.querySelector('g')?.getAttribute('transform'),
+      geometry:[box.width,box.height,ink.width,ink.height,(ink.left+ink.width/2)-(mark.left+mark.width/2),(ink.top+ink.height/2)-(mark.top+mark.height/2)],
+      paths:paths.map(path=>({d:path.getAttribute('d'),fill:path.getAttribute('fill'),paint:getComputedStyle(path).fill,stroke:getComputedStyle(path).stroke})),
+      sharedPaintFrame:[svg,...paths].every(path=>{const style=getComputedStyle(path);return style.backgroundImage==='none'&&style.boxShadow==='none'&&style.filter==='none';}),
+      contained:paths.slice(1).every(path=>{const length=path.getTotalLength();for(let i=0;i<=256;i++)if(!outer.isPointInFill(path.getPointAtLength(length*i/256)))return false;return true;})};
+  }));
+  for(const glyph of glyphs){
+    const expected=['#010101',...ciPalettes[glyph.key]];
+    assert.deepEqual(glyph.paths.map(p=>createHash('sha256').update(p.d).digest('hex')),ciPathHashes[glyph.key.length],label+' '+glyph.key+' exact original native outline/cutouts');
+    assert.deepEqual(glyph.paths.map(p=>p.fill),expected,label+' '+glyph.key+' native section colors');
+    assert.deepEqual(glyph.paths.map(p=>p.paint),expected.map(hex=>{const h=hex.length===4?[...hex.slice(1)].map(c=>c+c).join(''):hex.slice(1);return 'rgb('+[0,2,4].map(i=>parseInt(h.slice(i,i+2),16)).join(', ')+')';}),label+' colors actually paint without CSS overrides');
+    assert.ok(glyph.paths.every(p=>p.stroke==='none')&&glyph.sharedPaintFrame&&glyph.contained,label+' '+glyph.key+' actual colored paths stay inside the shared native outline');
+    assert.equal(glyph.viewBox,'0 0 1024 1024');assert.equal(glyph.transform,'translate(0 938.667) scale(1 -1)');
+    assert.ok(glyph.geometry.slice(0,4).every(n=>Math.abs(n-18)<=.1)&&glyph.geometry.slice(4).every(n=>Math.abs(n)<=.1),label+' '+glyph.key+' native painted circle is centered and normalized to18px');
+  }
+}
 let browser;const results=[];
 try{
   browser=await chromium.launch({channel:opt('--channel','msedge'),headless:true});
@@ -100,8 +124,8 @@ try{
   const hexproofRow=page.locator(`#list .ent[data-k="${hexproofFrom.id}"]`);
   assert.deepEqual(await hexproofRow.locator('.access-strip .sc').evaluateAll(items=>items.map(item=>item.dataset.c)),['W','U','B','G','C'],'Hexproof from list/search strip exposes only independent colors and colorless slots');
   assert.deepEqual(await hexproofRow.locator('.access-strip .combo-mark').evaluateAll(items=>items.map(item=>item.dataset.combo)),hexproofFrom.access.combinations.map(item=>item.colors.join('')),'Hexproof from list/search strip retains every documented combination');
-  assert.equal(await hexproofRow.locator('.combo-mark[data-combo="WUB"] .ms-ci-3.ms-ci-wub').count(),1,'Hexproof from uses the pinned Mana CI-3 glyph for WUB');
-  assert.equal(await hexproofRow.locator('.combo-mark[data-combo="WUBRG"] .ms-ci-5.ms-ci-wubrg').count(),1,'Hexproof from uses the pinned Mana CI-5 glyph for WUBRG');
+  assert.equal(await hexproofRow.locator('.combo-mark[data-combo="WUB"] .ci3-svg').count(),1,'Hexproof from uses the pinned Mana CI-3 vector for WUB');
+  assert.equal(await hexproofRow.locator('.combo-mark[data-combo="WUBRG"] .ci5-svg').count(),1,'Hexproof from uses the pinned Mana CI-5 vector for WUBRG');
   await page.evaluate(id=>VMX.open(id),hexproofFrom.id);
   assert.deepEqual(await page.locator('#detail .own-row[data-c]').evaluateAll(items=>items.map(item=>item.dataset.c)),['W','U','B','G','C'],'Hexproof from detail rows expose only independent colors and colorless');
   assert.deepEqual(await page.locator('#detail .own-row[data-combo] .combo-mark').evaluateAll(items=>items.map(item=>item.dataset.combo)),hexproofFrom.access.combinations.map(item=>item.colors.join('')),'Hexproof from detail retains every combination in the Color Access summary');
@@ -187,6 +211,7 @@ try{
     /* Access-only contract: every supplemental A/B record retains five colors,
        rules actions have no invented map, and no access strip uses tier classes. */
     await page.evaluate(()=>VMX.setView('az'));
+    await page.waitForFunction(()=>document.documentElement.classList.contains('supp-mana-ready'));
     for(const record of combinationsOnly ? payload.records.filter(r=>['Fuse','Friends forever','Hexproof from'].includes(r.name)) : payload.records){
       const row=page.locator(`#list .ent[data-k="${record.id}"]`), access=record.access, compactExamples=/^[CDEFGH]/.test(record.name);
       assert.equal(await row.locator('.access-strip').count(),record.kind==='access'?1:0,record.name);
@@ -196,12 +221,13 @@ try{
           assert.deepEqual(await row.locator('.combo-mark').evaluateAll(marks=>marks.map(mark=>mark.dataset.combo)),access.combinations.map(item=>item.colors.join('')));
           assert.equal(await row.locator('.combo-mark').evaluateAll(marks=>marks.every(mark=>mark.getAttribute('role')==='img'&&mark.getAttribute('aria-label').includes('combination only'))),true);
           assert.equal(await row.locator('.combo-mark .ms-wu,.combo-mark .ms-wb,.combo-mark .ms-ub,.combo-mark .ms-ur,.combo-mark .ms-br,.combo-mark .ms-bg,.combo-mark .ms-rg,.combo-mark .ms-rw,.combo-mark .ms-gw,.combo-mark .ms-gu').count(),access.combinations.filter(item=>item.colors.length===2).length);
-          assert.equal(await row.locator('.combo-mark .ci3-svg').count(),access.combinations.filter(item=>['WUG','UBR','WUR','BRG','WBG'].includes(item.colors.join(''))).length);
+          assert.equal(await row.locator('.combo-mark .ci3-svg').count(),access.combinations.filter(item=>item.colors.length===3).length);
           if(record.name==='Fuse') assert.deepEqual(await row.locator('.combo-mark .ci3-svg').evaluateAll(glyphs=>glyphs.map(glyph=>glyph.closest('.combo-mark').dataset.combo)),['WUG','UBR','WUR','BRG','WBG'],'Fuse covers every rendered three-color CI combination');
           assert.ok(await row.locator('.combo-mark .ms-cost').evaluateAll(glyphs=>glyphs.every(glyph=>{const style=getComputedStyle(glyph), size=parseFloat(style.fontSize);return Math.abs(parseFloat(style.lineHeight)-size*1.35)<=1;})),record.name+' keeps Mana-native pair metrics at the scoped glyph size');
-          assert.ok(await row.locator('.combo-mark').evaluateAll(marks=>{const pair=marks.find(mark=>mark.querySelector('.ms-cost')), ci=marks.find(mark=>mark.querySelector('.ci3-svg'));if(!pair||!ci)return true;const a=pair.querySelector('.ms').getBoundingClientRect(),b=ci.querySelector('.ci3-svg').getBoundingClientRect();return Math.abs(a.width-b.width)<=.5&&Math.abs(a.height-b.height)<=.5;}),record.name+' normalizes pair and CI circle footprints');
-          assert.ok(await row.locator('.combo-mark .ci3-svg').evaluateAll(glyphs=>glyphs.every(svg=>{const expected={WUG:['#3b6ba0','#3d684b','#fff'],UBR:['#c6553e','#3b6ba0','#383431'],WUR:['#c6553e','#fff','#3b6ba0'],BRG:['#3d684b','#383431','#c6553e'],WBG:['#383431','#3d684b','#fff']}[svg.closest('.combo-mark').dataset.combo], paths=[...svg.querySelectorAll('path')];return svg.getAttribute('viewBox')==='0 0 1024 1024'&&svg.querySelector('g')?.getAttribute('transform')==='translate(0 938.667) scale(1 -1)'&&paths.length===4&&paths[0].getAttribute('fill')==='#010101'&&paths.slice(1).map(path=>path.getAttribute('fill')).join('|')===expected.join('|');})),record.name+' renders the pinned Mana CI-3 outline and native interior colors in one shared vector frame');
-          assert.ok(await row.locator('.combo-mark').evaluateAll(marks=>marks.every(mark=>{const r=mark.getBoundingClientRect(), g=mark.querySelector('.ms,.ci3-svg').getBoundingClientRect();return Math.abs(r.width-18)<=.5&&Math.abs(r.height-18)<=.5&&Math.abs((r.left+r.width/2)-(g.left+g.width/2))<=.5&&Math.abs((r.top+r.height/2)-(g.top+g.height/2))<=.5;})),record.name+' markers are stable square centered glyph hosts');
+          assert.ok(await row.locator('.combo-mark').evaluateAll(marks=>{const pair=marks.find(mark=>mark.querySelector('.ms-cost')), ci=marks.find(mark=>mark.querySelector('.ci3-svg,.ci5-svg'));if(!pair||!ci)return true;const a=pair.querySelector('.ms').getBoundingClientRect(),b=ci.querySelector('.ci3-svg,.ci5-svg').getBoundingClientRect();return Math.abs(a.width-b.width)<=.5&&Math.abs(a.height-b.height)<=.5;}),record.name+' normalizes pair and CI circle footprints');
+          assert.ok(await row.locator('.combo-mark .ci3-svg').evaluateAll(glyphs=>glyphs.every(svg=>{const expected={WUG:['#3b6ba0','#3d684b','#fff'],UBR:['#c6553e','#3b6ba0','#383431'],WUR:['#c6553e','#fff','#3b6ba0'],BRG:['#3d684b','#383431','#c6553e'],WBG:['#383431','#3d684b','#fff'],WUB:['#383431','#fff','#3b6ba0']}[svg.closest('.combo-mark').dataset.combo], paths=[...svg.querySelectorAll('path')];return svg.getAttribute('viewBox')==='0 0 1024 1024'&&svg.querySelector('g')?.getAttribute('transform')==='translate(0 938.667) scale(1 -1)'&&paths.length===4&&paths[0].getAttribute('fill')==='#010101'&&paths.slice(1).map(path=>path.getAttribute('fill')).join('|')===expected.join('|');})),record.name+' renders the pinned Mana CI-3 outline and native interior colors in one shared vector frame');
+          assert.ok(await row.locator('.combo-mark').evaluateAll(marks=>marks.every(mark=>{const r=mark.getBoundingClientRect(), g=mark.querySelector('.ms,.ci3-svg,.ci5-svg').getBoundingClientRect();return Math.abs(r.width-18)<=.5&&Math.abs(r.height-18)<=.5&&Math.abs((r.left+r.width/2)-(g.left+g.width/2))<=.5&&Math.abs((r.top+r.height/2)-(g.top+g.height/2))<=.5;})),record.name+' markers are stable square centered glyph hosts');
+          await checkCIVectors(row,record.name+' list');
           assert.deepEqual(await row.locator('.access-strip > .sc').evaluateAll(slots=>slots.map(s=>s.dataset.c)),comboPresentation?[]:['W','U','B','G','C']);
         } else assert.deepEqual(await row.locator('.access-strip > .sc').evaluateAll(slots=>slots.map(s=>s.dataset.c)),[...'WUBRG',...(access.colorless.status==='documented'?['C']:[])]);
         assert.equal(await row.locator('.access-strip .t-p,.access-strip .t-s,.access-strip .t-t,.access-strip .t-n').count(),0);
@@ -228,11 +254,12 @@ try{
           assert.ok(await panel.locator('.own-row .own-t').evaluateAll(nodes=>nodes.every(node=>node.textContent==='Combination only')));
           assert.deepEqual(await row.locator('.combo-mark').evaluateAll(marks=>marks.map(mark=>mark.dataset.combo)),access.combinations.map(item=>item.colors.join('')));
           assert.ok(await panel.locator('.own-row .ci3-svg').evaluateAll(glyphs=>glyphs.every(svg=>svg.getAttribute('viewBox')==='0 0 1024 1024'&&svg.querySelectorAll('path').length===4&&svg.querySelector('g')?.getAttribute('transform')==='translate(0 938.667) scale(1 -1)')),record.name+' detail keeps the four-path Mana CI-3 vector in its shared frame');
-          assert.ok(await panel.locator('.own-row.combo-row').evaluateAll(rows=>rows.every(item=>{const mark=item.querySelector('.combo-mark').getBoundingClientRect(), glyph=item.querySelector('.combo-mark .ms,.combo-mark .ci3-svg').getBoundingClientRect(), label=item.querySelector('.own-c').getBoundingClientRect();return Math.abs(mark.width-mark.height)<=.5&&Math.abs(glyph.width-glyph.height)<=.5&&Math.abs((mark.left+mark.width/2)-(glyph.left+glyph.width/2))<=.5&&Math.abs((mark.top+mark.height/2)-(glyph.top+glyph.height/2))<=.5&&Math.abs((mark.top+mark.height/2)-(label.top+label.height/2))<=.5;})),record.name+' detail markers and labels remain centered');
+          assert.ok(await panel.locator('.own-row.combo-row').evaluateAll(rows=>rows.every(item=>{const mark=item.querySelector('.combo-mark').getBoundingClientRect(), glyph=item.querySelector('.combo-mark .ms,.combo-mark .ci3-svg,.combo-mark .ci5-svg').getBoundingClientRect(), label=item.querySelector('.own-c').getBoundingClientRect();return Math.abs(mark.width-mark.height)<=.5&&Math.abs(glyph.width-glyph.height)<=.5&&Math.abs((mark.left+mark.width/2)-(glyph.left+glyph.width/2))<=.5&&Math.abs((mark.top+mark.height/2)-(glyph.top+glyph.height/2))<=.5&&Math.abs((mark.top+mark.height/2)-(label.top+label.height/2))<=.5;})),record.name+' detail markers and labels remain centered');
         } else if(mixedPresentation){
           assert.deepEqual(await panel.locator('.own-row[data-c]').evaluateAll(rows=>rows.map(row=>row.dataset.c)),['W','U','B','G','C']);
           assert.deepEqual(await panel.locator('.own-row[data-combo]').evaluateAll(rows=>rows.map(row=>row.dataset.combo)),access.combinations.map(item=>item.colors.join('')));
         }
+        if(comboPresentation||mixedPresentation) await checkCIVectors(panel,record.name+' detail');
         assert.ok((await panel.innerText()).includes(record.scopeLabel));
         if(!comboPresentation && !mixedPresentation) for(const color of 'WUBRG'){
           const item=access.colors[color], rowText=await panel.locator(`.own-row[data-c="${color}"]`).innerText();
@@ -334,8 +361,8 @@ try{
       await noFont.evaluate(id=>VMX.open(id),record.id);
       const expected=record.access.combinations.map(item=>item.colors.join(''));
       assert.deepEqual(await noFont.locator(`#list .ent[data-k="${record.id}"] .combo-mark`).evaluateAll(marks=>marks.map(mark=>mark.dataset.combo)),expected);
-      assert.ok(await noFont.locator(`#list .ent[data-k="${record.id}"] .combo-mark`).evaluateAll(marks=>marks.every(mark=>{const glyph=mark.querySelector('.ci3-svg,.ms');return getComputedStyle(glyph).display==='none'&&getComputedStyle(mark.querySelector('.combo-text')).display!=='none'})),record.name+' retains readable list combination letters without Mana');
-      assert.ok(await noFont.locator('#detail .combo-mark').evaluateAll(marks=>marks.every(mark=>{const glyph=mark.querySelector('.ci3-svg,.ms');return getComputedStyle(glyph).display==='none'&&getComputedStyle(mark.querySelector('.combo-text')).display!=='none'})),record.name+' retains readable detail combination letters without Mana');
+      assert.ok(await noFont.locator(`#list .ent[data-k="${record.id}"] .combo-mark`).evaluateAll(marks=>marks.every(mark=>{const glyph=mark.querySelector('.ci3-svg,.ci5-svg,.ms');return getComputedStyle(glyph).display==='none'&&getComputedStyle(mark.querySelector('.combo-text')).display!=='none'})),record.name+' retains readable list combination letters without Mana');
+      assert.ok(await noFont.locator('#detail .combo-mark').evaluateAll(marks=>marks.every(mark=>{const glyph=mark.querySelector('.ci3-svg,.ci5-svg,.ms');return getComputedStyle(glyph).display==='none'&&getComputedStyle(mark.querySelector('.combo-text')).display!=='none'})),record.name+' retains readable detail combination letters without Mana');
     }
     await noFont.close();
     const escaped=await browser.newPage(), injected=structuredClone(payload);
@@ -408,7 +435,7 @@ try{
       assert.equal(await fail.evaluate(()=>VMX.assessments().records.length),0); assert.equal(await fail.locator('#list .access-strip').count(),0); await fail.close();
     }
     assert.deepEqual(errors,[]);
-    results.push(combinationsOnly ? 'Fuse and Friends forever combination-only strips and detail rows: exact combinations, pinned Mana CI-3 vectors, accessible labels, readable no-font fallback, and no implied monocolor sockets.' : 'All28 E,25 F,5 G and14 H mana-symbol paths: actual tokens plus G/H numeric/colored/colorless/X/hybrid fixtures in assessment/rules/reference, accessible real glyphs, no-font fallback and escaping; 36 exact G and59 H selected links, full observed H maps and factual trigger/timing regressions and Oct29 dates; C/D/E/F/G/H representative sources, unique combination citations and concise copy; 177 A/B/C/D/E/F/G/H access maps; documented/no-example/joint/colorless/rules cases; exact-example and retained non-card links; atomic malformed fail-soft; search keyboard/mobile; unchanged 2021 84 checks');
+    results.push(combinationsOnly ? 'Fuse/Friends forever and Hexproof from list/detail: exact combinations, original Mana CI-3/CI-5 paths and native section colors, contained fills, centered18px painted circles, accessible labels and readable no-font fallback.' : 'All28 E,25 F,5 G and14 H mana-symbol paths: actual tokens plus G/H numeric/colored/colorless/X/hybrid fixtures in assessment/rules/reference, accessible real glyphs, no-font fallback and escaping; 36 exact G and59 H selected links, full observed H maps and factual trigger/timing regressions and Oct29 dates; C/D/E/F/G/H representative sources, unique combination citations and concise copy; 177 A/B/C/D/E/F/G/H access maps; documented/no-example/joint/colorless/rules cases; exact-example and retained non-card links; atomic malformed fail-soft; search keyboard/mobile; unchanged 2021 84 checks');
   }
   await page.close();
   console.log(JSON.stringify({result:'PASS',checks:results},null,2));
