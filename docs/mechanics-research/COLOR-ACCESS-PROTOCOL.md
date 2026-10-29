@@ -11,7 +11,7 @@ Owner decision, October 28, 2026: supplemental A/B/C records document observed c
 - Include native use, explicit grants and exact card-specific flavor labels; exclude recipients, support-only effects, removal of the ability, name-only matches and related variants. No inferred tiers or tier-confidence labels in current player copy.
 - Absence means no example found in the reviewed scope; never claim that a color cannot receive the mechanic. Incomplete evidence is distinct from an adequate search with no example.
 - Player prose states named card behavior and source-attributed context. Avoid claims of a core home, intended hierarchy, unrestricted access or comparative tier. Correct known factual errors in current explanations; preserve raw captures.
-- Scryfall links are discovery aids. Per-color links should find the exact reviewed examples, rather than imply that a broad text search has been screened. Include every qualifying reviewed example in its appropriate access bucket, so discovery links cover the reviewed population. Individual card links and original context remain available.
+- Scryfall links are discovery aids. Per-color links should find the exact reviewed examples, rather than imply that a broad text search has been screened. Keep qualifying examples already reviewed in the research buckets and discovery links. Access does not require an exhaustive card inventory or a minimum population beyond one verified example. Individual card links and original context remain available.
 
 ## Canonical access_review field
 
@@ -54,3 +54,11 @@ An optional `access_review.evidence_scope` array declares allowed card-review sc
 Ordinary paper evidence excludes standalone token objects, planes, schemes, playtest cards, Heroes of the Realm commemorative cards, and acorn or silver-bordered cards. Ordinary non-acorn Unfinity cards can qualify. A colored card that explicitly creates a token with the named ability establishes access from that source card; the created token's colors are not substituted for its source. Digital source cards are handled in their expressly labeled scope.
 
 Card text and mechanic-bearing face colors govern screening. Keyword indexes are discovery aids: self-name matches, payoff-only cards and related variants need explicit exclusion. Review raw evidence before rejecting an unexpected operation. For example, the captured Expose the Culprit text actually cloaks creatures, while Burning Cloak is name-only. Raw response bodies remain immutable; any normalization of text encoding is confined to derived records.
+
+## Representative examples — Owner clarification, October 28, 2026
+
+Color Access is a presence check, not a judgment of strength or frequency. One qualifying card establishes access, including when the mechanic is found in only one color. More cards do not strengthen or rank that access. Research need not enumerate every printing or every design to establish a positive result; absence remains limited to what was reviewed.
+
+The C preview shows one intentionally selected example per independent color, colorless bucket or multicolor combination. The first card ID in each bucket is the selected example and its note describes that card from saved facts. Existing additional evidence remains in the canonical record and can be browsed through an exact reviewed-card Scryfall link; it is not repeated as a long on-page source list. A multicolor-only color points to its combination through the access status, without repeating the combination's paragraph or sources. Separate Sources remains for non-card references only.
+
+Explain the mechanic once, then give a short card-specific fact where useful. Do not repeat its rules definition in every color, infer a hierarchy, or justify access through volume. Preserve any important restriction or card-specific exception. A/B presentation remains as previously reviewed in this C-only correction.

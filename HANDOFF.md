@@ -1,3 +1,27 @@
+# Active correction — C access examples and concise evidence
+
+- Status: ready-for-qa. Owner requests correction of C evidence/copy, a simpler presence-based access presentation, and refreshed preview. Correction baseline: `68e5702d13378beac6f9382ff072888860a22579`; continue existing branch/check-out.
+- Allowed files: HANDOFF.md; docs/mechanics-research/c-protocol-core.json; docs/mechanics-research/c-protocol-extended.json; docs/mechanics-research/c-protocol-special.json; docs/mechanics-research/COLOR-ACCESS-PROTOCOL.md; docs/mechanics-research/C-ACCESS-REVIEW.md; tools/build_mechanics_assessments.py if required by validation; data/mechanics-assessments.v1.json (producer only); vox-color/mechanical-explorer.html; tools/check_assessment_browser.mjs. Temporary helpers outside checkout and ignored _site packaging permitted.
+- Outcome: one qualifying card suffices for access, including a mechanic seen in only one color. Show one representative source per independent color/colorless/combination; retain additional verified evidence locally and via discovery links. Remove repeated multicolor-only narratives/source lists and repeated rules definitions. Correct 31 known false-negative exclusions and concrete C wording from saved Oracle facts.
+- Protected: frozen 2021 files, placements, calculations and display; A/B data and existing presentation; source captures; mana palette/colorless icon; separate combination access and card-face attribution. No live research sweep, ranks, dependencies, publication, push or merge.
+- Ownership: coordinator now owns the three C source packets, C-ACCESS-REVIEW.md, presenter, protocol, generated output, focused regression and ledger after taking over the worker’s incomplete correction. Independent RobQA owns review after committed candidate; no concurrent product edits during QA.
+- Acceptance: C shows one sourced example per represented bucket, no duplicated card citations between multicolor-only and combination sections, concise card-specific copy, corrected exclusions, unchanged access map where current evidence already suffices, generated source binding valid, all2021 and AB records unchanged. Preview refreshed after exact-candidate verification.
+- Validation plan: deterministic build, frozen existing gate chain, narrow DOM evidence for representative citations/combination deduplication plus existing sidecar safety checks. Review saved Oracle against changed examples. Owner judges wording/readability.
+
+## C correction implementation packet
+
+- Changed behavior: C uses one linked, named example per independent color/colorless/combination; definition once; no multicolor-only duplicate paragraphs, long card lists or repeated scope boilerplate. Additional reviewed sources remain in canonical buckets and Scryfall discovery. Existing renderer/source schema reused; A/B presentation unchanged.
+- Owning source: three canonical C packets; data/mechanics-assessments.v1.json rebuilt with tools/build_mechanics_assessments.py. Thirty-one qualification errors corrected against saved Oracle; no raw facts/captures edited, no new color/combo status. Selected Conjure source ordering now matches its authored example; Crew WR now describes Astor. Generic Cast/Counter/Create remain rules references.
+- Protected: 43 A/B records deep-equal baseline; all35 C maps equal baseline; frozen2021 files untouched. No publication/push/merge. Separate Source references remain non-card only.
+- Development evidence: producer --check PASS (78 records/11 bindings), gate source/taxonomy PASS, check_recon PASS (53 assertions), git diff --check PASS, focused real Edge harness PASS (one source per C bucket, unique combo citations, authored notes, correct discovery links, safe links, keyboard/mobile, four malformed sidecar cases and frozen84/84 checks). Initial Edge launch failed in Windows sandbox; same bounded command passed outside sandbox without changing product code.
+- Source comparison: exactly9 Changeling,2 Collect Evidence,17 Connive,3 Convoke included-state corrections; all captured card facts, names, IDs, scope and URLs equal baseline. No all-card research sweep or new fetch performed.
+- Risks: first bucket card is now the visible representative, so note/source alignment is explicitly verified; empty/joint/colorless/rules states remain handled. Browser evidence is justified by changed DOM citation count/duplication and links, not aesthetics. No broad engine/visual sweep needed.
+- Next: independent RobQA against committed candidate, then package and refresh localhost. Owner review: open Connive for concise independent-color examples; Commander ninjutsu for one joint citation; Cumulative Upkeep for Braid of Fire’s mana-adding cost. Owner judges density/readability.
+
+---
+
+## Previous C delivery (historical)
+
 # Active task — C mechanics Color Access
 
 - Status: qa-passed on exact corrected candidate `2dc68ca588f9fd3461b338408d692a197e2c01b6`; ready for Owner Review. Owner authorizes all 35 supplemental C entries using the accepted Color Access protocol and presentation; update local preview, freeze 2021. Baseline `48f071a9b16a5b748f2515b1e51236feeeb95ece`; continue existing codex/a-mechanics-review checkout.

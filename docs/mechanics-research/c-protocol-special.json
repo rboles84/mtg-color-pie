@@ -2307,7 +2307,7 @@
               "59c2af34-a2e5-4c67-af2d-a782e41a8e1e",
               "48e913c0-efeb-47f5-9dcb-b795751e6b6d"
             ],
-            "note": "Blaster is red-green, and Ultra Magnus is red-green-white. Their Convert abilities establish those combinations; no monogreen example was found in this review."
+            "note": "See the multicolor examples."
           }
         },
         "combinations": [
@@ -2411,10 +2411,7 @@
           "card_ids": [],
           "note": "No colorless example was found among the reviewed paper cards."
         },
-        "limitations": [
-          "Colors describe the card or face that supplies the mechanic, not the colors of creatures that can receive it or mana needed to activate it. Multicolor examples remain combination evidence.",
-          "The vehicle faces retain their printed color indicators. Grimlock’s instruction to convert a Transformers toy is outside this review of the rules action."
-        ]
+        "limitations": []
       },
       "evidence_receipts": [
         "docs/mechanics-research/c-protocol-evidence/special-convert/receipt.json"
@@ -18609,7 +18606,7 @@
         "review_date": "2026-10-28",
         "scope_label": "Released paper cards",
         "scope": "Crew on Vehicles and cards that explicitly give crew, including to a token they create.",
-        "summary": "The reviewed cards show crew on colored and colorless Vehicles, as well as effects that give other permanents crew.",
+        "summary": "Crew lets you tap creatures you control with at least the listed total power to make a Vehicle an artifact creature until end of turn.",
         "colors": {
           "W": {
             "status": "documented",
@@ -18635,7 +18632,7 @@
               "a3023de2-61e7-4f46-aa4a-09d08ee7d939",
               "8f40d73b-9106-448e-8649-5d62939f0d38"
             ],
-            "note": "Aerial Surveyor has crew, letting you tap creatures with enough total power to make it an artifact creature for the turn."
+            "note": "Aerial Surveyor has crew 2."
           },
           "U": {
             "status": "documented",
@@ -18665,7 +18662,7 @@
               "8aab9181-c306-471a-8061-9a7a7654dab5",
               "30820f71-9fd4-453c-b377-c2e0b01c07a7"
             ],
-            "note": "Bespoke Battlewagon has crew, letting you tap creatures with enough total power to make it an artifact creature for the turn."
+            "note": "Bespoke Battlewagon has crew 4."
           },
           "B": {
             "status": "documented",
@@ -18685,7 +18682,7 @@
               "3ef03540-b538-466d-aa3c-da6750117ba4",
               "2ded4b02-7aa4-46a1-b10f-8480eb942cd4"
             ],
-            "note": "Carrion Cruiser has crew, letting you tap creatures with enough total power to make it an artifact creature for the turn."
+            "note": "Carrion Cruiser has crew 1."
           },
           "R": {
             "status": "documented",
@@ -18710,7 +18707,7 @@
               "7d347d59-0cd5-4207-86cb-5d6244c7c70a",
               "021b495d-236f-4274-988d-2dfd7103c9ef"
             ],
-            "note": "Big Wheel has crew, letting you tap creatures with enough total power to make it an artifact creature for the turn."
+            "note": "Big Wheel has crew 2."
           },
           "G": {
             "status": "documented",
@@ -18724,7 +18721,7 @@
               "899007b5-6a07-4491-9104-bb537106b07d",
               "fa123b21-518a-4f1d-9629-c44576d45f21"
             ],
-            "note": "Capenna Express has crew, letting you tap creatures with enough total power to make it an artifact creature for the turn."
+            "note": "Capenna Express has crew 3."
           }
         },
         "combinations": [
@@ -18737,7 +18734,7 @@
               "2b15d571-2f90-44f7-9153-20ed51253045",
               "817464d8-1e2d-4e12-96f8-5c7ec9b3e681"
             ],
-            "note": "Debris Beetle has crew, letting you tap creatures with enough total power to make it an artifact creature for the turn."
+            "note": "Debris Beetle has crew 2."
           },
           {
             "colors": [
@@ -18748,7 +18745,7 @@
               "0ca1f76d-ae77-490a-8b32-d30ad33afc2d",
               "acdd5082-7b3c-4fd3-941b-d19dd72698ec"
             ],
-            "note": "Apocalypse Runner has crew, letting you tap creatures with enough total power to make it an artifact creature for the turn."
+            "note": "Apocalypse Runner has crew 3."
           },
           {
             "colors": [
@@ -18758,7 +18755,7 @@
             "card_ids": [
               "2219e636-74d0-4f82-8704-e6d66c5f7f09"
             ],
-            "note": "Rocketeer Boostbuggy has crew, letting you tap creatures with enough total power to make it an artifact creature for the turn."
+            "note": "Rocketeer Boostbuggy has crew 1."
           },
           {
             "colors": [
@@ -18768,7 +18765,7 @@
             "card_ids": [
               "47944bf1-b954-4143-b479-45c10071e35a"
             ],
-            "note": "Haunted Hellride has crew, letting you tap creatures with enough total power to make it an artifact creature for the turn."
+            "note": "Haunted Hellride has crew 1."
           },
           {
             "colors": [
@@ -18778,7 +18775,7 @@
             "card_ids": [
               "49d149d6-de94-48cf-974b-6bb4a37ce77c"
             ],
-            "note": "Rangers' Aetherhive has crew, letting you tap creatures with enough total power to make it an artifact creature for the turn."
+            "note": "Rangers' Aetherhive has crew 1."
           },
           {
             "colors": [
@@ -18792,7 +18789,7 @@
               "e7b746c8-1b32-42ed-8328-4e16274209d8",
               "9a0c9023-9431-4f98-b167-ab4c7215319c"
             ],
-            "note": "Boosted Sloop has crew, letting you tap creatures with enough total power to make it an artifact creature for the turn."
+            "note": "Boosted Sloop has crew 1."
           },
           {
             "colors": [
@@ -18813,7 +18810,7 @@
             "card_ids": [
               "b32649cb-bf5c-45fa-86f0-8bf4e8555f06"
             ],
-            "note": "Dune Drifter has crew, letting you tap creatures with enough total power to make it an artifact creature for the turn."
+            "note": "Dune Drifter has crew 2."
           },
           {
             "colors": [
@@ -18825,7 +18822,7 @@
               "984adc49-421b-488f-b316-ed7323c5735b",
               "f7467fce-61e4-401a-8a3d-b0a2bc347088"
             ],
-            "note": "Cloudspire Skycycle has crew, letting you tap creatures with enough total power to make it an artifact creature for the turn."
+            "note": "Astor, Bearer of Blades gives Vehicles you control crew 1."
           },
           {
             "colors": [
@@ -18838,7 +18835,7 @@
               "405a54b3-fb9f-4503-a4fc-3ba6a5e58205",
               "e2962883-6daf-4a84-af73-917afc73092c"
             ],
-            "note": "Guidelight Pathmaker has crew, letting you tap creatures with enough total power to make it an artifact creature for the turn."
+            "note": "Guidelight Pathmaker has crew 2."
           }
         ],
         "colorless": {
@@ -18930,13 +18927,9 @@
             "73b3682f-396a-4ebe-aaac-6ce3ee36283a",
             "1009f979-b1fa-4427-bf9e-2a533a4ca19b"
           ],
-          "note": "Adrestia has crew, letting you tap creatures with enough total power to make it an artifact creature for the turn."
+          "note": "Adrestia has crew 1."
         },
-        "limitations": [
-          "Colors describe the card or face that supplies the mechanic, not the colors of creatures that can receive it or mana needed to activate it. Multicolor examples remain combination evidence.",
-          "Cards that only help pay crew costs or stop a permanent from crewing do not establish access. Token cards, planes, playtest cards and acorn or silver-bordered material are outside this paper-card review.",
-          "Heroes of the Realm commemorative cards are outside this paper-card review."
-        ]
+        "limitations": []
       },
       "evidence_receipts": [
         "docs/mechanics-research/c-protocol-evidence/special-crew/receipt.json"
@@ -25290,7 +25283,7 @@
         "review_date": "2026-10-28",
         "scope_label": "Released paper cards",
         "scope": "The cumulative upkeep keyword and effects that explicitly grant it.",
-        "summary": "The reviewed cards use cumulative upkeep in all five colors and on colorless cards. Each upkeep adds an age counter, increasing the total payment needed to keep the permanent.",
+        "summary": "Cumulative upkeep adds an age counter at the beginning of your upkeep. Sacrifice the permanent unless you pay its upkeep cost once for each age counter.",
         "colors": {
           "W": {
             "status": "documented",
@@ -25310,7 +25303,7 @@
               "a2dabd52-0b75-42d7-a07d-0df7b38646e2",
               "8fab68ad-169d-46d3-93c4-5bdee4eea2ce"
             ],
-            "note": "Cold Snap has cumulative upkeep: its upkeep cost must be paid once for each age counter to keep it on the battlefield."
+            "note": "Cold Snap has a cumulative upkeep cost of {2} per age counter."
           },
           "U": {
             "status": "documented",
@@ -25341,7 +25334,7 @@
               "855e200e-5375-4aac-b1f7-5113162e7e14",
               "c2affd47-2404-44b0-a571-e64e948130eb"
             ],
-            "note": "Ancestral Knowledge has cumulative upkeep: its upkeep cost must be paid once for each age counter to keep it on the battlefield."
+            "note": "Ancestral Knowledge has a cumulative upkeep cost of {1} per age counter."
           },
           "B": {
             "status": "documented",
@@ -25358,7 +25351,7 @@
               "9aaf1149-eccb-434a-a1a7-14b93fa50141",
               "2346be19-7344-4f11-be2c-a22750cb7e1d"
             ],
-            "note": "Balduvian Fallen has cumulative upkeep: its upkeep cost must be paid once for each age counter to keep it on the battlefield."
+            "note": "Balduvian Fallen has a cumulative upkeep cost of {1} per age counter."
           },
           "R": {
             "status": "documented",
@@ -25372,7 +25365,7 @@
               "b9526bd5-ed83-466f-8819-e9a8487bbe77",
               "258921f2-df26-4d8a-ad34-8f44d0158ae7"
             ],
-            "note": "Braid of Fire has cumulative upkeep: its upkeep cost must be paid once for each age counter to keep it on the battlefield."
+            "note": "Braid of Fire’s cumulative upkeep adds one red mana per age counter; it does not spend that mana."
           },
           "G": {
             "status": "documented",
@@ -25396,7 +25389,7 @@
               "2fd9a37f-151a-4501-9d8e-bc67cc902592",
               "3f5bbfaa-cbd7-47af-9aa2-abb49d672734"
             ],
-            "note": "Aboroth has cumulative upkeep: its upkeep cost must be paid once for each age counter to keep it on the battlefield."
+            "note": "Aboroth’s cumulative upkeep puts a -1/-1 counter on it for each age counter."
           }
         },
         "combinations": [
@@ -25408,7 +25401,7 @@
             "card_ids": [
               "3d3fd8a2-78d4-4f52-8fcd-0c6fa93f0043"
             ],
-            "note": "Corrosion has cumulative upkeep: its upkeep cost must be paid once for each age counter to keep it on the battlefield."
+            "note": "Corrosion has a cumulative upkeep cost of {1} per age counter."
           },
           {
             "colors": [
@@ -25418,7 +25411,7 @@
             "card_ids": [
               "b3235d21-ce52-4a99-a2fe-99b0fe7cc8bc"
             ],
-            "note": "Malignant Growth has cumulative upkeep: its upkeep cost must be paid once for each age counter to keep it on the battlefield."
+            "note": "Malignant Growth has a cumulative upkeep cost of {1} per age counter."
           },
           {
             "colors": [
@@ -25428,7 +25421,7 @@
             "card_ids": [
               "533e41cc-7cae-47f2-886b-8a3ffb82bf81"
             ],
-            "note": "Firestorm Hellkite has cumulative upkeep: its upkeep cost must be paid once for each age counter to keep it on the battlefield."
+            "note": "Firestorm Hellkite has a cumulative upkeep cost of {U}{R} per age counter."
           }
         ],
         "colorless": {
@@ -25441,12 +25434,9 @@
             "b6e36e77-0cea-4b7a-b968-774b1e74a992",
             "227ed0b7-7a9a-41f1-a190-1d1b85a44720"
           ],
-          "note": "Glacial Chasm has cumulative upkeep: its upkeep cost must be paid once for each age counter to keep it on the battlefield."
+          "note": "Glacial Chasm’s cumulative upkeep costs 2 life per age counter."
         },
-        "limitations": [
-          "Colors describe the card or face that supplies the mechanic, not the colors of creatures that can receive it or mana needed to activate it. Multicolor examples remain combination evidence.",
-          "Adarkar Unicorn helps pay cumulative upkeep costs but does not have or grant the ability. Old Fogey is outside this paper-card scope."
-        ]
+        "limitations": []
       },
       "evidence_receipts": [
         "docs/mechanics-research/c-protocol-evidence/special-cumulative-upkeep/receipt.json"
@@ -55756,7 +55746,7 @@
         "review_date": "2026-10-28",
         "scope_label": "Released paper cards",
         "scope": "Cycling that discards a card to draw a card, including explicit grants of cycling.",
-        "summary": "The reviewed cards show cycling in all five colors, on multicolor cards, and on colorless cards such as lands. Related search abilities such as basic landcycling are separate.",
+        "summary": "Cycling lets you pay its cost and discard the card to draw a card. These examples cover ordinary cycling, rather than typecycling such as basic landcycling.",
         "colors": {
           "W": {
             "status": "documented",
@@ -55814,7 +55804,7 @@
               "f5cbc4f3-4e73-405f-9daf-e5b7c73fa6ee",
               "07237694-b5d5-4c92-a429-55e343b8dd1c"
             ],
-            "note": "Akroma's Blessing can be discarded using cycling to draw a card."
+            "note": "Akroma's Blessing has a cycling cost of {W}."
           },
           "U": {
             "status": "documented",
@@ -55878,7 +55868,7 @@
               "6c540822-4ceb-4ebf-b777-da172ada3f1b",
               "1da1aa95-b587-4bc3-8bc1-7daa1fc33f00"
             ],
-            "note": "Avian Oddity can be discarded using cycling to draw a card."
+            "note": "Avian Oddity has a cycling cost of {2}{U}."
           },
           "B": {
             "status": "documented",
@@ -55921,7 +55911,7 @@
               "0bc418c3-ebde-4e52-9284-65d7e3433f27",
               "fffa9334-3576-4f70-9605-2ad062cdbc69"
             ],
-            "note": "Archfiend of Ifnir can be discarded using cycling to draw a card."
+            "note": "Archfiend of Ifnir has a cycling cost of {2}."
           },
           "R": {
             "status": "documented",
@@ -55970,7 +55960,7 @@
               "37985fef-696e-4c6b-9a60-29c5051b5a25",
               "6c0e22f2-f0f3-43e6-87c5-c543032112d8"
             ],
-            "note": "Brand can be discarded using cycling to draw a card."
+            "note": "Brand has a cycling cost of {2}."
           },
           "G": {
             "status": "documented",
@@ -56014,7 +56004,7 @@
               "711cda97-bf57-4b22-b9c1-854ef448d27a",
               "77b6c3bb-bd05-4547-8f3e-9c50879973f1"
             ],
-            "note": "Agonasaur Rex can be discarded using cycling to draw a card."
+            "note": "Agonasaur Rex has a cycling cost of {2}{G}."
           }
         },
         "combinations": [
@@ -56026,7 +56016,7 @@
             "card_ids": [
               "817464d8-1e2d-4e12-96f8-5c7ec9b3e681"
             ],
-            "note": "Thundering Broodwagon can be discarded using cycling to draw a card."
+            "note": "Thundering Broodwagon has a cycling cost of {2}."
           },
           {
             "colors": [
@@ -56037,7 +56027,7 @@
               "2e29025e-6954-4fbd-933f-81c2309c704e",
               "d73191d8-6f94-4fba-acd2-2d0490e3ac00"
             ],
-            "note": "Monstrous Carabid can be discarded using cycling to draw a card."
+            "note": "Monstrous Carabid has a cycling cost of {B/R}."
           },
           {
             "colors": [
@@ -56048,7 +56038,7 @@
             "card_ids": [
               "84a3ebc2-5c38-40ef-b5f4-62a92cbca493"
             ],
-            "note": "Jund Sojourners can be discarded using cycling to draw a card."
+            "note": "Jund Sojourners has a cycling cost of {2}{R}."
           },
           {
             "colors": [
@@ -56058,7 +56048,7 @@
             "card_ids": [
               "3992369a-2158-4cf8-b7e5-be517b91c1f5"
             ],
-            "note": "Deadshot Minotaur can be discarded using cycling to draw a card."
+            "note": "Deadshot Minotaur has a cycling cost of {R/G}."
           },
           {
             "colors": [
@@ -56068,7 +56058,7 @@
             "card_ids": [
               "79d290ea-c095-4135-9711-f3ce089dae43"
             ],
-            "note": "Architects of Will can be discarded using cycling to draw a card."
+            "note": "Architects of Will has a cycling cost of {U/B}."
           },
           {
             "colors": [
@@ -56079,7 +56069,7 @@
             "card_ids": [
               "21f507fd-6a26-455c-879a-f838e0aa2a43"
             ],
-            "note": "Grixis Sojourners can be discarded using cycling to draw a card."
+            "note": "Grixis Sojourners has a cycling cost of {2}{B}."
           },
           {
             "colors": [
@@ -56089,7 +56079,7 @@
             "card_ids": [
               "072db429-3838-42ba-89b6-e26cbce22af9"
             ],
-            "note": "Pest Control can be discarded using cycling to draw a card."
+            "note": "Pest Control has a cycling cost of {2}."
           },
           {
             "colors": [
@@ -56099,7 +56089,7 @@
             "card_ids": [
               "92017087-18f4-46ee-8808-5959d31d0011"
             ],
-            "note": "Sigil of the Nayan Gods can be discarded using cycling to draw a card."
+            "note": "Sigil of the Nayan Gods has a cycling cost of {G/W}."
           },
           {
             "colors": [
@@ -56110,7 +56100,7 @@
             "card_ids": [
               "703215df-dee2-4b82-9f32-256e1410543c"
             ],
-            "note": "Naya Sojourners can be discarded using cycling to draw a card."
+            "note": "Naya Sojourners has a cycling cost of {2}{G}."
           },
           {
             "colors": [
@@ -56121,7 +56111,7 @@
               "87050537-99c9-4993-a770-4329b2e749e4",
               "a1379c25-6daf-4efa-a517-6e6e25c31875"
             ],
-            "note": "Cid, Timeless Artificer can be discarded using cycling to draw a card."
+            "note": "Cid, Timeless Artificer has a cycling cost of {W}{U}."
           },
           {
             "colors": [
@@ -56132,7 +56122,7 @@
             "card_ids": [
               "0c59db70-9cb4-4edf-ba6e-12ffa7c06b7b"
             ],
-            "note": "Esper Sojourners can be discarded using cycling to draw a card."
+            "note": "Esper Sojourners has a cycling cost of {2}{U}."
           },
           {
             "colors": [
@@ -56143,7 +56133,7 @@
             "card_ids": [
               "67ceffa4-2fdb-499c-88cd-49fb5eb9be59"
             ],
-            "note": "Bant Sojourners can be discarded using cycling to draw a card."
+            "note": "Bant Sojourners has a cycling cost of {2}{W}."
           }
         ],
         "colorless": {
@@ -56210,12 +56200,9 @@
             "fdd46004-eaba-4024-8687-39b23dc6a58c",
             "f7e7b78c-c769-4720-8585-1874773eb342"
           ],
-          "note": "Barren Moor can be discarded using cycling to draw a card."
+          "note": "Barren Moor has a cycling cost of {B}."
         },
-        "limitations": [
-          "Colors describe the card or face that supplies the mechanic, not the colors of creatures that can receive it or mana needed to activate it. Multicolor examples remain combination evidence.",
-          "Typecycling, including basic landcycling and Slivercycling, is excluded unless the same card also has or grants ordinary cycling. Payoffs and cycling-cost reductions alone do not establish access. Lands remain colorless even when they produce colored mana."
-        ]
+        "limitations": []
       },
       "evidence_receipts": [
         "docs/mechanics-research/c-protocol-evidence/special-cycling/receipt.json"
@@ -58586,7 +58573,7 @@
         "review_date": "2026-10-28",
         "scope_label": "Released paper cards",
         "scope": "The Choose a Background ability on a commander, rather than the abilities of Background enchantments.",
-        "summary": "The reviewed commanders have Choose a Background in all five colors. Faceless One also supplies a colorless card example, with its own instruction to choose a color.",
+        "summary": "Choose a Background lets you have a Background enchantment as a second commander.",
         "colors": {
           "W": {
             "status": "documented",
@@ -58597,7 +58584,7 @@
               "d99197b9-143a-462f-ace4-f35228ba082e",
               "3848ad74-8ee7-4546-9394-30db88e1d1e6"
             ],
-            "note": "Abdel Adrian, Gorion's Ward lets you choose a Background as a second commander."
+            "note": "Abdel Adrian, Gorion's Ward has Choose a Background."
           },
           "U": {
             "status": "documented",
@@ -58610,7 +58597,7 @@
               "9b61f5b1-7688-4336-8fe9-66da37a34df9",
               "4dde484a-8d5b-4eb6-ab4a-e30cc370431c"
             ],
-            "note": "Alora, Merry Thief lets you choose a Background as a second commander."
+            "note": "Alora, Merry Thief has Choose a Background."
           },
           "B": {
             "status": "documented",
@@ -58622,7 +58609,7 @@
               "ed15a3c4-110e-4f08-bf09-fabbf5b4eeb9",
               "22e36922-a81a-4a0c-b698-51b48bd91ce6"
             ],
-            "note": "Burakos, Party Leader lets you choose a Background as a second commander."
+            "note": "Burakos, Party Leader has Choose a Background."
           },
           "R": {
             "status": "documented",
@@ -58635,7 +58622,7 @@
               "ee565d5c-7a3a-481c-91aa-b982cf384220",
               "4fb254cf-b60c-4a3e-b753-4213cb572837"
             ],
-            "note": "Amber Gristle O'Maul lets you choose a Background as a second commander."
+            "note": "Amber Gristle O'Maul has Choose a Background."
           },
           "G": {
             "status": "documented",
@@ -58647,7 +58634,7 @@
               "250052a7-1ba5-45d2-aa32-b787fd637fa5",
               "d2766fd7-5cf9-4037-9f34-9ae3982c613a"
             ],
-            "note": "Durnan of the Yawning Portal lets you choose a Background as a second commander."
+            "note": "Durnan of the Yawning Portal has Choose a Background."
           }
         },
         "combinations": [],
@@ -58658,9 +58645,7 @@
           ],
           "note": "Faceless One has Choose a Background and no printed color. It instructs you to choose a color before the game if it is your commander, so it is not necessarily colorless during play."
         },
-        "limitations": [
-          "Colors describe the card or face that supplies the mechanic, not the colors of creatures that can receive it or mana needed to activate it. Multicolor examples remain combination evidence."
-        ]
+        "limitations": []
       },
       "evidence_receipts": [
         "docs/mechanics-research/c-protocol-evidence/special-choose-a-background/receipt.json"
@@ -58914,7 +58899,7 @@
         "review_date": "2026-10-28",
         "scope_label": "Released paper cards",
         "scope": "The Commander ninjutsu keyword, which can put its card into combat from the hand or command zone.",
-        "summary": "Yuriko, the Tiger’s Shadow supplies blue-black combination evidence. The reviewed paper cards do not establish separate monoblue or monoblack access.",
+        "summary": "Commander ninjutsu can put its card into combat from your hand or command zone. Yuriko is a blue-black example.",
         "colors": {
           "W": {
             "status": "not_found",
@@ -58926,14 +58911,14 @@
             "card_ids": [
               "a7043fbd-1dfd-42cf-be4b-cc343d0949e5"
             ],
-            "note": "Yuriko, the Tiger’s Shadow is blue-black. Its commander ninjutsu returns an unblocked attacker to your hand to put Yuriko onto the battlefield tapped and attacking from your hand or command zone. This is combination evidence, not an independent example in this color."
+            "note": "See the multicolor examples."
           },
           "B": {
             "status": "multicolor_only",
             "card_ids": [
               "a7043fbd-1dfd-42cf-be4b-cc343d0949e5"
             ],
-            "note": "Yuriko, the Tiger’s Shadow is blue-black. Its commander ninjutsu returns an unblocked attacker to your hand to put Yuriko onto the battlefield tapped and attacking from your hand or command zone. This is combination evidence, not an independent example in this color."
+            "note": "See the multicolor examples."
           },
           "R": {
             "status": "not_found",
@@ -58963,10 +58948,7 @@
           "card_ids": [],
           "note": "No colorless example was found among the reviewed paper cards."
         },
-        "limitations": [
-          "Colors describe the card or face that supplies the mechanic, not the colors of creatures that can receive it or mana needed to activate it. Multicolor examples remain combination evidence.",
-          "The playtest cards Monet, Sensei of the Sewers and The Multifaceted Phyrexian use a distinct “fixed commander ninjutsu” variant and are outside this paper-card review."
-        ]
+        "limitations": []
       },
       "evidence_receipts": [
         "docs/mechanics-research/c-protocol-evidence/special-commander-ninjutsu/receipt.json"
@@ -73800,8 +73782,8 @@
           "W": {
             "status": "documented",
             "card_ids": [
-              "2b204c47-1d9e-413d-b963-683918b45d2f",
               "1d5f2d48-621f-4104-90b6-41bf31606265",
+              "2b204c47-1d9e-413d-b963-683918b45d2f",
               "68e97db4-42ff-4972-9286-0ecc28d9e9de",
               "bac5a457-22f7-457b-a3b6-300092472ff2",
               "c18d9839-d04e-4ffc-b3d0-02745a3ef6b8",
@@ -73867,9 +73849,9 @@
           "B": {
             "status": "documented",
             "card_ids": [
+              "2afc161c-f627-4e9e-a70f-badc99415a0b",
               "bc16970c-610e-498f-990e-71dba8a7eb5c",
               "ed4a531f-8402-4ee6-810e-f79724cf7dd7",
-              "2afc161c-f627-4e9e-a70f-badc99415a0b",
               "aa1d3608-675b-459b-a21b-7dd66ca13beb",
               "077885dc-3a88-4ad4-bd5d-bf709aa71e8d",
               "f24d0138-c3d9-48ba-9031-6249808b220b",
@@ -73971,8 +73953,8 @@
               "G"
             ],
             "card_ids": [
-              "b01657ad-120f-4d00-a367-fd112d403700",
               "bf9355a8-6700-4e9a-bb32-593ca7036dd4",
+              "b01657ad-120f-4d00-a367-fd112d403700",
               "b934806e-a3fa-47cb-9885-441c1b544eac",
               "e08a4569-eb90-4a95-9420-ebb8b8c0c906",
               "36979d7e-81fd-4e23-ac7f-8411524e417a",
@@ -74064,8 +74046,8 @@
               "R"
             ],
             "card_ids": [
-              "123d002c-0004-4e0e-80f3-f0f9555201ac",
               "d14f7256-dfe3-47ce-bd1f-1e126dd00808",
+              "123d002c-0004-4e0e-80f3-f0f9555201ac",
               "8418af3b-61fe-43c1-8aae-1107224b6bde",
               "21fdc935-a7e7-4f86-a530-dce41b684448",
               "e7b3dab1-7d27-4e57-b66f-542442663b92",
@@ -74116,8 +74098,8 @@
               "R"
             ],
             "card_ids": [
-              "1d7c3f12-3c8f-4e54-beb2-481247a6a750",
               "ca1a5d2a-e147-404e-bfff-e2476a85068a",
+              "1d7c3f12-3c8f-4e54-beb2-481247a6a750",
               "a1b05d3c-db3d-426f-ac00-c614d4e27c78",
               "da9c8b15-cfa1-443f-857e-06ce50c7b3b1",
               "56fb41b6-90dd-4917-8c5d-8d9308f2c972"
@@ -74164,8 +74146,8 @@
         "colorless": {
           "status": "documented",
           "card_ids": [
-            "471d5eea-5c20-4d7e-92b3-7c6fde69fa69",
             "7d0c3826-1a54-458f-9665-d34c6e1ed304",
+            "471d5eea-5c20-4d7e-92b3-7c6fde69fa69",
             "7b313878-37fc-4bd1-9614-83e27e982e0f",
             "99b7f9d0-02fd-4391-8ef9-89179bff9ef6",
             "02a283fc-ca38-48fb-b53c-0d863fca4b08",
@@ -74174,8 +74156,7 @@
           "note": "Gixian Recycler can conjure another Gixian Recycler into your graveyard when it dies or goes there from your hand or library. The card itself is colorless."
         },
         "limitations": [
-          "Colors describe the card or face that supplies the mechanic, not the colors of creatures that can receive it or mana needed to activate it. Multicolor examples remain combination evidence.",
-          "These are digital-card examples. Cards that only reward conjuring are excluded. Paper playtest versions and cards created by conjuring do not establish additional colors for the source ability."
+          "Colors belong to the source card, not the card it conjures."
         ],
         "evidence_scope": [
           "digital"
@@ -74304,7 +74285,7 @@
         "review_date": "2026-10-28",
         "scope_label": "Released digital cards",
         "scope": "The Covercast label on released digital cards; examples describe their own effects.",
-        "summary": "Summitfest Closing Ceremony is a blue-red digital card with Covercast. Its example establishes that combination, not separate blue or red access.",
+        "summary": "Summitfest Closing Ceremony is a blue-red digital card with Covercast.",
         "colors": {
           "W": {
             "status": "not_found",
@@ -74316,7 +74297,7 @@
             "card_ids": [
               "dcbe6911-0071-4305-a9f5-3396ce4f5618"
             ],
-            "note": "Summitfest Closing Ceremony’s Covercast ability increases its intensity when you cast another instant or sorcery with at least five mana spent on it. The card is blue-red. No independent example in this color was found in the reviewed digital cards."
+            "note": "See the multicolor examples."
           },
           "B": {
             "status": "not_found",
@@ -74328,7 +74309,7 @@
             "card_ids": [
               "dcbe6911-0071-4305-a9f5-3396ce4f5618"
             ],
-            "note": "Summitfest Closing Ceremony’s Covercast ability increases its intensity when you cast another instant or sorcery with at least five mana spent on it. The card is blue-red. No independent example in this color was found in the reviewed digital cards."
+            "note": "See the multicolor examples."
           },
           "G": {
             "status": "not_found",
@@ -74353,10 +74334,7 @@
           "card_ids": [],
           "note": "No colorless example was found among the reviewed digital cards."
         },
-        "limitations": [
-          "Colors describe the card or face that supplies the mechanic, not the colors of creatures that can receive it or mana needed to activate it. Multicolor examples remain combination evidence.",
-          "The examples support their printed effects, not a general claim about which zones Covercast functions in or whether it uses the stack."
-        ],
+        "limitations": [],
         "evidence_scope": [
           "digital"
         ]

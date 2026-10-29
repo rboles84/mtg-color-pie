@@ -63,7 +63,7 @@ try{
        rules actions have no invented map, and no access strip uses tier classes. */
     await page.evaluate(()=>VMX.setView('az'));
     for(const record of payload.records){
-      const row=page.locator(`#list .ent[data-k="${record.id}"]`), access=record.access;
+      const row=page.locator(`#list .ent[data-k="${record.id}"]`), access=record.access, compactExamples=record.name.startsWith('C');
       assert.equal(await row.locator('.access-strip').count(),record.kind==='access'?1:0,record.name);
       if(record.kind==='access'){
         assert.deepEqual(await row.locator('.access-strip > .sc').evaluateAll(slots=>slots.map(s=>s.dataset.c)),[...'WUBRG',...(access.colorless.status==='documented'?['C']:[])]);
@@ -91,7 +91,9 @@ try{
       }
       await notes.locator(':scope > summary').focus(); await page.keyboard.press('Enter'); assert.equal(await notes.getAttribute('open'),'');
       assert.ok((await notes.innerText()).includes(record.summary));
-      if(record.kind==='access') for(const color of 'WUBRG') assert.ok((await notes.innerText()).includes(access.colors[color].note),record.name+' '+color+' authored evidence note visible after opening evidence');
+      if(record.kind==='access') for(const color of 'WUBRG') {
+        if(!compactExamples || access.colors[color].status==='documented') assert.ok((await notes.innerText()).includes(access.colors[color].note),record.name+' '+color+' authored example visible');
+      }
       assert.doesNotMatch((await panel.locator('.dx-h,.own-t').allTextContents()).join(' '),/Documented access/i);
       assert.doesNotMatch(await panel.innerText(),/Neutral mana marks/i);
       const hasColorless=record.kind==='access' && access.colorless.status==='documented';
@@ -104,10 +106,18 @@ try{
       }
       const expectedSources=record.sources.filter(s=>{const u=new URL(s.url);return u.hostname!=='scryfall.com'||!/^\/(?:cards?(?:\/|$)|search(?:\/|$))/.test(u.pathname);});
       assert.deepEqual(await notes.locator('.assessment-sources a').evaluateAll(links=>links.map(a=>a.href)),expectedSources.map(s=>s.url),record.name+' non-card references retained');
-      const cardBuckets=[...Object.values(access.colors),...access.combinations,access.colorless];
-      const expectedCardLinks=(record.kind==='rules'?record.citationCards:cardBuckets.flatMap(x=>x.cards)).filter(c=>c.url).map(c=>c.url).sort();
+      const cardBuckets=[...Object.values(access.colors).filter(x=>!compactExamples || x.status==='documented'),...access.combinations,...(!compactExamples || access.colorless.status==='documented'?[access.colorless]:[])];
+      const visibleCards=cardBuckets.flatMap(x=>compactExamples?x.cards.slice(0,1):x.cards);
+      const expectedCardLinks=(record.kind==='rules'?record.citationCards:visibleCards).filter(c=>c.url).map(c=>c.url).sort();
+      if(compactExamples && record.kind==='access') {
+        assert.equal(await notes.locator('.assessment-example').count(),cardBuckets.length,record.name+' one visible example per represented bucket');
+        assert.equal(new Set(expectedCardLinks).size,expectedCardLinks.length,record.name+' combination-only citations are not repeated under each color');
+        assert.equal(await notes.locator('details').count(),0,record.name+' no exhaustive nested card lists');
+        assert.doesNotMatch(await notes.innerText(),/under its stated conditions|present votes provide a separate effect|independent example|reviewed scope/,record.name+' no filler or internal qualification prose');
+        for(const item of [...access.combinations,...(access.colorless.status==='documented'?[access.colorless]:[])]) assert.ok((await notes.innerText()).includes(item.note),record.name+' combination/colorless example visible');
+      }
       assert.deepEqual(await notes.locator('a').evaluateAll(links=>links.filter(a=>a.hostname==='scryfall.com'&&a.pathname.startsWith('/card/')).map(a=>a.href).sort()),expectedCardLinks,record.name+' no redundant aggregate card list');
-      const linkedBuckets=[...Object.values(access.colors),...access.combinations,access.colorless].filter(item=>item.findUrl);
+      const linkedBuckets=cardBuckets.filter(item=>item.findUrl && (!compactExamples || item.cards.length>1));
       for(const findUrl of new Set(linkedBuckets.map(item=>item.findUrl))) assert.equal(await notes.locator(`a[href="${findUrl}"]`).count(),linkedBuckets.filter(item=>item.findUrl===findUrl).length,record.name+' renders every exact reviewed-card bucket link');
       assert.deepEqual(await notes.locator('a').evaluateAll(links=>links.filter(a=>a.protocol!=='https:'||!['scryfall.com','magic.wizards.com'].includes(a.hostname)||a.rel!=='noopener noreferrer').map(a=>a.href)),[]);
     }
@@ -127,7 +137,7 @@ try{
       assert.equal(await fail.evaluate(()=>VMX.assessments().records.length),0); assert.equal(await fail.locator('#list .access-strip').count(),0); await fail.close();
     }
     assert.deepEqual(errors,[]);
-    results.push('78 A/B/C access maps; documented/no-example/joint/colorless/rules cases; exact-example and retained non-card links; atomic malformed fail-soft; search keyboard/mobile; unchanged 2021 84 checks');
+    results.push('C representative sources, unique combination citations and concise copy; 78 A/B/C access maps; documented/no-example/joint/colorless/rules cases; exact-example and retained non-card links; atomic malformed fail-soft; search keyboard/mobile; unchanged 2021 84 checks');
   }
   await page.close();
   console.log(JSON.stringify({result:'PASS',checks:results},null,2));

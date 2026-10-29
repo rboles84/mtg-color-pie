@@ -9694,7 +9694,7 @@
         "review_date": "2026-10-28",
         "scope_label": "Released paper cards",
         "scope": "Released paper cards that use or explicitly grant Cascade.",
-        "summary": "The reviewed cards have cascade or explicitly give it to spells. Cascade can let you cast a cheaper spell from your library when the spell with cascade is cast.",
+        "summary": "When you cast a spell with cascade, you exile cards from your library until you find a nonland card with lower mana value. You may cast a spell from that card without paying its mana cost if that spell also has lower mana value.",
         "allWUBRG": {
           "W": {
             "status": "multicolor_only",
@@ -9771,7 +9771,7 @@
               "28ebe75a-cddd-469b-be8a-286776b83388",
               "55e4d4b2-1bd8-4c29-a21a-c014a974b715"
             ],
-            "note": "Ardent Plea has cascade, which can let you cast a cheaper nonland spell from your library when you cast it. These are multicolor examples; no independent example in this color was found in the reviewed scope."
+            "note": "See the multicolor examples."
           },
           "U": {
             "status": "documented",
@@ -9780,14 +9780,14 @@
               "c4ecfc13-a335-42bb-92db-133998b2af5d",
               "cf127842-5fb1-44df-8d91-8cc0f48c559a"
             ],
-            "note": "Forceful Denial has cascade, which can let you cast a cheaper nonland spell from your library when you cast it."
+            "note": "Forceful Denial has cascade."
           },
           "B": {
             "status": "documented",
             "card_ids": [
               "6bd38092-7788-4bb6-9447-16c56e11e603"
             ],
-            "note": "Sloppity Bilepiper can sacrifice a creature to give the next creature spell you cast that turn cascade."
+            "note": "Sloppity Bilepiper can sacrifice a creature to give your next creature spell that turn cascade."
           },
           "R": {
             "status": "documented",
@@ -9808,7 +9808,7 @@
               "ec2968fb-163d-4907-862b-b84a1f167833",
               "a450ef56-8511-43e0-bdca-0c25f54ba338"
             ],
-            "note": "Aurora Phoenix has cascade, which can let you cast a cheaper nonland spell from your library when you cast it."
+            "note": "Aurora Phoenix has cascade."
           },
           "G": {
             "status": "documented",
@@ -9818,7 +9818,7 @@
               "98266582-12fd-4a7b-a9bb-e9cc4370ed28",
               "8ea10a5a-b698-4f7d-a9c8-520f8d835f34"
             ],
-            "note": "Annoyed Altisaur has cascade, which can let you cast a cheaper nonland spell from your library when you cast it."
+            "note": "Annoyed Altisaur has cascade."
           }
         },
         "combinations": [
@@ -9832,7 +9832,7 @@
               "71366469-04ea-4526-bf24-7abc02fdc5ab",
               "28ebe75a-cddd-469b-be8a-286776b83388"
             ],
-            "note": "Ardent Plea has cascade, which can let you cast a cheaper nonland spell from your library when you cast it."
+            "note": "Ardent Plea has cascade."
           },
           {
             "colors": [
@@ -9843,7 +9843,7 @@
               "937cb494-7dcb-4a40-b1e0-6e6b31f5c8a6",
               "69191459-36ca-4e71-b4bb-0270c4cdaee9"
             ],
-            "note": "Captured Sunlight has cascade, which can let you cast a cheaper nonland spell from your library when you cast it."
+            "note": "Captured Sunlight has cascade."
           },
           {
             "colors": [
@@ -9854,7 +9854,7 @@
               "f9e31993-bfe1-46fb-8a32-418e97f9cfe1",
               "bbf07946-33d0-48fe-85af-022e9b0b834c"
             ],
-            "note": "Deny Reality has cascade, which can let you cast a cheaper nonland spell from your library when you cast it."
+            "note": "Deny Reality has cascade."
           },
           {
             "colors": [
@@ -9864,7 +9864,7 @@
             "card_ids": [
               "01afb7a1-6427-4bb6-935a-613e9bda9de3"
             ],
-            "note": "Etherium-Horn Sorcerer has cascade, which can let you cast a cheaper nonland spell from your library when you cast it."
+            "note": "Etherium-Horn Sorcerer has cascade."
           },
           {
             "colors": [
@@ -9876,7 +9876,7 @@
               "2cbccc46-bdef-4dfb-90a4-0278c5c8488a",
               "2afbaa9a-c171-4a8b-90f3-5250d8498356"
             ],
-            "note": "Imoti, Celebrant of Bounty gives spells cascade under its stated conditions, letting those spells lead to a cheaper spell from your library."
+            "note": "Imoti, Celebrant of Bounty has cascade and gives it to spells you cast with mana value 6 or greater."
           },
           {
             "colors": [
@@ -9887,7 +9887,7 @@
               "d291d8f7-bb67-470c-8794-cd553c91e5cc",
               "b090f1e5-1f7e-4492-9928-c5911a8ef95b"
             ],
-            "note": "Bituminous Blast has cascade, which can let you cast a cheaper nonland spell from your library when you cast it."
+            "note": "Bituminous Blast has cascade."
           },
           {
             "colors": [
@@ -9901,7 +9901,7 @@
               "c0f69063-9079-4e7a-98dc-c29da8171d33",
               "9ceac4c6-e62e-4445-852c-b2c621e4a83b"
             ],
-            "note": "Bigger on the Inside gives spells cascade under its stated conditions, letting those spells lead to a cheaper spell from your library."
+            "note": "Bigger on the Inside gives the enchanted artifact or land a mana ability that also grants cascade to the recipient’s next spell that turn."
           },
           {
             "colors": [
@@ -9912,7 +9912,7 @@
             "card_ids": [
               "6fb84ecd-ab60-4c2c-987d-8a0749db5777"
             ],
-            "note": "Enigma Sphinx has cascade, which can let you cast a cheaper nonland spell from your library when you cast it."
+            "note": "Enigma Sphinx has cascade."
           },
           {
             "colors": [
@@ -9923,7 +9923,7 @@
             "card_ids": [
               "8dedb9a7-0afa-4dff-b124-2344c170f11a"
             ],
-            "note": "Abaddon the Despoiler gives spells cascade under its stated conditions, letting those spells lead to a cheaper spell from your library."
+            "note": "Abaddon the Despoiler gives spells cast from your hand cascade during your turn if their mana value is no greater than the life your opponents have lost that turn."
           },
           {
             "colors": [
@@ -9934,7 +9934,7 @@
             "card_ids": [
               "ad9b7fbc-61c8-43ee-a65c-99206fd1e4df"
             ],
-            "note": "Maelstrom Wanderer has cascade, which can let you cast a cheaper nonland spell from your library when you cast it."
+            "note": "Maelstrom Wanderer has two instances of cascade."
           },
           {
             "colors": [
@@ -9946,7 +9946,7 @@
             "card_ids": [
               "9efe8aff-9a7d-4397-b5fd-c1a0fad7c15f"
             ],
-            "note": "Yidris, Maelstrom Wielder gives spells cascade under its stated conditions, letting those spells lead to a cheaper spell from your library."
+            "note": "After Yidris, Maelstrom Wielder deals combat damage to a player, spells you cast from your hand that turn gain cascade."
           },
           {
             "colors": [
@@ -9960,7 +9960,7 @@
               "b1c346a4-fc9b-474a-9d51-cac168e363fa",
               "55e4d4b2-1bd8-4c29-a21a-c014a974b715"
             ],
-            "note": "Maelstrom Nexus gives spells cascade under its stated conditions, letting those spells lead to a cheaper spell from your library."
+            "note": "Maelstrom Nexus gives your first spell each turn cascade."
           }
         ],
         "colorless": {
@@ -9971,7 +9971,7 @@
             "9167a585-b742-427d-b840-e024f6878a5c",
             "ec726c54-987b-48ed-8ffa-ec73a5e35333"
           ],
-          "note": "Ingenuity Engine has cascade, which can let you cast a cheaper nonland spell from your library when you cast it."
+          "note": "Ingenuity Engine has cascade."
         },
         "full_qualifying_ids": [
           "8dedb9a7-0afa-4dff-b124-2344c170f11a",
@@ -10026,10 +10026,7 @@
           "9efe8aff-9a7d-4397-b5fd-c1a0fad7c15f",
           "ec726c54-987b-48ed-8ffa-ec73a5e35333"
         ],
-        "limitations": [
-          "Colors follow the card or face that supplies the mechanic. Multicolor examples do not establish separate single-color access, and a colorless source does not establish access in every color that can use it.",
-          "Digital cards, playtest cards, commemorative cards, acorn or silver-bordered cards, planes and standalone token cards are outside this paper-card review."
-        ]
+        "limitations": []
       }
     },
     {
@@ -13710,7 +13707,7 @@
         "review_date": "2026-10-28",
         "scope_label": "Released paper cards",
         "scope": "Released paper cards that use or explicitly grant Casualty.",
-        "summary": "The reviewed cards let you sacrifice a creature of the required power to copy a spell, or explicitly give spells that option.",
+        "summary": "Casualty lets you sacrifice a creature of the required power as an additional casting cost to copy the spell.",
         "allWUBRG": {
           "W": {
             "status": "multicolor_only",
@@ -13763,7 +13760,7 @@
             "card_ids": [
               "66deb3f3-0314-427e-9cb8-6befa365ae94"
             ],
-            "note": "Silverquill, the Disputant gives spells casualty under its stated conditions, allowing a creature sacrifice to copy them. These are multicolor examples; no independent example in this color was found in the reviewed scope."
+            "note": "See the multicolor examples."
           },
           "U": {
             "status": "documented",
@@ -13774,7 +13771,7 @@
               "5f12f665-f083-48ae-b61a-541051c996ec",
               "8843faa9-0cd5-4ef3-8e7b-b8833db9dc84"
             ],
-            "note": "A Little Chat has casualty 1, letting you sacrifice a creature with at least 1 power to copy the spell."
+            "note": "A Little Chat has casualty 1."
           },
           "B": {
             "status": "documented",
@@ -13786,7 +13783,7 @@
               "849a7ae8-2b4e-4fa5-9607-2bfc961fee40",
               "3df11e5c-19aa-441c-a889-6b40eb3fdabf"
             ],
-            "note": "Cut of the Profits has casualty 3, letting you sacrifice a creature with at least 3 power to copy its card-draw and life-loss effect."
+            "note": "Cut of the Profits has casualty 3."
           },
           "R": {
             "status": "documented",
@@ -13795,7 +13792,7 @@
               "c6932bcf-d66b-42c1-8ca4-6a4573e0f6bf",
               "df45a344-5937-4a3f-a80f-581ea456ea05"
             ],
-            "note": "Audacious Swap has casualty 2, letting you sacrifice a creature with at least 2 power to copy the spell and choose a new target."
+            "note": "Audacious Swap has casualty 2."
           },
           "G": {
             "status": "not_found",
@@ -13812,7 +13809,7 @@
             "card_ids": [
               "66deb3f3-0314-427e-9cb8-6befa365ae94"
             ],
-            "note": "Silverquill, the Disputant gives spells casualty under its stated conditions, allowing a creature sacrifice to copy them."
+            "note": "Silverquill, the Disputant gives your instant and sorcery spells casualty 1."
           },
           {
             "colors": [
@@ -13822,7 +13819,7 @@
             "card_ids": [
               "a6abb6af-7ea2-43f3-8718-2a077ad0c947"
             ],
-            "note": "Ob Nixilis, the Adversary has casualty, allowing a creature sacrifice as part of casting it to produce a copy."
+            "note": "Ob Nixilis, the Adversary uses the sacrificed creature’s power for casualty X and the copy’s starting loyalty."
           },
           {
             "colors": [
@@ -13834,7 +13831,7 @@
               "d3c3f293-6790-4dce-900a-8af0464c2572",
               "f3902dfd-6d09-425f-8446-a68cae2eea50"
             ],
-            "note": "Anhelo, the Painter gives spells casualty under its stated conditions, allowing a creature sacrifice to copy them."
+            "note": "Anhelo, the Painter gives your first instant or sorcery spell each turn casualty 2."
           }
         ],
         "colorless": {
@@ -13862,10 +13859,7 @@
           "66deb3f3-0314-427e-9cb8-6befa365ae94",
           "3df11e5c-19aa-441c-a889-6b40eb3fdabf"
         ],
-        "limitations": [
-          "Colors follow the card or face that supplies the mechanic. Multicolor examples do not establish separate single-color access, and a colorless source does not establish access in every color that can use it.",
-          "Digital cards, playtest cards, commemorative cards, acorn or silver-bordered cards, planes and standalone token cards are outside this paper-card review."
-        ]
+        "limitations": []
       }
     },
     {
@@ -16142,10 +16136,7 @@
           "9ffe4d90-b46c-4606-89cb-1b724104f6ea",
           "dab16c93-9788-46e0-9345-838ebeda8d54"
         ],
-        "limitations": [
-          "Colors follow the card or face that supplies the mechanic. Multicolor examples do not establish separate single-color access, and a colorless source does not establish access in every color that can use it.",
-          "Digital cards, playtest cards, commemorative cards, acorn or silver-bordered cards, planes and standalone token cards are outside this paper-card review."
-        ]
+        "limitations": []
       }
     },
     {
@@ -20571,10 +20562,7 @@
           "9ab36915-b600-4970-961a-403f5da0dba1",
           "d4d27fef-e86b-4dd3-a15e-a0db8d0725ee"
         ],
-        "limitations": [
-          "Colors follow the card or face that supplies the mechanic. Multicolor examples do not establish separate single-color access, and a colorless source does not establish access in every color that can use it.",
-          "Digital cards, playtest cards, commemorative cards, acorn or silver-bordered cards, planes and standalone token cards are outside this paper-card review."
-        ]
+        "limitations": []
       }
     },
     {
@@ -20702,10 +20690,12 @@
           "colors": [],
           "color_identity": [],
           "scope": "released_paper",
-          "roles": [],
-          "included": false,
-          "inclusion_reason": null,
-          "exclusion_reason": "The exact term was reviewed, but this text does not perform the mechanic or explicitly grant it.",
+          "roles": [
+            "explicit_grant"
+          ],
+          "included": true,
+          "inclusion_reason": "Creates a token with changeling; access follows the source card’s colors.",
+          "exclusion_reason": null,
           "attributed_colors": [],
           "attribution_justification": "Colors are taken from the mechanic-bearing face (including a color indicator where Scryfall reports it), not Commander identity. Multicolor designs remain combination evidence.",
           "scryfall_url": "https://scryfall.com/card/ecc/22/abundant-countryside?utm_source=api",
@@ -21363,11 +21353,15 @@
             "W"
           ],
           "scope": "released_paper",
-          "roles": [],
-          "included": false,
-          "inclusion_reason": null,
-          "exclusion_reason": "The exact term was reviewed, but this text does not perform the mechanic or explicitly grant it.",
-          "attributed_colors": [],
+          "roles": [
+            "explicit_grant"
+          ],
+          "included": true,
+          "inclusion_reason": "Creates a token with changeling; access follows the source card’s colors.",
+          "exclusion_reason": null,
+          "attributed_colors": [
+            "W"
+          ],
           "attribution_justification": "Colors are taken from the mechanic-bearing face (including a color indicator where Scryfall reports it), not Commander identity. Multicolor designs remain combination evidence.",
           "scryfall_url": "https://scryfall.com/card/ecc/5/belonging?utm_source=api",
           "full_card_facts": {
@@ -21531,10 +21525,12 @@
           "colors": [],
           "color_identity": [],
           "scope": "released_paper",
-          "roles": [],
-          "included": false,
-          "inclusion_reason": null,
-          "exclusion_reason": "The exact term was reviewed, but this text does not perform the mechanic or explicitly grant it.",
+          "roles": [
+            "explicit_grant"
+          ],
+          "included": true,
+          "inclusion_reason": "Creates a token with changeling; access follows the source card’s colors.",
+          "exclusion_reason": null,
           "attributed_colors": [],
           "attribution_justification": "Colors are taken from the mechanic-bearing face (including a color indicator where Scryfall reports it), not Commander identity. Multicolor designs remain combination evidence.",
           "scryfall_url": "https://scryfall.com/card/mh1/221/birthing-boughs?utm_source=api",
@@ -21699,11 +21695,15 @@
             "B"
           ],
           "scope": "released_paper",
-          "roles": [],
-          "included": false,
-          "inclusion_reason": null,
-          "exclusion_reason": "The exact term was reviewed, but this text does not perform the mechanic or explicitly grant it.",
-          "attributed_colors": [],
+          "roles": [
+            "explicit_grant"
+          ],
+          "included": true,
+          "inclusion_reason": "Creates a token with changeling; access follows the source card’s colors.",
+          "exclusion_reason": null,
+          "attributed_colors": [
+            "B"
+          ],
           "attribution_justification": "Colors are taken from the mechanic-bearing face (including a color indicator where Scryfall reports it), not Commander identity. Multicolor designs remain combination evidence.",
           "scryfall_url": "https://scryfall.com/card/msc/155/black-market-connections?utm_source=api",
           "full_card_facts": {
@@ -27590,10 +27590,12 @@
           "colors": [],
           "color_identity": [],
           "scope": "released_paper",
-          "roles": [],
-          "included": false,
-          "inclusion_reason": null,
-          "exclusion_reason": "The exact term was reviewed, but this text does not perform the mechanic or explicitly grant it.",
+          "roles": [
+            "explicit_grant"
+          ],
+          "included": true,
+          "inclusion_reason": "Creates a token with changeling; access follows the source card’s colors.",
+          "exclusion_reason": null,
           "attributed_colors": [],
           "attribution_justification": "Colors are taken from the mechanic-bearing face (including a color indicator where Scryfall reports it), not Commander identity. Multicolor designs remain combination evidence.",
           "scryfall_url": "https://scryfall.com/card/clb/865/maskwood-nexus?utm_source=api",
@@ -29941,11 +29943,15 @@
             "W"
           ],
           "scope": "released_paper",
-          "roles": [],
-          "included": false,
-          "inclusion_reason": null,
-          "exclusion_reason": "The exact term was reviewed, but this text does not perform the mechanic or explicitly grant it.",
-          "attributed_colors": [],
+          "roles": [
+            "explicit_grant"
+          ],
+          "included": true,
+          "inclusion_reason": "Creates a token with changeling; access follows the source card’s colors.",
+          "exclusion_reason": null,
+          "attributed_colors": [
+            "W"
+          ],
           "attribution_justification": "Colors are taken from the mechanic-bearing face (including a color indicator where Scryfall reports it), not Commander identity. Multicolor designs remain combination evidence.",
           "scryfall_url": "https://scryfall.com/card/ecl/28/personify?utm_source=api",
           "full_card_facts": {
@@ -32292,11 +32298,15 @@
             "G"
           ],
           "scope": "released_paper",
-          "roles": [],
-          "included": false,
-          "inclusion_reason": null,
-          "exclusion_reason": "The exact term was reviewed, but this text does not perform the mechanic or explicitly grant it.",
-          "attributed_colors": [],
+          "roles": [
+            "explicit_grant"
+          ],
+          "included": true,
+          "inclusion_reason": "Creates a token with changeling; access follows the source card’s colors.",
+          "exclusion_reason": null,
+          "attributed_colors": [
+            "G"
+          ],
           "attribution_justification": "Colors are taken from the mechanic-bearing face (including a color indicator where Scryfall reports it), not Commander identity. Multicolor designs remain combination evidence.",
           "scryfall_url": "https://scryfall.com/card/ecc/19/springleaf-parade?utm_source=api",
           "full_card_facts": {
@@ -32467,10 +32477,12 @@
           "colors": [],
           "color_identity": [],
           "scope": "released_paper",
-          "roles": [],
-          "included": false,
-          "inclusion_reason": null,
-          "exclusion_reason": "The exact term was reviewed, but this text does not perform the mechanic or explicitly grant it.",
+          "roles": [
+            "explicit_grant"
+          ],
+          "included": true,
+          "inclusion_reason": "Creates a token with changeling; access follows the source card’s colors.",
+          "exclusion_reason": null,
           "attributed_colors": [],
           "attribution_justification": "Colors are taken from the mechanic-bearing face (including a color indicator where Scryfall reports it), not Commander identity. Multicolor designs remain combination evidence.",
           "scryfall_url": "https://scryfall.com/card/ecl/261/stalactite-dagger?utm_source=api",
@@ -32800,11 +32812,16 @@
             "U"
           ],
           "scope": "released_paper",
-          "roles": [],
-          "included": false,
-          "inclusion_reason": null,
-          "exclusion_reason": "The exact term was reviewed, but this text does not perform the mechanic or explicitly grant it.",
-          "attributed_colors": [],
+          "roles": [
+            "explicit_grant"
+          ],
+          "included": true,
+          "inclusion_reason": "Creates a token with changeling; access follows the source card’s colors.",
+          "exclusion_reason": null,
+          "attributed_colors": [
+            "U",
+            "G"
+          ],
           "attribution_justification": "Colors are taken from the mechanic-bearing face (including a color indicator where Scryfall reports it), not Commander identity. Multicolor designs remain combination evidence.",
           "scryfall_url": "https://scryfall.com/card/khm/205/the-bears-of-littjara?utm_source=api",
           "full_card_facts": {
@@ -34799,7 +34816,7 @@
         "review_date": "2026-10-28",
         "scope_label": "Released paper cards",
         "scope": "Released paper cards that use or explicitly grant Changeling.",
-        "summary": "The reviewed cards have every creature type through changeling, including colored cards and colorless cards.",
+        "summary": "Changeling makes a card every creature type. Some cards also create tokens with changeling.",
         "allWUBRG": {
           "W": {
             "status": "documented",
@@ -34892,9 +34909,11 @@
               "c0636d16-671c-4e80-af8c-67d80d2cd979",
               "17e905ca-c0bd-473d-95a7-e180ba5fea43",
               "7ad6be4e-5c3c-4633-a641-beb06e4129b9",
-              "65d9b8b6-5215-4037-8e50-e0ca80c5dc9e"
+              "65d9b8b6-5215-4037-8e50-e0ca80c5dc9e",
+              "0ec88e35-191b-411b-9eb0-2dfef7ae4174",
+              "e1708ad9-35d4-4243-92ca-ddf9d129aa32"
             ],
-            "note": "Avian Changeling has every creature type because it has changeling."
+            "note": "Avian Changeling has changeling."
           },
           "U": {
             "status": "documented",
@@ -34910,7 +34929,7 @@
               "87f8b403-765c-4a2a-8b21-edaaaa889234",
               "0bb2b3cc-d3e6-40e9-a5da-d589e8e8f0bd"
             ],
-            "note": "Amoeboid Changeling has every creature type because it has changeling."
+            "note": "Amoeboid Changeling has changeling."
           },
           "B": {
             "status": "documented",
@@ -34922,9 +34941,10 @@
               "61b74f82-39f3-4618-b8e7-292058421d1b",
               "d6911456-42cb-4b23-a560-dc98784530f5",
               "b9d388ca-1a63-4a11-bf33-9f7b87305a52",
-              "f1929f1f-6aa3-4308-bbff-cab03883ac68"
+              "f1929f1f-6aa3-4308-bbff-cab03883ac68",
+              "d2664f28-49e1-46f8-a863-b217e961a57c"
             ],
-            "note": "Cairn Wanderer has every creature type because it has changeling."
+            "note": "Cairn Wanderer has changeling."
           },
           "R": {
             "status": "documented",
@@ -34936,7 +34956,7 @@
               "fd5ee26c-cc54-4dc0-b611-5cda14354a5e",
               "b6ddb093-1fff-4648-b7a1-141a3875599c"
             ],
-            "note": "Blades of Velis Vel has every creature type because it has changeling."
+            "note": "Blades of Velis Vel has changeling."
           },
           "G": {
             "status": "documented",
@@ -34953,9 +34973,10 @@
               "34b93a66-de1e-4133-a479-e0d90ba94a3a",
               "b81eaa2f-0554-41c6-bdf6-d1cb73b8f56f",
               "c8cf9387-54df-45b1-ad8d-9de57ed8916b",
-              "338f0ab6-f744-4e5a-a358-05e71b93758d"
+              "338f0ab6-f744-4e5a-a358-05e71b93758d",
+              "b1305916-53cc-4021-897e-bbefc65dce78"
             ],
-            "note": "Chameleon Colossus has every creature type because it has changeling."
+            "note": "Chameleon Colossus has changeling."
           }
         },
         "combinations": [
@@ -34967,7 +34988,7 @@
             "card_ids": [
               "7e4d1ce3-92f0-4acc-962b-8073d41d3673"
             ],
-            "note": "Unsettled Mariner has every creature type because it has changeling."
+            "note": "Unsettled Mariner has changeling."
           },
           {
             "colors": [
@@ -34977,7 +34998,7 @@
             "card_ids": [
               "faf2f368-a7e7-4427-bc03-929f294b1e03"
             ],
-            "note": "Prideful Feastling has every creature type because it has changeling."
+            "note": "Prideful Feastling has changeling."
           },
           {
             "colors": [
@@ -34987,7 +35008,7 @@
             "card_ids": [
               "fcf796fa-43ae-43d1-a124-776338bc3542"
             ],
-            "note": "Feisty Spikeling has every creature type because it has changeling."
+            "note": "Feisty Spikeling has changeling."
           },
           {
             "colors": [
@@ -34997,7 +35018,7 @@
             "card_ids": [
               "fe7a4361-561a-4bab-921e-d01bab19dad3"
             ],
-            "note": "Mischievous Sneakling has every creature type because it has changeling."
+            "note": "Mischievous Sneakling has changeling."
           },
           {
             "colors": [
@@ -35006,9 +35027,10 @@
             ],
             "card_ids": [
               "930035c6-cde7-40ac-98ef-0840812037db",
-              "78699161-fc14-4a44-8a15-0f7c08be0343"
+              "78699161-fc14-4a44-8a15-0f7c08be0343",
+              "697f3fd9-1577-4f69-bdf8-db1f673d3505"
             ],
-            "note": "Chitinous Graspling has every creature type because it has changeling."
+            "note": "Chitinous Graspling has changeling."
           },
           {
             "colors": [
@@ -35018,7 +35040,7 @@
             "card_ids": [
               "60206d4e-4301-4d7a-a68e-46a2ad9fc407"
             ],
-            "note": "Gangly Stompling has every creature type because it has changeling."
+            "note": "Gangly Stompling has changeling."
           }
         ],
         "colorless": {
@@ -35031,9 +35053,13 @@
             "bf418a2f-e639-4e52-9cad-5a0713a1829b",
             "3dc73517-0767-46ae-bc8d-ee378237a509",
             "6cb9d153-4eaa-4f32-8930-bd68cd99c128",
-            "d50b1d2e-1825-432a-ab73-068fdc356f50"
+            "d50b1d2e-1825-432a-ab73-068fdc356f50",
+            "e3eb6f90-ccfc-41e7-bff6-0b378226bc7e",
+            "c6836d78-ca71-4413-aced-d4de19976221",
+            "9b2cdbed-c733-409b-b0e4-2c8960c25111",
+            "064c3269-c012-4fc7-84c3-5f147a82a03c"
           ],
-          "note": "Barkform Harvester has every creature type because it has changeling."
+          "note": "Barkform Harvester has changeling."
         },
         "full_qualifying_ids": [
           "68865793-daeb-4c55-80cb-12853f9f96c4",
@@ -35099,10 +35125,7 @@
           "0bb2b3cc-d3e6-40e9-a5da-d589e8e8f0bd",
           "338f0ab6-f744-4e5a-a358-05e71b93758d"
         ],
-        "limitations": [
-          "Colors follow the card or face that supplies the mechanic. Multicolor examples do not establish separate single-color access, and a colorless source does not establish access in every color that can use it.",
-          "Digital cards, playtest cards, commemorative cards, acorn or silver-bordered cards, planes and standalone token cards are outside this paper-card review."
-        ]
+        "limitations": []
       }
     },
     {
@@ -42248,11 +42271,7 @@
           "52f0dcbd-ccf3-4525-8e55-2d38b4991834",
           "b72fd535-0051-4f59-9d99-75895f751006"
         ],
-        "limitations": [
-          "Colors follow the card or face that supplies the mechanic. Multicolor examples do not establish separate single-color access, and a colorless source does not establish access in every color that can use it.",
-          "Digital cards, playtest cards, commemorative cards, acorn or silver-bordered cards, planes and standalone token cards are outside this paper-card review.",
-          "The Channel ability word is separate from the card named Channel. Its land examples remain colorless despite colored activation costs."
-        ]
+        "limitations": []
       }
     },
     {
@@ -43955,10 +43974,7 @@
           "325b3469-531e-4ca2-bccb-bb95258c1b54",
           "51afd09d-7eee-41c9-bc42-f3f61a176479"
         ],
-        "limitations": [
-          "Colors follow the card or face that supplies the mechanic. Multicolor examples do not establish separate single-color access, and a colorless source does not establish access in every color that can use it.",
-          "Digital cards, playtest cards, commemorative cards, acorn or silver-bordered cards, planes and standalone token cards are outside this paper-card review."
-        ]
+        "limitations": []
       }
     },
     {
@@ -46602,7 +46618,7 @@
               "3b5b926b-ee8f-4c7a-8737-1de7d18ca60d",
               "6706ebe4-4f96-4788-a934-f9b9aac5746f"
             ],
-            "note": "Arcane Heist can be encoded on a creature through cipher. When that creature deals combat damage to a player, its controller can cast a copy of the encoded spell."
+            "note": "Arcane Heist has cipher."
           },
           "B": {
             "status": "documented",
@@ -46613,7 +46629,7 @@
               "aa997e63-be19-4b1a-8972-eebc8a720ded",
               "47735ef2-fc4c-4634-83ab-715b1e86da0c"
             ],
-            "note": "Mental Vapors can be encoded on a creature through cipher. When that creature deals combat damage to a player, its controller can cast a copy of the encoded spell."
+            "note": "Mental Vapors has cipher."
           },
           "R": {
             "status": "not_found",
@@ -46637,7 +46653,7 @@
               "129cec2c-fc1b-4ce6-98f2-2123e4dbd1ae",
               "7bbc5f3a-f8fb-47e8-837e-ce319bc489de"
             ],
-            "note": "Call of the Nightwing can be encoded on a creature through cipher. When that creature deals combat damage to a player, its controller can cast a copy of the encoded spell."
+            "note": "Call of the Nightwing has cipher."
           }
         ],
         "colorless": {
@@ -46662,10 +46678,7 @@
           "7bbc5f3a-f8fb-47e8-837e-ce319bc489de",
           "47735ef2-fc4c-4634-83ab-715b1e86da0c"
         ],
-        "limitations": [
-          "Colors follow the card or face that supplies the mechanic. Multicolor examples do not establish separate single-color access, and a colorless source does not establish access in every color that can use it.",
-          "Digital cards, playtest cards, commemorative cards, acorn or silver-bordered cards, planes and standalone token cards are outside this paper-card review."
-        ]
+        "limitations": []
       }
     },
     {
@@ -52723,10 +52736,7 @@
           "7f527852-bf7d-43a3-be0b-784c73ed88aa",
           "09e84398-7782-48d0-8411-9055d253395c"
         ],
-        "limitations": [
-          "Colors follow the card or face that supplies the mechanic. Multicolor examples do not establish separate single-color access, and a colorless source does not establish access in every color that can use it.",
-          "Digital cards, playtest cards, commemorative cards, acorn or silver-bordered cards, planes and standalone token cards are outside this paper-card review."
-        ]
+        "limitations": []
       }
     },
     {
@@ -55123,10 +55133,7 @@
           "a4630da0-fe9b-4ead-9621-eac4b7825c35",
           "378567f8-7aef-42b6-853e-8591641052e8"
         ],
-        "limitations": [
-          "Colors follow the card or face that supplies the mechanic. Multicolor examples do not establish separate single-color access, and a colorless source does not establish access in every color that can use it.",
-          "Digital cards, playtest cards, commemorative cards, acorn or silver-bordered cards, planes and standalone token cards are outside this paper-card review."
-        ]
+        "limitations": []
       }
     },
     {
@@ -57726,7 +57733,7 @@
             "card_ids": [
               "87957d09-7e22-40fe-8770-ff66d1934a38"
             ],
-            "note": "Etrata, Deadly Fugitive can exile an opponent’s top library card and cloak it after an Assassin you control deals combat damage to that player. These are multicolor examples; no independent example in this color was found in the reviewed scope."
+            "note": "See the multicolor examples."
           },
           "R": {
             "status": "documented",
@@ -57783,11 +57790,7 @@
           "e8aa0d7d-e5f6-4d66-bdc1-315483e1b256",
           "cbf0190a-198b-49cc-8c79-4028da07fa77"
         ],
-        "limitations": [
-          "Colors follow the card or face that supplies the mechanic. Multicolor examples do not establish separate single-color access, and a colorless source does not establish access in every color that can use it.",
-          "Digital cards, playtest cards, commemorative cards, acorn or silver-bordered cards, planes and standalone token cards are outside this paper-card review.",
-          "Burning Cloak is a name-only match. Expose the Culprit qualifies because one of its modes actually cloaks creatures."
-        ]
+        "limitations": []
       }
     },
     {
@@ -59498,10 +59501,7 @@
           "d57d1988-5962-4df9-8342-cf04233fd6c7",
           "017f4471-db5a-4ad0-97b3-b1f12b52578a"
         ],
-        "limitations": [
-          "Colors follow the card or face that supplies the mechanic. Multicolor examples do not establish separate single-color access, and a colorless source does not establish access in every color that can use it.",
-          "Digital cards, playtest cards, commemorative cards, acorn or silver-bordered cards, planes and standalone token cards are outside this paper-card review."
-        ]
+        "limitations": []
       }
     }
   ]

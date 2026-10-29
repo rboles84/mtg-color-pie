@@ -2022,18 +2022,34 @@ function assessmentHTML(k){
   const a = ASSESSMENTS.byKey.get(k);
   if (!a) return `<section class="dx-sec supp-assessment" aria-label="Color access status"><p class="dx-note">${esc(assessmentSummary(k))}. ${ASSESSMENTS.status === 'unavailable' ? 'The color access record could not be loaded. Reload to try again; rules and other evidence remain available.' : 'Rules and other evidence remain available while the record loads.'}</p></section>`;
   const link = (name, url) => url ? `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(name)}</a>` : esc(name);
+  const compactExamples = a.name.startsWith('C');
   const displayColors = [...ORDER, ...(a.access.colorless.status === 'documented' ? ['C'] : [])];
   const accessRows = a.kind === 'access' ? displayColors.map(c => { const item=c === 'C' ? a.access.colorless : a.access.colors[c]; return `<li class="own-row${item.status === 'documented' ? '' : ' none'}" data-c="${c}">${accessMarkHTML(c,item.status)}<span class="own-c">${c === 'C' ? 'Colorless' : CNAME[c]}</span><span class="own-lead" aria-hidden="true"></span><span class="own-t">${esc(item.status === 'documented' ? 'Access' : item.status === 'multicolor_only' ? 'Combination only' : item.status === 'not_applicable' ? 'Not applicable' : item.status === 'insufficient_evidence' ? 'Insufficient evidence' : 'No example found')}</span></li>`; }).join('') : '';
-  const reviewedCards = (item, label) => `${item.findUrl ? `<p>${link('Find reviewed ' + label + ' cards on Scryfall', item.findUrl)}</p>` : ''}${item.cards.length ? `<details><summary>${item.cards.length} reviewed card ${item.cards.length === 1 ? 'source' : 'sources'}</summary><ul class="dx-list">${item.cards.map(card => `<li>${link(card.name,card.url)}</li>`).join('')}</ul></details>` : ''}`;
-  const colorNotes = a.kind === 'access' ? `<h4>Color evidence</h4>${ORDER.map(c => { const item=a.access.colors[c]; return `<p><b>${CNAME[c]}.</b> ${esc(item.note)}</p>${reviewedCards(item,CNAME[c])}`; }).join('')}` : '';
-  const combos = a.kind === 'access' && a.access.combinations.length ? `<h4>Color combinations</h4><ul class="dx-list">${a.access.combinations.map(x => `<li><b>${esc(x.colors.map(c=>CNAME[c]).join(' / '))}.</b> ${esc(x.note)}${reviewedCards(x,x.colors.map(c=>CNAME[c]).join(' / '))}</li>`).join('')}</ul>` : '';
+  // One qualifying example establishes access. Retain the full reviewed set
+  // for discovery, without making its size a player-facing requirement.
+  const reviewedCards = (item, label) => {
+    if (compactExamples) {
+      const example = item.cards[0];
+      return example && item.findUrl && item.cards.length > 1 ? `<p>${link('Browse reviewed ' + label + ' cards on Scryfall', item.findUrl)}</p>` : '';
+    }
+    return `${item.findUrl ? `<p>${link('Find reviewed ' + label + ' cards on Scryfall', item.findUrl)}</p>` : ''}${item.cards.length ? `<details><summary>${item.cards.length} reviewed card ${item.cards.length === 1 ? 'source' : 'sources'}</summary><ul class="dx-list">${item.cards.map(card => `<li>${link(card.name,card.url)}</li>`).join('')}</ul></details>` : ''}`;
+  };
+  const exampleNote = item => {
+    if (!compactExamples || !item.cards.length) return esc(item.note);
+    const card = item.cards[0];
+    const names = [card.name, card.name.split(' // ')[0]];
+    const mention = names.flatMap(name => [name, name.replaceAll("'", '’')]).find(name => item.note.includes(name));
+    return mention ? esc(item.note).replace(esc(mention), link(mention, card.url)) : `${link(card.name, card.url)} — ${esc(item.note)}`;
+  };
+  const colorNotes = a.kind === 'access' && (!compactExamples || ORDER.some(c => a.access.colors[c].status === 'documented')) ? `<h4>Color evidence</h4>${ORDER.filter(c => !compactExamples || a.access.colors[c].status === 'documented').map(c => { const item=a.access.colors[c]; return `<p${compactExamples ? ' class="assessment-example"' : ''}><b>${CNAME[c]}.</b> ${exampleNote(item)}</p>${reviewedCards(item,CNAME[c])}`; }).join('')}` : '';
+  const combos = a.kind === 'access' && a.access.combinations.length ? `<h4>Color combinations</h4><ul class="dx-list">${a.access.combinations.map(x => `<li${compactExamples ? ' class="assessment-example"' : ''}><b>${esc(x.colors.map(c=>CNAME[c]).join(' / '))}.</b> ${exampleNote(x)}${reviewedCards(x,x.colors.map(c=>CNAME[c]).join(' / '))}</li>`).join('')}</ul>` : '';
   const nonCardSources = a.sources.filter(s => { const u=new URL(s.url); return !(u.hostname === 'scryfall.com' && /^\/(?:card(?:s)?(?:\/|$)|search(?:\/|$))/.test(u.pathname)); });
-  const colorlessEvidence = a.kind === 'access' ? `<h4>Colorless evidence</h4><p>${esc(a.access.colorless.note)}</p>${reviewedCards(a.access.colorless,'Colorless')}` : '';
+  const colorlessEvidence = a.kind === 'access' && (!compactExamples || a.access.colorless.status === 'documented') ? `<h4>Colorless evidence</h4><p${compactExamples ? ' class="assessment-example"' : ''}>${exampleNote(a.access.colorless)}</p>${reviewedCards(a.access.colorless,'Colorless')}` : '';
   return `<section class="dx-sec supp-assessment" aria-label="Color access">
     <h3 class="dx-h">Color Access</h3>${a.kind === 'rules' ? '<p class="dx-note">This is a general rules action; it has no color access map.</p>' : ''}
-    ${a.kind === 'access' ? `<ul class="own access-strip" aria-label="Color access">${accessRows}</ul>` : '<p class="dx-ex is-supplemental"><b>Rules action · Color access not applicable</b></p>'}<p class="dx-note"><b>${esc(a.scopeLabel)}.</b> ${esc(a.scope)}</p>
+    ${a.kind === 'access' ? `<ul class="own access-strip" aria-label="Color access">${accessRows}</ul>` : '<p class="dx-ex is-supplemental"><b>Rules action · Color access not applicable</b></p>'}<p class="dx-note"><b>${esc(a.scopeLabel)}.</b>${compactExamples ? '' : ' ' + esc(a.scope)}</p>
     <p class="dx-note">Based on reviewed evidence October 28, 2026. Outside the 2021 color calculations.</p>
-    <details class="assessment-notes"><summary>Evidence and scope</summary><p>${esc(a.summary)}</p>${colorNotes}${combos}${colorlessEvidence}
+    <details class="assessment-notes"><summary>${compactExamples && a.kind === 'access' ? 'Reviewed card examples' : 'Evidence and scope'}</summary><p>${esc(a.summary)}</p>${colorNotes}${combos}${colorlessEvidence}
       ${a.access.limitations.length ? `<h4>Scope and limitations</h4><ul class="dx-list">${a.access.limitations.map(t => `<li>${esc(t)}</li>`).join('')}</ul>` : ''}
       ${nonCardSources.length ? `<section class="assessment-sources"><h4>Sources</h4>${nonCardSources.map(s => `<p>${link(s.title, s.url)}</p>`).join('')}</section>` : ''}
       ${a.kind === 'rules' && a.citationCards.length ? `<details class="assessment-rule-cards"><summary>${a.citationCards.length} reviewed card ${a.citationCards.length === 1 ? 'source' : 'sources'}</summary><ul class="dx-list">${a.citationCards.map(c => `<li>${link(c.name, c.url)}</li>`).join('')}</ul></details>` : ''}

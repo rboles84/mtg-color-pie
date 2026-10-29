@@ -1453,12 +1453,14 @@
           ],
           "scope": "released_paper",
           "roles": [
-            "term_match"
+            "native"
           ],
-          "included": false,
-          "inclusion_reason": null,
-          "exclusion_reason": "Term match only; it is not a native use or explicit grant of this mechanic.",
-          "attributed_colors": [],
+          "included": true,
+          "inclusion_reason": "Directly instructs the player to collect evidence.",
+          "exclusion_reason": null,
+          "attributed_colors": [
+            "R"
+          ],
           "attribution_justification": "Mechanic-bearing card or face colors only; multicolor evidence remains a combination and does not establish independent monocolor access.",
           "first_release": "2024-02-09",
           "release_context": "Murders at Karlov Manor (mkm)",
@@ -2374,12 +2376,15 @@
           ],
           "scope": "released_paper",
           "roles": [
-            "term_match"
+            "native"
           ],
-          "included": false,
-          "inclusion_reason": null,
-          "exclusion_reason": "Term match only; it is not a native use or explicit grant of this mechanic.",
-          "attributed_colors": [],
+          "included": true,
+          "inclusion_reason": "Directly instructs the player to collect evidence.",
+          "exclusion_reason": null,
+          "attributed_colors": [
+            "B",
+            "G"
+          ],
           "attribution_justification": "Mechanic-bearing card or face colors only; multicolor evidence remains a combination and does not establish independent monocolor access.",
           "first_release": "2024-02-09",
           "release_context": "Murders at Karlov Manor (mkm)",
@@ -2591,7 +2596,8 @@
             "status": "documented",
             "card_ids": [
               "52c3fe55-74ee-44cb-b62b-dc6c5dfdc33e",
-              "c6f7efad-381c-45ba-9976-159b7e78f7ed"
+              "c6f7efad-381c-45ba-9976-159b7e78f7ed",
+              "9b7d037f-3269-4e3b-9744-a977acb69c67"
             ],
             "note": "Detective’s Phoenix collects evidence 6 as part of its bestow cost, including when bestowed from your graveyard."
           },
@@ -2625,7 +2631,8 @@
               "G"
             ],
             "card_ids": [
-              "8074afbf-190b-4a24-b939-cc559bdffe38"
+              "8074afbf-190b-4a24-b939-cc559bdffe38",
+              "378a6203-0d47-4165-bdc2-43dfdfb4d15d"
             ],
             "note": "Izoni, Center of the Web can collect evidence 4 when entering or attacking to create two Spider tokens."
           },
@@ -2657,24 +2664,19 @@
           ],
           "note": "Cryptex collects evidence 3 when tapped for mana, also adding an unlock counter."
         },
-        "limitations": [
-          "Colors follow the card or face that supplies the mechanic. Multicolor examples do not establish separate single-color access, and a colorless source does not establish access in every color that can use it.",
-          "Digital cards, playtest cards, commemorative cards, acorn or silver-bordered cards, planes and standalone token cards are outside this paper-card review."
-        ]
+        "limitations": []
       },
       "population_summary": {
         "scoped_totals": {
           "candidate_union": 24,
           "included_by_scope": {
-            "released_paper": 22
+            "released_paper": 24
           },
           "candidates_by_scope": {
             "released_paper": 24
           }
         },
-        "excluded_totals": {
-          "term_match": 2
-        },
+        "excluded_totals": {},
         "per_color": {
           "W": {
             "native": [
@@ -2729,7 +2731,8 @@
             "explicit_grant": [],
             "joint_only": [
               "8074afbf-190b-4a24-b939-cc559bdffe38",
-              "6031d854-10a8-43da-b5c4-b561194bcd4e"
+              "6031d854-10a8-43da-b5c4-b561194bcd4e",
+              "378a6203-0d47-4165-bdc2-43dfdfb4d15d"
             ],
             "release_contexts": [
               "Murders at Karlov Manor (mkm)",
@@ -2737,6 +2740,7 @@
             ],
             "rarity_coverage": [
               "common",
+              "mythic",
               "rare",
               "uncommon"
             ],
@@ -2747,6 +2751,7 @@
           "R": {
             "native": [
               "52c3fe55-74ee-44cb-b62b-dc6c5dfdc33e",
+              "9b7d037f-3269-4e3b-9744-a977acb69c67",
               "c6f7efad-381c-45ba-9976-159b7e78f7ed"
             ],
             "explicit_grant": [],
@@ -2777,13 +2782,15 @@
             "explicit_grant": [],
             "joint_only": [
               "a3468804-26ad-4919-b030-a1906a7029e8",
-              "8074afbf-190b-4a24-b939-cc559bdffe38"
+              "8074afbf-190b-4a24-b939-cc559bdffe38",
+              "378a6203-0d47-4165-bdc2-43dfdfb4d15d"
             ],
             "release_contexts": [
               "Murders at Karlov Manor (mkm)"
             ],
             "rarity_coverage": [
               "common",
+              "mythic",
               "rare",
               "uncommon"
             ],
@@ -2810,6 +2817,7 @@
             "96480e86-70a8-401d-abf8-a7d509311b73",
             "75e7f7c7-fa98-497b-bf5e-8f74571e190c",
             "923b2a1b-d7b6-439d-9681-c7ba88165c31",
+            "9b7d037f-3269-4e3b-9744-a977acb69c67",
             "8074afbf-190b-4a24-b939-cc559bdffe38",
             "e7b746c8-1b32-42ed-8328-4e16274209d8",
             "c6f7efad-381c-45ba-9976-159b7e78f7ed",
@@ -2818,6 +2826,7 @@
             "566b65bb-fa5d-4da6-a766-b08128ee0049",
             "9be5a350-c38e-425f-9d6a-8eb111132a89",
             "0953772c-9374-4616-9c04-5838aaf626c9",
+            "378a6203-0d47-4165-bdc2-43dfdfb4d15d",
             "22a33139-a730-4792-9dd5-2c0f99f96855"
           ]
         }
@@ -8608,7 +8617,7 @@
               "e15504a7-2b67-4185-b916-172145f10b19",
               "7b515c56-7b1e-42a8-82b0-1b30201fb162"
             ],
-            "note": "Kaheera, the Orphanguard requires a starting deck with only Cats, Elementals, Nightmares, Dinosaurs or Beasts among its creature cards to be chosen as a companion. These are multicolor examples; no independent example in this color was found in the reviewed scope."
+            "note": "See the multicolor examples."
           },
           "U": {
             "status": "multicolor_only",
@@ -8618,7 +8627,7 @@
               "158a6225-a246-4fd6-aa57-0df8067b4383",
               "e15504a7-2b67-4185-b916-172145f10b19"
             ],
-            "note": "Gyruda, Doom of Depths requires a starting deck with only even mana values to be chosen as a companion. These are multicolor examples; no independent example in this color was found in the reviewed scope."
+            "note": "See the multicolor examples."
           },
           "B": {
             "status": "multicolor_only",
@@ -8628,7 +8637,7 @@
               "6985c8a9-9299-461b-8bef-bd2b2c739c11",
               "913383a1-9c0d-40a1-8c5a-b0a8a95c09a6"
             ],
-            "note": "Gyruda, Doom of Depths requires a starting deck with only even mana values to be chosen as a companion. These are multicolor examples; no independent example in this color was found in the reviewed scope."
+            "note": "See the multicolor examples."
           },
           "R": {
             "status": "multicolor_only",
@@ -8638,7 +8647,7 @@
               "6985c8a9-9299-461b-8bef-bd2b2c739c11",
               "7b515c56-7b1e-42a8-82b0-1b30201fb162"
             ],
-            "note": "Jegantha, the Wellspring requires a starting deck with no card with a repeated mana symbol in its cost to be chosen as a companion. These are multicolor examples; no independent example in this color was found in the reviewed scope."
+            "note": "See the multicolor examples."
           },
           "G": {
             "status": "multicolor_only",
@@ -8648,7 +8657,7 @@
               "ca5121b2-e6d9-40bc-a2d2-05852c4efbe8",
               "913383a1-9c0d-40a1-8c5a-b0a8a95c09a6"
             ],
-            "note": "Jegantha, the Wellspring requires a starting deck with no card with a repeated mana symbol in its cost to be chosen as a companion. These are multicolor examples; no independent example in this color was found in the reviewed scope."
+            "note": "See the multicolor examples."
           }
         },
         "combinations": [
@@ -8758,11 +8767,7 @@
           "card_ids": [],
           "note": "No colorless example was found in the reviewed paper cards."
         },
-        "limitations": [
-          "Colors follow the card or face that supplies the mechanic. Multicolor examples do not establish separate single-color access, and a colorless source does not establish access in every color that can use it.",
-          "Digital cards, playtest cards, commemorative cards, acorn or silver-bordered cards, planes and standalone token cards are outside this paper-card review.",
-          "These examples describe access, not whether a companion is legal in your chosen format or satisfies your deck’s restrictions."
-        ]
+        "limitations": []
       },
       "population_summary": {
         "scoped_totals": {
@@ -10892,7 +10897,7 @@
         "review_date": "2026-10-28",
         "scope_label": "Released paper cards",
         "scope": "Released paper cards that use or explicitly grant Compleated.",
-        "summary": "The reviewed planeswalkers have compleated, entering with fewer loyalty counters when life is paid for their Phyrexian mana symbols.",
+        "summary": "A planeswalker with compleated enters with two fewer loyalty counters for each of its Phyrexian mana symbols paid with life.",
         "colors": {
           "W": {
             "status": "multicolor_only",
@@ -10900,21 +10905,21 @@
               "37714eb9-a39d-4534-a2d3-27908c418f8a",
               "d71d42e0-cd56-4f53-95ff-ecab7f8c6552"
             ],
-            "note": "Ajani, Sleeper Agent enters with two fewer loyalty counters for each Phyrexian mana symbol paid with life. These are multicolor examples; no independent example in this color was found in the reviewed scope."
+            "note": "See the multicolor examples."
           },
           "U": {
             "status": "documented",
             "card_ids": [
               "03dafab4-841f-41cb-8f2e-8188f5177837"
             ],
-            "note": "Jace, the Perfected Mind enters with two fewer loyalty counters for each Phyrexian mana symbol paid with life."
+            "note": "Jace, the Perfected Mind has compleated."
           },
           "B": {
             "status": "documented",
             "card_ids": [
               "05d09c55-f551-4cb4-a8d2-4811dccc848d"
             ],
-            "note": "Vraska, Betrayal's Sting enters with two fewer loyalty counters for each Phyrexian mana symbol paid with life."
+            "note": "Vraska, Betrayal's Sting has compleated."
           },
           "R": {
             "status": "multicolor_only",
@@ -10922,14 +10927,14 @@
               "8e68eba1-65ac-4c03-956f-45e7b5695e2a",
               "d71d42e0-cd56-4f53-95ff-ecab7f8c6552"
             ],
-            "note": "Lukka, Bound to Ruin enters with two fewer loyalty counters for each Phyrexian mana symbol paid with life. These are multicolor examples; no independent example in this color was found in the reviewed scope."
+            "note": "See the multicolor examples."
           },
           "G": {
             "status": "documented",
             "card_ids": [
               "9c8845d6-fa65-4731-b348-dc724fc2d285"
             ],
-            "note": "Nissa, Ascended Animist enters with two fewer loyalty counters for each Phyrexian mana symbol paid with life."
+            "note": "Nissa, Ascended Animist has compleated."
           }
         },
         "combinations": [
@@ -10941,7 +10946,7 @@
             "card_ids": [
               "37714eb9-a39d-4534-a2d3-27908c418f8a"
             ],
-            "note": "Ajani, Sleeper Agent enters with two fewer loyalty counters for each Phyrexian mana symbol paid with life."
+            "note": "Ajani, Sleeper Agent has compleated."
           },
           {
             "colors": [
@@ -10951,7 +10956,7 @@
             "card_ids": [
               "8e68eba1-65ac-4c03-956f-45e7b5695e2a"
             ],
-            "note": "Lukka, Bound to Ruin enters with two fewer loyalty counters for each Phyrexian mana symbol paid with life."
+            "note": "Lukka, Bound to Ruin has compleated."
           },
           {
             "colors": [
@@ -10961,7 +10966,7 @@
             "card_ids": [
               "d71d42e0-cd56-4f53-95ff-ecab7f8c6552"
             ],
-            "note": "Nahiri, the Unforgiving enters with two fewer loyalty counters for each Phyrexian mana symbol paid with life."
+            "note": "Nahiri, the Unforgiving has compleated."
           },
           {
             "colors": [
@@ -10971,7 +10976,7 @@
             "card_ids": [
               "021b4745-4a15-462c-a6b0-2dee1dc9d196"
             ],
-            "note": "Tamiyo, Compleated Sage enters with two fewer loyalty counters for each Phyrexian mana symbol paid with life."
+            "note": "Tamiyo, Compleated Sage has compleated."
           }
         ],
         "colorless": {
@@ -10979,10 +10984,7 @@
           "card_ids": [],
           "note": "No colorless example was found in the reviewed paper cards."
         },
-        "limitations": [
-          "Colors follow the card or face that supplies the mechanic. Multicolor examples do not establish separate single-color access, and a colorless source does not establish access in every color that can use it.",
-          "Digital cards, playtest cards, commemorative cards, acorn or silver-bordered cards, planes and standalone token cards are outside this paper-card review."
-        ]
+        "limitations": []
       },
       "population_summary": {
         "scoped_totals": {
@@ -11442,12 +11444,14 @@
           ],
           "scope": "released_paper",
           "roles": [
-            "payoff"
+            "native"
           ],
-          "included": false,
-          "inclusion_reason": null,
-          "exclusion_reason": "Connive payoff only; it does not make a creature connive or grant connive.",
-          "attributed_colors": [],
+          "included": true,
+          "inclusion_reason": "Directly makes a creature connive.",
+          "exclusion_reason": null,
+          "attributed_colors": [
+            "U"
+          ],
           "attribution_justification": "Mechanic-bearing card or face colors only; multicolor evidence remains a combination and does not establish independent monocolor access.",
           "first_release": "2026-06-26",
           "release_context": "Marvel Super Heroes Commander (msc)",
@@ -11517,12 +11521,14 @@
           ],
           "scope": "released_paper",
           "roles": [
-            "payoff"
+            "native"
           ],
-          "included": false,
-          "inclusion_reason": null,
-          "exclusion_reason": "Connive payoff only; it does not make a creature connive or grant connive.",
-          "attributed_colors": [],
+          "included": true,
+          "inclusion_reason": "Directly makes a creature connive.",
+          "exclusion_reason": null,
+          "attributed_colors": [
+            "B"
+          ],
           "attribution_justification": "Mechanic-bearing card or face colors only; multicolor evidence remains a combination and does not establish independent monocolor access.",
           "first_release": "2026-06-26",
           "release_context": "Marvel Super Heroes (msh)",
@@ -11608,12 +11614,14 @@
           ],
           "scope": "released_paper",
           "roles": [
-            "payoff"
+            "native"
           ],
-          "included": false,
-          "inclusion_reason": null,
-          "exclusion_reason": "Connive payoff only; it does not make a creature connive or grant connive.",
-          "attributed_colors": [],
+          "included": true,
+          "inclusion_reason": "Directly makes a creature connive.",
+          "exclusion_reason": null,
+          "attributed_colors": [
+            "B"
+          ],
           "attribution_justification": "Mechanic-bearing card or face colors only; multicolor evidence remains a combination and does not establish independent monocolor access.",
           "first_release": "2026-06-26",
           "release_context": "Marvel Super Heroes (msh)",
@@ -11713,12 +11721,14 @@
           ],
           "scope": "released_paper",
           "roles": [
-            "payoff"
+            "native"
           ],
-          "included": false,
-          "inclusion_reason": null,
-          "exclusion_reason": "Connive payoff only; it does not make a creature connive or grant connive.",
-          "attributed_colors": [],
+          "included": true,
+          "inclusion_reason": "Directly makes a creature connive.",
+          "exclusion_reason": null,
+          "attributed_colors": [
+            "B"
+          ],
           "attribution_justification": "Mechanic-bearing card or face colors only; multicolor evidence remains a combination and does not establish independent monocolor access.",
           "first_release": "2022-04-29",
           "release_context": "Streets of New Capenna (snc)",
@@ -12164,12 +12174,14 @@
           ],
           "scope": "released_paper",
           "roles": [
-            "payoff"
+            "native"
           ],
-          "included": false,
-          "inclusion_reason": null,
-          "exclusion_reason": "Connive payoff only; it does not make a creature connive or grant connive.",
-          "attributed_colors": [],
+          "included": true,
+          "inclusion_reason": "Directly makes a creature connive.",
+          "exclusion_reason": null,
+          "attributed_colors": [
+            "U"
+          ],
           "attribution_justification": "Mechanic-bearing card or face colors only; multicolor evidence remains a combination and does not establish independent monocolor access.",
           "first_release": "2025-09-26",
           "release_context": "Marvel Super Heroes Commander (msc)",
@@ -12607,12 +12619,14 @@
           ],
           "scope": "released_paper",
           "roles": [
-            "payoff"
+            "native"
           ],
-          "included": false,
-          "inclusion_reason": null,
-          "exclusion_reason": "Connive payoff only; it does not make a creature connive or grant connive.",
-          "attributed_colors": [],
+          "included": true,
+          "inclusion_reason": "Directly makes a creature connive.",
+          "exclusion_reason": null,
+          "attributed_colors": [
+            "W"
+          ],
           "attribution_justification": "Mechanic-bearing card or face colors only; multicolor evidence remains a combination and does not establish independent monocolor access.",
           "first_release": "2022-04-29",
           "release_context": "Streets of New Capenna (snc)",
@@ -12774,12 +12788,16 @@
           ],
           "scope": "released_paper",
           "roles": [
-            "payoff"
+            "native"
           ],
-          "included": false,
-          "inclusion_reason": null,
-          "exclusion_reason": "Connive payoff only; it does not make a creature connive or grant connive.",
-          "attributed_colors": [],
+          "included": true,
+          "inclusion_reason": "Directly makes a creature connive.",
+          "exclusion_reason": null,
+          "attributed_colors": [
+            "W",
+            "U",
+            "B"
+          ],
           "attribution_justification": "Mechanic-bearing card or face colors only; multicolor evidence remains a combination and does not establish independent monocolor access.",
           "first_release": "2022-04-29",
           "release_context": "New Capenna Commander (ncc)",
@@ -12878,12 +12896,15 @@
           ],
           "scope": "released_paper",
           "roles": [
-            "payoff"
+            "native"
           ],
-          "included": false,
-          "inclusion_reason": null,
-          "exclusion_reason": "Connive payoff only; it does not make a creature connive or grant connive.",
-          "attributed_colors": [],
+          "included": true,
+          "inclusion_reason": "Directly makes a creature connive.",
+          "exclusion_reason": null,
+          "attributed_colors": [
+            "U",
+            "B"
+          ],
           "attribution_justification": "Mechanic-bearing card or face colors only; multicolor evidence remains a combination and does not establish independent monocolor access.",
           "first_release": "2026-06-26",
           "release_context": "Marvel Super Heroes (msh)",
@@ -13062,12 +13083,14 @@
           ],
           "scope": "released_paper",
           "roles": [
-            "payoff"
+            "native"
           ],
-          "included": false,
-          "inclusion_reason": null,
-          "exclusion_reason": "Connive payoff only; it does not make a creature connive or grant connive.",
-          "attributed_colors": [],
+          "included": true,
+          "inclusion_reason": "Directly makes a creature connive.",
+          "exclusion_reason": null,
+          "attributed_colors": [
+            "U"
+          ],
           "attribution_justification": "Mechanic-bearing card or face colors only; multicolor evidence remains a combination and does not establish independent monocolor access.",
           "first_release": "2022-04-29",
           "release_context": "Streets of New Capenna (snc)",
@@ -13621,12 +13644,14 @@
           ],
           "scope": "released_paper",
           "roles": [
-            "payoff"
+            "native"
           ],
-          "included": false,
-          "inclusion_reason": null,
-          "exclusion_reason": "Connive payoff only; it does not make a creature connive or grant connive.",
-          "attributed_colors": [],
+          "included": true,
+          "inclusion_reason": "Directly makes a creature connive.",
+          "exclusion_reason": null,
+          "attributed_colors": [
+            "U"
+          ],
           "attribution_justification": "Mechanic-bearing card or face colors only; multicolor evidence remains a combination and does not establish independent monocolor access.",
           "first_release": "2022-04-29",
           "release_context": "New Capenna Commander (ncc)",
@@ -14400,12 +14425,14 @@
           ],
           "scope": "released_paper",
           "roles": [
-            "payoff"
+            "native"
           ],
-          "included": false,
-          "inclusion_reason": null,
-          "exclusion_reason": "Connive payoff only; it does not make a creature connive or grant connive.",
-          "attributed_colors": [],
+          "included": true,
+          "inclusion_reason": "Directly makes a creature connive.",
+          "exclusion_reason": null,
+          "attributed_colors": [
+            "U"
+          ],
           "attribution_justification": "Mechanic-bearing card or face colors only; multicolor evidence remains a combination and does not establish independent monocolor access.",
           "first_release": "2026-06-26",
           "release_context": "Marvel Super Heroes Commander (msc)",
@@ -14478,12 +14505,15 @@
           ],
           "scope": "released_paper",
           "roles": [
-            "payoff"
+            "native"
           ],
-          "included": false,
-          "inclusion_reason": null,
-          "exclusion_reason": "Connive payoff only; it does not make a creature connive or grant connive.",
-          "attributed_colors": [],
+          "included": true,
+          "inclusion_reason": "Directly makes a creature connive.",
+          "exclusion_reason": null,
+          "attributed_colors": [
+            "U",
+            "B"
+          ],
           "attribution_justification": "Mechanic-bearing card or face colors only; multicolor evidence remains a combination and does not establish independent monocolor access.",
           "first_release": "2025-09-26",
           "release_context": "Marvel Super Heroes Commander (msc)",
@@ -14881,12 +14911,16 @@
           ],
           "scope": "released_paper",
           "roles": [
-            "payoff"
+            "native"
           ],
-          "included": false,
-          "inclusion_reason": null,
-          "exclusion_reason": "Connive payoff only; it does not make a creature connive or grant connive.",
-          "attributed_colors": [],
+          "included": true,
+          "inclusion_reason": "Directly makes a creature connive.",
+          "exclusion_reason": null,
+          "attributed_colors": [
+            "W",
+            "U",
+            "B"
+          ],
           "attribution_justification": "Mechanic-bearing card or face colors only; multicolor evidence remains a combination and does not establish independent monocolor access.",
           "first_release": "2022-04-29",
           "release_context": "Streets of New Capenna (snc)",
@@ -15286,12 +15320,14 @@
           ],
           "scope": "released_paper",
           "roles": [
-            "payoff"
+            "native"
           ],
-          "included": false,
-          "inclusion_reason": null,
-          "exclusion_reason": "Connive payoff only; it does not make a creature connive or grant connive.",
-          "attributed_colors": [],
+          "included": true,
+          "inclusion_reason": "Directly makes a creature connive.",
+          "exclusion_reason": null,
+          "attributed_colors": [
+            "B"
+          ],
           "attribution_justification": "Mechanic-bearing card or face colors only; multicolor evidence remains a combination and does not establish independent monocolor access.",
           "first_release": "2024-06-14",
           "release_context": "Modern Horizons 3 (mh3)",
@@ -15527,12 +15563,14 @@
           ],
           "scope": "released_paper",
           "roles": [
-            "payoff"
+            "native"
           ],
-          "included": false,
-          "inclusion_reason": null,
-          "exclusion_reason": "Connive payoff only; it does not make a creature connive or grant connive.",
-          "attributed_colors": [],
+          "included": true,
+          "inclusion_reason": "Directly makes a creature connive.",
+          "exclusion_reason": null,
+          "attributed_colors": [
+            "B"
+          ],
           "attribution_justification": "Mechanic-bearing card or face colors only; multicolor evidence remains a combination and does not establish independent monocolor access.",
           "first_release": "2026-06-26",
           "release_context": "Marvel Super Heroes (msh)",
@@ -15604,12 +15642,15 @@
           ],
           "scope": "released_paper",
           "roles": [
-            "payoff"
+            "native"
           ],
-          "included": false,
-          "inclusion_reason": null,
-          "exclusion_reason": "Connive payoff only; it does not make a creature connive or grant connive.",
-          "attributed_colors": [],
+          "included": true,
+          "inclusion_reason": "Directly makes a creature connive.",
+          "exclusion_reason": null,
+          "attributed_colors": [
+            "U",
+            "B"
+          ],
           "attribution_justification": "Mechanic-bearing card or face colors only; multicolor evidence remains a combination and does not establish independent monocolor access.",
           "first_release": "2026-06-26",
           "release_context": "Marvel Super Heroes Commander (msc)",
@@ -15906,12 +15947,15 @@
           ],
           "scope": "released_paper",
           "roles": [
-            "payoff"
+            "native"
           ],
-          "included": false,
-          "inclusion_reason": null,
-          "exclusion_reason": "Connive payoff only; it does not make a creature connive or grant connive.",
-          "attributed_colors": [],
+          "included": true,
+          "inclusion_reason": "Directly makes a creature connive.",
+          "exclusion_reason": null,
+          "attributed_colors": [
+            "U",
+            "B"
+          ],
           "attribution_justification": "Mechanic-bearing card or face colors only; multicolor evidence remains a combination and does not establish independent monocolor access.",
           "first_release": "2026-06-26",
           "release_context": "Marvel Super Heroes Commander (msc)",
@@ -16266,9 +16310,10 @@
           "W": {
             "status": "documented",
             "card_ids": [
-              "838c4831-7d5c-4025-92b3-46eee59d6b34"
+              "838c4831-7d5c-4025-92b3-46eee59d6b34",
+              "ed2af15e-955b-43a1-80af-2484be373db3"
             ],
-            "note": "Raffine's Informant can make a creature connive, drawing then discarding and adding a +1/+1 counter if the discarded card is nonland."
+            "note": "Raffine's Informant connives when it enters."
           },
           "U": {
             "status": "documented",
@@ -16285,9 +16330,14 @@
               "60ead8a5-11fb-4eeb-99bf-0caaf1de1731",
               "cb660c6d-dc8b-4779-8613-6acf19418baa",
               "170ee399-d3cd-40ef-a340-193c0f0f6002",
-              "5b7bbc76-22cc-482e-8d65-34cff34c93c8"
+              "5b7bbc76-22cc-482e-8d65-34cff34c93c8",
+              "8f1c21d6-bf85-4e31-a978-6423c40650d2",
+              "ae91c16c-5267-4957-b36c-5aa787fa6b5e",
+              "e9117015-1050-44dd-a46b-e7ffe2085fae",
+              "584f9c45-9737-47bb-8ba4-a7cd9b0b2c1f",
+              "2c02c8e3-943a-4c20-9dad-1408793a825e"
             ],
-            "note": "A.I.M. Scientists can make a creature connive, drawing then discarding and adding a +1/+1 counter if the discarded card is nonland."
+            "note": "A.I.M. Scientists connives when it enters."
           },
           "B": {
             "status": "documented",
@@ -16299,16 +16349,21 @@
               "4e60c38c-cbf5-4ff7-8fff-634f7e3086cc",
               "adfb28ca-2ba6-4104-b731-f8fd9367f7ec",
               "c357230a-afde-4c2a-b390-9f6928599236",
-              "58ce3c79-8903-41be-8494-56d7953074ad"
+              "58ce3c79-8903-41be-8494-56d7953074ad",
+              "0fe6c042-1182-4392-8938-fee36149d74f",
+              "c91e64d4-e687-4ccd-a56e-796cff6e052c",
+              "eaca2576-020b-4af4-b348-6d1b56116c41",
+              "52bfcb09-007c-47d8-8038-692e7dd8f922",
+              "2f15abe7-54aa-40ed-a15d-5b827f1c3923"
             ],
-            "note": "Lethal Scheme can make a creature connive, drawing then discarding and adding a +1/+1 counter if the discarded card is nonland."
+            "note": "Each creature that convoked Lethal Scheme connives."
           },
           "R": {
             "status": "multicolor_only",
             "card_ids": [
               "9c9cd0fd-bfe9-409c-a9a9-146f5f4a2ef4"
             ],
-            "note": "Doctor Doom, King of Latveria can make a creature connive, drawing then discarding and adding a +1/+1 counter if the discarded card is nonland. These are multicolor examples; no independent example in this color was found in the reviewed scope."
+            "note": "See the multicolor examples."
           },
           "G": {
             "status": "not_found",
@@ -16324,9 +16379,13 @@
             ],
             "card_ids": [
               "7ead01b9-def3-4f9d-a860-af64e94cb45e",
-              "47654b36-b215-4333-aa70-d88d627447e3"
+              "47654b36-b215-4333-aa70-d88d627447e3",
+              "b43350a8-fc4d-41ed-becd-f0277512bb5f",
+              "76742bfc-ae99-4b06-b29d-e0e41d92ae14",
+              "286be139-1ddf-4b04-86b2-cf17a06c262a",
+              "436501ca-0998-43fc-975f-87c2d34caab3"
             ],
-            "note": "Cyclonus, the Saboteur // Cyclonus, Cybertronian Fighter can make a creature connive, drawing then discarding and adding a +1/+1 counter if the discarded card is nonland."
+            "note": "Cyclonus, the Saboteur connives after dealing combat damage to a player."
           },
           {
             "colors": [
@@ -16337,7 +16396,7 @@
             "card_ids": [
               "9c9cd0fd-bfe9-409c-a9a9-146f5f4a2ef4"
             ],
-            "note": "Doctor Doom, King of Latveria can make a creature connive, drawing then discarding and adding a +1/+1 counter if the discarded card is nonland."
+            "note": "Doctor Doom, King of Latveria makes a target Villain you control connive at the beginning of combat on your turn."
           },
           {
             "colors": [
@@ -16348,9 +16407,11 @@
             "card_ids": [
               "1f2fb1dd-82e4-45fa-b2a9-7df7b8a4d533",
               "b0870f91-c544-446a-8f7b-a8d03fdb0a2a",
-              "005c181a-05db-4c15-9893-65103cca338e"
+              "005c181a-05db-4c15-9893-65103cca338e",
+              "49da6a78-f3b2-4691-975c-efbb644311f3",
+              "9307f7e9-bcd9-41f9-88f8-0fb9700a6b12"
             ],
-            "note": "Obscura Confluence can make a creature connive, drawing then discarding and adding a +1/+1 counter if the discarded card is nonland."
+            "note": "One mode of Obscura Confluence makes a target creature connive."
           }
         ],
         "colorless": {
@@ -16360,25 +16421,22 @@
             "69ddca4b-5cc0-45f3-b2e6-a047c8d601be",
             "cd2888aa-71f3-47ee-ba33-7bb95d5bc836"
           ],
-          "note": "Mechanical Mobster can make a creature connive, drawing then discarding and adding a +1/+1 counter if the discarded card is nonland."
+          "note": "When Mechanical Mobster enters, a target creature you control connives."
         },
-        "limitations": [
-          "Colors follow the card or face that supplies the mechanic. Multicolor examples do not establish separate single-color access, and a colorless source does not establish access in every color that can use it.",
-          "Digital cards, playtest cards, commemorative cards, acorn or silver-bordered cards, planes and standalone token cards are outside this paper-card review."
-        ]
+        "limitations": []
       },
       "population_summary": {
         "scoped_totals": {
           "candidate_union": 50,
           "included_by_scope": {
-            "released_paper": 31
+            "released_paper": 48
           },
           "candidates_by_scope": {
             "released_paper": 50
           }
         },
         "excluded_totals": {
-          "term_match": 0
+          "payoff": 2
         },
         "per_color": {
           "W": {
@@ -16416,12 +16474,12 @@
               "ce184565-71fb-4e23-b45b-8786727d21f7",
               "ae91c16c-5267-4957-b36c-5aa787fa6b5e",
               "d7ae0009-3747-4f3a-a613-3e640b0219a0",
-              "182baad0-ec6e-4e93-9dfc-7c80b37005de",
               "5df80355-b12a-4989-94e5-1e0fa27350e8",
               "bec686dd-a9ea-4db5-bc20-8e40420b9a9b",
               "e9117015-1050-44dd-a46b-e7ffe2085fae",
               "584f9c45-9737-47bb-8ba4-a7cd9b0b2c1f",
               "5278728e-9203-4d18-97a5-1c4f751a5acf",
+              "aa5b06a4-90c3-45e7-ab83-cb5c96ded21d",
               "2c02c8e3-943a-4c20-9dad-1408793a825e",
               "a4e8d2ad-cce2-45de-b9a2-7ba3b1546efb",
               "60ead8a5-11fb-4eeb-99bf-0caaf1de1731",
@@ -16431,55 +16489,7 @@
             ],
             "explicit_grant": [],
             "joint_only": [
-              "9c9cd0fd-bfe9-409c-a9a9-146f5f4a2ef4",
-              "49da6a78-f3b2-4691-975c-efbb644311f3",
-              "b43350a8-fc4d-41ed-becd-f0277512bb5f",
-              "47654b36-b215-4333-aa70-d88d627447e3",
-              "1f2fb1dd-82e4-45fa-b2a9-7df7b8a4d533",
-              "b0870f91-c544-446a-8f7b-a8d03fdb0a2a",
-              "76742bfc-ae99-4b06-b29d-e0e41d92ae14",
-              "9307f7e9-bcd9-41f9-88f8-0fb9700a6b12",
-              "286be139-1ddf-4b04-86b2-cf17a06c262a",
-              "005c181a-05db-4c15-9893-65103cca338e",
-              "436501ca-0998-43fc-975f-87c2d34caab3"
-            ],
-            "release_contexts": [
-              "Marvel Legends Series Inserts (lmar)",
-              "Marvel Super Heroes (msh)",
-              "Marvel Super Heroes Commander (msc)",
-              "Modern Horizons 3 (mh3)",
-              "New Capenna Commander (ncc)",
-              "Streets of New Capenna (snc)"
-            ],
-            "rarity_coverage": [
-              "common",
-              "mythic",
-              "rare",
-              "uncommon"
-            ],
-            "role_coverage": [
-              "native"
-            ]
-          },
-          "B": {
-            "native": [
-              "0fe6c042-1182-4392-8938-fee36149d74f",
-              "c91e64d4-e687-4ccd-a56e-796cff6e052c",
-              "eaca2576-020b-4af4-b348-6d1b56116c41",
-              "7324d8c0-3a30-452b-b05d-ec7b6a98666c",
-              "c4660b3c-a234-4a3e-83e7-e2fa9d556685",
-              "fe7cc414-42d0-4dad-8516-7a0be0860a67",
-              "b5b0e85f-6651-4667-829c-2253ff8b130d",
-              "2901948c-2a5a-4135-9135-27406e9d8652",
-              "4e60c38c-cbf5-4ff7-8fff-634f7e3086cc",
-              "adfb28ca-2ba6-4104-b731-f8fd9367f7ec",
-              "c357230a-afde-4c2a-b390-9f6928599236",
-              "52bfcb09-007c-47d8-8038-692e7dd8f922",
-              "2f15abe7-54aa-40ed-a15d-5b827f1c3923",
-              "58ce3c79-8903-41be-8494-56d7953074ad"
-            ],
-            "explicit_grant": [],
-            "joint_only": [
+              "7ead01b9-def3-4f9d-a860-af64e94cb45e",
               "9c9cd0fd-bfe9-409c-a9a9-146f5f4a2ef4",
               "49da6a78-f3b2-4691-975c-efbb644311f3",
               "b43350a8-fc4d-41ed-becd-f0277512bb5f",
@@ -16499,7 +16509,59 @@
               "Marvel's Spider-Man (spm)",
               "Modern Horizons 3 (mh3)",
               "New Capenna Commander (ncc)",
-              "Streets of New Capenna (snc)"
+              "Streets of New Capenna (snc)",
+              "Transformers (bot)"
+            ],
+            "rarity_coverage": [
+              "common",
+              "mythic",
+              "rare",
+              "uncommon"
+            ],
+            "role_coverage": [
+              "native"
+            ]
+          },
+          "B": {
+            "native": [
+              "0fe6c042-1182-4392-8938-fee36149d74f",
+              "c91e64d4-e687-4ccd-a56e-796cff6e052c",
+              "eaca2576-020b-4af4-b348-6d1b56116c41",
+              "c4660b3c-a234-4a3e-83e7-e2fa9d556685",
+              "fe7cc414-42d0-4dad-8516-7a0be0860a67",
+              "b5b0e85f-6651-4667-829c-2253ff8b130d",
+              "2901948c-2a5a-4135-9135-27406e9d8652",
+              "4e60c38c-cbf5-4ff7-8fff-634f7e3086cc",
+              "adfb28ca-2ba6-4104-b731-f8fd9367f7ec",
+              "c357230a-afde-4c2a-b390-9f6928599236",
+              "52bfcb09-007c-47d8-8038-692e7dd8f922",
+              "2f15abe7-54aa-40ed-a15d-5b827f1c3923",
+              "58ce3c79-8903-41be-8494-56d7953074ad"
+            ],
+            "explicit_grant": [],
+            "joint_only": [
+              "7ead01b9-def3-4f9d-a860-af64e94cb45e",
+              "9c9cd0fd-bfe9-409c-a9a9-146f5f4a2ef4",
+              "49da6a78-f3b2-4691-975c-efbb644311f3",
+              "b43350a8-fc4d-41ed-becd-f0277512bb5f",
+              "47654b36-b215-4333-aa70-d88d627447e3",
+              "1f2fb1dd-82e4-45fa-b2a9-7df7b8a4d533",
+              "b0870f91-c544-446a-8f7b-a8d03fdb0a2a",
+              "76742bfc-ae99-4b06-b29d-e0e41d92ae14",
+              "9307f7e9-bcd9-41f9-88f8-0fb9700a6b12",
+              "286be139-1ddf-4b04-86b2-cf17a06c262a",
+              "005c181a-05db-4c15-9893-65103cca338e",
+              "436501ca-0998-43fc-975f-87c2d34caab3"
+            ],
+            "release_contexts": [
+              "Marvel Legends Series Inserts (lmar)",
+              "Marvel Super Heroes (msh)",
+              "Marvel Super Heroes Commander (msc)",
+              "Marvel's Spider-Man (spm)",
+              "Modern Horizons 3 (mh3)",
+              "New Capenna Commander (ncc)",
+              "Streets of New Capenna (snc)",
+              "Transformers (bot)"
             ],
             "rarity_coverage": [
               "common",
@@ -16544,33 +16606,50 @@
         "scope_card_ids": {
           "released_paper": [
             "fa732888-5b7d-4087-a6e5-1db1c98fbd4c",
+            "8f1c21d6-bf85-4e31-a978-6423c40650d2",
+            "0fe6c042-1182-4392-8938-fee36149d74f",
+            "c91e64d4-e687-4ccd-a56e-796cff6e052c",
+            "eaca2576-020b-4af4-b348-6d1b56116c41",
             "b2f43df5-ec64-4375-b67f-b198732ab0b1",
             "ce184565-71fb-4e23-b45b-8786727d21f7",
             "7ead01b9-def3-4f9d-a860-af64e94cb45e",
+            "ae91c16c-5267-4957-b36c-5aa787fa6b5e",
             "9c9cd0fd-bfe9-409c-a9a9-146f5f4a2ef4",
             "d7ae0009-3747-4f3a-a613-3e640b0219a0",
             "5df80355-b12a-4989-94e5-1e0fa27350e8",
+            "ed2af15e-955b-43a1-80af-2484be373db3",
+            "49da6a78-f3b2-4691-975c-efbb644311f3",
+            "b43350a8-fc4d-41ed-becd-f0277512bb5f",
             "bec686dd-a9ea-4db5-bc20-8e40420b9a9b",
+            "e9117015-1050-44dd-a46b-e7ffe2085fae",
             "c4660b3c-a234-4a3e-83e7-e2fa9d556685",
             "fe7cc414-42d0-4dad-8516-7a0be0860a67",
             "b5b0e85f-6651-4667-829c-2253ff8b130d",
+            "584f9c45-9737-47bb-8ba4-a7cd9b0b2c1f",
             "b0672aa3-3207-4ff8-af8f-bdabacbb4d04",
             "47654b36-b215-4333-aa70-d88d627447e3",
             "5278728e-9203-4d18-97a5-1c4f751a5acf",
             "aa5b06a4-90c3-45e7-ab83-cb5c96ded21d",
             "1f2fb1dd-82e4-45fa-b2a9-7df7b8a4d533",
             "b0870f91-c544-446a-8f7b-a8d03fdb0a2a",
+            "2c02c8e3-943a-4c20-9dad-1408793a825e",
+            "76742bfc-ae99-4b06-b29d-e0e41d92ae14",
             "a4e8d2ad-cce2-45de-b9a2-7ba3b1546efb",
             "60ead8a5-11fb-4eeb-99bf-0caaf1de1731",
             "838c4831-7d5c-4025-92b3-46eee59d6b34",
             "2901948c-2a5a-4135-9135-27406e9d8652",
+            "9307f7e9-bcd9-41f9-88f8-0fb9700a6b12",
             "4e60c38c-cbf5-4ff7-8fff-634f7e3086cc",
             "adfb28ca-2ba6-4104-b731-f8fd9367f7ec",
             "c357230a-afde-4c2a-b390-9f6928599236",
+            "52bfcb09-007c-47d8-8038-692e7dd8f922",
             "cb660c6d-dc8b-4779-8613-6acf19418baa",
             "69ddca4b-5cc0-45f3-b2e6-a047c8d601be",
+            "2f15abe7-54aa-40ed-a15d-5b827f1c3923",
+            "286be139-1ddf-4b04-86b2-cf17a06c262a",
             "005c181a-05db-4c15-9893-65103cca338e",
             "170ee399-d3cd-40ef-a340-193c0f0f6002",
+            "436501ca-0998-43fc-975f-87c2d34caab3",
             "5b7bbc76-22cc-482e-8d65-34cff34c93c8",
             "58ce3c79-8903-41be-8494-56d7953074ad",
             "cd2888aa-71f3-47ee-ba33-7bb95d5bc836"
@@ -18047,35 +18126,35 @@
             "card_ids": [
               "9bd5dc7a-11b0-48eb-bf52-2956dd3989ab"
             ],
-            "note": "Mine Excavation can be copied with conspire by tapping two untapped creatures that each share a color with the spell as you cast it."
+            "note": "Mine Excavation has conspire."
           },
           "U": {
             "status": "documented",
             "card_ids": [
               "1ca875f0-50a7-4332-8643-c2b4bbda18b1"
             ],
-            "note": "Ghastly Discovery can be copied with conspire by tapping two untapped creatures that each share a color with the spell as you cast it."
+            "note": "Ghastly Discovery has conspire."
           },
           "B": {
             "status": "documented",
             "card_ids": [
               "3efecb6c-7c21-4b3b-9612-e3916f91c680"
             ],
-            "note": "Disturbing Plot can be copied with conspire by tapping two untapped creatures that each share a color with the spell as you cast it."
+            "note": "Disturbing Plot has conspire."
           },
           "R": {
             "status": "documented",
             "card_ids": [
               "566b4dcc-b7d7-4443-b2d0-954f1fc33a11"
             ],
-            "note": "Burn Trail can be copied with conspire by tapping two untapped creatures that each share a color with the spell as you cast it."
+            "note": "Burn Trail has conspire."
           },
           "G": {
             "status": "documented",
             "card_ids": [
               "25fe48be-95c4-4011-8c60-4628fb5ecfcb"
             ],
-            "note": "Gleeful Sabotage can be copied with conspire by tapping two untapped creatures that each share a color with the spell as you cast it."
+            "note": "Gleeful Sabotage has conspire."
           }
         },
         "combinations": [
@@ -18087,7 +18166,7 @@
             "card_ids": [
               "dd0cac88-0a78-408f-8eb0-080f79150180"
             ],
-            "note": "Aethertow can be copied with conspire by tapping two untapped creatures that each share a color with the spell as you cast it."
+            "note": "Aethertow has conspire."
           },
           {
             "colors": [
@@ -18097,7 +18176,7 @@
             "card_ids": [
               "baf3d4d9-0590-4d94-8f4e-1e726194b920"
             ],
-            "note": "Barkshell Blessing can be copied with conspire by tapping two untapped creatures that each share a color with the spell as you cast it."
+            "note": "Barkshell Blessing has conspire."
           },
           {
             "colors": [
@@ -18109,7 +18188,7 @@
               "854cac11-9a22-4dea-8c1b-c49a4858a754",
               "d6b67c7e-3b24-4f60-8e3a-c6ca45229d7f"
             ],
-            "note": "Giantbaiting can be copied with conspire by tapping two untapped creatures that each share a color with the spell as you cast it."
+            "note": "Giantbaiting has conspire."
           },
           {
             "colors": [
@@ -18120,7 +18199,7 @@
               "a30b659e-ae2b-4736-9b4f-a9805905bf75",
               "ebec9957-b777-42ae-a394-85c7ed84d00a"
             ],
-            "note": "Memory Sluice can be copied with conspire by tapping two untapped creatures that each share a color with the spell as you cast it."
+            "note": "Memory Sluice has conspire."
           },
           {
             "colors": [
@@ -18130,7 +18209,7 @@
             "card_ids": [
               "84b2d0f6-ad98-4a71-a3d5-645b0f2db6c6"
             ],
-            "note": "Rally the Galadhrim can be copied with conspire by tapping two untapped creatures that each share a color with the spell as you cast it."
+            "note": "Rally the Galadhrim has conspire."
           },
           {
             "colors": [
@@ -18140,7 +18219,7 @@
             "card_ids": [
               "04e9ac31-3377-4a4c-9337-53ee0ada882a"
             ],
-            "note": "Traitor's Roar can be copied with conspire by tapping two untapped creatures that each share a color with the spell as you cast it."
+            "note": "Traitor's Roar has conspire."
           }
         ],
         "colorless": {
@@ -18148,10 +18227,7 @@
           "card_ids": [],
           "note": "No colorless example was found in the reviewed paper cards."
         },
-        "limitations": [
-          "Colors follow the card or face that supplies the mechanic. Multicolor examples do not establish separate single-color access, and a colorless source does not establish access in every color that can use it.",
-          "Digital cards, playtest cards, commemorative cards, acorn or silver-bordered cards, planes and standalone token cards are outside this paper-card review."
-        ]
+        "limitations": []
       },
       "population_summary": {
         "scoped_totals": {
@@ -21845,7 +21921,7 @@
             "card_ids": [
               "4de1319f-b3c7-42d4-9342-3e9c4f526ee0"
             ],
-            "note": "Eutropia the Twice-Favored gives a creature a +1/+1 counter and flying for the turn when an enchantment enters under your control."
+            "note": "Eutropia the Twice-Favored puts a +1/+1 counter on a target creature and gives it flying until end of turn when an enchantment enters under your control."
           },
           {
             "colors": [
@@ -21863,10 +21939,7 @@
           "card_ids": [],
           "note": "No colorless example was found in the reviewed paper cards."
         },
-        "limitations": [
-          "Colors follow the card or face that supplies the mechanic. Multicolor examples do not establish separate single-color access, and a colorless source does not establish access in every color that can use it.",
-          "Digital cards, playtest cards, commemorative cards, acorn or silver-bordered cards, planes and standalone token cards are outside this paper-card review."
-        ]
+        "limitations": []
       },
       "population_summary": {
         "scoped_totals": {
@@ -24973,10 +25046,7 @@
           ],
           "note": "Crystalline Crawler enters with a +1/+1 counter for each color spent to cast it. The card itself is colorless."
         },
-        "limitations": [
-          "Colors follow the card or face that supplies the mechanic. Multicolor examples do not establish separate single-color access, and a colorless source does not establish access in every color that can use it.",
-          "Digital cards, playtest cards, commemorative cards, acorn or silver-bordered cards, planes and standalone token cards are outside this paper-card review."
-        ]
+        "limitations": []
       },
       "population_summary": {
         "scoped_totals": {
@@ -28106,12 +28176,14 @@
           ],
           "scope": "released_paper",
           "roles": [
-            "term_match"
+            "explicit_grant"
           ],
-          "included": false,
-          "inclusion_reason": null,
-          "exclusion_reason": "Term match only; it is not a native use or explicit grant of this mechanic.",
-          "attributed_colors": [],
+          "included": true,
+          "inclusion_reason": "The named face explicitly gives spells convoke.",
+          "exclusion_reason": null,
+          "attributed_colors": [
+            "W"
+          ],
           "attribution_justification": "Mechanic-bearing card or face colors only; multicolor evidence remains a combination and does not establish independent monocolor access.",
           "first_release": "2024-09-27",
           "release_context": "Duskmourn: House of Horror (dsk)",
@@ -28528,12 +28600,14 @@
           ],
           "scope": "released_paper",
           "roles": [
-            "term_match"
+            "explicit_grant"
           ],
-          "included": false,
-          "inclusion_reason": null,
-          "exclusion_reason": "Term match only; it is not a native use or explicit grant of this mechanic.",
-          "attributed_colors": [],
+          "included": true,
+          "inclusion_reason": "The named face explicitly gives spells convoke.",
+          "exclusion_reason": null,
+          "attributed_colors": [
+            "W"
+          ],
           "attribution_justification": "Mechanic-bearing card or face colors only; multicolor evidence remains a combination and does not establish independent monocolor access.",
           "first_release": "2026-01-23",
           "release_context": "Lorwyn Eclipsed (ecl)",
@@ -30514,12 +30588,14 @@
           ],
           "scope": "released_paper",
           "roles": [
-            "term_match"
+            "explicit_grant"
           ],
-          "included": false,
-          "inclusion_reason": null,
-          "exclusion_reason": "Term match only; it is not a native use or explicit grant of this mechanic.",
-          "attributed_colors": [],
+          "included": true,
+          "inclusion_reason": "The named face explicitly gives spells convoke.",
+          "exclusion_reason": null,
+          "attributed_colors": [
+            "U"
+          ],
           "attribution_justification": "Mechanic-bearing card or face colors only; multicolor evidence remains a combination and does not establish independent monocolor access.",
           "first_release": "2023-04-21",
           "release_context": "March of the Machine (mom)",
@@ -37157,7 +37233,7 @@
         "review_date": "2026-10-28",
         "scope_label": "Released paper cards",
         "scope": "Released paper cards that use or explicitly grant Convoke.",
-        "summary": "The reviewed cards have convoke or explicitly grant it, letting creatures help pay for spells.",
+        "summary": "Convoke lets you tap creatures you control to help cast a spell. Each pays for one generic mana or one mana of a color that creature is.",
         "colors": {
           "W": {
             "status": "documented",
@@ -37194,9 +37270,11 @@
               "d157a9df-59bc-40ad-b62b-43f973f14be1",
               "3d175a59-c1b4-43b8-8a1f-f7cbcefe130e",
               "5675ac63-b69b-41b9-a7ed-4085a4e431b2",
-              "8b834f83-951b-4b5c-b9f1-3d860baa3c0e"
+              "8b834f83-951b-4b5c-b9f1-3d860baa3c0e",
+              "c46a02db-13d6-477f-9da0-822599470168",
+              "36af3c2c-49d7-46ea-ab02-c254b332448e"
             ],
-            "note": "Aerial Boost has convoke. Each creature tapped for convoke can pay for one generic mana or one mana of that creature’s color."
+            "note": "Aerial Boost has convoke."
           },
           "U": {
             "status": "documented",
@@ -37218,9 +37296,10 @@
               "c452e748-8a2a-4f68-8869-e294925a8b0b",
               "7e1da4a1-5922-4a2e-8bbc-25fbcbf20935",
               "5b27b794-580c-472d-b63e-99b271eb115d",
-              "1800ae74-0b54-4547-ab8f-ea61418d73e8"
+              "1800ae74-0b54-4547-ab8f-ea61418d73e8",
+              "7b3c0d89-55ed-43d7-a00a-7b060857ec4e"
             ],
-            "note": "Artistic Refusal has convoke. Each creature tapped for convoke can pay for one generic mana or one mana of that creature’s color."
+            "note": "Artistic Refusal has convoke."
           },
           "B": {
             "status": "documented",
@@ -37239,7 +37318,7 @@
               "d9b99c58-8e2e-496c-8288-eda934f49162",
               "7efe9fe5-d93c-46a6-afbd-9655a902c6bc"
             ],
-            "note": "Bloodline Bidding has convoke. Each creature tapped for convoke can pay for one generic mana or one mana of that creature’s color."
+            "note": "Bloodline Bidding has convoke."
           },
           "R": {
             "status": "documented",
@@ -37256,7 +37335,7 @@
               "2249001c-08d5-4c0a-86f8-d97519a39f37",
               "254f133a-eee5-48b9-b19f-110555e49300"
             ],
-            "note": "Burning Sun's Fury has convoke. Each creature tapped for convoke can pay for one generic mana or one mana of that creature’s color."
+            "note": "Burning Sun's Fury has convoke."
           },
           "G": {
             "status": "documented",
@@ -37282,7 +37361,7 @@
               "132c8a62-00bc-4b89-b775-099d8909f200",
               "33d556c5-1bb4-49bb-88c2-627311eb8c9b"
             ],
-            "note": "Ancient Imperiosaur has convoke. Each creature tapped for convoke can pay for one generic mana or one mana of that creature’s color."
+            "note": "Ancient Imperiosaur has convoke."
           }
         },
         "combinations": [
@@ -37298,7 +37377,7 @@
               "54b3ccdc-e5b0-44d9-bc81-a296fc5dc005",
               "6970f285-dc2b-437b-b099-ca1d3ef106ab"
             ],
-            "note": "Autochthon Wurm has convoke. Each creature tapped for convoke can pay for one generic mana or one mana of that creature’s color."
+            "note": "Autochthon Wurm has convoke."
           },
           {
             "colors": [
@@ -37311,7 +37390,7 @@
             "card_ids": [
               "01de1f9d-3b63-49b9-b2c6-929c2a69ef54"
             ],
-            "note": "Fallaji Wayfarer gives spells convoke under its stated conditions. Each creature tapped for convoke can pay for one generic mana or one mana of that creature’s color."
+            "note": "Fallaji Wayfarer is all five colors and gives your multicolored spells convoke. Its Commander color identity is green."
           },
           {
             "colors": [
@@ -37322,7 +37401,7 @@
               "6471335e-e054-4e68-b02e-052d65a2fdfc",
               "d709f396-021f-49eb-adb5-374aa790eaae"
             ],
-            "note": "Flockchaser Phantom has convoke. Each creature tapped for convoke can pay for one generic mana or one mana of that creature’s color."
+            "note": "Flockchaser Phantom has convoke and, when it attacks, gives your next spell that turn convoke."
           },
           {
             "colors": [
@@ -37332,7 +37411,7 @@
             "card_ids": [
               "97acd977-164d-49d5-b3a1-72e0d75c9016"
             ],
-            "note": "Hogaak, Arisen Necropolis has convoke. Each creature tapped for convoke can pay for one generic mana or one mana of that creature’s color."
+            "note": "Hogaak, Arisen Necropolis has convoke."
           },
           {
             "colors": [
@@ -37344,7 +37423,7 @@
               "b2d4ce3c-00b1-4a72-b652-4c129475080f",
               "3a1be8b3-16e2-4fae-bea7-3a98f2f9db38"
             ],
-            "note": "Kasla, the Broken Halo has convoke. Each creature tapped for convoke can pay for one generic mana or one mana of that creature’s color."
+            "note": "Kasla, the Broken Halo has convoke."
           },
           {
             "colors": [
@@ -37354,7 +37433,7 @@
             "card_ids": [
               "0cb41c3f-5e6a-4c63-80b5-c9ab84b4e4bf"
             ],
-            "note": "Order of Sacred Dusk has convoke. Each creature tapped for convoke can pay for one generic mana or one mana of that creature’s color."
+            "note": "Order of Sacred Dusk has convoke."
           },
           {
             "colors": [
@@ -37364,7 +37443,7 @@
             "card_ids": [
               "d22196b5-b111-45ce-ae51-a06ca02533b6"
             ],
-            "note": "Wildfire Awakener has convoke. Each creature tapped for convoke can pay for one generic mana or one mana of that creature’s color."
+            "note": "Wildfire Awakener has convoke."
           }
         ],
         "colorless": {
@@ -37374,25 +37453,24 @@
             "e2ef3a24-9e78-47fc-9192-049aa0ddb7a0",
             "25fb0396-7355-4ff1-8ad3-d5a82adf6cc1"
           ],
-          "note": "Halo Hopper has convoke. Each creature tapped for convoke can pay for one generic mana or one mana of that creature’s color."
+          "note": "Halo Hopper has convoke."
         },
-        "limitations": [
-          "Colors follow the card or face that supplies the mechanic. Multicolor examples do not establish separate single-color access, and a colorless source does not establish access in every color that can use it.",
-          "Digital cards, playtest cards, commemorative cards, acorn or silver-bordered cards, planes and standalone token cards are outside this paper-card review."
-        ]
+        "limitations": []
       },
       "population_summary": {
         "scoped_totals": {
           "candidate_union": 117,
           "included_by_scope": {
-            "released_paper": 112
+            "released_paper": 114
           },
           "candidates_by_scope": {
             "released_paper": 117
           }
         },
         "excluded_totals": {
-          "term_match": 4
+          "payoff": 1,
+          "explicit_grant": 1,
+          "term_match": 1
         },
         "per_color": {
           "W": {
@@ -37429,6 +37507,8 @@
               "8b834f83-951b-4b5c-b9f1-3d860baa3c0e"
             ],
             "explicit_grant": [
+              "c46a02db-13d6-477f-9da0-822599470168",
+              "36af3c2c-49d7-46ea-ab02-c254b332448e",
               "2fadf4aa-1b7e-4e72-ad20-809a59ddccf8",
               "3d175a59-c1b4-43b8-8a1f-f7cbcefe130e",
               "5675ac63-b69b-41b9-a7ed-4085a4e431b2"
@@ -37501,12 +37581,12 @@
               "1800ae74-0b54-4547-ab8f-ea61418d73e8"
             ],
             "explicit_grant": [
-              "02dbb6f8-ef84-4156-87dc-34033e64fdb7"
+              "02dbb6f8-ef84-4156-87dc-34033e64fdb7",
+              "7b3c0d89-55ed-43d7-a00a-7b060857ec4e"
             ],
             "joint_only": [
               "01de1f9d-3b63-49b9-b2c6-929c2a69ef54",
               "6471335e-e054-4e68-b02e-052d65a2fdfc",
-              "39867856-c1f3-442a-abe9-53f8f73777d0",
               "b2d4ce3c-00b1-4a72-b652-4c129475080f",
               "d709f396-021f-49eb-adb5-374aa790eaae",
               "3a1be8b3-16e2-4fae-bea7-3a98f2f9db38"
@@ -37592,7 +37672,6 @@
             ],
             "joint_only": [
               "01de1f9d-3b63-49b9-b2c6-929c2a69ef54",
-              "39867856-c1f3-442a-abe9-53f8f73777d0",
               "b2d4ce3c-00b1-4a72-b652-4c129475080f",
               "3a1be8b3-16e2-4fae-bea7-3a98f2f9db38",
               "d22196b5-b111-45ce-ae51-a06ca02533b6"
@@ -37714,8 +37793,10 @@
             "20ca6a15-ba88-4efd-b5bd-da5938e9a43e",
             "7a23915f-8bce-4aad-8395-0c736450a62d",
             "428d131c-b0fa-4e96-9c02-e2e6714357b9",
+            "c46a02db-13d6-477f-9da0-822599470168",
             "5334dc24-040e-4094-80f4-8d1b9de01230",
             "e76ae81f-729c-4def-ae83-6870a696cbe8",
+            "36af3c2c-49d7-46ea-ab02-c254b332448e",
             "312a831a-5da9-4a22-9974-f2d90ae3eb75",
             "e1a89535-7126-48e0-b335-b732a677b157",
             "39acc3d0-85fc-4814-93f2-e709c3b2c86b",
@@ -37733,7 +37814,7 @@
             "3bc13640-03f8-4b19-b0a4-7e7cb5271c0c",
             "65c0ab05-e740-4380-b39c-8bae9662f885",
             "74d9331b-832b-420b-9249-f2a58253a361",
-            "39867856-c1f3-442a-abe9-53f8f73777d0",
+            "7b3c0d89-55ed-43d7-a00a-7b060857ec4e",
             "b2d4ce3c-00b1-4a72-b652-4c129475080f",
             "09537e9f-6c8e-4849-9d35-d4f3950a64d7",
             "4bd20d79-0861-494a-a8f2-f6ddb5088004",
@@ -40300,10 +40381,7 @@
           ],
           "note": "Glistening Sphere can tap for three mana of one color if an opponent has at least three poison counters. The Sphere itself is colorless."
         },
-        "limitations": [
-          "Colors follow the card or face that supplies the mechanic. Multicolor examples do not establish separate single-color access, and a colorless source does not establish access in every color that can use it.",
-          "Digital cards, playtest cards, commemorative cards, acorn or silver-bordered cards, planes and standalone token cards are outside this paper-card review."
-        ]
+        "limitations": []
       },
       "population_summary": {
         "scoped_totals": {
@@ -41534,7 +41612,7 @@
             "card_ids": [
               "9d2f02f7-adcd-4d23-a051-ebca70f22ba5"
             ],
-            "note": "Fateful Tempest turns past votes into milling and damage based on the milled cards; present votes provide a separate effect."
+            "note": "Fateful Tempest turns past votes into milling and damage to opponents. Each present vote exiles a card you may play until the end of your next turn."
           },
           "G": {
             "status": "documented",
@@ -41564,10 +41642,7 @@
           "card_ids": [],
           "note": "No colorless example was found in the reviewed paper cards."
         },
-        "limitations": [
-          "Colors follow the card or face that supplies the mechanic. Multicolor examples do not establish separate single-color access, and a colorless source does not establish access in every color that can use it.",
-          "Digital cards, playtest cards, commemorative cards, acorn or silver-bordered cards, planes and standalone token cards are outside this paper-card review."
-        ]
+        "limitations": []
       },
       "population_summary": {
         "scoped_totals": {
@@ -43252,10 +43327,7 @@
           "card_ids": [],
           "note": "No colorless example was found in the reviewed paper cards."
         },
-        "limitations": [
-          "Colors follow the card or face that supplies the mechanic. Multicolor examples do not establish separate single-color access, and a colorless source does not establish access in every color that can use it.",
-          "Digital cards, playtest cards, commemorative cards, acorn or silver-bordered cards, planes and standalone token cards are outside this paper-card review."
-        ]
+        "limitations": []
       },
       "population_summary": {
         "scoped_totals": {
@@ -46998,7 +47070,7 @@
         "review_date": "2026-10-28",
         "scope_label": "Released paper cards",
         "scope": "Released paper cards that use or explicitly grant Craft.",
-        "summary": "The reviewed craft abilities exile their source and the required materials to return the source transformed. Colors follow the face with craft, rather than its transformed face.",
+        "summary": "Craft exiles its source and the required materials, then returns the source transformed. Colors here follow the face with craft.",
         "colors": {
           "W": {
             "status": "documented",
@@ -47008,7 +47080,7 @@
               "fa1ed9fa-5f77-4f7d-bab0-47c719cdc5bc",
               "fcd54631-ea47-49a7-ad5f-9a9a51a815ba"
             ],
-            "note": "Clay-Fired Bricks has craft on its front face. Activating it exiles that permanent and the required materials, then returns it transformed."
+            "note": "Clay-Fired Bricks crafts with an artifact to become Cosmium Kiln."
           },
           "U": {
             "status": "documented",
@@ -47019,7 +47091,7 @@
               "c0d2bdd9-1e68-4d3a-83f8-ec2ba440a494",
               "30820f71-9fd4-453c-b377-c2e0b01c07a7"
             ],
-            "note": "Braided Net has craft on its front face. Activating it exiles that permanent and the required materials, then returns it transformed."
+            "note": "Braided Net crafts with an artifact to become Braided Quipu."
           },
           "B": {
             "status": "documented",
@@ -47028,7 +47100,7 @@
               "883a4180-9ede-4249-a4b8-3a29c998fb63",
               "7cad43df-31c9-47b5-bc05-4a0f6544b396"
             ],
-            "note": "Altar of the Wretched has craft on its front face. Activating it exiles that permanent and the required materials, then returns it transformed."
+            "note": "Altar of the Wretched crafts with one or more creatures to become Wretched Bonemass."
           },
           "R": {
             "status": "documented",
@@ -47038,7 +47110,7 @@
               "e17d8c0e-16e7-477b-830d-0818cedcb354",
               "ef8df503-6160-4e40-a689-49e97fd56cd0"
             ],
-            "note": "Dire Flail has craft on its front face. Activating it exiles that permanent and the required materials, then returns it transformed."
+            "note": "Dire Flail crafts with an artifact to become Dire Blunderbuss."
           },
           "G": {
             "status": "documented",
@@ -47046,7 +47118,7 @@
               "fa2c984a-6bc1-4ec8-93d7-87f9f06b841e",
               "1ac3e4bc-1678-4280-a071-3dbc8ef4a2bf"
             ],
-            "note": "Jade Seedstones has craft on its front face. Activating it exiles that permanent and the required materials, then returns it transformed."
+            "note": "Jade Seedstones crafts with a creature to become Jadeheart Attendant."
           }
         },
         "combinations": [
@@ -47058,7 +47130,7 @@
             "card_ids": [
               "2dfdd358-e3cd-4bf5-871b-37689b7951e9"
             ],
-            "note": "Master's Guide-Mural has craft on its front face. Activating it exiles that permanent and the required materials, then returns it transformed."
+            "note": "Master's Guide-Mural crafts with an artifact to become Master's Manufactory."
           },
           {
             "colors": [
@@ -47069,7 +47141,7 @@
             "card_ids": [
               "e12b38e5-621b-4b2c-8c04-c15c41d4fc70"
             ],
-            "note": "Tetzin, Gnome Champion has craft on its front face. Activating it exiles that permanent and the required materials, then returns it transformed."
+            "note": "Tetzin, Gnome Champion crafts with six artifacts to become The Golden-Gear Colossus."
           }
         ],
         "colorless": {
@@ -47080,12 +47152,9 @@
             "c69742bf-f0f5-4216-a602-c21f9c5a6501",
             "a7c96442-706b-4fd8-9b38-052872dafe58"
           ],
-          "note": "Eye of Ojer Taq has craft on its front face. Activating it exiles that permanent and the required materials, then returns it transformed."
+          "note": "Eye of Ojer Taq crafts with two cards or permanents that share a card type to become Apex Observatory."
         },
-        "limitations": [
-          "Colors follow the card or face that supplies the mechanic. Multicolor examples do not establish separate single-color access, and a colorless source does not establish access in every color that can use it.",
-          "Digital cards, playtest cards, commemorative cards, acorn or silver-bordered cards, planes and standalone token cards are outside this paper-card review."
-        ]
+        "limitations": []
       },
       "population_summary": {
         "scoped_totals": {
