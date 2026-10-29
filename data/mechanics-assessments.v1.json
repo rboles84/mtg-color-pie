@@ -64,6 +64,10 @@
     {
       "path": "docs/mechanics-research/g-protocol.json",
       "sha256": "7c34da1b41449a0dd9dd780e327d210d247007cfef39a7959053e8d8705326cb"
+    },
+    {
+      "path": "docs/mechanics-research/h-protocol.json",
+      "sha256": "a8ba511e0b6b55023cca129808680eb5ac61181fc1e322cad3fdbcc855ec8a7b"
     }
   ],
   "records": [
@@ -37697,6 +37701,1286 @@
         {
           "name": "Follow the Bodies",
           "url": "https://scryfall.com/card/mkc/23/follow-the-bodies?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:variants:halflingcycling",
+      "name": "Halflingcycling",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Halflingcycling is a typecycling ability that discards its source card to search for a Halfling card.",
+      "summary": "Halflingcycling is a typecycling ability that discards its source card to search for a Halfling card.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "not_found",
+            "note": "No selected independent example in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "U": {
+            "status": "not_found",
+            "note": "No selected independent example in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "B": {
+            "status": "not_found",
+            "note": "No selected independent example in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "R": {
+            "status": "not_found",
+            "note": "No selected independent example in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "G": {
+            "status": "not_found",
+            "note": "No selected independent example in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "documented",
+          "note": "Hobbit Hole: {T}, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle.",
+          "cards": [
+            {
+              "name": "Hobbit Hole",
+              "url": "https://scryfall.com/card/hob/184/hobbit-hole?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22Hobbit%20Hole%22%29%20include%3Aextras"
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Hobbit Hole",
+          "url": "https://scryfall.com/card/hob/184/hobbit-hole?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:harmonize",
+      "name": "Harmonize",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Harmonize lets its card be cast from its owner’s graveyard for its harmonize cost, with a creature tap reducing that cost by its power.",
+      "summary": "Harmonize lets its card be cast from its owner’s graveyard for its harmonize cost, with a creature tap reducing that cost by its power.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "not_found",
+            "note": "No selected independent example in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "U": {
+            "status": "documented",
+            "note": "Unending Whisper: Draw a card.",
+            "cards": [
+              {
+                "name": "Unending Whisper",
+                "url": "https://scryfall.com/card/tdm/62/unending-whisper?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Unending%20Whisper%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "not_found",
+            "note": "No selected independent example in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "R": {
+            "status": "documented",
+            "note": "Channeled Dragonfire: Channeled Dragonfire deals 2 damage to any target.",
+            "cards": [
+              {
+                "name": "Channeled Dragonfire",
+                "url": "https://scryfall.com/card/tdm/102/channeled-dragonfire?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Channeled%20Dragonfire%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Nature's Rhythm: Search your library for a creature card with mana value X or less, put it onto the battlefield, then shuffle.",
+            "cards": [
+              {
+                "name": "Nature's Rhythm",
+                "url": "https://scryfall.com/card/tdm/150/natures-rhythm?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Nature%27s%20Rhythm%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "U",
+              "R"
+            ],
+            "note": "Glacial Dragonhunt: Draw a card, then you may discard a card. When you discard a nonland card this way, Glacial Dragonhunt deals 3 damage to target creature.",
+            "cards": [
+              {
+                "name": "Glacial Dragonhunt",
+                "url": "https://scryfall.com/card/tdm/188/glacial-dragonhunt?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Glacial%20Dragonhunt%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "U",
+              "R",
+              "G"
+            ],
+            "note": "Mammoth Bellow: Create a 5/5 green Elephant creature token.",
+            "cards": [
+              {
+                "name": "Mammoth Bellow",
+                "url": "https://scryfall.com/card/tdm/205/mammoth-bellow?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Mammoth%20Bellow%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "not_found",
+          "note": "No selected colorless example in the reviewed scope.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Unending Whisper",
+          "url": "https://scryfall.com/card/tdm/62/unending-whisper?utm_source=api"
+        },
+        {
+          "name": "Channeled Dragonfire",
+          "url": "https://scryfall.com/card/tdm/102/channeled-dragonfire?utm_source=api"
+        },
+        {
+          "name": "Nature's Rhythm",
+          "url": "https://scryfall.com/card/tdm/150/natures-rhythm?utm_source=api"
+        },
+        {
+          "name": "Glacial Dragonhunt",
+          "url": "https://scryfall.com/card/tdm/188/glacial-dragonhunt?utm_source=api"
+        },
+        {
+          "name": "Mammoth Bellow",
+          "url": "https://scryfall.com/card/tdm/205/mammoth-bellow?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:catalog-gaps:harness",
+      "name": "Harness",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Harness is an activated action on its source card that makes that card’s ∞ ability active.",
+      "summary": "Harness is an activated action on its source card that makes that card’s ∞ ability active.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "The Mind Stone: Indestructible",
+            "cards": [
+              {
+                "name": "The Mind Stone",
+                "url": "https://scryfall.com/card/msh/21/the-mind-stone?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22The%20Mind%20Stone%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "not_found",
+            "note": "No selected independent example in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "B": {
+            "status": "documented",
+            "note": "The Soul Stone: Indestructible",
+            "cards": [
+              {
+                "name": "The Soul Stone",
+                "url": "https://scryfall.com/card/spm/66/the-soul-stone?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22The%20Soul%20Stone%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "not_found",
+            "note": "No selected independent example in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "G": {
+            "status": "not_found",
+            "note": "No selected independent example in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "not_found",
+          "note": "No selected colorless example in the reviewed scope.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "The Mind Stone",
+          "url": "https://scryfall.com/card/msh/21/the-mind-stone?utm_source=api"
+        },
+        {
+          "name": "The Soul Stone",
+          "url": "https://scryfall.com/card/spm/66/the-soul-stone?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:haunt",
+      "name": "Haunt",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Haunt exiles the spell or creature card haunting a target creature after its stated zone change, then its linked effect can trigger when that creature dies.",
+      "summary": "Haunt exiles the spell or creature card haunting a target creature after its stated zone change, then its linked effect can trigger when that creature dies.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Absolver Thrull: Haunt (When this creature dies, exile it haunting target creature.)",
+            "cards": [
+              {
+                "name": "Absolver Thrull",
+                "url": "https://scryfall.com/card/gpt/1/absolver-thrull?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Absolver%20Thrull%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "not_found",
+            "note": "No selected independent example in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "B": {
+            "status": "documented",
+            "note": "Cry of Contrition: Target player discards a card.",
+            "cards": [
+              {
+                "name": "Cry of Contrition",
+                "url": "https://scryfall.com/card/gpt/46/cry-of-contrition?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Cry%20of%20Contrition%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "not_found",
+            "note": "No selected independent example in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "G": {
+            "status": "not_found",
+            "note": "No selected independent example in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "W",
+              "B"
+            ],
+            "note": "Blind Hunter: Flying",
+            "cards": [
+              {
+                "name": "Blind Hunter",
+                "url": "https://scryfall.com/card/rvr/166/blind-hunter?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Blind%20Hunter%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "not_found",
+          "note": "No selected colorless example in the reviewed scope.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Absolver Thrull",
+          "url": "https://scryfall.com/card/gpt/1/absolver-thrull?utm_source=api"
+        },
+        {
+          "name": "Cry of Contrition",
+          "url": "https://scryfall.com/card/gpt/46/cry-of-contrition?utm_source=api"
+        },
+        {
+          "name": "Blind Hunter",
+          "url": "https://scryfall.com/card/rvr/166/blind-hunter?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:heal",
+      "name": "Heal",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Heal is a direct card-text action that removes damage already dealt, rather than a general rules keyword.",
+      "summary": "Heal is a direct card-text action that removes damage already dealt, rather than a general rules keyword.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Dr. McCoy, Surly Surgeon: When Dr. McCoy enters, put a +1/+1 counter on another target creature you control.",
+            "cards": [
+              {
+                "name": "Dr. McCoy, Surly Surgeon",
+                "url": "https://scryfall.com/card/trk/14/dr-mccoy-surly-surgeon?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Dr.%20McCoy%2C%20Surly%20Surgeon%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "not_found",
+            "note": "No selected independent example in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "B": {
+            "status": "not_found",
+            "note": "No selected independent example in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "R": {
+            "status": "multicolor_only",
+            "note": "Selected combination evidence only; it does not establish independent monocolor access.",
+            "cards": [
+              {
+                "name": "Wolverine, Fierce Fighter",
+                "url": "https://scryfall.com/card/msh/240/wolverine-fierce-fighter?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Wolverine%2C%20Fierce%20Fighter%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "multicolor_only",
+            "note": "Selected combination evidence only; it does not establish independent monocolor access.",
+            "cards": [
+              {
+                "name": "Wolverine, Fierce Fighter",
+                "url": "https://scryfall.com/card/msh/240/wolverine-fierce-fighter?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Wolverine%2C%20Fierce%20Fighter%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "R",
+              "G"
+            ],
+            "note": "Wolverine, Fierce Fighter: Haste",
+            "cards": [
+              {
+                "name": "Wolverine, Fierce Fighter",
+                "url": "https://scryfall.com/card/msh/240/wolverine-fierce-fighter?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Wolverine%2C%20Fierce%20Fighter%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "not_found",
+          "note": "No selected colorless example in the reviewed scope.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Dr. McCoy, Surly Surgeon",
+          "url": "https://scryfall.com/card/trk/14/dr-mccoy-surly-surgeon?utm_source=api"
+        },
+        {
+          "name": "Wolverine, Fierce Fighter",
+          "url": "https://scryfall.com/card/msh/240/wolverine-fierce-fighter?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:catalog-gaps:heist",
+      "name": "Heist",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Digital / Alchemy material",
+      "scope": "Heist targets an opponent’s library, exiles cards from it, and lets its controller play those cards under the card’s stated permission.",
+      "summary": "Heist targets an opponent’s library, exiles cards from it, and lets its controller play those cards under the card’s stated permission.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "not_found",
+            "note": "No selected independent example in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "U": {
+            "status": "documented",
+            "note": "Thieving Aven: Flying",
+            "cards": [
+              {
+                "name": "Thieving Aven",
+                "url": "https://scryfall.com/card/yotj/8/thieving-aven?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Thieving%20Aven%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Grave Expectations: Choose one —",
+            "cards": [
+              {
+                "name": "Grave Expectations",
+                "url": "https://scryfall.com/card/yotj/9/grave-expectations?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Grave%20Expectations%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Impetuous Lootmonger: First strike",
+            "cards": [
+              {
+                "name": "Impetuous Lootmonger",
+                "url": "https://scryfall.com/card/yotj/12/impetuous-lootmonger?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Impetuous%20Lootmonger%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "not_found",
+            "note": "No selected independent example in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "B",
+              "R"
+            ],
+            "note": "Grenzo, Crooked Jailer: When Grenzo enters and at the beginning of your upkeep, heist target opponent's library.",
+            "cards": [
+              {
+                "name": "Grenzo, Crooked Jailer",
+                "url": "https://scryfall.com/card/yotj/22/grenzo-crooked-jailer?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Grenzo%2C%20Crooked%20Jailer%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "U",
+              "B"
+            ],
+            "note": "Weave the Nightmare: Choose one. If you control a nonland permanent you don't own as you cast this spell, you may choose two instead.",
+            "cards": [
+              {
+                "name": "Weave the Nightmare",
+                "url": "https://scryfall.com/card/yotj/29/weave-the-nightmare?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Weave%20the%20Nightmare%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "not_found",
+          "note": "No selected colorless example in the reviewed scope.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Thieving Aven",
+          "url": "https://scryfall.com/card/yotj/8/thieving-aven?utm_source=api"
+        },
+        {
+          "name": "Grave Expectations",
+          "url": "https://scryfall.com/card/yotj/9/grave-expectations?utm_source=api"
+        },
+        {
+          "name": "Impetuous Lootmonger",
+          "url": "https://scryfall.com/card/yotj/12/impetuous-lootmonger?utm_source=api"
+        },
+        {
+          "name": "Grenzo, Crooked Jailer",
+          "url": "https://scryfall.com/card/yotj/22/grenzo-crooked-jailer?utm_source=api"
+        },
+        {
+          "name": "Weave the Nightmare",
+          "url": "https://scryfall.com/card/yotj/29/weave-the-nightmare?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:hellbent",
+      "name": "Hellbent",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Hellbent labels abilities that apply while their controller has no cards in hand.",
+      "summary": "Hellbent labels abilities that apply while their controller has no cards in hand.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "not_found",
+            "note": "No selected independent example in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "U": {
+            "status": "not_found",
+            "note": "No selected independent example in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "B": {
+            "status": "documented",
+            "note": "Infernal Tutor: Reveal a card from your hand. Search your library for a card with the same name as that card, reveal it, put it into your hand, then shuffle.",
+            "cards": [
+              {
+                "name": "Infernal Tutor",
+                "url": "https://scryfall.com/card/rvr/78/infernal-tutor?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Infernal%20Tutor%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Cackling Flames: Cackling Flames deals 3 damage to any target.",
+            "cards": [
+              {
+                "name": "Cackling Flames",
+                "url": "https://scryfall.com/card/dis/59/cackling-flames?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Cackling%20Flames%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "not_found",
+            "note": "No selected independent example in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "B",
+              "R"
+            ],
+            "note": "Anthem of Rakdos: Whenever a creature you control attacks, it gets +2/+0 until end of turn and this enchantment deals 1 damage to you.",
+            "cards": [
+              {
+                "name": "Anthem of Rakdos",
+                "url": "https://scryfall.com/card/dis/102/anthem-of-rakdos?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Anthem%20of%20Rakdos%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "not_found",
+          "note": "No selected colorless example in the reviewed scope.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Infernal Tutor",
+          "url": "https://scryfall.com/card/rvr/78/infernal-tutor?utm_source=api"
+        },
+        {
+          "name": "Cackling Flames",
+          "url": "https://scryfall.com/card/dis/59/cackling-flames?utm_source=api"
+        },
+        {
+          "name": "Anthem of Rakdos",
+          "url": "https://scryfall.com/card/dis/102/anthem-of-rakdos?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:catalog-gaps:hero's reward",
+      "name": "Hero's Reward",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Face the Hydra / Challenge Deck material",
+      "scope": "Hero's Reward is the card-specific label on Face the Hydra material; each card supplies its own stated leave-the-battlefield effect.",
+      "summary": "Hero's Reward is the card-specific label on Face the Hydra material; each card supplies its own stated leave-the-battlefield effect.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "not_found",
+            "note": "No selected independent example in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "U": {
+            "status": "not_found",
+            "note": "No selected independent example in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "B": {
+            "status": "not_found",
+            "note": "No selected independent example in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "R": {
+            "status": "not_found",
+            "note": "No selected independent example in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "G": {
+            "status": "not_found",
+            "note": "No selected independent example in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "documented",
+          "note": "Hydra Head is a colorless Face the Hydra card whose Hero's Reward says that when it leaves the battlefield, each player gains 2 life.",
+          "cards": [
+            {
+              "name": "Hydra Head",
+              "url": "https://scryfall.com/card/tfth/1/hydra-head?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22Hydra%20Head%22%29%20include%3Aextras"
+        },
+        "limitations": [
+          "The inherited source remains Hydra-specific and definitionVerified=false; this colorless witness does not define a universal Hero’s Reward trigger."
+        ]
+      },
+      "citationCards": [
+        {
+          "name": "Hydra Head",
+          "url": "https://scryfall.com/card/tfth/1/hydra-head?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:heroic",
+      "name": "Heroic",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Heroic abilities trigger whenever their creature’s controller casts a spell that targets that creature.",
+      "summary": "Heroic abilities trigger whenever their creature’s controller casts a spell that targets that creature.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Favored Hoplite: Heroic — Whenever you cast a spell that targets this creature, put a +1/+1 counter on this creature and prevent all damage that would be dealt to it this turn.",
+            "cards": [
+              {
+                "name": "Favored Hoplite",
+                "url": "https://scryfall.com/card/ths/13/favored-hoplite?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Favored%20Hoplite%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Artisan of Forms: Heroic — Whenever you cast a spell that targets this creature, you may have this creature become a copy of target creature, except it has this ability.",
+            "cards": [
+              {
+                "name": "Artisan of Forms",
+                "url": "https://scryfall.com/card/ths/40/artisan-of-forms?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Artisan%20of%20Forms%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Agent of the Fates: Deathtouch",
+            "cards": [
+              {
+                "name": "Agent of the Fates",
+                "url": "https://scryfall.com/card/ths/76/agent-of-the-fates?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Agent%20of%20the%20Fates%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Akroan Crusader: Heroic — Whenever you cast a spell that targets this creature, create a 1/1 red Soldier creature token with haste. (It can attack and {T} as soon as it comes under your control.)",
+            "cards": [
+              {
+                "name": "Akroan Crusader",
+                "url": "https://scryfall.com/card/uma/121/akroan-crusader?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Akroan%20Crusader%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Centaur Battlemaster: Heroic — Whenever you cast a spell that targets this creature, put three +1/+1 counters on this creature.",
+            "cards": [
+              {
+                "name": "Centaur Battlemaster",
+                "url": "https://scryfall.com/card/2x2/140/centaur-battlemaster?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Centaur%20Battlemaster%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "not_found",
+          "note": "No selected colorless example in the reviewed scope.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Favored Hoplite",
+          "url": "https://scryfall.com/card/ths/13/favored-hoplite?utm_source=api"
+        },
+        {
+          "name": "Artisan of Forms",
+          "url": "https://scryfall.com/card/ths/40/artisan-of-forms?utm_source=api"
+        },
+        {
+          "name": "Agent of the Fates",
+          "url": "https://scryfall.com/card/ths/76/agent-of-the-fates?utm_source=api"
+        },
+        {
+          "name": "Akroan Crusader",
+          "url": "https://scryfall.com/card/uma/121/akroan-crusader?utm_source=api"
+        },
+        {
+          "name": "Centaur Battlemaster",
+          "url": "https://scryfall.com/card/2x2/140/centaur-battlemaster?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:shortlist:hexproof from",
+      "name": "Hexproof from",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Hexproof from limits targeting by the stated quality of spells and abilities an opponent controls.",
+      "summary": "Hexproof from limits targeting by the stated quality of spells and abilities an opponent controls.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Knight of Grace: First strike (This creature deals combat damage before creatures without first strike.)",
+            "cards": [
+              {
+                "name": "Knight of Grace",
+                "url": "https://scryfall.com/card/fdn/576/knight-of-grace?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Knight%20of%20Grace%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Mondo Gecko: {1}, Discard a card: Until end of turn, Mondo Gecko becomes the color of your choice and gains hexproof from that color.",
+            "cards": [
+              {
+                "name": "Mondo Gecko",
+                "url": "https://scryfall.com/card/tmt/46/mondo-gecko?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Mondo%20Gecko%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Knight of Malice: First strike (This creature deals combat damage before creatures without first strike.)",
+            "cards": [
+              {
+                "name": "Knight of Malice",
+                "url": "https://scryfall.com/card/fdn/608/knight-of-malice?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Knight%20of%20Malice%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "multicolor_only",
+            "note": "Selected combination evidence only; it does not establish independent monocolor access.",
+            "cards": [
+              {
+                "name": "General Ferrous Rokiric",
+                "url": "https://scryfall.com/card/mh2/198/general-ferrous-rokiric?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22General%20Ferrous%20Rokiric%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Garruk's Harbinger: Hexproof from black",
+            "cards": [
+              {
+                "name": "Garruk's Harbinger",
+                "url": "https://scryfall.com/card/m21/185/garruks-harbinger?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Garruk%27s%20Harbinger%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "W",
+              "R"
+            ],
+            "note": "General Ferrous Rokiric: Hexproof from monocolored",
+            "cards": [
+              {
+                "name": "General Ferrous Rokiric",
+                "url": "https://scryfall.com/card/mh2/198/general-ferrous-rokiric?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22General%20Ferrous%20Rokiric%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "documented",
+          "note": "Dragonfire Blade: Equipped creature gets +2/+2 and has hexproof from monocolored.",
+          "cards": [
+            {
+              "name": "Dragonfire Blade",
+              "url": "https://scryfall.com/card/tdm/240/dragonfire-blade?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22Dragonfire%20Blade%22%29%20include%3Aextras"
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Knight of Grace",
+          "url": "https://scryfall.com/card/fdn/576/knight-of-grace?utm_source=api"
+        },
+        {
+          "name": "Mondo Gecko",
+          "url": "https://scryfall.com/card/tmt/46/mondo-gecko?utm_source=api"
+        },
+        {
+          "name": "Knight of Malice",
+          "url": "https://scryfall.com/card/fdn/608/knight-of-malice?utm_source=api"
+        },
+        {
+          "name": "General Ferrous Rokiric",
+          "url": "https://scryfall.com/card/mh2/198/general-ferrous-rokiric?utm_source=api"
+        },
+        {
+          "name": "Garruk's Harbinger",
+          "url": "https://scryfall.com/card/m21/185/garruks-harbinger?utm_source=api"
+        },
+        {
+          "name": "Dragonfire Blade",
+          "url": "https://scryfall.com/card/tdm/240/dragonfire-blade?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:hidden agenda",
+      "name": "Hidden Agenda",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Conspiracy material",
+      "scope": "Hidden agenda is a Conspiracy ability that begins face down in the command zone with a secretly chosen card name.",
+      "summary": "Hidden agenda is a Conspiracy ability that begins face down in the command zone with a secretly chosen card name.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "not_found",
+            "note": "No selected independent example in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "U": {
+            "status": "not_found",
+            "note": "No selected independent example in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "B": {
+            "status": "not_found",
+            "note": "No selected independent example in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "R": {
+            "status": "not_found",
+            "note": "No selected independent example in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "G": {
+            "status": "not_found",
+            "note": "No selected independent example in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "documented",
+          "note": "Brago's Favor: Hidden agenda (Start the game with this conspiracy face down in the command zone and secretly choose a card name. You may turn this conspiracy face up any time and reveal that name.)",
+          "cards": [
+            {
+              "name": "Brago's Favor",
+              "url": "https://scryfall.com/card/cns/3/bragos-favor?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22Brago%27s%20Favor%22%29%20include%3Aextras"
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Brago's Favor",
+          "url": "https://scryfall.com/card/cns/3/bragos-favor?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:hideaway",
+      "name": "Hideaway",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Hideaway exiles a card face down from among cards looked at as the permanent enters, with its card supplying the later permission.",
+      "summary": "Hideaway exiles a card face down from among cards looked at as the permanent enters, with its card supplying the later permission.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Collector's Cage: Hideaway 5 (When this artifact enters, look at the top five cards of your library, exile one face down, then put the rest on the bottom in a random order.)",
+            "cards": [
+              {
+                "name": "Collector's Cage",
+                "url": "https://scryfall.com/card/big/1/collectors-cage?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Collector%27s%20Cage%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Watcher for Tomorrow: Hideaway 4 (When this creature enters, look at the top four cards of your library, exile one face down, then put the rest on the bottom in a random order.)",
+            "cards": [
+              {
+                "name": "Watcher for Tomorrow",
+                "url": "https://scryfall.com/card/mh1/76/watcher-for-tomorrow?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Watcher%20for%20Tomorrow%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Cemetery Tampering: Hideaway 5 (When this enchantment enters, look at the top five cards of your library, exile one face down, then put the rest on the bottom in a random order.)",
+            "cards": [
+              {
+                "name": "Cemetery Tampering",
+                "url": "https://scryfall.com/card/dsc/135/cemetery-tampering?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Cemetery%20Tampering%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Widespread Thieving: Hideaway 5 (When this enchantment enters, look at the top five cards of your library, exile one face down, then put the rest on the bottom in a random order.)",
+            "cards": [
+              {
+                "name": "Widespread Thieving",
+                "url": "https://scryfall.com/card/snc/130/widespread-thieving?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Widespread%20Thieving%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Fight Rigging: Hideaway 5 (When this enchantment enters, look at the top five cards of your library, exile one face down, then put the rest on the bottom in a random order.)",
+            "cards": [
+              {
+                "name": "Fight Rigging",
+                "url": "https://scryfall.com/card/snc/145/fight-rigging?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Fight%20Rigging%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "documented",
+          "note": "Smuggler's Buggy: Hideaway 4 (When this artifact enters, look at the top four cards of your library, exile one face down, then put the rest on the bottom in a random order.)",
+          "cards": [
+            {
+              "name": "Smuggler's Buggy",
+              "url": "https://scryfall.com/card/ncc/84/smugglers-buggy?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22Smuggler%27s%20Buggy%22%29%20include%3Aextras"
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Collector's Cage",
+          "url": "https://scryfall.com/card/big/1/collectors-cage?utm_source=api"
+        },
+        {
+          "name": "Watcher for Tomorrow",
+          "url": "https://scryfall.com/card/mh1/76/watcher-for-tomorrow?utm_source=api"
+        },
+        {
+          "name": "Cemetery Tampering",
+          "url": "https://scryfall.com/card/dsc/135/cemetery-tampering?utm_source=api"
+        },
+        {
+          "name": "Widespread Thieving",
+          "url": "https://scryfall.com/card/snc/130/widespread-thieving?utm_source=api"
+        },
+        {
+          "name": "Fight Rigging",
+          "url": "https://scryfall.com/card/snc/145/fight-rigging?utm_source=api"
+        },
+        {
+          "name": "Smuggler's Buggy",
+          "url": "https://scryfall.com/card/ncc/84/smugglers-buggy?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:shortlist:hire a mercenary",
+      "name": "Hire a Mercenary",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Card-specific material",
+      "scope": "Hire a Mercenary is Black Market Connections’s named mode, which creates a colorless Shapeshifter Mercenary token.",
+      "summary": "Hire a Mercenary is Black Market Connections’s named mode, which creates a colorless Shapeshifter Mercenary token.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "not_found",
+            "note": "No selected independent example in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "U": {
+            "status": "not_found",
+            "note": "No selected independent example in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "B": {
+            "status": "documented",
+            "note": "Black Market Connections: At the beginning of your first main phase, choose one or more —",
+            "cards": [
+              {
+                "name": "Black Market Connections",
+                "url": "https://scryfall.com/card/msc/155/black-market-connections?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Black%20Market%20Connections%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "not_found",
+            "note": "No selected independent example in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "G": {
+            "status": "not_found",
+            "note": "No selected independent example in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "not_found",
+          "note": "No selected colorless example in the reviewed scope.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Black Market Connections",
+          "url": "https://scryfall.com/card/msc/155/black-market-connections?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:horsemanship",
+      "name": "Horsemanship",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Horsemanship is an evasion ability: a creature with it can be blocked only by creatures with horsemanship.",
+      "summary": "Horsemanship is an evasion ability: a creature with it can be blocked only by creatures with horsemanship.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Guan Yu, Sainted Warrior: Horsemanship (This creature can't be blocked except by creatures with horsemanship.)",
+            "cards": [
+              {
+                "name": "Guan Yu, Sainted Warrior",
+                "url": "https://scryfall.com/card/me3/12/guan-yu-sainted-warrior?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Guan%20Yu%2C%20Sainted%20Warrior%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Lu Meng, Wu General: Horsemanship (This creature can't be blocked except by creatures with horsemanship.)",
+            "cards": [
+              {
+                "name": "Lu Meng, Wu General",
+                "url": "https://scryfall.com/card/me3/41/lu-meng-wu-general?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Lu%20Meng%2C%20Wu%20General%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Cao Ren, Wei Commander: Horsemanship (This creature can't be blocked except by creatures with horsemanship.)",
+            "cards": [
+              {
+                "name": "Cao Ren, Wei Commander",
+                "url": "https://scryfall.com/card/ptk/69/cao-ren-wei-commander?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Cao%20Ren%2C%20Wei%20Commander%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Barbarian General: Horsemanship (This creature can't be blocked except by creatures with horsemanship.)",
+            "cards": [
+              {
+                "name": "Barbarian General",
+                "url": "https://scryfall.com/card/ptk/100/barbarian-general?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Barbarian%20General%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Lady Zhurong, Warrior Queen: Horsemanship (This creature can't be blocked except by creatures with horsemanship.)",
+            "cards": [
+              {
+                "name": "Lady Zhurong, Warrior Queen",
+                "url": "https://scryfall.com/card/ptk/139/lady-zhurong-warrior-queen?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Lady%20Zhurong%2C%20Warrior%20Queen%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "not_found",
+          "note": "No selected colorless example in the reviewed scope.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Guan Yu, Sainted Warrior",
+          "url": "https://scryfall.com/card/me3/12/guan-yu-sainted-warrior?utm_source=api"
+        },
+        {
+          "name": "Lu Meng, Wu General",
+          "url": "https://scryfall.com/card/me3/41/lu-meng-wu-general?utm_source=api"
+        },
+        {
+          "name": "Cao Ren, Wei Commander",
+          "url": "https://scryfall.com/card/ptk/69/cao-ren-wei-commander?utm_source=api"
+        },
+        {
+          "name": "Barbarian General",
+          "url": "https://scryfall.com/card/ptk/100/barbarian-general?utm_source=api"
+        },
+        {
+          "name": "Lady Zhurong, Warrior Queen",
+          "url": "https://scryfall.com/card/ptk/139/lady-zhurong-warrior-queen?utm_source=api"
         }
       ],
       "sources": [],

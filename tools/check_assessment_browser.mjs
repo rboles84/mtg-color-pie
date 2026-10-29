@@ -1,4 +1,4 @@
-// Focused A/B/C/D/E/F/G assessment checks using externally supplied Playwright; no new dependency.
+// Focused A/B/C/D/E/F/G/H assessment checks using externally supplied Playwright; no new dependency.
 import fs from 'node:fs';
 import path from 'node:path';
 import http from 'node:http';
@@ -39,9 +39,9 @@ try{
   await page.waitForFunction(()=>document.querySelector('#selftest').textContent.includes('84 of 84 passed'));
   const baseline=await page.evaluate(math);
   assert.equal(await page.locator('#list .ent').count(),216);
-  assert.equal(await page.evaluate(()=>VMX.assessments().records.length),163);
-  const expectedAssessmentIds=supplement.records.filter(r=>/^[ABCDEFG]/.test(r.name)&&r.target2021===null).map(r=>r.id).sort();
-  assert.deepEqual(payload.records.map(r=>r.id).sort(),expectedAssessmentIds,'every admitted A/B/C/D/E/F/G target has exactly one assessment');
+  assert.equal(await page.evaluate(()=>VMX.assessments().records.length),177);
+  const expectedAssessmentIds=supplement.records.filter(r=>/^[ABCDEFGH]/.test(r.name)&&r.target2021===null).map(r=>r.id).sort();
+  assert.deepEqual(payload.records.map(r=>r.id).sort(),expectedAssessmentIds,'every admitted A/B/C/D/E/F/G/H target has exactly one assessment');
   assert.deepEqual(payload.sourceBindings.map(x=>x.path),[
     'docs/mechanics-research/a-assessments-source.json',
     'docs/mechanics-research/absorb-assessment-source.json',
@@ -57,8 +57,8 @@ try{
     'docs/mechanics-research/d-protocol.json',
     'docs/mechanics-research/e-protocol.json',
     'docs/mechanics-research/f-protocol.json',
-    'docs/mechanics-research/g-protocol.json'
-  ],'all fifteen canonical packet bindings are present');
+    'docs/mechanics-research/g-protocol.json','docs/mechanics-research/h-protocol.json'
+  ],'all sixteen canonical packet bindings are present');
   assert.deepEqual(['Cast','Counter','Create'].map(name=>payload.records.find(r=>r.name===name)?.kind),['rules','rules','rules'],'generic C rules actions have no invented color access');
   const dRecord=name=>payload.records.find(r=>r.name===name);
   assert.deepEqual(['Double','Destroy','Discard'].map(name=>dRecord(name).kind),['rules','rules','rules'],'generic D actions remain references');
@@ -86,11 +86,20 @@ try{
   assert.equal(fRecord('Forestwalk').access.colorless.status,'not_found');
   assert.equal(fRecord('Food').access.colors.B.cards[0].name,'Bake into a Pie');
   assert.equal(fRecord('Food').access.colors.R.status,'multicolor_only');
+  const hRecords=payload.records.filter(r=>r.name.startsWith('H'));
+  assert.equal(hRecords.length,14,'all fourteen supplemental H records are projected once');
+  assert.equal(fRecord('Haste'),undefined,'mapped Haste remains frozen outside assessment records');
+  assert.equal(fRecord('Hexproof'),undefined,'mapped Hexproof remains frozen outside assessment records');
+  assert.equal(fRecord('Hidden Agenda').scopeLabel,'Conspiracy material');
+  assert.equal(fRecord('Heist').scopeLabel,'Digital / Alchemy material');
+  assert.equal(fRecord("Hero's Reward").access.colorless.cards[0].name,'Hydra Head');
+  assert.equal(fRecord('Harness').access.colors.W.cards[0].name,'The Mind Stone');
+  assert.equal(fRecord('Harness').access.colors.B.cards[0].name,'The Soul Stone');
   const gRecords=payload.records.filter(r=>r.name.startsWith('G'));
   const gRecord=name=>gRecords.find(r=>r.name===name);
   const gBuckets=record=>[...Object.values(record.access.colors).filter(b=>b.status==='documented'),...record.access.combinations,...(record.access.colorless.status==='documented'?[record.access.colorless]:[])];
   const gMaps={Gift:['W','U','B','R','G','UG','C'],Goad:['W','U','B','R','G','UB','BRG','UR','BR','RG','WB','WRG','WUG','UBR','WR','BG','C'],Graft:['U','G','UG','C'],Grandeur:['W','U','B','R','G','C'],Gravestorm:['U','B']};
-  for(const record of payload.records) assert.equal(record.researchDate,record.name.startsWith('G')?'2026-10-29':'2026-10-28',record.name+' historical review date');
+  for(const record of payload.records) assert.equal(record.researchDate,(record.name.startsWith('G')||record.name.startsWith('H'))?'2026-10-29':'2026-10-28',record.name+' historical review date');
   assert.equal(payload.researchDate,'2026-10-29');
   for(const record of gRecords){
     assert.deepEqual([...Object.entries(record.access.colors).filter(([,b])=>b.status==='documented').map(([c])=>c),...record.access.combinations.map(b=>b.colors.join('')),...(record.access.colorless.status==='documented'?['C']:[])],gMaps[record.name],record.name+' exact access map');
@@ -199,7 +208,7 @@ try{
       await notes.locator(':scope > summary').focus(); await page.keyboard.press('Enter'); assert.equal(await notes.getAttribute('open'),'');
       // Restore symbol fallback text only for exact authored-prose comparisons.
       // Separate visible-DOM assertions below prove the braces are not displayed.
-      const noteText = /^[EFG]/.test(record.name) ? await notes.evaluate(el=>{
+      const noteText = /^[EFGH]/.test(record.name) ? await notes.evaluate(el=>{
         const copy=el.cloneNode(true);
         copy.querySelectorAll('.supp-symbol').forEach(symbol=>symbol.replaceWith(symbol.querySelector('.supp-symbol-text').textContent));
         return copy.textContent;
@@ -235,7 +244,7 @@ try{
         for(const item of [...access.combinations,...(access.colorless.status==='documented'?[access.colorless]:[])]) assert.ok(noteText.includes(item.note),record.name+' combination/colorless example visible');
       }
       assert.deepEqual(await notes.locator('a').evaluateAll(links=>links.filter(a=>a.hostname==='scryfall.com'&&a.pathname.startsWith('/card/')).map(a=>a.href).sort()),expectedCardLinks,record.name+' no redundant aggregate card list');
-      if(/^[FG]/.test(record.name)) {
+      if(/^[FGH]/.test(record.name)) {
         assert.equal(await page.locator('#detail .dx-eg,#detail .cite').count(),0,record.name+' no inherited extra example/image');
         assert.deepEqual(await page.locator('#detail a').evaluateAll(links=>links.filter(a=>a.hostname==='scryfall.com'&&a.pathname.startsWith('/card/')).map(a=>a.href).sort()),expectedCardLinks,record.name+' whole-detail one-example link contract');
       }
@@ -243,7 +252,7 @@ try{
       const linkedBuckets=cardBuckets.filter(item=>item.findUrl && (!compactExamples || item.cards.length>1));
       for(const findUrl of new Set(linkedBuckets.map(item=>item.findUrl))) assert.equal(await notes.locator(`a[href="${findUrl}"]`).count(),linkedBuckets.filter(item=>item.findUrl===findUrl).length,record.name+' renders every exact reviewed-card bucket link');
       assert.deepEqual(await notes.locator('a').evaluateAll(links=>links.filter(a=>a.protocol!=='https:'||!['scryfall.com','magic.wizards.com'].includes(a.hostname)||a.rel!=='noopener noreferrer').map(a=>a.href)),[]);
-      if(/^[EFG]/.test(record.name)) {
+      if(/^[EFGH]/.test(record.name)) {
         await page.waitForFunction(()=>document.documentElement.classList.contains('supp-mana-ready'));
         const symbols=await page.locator('#detail').evaluate(el=>{
           const copy=el.cloneNode(true);
@@ -277,7 +286,7 @@ try{
     const fallback=await noFont.locator('.assessment-notes .supp-symbol').evaluateAll(symbols=>symbols.map(s=>({label:s.getAttribute('aria-label'),text:s.innerText,glyph:getComputedStyle(s.querySelector('.ms')).display,fallback:getComputedStyle(s.querySelector('.supp-symbol-text')).display})));
     assert.deepEqual(fallback.map(s=>s.text),['{1}','{1}','{B}'],'costs remain readable without font');
     assert.ok(fallback.every(s=>s.label&&s.glyph==='none'&&s.fallback!=='none'));
-    for(const record of payload.records.filter(r=>/^[FG]/.test(r.name))){
+    for(const record of payload.records.filter(r=>/^[FGH]/.test(r.name))){
       await noFont.evaluate(id=>VMX.open(id),record.id);
       await noFont.locator('.assessment-notes > summary').click();
       const symbols=await noFont.locator('#detail .supp-symbol').evaluateAll(items=>items.map(s=>({text:s.innerText,raw:s.querySelector('.supp-symbol-text').textContent,label:s.getAttribute('aria-label'),glyph:getComputedStyle(s.querySelector('.ms')).display})));
@@ -362,7 +371,7 @@ try{
       assert.equal(await fail.evaluate(()=>VMX.assessments().records.length),0); assert.equal(await fail.locator('#list .access-strip').count(),0); await fail.close();
     }
     assert.deepEqual(errors,[]);
-    results.push(combinationsOnly ? 'Fuse and Friends forever combination-only strips and detail rows: exact combinations, pinned Mana CI-3 vectors, accessible labels, readable no-font fallback, and no implied monocolor sockets.' : 'All28 E,25 F and5 G mana-symbol paths: actual tokens plus G numeric/colored/colorless/X/hybrid fixtures in assessment/rules/reference, accessible real glyphs, no-font fallback and escaping; 36 exact G selected links, factual trigger/timing regressions and Oct29 dates; C/D/E/F/G representative sources, unique combination citations and concise copy; 163 A/B/C/D/E/F/G access maps; documented/no-example/joint/colorless/rules cases; exact-example and retained non-card links; atomic malformed fail-soft; search keyboard/mobile; unchanged 2021 84 checks');
+    results.push(combinationsOnly ? 'Fuse and Friends forever combination-only strips and detail rows: exact combinations, pinned Mana CI-3 vectors, accessible labels, readable no-font fallback, and no implied monocolor sockets.' : 'All28 E,25 F and5 G mana-symbol paths: actual tokens plus G numeric/colored/colorless/X/hybrid fixtures in assessment/rules/reference, accessible real glyphs, no-font fallback and escaping; 36 exact G selected links, factual trigger/timing regressions and Oct29 dates; C/D/E/F/G/H representative sources, unique combination citations and concise copy; 177 A/B/C/D/E/F/G/H access maps; documented/no-example/joint/colorless/rules cases; exact-example and retained non-card links; atomic malformed fail-soft; search keyboard/mobile; unchanged 2021 84 checks');
   }
   await page.close();
   console.log(JSON.stringify({result:'PASS',checks:results},null,2));

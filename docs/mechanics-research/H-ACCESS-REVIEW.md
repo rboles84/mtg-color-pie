@@ -1,0 +1,9 @@
+# H supplemental Color Access review
+
+Review date: 2026-10-29. The canonical packet is `h-protocol.json`; raw Scryfall discovery bodies, request URLs, UTC retrieval facts, HTTP 200 status and SHA-256 receipts are retained in `h-protocol-evidence/`.
+
+Fourteen supplemental H records are covered. Haste and Hexproof remain mapped frozen-2021 records and are not recreated. Each represented independent color, colorless bucket, or multicolor combination has one selected Scryfall-linked witness in the packet. These are observed scoped examples, not ranks or a census.
+
+Ordinary-paper results use the colors of the mechanic-bearing card face. Harmonize, Haunt, Heal, Hellbent, Heroic, Hideaway, Horsemanship, Hexproof from, Hire a Mercenary, Halflingcycling, and Harness are reviewed through actual card text. Heal is limited to direct heal text; Harness excludes the Harnessed Lightning and Harness Infinity name matches. Hidden Agenda is identified as colorless Conspiracy material. Heist remains Digital / Alchemy material. Hero's Reward remains an inherited Hydra-specific archived discussion with `definitionVerified=false`, so no general definition is asserted; Hydra Head is the selected colorless Face the Hydra / Challenge Deck witness.
+
+Combination witnesses stay combinations and never create monocolor access. Source cards that grant or create the relevant object are attributed to their own colors; recipients, payoff-only references, removal, and name-only matches are excluded. Hexproof-from evidence excludes special/digital witnesses from ordinary-paper access. No `not_found` bucket claims impossibility beyond the reviewed scope.
