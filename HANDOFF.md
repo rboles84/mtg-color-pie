@@ -1,3 +1,79 @@
+# Owner Review — H supplemental Color Access
+
+- Status: qa-passed / Owner Review. Engineering is complete for all fourteen H supplemental entries and 59 selected examples. Owner visual/product acceptance remains pending; no integration is implied. This entry supersedes the earlier ready-for-qa reports below. Task baseline was freshly established at `6ef4ccb64e48ae2510faf05ec14ae8f1448b4c84` on existing branch `codex/a-mechanics-review`; final material is `eac746338738c0fb1eb99d2c852e29b63ea36d7a`.
+- QA classification: QA-4; execution SEPARATE. Coordinator `/root` made no material implementation edits. Initial configured RobDev Terra medium worker `/root/h_implementation` was followed by announced bounded Sol high repair worker `/root/h_repair` after repeated factual/loader failures. These are requested/configured routes, not inferred backend telemetry. Coordinator QA changes only this ledger.
+- Scope: Halflingcycling, Harmonize, Harness, Haunt, Heal, Heist, Hellbent, Hero's Reward, Heroic, Hexproof from, Hidden Agenda, Hideaway, Hire a Mercenary and Horsemanship. Haste and Hexproof remain mapped to frozen 2021. All 163 A-G projected rows and fifteen prior source bindings match the baseline; all earlier canonical packets and frozen 2021 source/calculation paths are unchanged.
+- Independent source and semantics PASS: reviewed every selected saved full Oracle object, each definition, selected note, face color, grant/token-source attribution, combination, release date and paper/digital/special scope. The independent `check-h-evidence.py` in `C:/Users/obake/.codex/visualizations/2026/10/29/01a1889d-966a-7862-8273-f73eb2e28a8a` returned exit 0 on the final candidate: fourteen H records, 59 full card objects/links/face colors, four capture integrity hashes, 163 preserved rows and fifteen preserved bindings. Its initial unreleased Dr. McCoy finding was repaired with Knight of the Holy Nimbus before PASS. Unselected discovery hits are not represented as individually reviewed.
+- Independent final provenance PASS: exact 59 selected IDs equal both the fresh POST request and full response ID sets, with no not_found values; all saved selected objects equal the fresh response. Actual request/retrieval UTC, HTTP 200, request and response SHA-256 values match working files and committed blobs. All H selected-card authority binds to that fresh receipt. Original discovery timestamps/hashes are explicitly unavailable, not fabricated or treated as fresh verified captures; all original bodies remain preserved. No active placeholder timestamps remain. See `docs/mechanics-research/H-ACCESS-REVIEW.md`, `h-protocol.json` and `h-protocol-evidence/selected-cards-collection-receipt.json`.
+- Producer PASS: `python tools/build_mechanics_assessments.py --check` returned exit 0 on final candidate: 177 deterministic records. Independent comparison against gameplay candidate `963fb97c03ade069ed1fd647575cedd38b2f4c63` proved all 177 projected rows and fifteen prior bindings equal, and renderer/producer/harness committed blobs identical. Only the H binding changes in the generated payload. A first audit helper compared CRLF working bytes with LF Git bytes; corrected blob-to-blob comparison passed without product changes.
+- Protected gates PASS: independently observed exit 0 from `python tools/check_invariants.py`, `python tools/check_taxonomy.py`, `python tools/check_recon.py`, and `python tools/gate.py`: 217 source identities / 216 projections, taxonomy 30/216, all 53 reconciliation assertions, source/taxonomy PASS. These ran earlier in this task; all protected inputs and gate files remained unchanged through the final candidate, so their evidence remains applicable.
+- Independent packaged browser PASS: `node tools/check_assessment_browser.mjs --root _site --playwright C:/Users/obake/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright` returned exit 0 and JSON result PASS on `963fb97`. Covers all 177 maps, 59 H plus 36 G selected links once each, separate combinations, scope/date checks, E/F/G regressions, all actual H tokens and numeric/WUBRG/colorless/X/hybrid fixtures in assessment/rules/reference paths, accessible glyph labels, blocked-font fallback, escaped markup, safe links, malformed/missing/bad-date/bad-binding atomic fail-soft, keyboard search, 360px containment and original 84 checks. Real DOM checks are necessary for loader acceptance, glyph/fallback and one-example presentation. That full evidence remains applicable to the final identical runtime and 177 rows; the provenance repair additionally passed a narrow real-browser reload of all sixteen revised bindings, 177 rows and visible Harness with no page errors. No unnecessary broad rerun followed the provenance-only correction.
+- Final package PASS: checked the resolved `_site` directory stays under this checkout and is not a link before replacement. `python .github/pages/package.py --rev eac746338738c0fb1eb99d2c852e29b63ea36d7a --out <existing absolute _site> --verify` returned exit 0: 23 byte-identical allowlisted files, final-candidate shell stamp, four syntax-clean inline scripts, 23 expected HTTP 200 paths and 24 excluded 404 paths. Existing Python server PID 9224 serves this directory at localhost 8020. No new server or publication.
+- Preview and OWNER-VISUAL evidence: refreshed `http://127.0.0.1:8020/#mechanical-color-pie`; iframe revision is the final material candidate. Harness remains open with Reviewed card examples expanded, search empty, all five color filters false, A-Z active. Final screenshot was inspected: white and black access, one Mind Stone and Soul Stone link each, readable notes and numeric/colored mana glyphs. Screenshot: `C:/Users/obake/.codex/visualizations/2026/10/29/01a1889d-966a-7862-8273-f73eb2e28a8a/h-color-access-preview.jpg`. Owner review is limited to product wording/readability and scope-label/symbol presentation; objective facts and rendering have engineering evidence.
+- Whitespace: authored changes and new JSON checks passed. Full baseline-to-gameplay `git diff --check` returned 2 for exactly sixteen original trailing-whitespace lines (seven in captured Heist HTML, nine in captured CR text). These immutable source bytes are retained to preserve receipt hashes; they are not authored defects. Those raw files are unchanged in the final candidate. Do not describe the unrestricted whitespace check as passed.
+- Failure resolution: rejected draft `ef6aefc` had factual/bucket omissions and an outdated loader; `963fb97` corrected gameplay but was rejected for provenance placeholders. Fresh exact-printing evidence and explicit original metadata limitations resolved the latter in `eac7463`. Earlier misleading claims are withdrawn in the preserved repair history. Incidental browser selector/screenshot timing and audit-helper errors were corrected and verified; no unresolved material defect or harness debt remains.
+- CPU-heavy validation NOT REQUIRED. State-owner adversarial coverage NOT APPLICABLE: routes, persistence and interaction ownership are unchanged; malformed-data/fallback checks cover the shared loading risk. Verdict: engineering PASS / Owner Review. No push, merge, publication or Owner acceptance performed.
+
+## Material candidate
+
+- Baseline: `6ef4ccb64e48ae2510faf05ec14ae8f1448b4c84`
+- Candidate: `eac746338738c0fb1eb99d2c852e29b63ea36d7a`
+- Changed paths: `31`
+- Git material delta: 22,584 insertions and 44 deletions across the paths below.
+
+## Files changed
+
+- `HANDOFF.md`
+- `data/mechanics-assessments.v1.json`
+- `docs/mechanics-research/COLOR-ACCESS-PROTOCOL.md`
+- `docs/mechanics-research/H-ACCESS-REVIEW.md`
+- `docs/mechanics-research/h-protocol-evidence/halflingcycling-discovery-1.json`
+- `docs/mechanics-research/h-protocol-evidence/harmonize-discovery-1.json`
+- `docs/mechanics-research/h-protocol-evidence/harness-discovery-1.json`
+- `docs/mechanics-research/h-protocol-evidence/haunt-discovery-1.json`
+- `docs/mechanics-research/h-protocol-evidence/heal-discovery-1.json`
+- `docs/mechanics-research/h-protocol-evidence/heal-fulloracle-followup-1.json`
+- `docs/mechanics-research/h-protocol-evidence/heist-discovery-1.json`
+- `docs/mechanics-research/h-protocol-evidence/heist-original.html`
+- `docs/mechanics-research/h-protocol-evidence/hellbent-discovery-1.json`
+- `docs/mechanics-research/h-protocol-evidence/hero-s-reward-discovery-1.json`
+- `docs/mechanics-research/h-protocol-evidence/heroic-discovery-1.json`
+- `docs/mechanics-research/h-protocol-evidence/heros-reward-discovery-1.json`
+- `docs/mechanics-research/h-protocol-evidence/hexproof-from-discovery-1.json`
+- `docs/mechanics-research/h-protocol-evidence/hidden-agenda-discovery-1.json`
+- `docs/mechanics-research/h-protocol-evidence/hideaway-discovery-1.json`
+- `docs/mechanics-research/h-protocol-evidence/hire-a-mercenary-discovery-1.json`
+- `docs/mechanics-research/h-protocol-evidence/horsemanship-discovery-1.json`
+- `docs/mechanics-research/h-protocol-evidence/receipts.json`
+- `docs/mechanics-research/h-protocol-evidence/repair-source-receipts.json`
+- `docs/mechanics-research/h-protocol-evidence/rules-20260925.txt`
+- `docs/mechanics-research/h-protocol-evidence/selected-cards-collection-receipt.json`
+- `docs/mechanics-research/h-protocol-evidence/selected-cards-collection-request.json`
+- `docs/mechanics-research/h-protocol-evidence/selected-cards-collection-verified.json`
+- `docs/mechanics-research/h-protocol.json`
+- `tools/build_mechanics_assessments.py`
+- `tools/check_assessment_browser.mjs`
+- `vox-color/mechanical-explorer.html`
+
+## Evidence delta
+
+- Material candidate: `eac746338738c0fb1eb99d2c852e29b63ea36d7a`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `1`
+- Independent QA, preview evidence and Git accounting in HANDOFF.md only; not the full task diff.
+
+## Evidence-only paths
+
+- `HANDOFF.md`
+
+## Final branch delta
+
+- Baseline `6ef4ccb64e48ae2510faf05ec14ae8f1448b4c84` to evidence `HEAD`: 31 changed paths. The evidence commit adds no material path.
+- Final worktree cleanliness, local branch containment and remote-tracking containment are checked after the evidence commit. Local task commits only; no push, merge or publication performed.
+- The canonical change-report validator is run after the evidence commit, against the exact baseline, material candidate and evidence HEAD.
+
+---
+
 # Active repair — H supplemental Color Access
 
 - Status: ready-for-qa (`ready-for-qa -> qa-failed -> dev-in-progress -> ready-for-qa`) for provenance repair of candidate `963fb97c03ade069ed1fd647575cedd38b2f4c63`. Rejected material `ef6aefc634bd61a92553ee108fbfd95c3a81a272`; task baseline `6ef4ccb64e48ae2510faf05ec14ae8f1448b4c84`, existing `codex/a-mechanics-review` checkout. The coordinator announced a bounded implementation escalation for repeated factual/loader failures; this repair worker is the sole material writer. Independent QA and local preview packaging remain coordinator-owned.
