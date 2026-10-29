@@ -10,15 +10,21 @@
       "sources": [],
       "queries": [
         {
-          "mechanic": "Harmonize",
-          "url": "https://api.scryfall.com/cards/search?q=o%3A%22Harmonize%22%20include%3Aextras&unique=cards",
-          "retrieved_at_utc": "2026-10-29T17:06:00.000Z",
+          "source": "Scryfall API",
+          "method": "POST",
+          "url": "https://api.scryfall.com/cards/collection",
+          "final_url": "https://api.scryfall.com/cards/collection",
+          "request_started_at_utc": "2026-10-29T17:32:07.110919+00:00",
+          "retrieved_at_utc": "2026-10-29T17:32:07.606480+00:00",
           "http_status": 200,
-          "sha256": "9948cc1f249c26b4d3d9b01696a99f179baab0342d909fb2a0a95133c91ba85b",
-          "path": "docs/mechanics-research/h-protocol-evidence/harmonize-discovery-1.json"
+          "path": "docs/mechanics-research/h-protocol-evidence/selected-cards-collection-verified.json",
+          "sha256": "b2127ebc380c44235996f3274090e585553f7d49d66a40667505d38022ff8100",
+          "request_body_path": "docs/mechanics-research/h-protocol-evidence/selected-cards-collection-request.json",
+          "request_body_sha256": "c46d2d49c24ac1a13d0dfb8acf0f23da1e5704907bef970bb7ef76c9c49eb448",
+          "requested_printing_count": 59
         }
       ],
-      "selection_method": "One selected full-text-verified witness per observed qualifying source-color set. Discovery captures are retained without claiming every unselected hit was individually reviewed.",
+      "selection_method": "One selected full-text-verified witness per observed qualifying source-color set. Exact selected printing objects are freshly verified in the recorded collection response; historical discovery bodies are retained without reliable original retrieval timestamps or a census claim.",
       "card_review": [
         {
           "oracle_id": "c5da5c31-0cf1-4393-8701-eda7880ecebc",
@@ -69,7 +75,7 @@
               "jpeg": "https://cards.scryfall.io/normal/front/f/c/fc48180a-ccac-469f-938d-c050821d0160.jpg?1783907385"
             },
             "mana_cost": "{U}",
-            "cmc": 1,
+            "cmc": 1.0,
             "type_line": "Sorcery",
             "oracle_text": "Draw a card.\nHarmonize {5}{U} (You may cast this card from your graveyard for its harmonize cost. You may tap a creature you control to reduce that cost by {X}, where X is its power. Then exile this spell.)",
             "colors": [
@@ -226,7 +232,7 @@
               "jpeg": "https://cards.scryfall.io/normal/front/2/4/24204881-690c-4043-8771-20cb93385072.jpg?1783907364"
             },
             "mana_cost": "{R}",
-            "cmc": 1,
+            "cmc": 1.0,
             "type_line": "Sorcery",
             "oracle_text": "Channeled Dragonfire deals 2 damage to any target.\nHarmonize {5}{R}{R} (You may cast this card from your graveyard for its harmonize cost. You may tap a creature you control to reduce that cost by {X}, where X is its power. Then exile this spell.)",
             "colors": [
@@ -381,7 +387,7 @@
               "jpeg": "https://cards.scryfall.io/normal/front/1/3/1397d904-c51d-451e-8505-7f3118acc1f6.jpg?1783907340"
             },
             "mana_cost": "{X}{G}{G}",
-            "cmc": 2,
+            "cmc": 2.0,
             "type_line": "Sorcery",
             "oracle_text": "Search your library for a creature card with mana value X or less, put it onto the battlefield, then shuffle.\nHarmonize {X}{G}{G}{G}{G} (You may cast this card from your graveyard for its harmonize cost. You may tap a creature you control to reduce that cost by an amount of generic mana equal to its power. Then exile this spell.)",
             "colors": [
@@ -539,7 +545,7 @@
               "jpeg": "https://cards.scryfall.io/normal/front/9/5/95994c88-e404-4a4f-8be6-b99d703d4609.jpg?1783907317"
             },
             "mana_cost": "{U}{R}",
-            "cmc": 2,
+            "cmc": 2.0,
             "type_line": "Sorcery",
             "oracle_text": "Draw a card, then you may discard a card. When you discard a nonland card this way, Glacial Dragonhunt deals 3 damage to target creature.\nHarmonize {4}{U}{R} (You may cast this card from your graveyard for its harmonize cost. You may tap a creature you control to reduce that cost by {X}, where X is its power. Then exile this spell.)",
             "colors": [
@@ -699,7 +705,7 @@
               "jpeg": "https://cards.scryfall.io/normal/front/4/6/468b17b4-79ce-4dfa-8873-a9cfc347e38f.jpg?1783907308"
             },
             "mana_cost": "{2}{G}{U}{R}",
-            "cmc": 5,
+            "cmc": 5.0,
             "type_line": "Sorcery",
             "oracle_text": "Create a 5/5 green Elephant creature token.\nHarmonize {5}{G}{U}{R} (You may cast this card from your graveyard for its harmonize cost. You may tap a creature you control to reduce that cost by {X}, where X is its power. Then exile this spell.)",
             "colors": [
@@ -899,7 +905,10 @@
         "rules": [
           "702.180"
         ]
-      }
+      },
+      "historical_discovery_paths": [
+        "docs/mechanics-research/h-protocol-evidence/harmonize-discovery-1.json"
+      ]
     },
     {
       "mechanic": {
@@ -909,15 +918,21 @@
       "sources": [],
       "queries": [
         {
-          "mechanic": "Haunt",
-          "url": "https://api.scryfall.com/cards/search?q=o%3A%22Haunt%22%20include%3Aextras&unique=cards",
-          "retrieved_at_utc": "2026-10-29T17:06:00.000Z",
+          "source": "Scryfall API",
+          "method": "POST",
+          "url": "https://api.scryfall.com/cards/collection",
+          "final_url": "https://api.scryfall.com/cards/collection",
+          "request_started_at_utc": "2026-10-29T17:32:07.110919+00:00",
+          "retrieved_at_utc": "2026-10-29T17:32:07.606480+00:00",
           "http_status": 200,
-          "sha256": "9460197859cf45644b1e97059bd1dfddda7cf00418ecd83dbb22b13cb20f2d6c",
-          "path": "docs/mechanics-research/h-protocol-evidence/haunt-discovery-1.json"
+          "path": "docs/mechanics-research/h-protocol-evidence/selected-cards-collection-verified.json",
+          "sha256": "b2127ebc380c44235996f3274090e585553f7d49d66a40667505d38022ff8100",
+          "request_body_path": "docs/mechanics-research/h-protocol-evidence/selected-cards-collection-request.json",
+          "request_body_sha256": "c46d2d49c24ac1a13d0dfb8acf0f23da1e5704907bef970bb7ef76c9c49eb448",
+          "requested_printing_count": 59
         }
       ],
-      "selection_method": "One selected full-text-verified witness per observed qualifying source-color set. Discovery captures are retained without claiming every unselected hit was individually reviewed.",
+      "selection_method": "One selected full-text-verified witness per observed qualifying source-color set. Exact selected printing objects are freshly verified in the recorded collection response; historical discovery bodies are retained without reliable original retrieval timestamps or a census claim.",
       "card_review": [
         {
           "oracle_id": "a9002245-0f33-48cb-96d3-fde884236eb5",
@@ -968,7 +983,7 @@
               "jpeg": "https://cards.scryfall.io/normal/front/7/1/711979c3-e70b-4973-a4f1-020db534fc73.jpg?1783943532"
             },
             "mana_cost": "{3}{W}",
-            "cmc": 4,
+            "cmc": 4.0,
             "type_line": "Creature — Thrull Cleric",
             "oracle_text": "Haunt (When this creature dies, exile it haunting target creature.)\nWhen this creature enters or the creature it haunts dies, destroy target enchantment.",
             "power": "2",
@@ -1119,7 +1134,7 @@
               "jpeg": "https://cards.scryfall.io/normal/front/6/2/62016f24-3f40-406b-8e29-30a6545d0fc1.jpg?1783943512"
             },
             "mana_cost": "{B}",
-            "cmc": 1,
+            "cmc": 1.0,
             "type_line": "Sorcery",
             "oracle_text": "Target player discards a card.\nHaunt (When this spell card is put into a graveyard after resolving, exile it haunting target creature.)\nWhen the creature this card haunts dies, target player discards a card.",
             "colors": [
@@ -1269,7 +1284,7 @@
               "jpeg": "https://cards.scryfall.io/normal/front/8/1/814a5348-988d-480f-806d-9c958f1a10b9.jpg?1783913297"
             },
             "mana_cost": "{2}{W}{B}",
-            "cmc": 4,
+            "cmc": 4.0,
             "type_line": "Creature — Bat",
             "oracle_text": "Flying\nHaunt (When this creature dies, exile it haunting target creature.)\nWhen this creature enters or the creature it haunts dies, target player loses 2 life and you gain 2 life.",
             "power": "2",
@@ -1431,7 +1446,10 @@
           "note": "No colorless example found in the reviewed scope."
         },
         "limitations": []
-      }
+      },
+      "historical_discovery_paths": [
+        "docs/mechanics-research/h-protocol-evidence/haunt-discovery-1.json"
+      ]
     },
     {
       "mechanic": {
@@ -1441,12 +1459,18 @@
       "sources": [],
       "queries": [
         {
-          "mechanic": "Heal",
-          "url": "https://api.scryfall.com/cards/search?q=o%3A%22Heal%22%20include%3Aextras&unique=cards",
-          "retrieved_at_utc": "2026-10-29T17:06:00.000Z",
+          "source": "Scryfall API",
+          "method": "POST",
+          "url": "https://api.scryfall.com/cards/collection",
+          "final_url": "https://api.scryfall.com/cards/collection",
+          "request_started_at_utc": "2026-10-29T17:32:07.110919+00:00",
+          "retrieved_at_utc": "2026-10-29T17:32:07.606480+00:00",
           "http_status": 200,
-          "sha256": "8d0cf95eae5bd340ac0ee372dff2bbcdcce532db947eef2a4eb7c3cd3bd61200",
-          "path": "docs/mechanics-research/h-protocol-evidence/heal-discovery-1.json"
+          "path": "docs/mechanics-research/h-protocol-evidence/selected-cards-collection-verified.json",
+          "sha256": "b2127ebc380c44235996f3274090e585553f7d49d66a40667505d38022ff8100",
+          "request_body_path": "docs/mechanics-research/h-protocol-evidence/selected-cards-collection-request.json",
+          "request_body_sha256": "c46d2d49c24ac1a13d0dfb8acf0f23da1e5704907bef970bb7ef76c9c49eb448",
+          "requested_printing_count": 59
         },
         {
           "url": "https://api.scryfall.com/cards/search?q=fo%3Aheal+include%3Aextras&unique=cards",
@@ -1457,7 +1481,7 @@
           "path": "docs/mechanics-research/h-protocol-evidence/heal-fulloracle-followup-1.json"
         }
       ],
-      "selection_method": "One selected full-text-verified witness per observed qualifying source-color set. Discovery captures are retained without claiming every unselected hit was individually reviewed.",
+      "selection_method": "One selected full-text-verified witness per observed qualifying source-color set. Exact selected printing objects are freshly verified in the recorded collection response; historical discovery bodies are retained without reliable original retrieval timestamps or a census claim.",
       "card_review": [
         {
           "oracle_id": "4e92c705-19c2-42df-ad12-808d272c505e",
@@ -1665,7 +1689,7 @@
               "jpeg": "https://cards.scryfall.io/normal/front/c/1/c1c7aa22-51b0-45ee-9a8e-5493a1820d8c.jpg?1783902893"
             },
             "mana_cost": "{2}{R}{G}",
-            "cmc": 4,
+            "cmc": 4.0,
             "type_line": "Legendary Creature — Mutant Berserker Hero",
             "oracle_text": "Haste\nWhen Wolverine enters, he fights up to one other target creature.\nIf damage would be dealt to Wolverine, instead that damage is dealt, but all other damage already dealt to him is healed.",
             "power": "3",
@@ -2628,7 +2652,10 @@
           "701.19",
           "701.69"
         ]
-      }
+      },
+      "historical_discovery_paths": [
+        "docs/mechanics-research/h-protocol-evidence/heal-discovery-1.json"
+      ]
     },
     {
       "mechanic": {
@@ -2638,15 +2665,21 @@
       "sources": [],
       "queries": [
         {
-          "mechanic": "Hellbent",
-          "url": "https://api.scryfall.com/cards/search?q=o%3A%22Hellbent%22%20include%3Aextras&unique=cards",
-          "retrieved_at_utc": "2026-10-29T17:06:00.000Z",
+          "source": "Scryfall API",
+          "method": "POST",
+          "url": "https://api.scryfall.com/cards/collection",
+          "final_url": "https://api.scryfall.com/cards/collection",
+          "request_started_at_utc": "2026-10-29T17:32:07.110919+00:00",
+          "retrieved_at_utc": "2026-10-29T17:32:07.606480+00:00",
           "http_status": 200,
-          "sha256": "19d273016d9bd2e8a383239d0c4161daaebba43726b934597f78d64716f4865f",
-          "path": "docs/mechanics-research/h-protocol-evidence/hellbent-discovery-1.json"
+          "path": "docs/mechanics-research/h-protocol-evidence/selected-cards-collection-verified.json",
+          "sha256": "b2127ebc380c44235996f3274090e585553f7d49d66a40667505d38022ff8100",
+          "request_body_path": "docs/mechanics-research/h-protocol-evidence/selected-cards-collection-request.json",
+          "request_body_sha256": "c46d2d49c24ac1a13d0dfb8acf0f23da1e5704907bef970bb7ef76c9c49eb448",
+          "requested_printing_count": 59
         }
       ],
-      "selection_method": "One selected full-text-verified witness per observed qualifying source-color set. Discovery captures are retained without claiming every unselected hit was individually reviewed.",
+      "selection_method": "One selected full-text-verified witness per observed qualifying source-color set. Exact selected printing objects are freshly verified in the recorded collection response; historical discovery bodies are retained without reliable original retrieval timestamps or a census claim.",
       "card_review": [
         {
           "oracle_id": "68a203a3-2283-4e29-b177-b3be43f76899",
@@ -2696,7 +2729,7 @@
               "jpeg": "https://cards.scryfall.io/normal/front/4/b/4b868126-f5f4-4541-8f02-9ac0f196d18c.jpg?1783913326"
             },
             "mana_cost": "{1}{B}",
-            "cmc": 2,
+            "cmc": 2.0,
             "type_line": "Sorcery",
             "oracle_text": "Reveal a card from your hand. Search your library for a card with the same name as that card, reveal it, put it into your hand, then shuffle.\nHellbent — If you have no cards in hand, instead search your library for a card, put it into your hand, then shuffle.",
             "colors": [
@@ -2847,7 +2880,7 @@
               "jpeg": "https://cards.scryfall.io/normal/front/a/5/a54a371e-fb82-41f1-892c-975f932b668e.jpg?1783943423"
             },
             "mana_cost": "{3}{R}",
-            "cmc": 4,
+            "cmc": 4.0,
             "type_line": "Instant",
             "oracle_text": "Cackling Flames deals 3 damage to any target.\nHellbent — Cackling Flames deals 5 damage instead if you have no cards in hand.",
             "colors": [
@@ -2999,7 +3032,7 @@
               "jpeg": "https://cards.scryfall.io/normal/front/e/a/ea00d757-0ea9-4123-89f6-0a437d7fd33d.jpg?1783943407"
             },
             "mana_cost": "{2}{B}{R}{R}",
-            "cmc": 5,
+            "cmc": 5.0,
             "type_line": "Enchantment",
             "oracle_text": "Whenever a creature you control attacks, it gets +2/+0 until end of turn and this enchantment deals 1 damage to you.\nHellbent — As long as you have no cards in hand, if a source you control would deal damage to a permanent or player, it deals double that damage to that permanent or player instead.",
             "colors": [
@@ -3305,7 +3338,10 @@
           "note": "Keldon Megaliths has a {1}{R}, {T} damage ability that can be activated only with an empty hand. The land is colorless despite producing red mana."
         },
         "limitations": []
-      }
+      },
+      "historical_discovery_paths": [
+        "docs/mechanics-research/h-protocol-evidence/hellbent-discovery-1.json"
+      ]
     },
     {
       "mechanic": {
@@ -3315,15 +3351,21 @@
       "sources": [],
       "queries": [
         {
-          "mechanic": "Heroic",
-          "url": "https://api.scryfall.com/cards/search?q=o%3A%22Heroic%22%20include%3Aextras&unique=cards",
-          "retrieved_at_utc": "2026-10-29T17:06:00.000Z",
+          "source": "Scryfall API",
+          "method": "POST",
+          "url": "https://api.scryfall.com/cards/collection",
+          "final_url": "https://api.scryfall.com/cards/collection",
+          "request_started_at_utc": "2026-10-29T17:32:07.110919+00:00",
+          "retrieved_at_utc": "2026-10-29T17:32:07.606480+00:00",
           "http_status": 200,
-          "sha256": "842dd8f5b053885d99bf0d99b202d6624092d79229bcb533d1dce79ef9d2fbb1",
-          "path": "docs/mechanics-research/h-protocol-evidence/heroic-discovery-1.json"
+          "path": "docs/mechanics-research/h-protocol-evidence/selected-cards-collection-verified.json",
+          "sha256": "b2127ebc380c44235996f3274090e585553f7d49d66a40667505d38022ff8100",
+          "request_body_path": "docs/mechanics-research/h-protocol-evidence/selected-cards-collection-request.json",
+          "request_body_sha256": "c46d2d49c24ac1a13d0dfb8acf0f23da1e5704907bef970bb7ef76c9c49eb448",
+          "requested_printing_count": 59
         }
       ],
-      "selection_method": "One selected full-text-verified witness per observed qualifying source-color set. Discovery captures are retained without claiming every unselected hit was individually reviewed.",
+      "selection_method": "One selected full-text-verified witness per observed qualifying source-color set. Exact selected printing objects are freshly verified in the recorded collection response; historical discovery bodies are retained without reliable original retrieval timestamps or a census claim.",
       "card_review": [
         {
           "oracle_id": "145a15f9-89a9-4eb7-9924-e768f17e7e68",
@@ -3374,7 +3416,7 @@
               "jpeg": "https://cards.scryfall.io/normal/front/2/5/251015ed-9408-4941-894a-158551ed2613.jpg?1783939818"
             },
             "mana_cost": "{W}",
-            "cmc": 1,
+            "cmc": 1.0,
             "type_line": "Creature — Human Soldier",
             "oracle_text": "Heroic — Whenever you cast a spell that targets this creature, put a +1/+1 counter on this creature and prevent all damage that would be dealt to it this turn.",
             "power": "1",
@@ -3525,7 +3567,7 @@
               "jpeg": "https://cards.scryfall.io/normal/front/a/7/a7f10198-1eef-4577-b375-b900b15060e1.jpg?1783939802"
             },
             "mana_cost": "{1}{U}",
-            "cmc": 2,
+            "cmc": 2.0,
             "type_line": "Creature — Human Wizard",
             "oracle_text": "Heroic — Whenever you cast a spell that targets this creature, you may have this creature become a copy of target creature, except it has this ability.",
             "power": "1",
@@ -3676,7 +3718,7 @@
               "jpeg": "https://cards.scryfall.io/normal/front/e/c/ecd59977-8788-417d-ba50-e21b8a636bd3.jpg?1783939786"
             },
             "mana_cost": "{1}{B}{B}",
-            "cmc": 3,
+            "cmc": 3.0,
             "type_line": "Creature — Human Assassin",
             "oracle_text": "Deathtouch\nHeroic — Whenever you cast a spell that targets this creature, each opponent sacrifices a creature of their choice.",
             "power": "3",
@@ -3828,7 +3870,7 @@
               "jpeg": "https://cards.scryfall.io/normal/front/7/3/73d295ac-3c83-47db-a324-aa4907bcefdd.jpg?1783933810"
             },
             "mana_cost": "{R}",
-            "cmc": 1,
+            "cmc": 1.0,
             "type_line": "Creature — Human Soldier",
             "oracle_text": "Heroic — Whenever you cast a spell that targets this creature, create a 1/1 red Soldier creature token with haste. (It can attack and {T} as soon as it comes under your control.)",
             "power": "1",
@@ -3997,7 +4039,7 @@
               "jpeg": "https://cards.scryfall.io/normal/front/d/1/d190aac9-9ac8-4b54-9f51-d7d1561dc743.jpg?1783921872"
             },
             "mana_cost": "{3}{G}{G}",
-            "cmc": 5,
+            "cmc": 5.0,
             "type_line": "Creature — Centaur Warrior",
             "oracle_text": "Heroic — Whenever you cast a spell that targets this creature, put three +1/+1 counters on this creature.",
             "power": "3",
@@ -4491,7 +4533,10 @@
         "limitations": [
           "Mystery Booster 2 playtest cards are outside this paper-card scope."
         ]
-      }
+      },
+      "historical_discovery_paths": [
+        "docs/mechanics-research/h-protocol-evidence/heroic-discovery-1.json"
+      ]
     },
     {
       "mechanic": {
@@ -4501,15 +4546,21 @@
       "sources": [],
       "queries": [
         {
-          "mechanic": "Hidden Agenda",
-          "url": "https://api.scryfall.com/cards/search?q=o%3A%22Hidden%20Agenda%22%20include%3Aextras&unique=cards",
-          "retrieved_at_utc": "2026-10-29T17:06:00.000Z",
+          "source": "Scryfall API",
+          "method": "POST",
+          "url": "https://api.scryfall.com/cards/collection",
+          "final_url": "https://api.scryfall.com/cards/collection",
+          "request_started_at_utc": "2026-10-29T17:32:07.110919+00:00",
+          "retrieved_at_utc": "2026-10-29T17:32:07.606480+00:00",
           "http_status": 200,
-          "sha256": "3df64290358c5bc011a7954664527763398fc3103eff331f343c1d11dbb68fa8",
-          "path": "docs/mechanics-research/h-protocol-evidence/hidden-agenda-discovery-1.json"
+          "path": "docs/mechanics-research/h-protocol-evidence/selected-cards-collection-verified.json",
+          "sha256": "b2127ebc380c44235996f3274090e585553f7d49d66a40667505d38022ff8100",
+          "request_body_path": "docs/mechanics-research/h-protocol-evidence/selected-cards-collection-request.json",
+          "request_body_sha256": "c46d2d49c24ac1a13d0dfb8acf0f23da1e5704907bef970bb7ef76c9c49eb448",
+          "requested_printing_count": 59
         }
       ],
-      "selection_method": "One selected full-text-verified witness per observed qualifying source-color set. Discovery captures are retained without claiming every unselected hit was individually reviewed.",
+      "selection_method": "One selected full-text-verified witness per observed qualifying source-color set. Exact selected printing objects are freshly verified in the recorded collection response; historical discovery bodies are retained without reliable original retrieval timestamps or a census claim.",
       "card_review": [
         {
           "oracle_id": "395b312b-8fe6-4c28-b91d-620b5fcb9e6d",
@@ -4556,7 +4607,7 @@
               "jpeg": "https://cards.scryfall.io/normal/front/9/b/9bb6ece9-2038-4dbc-83aa-01ab4d7980b4.jpg?1783939381"
             },
             "mana_cost": "",
-            "cmc": 0,
+            "cmc": 0.0,
             "type_line": "Conspiracy",
             "oracle_text": "Hidden agenda (Start the game with this conspiracy face down in the command zone and secretly choose a card name. You may turn this conspiracy face up any time and reveal that name.)\nSpells with the chosen name you cast cost {1} less to cast.",
             "colors": [],
@@ -4696,7 +4747,10 @@
         "evidence_scope": [
           "conspiracy"
         ]
-      }
+      },
+      "historical_discovery_paths": [
+        "docs/mechanics-research/h-protocol-evidence/hidden-agenda-discovery-1.json"
+      ]
     },
     {
       "mechanic": {
@@ -4706,15 +4760,21 @@
       "sources": [],
       "queries": [
         {
-          "mechanic": "Hideaway",
-          "url": "https://api.scryfall.com/cards/search?q=o%3A%22Hideaway%22%20include%3Aextras&unique=cards",
-          "retrieved_at_utc": "2026-10-29T17:06:00.000Z",
+          "source": "Scryfall API",
+          "method": "POST",
+          "url": "https://api.scryfall.com/cards/collection",
+          "final_url": "https://api.scryfall.com/cards/collection",
+          "request_started_at_utc": "2026-10-29T17:32:07.110919+00:00",
+          "retrieved_at_utc": "2026-10-29T17:32:07.606480+00:00",
           "http_status": 200,
-          "sha256": "4e7c90e792ee86440b225a2504e1b7f56751530e6eae0e404817104033d0f379",
-          "path": "docs/mechanics-research/h-protocol-evidence/hideaway-discovery-1.json"
+          "path": "docs/mechanics-research/h-protocol-evidence/selected-cards-collection-verified.json",
+          "sha256": "b2127ebc380c44235996f3274090e585553f7d49d66a40667505d38022ff8100",
+          "request_body_path": "docs/mechanics-research/h-protocol-evidence/selected-cards-collection-request.json",
+          "request_body_sha256": "c46d2d49c24ac1a13d0dfb8acf0f23da1e5704907bef970bb7ef76c9c49eb448",
+          "requested_printing_count": 59
         }
       ],
-      "selection_method": "One selected full-text-verified witness per observed qualifying source-color set. Discovery captures are retained without claiming every unselected hit was individually reviewed.",
+      "selection_method": "One selected full-text-verified witness per observed qualifying source-color set. Exact selected printing objects are freshly verified in the recorded collection response; historical discovery bodies are retained without reliable original retrieval timestamps or a census claim.",
       "card_review": [
         {
           "oracle_id": "8f5b71fd-469f-4370-a806-9bfefbae03a2",
@@ -4765,7 +4825,7 @@
               "jpeg": "https://cards.scryfall.io/normal/front/a/3/a33703bb-51c0-4d57-9d06-1148507ddc4f.jpg?1783912004"
             },
             "mana_cost": "{1}{W}",
-            "cmc": 2,
+            "cmc": 2.0,
             "type_line": "Artifact",
             "oracle_text": "Hideaway 5 (When this artifact enters, look at the top five cards of your library, exile one face down, then put the rest on the bottom in a random order.)\n{1}, {T}: Put a +1/+1 counter on target creature you control. Then if you control three or more creatures with different powers, you may play the exiled card without paying its mana cost.",
             "colors": [
@@ -4920,7 +4980,7 @@
               "jpeg": "https://cards.scryfall.io/normal/front/1/5/15f01a3c-0a66-48da-a7d2-46260e3b721f.jpg?1783933133"
             },
             "mana_cost": "{1}{U}",
-            "cmc": 2,
+            "cmc": 2.0,
             "type_line": "Creature — Human Wizard",
             "oracle_text": "Hideaway 4 (When this creature enters, look at the top four cards of your library, exile one face down, then put the rest on the bottom in a random order.)\nThis creature enters tapped.\nWhen this creature leaves the battlefield, put the exiled card into its owner's hand.",
             "power": "2",
@@ -5075,7 +5135,7 @@
               "jpeg": "https://cards.scryfall.io/normal/front/b/6/b6d4cf14-c43e-454b-ae76-3678617067f8.jpg?1783909621"
             },
             "mana_cost": "{2}{B}",
-            "cmc": 3,
+            "cmc": 3.0,
             "type_line": "Enchantment",
             "oracle_text": "Hideaway 5 (When this enchantment enters, look at the top five cards of your library, exile one face down, then put the rest on the bottom in a random order.)\nAt the beginning of your upkeep, you may mill three cards. Then if there are twenty or more cards in your graveyard, you may play the exiled card without paying its mana cost.",
             "colors": [
@@ -5225,7 +5285,7 @@
               "jpeg": "https://cards.scryfall.io/normal/front/c/d/cd22723d-855f-4b31-827f-a4e388ebbc07.jpg?1783923111"
             },
             "mana_cost": "{2}{R}",
-            "cmc": 3,
+            "cmc": 3.0,
             "type_line": "Enchantment",
             "oracle_text": "Hideaway 5 (When this enchantment enters, look at the top five cards of your library, exile one face down, then put the rest on the bottom in a random order.)\nWhenever you cast a multicolored spell, create a Treasure token. Then you may pay {W}{U}{B}{R}{G}. If you do, you may play the exiled card without paying its mana cost.",
             "colors": [
@@ -5404,7 +5464,7 @@
               "jpeg": "https://cards.scryfall.io/normal/front/8/6/86fd3454-efe7-4feb-a6ad-069ae2fdbd18.jpg?1783923103"
             },
             "mana_cost": "{2}{G}",
-            "cmc": 3,
+            "cmc": 3.0,
             "type_line": "Enchantment",
             "oracle_text": "Hideaway 5 (When this enchantment enters, look at the top five cards of your library, exile one face down, then put the rest on the bottom in a random order.)\nAt the beginning of combat on your turn, put a +1/+1 counter on target creature you control. Then if you control a creature with power 7 or greater, you may play the exiled card without paying its mana cost.",
             "colors": [
@@ -5552,7 +5612,7 @@
               "jpeg": "https://cards.scryfall.io/normal/front/0/c/0c635ea1-6395-4b28-86e7-6e136c95ca8a.jpg?1783923344"
             },
             "mana_cost": "{4}",
-            "cmc": 4,
+            "cmc": 4.0,
             "type_line": "Artifact — Vehicle",
             "oracle_text": "Hideaway 4 (When this artifact enters, look at the top four cards of your library, exile one face down, then put the rest on the bottom in a random order.)\nWhenever this Vehicle deals combat damage to a player, you may cast the exiled card without paying its mana cost. If you do, return this Vehicle to its owner's hand.\nCrew 2",
             "power": "5",
@@ -5708,7 +5768,10 @@
           "note": "Smuggler's Buggy has hideaway 4. Combat damage to a player lets you cast the exiled card without paying its mana cost; if you do, the Buggy returns to its owner's hand."
         },
         "limitations": []
-      }
+      },
+      "historical_discovery_paths": [
+        "docs/mechanics-research/h-protocol-evidence/hideaway-discovery-1.json"
+      ]
     },
     {
       "mechanic": {
@@ -5718,15 +5781,21 @@
       "sources": [],
       "queries": [
         {
-          "mechanic": "Horsemanship",
-          "url": "https://api.scryfall.com/cards/search?q=o%3A%22Horsemanship%22%20include%3Aextras&unique=cards",
-          "retrieved_at_utc": "2026-10-29T17:06:00.000Z",
+          "source": "Scryfall API",
+          "method": "POST",
+          "url": "https://api.scryfall.com/cards/collection",
+          "final_url": "https://api.scryfall.com/cards/collection",
+          "request_started_at_utc": "2026-10-29T17:32:07.110919+00:00",
+          "retrieved_at_utc": "2026-10-29T17:32:07.606480+00:00",
           "http_status": 200,
-          "sha256": "d6b2e1e0d77158be1c0aeb78d3e1cb5898e69fc9a9129253b2315cee356fe043",
-          "path": "docs/mechanics-research/h-protocol-evidence/horsemanship-discovery-1.json"
+          "path": "docs/mechanics-research/h-protocol-evidence/selected-cards-collection-verified.json",
+          "sha256": "b2127ebc380c44235996f3274090e585553f7d49d66a40667505d38022ff8100",
+          "request_body_path": "docs/mechanics-research/h-protocol-evidence/selected-cards-collection-request.json",
+          "request_body_sha256": "c46d2d49c24ac1a13d0dfb8acf0f23da1e5704907bef970bb7ef76c9c49eb448",
+          "requested_printing_count": 59
         }
       ],
-      "selection_method": "One selected full-text-verified witness per observed qualifying source-color set. Discovery captures are retained without claiming every unselected hit was individually reviewed.",
+      "selection_method": "One selected full-text-verified witness per observed qualifying source-color set. Exact selected printing objects are freshly verified in the recorded collection response; historical discovery bodies are retained without reliable original retrieval timestamps or a census claim.",
       "card_review": [
         {
           "oracle_id": "22aa8e7f-b30d-49e2-b99e-9232e1a3bcf3",
@@ -6517,7 +6586,10 @@
         "limitations": [
           "The examples are released paper cards. Mystery Booster 2 playtest cards, Heroes of the Realm, acorn cards, and standalone tokens are outside this scope."
         ]
-      }
+      },
+      "historical_discovery_paths": [
+        "docs/mechanics-research/h-protocol-evidence/horsemanship-discovery-1.json"
+      ]
     },
     {
       "mechanic": {
@@ -6527,15 +6599,21 @@
       "sources": [],
       "queries": [
         {
-          "mechanic": "Hexproof from",
-          "url": "https://api.scryfall.com/cards/search?q=o%3A%22Hexproof%20from%22%20include%3Aextras&unique=cards",
-          "retrieved_at_utc": "2026-10-29T17:06:00.000Z",
+          "source": "Scryfall API",
+          "method": "POST",
+          "url": "https://api.scryfall.com/cards/collection",
+          "final_url": "https://api.scryfall.com/cards/collection",
+          "request_started_at_utc": "2026-10-29T17:32:07.110919+00:00",
+          "retrieved_at_utc": "2026-10-29T17:32:07.606480+00:00",
           "http_status": 200,
-          "sha256": "b94959348cb5cb1197cd93965b6556c64b3859705127cad1743c7e30f5b31239",
-          "path": "docs/mechanics-research/h-protocol-evidence/hexproof-from-discovery-1.json"
+          "path": "docs/mechanics-research/h-protocol-evidence/selected-cards-collection-verified.json",
+          "sha256": "b2127ebc380c44235996f3274090e585553f7d49d66a40667505d38022ff8100",
+          "request_body_path": "docs/mechanics-research/h-protocol-evidence/selected-cards-collection-request.json",
+          "request_body_sha256": "c46d2d49c24ac1a13d0dfb8acf0f23da1e5704907bef970bb7ef76c9c49eb448",
+          "requested_printing_count": 59
         }
       ],
-      "selection_method": "One selected full-text-verified witness per observed qualifying source-color set. Discovery captures are retained without claiming every unselected hit was individually reviewed.",
+      "selection_method": "One selected full-text-verified witness per observed qualifying source-color set. Exact selected printing objects are freshly verified in the recorded collection response; historical discovery bodies are retained without reliable original retrieval timestamps or a census claim.",
       "card_review": [
         {
           "oracle_id": "7b51a979-47e0-4b98-8ec5-8064c83422e1",
@@ -6587,7 +6665,7 @@
               "jpeg": "https://cards.scryfall.io/normal/front/4/e/4efb8633-0a70-4ddc-80af-42508ec75cff.jpg?1783908938"
             },
             "mana_cost": "{1}{W}",
-            "cmc": 2,
+            "cmc": 2.0,
             "type_line": "Creature — Human Knight",
             "oracle_text": "First strike (This creature deals combat damage before creatures without first strike.)\nHexproof from black (This creature can't be the target of black spells or abilities your opponents control.)\nThis creature gets +1/+0 as long as any player controls a black permanent.",
             "power": "2",
@@ -6743,7 +6821,7 @@
               "jpeg": "https://cards.scryfall.io/normal/front/6/6/665e44f9-bc0d-40aa-83a4-f7fe64f2506d.jpg?1783904113"
             },
             "mana_cost": "{1}{U}{U}",
-            "cmc": 3,
+            "cmc": 3.0,
             "type_line": "Legendary Creature — Lizard Mutant",
             "oracle_text": "{1}, Discard a card: Until end of turn, Mondo Gecko becomes the color of your choice and gains hexproof from that color.\nWhenever Mondo Gecko deals combat damage to a player, draw a card for each color among permanents you control.",
             "power": "2",
@@ -6901,7 +6979,7 @@
               "jpeg": "https://cards.scryfall.io/normal/front/b/b/bb678e10-e5a4-4143-8e49-7b523118674e.jpg?1783908928"
             },
             "mana_cost": "{1}{B}",
-            "cmc": 2,
+            "cmc": 2.0,
             "type_line": "Creature — Human Knight",
             "oracle_text": "First strike (This creature deals combat damage before creatures without first strike.)\nHexproof from white (This creature can't be the target of white spells or abilities your opponents control.)\nThis creature gets +1/+0 as long as any player controls a white permanent.",
             "power": "2",
@@ -7058,7 +7136,7 @@
               "jpeg": "https://cards.scryfall.io/normal/front/6/0/600dca0f-5964-45e7-86df-f16a5b4a0106.jpg?1783926816"
             },
             "mana_cost": "{1}{R}{W}",
-            "cmc": 3,
+            "cmc": 3.0,
             "type_line": "Legendary Creature — Human Soldier",
             "oracle_text": "Hexproof from monocolored\nWhenever you cast a multicolored spell, create a 4/4 red and white Golem artifact creature token.",
             "power": "3",
@@ -7240,7 +7318,7 @@
               "jpeg": "https://cards.scryfall.io/normal/front/9/e/9e0fa0b6-5f3f-4669-84e8-2c38c9593d88.jpg?1783930675"
             },
             "mana_cost": "{1}{G}{G}",
-            "cmc": 3,
+            "cmc": 3.0,
             "type_line": "Creature — Beast",
             "oracle_text": "Hexproof from black\nWhenever this creature deals combat damage to a player or planeswalker, look at that many cards from the top of your library. You may reveal a creature card or Garruk planeswalker card from among them and put it into your hand. Put the rest on the bottom of your library in a random order.",
             "power": "4",
@@ -7392,7 +7470,7 @@
               "jpeg": "https://cards.scryfall.io/normal/front/0/3/031afea3-fbfb-4663-a8cc-9b7eb7b16020.jpg?1783907290"
             },
             "mana_cost": "{1}",
-            "cmc": 1,
+            "cmc": 1.0,
             "type_line": "Artifact — Equipment",
             "oracle_text": "Equipped creature gets +2/+2 and has hexproof from monocolored.\nEquip {4}. This ability costs {1} less to activate for each color of the creature it targets.",
             "colors": [],
@@ -7739,11 +7817,11 @@
               },
               {
                 "object": "related_card",
-                "id": "9d62c8ad-af51-493c-aef1-fe7774156d4b",
+                "id": "3d13fb9e-6906-47d3-b22d-c8817b2403b3",
                 "component": "token",
                 "name": "Zombie",
                 "type_line": "Token Creature — Zombie",
-                "uri": "https://api.scryfall.com/cards/9d62c8ad-af51-493c-aef1-fe7774156d4b"
+                "uri": "https://api.scryfall.com/cards/3d13fb9e-6906-47d3-b22d-c8817b2403b3"
               }
             ],
             "legalities": {
@@ -8273,7 +8351,10 @@
         "limitations": [
           "Digital Jaheira and Raddic cards and the special Urza's Hot Dog Stand card are outside ordinary-paper access. Sphinx of the Guildpact is all five colors, so it is not a colorless example."
         ]
-      }
+      },
+      "historical_discovery_paths": [
+        "docs/mechanics-research/h-protocol-evidence/hexproof-from-discovery-1.json"
+      ]
     },
     {
       "mechanic": {
@@ -8283,15 +8364,21 @@
       "sources": [],
       "queries": [
         {
-          "mechanic": "Hire a Mercenary",
-          "url": "https://api.scryfall.com/cards/search?q=o%3A%22Hire%20a%20Mercenary%22%20include%3Aextras&unique=cards",
-          "retrieved_at_utc": "2026-10-29T17:06:00.000Z",
+          "source": "Scryfall API",
+          "method": "POST",
+          "url": "https://api.scryfall.com/cards/collection",
+          "final_url": "https://api.scryfall.com/cards/collection",
+          "request_started_at_utc": "2026-10-29T17:32:07.110919+00:00",
+          "retrieved_at_utc": "2026-10-29T17:32:07.606480+00:00",
           "http_status": 200,
-          "sha256": "e06e349b4d2bac30ccda0f65cff7a7a0f74ab29df5944a319596901c82b95f81",
-          "path": "docs/mechanics-research/h-protocol-evidence/hire-a-mercenary-discovery-1.json"
+          "path": "docs/mechanics-research/h-protocol-evidence/selected-cards-collection-verified.json",
+          "sha256": "b2127ebc380c44235996f3274090e585553f7d49d66a40667505d38022ff8100",
+          "request_body_path": "docs/mechanics-research/h-protocol-evidence/selected-cards-collection-request.json",
+          "request_body_sha256": "c46d2d49c24ac1a13d0dfb8acf0f23da1e5704907bef970bb7ef76c9c49eb448",
+          "requested_printing_count": 59
         }
       ],
-      "selection_method": "One selected full-text-verified witness per observed qualifying source-color set. Discovery captures are retained without claiming every unselected hit was individually reviewed.",
+      "selection_method": "One selected full-text-verified witness per observed qualifying source-color set. Exact selected printing objects are freshly verified in the recorded collection response; historical discovery bodies are retained without reliable original retrieval timestamps or a census claim.",
       "card_review": [
         {
           "oracle_id": "d2664f28-49e1-46f8-a863-b217e961a57c",
@@ -8340,7 +8427,7 @@
               "jpeg": "https://cards.scryfall.io/normal/front/9/d/9d9ca869-e68a-4f53-9f52-85c714dac6f3.jpg?1783903238"
             },
             "mana_cost": "{2}{B}",
-            "cmc": 3,
+            "cmc": 3.0,
             "type_line": "Enchantment",
             "oracle_text": "At the beginning of your first main phase, choose one or more —\n• Sell Contraband — Create a Treasure token. You lose 1 life.\n• Buy Information — Draw a card. You lose 2 life.\n• Hire a Mercenary — Create a 3/2 colorless Shapeshifter creature token with changeling. You lose 3 life. (It is every creature type.)",
             "colors": [
@@ -8521,7 +8608,10 @@
         "limitations": [
           "This is a card-specific named mode. Changeling gives the Shapeshifter every creature type, but its stated token type is Shapeshifter."
         ]
-      }
+      },
+      "historical_discovery_paths": [
+        "docs/mechanics-research/h-protocol-evidence/hire-a-mercenary-discovery-1.json"
+      ]
     },
     {
       "mechanic": {
@@ -8531,15 +8621,21 @@
       "sources": [],
       "queries": [
         {
-          "mechanic": "Halflingcycling",
-          "url": "https://api.scryfall.com/cards/search?q=o%3A%22Halflingcycling%22%20include%3Aextras&unique=cards",
-          "retrieved_at_utc": "2026-10-29T17:06:00.000Z",
+          "source": "Scryfall API",
+          "method": "POST",
+          "url": "https://api.scryfall.com/cards/collection",
+          "final_url": "https://api.scryfall.com/cards/collection",
+          "request_started_at_utc": "2026-10-29T17:32:07.110919+00:00",
+          "retrieved_at_utc": "2026-10-29T17:32:07.606480+00:00",
           "http_status": 200,
-          "sha256": "7ebe1272f804113f34f9f133b20f48ae2f3cbd314a93c4252d04dd0b0cae6221",
-          "path": "docs/mechanics-research/h-protocol-evidence/halflingcycling-discovery-1.json"
+          "path": "docs/mechanics-research/h-protocol-evidence/selected-cards-collection-verified.json",
+          "sha256": "b2127ebc380c44235996f3274090e585553f7d49d66a40667505d38022ff8100",
+          "request_body_path": "docs/mechanics-research/h-protocol-evidence/selected-cards-collection-request.json",
+          "request_body_sha256": "c46d2d49c24ac1a13d0dfb8acf0f23da1e5704907bef970bb7ef76c9c49eb448",
+          "requested_printing_count": 59
         }
       ],
-      "selection_method": "One selected full-text-verified witness per observed qualifying source-color set. Discovery captures are retained without claiming every unselected hit was individually reviewed.",
+      "selection_method": "One selected full-text-verified witness per observed qualifying source-color set. Exact selected printing objects are freshly verified in the recorded collection response; historical discovery bodies are retained without reliable original retrieval timestamps or a census claim.",
       "card_review": [
         {
           "oracle_id": "17492186-9814-4c41-8111-1f000a96c212",
@@ -8587,7 +8683,7 @@
               "jpeg": "https://cards.scryfall.io/normal/front/0/3/0365c439-30bf-4d32-a791-166751bdb996.jpg?1785323332"
             },
             "mana_cost": "",
-            "cmc": 0,
+            "cmc": 0.0,
             "type_line": "Land",
             "oracle_text": "{T}, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle.\nHalflingcycling {4} ({4}, Discard this card: Search your library for a Halfling card, reveal it, put it into your hand, then shuffle.)",
             "colors": [],
@@ -8731,7 +8827,10 @@
           "note": "Hobbit Hole has halflingcycling {4}; the land itself is colorless."
         },
         "limitations": []
-      }
+      },
+      "historical_discovery_paths": [
+        "docs/mechanics-research/h-protocol-evidence/halflingcycling-discovery-1.json"
+      ]
     },
     {
       "mechanic": {
@@ -8741,15 +8840,21 @@
       "sources": [],
       "queries": [
         {
-          "mechanic": "Harness",
-          "url": "https://api.scryfall.com/cards/search?q=o%3A%22Harness%22%20include%3Aextras&unique=cards",
-          "retrieved_at_utc": "2026-10-29T17:06:00.000Z",
+          "source": "Scryfall API",
+          "method": "POST",
+          "url": "https://api.scryfall.com/cards/collection",
+          "final_url": "https://api.scryfall.com/cards/collection",
+          "request_started_at_utc": "2026-10-29T17:32:07.110919+00:00",
+          "retrieved_at_utc": "2026-10-29T17:32:07.606480+00:00",
           "http_status": 200,
-          "sha256": "106d712573833122d22fabbf9e8a27cf8bd106f79763fef54f470194e54adb9c",
-          "path": "docs/mechanics-research/h-protocol-evidence/harness-discovery-1.json"
+          "path": "docs/mechanics-research/h-protocol-evidence/selected-cards-collection-verified.json",
+          "sha256": "b2127ebc380c44235996f3274090e585553f7d49d66a40667505d38022ff8100",
+          "request_body_path": "docs/mechanics-research/h-protocol-evidence/selected-cards-collection-request.json",
+          "request_body_sha256": "c46d2d49c24ac1a13d0dfb8acf0f23da1e5704907bef970bb7ef76c9c49eb448",
+          "requested_printing_count": 59
         }
       ],
-      "selection_method": "One selected full-text-verified witness per observed qualifying source-color set. Discovery captures are retained without claiming every unselected hit was individually reviewed.",
+      "selection_method": "One selected full-text-verified witness per observed qualifying source-color set. Exact selected printing objects are freshly verified in the recorded collection response; historical discovery bodies are retained without reliable original retrieval timestamps or a census claim.",
       "card_review": [
         {
           "oracle_id": "b175e826-09e8-4fae-9f2e-b902f95b282d",
@@ -8799,7 +8904,7 @@
               "jpeg": "https://cards.scryfall.io/normal/front/8/7/87f1e69a-6d74-4982-afda-82613637799a.jpg?1783902972"
             },
             "mana_cost": "{1}{W}",
-            "cmc": 2,
+            "cmc": 2.0,
             "type_line": "Legendary Artifact — Infinity Stone",
             "oracle_text": "Indestructible\n{T}: Add {W}.\n{5}{W}, {T}: Harness The Mind Stone. (Once harnessed, its ∞ ability is active.)\n∞ — At the beginning of your end step, exile up to one other target nonland permanent you control, then return that card to the battlefield under its owner's control.",
             "colors": [
@@ -8956,7 +9061,7 @@
               "jpeg": "https://cards.scryfall.io/normal/front/1/9/1982f910-a9bd-4e94-a187-84381b22aacc.jpg?1783905342"
             },
             "mana_cost": "{1}{B}",
-            "cmc": 2,
+            "cmc": 2.0,
             "type_line": "Legendary Artifact — Infinity Stone",
             "oracle_text": "Indestructible\n{T}: Add {B}.\n{6}{B}, {T}, Exile a creature you control: Harness The Soul Stone. (Once harnessed, its ∞ ability is active.)\n∞ — At the beginning of your upkeep, return target creature card from your graveyard to the battlefield.",
             "colors": [
@@ -9125,7 +9230,10 @@
         "rules": [
           "701.64"
         ]
-      }
+      },
+      "historical_discovery_paths": [
+        "docs/mechanics-research/h-protocol-evidence/harness-discovery-1.json"
+      ]
     },
     {
       "mechanic": {
@@ -9142,15 +9250,21 @@
       ],
       "queries": [
         {
-          "mechanic": "Heist",
-          "url": "https://api.scryfall.com/cards/search?q=o%3A%22Heist%22%20include%3Aextras&unique=cards",
-          "retrieved_at_utc": "2026-10-29T17:06:00.000Z",
+          "source": "Scryfall API",
+          "method": "POST",
+          "url": "https://api.scryfall.com/cards/collection",
+          "final_url": "https://api.scryfall.com/cards/collection",
+          "request_started_at_utc": "2026-10-29T17:32:07.110919+00:00",
+          "retrieved_at_utc": "2026-10-29T17:32:07.606480+00:00",
           "http_status": 200,
-          "sha256": "0eccc8e75683497f69a3f4af9388bc4839e30227548346966f920cc4db22c4be",
-          "path": "docs/mechanics-research/h-protocol-evidence/heist-discovery-1.json"
+          "path": "docs/mechanics-research/h-protocol-evidence/selected-cards-collection-verified.json",
+          "sha256": "b2127ebc380c44235996f3274090e585553f7d49d66a40667505d38022ff8100",
+          "request_body_path": "docs/mechanics-research/h-protocol-evidence/selected-cards-collection-request.json",
+          "request_body_sha256": "c46d2d49c24ac1a13d0dfb8acf0f23da1e5704907bef970bb7ef76c9c49eb448",
+          "requested_printing_count": 59
         }
       ],
-      "selection_method": "One selected full-text-verified witness per observed qualifying source-color set. Discovery captures are retained without claiming every unselected hit was individually reviewed.",
+      "selection_method": "One selected full-text-verified witness per observed qualifying source-color set. Exact selected printing objects are freshly verified in the recorded collection response; historical discovery bodies are retained without reliable original retrieval timestamps or a census claim.",
       "card_review": [
         {
           "oracle_id": "6676e0c5-ae42-47ae-8cb7-78c30db9fbcb",
@@ -9195,7 +9309,7 @@
               "jpeg": "https://cards.scryfall.io/normal/front/b/4/b4578018-3c08-4e6f-9c69-b95db75e036c.jpg?1783911513"
             },
             "mana_cost": "{2}{U}",
-            "cmc": 3,
+            "cmc": 3.0,
             "type_line": "Creature — Bird Rogue",
             "oracle_text": "Flying\nWhenever Thieving Aven deals combat damage to a player, heist target opponent's library.\nWhenever you cast a spell you don't own, put a +1/+1 counter on Thieving Aven.",
             "power": "1",
@@ -9332,7 +9446,7 @@
               "jpeg": "https://cards.scryfall.io/normal/front/0/6/06c8a415-7c72-46a4-8870-bc2a9b30ba12.jpg?1783911512"
             },
             "mana_cost": "{B}",
-            "cmc": 1,
+            "cmc": 1.0,
             "type_line": "Instant",
             "oracle_text": "Choose one —\n• Heist target opponent's library.\n• Exile up to three target cards from your opponents' graveyards. You gain 3 life.",
             "colors": [
@@ -9466,7 +9580,7 @@
               "jpeg": "https://cards.scryfall.io/normal/front/4/6/469de55b-1f1a-4421-b300-d209ddf4022d.jpg?1783911512"
             },
             "mana_cost": "{1}{R}",
-            "cmc": 2,
+            "cmc": 2.0,
             "type_line": "Creature — Human Rogue",
             "oracle_text": "First strike\nWhen Impetuous Lootmonger enters, discard a card, then heist target opponent's library.\nWhenever you cast a spell you don't own, create a tapped Treasure token.",
             "power": "2",
@@ -9623,7 +9737,7 @@
               "jpeg": "https://cards.scryfall.io/normal/front/8/b/8bc6b7e6-dd44-4411-88f7-fd7259a3abc1.jpg?1783911506"
             },
             "mana_cost": "{4}{B}{R}",
-            "cmc": 6,
+            "cmc": 6.0,
             "type_line": "Legendary Creature — Goblin Rogue",
             "oracle_text": "When Grenzo enters and at the beginning of your upkeep, heist target opponent's library.\nOnce each turn, you may pay {0} rather than pay the mana cost for a spell you cast that you don't own with mana value 3 or less.",
             "power": "6",
@@ -9765,7 +9879,7 @@
               "jpeg": "https://cards.scryfall.io/normal/front/4/5/45c79696-63eb-46c7-84e5-50e36197b2a8.jpg?1783911502"
             },
             "mana_cost": "{1}{U}{B}",
-            "cmc": 3,
+            "cmc": 3.0,
             "type_line": "Instant",
             "oracle_text": "Choose one. If you control a nonland permanent you don't own as you cast this spell, you may choose two instead.\n• Heist target opponent's library.\n• Target creature gets -5/-5 until end of turn.\n• Counter target noncreature spell.",
             "colors": [
@@ -10095,7 +10209,10 @@
           "sourceSha256": "be0ca2b500f9f16aa9779370c64f997f10f647e2bacf434f255c44a532cefc70"
         },
         "definitionVerified": true
-      }
+      },
+      "historical_discovery_paths": [
+        "docs/mechanics-research/h-protocol-evidence/heist-discovery-1.json"
+      ]
     },
     {
       "mechanic": {
@@ -10105,15 +10222,21 @@
       "sources": [],
       "queries": [
         {
-          "mechanic": "Hero's Reward",
-          "url": "https://api.scryfall.com/cards/search?q=o%3A%22Hero%27s%20Reward%22%20include%3Aextras&unique=cards",
-          "retrieved_at_utc": "2026-10-29T17:17:00.000Z",
+          "source": "Scryfall API",
+          "method": "POST",
+          "url": "https://api.scryfall.com/cards/collection",
+          "final_url": "https://api.scryfall.com/cards/collection",
+          "request_started_at_utc": "2026-10-29T17:32:07.110919+00:00",
+          "retrieved_at_utc": "2026-10-29T17:32:07.606480+00:00",
           "http_status": 200,
-          "sha256": "51f539877883d725b31a9d8b17f3dd1389972c4932d5105432784d96468bc929",
-          "path": "docs/mechanics-research/h-protocol-evidence/heros-reward-discovery-1.json"
+          "path": "docs/mechanics-research/h-protocol-evidence/selected-cards-collection-verified.json",
+          "sha256": "b2127ebc380c44235996f3274090e585553f7d49d66a40667505d38022ff8100",
+          "request_body_path": "docs/mechanics-research/h-protocol-evidence/selected-cards-collection-request.json",
+          "request_body_sha256": "c46d2d49c24ac1a13d0dfb8acf0f23da1e5704907bef970bb7ef76c9c49eb448",
+          "requested_printing_count": 59
         }
       ],
-      "selection_method": "One selected full-text-verified witness per observed qualifying source-color set. Discovery captures are retained without claiming every unselected hit was individually reviewed.",
+      "selection_method": "One selected full-text-verified witness per observed qualifying source-color set. Exact selected printing objects are freshly verified in the recorded collection response; historical discovery bodies are retained without reliable original retrieval timestamps or a census claim.",
       "card_review": [
         {
           "oracle_id": "95ca0292-a3fa-40f3-a396-222f9d8f73f8",
@@ -10158,7 +10281,7 @@
               "jpeg": "https://cards.scryfall.io/normal/front/2/7/27d772a9-7542-4ffe-9cd4-e144d129f342.jpg?1783939697"
             },
             "mana_cost": "",
-            "cmc": 0,
+            "cmc": 0.0,
             "type_line": "Creature — Head",
             "oracle_text": "Hero's Reward — When Hydra Head leaves the battlefield, each player gains 2 life.",
             "power": "0",
@@ -10338,7 +10461,11 @@
           "verifiedScope": "Official Wizards design discussion explicitly identifies the mechanic and its origin in Face the Hydra.",
           "limits": "Retrieved from the Internet Archive copy cited by the wiki. The current original URL returns 404. This design article is not a formal rule covering every Challenge Deck card; do not apply its Hydra-specific account as a universal trigger definition."
         }
-      }
+      },
+      "historical_discovery_paths": [
+        "docs/mechanics-research/h-protocol-evidence/heros-reward-discovery-1.json",
+        "docs/mechanics-research/h-protocol-evidence/hero-s-reward-discovery-1.json"
+      ]
     }
   ]
 }

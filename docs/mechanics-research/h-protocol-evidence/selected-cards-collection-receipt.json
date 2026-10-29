@@ -1,0 +1,14 @@
+{
+  "source": "Scryfall API",
+  "method": "POST",
+  "url": "https://api.scryfall.com/cards/collection",
+  "final_url": "https://api.scryfall.com/cards/collection",
+  "request_started_at_utc": "2026-10-29T17:32:07.110919+00:00",
+  "retrieved_at_utc": "2026-10-29T17:32:07.606480+00:00",
+  "http_status": 200,
+  "path": "docs/mechanics-research/h-protocol-evidence/selected-cards-collection-verified.json",
+  "sha256": "b2127ebc380c44235996f3274090e585553f7d49d66a40667505d38022ff8100",
+  "request_body_path": "docs/mechanics-research/h-protocol-evidence/selected-cards-collection-request.json",
+  "request_body_sha256": "c46d2d49c24ac1a13d0dfb8acf0f23da1e5704907bef970bb7ef76c9c49eb448",
+  "requested_printing_count": 59
+}
