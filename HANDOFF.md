@@ -1,4 +1,47 @@
-# Active task — render the pinned Mana CI-3 artwork in a stable inline vector
+# Active task — Mana CI fill containment
+
+- Status: qa-passed on exact candidate `c752a3983c598937a953b886effa068ba4d6898a`. Baseline `6040a24802f30cb380a00a205a95e6c761763383`. Owner's screenshot exposed color outside the tri-color ring after the previous size-only repair. Scope remains Fuse/Friends forever presentation and the same three paths below. Existing checkout/branch reused; custom tri-glyph package remains excluded.
+- Final behavior: uses the pinned Mana1.18 CI-3 artwork as one inlineSVG frame: exact native outer contour and three native interior cutout paths, filled with the exact existing native CI palettes. Each color is drawn inside its native cutout rather than as a separate CSS gradient behind font text. This preserves Mana's indicator design while removing the font-baseline/gradient and inset-shadow paint conflict. Pair symbols remain native Mana .ms-cost. There are no new files, dependency changes, palette changes, custom icon-package assets, source/payload edits, or A–E/other-F/frozen2021 changes.
+- Source verification: original https://cdn.jsdelivr.net/npm/mana-font@1.18.0/fonts/mana.svg?v=1.18.0, glyph ci-3/U+E98C, rawSHA256 da399dc513828acc373e187a457574c7e10515ee5b89caa1b91fac1bd69c2a8e. All four runtime d strings exactly equal the original four subpaths. All five top/right/left palettes exactly match the saved pinned Mana CSS. Native viewBox mapping is0 0 1024 1024 with translate(0 938.667) scale(1 -1). Raw SVG/TTF/CSS, request URL/status/time/hash receipts and source extraction ci-vector-source.json are preserved in C:/Users/obake/.codex/visualizations/2026/10/29/01a185f4-a2f8-7dd1-998c-7692190f20e8; these diagnostics are not application imports.
+- QA tier QA-1; execution SEPARATE: configured RobDev worker /root/f_implementation implemented; coordinator /root reviewed the committed material and independently compared source/paint/behavior. Owner finding classification: escaped paint-layer defect, because equal DOM boxes did not prove registered ink. Shadow removal alone and shared font offsets were rejected before final packaging; they left color slivers in at least one context. Earlier screenshot-center assumptions were also replaced with simultaneous fill/border pigment controls, avoiding crop rounding. Final regression checks shared vector geometry and native colors, not a claimed font-box center.
+- Persistent developer focused PASS: node tools/check_assessment_browser.mjs --root . --combinations-only --playwright C:/Users/obake/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright. Checks all five CI combinations, exact labels/order/links, vector frame/fills, pair metrics, comparable footprints/centers and readable no-font list/detail letters. node --check and authored git diff --check PASS. Reviewer read the actual baseline-to-candidate diff; no material work followed freeze.
+- Independent paint/source PASS on exact candidate: check-ci-paint.mjs plus analyze-ci-spill.py in the evidence directory. Baseline simultaneous magenta-border/cyan-fill control reproduces0.5688CSSpx fill spill. Candidate all18 captures (both entries, list/search/detail, all five unique triples) have no exterior color pixels; maximum radial fill reach is1.1434CSSpx inside the native outer rim, against a.2px anti-alias allowance. Every runtime path/fill/frame matches the saved native source record. Actual colored enlarged renders were also inspected, including ci-fill-fixed-1.png. These are eight-device-pixel paint controls, not a claim of a full500% browser-zoom journey.
+- Independent functional PASS: check-ci-vector.mjs, both normal-font and blocked-Mana cases for both entries. Correct list/search/detail labels, circle sizes and centers, accessible names, exact selected card hrefs and360px containment; glyph-hidden/letter-visible fallback stays readable. No claim that every link was fetched live. Protected source and engine suites were not rerun: no data/logic change. CPU-heavy validation NOT REQUIRED. Stateful-adversarial coverage NOT APPLICABLE: no state-owner, routing, persistence or execution change.
+- Package PASS at exact candidate into guarded existing _site:23 allowlisted byte-identical files,4 clean inline scripts,23 expected HTTP200 paths and24 excluded404 paths. Existing localhost8020/IAB tab refreshed to candidate, Fuse detail open with both affected list strips visible. Screenshot C:/Users/obake/.codex/visualizations/2026/10/29/01a185f4-a2f8-7dd1-998c-7692190f20e8/f-mana-ci-fill-preview.png.
+- Verdict: engineering PASS / Owner Review. Owner judges final visual balance at normal or magnified viewing. No push, merge, publication or adoption of the rejected custom tri-color-symbol package.
+
+## Material candidate
+
+- Baseline: `6040a24802f30cb380a00a205a95e6c761763383`
+- Candidate: `c752a3983c598937a953b886effa068ba4d6898a`
+- Changed paths: `3`
+
+## Files changed
+
+- `HANDOFF.md`
+- `tools/check_assessment_browser.mjs`
+- `vox-color/mechanical-explorer.html`
+
+## Evidence delta
+
+- Material candidate: `c752a3983c598937a953b886effa068ba4d6898a`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `1`
+- QA/preview/report evidence only; not the full task diff.
+
+## Evidence-only paths
+
+- `HANDOFF.md`
+
+## Final branch delta
+
+- Baseline `6040a24802f30cb380a00a205a95e6c761763383` → evidence `HEAD`.
+- Total changed paths: `3`; evidence adds no material path.
+- codex/a-mechanics-review, local material and evidence commits only. Worktree cleanliness checked after evidence commit. No push, merge or publication.
+
+---
+
+# Implementation packet — render the pinned Mana CI-3 artwork in a stable inline vector
 
 - Status: ready-for-qa. Baseline `6040a24802f30cb380a00a205a95e6c761763383`; scope is only `HANDOFF.md`, `vox-color/mechanical-explorer.html`, and `tools/check_assessment_browser.mjs`.
 - Admission: repeated paint-mask evidence showed that icon-font CI-3 border placement and its CSS gradient can drift by browser raster baseline. Owner authorized a bounded renderer change to the same pinned Mana 1.18 CI-3 artwork as inline SVG—not the previously rejected tri-glyph package and not a new asset or dependency. The temporary, receipt-backed source is Mana 1.18 SVG glyph `ci-3` (four native paths; original SVG SHA-256 `da399dc513828acc373e187a457574c7e10515ee5b89caa1b91fac1bd69c2a8e`); its original native CSS palettes remain the five established combinations.
