@@ -1,0 +1,15 @@
+{
+  "name": "Descend",
+  "cutoff": "2026-10-28",
+  "selection": "Discovery capture; only individually checked representative cards enter the access review. Unselected hits are not classified as exclusions.",
+  "receipts": [
+    {
+      "query": "o:/\\b(descend\\s+4|descend\\s+8|fathomless\\s+descent)\\b/ game:paper date<=2026-10-28 include:extras",
+      "url": "https://api.scryfall.com/cards/search?unique=cards&order=name&q=o%3A%2F%5Cb(descend%5Cs%2B4%7Cdescend%5Cs%2B8%7Cfathomless%5Cs%2Bdescent)%5Cb%2F%20game%3Apaper%20date%3C%3D2026-10-28%20include%3Aextras",
+      "path": "docs/mechanics-research/d-protocol-evidence/descend/search-1.json",
+      "retrieved_at_utc": "2026-10-29T03:13:30.305Z",
+      "http_status": 200,
+      "sha256": "e6fd3cd5e1890ea271883f4f97a432a493dd50545633ea533ab81758a4d00a17"
+    }
+  ]
+}

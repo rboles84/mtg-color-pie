@@ -62,3 +62,9 @@ Color Access is a presence check, not a judgment of strength or frequency. One q
 The C preview shows one intentionally selected example per independent color, colorless bucket or multicolor combination. The first card ID in each bucket is the selected example and its note describes that card from saved facts. Existing additional evidence remains in the canonical record and can be browsed through an exact reviewed-card Scryfall link; it is not repeated as a long on-page source list. A multicolor-only color points to its combination through the access status, without repeating the combination's paragraph or sources. Separate Sources remains for non-card references only.
 
 Explain the mechanic once, then give a short card-specific fact where useful. Do not repeat its rules definition in every color, infer a hierarchy, or justify access through volume. Preserve any important restriction or card-specific exception. A/B presentation remains as previously reviewed in this C-only correction.
+
+## D batch, October 28, 2026
+
+The same presence-based approach covers 27 supplemental D entries, for 105 A/B/C/D records. D uses the compact C presentation: one linked example per independent color, colorless bucket or combination. A single qualifying card is enough. The D packet intentionally selects witnesses; full discovery responses are saved locally, and unselected hits are not described as excluded or individually reviewed.
+
+D adds no rankings, counts-as-strength claims, confidence labels or inferred monocolor access. Double, Destroy and Discard remain generic rules references. Descend retains the existing entry’s descend 4 / descend 8 / fathomless descent scope. Devour includes its rules-defined devour artifact variant. Double agenda is labeled Conspiracy; Double team and Draft from a spellbook are labeled Arena. Devoid uses actual colorlessness, and DFCs use the mechanic-bearing face. Frozen 2021 and existing A/B/C records remain unchanged.

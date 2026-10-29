@@ -1,0 +1,18 @@
+{
+  "receipts": [
+    {
+      "url": "https://magic.wizards.com/en/news/mtg-arena/designing-alchemy-2021-12-08",
+      "path": "docs/mechanics-research/d-protocol-evidence/official/spellbook.html",
+      "http_status": 200,
+      "retrieved_at_utc": "2026-10-29T03:19:21.025Z",
+      "sha256": "c58097b3aab6069b0b6b7fb45f5022d110095b8aa04d02646a7466333da4ae88"
+    },
+    {
+      "url": "https://magic.wizards.com/en/news/mtg-arena/mtg-arena-announcements-june-22-2022",
+      "path": "docs/mechanics-research/d-protocol-evidence/official/double-team.html",
+      "http_status": 200,
+      "retrieved_at_utc": "2026-10-29T03:19:21.726Z",
+      "sha256": "e7c91f49d8295494f564f16d5c3b6792eee1081d4f9ca608c96eef51f4fd9a50"
+    }
+  ]
+}

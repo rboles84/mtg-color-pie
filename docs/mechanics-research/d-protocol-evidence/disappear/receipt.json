@@ -1,0 +1,15 @@
+{
+  "name": "Disappear",
+  "cutoff": "2026-10-28",
+  "selection": "Discovery capture; only individually checked representative cards enter the access review. Unselected hits are not classified as exclusions.",
+  "receipts": [
+    {
+      "query": "o:/\\bDisappear\\b/ game:paper date<=2026-10-28 include:extras",
+      "url": "https://api.scryfall.com/cards/search?unique=cards&order=name&q=o%3A%2F%5CbDisappear%5Cb%2F%20game%3Apaper%20date%3C%3D2026-10-28%20include%3Aextras",
+      "path": "docs/mechanics-research/d-protocol-evidence/disappear/search-1.json",
+      "retrieved_at_utc": "2026-10-29T03:13:16.652Z",
+      "http_status": 200,
+      "sha256": "5dcc308dd8ed350a70afd02a433737d443715131585bd6744b9dbf143fcce15e"
+    }
+  ]
+}

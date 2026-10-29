@@ -1,0 +1,15 @@
+{
+  "name": "Delve",
+  "cutoff": "2026-10-28",
+  "selection": "Discovery capture; only individually checked representative cards enter the access review. Unselected hits are not classified as exclusions.",
+  "receipts": [
+    {
+      "query": "o:/\\bDelve\\b/ game:paper date<=2026-10-28 include:extras",
+      "url": "https://api.scryfall.com/cards/search?unique=cards&order=name&q=o%3A%2F%5CbDelve%5Cb%2F%20game%3Apaper%20date%3C%3D2026-10-28%20include%3Aextras",
+      "path": "docs/mechanics-research/d-protocol-evidence/delve/search-1.json",
+      "retrieved_at_utc": "2026-10-29T03:13:09.754Z",
+      "http_status": 200,
+      "sha256": "c724c2c3571f0d2e2ddc57176a7ebf07fa44b07a4e3d7a23b75402931168bbe0"
+    }
+  ]
+}

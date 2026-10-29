@@ -1,0 +1,15 @@
+{
+  "name": "Daybound",
+  "cutoff": "2026-10-28",
+  "selection": "Discovery capture; only individually checked representative cards enter the access review. Unselected hits are not classified as exclusions.",
+  "receipts": [
+    {
+      "query": "o:/\\bDaybound\\b/ game:paper date<=2026-10-28 include:extras",
+      "url": "https://api.scryfall.com/cards/search?unique=cards&order=name&q=o%3A%2F%5CbDaybound%5Cb%2F%20game%3Apaper%20date%3C%3D2026-10-28%20include%3Aextras",
+      "path": "docs/mechanics-research/d-protocol-evidence/daybound/search-1.json",
+      "retrieved_at_utc": "2026-10-29T03:13:28.393Z",
+      "http_status": 200,
+      "sha256": "ec3cd99ff5c39381219a5a757f5fdc920c68ec70e0bb99109decdc1326418a11"
+    }
+  ]
+}

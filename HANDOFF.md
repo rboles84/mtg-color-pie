@@ -1,3 +1,27 @@
+# Active task — D Color Access
+
+- Status: dev-in-progress. Continue existing codex/a-mechanics-review checkout; baseline `ae27a75ed107f4e6eb09c0d154004ac1d1903ac2`. Owner requests supplemental D using the latest A–C decisions, local evidence, concise one-example presentation and refreshed preview; 2021 is frozen.
+- Allowed files: HANDOFF.md; docs/mechanics-research/d-protocol.json; docs/mechanics-research/d-protocol-evidence/**; docs/mechanics-research/D-ACCESS-REVIEW.md; docs/mechanics-research/COLOR-ACCESS-PROTOCOL.md; tools/build_mechanics_assessments.py; data/mechanics-assessments.v1.json (producer only); vox-color/mechanical-explorer.html; tools/check_assessment_browser.mjs. External temporary helpers and ignored _site packaging permitted.
+- Scope: 27 unmapped supplemental D entries. Deathtouch, Defender and Double Strike stay mapped to their unchanged 2021 entries. Double, Destroy and Discard retain generic rules-reference treatment, consistent with Cast/Counter/Create. Digital and special-format examples keep explicit labels. Verify Descend’s current family scope and Devoid’s actual colorlessness.
+- Accepted behavior: one qualifying card proves access, one linked named example per independent color/colorless/combination, brief definition once and factual notes only. Actual mana colors/colorless symbol; no P/S/T or confidence/rank claims; no repeated multicolor-only evidence or aggregate card-source lists. Absence means no example found, not impossible. Positive access does not require exhaustive card enumeration.
+- Evidence: local records first, then targeted Scryfall discovery/canonical facts where needed. Preserve raw bodies, requests, dates/status/hashes. Select verified examples for each observed color set; retain unselected query hits locally without falsely classifying them as excluded. Native action, explicit grant and token creator qualify; payoffs/name matches do not. Attribute mechanic-bearing face color, never activation cost or Commander color identity.
+- Ownership: coordinator implements source/copy/runtime and packages preview; independent RobQA checks committed candidate. Preserve A/B/C records and existing presentation; no frozen data, dependencies, theme, publication, push, merge or other-letter work.
+- Acceptance/checks: all27 supplemental D represented with supported facts/source links; first example matches note, scopes and combinations honest, no repetition; ABC78 payload records identical to baseline; generated binding deterministic; frozen gate/recon and focused browser pass; preview refreshed. Owner judges readability.
+
+## D implementation packet
+
+- Producer and runtime now admit 105 A/B/C/D records from twelve bound source packets. D adds 27 records: 24 access entries and three generic rules references. Deathtouch, Defender and Double Strike keep their 2021 mappings. C’s compact presenter is reused for D; no new dependency or schema.
+- Canonical evidence: d-protocol.json selects 141 card witnesses, one per observed color/colorless/combination bucket. Raw discovery responses and immutable receipts remain in d-protocol-evidence; unselected hits are not falsely counted as reviewed/excluded. Two official Arena articles are saved for digital definitions. D-ACCESS-REVIEW.md records scope/traps/map; protocol documents this batch.
+- Factual boundaries: Devoid colorlessness; mechanic-bearing DFC faces; no color-identity inference from green Aveline’s black-green disguise cost; Decayed token creators attributed to source cards; Devour artifact expressly included; Descend ability-word family distinguished from descended-this-turn. Arena and Conspiracy examples are labeled. Clara’s conditional color choice is stated.
+- Development checks PASS: deterministic producer105/12; existing source/taxonomy/fixture gates and53 recon assertions; raw response receipt hashes/statuses; ABC78 payload records exactly equal baseline; diff whitespace. Focused real-Edge harness passed every105 record, one example per C/D bucket, source links, palette/colorless, targeted D distinctions, malformed-sidecar isolation, keyboard/mobile and frozen84/84 checks. Only subsequent edit clarifies unavailable-status label to A/B/C/D; independent exact-candidate QA will check the final version.
+- Protected: frozen source/catalog/engine data and A/B/C packets unchanged; 2021 counts/calculations remain separate. No inference of ranks, negative impossibility, or monocolor access from combinations. No push/merge/publication.
+- Risk-proportional QA: source qualification and short factual notes are the changed risk; independent source/face/capture checks plus focused browser are required. CPU-heavy broad wheel/journey/engine suites are not justified. Owner review remains presentation/readability after preview refresh.
+- Handoff to independent RobQA: review committed exact candidate against baseline ae27a75ed107f4e6eb09c0d154004ac1d1903ac2; review all selected witnesses against captured facts, not memory. Reviewer owns HANDOFF.md only. Do not modify product files or broaden to other letters.
+
+---
+
+## Previous C work (historical)
+
 # Active correction — C access examples and concise evidence
 
 - Status: qa-passed on exact candidate `88df3fd42a05c58d447a9178441a300586a5b323`. Owner requests correction of C evidence/copy, a simpler presence-based access presentation, and refreshed preview. Correction baseline: `68e5702d13378beac6f9382ff072888860a22579`; continue existing branch/check-out.
