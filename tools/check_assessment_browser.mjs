@@ -1,4 +1,4 @@
-// Focused A/B/C/D/E assessment checks using externally supplied Playwright; no new dependency.
+// Focused A/B/C/D/E/F assessment checks using externally supplied Playwright; no new dependency.
 import fs from 'node:fs';
 import path from 'node:path';
 import http from 'node:http';
@@ -37,8 +37,8 @@ try{
   await page.waitForFunction(()=>document.querySelector('#selftest').textContent.includes('84 of 84 passed'));
   const baseline=await page.evaluate(math);
   assert.equal(await page.locator('#list .ent').count(),216);
-  assert.equal(await page.evaluate(()=>VMX.assessments().records.length),133);
-  const expectedAssessmentIds=supplement.records.filter(r=>/^[ABCDE]/.test(r.name)&&r.target2021===null).map(r=>r.id).sort();
+  assert.equal(await page.evaluate(()=>VMX.assessments().records.length),158);
+  const expectedAssessmentIds=supplement.records.filter(r=>/^[ABCDEF]/.test(r.name)&&r.target2021===null).map(r=>r.id).sort();
   assert.deepEqual(payload.records.map(r=>r.id).sort(),expectedAssessmentIds,'every admitted A/B/C/D/E target has exactly one assessment');
   assert.deepEqual(payload.sourceBindings.map(x=>x.path),[
     'docs/mechanics-research/a-assessments-source.json',
@@ -53,8 +53,9 @@ try{
     'docs/mechanics-research/c-protocol-extended.json',
     'docs/mechanics-research/c-protocol-special.json',
     'docs/mechanics-research/d-protocol.json',
-    'docs/mechanics-research/e-protocol.json'
-  ],'all thirteen canonical packet bindings are present');
+    'docs/mechanics-research/e-protocol.json',
+    'docs/mechanics-research/f-protocol.json'
+  ],'all fourteen canonical packet bindings are present');
   assert.deepEqual(['Cast','Counter','Create'].map(name=>payload.records.find(r=>r.name===name)?.kind),['rules','rules','rules'],'generic C rules actions have no invented color access');
   const dRecord=name=>payload.records.find(r=>r.name===name);
   assert.deepEqual(['Double','Destroy','Discard'].map(name=>dRecord(name).kind),['rules','rules','rules'],'generic D actions remain references');
@@ -67,6 +68,26 @@ try{
   assert.match(dRecord('Descend').summary,/descend 4, descend 8 and fathomless descent/);
   assert.equal(dRecord('Double agenda').scopeLabel,'Conspiracy cards');
   assert.equal(dRecord('Double team').scopeLabel,'Arena cards');
+  const fRecord=name=>payload.records.find(r=>r.name===name);
+  assert.equal(payload.records.filter(r=>r.name.startsWith('F')).length,25);
+  assert.equal(fRecord('Face a dilemma').kind,'rules');
+  assert.equal(fRecord('Frenzy').access.colors.B.cards[0].name,'Frenzy Sliver');
+  assert.equal(fRecord('Frenzy').access.colors.R.status,'not_found');
+  assert.equal(fRecord('Fateseal').access.colors.B.status,'not_found');
+  assert.equal(fRecord('Forecast').access.colorless.status,'not_found');
+  assert.equal(fRecord('Ferocious').access.colors.B.status,'multicolor_only');
+  assert.equal(fRecord('Fear').access.colors.U.cards[0].name,'Scornful Aether-Lich');
+  assert.equal(fRecord('Firebending').access.colors.R.cards[0].name,'Fire Sages');
+  assert.equal(fRecord('Firebending').access.colorless.cards[0].name,'The Legend of Roku // Avatar Roku');
+  assert.equal(fRecord('Forestwalk').access.colors.G.cards[0].name,'Cat Warriors');
+  assert.equal(fRecord('Forestwalk').access.colorless.status,'not_found');
+  assert.equal(fRecord('Food').access.colors.B.cards[0].name,'Bake into a Pie');
+  assert.equal(fRecord('Food').access.colors.R.status,'multicolor_only');
+  assert.equal(fRecord('Fuse').access.colorless.status,'not_found');
+  assert.equal(fRecord('Fuse').access.combinations.length,15);
+  assert.ok(Object.values(fRecord('Fuse').access.colors).every(x=>x.status==='multicolor_only'));
+  assert.ok(Object.values(fRecord('Friends forever').access.colors).every(x=>x.status==='multicolor_only'));
+  for(const name of ['Fight','First Strike','Flash','Flying']) assert.ok(!fRecord(name),'mapped F stays in2021');
   const eRecord=name=>payload.records.find(r=>r.name===name);
   assert.deepEqual(['Exchange','Exile'].map(name=>eRecord(name).kind),['rules','rules'],'generic E actions remain references');
   assert.equal(eRecord('Emerge').access.colors.G.status,'not_found','Foul Emissary rewards Emerge but does not perform or grant it');
@@ -88,7 +109,7 @@ try{
        rules actions have no invented map, and no access strip uses tier classes. */
     await page.evaluate(()=>VMX.setView('az'));
     for(const record of payload.records){
-      const row=page.locator(`#list .ent[data-k="${record.id}"]`), access=record.access, compactExamples=/^[CDE]/.test(record.name);
+      const row=page.locator(`#list .ent[data-k="${record.id}"]`), access=record.access, compactExamples=/^[CDEF]/.test(record.name);
       assert.equal(await row.locator('.access-strip').count(),record.kind==='access'?1:0,record.name);
       if(record.kind==='access'){
         assert.deepEqual(await row.locator('.access-strip > .sc').evaluateAll(slots=>slots.map(s=>s.dataset.c)),[...'WUBRG',...(access.colorless.status==='documented'?['C']:[])]);
@@ -117,7 +138,7 @@ try{
       await notes.locator(':scope > summary').focus(); await page.keyboard.press('Enter'); assert.equal(await notes.getAttribute('open'),'');
       // Restore symbol fallback text only for exact authored-prose comparisons.
       // Separate visible-DOM assertions below prove the braces are not displayed.
-      const noteText = record.name.startsWith('E') ? await notes.evaluate(el=>{
+      const noteText = /^[EF]/.test(record.name) ? await notes.evaluate(el=>{
         const copy=el.cloneNode(true);
         copy.querySelectorAll('.supp-symbol').forEach(symbol=>symbol.replaceWith(symbol.querySelector('.supp-symbol-text').textContent));
         return copy.textContent;
@@ -156,7 +177,7 @@ try{
       const linkedBuckets=cardBuckets.filter(item=>item.findUrl && (!compactExamples || item.cards.length>1));
       for(const findUrl of new Set(linkedBuckets.map(item=>item.findUrl))) assert.equal(await notes.locator(`a[href="${findUrl}"]`).count(),linkedBuckets.filter(item=>item.findUrl===findUrl).length,record.name+' renders every exact reviewed-card bucket link');
       assert.deepEqual(await notes.locator('a').evaluateAll(links=>links.filter(a=>a.protocol!=='https:'||!['scryfall.com','magic.wizards.com'].includes(a.hostname)||a.rel!=='noopener noreferrer').map(a=>a.href)),[]);
-      if(record.name.startsWith('E')) {
+      if(/^[EF]/.test(record.name)) {
         await page.waitForFunction(()=>document.documentElement.classList.contains('supp-mana-ready'));
         const symbols=await page.locator('#detail').evaluate(el=>{
           const copy=el.cloneNode(true);
@@ -171,11 +192,14 @@ try{
           assert.ok(symbol.before && !['none','normal','""'].includes(symbol.before),record.name+' real font glyph');
           if(symbol.token.includes('/'))assert.ok(symbol.after && !['none','normal','""'].includes(symbol.after),record.name+' both hybrid halves');
         }
+        if(record.name==='Flashback') for(const token of ['{7}','{9}','{B}']) assert.ok(symbols.rendered.some(s=>s.token===token),token+' F numeric/black cost');
+        if(record.name==='Firebending') assert.ok(symbols.rendered.some(s=>s.token==='{8}'));
+        if(record.name==='Freerunning') assert.ok(symbols.rendered.some(s=>s.token==='{X}'&&s.label==='X generic mana'));
+        if(record.name==='Forestwalk') assert.equal(symbols.rendered.filter(s=>s.token==='{B/G}'&&s.label==='One black or green mana').length,3);
         if(record.name==='Explore') assert.deepEqual(symbols.rendered.map(s=>s.label),['1 generic mana','1 generic mana','One black mana']);
         if(record.name==='Encore') assert.ok(symbols.rendered.some(s=>s.token==='{12}'&&s.label==='12 generic mana'));
         if(record.name==='Evoke') assert.deepEqual([...new Set(symbols.rendered.filter(s=>s.token.includes('/')).map(s=>s.token))].sort(),['{R/G}','{R/W}','{U/B}','{W/B}']);
       }
-
     }
     const noFont=await browser.newPage();
     await noFont.route('**/mana-font@1.18.0/**',route=>route.abort());
@@ -184,7 +208,14 @@ try{
     await noFont.locator('.assessment-notes > summary').click();
     const fallback=await noFont.locator('.assessment-notes .supp-symbol').evaluateAll(symbols=>symbols.map(s=>({label:s.getAttribute('aria-label'),text:s.innerText,glyph:getComputedStyle(s.querySelector('.ms')).display,fallback:getComputedStyle(s.querySelector('.supp-symbol-text')).display})));
     assert.deepEqual(fallback.map(s=>s.text),['{1}','{1}','{B}'],'costs remain readable without font');
-    assert.ok(fallback.every(s=>s.label&&s.glyph==='none'&&s.fallback!=='none'));await noFont.close();
+    assert.ok(fallback.every(s=>s.label&&s.glyph==='none'&&s.fallback!=='none'));
+    for(const record of payload.records.filter(r=>r.name.startsWith('F'))){
+      await noFont.evaluate(id=>VMX.open(id),record.id);
+      await noFont.locator('.assessment-notes > summary').click();
+      const symbols=await noFont.locator('#detail .supp-symbol').evaluateAll(items=>items.map(s=>({text:s.innerText,raw:s.querySelector('.supp-symbol-text').textContent,label:s.getAttribute('aria-label'),glyph:getComputedStyle(s.querySelector('.ms')).display})));
+      assert.ok(symbols.every(s=>s.text===s.raw&&s.label&&s.glyph==='none'),record.name+' readable F font-failure fallback');
+    }
+    await noFont.close();
     const escaped=await browser.newPage(), injected=structuredClone(payload);
     injected.records.find(r=>r.name==='Explore').summary='<img src=x onerror=alert(1)> {unknown} {B}';
     await escaped.route(assessmentRoute,route=>route.fulfill({contentType:'application/json',body:JSON.stringify(injected)}));
@@ -196,6 +227,15 @@ try{
     assert.ok((await escapedSummary.textContent()).includes('<img src=x onerror=alert(1)> {unknown}'),'unknown notation remains readable');
     assert.equal(await escapedSummary.locator('.supp-symbol').getAttribute('aria-label'),'One black mana');
     await escaped.close();
+    const fEscaped=await browser.newPage(),fInjected=structuredClone(payload);
+    fInjected.records.find(r=>r.name==='Flashback').summary='<img src=x onerror=alert(1)> {unknown} {B/G} {9}';
+    await fEscaped.route(assessmentRoute,route=>route.fulfill({contentType:'application/json',body:JSON.stringify(fInjected)}));
+    await fEscaped.goto(url);await fEscaped.waitForFunction(()=>VMX.assessments().status==='ready');
+    await fEscaped.evaluate(()=>VMX.open('deck:vocabulary:flashback'));await fEscaped.locator('.assessment-notes > summary').click();
+    const fSummary=fEscaped.locator('.assessment-notes > p').first();
+    assert.equal(await fSummary.locator('img').count(),0);assert.ok((await fSummary.textContent()).includes('<img src=x onerror=alert(1)> {unknown}'));
+    assert.deepEqual(await fSummary.locator('.supp-symbol').evaluateAll(items=>items.map(s=>s.getAttribute('aria-label'))),['One black or green mana','9 generic mana']);
+    await fEscaped.close();
     const blue=payload.records.find(r=>r.access.colors.U.status==='documented'); assert.ok(blue,'a documented blue example exists');
     await page.locator('#q').fill(blue.name); await page.locator('#q').press('Enter'); assert.equal(await page.locator('#dx-title').innerText(),blue.name);
     const accessBefore=await page.locator('.access-strip .sc').evaluateAll(slots=>slots.map(s=>s.className));
@@ -212,7 +252,7 @@ try{
       assert.equal(await fail.evaluate(()=>VMX.assessments().records.length),0); assert.equal(await fail.locator('#list .access-strip').count(),0); await fail.close();
     }
     assert.deepEqual(errors,[]);
-    results.push('All28 E mana symbols, accessible names, hybrid halves, no-font fallback and escaping; C/D/E representative sources, unique combination citations and concise copy; 133 A/B/C/D/E access maps; documented/no-example/joint/colorless/rules cases; exact-example and retained non-card links; atomic malformed fail-soft; search keyboard/mobile; unchanged 2021 84 checks');
+    results.push('All28 E and25 F mana symbols, accessible names, hybrid halves, no-font fallback and escaping; C/D/E/F representative sources, unique combination citations and concise copy; 158 A/B/C/D/E/F access maps; documented/no-example/joint/colorless/rules cases; exact-example and retained non-card links; atomic malformed fail-soft; search keyboard/mobile; unchanged 2021 84 checks');
   }
   await page.close();
   console.log(JSON.stringify({result:'PASS',checks:results},null,2));

@@ -1,0 +1,8 @@
+{
+  "query": "o:/fear/ game:paper date<=2026-10-28 include:extras",
+  "url": "https://api.scryfall.com/cards/search?unique=cards&order=name&q=o%3A/fear/%20game%3Apaper%20date%3C%3D2026-10-28%20include%3Aextras",
+  "path": "docs/mechanics-research/f-protocol-evidence/fear/oracle-1.json",
+  "retrieved_at_utc": "2026-10-29T04:51:34.959885+00:00",
+  "http_status": 200,
+  "sha256": "c693f201addc3b1835dd02599d261982ce79f2104b4f9b0f2659eef3151db096"
+}

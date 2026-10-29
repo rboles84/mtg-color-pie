@@ -1,0 +1,8 @@
+{
+  "query": "o:/fading/ game:paper date<=2026-10-28 include:extras",
+  "url": "https://api.scryfall.com/cards/search?unique=cards&order=name&q=o%3A/fading/%20game%3Apaper%20date%3C%3D2026-10-28%20include%3Aextras",
+  "path": "docs/mechanics-research/f-protocol-evidence/fading/oracle-1.json",
+  "retrieved_at_utc": "2026-10-29T04:51:36.563236+00:00",
+  "http_status": 200,
+  "sha256": "832041cd78ba4269a62a749db6771453b116b61c9a9e657aed5b39186a217461"
+}

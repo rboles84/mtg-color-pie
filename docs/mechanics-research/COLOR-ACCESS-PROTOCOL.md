@@ -74,3 +74,11 @@ D adds no rankings, counts-as-strength claims, confidence labels or inferred mon
 The same compact, presence-based contract now covers 28 supplemental E entries, for 133 A/B/C/D/E records. E shows one linked witness per independent color, colorless bucket or combination. Exchange and Exile remain generic rules references; Enchant and Equip are named abilities with card examples. Existing A–D records and frozen 2021 remain unchanged.
 
 Use the source card’s colors for Embalm, Eternalize, Endure and Empower Jace rather than the created token’s colors. Emerge includes its rules-defined emerge from artifact variant. Keep native costs distinct from costs granted to other cards: Sliver Gravemother’s own encore is {5}. Payoff-only references such as Foul Emissary and Shadowed Caravel do not establish Emerge or Explore access. Search inflected action text as well as the base name (explores, endures), then verify the selected card itself. Full local discovery captures support selection without requiring the page to enumerate every hit.
+
+## F batch, October 28, 2026
+
+The same presence-based contract covers 25 supplemental F entries: 24 access entries and the generic Face a dilemma preview reference. The four mapped F records remain in frozen 2021. Completed A–E evidence and projected records stay unchanged.
+
+One linked card is shown per independent color, colorless bucket or multicolor combination. Fuse uses the combined colors of the fused split spell under rule 702.102b; it does not create separate monocolor access from either half. DFC evidence uses the actual mechanic-bearing face. Explicit grants and token creators use their source colors; standalone tokens, digital and special material do not enter ordinary-paper access. Face a dilemma is a generic choice of modes and remains a preview reference, rather than assigning colors from payoff cards.
+
+F prose, rules and references use an explicit F extension of the escaped mana-symbol renderer, including numeric, colored, X and hybrid costs. E and earlier formatting remains unchanged. Selected witnesses are checked against saved text, scope, face colors and exact links; full discovery captures do not imply that every hit was individually reviewed.

@@ -1,0 +1,8 @@
+{
+  "query": "!\"Faithful Mending\" set:mid",
+  "url": "https://api.scryfall.com/cards/search?q=%21%22Faithful%20Mending%22%20set%3Amid",
+  "path": "docs/mechanics-research/f-protocol-evidence/flashback/faithful-mending.json",
+  "retrieved_at_utc": "2026-10-29T05:02:41.338180+00:00",
+  "http_status": 200,
+  "sha256": "2acea609c7e6d2fd02fa95cefe125e4a53e08a9af4ea2951c3d6f0a9ab7f6c4f"
+}

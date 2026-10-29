@@ -1,0 +1,8 @@
+{
+  "query": "o:/create.*food/ game:paper date<=2026-10-28 include:extras",
+  "url": "https://api.scryfall.com/cards/search?unique=cards&order=name&q=o%3A/create.%2Afood/%20game%3Apaper%20date%3C%3D2026-10-28%20include%3Aextras",
+  "path": "docs/mechanics-research/f-protocol-evidence/food/targeted-1.json",
+  "retrieved_at_utc": "2026-10-29T04:49:59.096053+00:00",
+  "http_status": 200,
+  "sha256": "c1ffccfd96d5cbb4e557644e552be05b27fc563c244a37935697ea29fec67440"
+}

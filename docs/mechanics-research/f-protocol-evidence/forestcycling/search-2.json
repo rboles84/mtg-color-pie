@@ -1,0 +1,8 @@
+{
+  "query": "o:/forestcycling/ game:paper date<=2026-10-28 include:extras",
+  "url": "https://api.scryfall.com/cards/search?unique=cards&order=name&q=o%3A/forestcycling/%20game%3Apaper%20date%3C%3D2026-10-28%20include%3Aextras",
+  "path": "docs/mechanics-research/f-protocol-evidence/forestcycling/targeted-1.json",
+  "retrieved_at_utc": "2026-10-29T04:50:00.613453+00:00",
+  "http_status": 200,
+  "sha256": "e50348cee9518e6ae3a445ada120d8933c4cc8cf3e6b83c51fbb3991dadddfea"
+}
