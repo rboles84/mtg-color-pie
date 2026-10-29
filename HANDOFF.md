@@ -1,6 +1,6 @@
 # Active correction — C access examples and concise evidence
 
-- Status: ready-for-qa. Owner requests correction of C evidence/copy, a simpler presence-based access presentation, and refreshed preview. Correction baseline: `68e5702d13378beac6f9382ff072888860a22579`; continue existing branch/check-out.
+- Status: qa-passed on exact candidate `88df3fd42a05c58d447a9178441a300586a5b323`. Owner requests correction of C evidence/copy, a simpler presence-based access presentation, and refreshed preview. Correction baseline: `68e5702d13378beac6f9382ff072888860a22579`; continue existing branch/check-out.
 - Allowed files: HANDOFF.md; docs/mechanics-research/c-protocol-core.json; docs/mechanics-research/c-protocol-extended.json; docs/mechanics-research/c-protocol-special.json; docs/mechanics-research/COLOR-ACCESS-PROTOCOL.md; docs/mechanics-research/C-ACCESS-REVIEW.md; tools/build_mechanics_assessments.py if required by validation; data/mechanics-assessments.v1.json (producer only); vox-color/mechanical-explorer.html; tools/check_assessment_browser.mjs. Temporary helpers outside checkout and ignored _site packaging permitted.
 - Outcome: one qualifying card suffices for access, including a mechanic seen in only one color. Show one representative source per independent color/colorless/combination; retain additional verified evidence locally and via discovery links. Remove repeated multicolor-only narratives/source lists and repeated rules definitions. Correct 31 known false-negative exclusions and concrete C wording from saved Oracle facts.
 - Protected: frozen 2021 files, placements, calculations and display; A/B data and existing presentation; source captures; mana palette/colorless icon; separate combination access and card-face attribution. No live research sweep, ranks, dependencies, publication, push or merge.
@@ -17,6 +17,54 @@
 - Source comparison: exactly9 Changeling,2 Collect Evidence,17 Connive,3 Convoke included-state corrections; all captured card facts, names, IDs, scope and URLs equal baseline. No all-card research sweep or new fetch performed.
 - Risks: first bucket card is now the visible representative, so note/source alignment is explicitly verified; empty/joint/colorless/rules states remain handled. Browser evidence is justified by changed DOM citation count/duplication and links, not aesthetics. No broad engine/visual sweep needed.
 - Next: independent RobQA against committed candidate, then package and refresh localhost. Owner review: open Connive for concise independent-color examples; Commander ninjutsu for one joint citation; Cumulative Upkeep for Braid of Fire’s mana-adding cost. Owner judges density/readability.
+
+## Independent RobQA PASS — C representative-example correction
+
+- Verdict: **RobQAPass PASS** for exact candidate `88df3fd42a05c58d447a9178441a300586a5b323` against baseline `68e5702d13378beac6f9382ff072888860a22579`. Execution mode: separate independent reviewer. Classification: QA-4 evidence qualification plus bounded QA-1/QA-2 copy and rendered-link behavior. This advances the correction to `qa-passed`; Owner acceptance, preview refresh, publication and integration remain separate.
+- Semantic/source evidence: independent baseline comparison finds exactly 31 false-to-true qualifications: nine Changeling token creators, two direct Collect Evidence uses, seventeen direct Connive actions and three explicit Convoke grants. Each retained card-fact object is unchanged from the baseline and supports the corrected classification. All 35 C color, combination and colorless access maps remain unchanged. All 43 A/B projected records are exactly equal to baseline.
+- Representative-copy evidence: every represented C bucket has a selected first card and the authored note names that card or its mechanic-bearing face. Saved facts support the corrected Conjure ordering, Crew red-white Astor example, card-specific grant conditions, Connive distinctions, Eutropia duration and Fateful Tempest present-vote effect. Intermediate candidate `2b8f35de3a45a36be39654ce95020b4e2b0d67ce` exposed seven Convert split-face link fallbacks and two notes that still named Ratchet or Starscream; final candidate removes those extra examples, links either DFC face safely and adds a focused Convert regression. The finding is closed.
+- Objective checks: `git diff --check baseline..candidate` PASS; deterministic producer `--check` PASS for 78 A/B/C records and 11 bindings; source/taxonomy/fixture gates and all 53 recon assertions PASS; harness syntax PASS. Independent elevated real-Edge focused harness PASS on the exact candidate for one C source per represented bucket, unique combination citations, concise authored copy, Convert back-face linking/no extra examples, exact discovery/non-card links, malformed-sidecar fail-soft behavior, keyboard/mobile behavior, all 78 A/B/C maps and unchanged 84/84 frozen checks.
+- Stateful/adversarial coverage: the optional assessment sidecar remains the only relevant state seam. Valid forward load plus missing/malformed/binding replacement cases are covered atomically; search/view/keyboard/mobile representatives cover structurally different records. Reverse migration and representation round-trip are not contractual for this read-only projection. Protected 2021 state remains unchanged through every sidecar case.
+- CPU-heavy validation: **NOT REQUIRED**. Broad wheel, journey, mutation, research and engine stress suites were skipped because qualification corrections do not change access maps or the frozen 2021 engine; exact semantic comparison, producer/gates and the focused sidecar browser harness cover the changed risks. No live source fetch or screenshot/visual matrix was used.
+- Remaining Owner judgment: readability, density and whether one visible example per represented bucket is the preferred product presentation. Suggested short review: Connive for independent-color notes, Commander ninjutsu for one combination citation, Cumulative Upkeep for Braid of Fire and Convert for linked face-name readability. OWNER-VISUAL remains open.
+
+## Verified local preview
+
+The exact material candidate was packaged and verified: 23 byte-identical runtime files (revision-stamped shell), four syntax-clean inline scripts, 23 expected HTTP 200 paths and 24 excluded paths returning 404. Windows sandbox temp/socket restrictions were environment failures; the unchanged bounded package verification passed with a workspace temp directory outside the network sandbox.
+
+The existing localhost tab was refreshed to `?v=88df3fd42a05c58d447a9178441a300586a5b323`. Connive is open in A–Z with Reviewed card examples expanded, search cleared, and color filters clear. The UI shows one linked source for each supported independent color/colorless/combination and separate Scryfall discovery links. Screenshot outside Git: `C:/Users/obake/.codex/visualizations/2026/10/27/01a17b8d-3467-7eb1-a917-efaf7184cd99/c-compact-access-preview.png`.
+
+No push, merge or publication was performed. This correction is ready for Owner readability review. The work branch has no upstream; Git records local review commits. The final evidence commit changes only this ledger, so the packaged material candidate and exact-candidate QA remain unchanged.
+
+## Material candidate
+
+- Baseline: `68e5702d13378beac6f9382ff072888860a22579`
+- Candidate: `88df3fd42a05c58d447a9178441a300586a5b323`
+- Changed paths: `9`
+
+## Files changed
+
+- `HANDOFF.md`
+- `data/mechanics-assessments.v1.json`
+- `docs/mechanics-research/C-ACCESS-REVIEW.md`
+- `docs/mechanics-research/COLOR-ACCESS-PROTOCOL.md`
+- `docs/mechanics-research/c-protocol-core.json`
+- `docs/mechanics-research/c-protocol-extended.json`
+- `docs/mechanics-research/c-protocol-special.json`
+- `tools/check_assessment_browser.mjs`
+- `vox-color/mechanical-explorer.html`
+
+## Evidence delta
+
+- Material candidate: `88df3fd42a05c58d447a9178441a300586a5b323`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `1`
+
+The evidence delta is this ledger only, not the full task diff. HEAD resolves to the final evidence commit when this report is validated. The final branch delta from the correction baseline remains nine paths; no product file changed after the reviewed material candidate.
+
+## Evidence-only paths
+
+- `HANDOFF.md`
 
 ---
 
