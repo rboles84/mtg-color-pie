@@ -51,7 +51,7 @@
     },
     {
       "path": "docs/mechanics-research/d-protocol.json",
-      "sha256": "b925fa49d7bb39b582020b4c893c9b3abb4806ad7f09c4d1c4935b9442865d4b"
+      "sha256": "2af4d6671106d2ba4525dda9d5a7f7ae843dcdff0338f9ab45a25f8d072e4e0f"
     }
   ],
   "records": [
@@ -26318,7 +26318,7 @@
               "U",
               "R"
             ],
-            "note": "Prophetic Titan lets you choose both of its enter abilities if you have delirium.",
+            "note": "Prophetic Titan lets you choose both modes of its enter ability if you have delirium.",
             "cards": [
               {
                 "name": "Prophetic Titan",
@@ -26716,7 +26716,7 @@
               "B",
               "G"
             ],
-            "note": "Akawalli, the Seething Tower gets +2/+2 and trample with descend 4, plus another +2/+2 and a blocking restriction with descend 8.",
+            "note": "Akawalli, the Seething Tower gets +2/+2 and trample with descend 4, plus another +2/+2 and can’t be blocked by more than one creature with descend 8.",
             "cards": [
               {
                 "name": "Akawalli, the Seething Tower",
@@ -27222,8 +27222,8 @@
       "kind": "access",
       "researchDate": "2026-10-28",
       "scopeLabel": "Released paper cards",
-      "scope": "Devour lets a creature sacrifice creatures as it enters for +1/+1 counters. This entry also includes devour artifact, which sacrifices artifacts instead.",
-      "summary": "Devour lets a creature sacrifice creatures as it enters for +1/+1 counters. This entry also includes devour artifact, which sacrifices artifacts instead.",
+      "scope": "As a creature enters with devour, you may sacrifice creatures for +1/+1 counters. This entry also includes devour artifact, which sacrifices artifacts instead.",
+      "summary": "As a creature enters with devour, you may sacrifice creatures for +1/+1 counters. This entry also includes devour artifact, which sacrifices artifacts instead.",
       "access": {
         "colors": {
           "W": {
@@ -27612,7 +27612,7 @@
               "W",
               "R"
             ],
-            "note": "Caparocti Sunborn lets you tap two untapped artifacts and/or creatures when it attacks to discover 3.",
+            "note": "Caparocti Sunborn lets you tap two untapped artifacts and/or creatures you control when it attacks to discover 3.",
             "cards": [
               {
                 "name": "Caparocti Sunborn",

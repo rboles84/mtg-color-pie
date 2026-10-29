@@ -2818,7 +2818,7 @@
             "R"
           ],
           "mechanic_face": "Prophetic Titan",
-          "inclusion_reason": "Prophetic Titan lets you choose both of its enter abilities if you have delirium.",
+          "inclusion_reason": "Prophetic Titan lets you choose both modes of its enter ability if you have delirium.",
           "card_facts": {
             "object": "card",
             "id": "468b92ae-eb84-4548-a5e5-a07c79b77f7f",
@@ -3362,7 +3362,7 @@
             "card_ids": [
               "224f5f1a-4f31-4935-bf5a-910fd0a666a1"
             ],
-            "note": "Prophetic Titan lets you choose both of its enter abilities if you have delirium."
+            "note": "Prophetic Titan lets you choose both modes of its enter ability if you have delirium."
           },
           {
             "colors": [
@@ -8080,8 +8080,8 @@
         "version": "2.0",
         "review_date": "2026-10-28",
         "scope_label": "Released paper cards",
-        "scope": "Devour lets a creature sacrifice creatures as it enters for +1/+1 counters. This entry also includes devour artifact, which sacrifices artifacts instead.",
-        "summary": "Devour lets a creature sacrifice creatures as it enters for +1/+1 counters. This entry also includes devour artifact, which sacrifices artifacts instead.",
+        "scope": "As a creature enters with devour, you may sacrifice creatures for +1/+1 counters. This entry also includes devour artifact, which sacrifices artifacts instead.",
+        "summary": "As a creature enters with devour, you may sacrifice creatures for +1/+1 counters. This entry also includes devour artifact, which sacrifices artifacts instead.",
         "colors": {
           "W": {
             "status": "documented",
@@ -9267,7 +9267,7 @@
             "R"
           ],
           "mechanic_face": "Caparocti Sunborn",
-          "inclusion_reason": "Caparocti Sunborn lets you tap two untapped artifacts and/or creatures when it attacks to discover 3.",
+          "inclusion_reason": "Caparocti Sunborn lets you tap two untapped artifacts and/or creatures you control when it attacks to discover 3.",
           "card_facts": {
             "object": "card",
             "id": "8ea82964-fd9c-48e3-962f-94954476b31f",
@@ -10445,7 +10445,7 @@
             "card_ids": [
               "7f87a770-af47-4345-8dc1-0a1e8bae75c5"
             ],
-            "note": "Caparocti Sunborn lets you tap two untapped artifacts and/or creatures when it attacks to discover 3."
+            "note": "Caparocti Sunborn lets you tap two untapped artifacts and/or creatures you control when it attacks to discover 3."
           },
           {
             "colors": [
@@ -21352,7 +21352,7 @@
             "G"
           ],
           "mechanic_face": "Akawalli, the Seething Tower",
-          "inclusion_reason": "Akawalli, the Seething Tower gets +2/+2 and trample with descend 4, plus another +2/+2 and a blocking restriction with descend 8.",
+          "inclusion_reason": "Akawalli, the Seething Tower gets +2/+2 and trample with descend 4, plus another +2/+2 and can’t be blocked by more than one creature with descend 8.",
           "card_facts": {
             "object": "card",
             "id": "3ee62dd1-97d0-4e5d-8937-26c9e51e9414",
@@ -21920,7 +21920,7 @@
             "card_ids": [
               "0679dcef-e1c3-4739-a769-18a4ffdcfde7"
             ],
-            "note": "Akawalli, the Seething Tower gets +2/+2 and trample with descend 4, plus another +2/+2 and a blocking restriction with descend 8."
+            "note": "Akawalli, the Seething Tower gets +2/+2 and trample with descend 4, plus another +2/+2 and can’t be blocked by more than one creature with descend 8."
           },
           {
             "colors": [
@@ -22166,8 +22166,9 @@
           "section": "Alchemy Horizons: Baldur’s Gate",
           "url": "https://magic.wizards.com/en/news/mtg-arena/mtg-arena-announcements-june-22-2022",
           "kind": "article",
-          "verifiedOn": "2026-10-19",
-          "sourceSha256": "e7c91f49d8295494f564f16d5c3b6792eee1081d4f9ca608c96eef51f4fd9a50"
+          "verifiedOn": "2026-10-28",
+          "sourceSha256": "e7c91f49d8295494f564f16d5c3b6792eee1081d4f9ca608c96eef51f4fd9a50",
+          "capturePath": "docs/mechanics-research/d-protocol-evidence/official/double-team.html"
         }
       ],
       "queries": [
@@ -23709,8 +23710,9 @@
           "section": "How Can Our Mechanics Support a Dynamic Format?",
           "url": "https://magic.wizards.com/en/news/mtg-arena/designing-alchemy-2021-12-08",
           "kind": "article",
-          "verifiedOn": "2026-10-19",
-          "sourceSha256": "d77c8d3e0a26c37607aab5933ed10ac334563c3c0d77c23f449a1ec8b76fa3f0"
+          "verifiedOn": "2026-10-28",
+          "sourceSha256": "c58097b3aab6069b0b6b7fb45f5022d110095b8aa04d02646a7466333da4ae88",
+          "capturePath": "docs/mechanics-research/d-protocol-evidence/official/spellbook.html"
         }
       ],
       "queries": [

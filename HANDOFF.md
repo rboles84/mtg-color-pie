@@ -18,6 +18,12 @@
 - Risk-proportional QA: source qualification and short factual notes are the changed risk; independent source/face/capture checks plus focused browser are required. CPU-heavy broad wheel/journey/engine suites are not justified. Owner review remains presentation/readability after preview refresh.
 - Handoff to independent RobQA: review committed exact candidate against baseline ae27a75ed107f4e6eb09c0d154004ac1d1903ac2; review all selected witnesses against captured facts, not memory. Reviewer owns HANDOFF.md only. Do not modify product files or broaden to other letters.
 
+## D independent-review corrections
+
+- First candidate 8dea92839602312c5ede856a820fd0cbff897426 held for a stale Spellbook source fingerprint inherited from the earlier verified supplement reference. Both fresh Arena references now bind their D capture path, actual receipt hash and current verification date. Raw captures are unchanged.
+- Four concise copy corrections: Prophetic Titan chooses both modes of one enter ability; Caparocti specifies permanents you control; Akawalli states its exact blocking restriction; Devour says the player may sacrifice as the creature enters. No card/color/combo access map changed.
+- Independent source review found all141 selected facts identical to their captured source objects, source URLs and mechanic-bearing face colors correct, no special-material leakage, and all capture hashes/statuses valid. Corrected exact candidate requires final independent verification before PASS.
+
 ---
 
 ## Previous C work (historical)
