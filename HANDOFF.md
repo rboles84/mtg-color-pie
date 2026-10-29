@@ -1,6 +1,6 @@
 # Active task — F Color Access
 
-- Status: ready-for-qa after the bounded F inherited-example repair. Baseline `3e0a24d7c1b0bb5dc9e175935a38c88c5bba378d`; reuse `codex/a-mechanics-review` and this checkout. Owner authorizes 25 supplemental F entries and local preview only; Fight, First Strike, Flash and Flying stay mapped to frozen 2021.
+- Status: qa-passed on exact corrected candidate `7a202d98272562dda39ed58c033a1b4eed52bf79`. Baseline `3e0a24d7c1b0bb5dc9e175935a38c88c5bba378d`; reuse `codex/a-mechanics-review` and this checkout. Owner authorizes 25 supplemental F entries and local preview only; Fight, First Strike, Flash and Flying stay mapped to frozen 2021.
 - Envelope: HANDOFF.md; docs/mechanics-research/f-protocol.json; docs/mechanics-research/f-protocol-evidence/**; docs/mechanics-research/F-ACCESS-REVIEW.md; docs/mechanics-research/COLOR-ACCESS-PROTOCOL.md; tools/build_mechanics_assessments.py; data/mechanics-assessments.v1.json (producer only); vox-color/mechanical-explorer.html; tools/check_assessment_browser.mjs. Temporary helpers outside checkout and ignored _site packaging allowed. Preserve A–E source/projection records, all frozen2021 content/math, dependencies/theme, branch and existing work. No push/merge/publication.
 - Grounding: local AGENTS, CONTEXT, current E handoff, Color Access protocol, D/E packets/review notes, complete renderer path and focused harness. Canonical packet owns source/card choices; existing producer owns the payload; compact C/D/E renderer extends to F explicitly. Configured RobDev worker Terra medium began implementation; coordinator took over per-record corrections. Backend model identity is unverified. Separate configured RobQA Sol medium reviews only after committed candidate.
 - Contract: one verified card establishes presence; one linked example per mono/colorless/combination bucket; actual mechanic-bearing face colors; explicit grants/token creators qualify, recipients/payoffs/name matches do not. Ordinary paper excludes special/digital/token objects. Face a dilemma remains a generic modal-choice preview reference with no assigned access.
@@ -28,6 +28,119 @@
 - Coverage gap: the focused harness verifies card links only inside `.assessment-notes`, so its green one-example assertion cannot detect extra card presentation in the complete detail surface. The narrow reusable invariant is: for every ready F record, complete-detail Scryfall card links equal the selected bucket links, with no inherited `.dx-eg` or `.cite`; preserve A–E behavior and the assessment-unavailable fallback.
 - Verdict: **RobQAPass FAIL / `qa-failed`** for this exact candidate. Return only the F-ready inherited-example suppression and focused complete-detail regression to RobDev. Do not reopen F source selections or broaden browser testing. Independent source/link/face/scope review remains in progress and must bind to the corrected committed candidate before PASS.
 - Proportionality: no new browser suite or screenshot matrix was run. The defect is deterministic from the exact renderer/data path and the Owner's packaged Forestwalk witness. CPU-heavy validation remains **NOT REQUIRED**. Owner visual/readability judgment is not open on this failed candidate.
+
+## Independent RobQA PASS — exact corrected candidate `7a202d98272562dda39ed58c033a1b4eed52bf79`
+
+- Change classification: QA-4 semantic/source qualification with bounded QA-2 detail integration. Execution mode: **SEPARATE**, reviewer `/root/f_qa`, who did not implement the candidate. Protected A–E133 projected records deep-equal baseline `3e0a24d7c1b0bb5dc9e175935a38c88c5bba378d`; A–E sources and frozen 2021 data/calculations remain outside the material diff. Exact evidence is this section plus the committed F packet, captures, generated payload and focused harness output.
+- Independent source/link evidence: all 25 F records and all 144 selected witnesses were read against their saved card text, role, source color, mechanic-bearing face, scope, note and bucket. All 144 complete `card_facts` objects exactly equal a declared raw captured object; all 144 attributed color sets match the actual mechanic-bearing face (or the fused spell's combined colors); every selected printing URL equals the saved object URL. The 13 standalone receipts recompute to their captured bytes with HTTP 200, valid UTC timestamps and exact URLs. No standalone token, digital, playtest, Unknown Event, silver/acorn or other ordinary-paper scope leak remains.
+- Semantic findings: Frenzy Sliver is a black explicit grant without Garbage Elemental; Mesmeric Sliver and the three released Forecast witnesses do not import special/Unknown Event colors; Fanatic of Rhonas remains green rather than its black eternalized token; Scornful Aether-Lich is blue despite its white-black activation; Food and Forestwalk use source creators, including Academy Manufactor, Sorin's white-black back face, Jedit and Lord Windgrace. The Core and Avatar Roku back face are colorless; Avatar Aang front is WURG; Ultra Magnus's mechanic face is WRG. All 15 Fuse cards use ordinary released fused combinations under rule 702.102b, with no monocolor or colorless inference. Face a dilemma is correctly rules-only: the saved official article defines choosing one or more modes as a single dilemma and identifies the set as a November 13, 2026 preview/release.
+- Projection/link result: all 25 canonical records match the generated payload across 217 bucket-reference occurrences, citation-card lists and official source links, with exact full card names and printing URLs. `python tools/build_mechanics_assessments.py --check` passes for 158 records and 14 source bindings. Harness syntax passes. Existing source/taxonomy/fixture gates, 53 recon assertions and frozen 84/84 checks remain green from the exact-candidate developer run.
+- Closed QA finding: corrected candidate changes only this ledger plus the bounded renderer and harness repair from failed candidate `9ce58ca`. Ready F assessments now suppress the inherited legacy example while preserving A–E and the assessment-unavailable fallback. The exact-candidate focused real-Edge harness passes all 25 F records and now proves complete `#detail` Scryfall card links equal selected F bucket links with zero inherited `.dx-eg`/`.cite`; the prior Forestwalk Mirri leak is absent. It also retains the recorded symbol, no-font, escaping, fail-soft, keyboard/mobile and frozen checks. Defect class/invariant: a compact reviewed-example surface must not inherit a second legacy example outside its selected buckets; enforce against the complete detail surface, not only `.assessment-notes`.
+- Whitespace evidence: full baseline-to-candidate `git diff --check` reports only two trailing-space lines in the immutable saved `official.html` response. Its exact raw bytes are retained and receipt-hashed by design; excluding that raw provider capture, the authored/material diff is clean. This is disclosed source formatting, not a product or evidence-integrity defect.
+- Tests intentionally skipped: no second browser run, screenshot matrix, broad wheel/journey/mutation suite, live source fetch or exhaustive discovery-hit census. The exact-candidate focused harness already covers the corrected objective risk; the Owner explicitly owns visual/manual testing; untouched engines retain their valid certification. CPU-heavy validation: **NOT REQUIRED**.
+- Stateful adversarial coverage: no persistent ownership/history seam changed. The existing focused harness covers valid sidecar load, malformed/missing fail-soft behavior and structurally different access/rules/combination/colorless records; reverse transition and representation round-trip are not contractual for this read-only projection.
+- Remaining Owner judgment: visual balance, readability, density and whether the selected examples feel useful. Bounded review: Forestwalk for source-creator and inherited-example cleanup; Firebending for DFC/colorless and symbol presentation; Face a dilemma for generic preview wording. Engineering verdict: **RobQAPass PASS / `qa-passed`** for exact candidate `7a202d98272562dda39ed58c033a1b4eed52bf79`. This permits Owner Review only; it does not constitute Owner ACCEPT or authorize push, merge, publication or integration.
+
+---
+
+## Verified F preview and final Git report
+
+- Independent RobQAPass PASS binds to material candidate `7a202d98272562dda39ed58c033a1b4eed52bf79`. Owner visual/manual testing is pending by explicit Owner choice.
+- Packaged the exact candidate into the existing checkout/_site directory served at http://127.0.0.1:8020/#mechanical-color-pie. Package PASS:23 byte-identical allowlisted files,4 clean inline scripts,23 served paths200 and24 excluded paths404. No publication or remote operation.
+- Refreshed visible IAB tab1 to the exact candidate, opened Forestwalk and expanded Reviewed card examples. The selected links and actual green/B-G hybrid symbols are present; inherited Mirri example is absent. Screenshot: C:/Users/obake/.codex/visualizations/2026/10/29/01a185f4-a2f8-7dd1-998c-7692190f20e8/f-color-access-preview.png. No additional visual testing pass; Owner judges appearance/readability.
+- Checks: independent selected-source/link/face/scope review144 witnesses, producer determinism, exact A–E133 equality, frozen source/taxonomy/fixture gates and53 recon assertions, focused Edge all25 F symbols/fallback/escaping and whole-detail one-example regression plus84 frozen checks, package verification. Authored whitespace is clean; two upstream trailing-space lines in immutable receipt-hashed official.html are intentionally retained as raw evidence, as disclosed by QA.
+
+## Material candidate
+
+- Baseline: `3e0a24d7c1b0bb5dc9e175935a38c88c5bba378d`
+- Candidate: `7a202d98272562dda39ed58c033a1b4eed52bf79`
+- Changed paths: `66`
+
+## Files changed
+
+- `HANDOFF.md`
+- `data/mechanics-assessments.v1.json`
+- `docs/mechanics-research/COLOR-ACCESS-PROTOCOL.md`
+- `docs/mechanics-research/F-ACCESS-REVIEW.md`
+- `docs/mechanics-research/f-protocol-evidence/fabricate/oracle-1.json`
+- `docs/mechanics-research/f-protocol-evidence/fabricate/oracle-receipt.json`
+- `docs/mechanics-research/f-protocol-evidence/fabricate/search-1.json`
+- `docs/mechanics-research/f-protocol-evidence/face-a-dilemma/mechanics-receipt.json`
+- `docs/mechanics-research/f-protocol-evidence/face-a-dilemma/mechanics.html`
+- `docs/mechanics-research/f-protocol-evidence/face-a-dilemma/official-receipt.json`
+- `docs/mechanics-research/f-protocol-evidence/face-a-dilemma/official.html`
+- `docs/mechanics-research/f-protocol-evidence/fading/oracle-1.json`
+- `docs/mechanics-research/f-protocol-evidence/fading/oracle-receipt.json`
+- `docs/mechanics-research/f-protocol-evidence/fading/search-1.json`
+- `docs/mechanics-research/f-protocol-evidence/fateful-hour/search-1.json`
+- `docs/mechanics-research/f-protocol-evidence/fateseal/search-1.json`
+- `docs/mechanics-research/f-protocol-evidence/fathomless-descent/search-1.json`
+- `docs/mechanics-research/f-protocol-evidence/fear/oracle-1.json`
+- `docs/mechanics-research/f-protocol-evidence/fear/oracle-receipt.json`
+- `docs/mechanics-research/f-protocol-evidence/fear/search-1.json`
+- `docs/mechanics-research/f-protocol-evidence/ferocious/search-1.json`
+- `docs/mechanics-research/f-protocol-evidence/firebending/search-1.json`
+- `docs/mechanics-research/f-protocol-evidence/flanking/search-1.json`
+- `docs/mechanics-research/f-protocol-evidence/flashback/faithful-mending-receipt.json`
+- `docs/mechanics-research/f-protocol-evidence/flashback/faithful-mending.json`
+- `docs/mechanics-research/f-protocol-evidence/flashback/oracle-1.json`
+- `docs/mechanics-research/f-protocol-evidence/flashback/oracle-receipt.json`
+- `docs/mechanics-research/f-protocol-evidence/flashback/search-1.json`
+- `docs/mechanics-research/f-protocol-evidence/flashback/search-2.json`
+- `docs/mechanics-research/f-protocol-evidence/flurry/search-1.json`
+- `docs/mechanics-research/f-protocol-evidence/food/search-1.json`
+- `docs/mechanics-research/f-protocol-evidence/food/search-2.json`
+- `docs/mechanics-research/f-protocol-evidence/food/targeted-1.json`
+- `docs/mechanics-research/f-protocol-evidence/food/targeted-receipt.json`
+- `docs/mechanics-research/f-protocol-evidence/for-mirrodin/search-1.json`
+- `docs/mechanics-research/f-protocol-evidence/forage/search-1.json`
+- `docs/mechanics-research/f-protocol-evidence/forecast/search-1.json`
+- `docs/mechanics-research/f-protocol-evidence/forestcycling/search-1.json`
+- `docs/mechanics-research/f-protocol-evidence/forestcycling/search-2.json`
+- `docs/mechanics-research/f-protocol-evidence/forestcycling/targeted-1.json`
+- `docs/mechanics-research/f-protocol-evidence/forestcycling/targeted-receipt.json`
+- `docs/mechanics-research/f-protocol-evidence/forestwalk/search-1.json`
+- `docs/mechanics-research/f-protocol-evidence/forestwalk/search-2.json`
+- `docs/mechanics-research/f-protocol-evidence/forestwalk/search-3.json`
+- `docs/mechanics-research/f-protocol-evidence/forestwalk/targeted-1.json`
+- `docs/mechanics-research/f-protocol-evidence/forestwalk/targeted-receipt.json`
+- `docs/mechanics-research/f-protocol-evidence/foretell/oracle-1.json`
+- `docs/mechanics-research/f-protocol-evidence/foretell/oracle-receipt.json`
+- `docs/mechanics-research/f-protocol-evidence/foretell/search-1.json`
+- `docs/mechanics-research/f-protocol-evidence/formidable/search-1.json`
+- `docs/mechanics-research/f-protocol-evidence/fortify/search-1.json`
+- `docs/mechanics-research/f-protocol-evidence/freerunning/search-1.json`
+- `docs/mechanics-research/f-protocol-evidence/frenzy/search-1.json`
+- `docs/mechanics-research/f-protocol-evidence/frenzy/search-2.json`
+- `docs/mechanics-research/f-protocol-evidence/frenzy/search-3.json`
+- `docs/mechanics-research/f-protocol-evidence/frenzy/targeted-1.json`
+- `docs/mechanics-research/f-protocol-evidence/frenzy/targeted-receipt.json`
+- `docs/mechanics-research/f-protocol-evidence/friends-forever/search-1.json`
+- `docs/mechanics-research/f-protocol-evidence/friends-forever/search-2.json`
+- `docs/mechanics-research/f-protocol-evidence/friends-forever/targeted-1.json`
+- `docs/mechanics-research/f-protocol-evidence/friends-forever/targeted-receipt.json`
+- `docs/mechanics-research/f-protocol-evidence/fuse/search-1.json`
+- `docs/mechanics-research/f-protocol.json`
+- `tools/build_mechanics_assessments.py`
+- `tools/check_assessment_browser.mjs`
+- `vox-color/mechanical-explorer.html`
+
+## Evidence delta
+
+- Material candidate: `7a202d98272562dda39ed58c033a1b4eed52bf79`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `1`
+- This delta is QA/preview/report evidence only; it is not the full task diff.
+
+## Evidence-only paths
+
+- `HANDOFF.md`
+
+## Final branch delta
+
+- Baseline: `3e0a24d7c1b0bb5dc9e175935a38c88c5bba378d` → evidence `HEAD`.
+- Total changed paths: `66`; the evidence-only ledger adds no material path.
+- Branch `codex/a-mechanics-review`; local commits only. No push, merge or publication performed. No remote-tracking ref contains the material candidate. Worktree cleanliness is checked after the evidence commit.
 
 ---
 
