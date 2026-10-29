@@ -1839,8 +1839,8 @@ function hydrateDetail(k){
   });
   const supplemental = SUP_EXAMPLES.byKey.get(k);
   // Ready F assessments already supply one reviewed example per access bucket.
-  const fReviewed = REC.get(k)?.supplemental && REC.get(k).head.startsWith('F') && ASSESSMENTS.byKey.has(k);
-  if (supplemental && S.pick === k && !fReviewed) addCite(supplemental, true, true);
+  const assessedSupplement = REC.get(k)?.supplemental && /^[FG]/.test(REC.get(k).head) && ASSESSMENTS.byKey.has(k);
+  if (supplemental && S.pick === k && !assessedSupplement) addCite(supplemental, true, true);
 }
 /* The rest of the entries carry a stored printing (mechanical-examples.json),
    chosen from docs/card-examples-mapping.md; no Scryfall request. */
@@ -1935,6 +1935,9 @@ const E_MANA = {
 };
 // F has its own reviewed numeric and hybrid costs; retain E and earlier paths unchanged.
 const F_MANA = {...E_MANA, '7':['7','7 generic mana'], '8':['8','8 generic mana'], '9':['9','9 generic mana'], 'B/G':['bg','One black or green mana']};
+// G keeps the earlier vocabularies frozen while covering its reviewed colored,
+// colorless, X, numeric, and hybrid tokens with the same escaped renderer.
+const G_MANA = {...F_MANA, C:['c','One colorless mana'], 'G/U':['gu','One green or blue mana'], 'B/R':['br','One black or red mana'], 'G/W':['gw','One green or white mana'], 'U/R':['ur','One blue or red mana'], 'W/B':['wb','One white or black mana']};
 function supplementalTextHTML(value, symbols = SUP_MANA){
   let html = '', cursor = 0;
   for (const match of value.matchAll(/\{[^{}\r\n]+\}/g)){
@@ -1992,7 +1995,7 @@ function supplementalClassificationHTML(scope, mapped){
     </${mapped ? 'section' : 'div'}>`;
 }
 function supplementalRecordHTML(a, mapped = false){
-  const text = value => supplementalTextHTML(value, !mapped && a.name.startsWith('F') ? F_MANA : !mapped && a.name.startsWith('E') ? E_MANA : SUP_MANA);
+  const text = value => supplementalTextHTML(value, !mapped && a.name.startsWith('G') ? G_MANA : !mapped && a.name.startsWith('F') ? F_MANA : !mapped && a.name.startsWith('E') ? E_MANA : SUP_MANA);
   const ref = a.reference, review = a.qualifications.acceptedSourceReview, locator = review && review.locator || {};
   const classification = SUP_SCOPE.get(a.id), upfront = new Set([classification.scopeNote, ...classification.qualifications]);
   const kind = ref && ref.referenceKind;
@@ -2032,7 +2035,7 @@ function supplementalDetailHTML(k){
 }
 function isAssessmentTarget(k){
   const r = REC.get(k);
-  return !!r && r.supplemental && /^[ABCDEF]/.test(r.head);
+  return !!r && r.supplemental && /^[ABCDEFG]/.test(r.head);
 }
 function assessmentSummary(k, full = false){
   const a = ASSESSMENTS.byKey.get(k);
@@ -2048,8 +2051,8 @@ function assessmentHTML(k){
   const a = ASSESSMENTS.byKey.get(k);
   if (!a) return `<section class="dx-sec supp-assessment" aria-label="Color access status"><p class="dx-note">${esc(assessmentSummary(k))}. ${ASSESSMENTS.status === 'unavailable' ? 'The color access record could not be loaded. Reload to try again; rules and other evidence remain available.' : 'Rules and other evidence remain available while the record loads.'}</p></section>`;
   const link = (name, url) => url ? `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(name)}</a>` : esc(name);
-  const text = a.name.startsWith('F') ? value => supplementalTextHTML(value, F_MANA) : a.name.startsWith('E') ? value => supplementalTextHTML(value, E_MANA) : esc;
-  const compactExamples = /^[CDEF]/.test(a.name);
+  const text = a.name.startsWith('G') ? value => supplementalTextHTML(value, G_MANA) : a.name.startsWith('F') ? value => supplementalTextHTML(value, F_MANA) : a.name.startsWith('E') ? value => supplementalTextHTML(value, E_MANA) : esc;
+  const compactExamples = /^[CDEFG]/.test(a.name);
   const displayColors = [...ORDER, ...(a.access.colorless.status === 'documented' ? ['C'] : [])];
   const comboOnly = a.name === 'Fuse' || a.name === 'Friends forever';
   const accessRows = a.kind === 'access' ? (comboOnly ? a.access.combinations.map(item => `<li class="own-row combo-row" data-combo="${item.colors.join('')}">${comboMarkHTML(item)}<span class="own-c">${esc(item.colors.map(c=>CNAME[c]).join(' / '))}</span><span class="own-lead" aria-hidden="true"></span><span class="own-t">Combination only</span></li>`).join('') : displayColors.map(c => { const item=c === 'C' ? a.access.colorless : a.access.colors[c]; return `<li class="own-row${item.status === 'documented' ? '' : ' none'}" data-c="${c}">${accessMarkHTML(c,item.status)}<span class="own-c">${c === 'C' ? 'Colorless' : CNAME[c]}</span><span class="own-lead" aria-hidden="true"></span><span class="own-t">${esc(item.status === 'documented' ? 'Access' : item.status === 'multicolor_only' ? 'Combination only' : item.status === 'not_applicable' ? 'Not applicable' : item.status === 'insufficient_evidence' ? 'Insufficient evidence' : 'No example found')}</span></li>`; }).join('')) : '';
@@ -2095,19 +2098,19 @@ async function loadAssessments(data, status){
     const map = (v, check) => object(v) && Object.keys(v).length === 5 && ORDER.every(c => Object.hasOwn(v, c) && check(v[c]));
     const safeLink = v => !!supplementalURL(v) && ['scryfall.com','magic.wizards.com'].includes(new URL(v).hostname);
     const names = ['a-assessments-source.json','absorb-assessment-source.json','a-classification-addendum.json','a-protocol-core.json','a-protocol-extended.json','a-protocol-special.json','b-protocol-core.json','b-protocol-extended.json','c-protocol-core.json','c-protocol-extended.json','c-protocol-special.json','d-protocol.json','e-protocol.json','f-protocol.json'];
-    const expected = new Map(data.records.filter(r => /^[ABCDEF]/.test(r.name) && r.target2021 === null).map(r => [r.id,r]));
+    const expected = new Map(data.records.filter(r => /^[ABCDEFG]/.test(r.name) && r.target2021 === null).map(r => [r.id,r]));
     const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(JSON.stringify(data)));
     const hash = [...new Uint8Array(digest)].map(n => n.toString(16).padStart(2,'0')).join('');
-    if (!payload || payload.schemaVersion !== 3 || payload.protocolVersion !== '2.0' || payload.researchDate !== '2026-10-28' || payload.supplementCanonicalSha256 !== hash || payload.sourceBindingFormat !== 'canonical-json-utf8' ||
+ if (!payload || payload.schemaVersion !== 3 || payload.protocolVersion !== '2.0' || payload.researchDate !== '2026-10-29' || payload.supplementCanonicalSha256 !== hash || payload.sourceBindingFormat !== 'canonical-json-utf8' ||
         !Array.isArray(payload.sourceBindings) || payload.sourceBindings.length !== names.length || !names.every((name,i) => payload.sourceBindings[i]?.path === 'docs/mechanics-research/' + name && /^[a-f0-9]{64}$/.test(payload.sourceBindings[i].sha256)) ||
-        !Array.isArray(payload.records) || payload.records.length !== 158 || expected.size !== 158) throw new Error('Unsupported assessment schema or binding');
+        !Array.isArray(payload.records) || payload.records.length !== 163 || expected.size !== 163) throw new Error('Unsupported assessment schema or binding');
     const staged = new Map();
     for (const a of payload.records){
       const source = expected.get(a?.id);
       const access = a?.access, statuses=['documented','multicolor_only','not_found','not_applicable','insufficient_evidence'];
       const card = c => c && text(c.name) && (c.url === null || safeLink(c.url) && new URL(c.url).hostname === 'scryfall.com');
       const entry = (value, colorless=false) => value && statuses.includes(value.status) && (!colorless || value.status !== 'multicolor_only') && text(value.note) && Array.isArray(value.cards) && value.cards.every(card) && (value.cards.length > 0) === ['documented','multicolor_only'].includes(value.status) && (value.findUrl === null || safeLink(value.findUrl) && new URL(value.findUrl).hostname === 'scryfall.com');
-      if (!source || staged.has(a.id) || a.name !== source.name || a.researchDate !== '2026-10-28' || !['access','rules'].includes(a.kind) || !['scopeLabel','scope','summary'].every(k => text(a[k])) ||
+      if (!source || staged.has(a.id) || a.name !== source.name || !['2026-10-28','2026-10-29'].includes(a.researchDate) || !['access','rules'].includes(a.kind) || !['scopeLabel','scope','summary'].every(k => text(a[k])) ||
           !object(access) || !map(access.colors, value => entry(value)) || !entry(access.colorless,true) || !Array.isArray(access.combinations) || !access.combinations.every(x => x && Array.isArray(x.colors) && x.colors.length >= 2 && x.colors.every(c => ORDER.includes(c)) && x.colors.join('') === ORDER.filter(c=>x.colors.includes(c)).join('') && text(x.note) && Array.isArray(x.cards) && x.cards.length && x.cards.every(card) && safeLink(x.findUrl)) || !Array.isArray(access.limitations) || !access.limitations.every(text) ||
           !Array.isArray(a.citationCards) || !a.citationCards.every(card) ||
           !Array.isArray(a.sources) || !a.sources.every(s => s && text(s.title) && safeLink(s.url)) ||
@@ -2116,10 +2119,10 @@ async function loadAssessments(data, status){
       staged.set(a.id, deepFreeze(a));
     }
     ASSESSMENTS.byKey = staged; ASSESSMENTS.status = 'ready';
-    status.textContent += ' 158 A/B/C/D/E/F color-access records are available; 2021 tiers remain separate.';
+    status.textContent += ' 163 A/B/C/D/E/F/G color-access records are available; 2021 tiers remain separate.';
   } catch (err){
     ASSESSMENTS.byKey = new Map(); ASSESSMENTS.status = 'unavailable';
-    status.textContent += ' A/B/C/D/E/F color access is unavailable; rules and other evidence remain available.';
+    status.textContent += ' A/B/C/D/E/F/G color access is unavailable; rules and other evidence remain available.';
     console.warn('[mechanical-explorer] assessments unavailable:', err.message);
   }
   if (S.view === 'az') layoutList();

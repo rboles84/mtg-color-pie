@@ -38,9 +38,9 @@ try{
   await page.waitForFunction(()=>document.querySelector('#selftest').textContent.includes('84 of 84 passed'));
   const baseline=await page.evaluate(math);
   assert.equal(await page.locator('#list .ent').count(),216);
-  assert.equal(await page.evaluate(()=>VMX.assessments().records.length),158);
-  const expectedAssessmentIds=supplement.records.filter(r=>/^[ABCDEF]/.test(r.name)&&r.target2021===null).map(r=>r.id).sort();
-  assert.deepEqual(payload.records.map(r=>r.id).sort(),expectedAssessmentIds,'every admitted A/B/C/D/E target has exactly one assessment');
+  assert.equal(await page.evaluate(()=>VMX.assessments().records.length),163);
+  const expectedAssessmentIds=supplement.records.filter(r=>/^[ABCDEFG]/.test(r.name)&&r.target2021===null).map(r=>r.id).sort();
+  assert.deepEqual(payload.records.map(r=>r.id).sort(),expectedAssessmentIds,'every admitted A/B/C/D/E/F/G target has exactly one assessment');
   assert.deepEqual(payload.sourceBindings.map(x=>x.path),[
     'docs/mechanics-research/a-assessments-source.json',
     'docs/mechanics-research/absorb-assessment-source.json',
@@ -55,8 +55,9 @@ try{
     'docs/mechanics-research/c-protocol-special.json',
     'docs/mechanics-research/d-protocol.json',
     'docs/mechanics-research/e-protocol.json',
-    'docs/mechanics-research/f-protocol.json'
-  ],'all fourteen canonical packet bindings are present');
+    'docs/mechanics-research/f-protocol.json',
+    'docs/mechanics-research/g-protocol.json'
+  ],'all fifteen canonical packet bindings are present');
   assert.deepEqual(['Cast','Counter','Create'].map(name=>payload.records.find(r=>r.name===name)?.kind),['rules','rules','rules'],'generic C rules actions have no invented color access');
   const dRecord=name=>payload.records.find(r=>r.name===name);
   assert.deepEqual(['Double','Destroy','Discard'].map(name=>dRecord(name).kind),['rules','rules','rules'],'generic D actions remain references');
@@ -84,6 +85,15 @@ try{
   assert.equal(fRecord('Forestwalk').access.colorless.status,'not_found');
   assert.equal(fRecord('Food').access.colors.B.cards[0].name,'Bake into a Pie');
   assert.equal(fRecord('Food').access.colors.R.status,'multicolor_only');
+  const gRecord=name=>payload.records.find(r=>r.name===name);
+  assert.equal(payload.records.filter(r=>r.name.startsWith('G')).length,5);
+  assert.equal(gRecord('Gift').access.colors.G.cards[0].name,'Longstalk Brawl');
+  assert.equal(gRecord('Gift').access.colorless.cards[0].name,'Starforged Sword');
+  assert.equal(gRecord('Goad').access.colors.G.cards[0].name,'Predatory Impetus');
+  assert.equal(gRecord('Goad').access.colorless.cards[0].name,'Bloodthirsty Blade');
+  assert.equal(gRecord('Graft').access.colorless.cards[0].name,'Llanowar Reborn');
+  assert.equal(gRecord('Grandeur').access.colorless.cards[0].name,'Page, Loose Leaf');
+  assert.equal(gRecord('Gravestorm').access.colors.U.cards[0].name,'Follow the Bodies');
   assert.equal(fRecord('Fuse').access.colorless.status,'not_found');
   assert.equal(fRecord('Fuse').access.combinations.length,15);
   assert.ok(Object.values(fRecord('Fuse').access.colors).every(x=>x.status==='multicolor_only'));
@@ -110,7 +120,7 @@ try{
        rules actions have no invented map, and no access strip uses tier classes. */
     await page.evaluate(()=>VMX.setView('az'));
     for(const record of combinationsOnly ? payload.records.filter(r=>['Fuse','Friends forever'].includes(r.name)) : payload.records){
-      const row=page.locator(`#list .ent[data-k="${record.id}"]`), access=record.access, compactExamples=/^[CDEF]/.test(record.name);
+      const row=page.locator(`#list .ent[data-k="${record.id}"]`), access=record.access, compactExamples=/^[CDEFG]/.test(record.name);
       assert.equal(await row.locator('.access-strip').count(),record.kind==='access'?1:0,record.name);
       if(record.kind==='access'){
         const comboPresentation=['Fuse','Friends forever'].includes(record.name);
@@ -196,7 +206,7 @@ try{
         for(const item of [...access.combinations,...(access.colorless.status==='documented'?[access.colorless]:[])]) assert.ok(noteText.includes(item.note),record.name+' combination/colorless example visible');
       }
       assert.deepEqual(await notes.locator('a').evaluateAll(links=>links.filter(a=>a.hostname==='scryfall.com'&&a.pathname.startsWith('/card/')).map(a=>a.href).sort()),expectedCardLinks,record.name+' no redundant aggregate card list');
-      if(record.name.startsWith('F')) {
+      if(/^[FG]/.test(record.name)) {
         assert.equal(await page.locator('#detail .dx-eg,#detail .cite').count(),0,record.name+' no inherited extra example/image');
         assert.deepEqual(await page.locator('#detail a').evaluateAll(links=>links.filter(a=>a.hostname==='scryfall.com'&&a.pathname.startsWith('/card/')).map(a=>a.href).sort()),expectedCardLinks,record.name+' whole-detail one-example link contract');
       }
@@ -235,7 +245,7 @@ try{
     const fallback=await noFont.locator('.assessment-notes .supp-symbol').evaluateAll(symbols=>symbols.map(s=>({label:s.getAttribute('aria-label'),text:s.innerText,glyph:getComputedStyle(s.querySelector('.ms')).display,fallback:getComputedStyle(s.querySelector('.supp-symbol-text')).display})));
     assert.deepEqual(fallback.map(s=>s.text),['{1}','{1}','{B}'],'costs remain readable without font');
     assert.ok(fallback.every(s=>s.label&&s.glyph==='none'&&s.fallback!=='none'));
-    for(const record of payload.records.filter(r=>r.name.startsWith('F'))){
+    for(const record of payload.records.filter(r=>/^[FG]/.test(r.name))){
       await noFont.evaluate(id=>VMX.open(id),record.id);
       await noFont.locator('.assessment-notes > summary').click();
       const symbols=await noFont.locator('#detail .supp-symbol').evaluateAll(items=>items.map(s=>({text:s.innerText,raw:s.querySelector('.supp-symbol-text').textContent,label:s.getAttribute('aria-label'),glyph:getComputedStyle(s.querySelector('.ms')).display})));

@@ -1,0 +1,54 @@
+{
+  "source": "Scryfall API",
+  "queries": [
+    {
+      "mechanic": "gift",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Gift%20a%22&unique=cards",
+      "retrieved_at_utc": "2026-10-29T15:59:16.408Z",
+      "http_status": 200,
+      "sha256": "a2b4a6925d2000774f4027c6beba9a75d28949f9e0541e5f9bf4c5912600b371",
+      "path": "docs/mechanics-research/g-protocol-evidence/gift-discovery-1.json"
+    },
+    {
+      "mechanic": "goad",
+      "url": "https://api.scryfall.com/cards/search?q=keyword%3Agoad&unique=cards",
+      "retrieved_at_utc": "2026-10-29T15:59:17.123Z",
+      "http_status": 200,
+      "sha256": "65eb06ec2be64019f45d2ed9e0eb95e93c45d918f34037383b3d375d1393511f",
+      "path": "docs/mechanics-research/g-protocol-evidence/goad-discovery-1.json"
+    },
+    {
+      "mechanic": "graft",
+      "url": "https://api.scryfall.com/cards/search?q=keyword%3Agraft&unique=cards",
+      "retrieved_at_utc": "2026-10-29T15:59:17.583Z",
+      "http_status": 200,
+      "sha256": "7cb1373b918114695983a657b64b946d2c28671c80dafa408bd117c718203c67",
+      "path": "docs/mechanics-research/g-protocol-evidence/graft-discovery-1.json"
+    },
+    {
+      "mechanic": "grandeur",
+      "url": "https://api.scryfall.com/cards/search?q=o%3Agrandeur&unique=cards",
+      "retrieved_at_utc": "2026-10-29T15:59:17.903Z",
+      "http_status": 200,
+      "sha256": "7ccf710d8d9c9f02596922611284578b7d6594ba20ad9dc5a7ba77d4d2d846a4",
+      "path": "docs/mechanics-research/g-protocol-evidence/grandeur-discovery-1.json"
+    },
+    {
+      "mechanic": "gravestorm",
+      "url": "https://api.scryfall.com/cards/search?q=o%3Agravestorm&unique=cards",
+      "retrieved_at_utc": "2026-10-29T15:59:18.342Z",
+      "http_status": 200,
+      "sha256": "dbb5585ba4bd9e0f7315f512515dbfb26c30401e8d829b62e047f56d4408a5eb",
+      "path": "docs/mechanics-research/g-protocol-evidence/gravestorm-discovery-1.json"
+    },
+    {
+      "mechanic": "goad",
+      "purpose": "bounded Oracle-text follow-up",
+      "url": "https://api.scryfall.com/cards/search?q=o%3Agoad&unique=cards",
+      "retrieved_at_utc": "2026-10-29T16:03:20.807Z",
+      "http_status": 200,
+      "sha256": "dd312874101cb9967a00b7d97d36e2d1e79a2612644242dfd809621bc4cf8cea",
+      "path": "docs/mechanics-research/g-protocol-evidence/goad-oracle-followup-1.json"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
   "protocolVersion": "2.0",
-  "researchDate": "2026-10-28",
+  "researchDate": "2026-10-29",
   "supplementCanonicalSha256": "467835fcfa96c096d4a6c5956465c4043b093c5e4a64ad8b79c5c48a88e8bd0b",
   "sourceBindingFormat": "canonical-json-utf8",
   "sourceBindings": [
@@ -60,6 +60,10 @@
     {
       "path": "docs/mechanics-research/f-protocol.json",
       "sha256": "48859b9ae92d2cbcb18f3955c3a532e99d39c7b3998c901da73fa3bdaa694729"
+    },
+    {
+      "path": "docs/mechanics-research/g-protocol.json",
+      "sha256": "0d153f34236eaca25f69285f0d7bd2e9fb97264cf13788a0b37638aa7182cddd"
     }
   ],
   "records": [
@@ -36961,6 +36965,738 @@
         {
           "name": "Wear // Tear",
           "url": "https://scryfall.com/card/moc/343/wear-tear?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:gift",
+      "name": "Gift",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Gift is an optional additional cost while casting a spell; its named effect happens before the spell's other effects when that gift was promised.",
+      "summary": "Gift is an optional additional cost while casting a spell; its named effect happens before the spell's other effects when that gift was promised.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Bilbo's Gambit offers a Treasure before returning a target spell.",
+            "cards": [
+              {
+                "name": "Bilbo's Gambit",
+                "url": "https://scryfall.com/card/hob/5/bilbos-gambit?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Bilbo%27s%20Gambit%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Into the Flood Maw offers a tapped Fish before returning a creature or nonland permanent.",
+            "cards": [
+              {
+                "name": "Into the Flood Maw",
+                "url": "https://scryfall.com/card/blb/52/into-the-flood-maw?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Into%20the%20Flood%20Maw%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Coiling Rebirth offers a card before returning a creature card from its controller's graveyard.",
+            "cards": [
+              {
+                "name": "Coiling Rebirth",
+                "url": "https://scryfall.com/card/blb/86/coiling-rebirth?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Coiling%20Rebirth%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Blooming Blast offers a Treasure before dealing damage.",
+            "cards": [
+              {
+                "name": "Blooming Blast",
+                "url": "https://scryfall.com/card/blb/126/blooming-blast?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Blooming%20Blast%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Longstalk Brawl offers a tapped Fish before the chosen creatures fight.",
+            "cards": [
+              {
+                "name": "Longstalk Brawl",
+                "url": "https://scryfall.com/card/blb/182/longstalk-brawl?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Longstalk%20Brawl%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "U",
+              "G"
+            ],
+            "note": "Octomancer offers an Octopus when it enters if its gift was promised.",
+            "cards": [
+              {
+                "name": "Octomancer",
+                "url": "https://scryfall.com/card/blc/37/octomancer?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Octomancer%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "documented",
+          "note": "Starforged Sword offers a tapped Fish when it enters if its gift was promised.",
+          "cards": [
+            {
+              "name": "Starforged Sword",
+              "url": "https://scryfall.com/card/blb/249/starforged-sword?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22Starforged%20Sword%22%29%20include%3Aextras"
+        },
+        "limitations": [
+          "Digital gift cards in the saved discovery response are outside this released-paper review."
+        ]
+      },
+      "citationCards": [
+        {
+          "name": "Bilbo's Gambit",
+          "url": "https://scryfall.com/card/hob/5/bilbos-gambit?utm_source=api"
+        },
+        {
+          "name": "Into the Flood Maw",
+          "url": "https://scryfall.com/card/blb/52/into-the-flood-maw?utm_source=api"
+        },
+        {
+          "name": "Coiling Rebirth",
+          "url": "https://scryfall.com/card/blb/86/coiling-rebirth?utm_source=api"
+        },
+        {
+          "name": "Blooming Blast",
+          "url": "https://scryfall.com/card/blb/126/blooming-blast?utm_source=api"
+        },
+        {
+          "name": "Longstalk Brawl",
+          "url": "https://scryfall.com/card/blb/182/longstalk-brawl?utm_source=api"
+        },
+        {
+          "name": "Starforged Sword",
+          "url": "https://scryfall.com/card/blb/249/starforged-sword?utm_source=api"
+        },
+        {
+          "name": "Octomancer",
+          "url": "https://scryfall.com/card/blc/37/octomancer?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:goad",
+      "name": "Goad",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "A goaded creature attacks each combat if able and, if able, attacks a player other than the controller of the effect that goaded it; cards set their own duration.",
+      "summary": "A goaded creature attacks each combat if able and, if able, attacks a player other than the controller of the effect that goaded it; cards set their own duration.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "The War Games makes its Warrior tokens goaded while the Saga remains.",
+            "cards": [
+              {
+                "name": "The War Games",
+                "url": "https://scryfall.com/card/who/30/the-war-games?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22The%20War%20Games%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Coveted Peacock can goad a defending player's creature when it attacks.",
+            "cards": [
+              {
+                "name": "Coveted Peacock",
+                "url": "https://scryfall.com/card/cmm/82/coveted-peacock?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Coveted%20Peacock%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Coercive Impetus makes its enchanted creature goaded.",
+            "cards": [
+              {
+                "name": "Coercive Impetus",
+                "url": "https://scryfall.com/card/soc/24/coercive-impetus?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Coercive%20Impetus%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Acquired Mutation makes its enchanted creature goaded.",
+            "cards": [
+              {
+                "name": "Acquired Mutation",
+                "url": "https://scryfall.com/card/pip/53/acquired-mutation?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Acquired%20Mutation%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Predatory Impetus makes its enchanted creature goaded.",
+            "cards": [
+              {
+                "name": "Predatory Impetus",
+                "url": "https://scryfall.com/card/clu/172/predatory-impetus?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Predatory%20Impetus%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "U",
+              "B"
+            ],
+            "note": "Alela, Cunning Conqueror can goad a creature after its Faeries deal combat damage.",
+            "cards": [
+              {
+                "name": "Alela, Cunning Conqueror",
+                "url": "https://scryfall.com/card/woc/3/alela-cunning-conqueror?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Alela%2C%20Cunning%20Conqueror%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "B",
+              "R",
+              "G"
+            ],
+            "note": "Bhaal, Lord of Murder can goad a creature after another nontoken creature dies.",
+            "cards": [
+              {
+                "name": "Bhaal, Lord of Murder",
+                "url": "https://scryfall.com/card/clb/268/bhaal-lord-of-murder?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Bhaal%2C%20Lord%20of%20Murder%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "U",
+              "R"
+            ],
+            "note": "Bjorna, Nightfall Alchemist can goad a creature with its activated ability.",
+            "cards": [
+              {
+                "name": "Bjorna, Nightfall Alchemist",
+                "url": "https://scryfall.com/card/slx/2/bjorna-nightfall-alchemist?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Bjorna%2C%20Nightfall%20Alchemist%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "B",
+              "R"
+            ],
+            "note": "Frenzied Gorespawn can goad a creature after it deals combat damage to a player.",
+            "cards": [
+              {
+                "name": "Frenzied Gorespawn",
+                "url": "https://scryfall.com/card/clu/32/frenzied-gorespawn?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Frenzied%20Gorespawn%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "R",
+              "G"
+            ],
+            "note": "Kaima, the Fractured Calm can goad a creature enchanted by an Aura its controller controls.",
+            "cards": [
+              {
+                "name": "Kaima, the Fractured Calm",
+                "url": "https://scryfall.com/card/nec/3/kaima-the-fractured-calm?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Kaima%2C%20the%20Fractured%20Calm%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "B"
+            ],
+            "note": "Killian, Decisive Mentor can goad a creature with its activated ability.",
+            "cards": [
+              {
+                "name": "Killian, Decisive Mentor",
+                "url": "https://scryfall.com/card/soc/4/killian-decisive-mentor?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Killian%2C%20Decisive%20Mentor%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "R",
+              "G"
+            ],
+            "note": "Kitt Kanto, Mayhem Diva can goad a creature when it attacks with a Citizen.",
+            "cards": [
+              {
+                "name": "Kitt Kanto, Mayhem Diva",
+                "url": "https://scryfall.com/card/ncc/4/kitt-kanto-mayhem-diva?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Kitt%20Kanto%2C%20Mayhem%20Diva%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "U",
+              "G"
+            ],
+            "note": "Kros, Defense Contractor goads creatures with +1/+1 counters during its controller's upkeep.",
+            "cards": [
+              {
+                "name": "Kros, Defense Contractor",
+                "url": "https://scryfall.com/card/ncc/7/kros-defense-contractor?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Kros%2C%20Defense%20Contractor%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "U",
+              "B",
+              "R"
+            ],
+            "note": "Maestros Confluence has a mode that goads a creature.",
+            "cards": [
+              {
+                "name": "Maestros Confluence",
+                "url": "https://scryfall.com/card/ncc/75/maestros-confluence?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Maestros%20Confluence%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "R"
+            ],
+            "note": "Nelly Borca, Impulsive Accuser can goad a creature as it enters.",
+            "cards": [
+              {
+                "name": "Nelly Borca, Impulsive Accuser",
+                "url": "https://scryfall.com/card/mkc/4/nelly-borca-impulsive-accuser?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Nelly%20Borca%2C%20Impulsive%20Accuser%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "B",
+              "G"
+            ],
+            "note": "Rendmaw, Creaking Nest creates Bird tokens that are goaded for the rest of the game.",
+            "cards": [
+              {
+                "name": "Rendmaw, Creaking Nest",
+                "url": "https://scryfall.com/card/dsc/5/rendmaw-creaking-nest?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Rendmaw%2C%20Creaking%20Nest%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "documented",
+          "note": "Bloodthirsty Blade makes its equipped creature goaded.",
+          "cards": [
+            {
+              "name": "Bloodthirsty Blade",
+              "url": "https://scryfall.com/card/mkc/225/bloodthirsty-blade?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22Bloodthirsty%20Blade%22%29%20include%3Aextras"
+        },
+        "limitations": [
+          "The selected cards show their own goad durations or conditions; this review does not generalize them."
+        ]
+      },
+      "citationCards": [
+        {
+          "name": "The War Games",
+          "url": "https://scryfall.com/card/who/30/the-war-games?utm_source=api"
+        },
+        {
+          "name": "Coveted Peacock",
+          "url": "https://scryfall.com/card/cmm/82/coveted-peacock?utm_source=api"
+        },
+        {
+          "name": "Coercive Impetus",
+          "url": "https://scryfall.com/card/soc/24/coercive-impetus?utm_source=api"
+        },
+        {
+          "name": "Acquired Mutation",
+          "url": "https://scryfall.com/card/pip/53/acquired-mutation?utm_source=api"
+        },
+        {
+          "name": "Predatory Impetus",
+          "url": "https://scryfall.com/card/clu/172/predatory-impetus?utm_source=api"
+        },
+        {
+          "name": "Bloodthirsty Blade",
+          "url": "https://scryfall.com/card/mkc/225/bloodthirsty-blade?utm_source=api"
+        },
+        {
+          "name": "Alela, Cunning Conqueror",
+          "url": "https://scryfall.com/card/woc/3/alela-cunning-conqueror?utm_source=api"
+        },
+        {
+          "name": "Bhaal, Lord of Murder",
+          "url": "https://scryfall.com/card/clb/268/bhaal-lord-of-murder?utm_source=api"
+        },
+        {
+          "name": "Bjorna, Nightfall Alchemist",
+          "url": "https://scryfall.com/card/slx/2/bjorna-nightfall-alchemist?utm_source=api"
+        },
+        {
+          "name": "Frenzied Gorespawn",
+          "url": "https://scryfall.com/card/clu/32/frenzied-gorespawn?utm_source=api"
+        },
+        {
+          "name": "Kaima, the Fractured Calm",
+          "url": "https://scryfall.com/card/nec/3/kaima-the-fractured-calm?utm_source=api"
+        },
+        {
+          "name": "Killian, Decisive Mentor",
+          "url": "https://scryfall.com/card/soc/4/killian-decisive-mentor?utm_source=api"
+        },
+        {
+          "name": "Kitt Kanto, Mayhem Diva",
+          "url": "https://scryfall.com/card/ncc/4/kitt-kanto-mayhem-diva?utm_source=api"
+        },
+        {
+          "name": "Kros, Defense Contractor",
+          "url": "https://scryfall.com/card/ncc/7/kros-defense-contractor?utm_source=api"
+        },
+        {
+          "name": "Maestros Confluence",
+          "url": "https://scryfall.com/card/ncc/75/maestros-confluence?utm_source=api"
+        },
+        {
+          "name": "Nelly Borca, Impulsive Accuser",
+          "url": "https://scryfall.com/card/mkc/4/nelly-borca-impulsive-accuser?utm_source=api"
+        },
+        {
+          "name": "Rendmaw, Creaking Nest",
+          "url": "https://scryfall.com/card/dsc/5/rendmaw-creaking-nest?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:graft",
+      "name": "Graft",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Graft makes a permanent enter with +1/+1 counters and triggers when another creature enters to allow moving a counter.",
+      "summary": "Graft makes a permanent enter with +1/+1 counters and triggers when another creature enters to allow moving a counter.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "not_found",
+            "note": "No selected independent example in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "U": {
+            "status": "documented",
+            "note": "Cytoplast Manipulator has graft 2 and can take control of a creature with a +1/+1 counter.",
+            "cards": [
+              {
+                "name": "Cytoplast Manipulator",
+                "url": "https://scryfall.com/card/dis/23/cytoplast-manipulator?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Cytoplast%20Manipulator%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "not_found",
+            "note": "No selected independent example in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "R": {
+            "status": "not_found",
+            "note": "No selected independent example in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "G": {
+            "status": "documented",
+            "note": "Aquastrand Spider has graft 2 and can give a countered creature reach.",
+            "cards": [
+              {
+                "name": "Aquastrand Spider",
+                "url": "https://scryfall.com/card/mm2/140/aquastrand-spider?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Aquastrand%20Spider%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "U",
+              "G"
+            ],
+            "note": "Plaxcaster Frogling has graft 3 and can give a countered creature shroud.",
+            "cards": [
+              {
+                "name": "Plaxcaster Frogling",
+                "url": "https://scryfall.com/card/c21/226/plaxcaster-frogling?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Plaxcaster%20Frogling%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "documented",
+          "note": "Llanowar Reborn enters tapped with graft 1.",
+          "cards": [
+            {
+              "name": "Llanowar Reborn",
+              "url": "https://scryfall.com/card/lcc/341/llanowar-reborn?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22Llanowar%20Reborn%22%29%20include%3Aextras"
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Cytoplast Manipulator",
+          "url": "https://scryfall.com/card/dis/23/cytoplast-manipulator?utm_source=api"
+        },
+        {
+          "name": "Aquastrand Spider",
+          "url": "https://scryfall.com/card/mm2/140/aquastrand-spider?utm_source=api"
+        },
+        {
+          "name": "Llanowar Reborn",
+          "url": "https://scryfall.com/card/lcc/341/llanowar-reborn?utm_source=api"
+        },
+        {
+          "name": "Plaxcaster Frogling",
+          "url": "https://scryfall.com/card/c21/226/plaxcaster-frogling?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:grandeur",
+      "name": "Grandeur",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Grandeur is an ability word for abilities that discard another card with the same name for the listed effect.",
+      "summary": "Grandeur is an ability word for abilities that discard another card with the same name for the listed effect.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Oriss, Samite Guardian can discard another Oriss to stop a player casting spells and attacking that turn.",
+            "cards": [
+              {
+                "name": "Oriss, Samite Guardian",
+                "url": "https://scryfall.com/card/fut/28/oriss-samite-guardian?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Oriss%2C%20Samite%20Guardian%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Linessa, Zephyr Mage can discard another Linessa to return a creature, artifact, enchantment, and land.",
+            "cards": [
+              {
+                "name": "Linessa, Zephyr Mage",
+                "url": "https://scryfall.com/card/fut/51/linessa-zephyr-mage?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Linessa%2C%20Zephyr%20Mage%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Korlash, Heir to Blackblade can discard another Korlash to find up to two Swamps.",
+            "cards": [
+              {
+                "name": "Korlash, Heir to Blackblade",
+                "url": "https://scryfall.com/card/fut/87/korlash-heir-to-blackblade?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Korlash%2C%20Heir%20to%20Blackblade%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Tarox Bladewing can discard another Tarox to gain power and toughness.",
+            "cards": [
+              {
+                "name": "Tarox Bladewing",
+                "url": "https://scryfall.com/card/fut/123/tarox-bladewing?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Tarox%20Bladewing%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Baru, Fist of Krosa can discard another Baru to create a Wurm sized by lands controlled.",
+            "cards": [
+              {
+                "name": "Baru, Fist of Krosa",
+                "url": "https://scryfall.com/card/fut/142/baru-fist-of-krosa?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Baru%2C%20Fist%20of%20Krosa%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "documented",
+          "note": "Page, Loose Leaf can discard another Page to reveal until an instant or sorcery card is found.",
+          "cards": [
+            {
+              "name": "Page, Loose Leaf",
+              "url": "https://scryfall.com/card/sos/250/page-loose-leaf?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22Page%2C%20Loose%20Leaf%22%29%20include%3Aextras"
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Oriss, Samite Guardian",
+          "url": "https://scryfall.com/card/fut/28/oriss-samite-guardian?utm_source=api"
+        },
+        {
+          "name": "Linessa, Zephyr Mage",
+          "url": "https://scryfall.com/card/fut/51/linessa-zephyr-mage?utm_source=api"
+        },
+        {
+          "name": "Korlash, Heir to Blackblade",
+          "url": "https://scryfall.com/card/fut/87/korlash-heir-to-blackblade?utm_source=api"
+        },
+        {
+          "name": "Tarox Bladewing",
+          "url": "https://scryfall.com/card/fut/123/tarox-bladewing?utm_source=api"
+        },
+        {
+          "name": "Baru, Fist of Krosa",
+          "url": "https://scryfall.com/card/fut/142/baru-fist-of-krosa?utm_source=api"
+        },
+        {
+          "name": "Page, Loose Leaf",
+          "url": "https://scryfall.com/card/sos/250/page-loose-leaf?utm_source=api"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Back to the Future Sight, Part 3",
+          "url": "https://magic.wizards.com/en/news/making-magic/back-future-sight-part-3-2020-08-24"
+        }
+      ],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:gravestorm",
+      "name": "Gravestorm",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Gravestorm copies a spell for each permanent put into a graveyard from the battlefield that turn.",
+      "summary": "Gravestorm copies a spell for each permanent put into a graveyard from the battlefield that turn.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "not_found",
+            "note": "No selected independent example in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "U": {
+            "status": "documented",
+            "note": "Follow the Bodies uses gravestorm before it investigates.",
+            "cards": [
+              {
+                "name": "Follow the Bodies",
+                "url": "https://scryfall.com/card/mkc/23/follow-the-bodies?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Follow%20the%20Bodies%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Bitter Ordeal uses gravestorm when cast after searching a library.",
+            "cards": [
+              {
+                "name": "Bitter Ordeal",
+                "url": "https://scryfall.com/card/fut/80/bitter-ordeal?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Bitter%20Ordeal%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "not_found",
+            "note": "No selected independent example in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "G": {
+            "status": "not_found",
+            "note": "No selected independent example in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "not_found",
+          "note": "No selected colorless example in the reviewed scope.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Bitter Ordeal",
+          "url": "https://scryfall.com/card/fut/80/bitter-ordeal?utm_source=api"
+        },
+        {
+          "name": "Follow the Bodies",
+          "url": "https://scryfall.com/card/mkc/23/follow-the-bodies?utm_source=api"
         }
       ],
       "sources": [],

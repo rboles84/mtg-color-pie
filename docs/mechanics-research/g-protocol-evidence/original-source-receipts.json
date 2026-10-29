@@ -1,0 +1,12 @@
+{
+  "queries": [
+    {
+      "source": "Wizards of the Coast",
+      "url": "https://magic.wizards.com/en/news/making-magic/back-future-sight-part-3-2020-08-24",
+      "retrieved_at_utc": "2026-10-29T16:01:41.561Z",
+      "http_status": 200,
+      "sha256": "8dfd9093a9c10786b992b0b23cd3f07dc116d3e1cf789b6970b92b521494c7cc",
+      "path": "docs/mechanics-research/g-protocol-evidence/grandeur-original.html"
+    }
+  ]
+}
