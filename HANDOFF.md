@@ -1,4 +1,9 @@
-# Active task — F combination-only presentation
+# Active task — F combination symbol centering
+
+- Status: dev-in-progress. Baseline `ece0daca1a9208dbcc2087e31468697582966e16`; envelope remains HANDOFF.md, `vox-color/mechanical-explorer.html`, and `tools/check_assessment_browser.mjs`. Repair only the existing Fuse/Friends forever combination markers: stable square hosts, nonshrinking native glyphs, centered detail rows, and no redundant ready-font outer CI ring. Do not use, import, copy, or integrate any reviewed package assets; Owner explicitly requires review-only treatment pending approval.
+- Acceptance: normal-font pair and CI glyphs center in their 18px host, detail labels center within .5px of the marker, fallback WUBRG text remains readable and 360px wrapping remains contained. Data, links, combos, examples, palette, font URL and all unrelated marks remain unchanged. Focused `--combinations-only` geometry assertions cover each rendered context; independent QA and preview remain coordinator-owned.
+
+# Previous task — F combination-only presentation
 
 - Status: qa-passed on exact candidate `28f15662f6f9ead07d5809b97cb3863fdac190ec`. Baseline `15c7018968bb7e4ab87452b2950b7f9010a429b5`; allowed files are HANDOFF.md, `vox-color/mechanical-explorer.html`, and `tools/check_assessment_browser.mjs` only. Fuse and Friends forever replace empty mono access sockets with their existing documented combination rows and symbols in detail/list/search. No payload, source, palette, font/dependency, other-letter, other-F, frozen 2021, link or example change.
 - Contract: actual pair/hybrid and three-color CI glyphs have full combo aria/title labels; no independent mono access appears. List strips wrap Fuse's 15 combinations to five columns, and no-font fallback uses readable WUBRG text. Detail rows retain full color names and Combination only. Targeted QA checks these two entries, font/fallback, exact combination order, no mono rows, no overflow and unchanged examples; independent RobQA follows committed candidate.
