@@ -1,4 +1,9 @@
-# Active task — F Color Access
+# Active task — F combination-only presentation
+
+- Status: dev-in-progress. Baseline `15c7018968bb7e4ab87452b2950b7f9010a429b5`; allowed files are HANDOFF.md, `vox-color/mechanical-explorer.html`, and `tools/check_assessment_browser.mjs` only. Fuse and Friends forever replace empty mono access sockets with their existing documented combination rows and symbols in detail/list/search. No payload, source, palette, font/dependency, other-letter, other-F, frozen 2021, link or example change.
+- Contract: actual pair/hybrid and three-color CI glyphs have full combo aria/title labels; no independent mono access appears. List strips wrap Fuse's 15 combinations to five columns, and no-font fallback uses readable WUBRG text. Detail rows retain full color names and Combination only. Targeted QA checks these two entries, font/fallback, exact combination order, no mono rows, no overflow and unchanged examples; independent RobQA follows committed candidate.
+
+# Previous task — F Color Access
 
 - Status: qa-passed on exact corrected candidate `7a202d98272562dda39ed58c033a1b4eed52bf79`. Baseline `3e0a24d7c1b0bb5dc9e175935a38c88c5bba378d`; reuse `codex/a-mechanics-review` and this checkout. Owner authorizes 25 supplemental F entries and local preview only; Fight, First Strike, Flash and Flying stay mapped to frozen 2021.
 - Envelope: HANDOFF.md; docs/mechanics-research/f-protocol.json; docs/mechanics-research/f-protocol-evidence/**; docs/mechanics-research/F-ACCESS-REVIEW.md; docs/mechanics-research/COLOR-ACCESS-PROTOCOL.md; tools/build_mechanics_assessments.py; data/mechanics-assessments.v1.json (producer only); vox-color/mechanical-explorer.html; tools/check_assessment_browser.mjs. Temporary helpers outside checkout and ignored _site packaging allowed. Preserve A–E source/projection records, all frozen2021 content/math, dependencies/theme, branch and existing work. No push/merge/publication.

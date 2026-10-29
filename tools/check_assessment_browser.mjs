@@ -128,9 +128,16 @@ try{
       assert.match(await panel.innerText(),/Outside the 2021 color calculations/);
       assert.doesNotMatch(await panel.innerText(),/Our assessment|Confidence:|Primary:|Secondary:|Tertiary:|assessment - provisional/i);
       if(record.kind==='access'){
-        assert.equal(await panel.locator('.own-row').count(),5+(access.colorless.status==='documented'?1:0));
+        const comboPresentation=['Fuse','Friends forever'].includes(record.name);
+        assert.equal(await panel.locator('.own-row').count(),comboPresentation?access.combinations.length:5+(access.colorless.status==='documented'?1:0));
+        if(comboPresentation){
+          assert.equal(await panel.locator('.own-row[data-c]').count(),0,record.name+' has no implied monocolor rows');
+          assert.deepEqual(await panel.locator('.own-row[data-combo]').evaluateAll(rows=>rows.map(row=>row.dataset.combo)),access.combinations.map(item=>item.colors.join('')));
+          assert.ok(await panel.locator('.own-row .own-t').evaluateAll(nodes=>nodes.every(node=>node.textContent==='Combination only')));
+          assert.deepEqual(await row.locator('.combo-mark').evaluateAll(marks=>marks.map(mark=>mark.dataset.combo)),access.combinations.map(item=>item.colors.join('')));
+        }
         assert.ok((await panel.innerText()).includes(record.scopeLabel));
-        for(const color of 'WUBRG'){
+        if(!comboPresentation) for(const color of 'WUBRG'){
           const item=access.colors[color], rowText=await panel.locator(`.own-row[data-c="${color}"]`).innerText();
           assert.match(rowText,new RegExp(item.status==='documented'?'Access':item.status==='multicolor_only'?'Combination only':item.status==='not_found'?'No example found':item.status==='not_applicable'?'Not applicable':'Insufficient evidence'));
         }
