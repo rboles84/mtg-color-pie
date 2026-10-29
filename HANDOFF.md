@@ -1,8 +1,46 @@
 # Active task — F combination-only presentation
 
-- Status: ready-for-qa. Baseline `15c7018968bb7e4ab87452b2950b7f9010a429b5`; allowed files are HANDOFF.md, `vox-color/mechanical-explorer.html`, and `tools/check_assessment_browser.mjs` only. Fuse and Friends forever replace empty mono access sockets with their existing documented combination rows and symbols in detail/list/search. No payload, source, palette, font/dependency, other-letter, other-F, frozen 2021, link or example change.
+- Status: qa-passed on exact candidate `28f15662f6f9ead07d5809b97cb3863fdac190ec`. Baseline `15c7018968bb7e4ab87452b2950b7f9010a429b5`; allowed files are HANDOFF.md, `vox-color/mechanical-explorer.html`, and `tools/check_assessment_browser.mjs` only. Fuse and Friends forever replace empty mono access sockets with their existing documented combination rows and symbols in detail/list/search. No payload, source, palette, font/dependency, other-letter, other-F, frozen 2021, link or example change.
 - Contract: actual pair/hybrid and three-color CI glyphs have full combo aria/title labels; no independent mono access appears. List strips wrap Fuse's 15 combinations to five columns, and no-font fallback uses readable WUBRG text. Detail rows retain full color names and Combination only. Targeted QA checks these two entries, font/fallback, exact combination order, no mono rows, no overflow and unchanged examples; independent RobQA follows committed candidate.
 - Developer report: changed only the declared renderer and focused harness plus this ledger. `node --check tools/check_assessment_browser.mjs` and `git diff --check` pass. Pair aliases use the pinned font's `wu/wb/ub/ur/br/bg/rg/rw/gw/gu` classes; three-color marks include `ms-ci`, `ms-ci-3`, and the documented combination class. The focused result message is conditional, so `--combinations-only` no longer claims the broad suite ran. Separate QA supplied the real-browser behavior evidence; no browser test was rerun during this final static correction.
+
+## Combination-symbol QA and preview
+
+- Governing RobQAPass QA-1, bounded presentation only. Implementation by configured RobDev Terra medium worker `/root/f_implementation`; separate review by non-implementing coordinator `/root`. Material files frozen after candidate commit; QA writes this ledger only. Owner visual/readability acceptance remains open.
+- Initial review returned the missing ms-ci-3 border class and incomplete focused harness assumptions; both corrected before the final candidate. Final diff changes only the two named entries’ presentation branches, scoped CSS and focused test expectations. All data, source records, examples, links, A–E/other-F rendering and frozen2021 calculation paths remain unchanged.
+- PASS: `node tools/check_assessment_browser.mjs --root . --combinations-only --playwright C:/Users/obake/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright`. Focused selection verifies Fuse15/Friends7 combinations, exact label order, no independent mono rows, correct pair aliases and CI-3 class, retained card links, original protected checks. Final role=img correction is confirmed by static diff and actual preview accessibility tree. No claim that the focused selection audits all158 maps.
+- Independent focused real-Edge check `C:/Users/obake/.codex/visualizations/2026/10/29/01a185f4-a2f8-7dd1-998c-7692190f20e8/check-combination-symbols.mjs` PASS on the final candidate: both entries’ list/search/detail combination sequence; each pair’s real before/after glyphs; each tricolor CI border and conic-gradient; readable no-font letter groups/full labels; exact selected example links; no horizontal overflow in page/list/detail at360px. All four normal/fallback entry cases passed. Git diff --check and harness syntax PASS. No source re-research, engine suite or visual matrix needed.
+- Package PASS at exact candidate:23 allowlisted byte-identical files,4 clean inline scripts,23 expected HTTP200 paths and24 excluded404 paths. Refreshed existing localhost8020/IAB tab1; A–Z at Friends forever with both changed entry strips visible and Friends7 combination rows shown. Accessibility reports all7 full-color combination-only images. Screenshot: C:/Users/obake/.codex/visualizations/2026/10/29/01a185f4-a2f8-7dd1-998c-7692190f20e8/f-combination-symbols-preview.png.
+- Engineering verdict: PASS; no unresolved correctness finding. Owner checks symbol size/balance and readability in Fuse/Friends forever. No push, merge or publication.
+
+## Material candidate
+
+- Baseline: `15c7018968bb7e4ab87452b2950b7f9010a429b5`
+- Candidate: `28f15662f6f9ead07d5809b97cb3863fdac190ec`
+- Changed paths: `3`
+
+## Files changed
+
+- `HANDOFF.md`
+- `tools/check_assessment_browser.mjs`
+- `vox-color/mechanical-explorer.html`
+
+## Evidence delta
+
+- Material candidate: `28f15662f6f9ead07d5809b97cb3863fdac190ec`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `1`
+- QA/preview/report evidence only; this is not the full task diff.
+
+## Evidence-only paths
+
+- `HANDOFF.md`
+
+## Final branch delta
+
+- Baseline: `15c7018968bb7e4ab87452b2950b7f9010a429b5` → evidence `HEAD`.
+- Total changed paths: `3`; evidence adds no material path.
+- Branch codex/a-mechanics-review; local commits only. No push, merge or publication. Worktree cleanliness checked after evidence commit.
 
 # Previous task — F Color Access
 
