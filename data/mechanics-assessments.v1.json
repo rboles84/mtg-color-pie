@@ -68,6 +68,10 @@
     {
       "path": "docs/mechanics-research/h-protocol.json",
       "sha256": "dcb7f0e43ecc3f29bbf5eed54927681c6c561d7bf840fae88c1c9dcc60bd8f48"
+    },
+    {
+      "path": "docs/mechanics-research/i-protocol.json",
+      "sha256": "8e5827c19951a7021924951e92bdacec17d95a9ed2d0caa388c65ef2bb9badd1"
     }
   ],
   "records": [
@@ -39191,6 +39195,2062 @@
         {
           "name": "Lady Zhurong, Warrior Queen",
           "url": "https://scryfall.com/card/ptk/139/lady-zhurong-warrior-queen?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:impending",
+      "name": "Impending",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Impending offers an alternative casting cost. If paid, the permanent enters with time counters and is not a creature while it has one; its end-step trigger removes a time counter.",
+      "summary": "Impending offers an alternative casting cost. If paid, the permanent enters with time counters and is not a creature while it has one; its end-step trigger removes a time counter.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Overlord of the Mistmoors — Its entry and attack trigger creates two 2/1 white Insect tokens with flying.",
+            "cards": [
+              {
+                "name": "Overlord of the Mistmoors",
+                "url": "https://scryfall.com/card/frc/29/overlord-of-the-mistmoors?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Overlord%20of%20the%20Mistmoors%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Overlord of the Floodpits — Its entry and attack trigger draws two cards, then discards a card.",
+            "cards": [
+              {
+                "name": "Overlord of the Floodpits",
+                "url": "https://scryfall.com/card/dsk/68/overlord-of-the-floodpits?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Overlord%20of%20the%20Floodpits%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Overlord of the Balemurk — Its entry and attack trigger mills four cards, then may return a non-Avatar creature or planeswalker card from your graveyard to your hand.",
+            "cards": [
+              {
+                "name": "Overlord of the Balemurk",
+                "url": "https://scryfall.com/card/dsk/113/overlord-of-the-balemurk?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Overlord%20of%20the%20Balemurk%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Overlord of the Boilerbilges — Its entry and attack trigger deals 4 damage to any target.",
+            "cards": [
+              {
+                "name": "Overlord of the Boilerbilges",
+                "url": "https://scryfall.com/card/dsk/146/overlord-of-the-boilerbilges?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Overlord%20of%20the%20Boilerbilges%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Overlord of the Hauntwoods — Its entry and attack trigger creates a tapped colorless Everywhere land token with every basic land type.",
+            "cards": [
+              {
+                "name": "Overlord of the Hauntwoods",
+                "url": "https://scryfall.com/card/dsk/194/overlord-of-the-hauntwoods?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Overlord%20of%20the%20Hauntwoods%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "not_found",
+          "note": "No colorless example found in the reviewed scope.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Overlord of the Mistmoors",
+          "url": "https://scryfall.com/card/frc/29/overlord-of-the-mistmoors?utm_source=api"
+        },
+        {
+          "name": "Overlord of the Floodpits",
+          "url": "https://scryfall.com/card/dsk/68/overlord-of-the-floodpits?utm_source=api"
+        },
+        {
+          "name": "Overlord of the Balemurk",
+          "url": "https://scryfall.com/card/dsk/113/overlord-of-the-balemurk?utm_source=api"
+        },
+        {
+          "name": "Overlord of the Boilerbilges",
+          "url": "https://scryfall.com/card/dsk/146/overlord-of-the-boilerbilges?utm_source=api"
+        },
+        {
+          "name": "Overlord of the Hauntwoods",
+          "url": "https://scryfall.com/card/dsk/194/overlord-of-the-hauntwoods?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:imprint",
+      "name": "Imprint",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Imprint is an ability word linking card-specific exile effects to abilities that use the exiled cards. Each card states what it exiles and what follows.",
+      "summary": "Imprint is an ability word linking card-specific exile effects to abilities that use the exiled cards. Each card states what it exiles and what follows.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Exclusion Ritual — It exiles a nonland permanent on entry and prevents players from casting spells with that card's name.",
+            "cards": [
+              {
+                "name": "Exclusion Ritual",
+                "url": "https://scryfall.com/card/nph/10/exclusion-ritual?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Exclusion%20Ritual%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Phyrexian Ingester — It may exile a nontoken creature on entry and gets power and toughness from that card.",
+            "cards": [
+              {
+                "name": "Phyrexian Ingester",
+                "url": "https://scryfall.com/card/cmm/111/phyrexian-ingester?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Phyrexian%20Ingester%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "not_found",
+            "note": "No example found in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "R": {
+            "status": "documented",
+            "note": "Invader Parasite — It exiles a land on entry and deals 2 damage to an opponent when a land with that name enters under their control.",
+            "cards": [
+              {
+                "name": "Invader Parasite",
+                "url": "https://scryfall.com/card/nph/87/invader-parasite?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Invader%20Parasite%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "not_found",
+            "note": "No example found in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "U",
+              "R"
+            ],
+            "note": "Idris, Soul of the TARDIS — Idris exiles another artifact you control until Idris leaves, gains its activated and triggered abilities, and gets +X/+X equal to its mana value.",
+            "cards": [
+              {
+                "name": "Idris, Soul of the TARDIS",
+                "url": "https://scryfall.com/card/who/135/idris-soul-of-the-tardis?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Idris%2C%20Soul%20of%20the%20TARDIS%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "documented",
+          "note": "Chrome Mox — It may exile a nonartifact, nonland card from your hand on entry; {T} produces one mana of any of that card's colors.",
+          "cards": [
+            {
+              "name": "Chrome Mox",
+              "url": "https://scryfall.com/card/2xm/240/chrome-mox?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22Chrome%20Mox%22%29%20include%3Aextras"
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Exclusion Ritual",
+          "url": "https://scryfall.com/card/nph/10/exclusion-ritual?utm_source=api"
+        },
+        {
+          "name": "Phyrexian Ingester",
+          "url": "https://scryfall.com/card/cmm/111/phyrexian-ingester?utm_source=api"
+        },
+        {
+          "name": "Invader Parasite",
+          "url": "https://scryfall.com/card/nph/87/invader-parasite?utm_source=api"
+        },
+        {
+          "name": "Idris, Soul of the TARDIS",
+          "url": "https://scryfall.com/card/who/135/idris-soul-of-the-tardis?utm_source=api"
+        },
+        {
+          "name": "Chrome Mox",
+          "url": "https://scryfall.com/card/2xm/240/chrome-mox?utm_source=api"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Scars of Mirrodin Mechanics",
+          "url": "https://magic.wizards.com/en/news/feature/scars-of-mirrodin-mechanics"
+        }
+      ],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:improvise",
+      "name": "Improvise",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Improvise lets you tap untapped artifacts while casting a spell, after activating mana abilities. Each tapped artifact pays for {1} of the spell's generic cost.",
+      "summary": "Improvise lets you tap untapped artifacts while casting a spell, after activating mana abilities. Each tapped artifact pays for {1} of the spell's generic cost.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Organic Extinction — It destroys all nonartifact creatures.",
+            "cards": [
+              {
+                "name": "Organic Extinction",
+                "url": "https://scryfall.com/card/eoc/66/organic-extinction?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Organic%20Extinction%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Bastion Inventor — This creature also has hexproof.",
+            "cards": [
+              {
+                "name": "Bastion Inventor",
+                "url": "https://scryfall.com/card/aer/30/bastion-inventor?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Bastion%20Inventor%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Battle at the Bridge — It gives a target creature -X/-X until end of turn and gains you X life.",
+            "cards": [
+              {
+                "name": "Battle at the Bridge",
+                "url": "https://scryfall.com/card/aer/53/battle-at-the-bridge?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Battle%20at%20the%20Bridge%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Enraged Giant — This creature also has trample and haste.",
+            "cards": [
+              {
+                "name": "Enraged Giant",
+                "url": "https://scryfall.com/card/aer/80/enraged-giant?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Enraged%20Giant%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "not_found",
+            "note": "No example found in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "U",
+              "R"
+            ],
+            "note": "Maverick Thopterist — It creates two 1/1 colorless Thopter artifact creature tokens with flying on entry.",
+            "cards": [
+              {
+                "name": "Maverick Thopterist",
+                "url": "https://scryfall.com/card/c18/185/maverick-thopterist?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Maverick%20Thopterist%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "documented",
+          "note": "Archway of Innovation — This colorless land grants the next spell you cast this turn improvise for {U}, {T}. The blue activation cost does not make the source blue.",
+          "cards": [
+            {
+              "name": "Archway of Innovation",
+              "url": "https://scryfall.com/card/mh3/214/archway-of-innovation?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22Archway%20of%20Innovation%22%29%20include%3Aextras"
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Organic Extinction",
+          "url": "https://scryfall.com/card/eoc/66/organic-extinction?utm_source=api"
+        },
+        {
+          "name": "Bastion Inventor",
+          "url": "https://scryfall.com/card/aer/30/bastion-inventor?utm_source=api"
+        },
+        {
+          "name": "Battle at the Bridge",
+          "url": "https://scryfall.com/card/aer/53/battle-at-the-bridge?utm_source=api"
+        },
+        {
+          "name": "Enraged Giant",
+          "url": "https://scryfall.com/card/aer/80/enraged-giant?utm_source=api"
+        },
+        {
+          "name": "Maverick Thopterist",
+          "url": "https://scryfall.com/card/c18/185/maverick-thopterist?utm_source=api"
+        },
+        {
+          "name": "Archway of Innovation",
+          "url": "https://scryfall.com/card/mh3/214/archway-of-innovation?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:catalog-gaps:incorporate",
+      "name": "Incorporate",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Digital / Alchemy material",
+      "scope": "Incorporate is a digital action that perpetually adds the stated mana to a card's mana cost. The source may also grant a separate perpetual effect; access uses that source's colors.",
+      "summary": "Incorporate is a digital action that perpetually adds the stated mana to a card's mana cost. The source may also grant a separate perpetual effect; access uses that source's colors.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Scrutiny of the Guildpact — Its entry trigger may make a creature card in your hand perpetually incorporate {W} and gain a cast trigger creating a 2/2 white and blue Detective token.",
+            "cards": [
+              {
+                "name": "Scrutiny of the Guildpact",
+                "url": "https://scryfall.com/card/ymkm/1/scrutiny-of-the-guildpact?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Scrutiny%20of%20the%20Guildpact%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Mapping the Maze — It makes an instant or sorcery card in your hand or graveyard perpetually incorporate {U} and gain a cast trigger that draws a card.",
+            "cards": [
+              {
+                "name": "Mapping the Maze",
+                "url": "https://scryfall.com/card/ymkm/7/mapping-the-maze?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Mapping%20the%20Maze%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Lurking Spinecrawler — Its entry trigger may make a nonland card in your hand perpetually incorporate {1}{B} and gain a cast trigger making each opponent sacrifice a creature or, if they cannot, discard a card.",
+            "cards": [
+              {
+                "name": "Lurking Spinecrawler",
+                "url": "https://scryfall.com/card/ymkm/10/lurking-spinecrawler?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Lurking%20Spinecrawler%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Construction Arsonist — Its entry trigger may make an instant or sorcery card in your hand perpetually incorporate {R} and gain a cast trigger dealing 2 damage to each opponent.",
+            "cards": [
+              {
+                "name": "Construction Arsonist",
+                "url": "https://scryfall.com/card/ymkm/15/construction-arsonist?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Construction%20Arsonist%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Guildpact Greenwalker — Its entry trigger may make a creature card in your hand perpetually incorporate {1}{G} and get +4/+4.",
+            "cards": [
+              {
+                "name": "Guildpact Greenwalker",
+                "url": "https://scryfall.com/card/ymkm/17/guildpact-greenwalker?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Guildpact%20Greenwalker%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "U",
+              "R"
+            ],
+            "note": "Inspiring Easel — Its {T} ability makes an instant or sorcery card in your hand perpetually incorporate {U}{R} and gain a cast trigger copying it with new targets allowed. Activate only as a sorcery.",
+            "cards": [
+              {
+                "name": "Inspiring Easel",
+                "url": "https://scryfall.com/card/ysos/22/inspiring-easel?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Inspiring%20Easel%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "not_found",
+          "note": "No colorless example found in the reviewed scope.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": [
+          "These examples are digital / Alchemy cards; they do not establish ordinary-paper access."
+        ]
+      },
+      "citationCards": [
+        {
+          "name": "Scrutiny of the Guildpact",
+          "url": "https://scryfall.com/card/ymkm/1/scrutiny-of-the-guildpact?utm_source=api"
+        },
+        {
+          "name": "Mapping the Maze",
+          "url": "https://scryfall.com/card/ymkm/7/mapping-the-maze?utm_source=api"
+        },
+        {
+          "name": "Lurking Spinecrawler",
+          "url": "https://scryfall.com/card/ymkm/10/lurking-spinecrawler?utm_source=api"
+        },
+        {
+          "name": "Construction Arsonist",
+          "url": "https://scryfall.com/card/ymkm/15/construction-arsonist?utm_source=api"
+        },
+        {
+          "name": "Guildpact Greenwalker",
+          "url": "https://scryfall.com/card/ymkm/17/guildpact-greenwalker?utm_source=api"
+        },
+        {
+          "name": "Inspiring Easel",
+          "url": "https://scryfall.com/card/ysos/22/inspiring-easel?utm_source=api"
+        }
+      ],
+      "sources": [
+        {
+          "title": "MTG Arena Announcements – March 4, 2024",
+          "url": "https://magic.wizards.com/en/news/mtg-arena/mtg-arena-announcements-march-4-2024"
+        }
+      ],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:increment",
+      "name": "Increment",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Increment triggers when you cast a spell if its source is a creature and the mana spent exceeds that creature's power or toughness, putting a +1/+1 counter on it.",
+      "summary": "Increment triggers when you cast a spell if its source is a creature and the mana spent exceeds that creature's power or toughness, putting a +1/+1 counter on it.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "not_found",
+            "note": "No example found in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "U": {
+            "status": "documented",
+            "note": "Pensive Professor — It draws a card whenever one or more +1/+1 counters are put on it.",
+            "cards": [
+              {
+                "name": "Pensive Professor",
+                "url": "https://scryfall.com/card/sos/63/pensive-professor?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Pensive%20Professor%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "not_found",
+            "note": "No example found in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "R": {
+            "status": "not_found",
+            "note": "No example found in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "G": {
+            "status": "documented",
+            "note": "Hungry Graffalon — This creature also has reach.",
+            "cards": [
+              {
+                "name": "Hungry Graffalon",
+                "url": "https://scryfall.com/card/sos/151/hungry-graffalon?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Hungry%20Graffalon%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "U",
+              "G"
+            ],
+            "note": "Berta, Wise Extrapolator — Berta adds one mana of any color whenever one or more +1/+1 counters are put on it.",
+            "cards": [
+              {
+                "name": "Berta, Wise Extrapolator",
+                "url": "https://scryfall.com/card/sos/175/berta-wise-extrapolator?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Berta%2C%20Wise%20Extrapolator%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "not_found",
+          "note": "No colorless example found in the reviewed scope.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Pensive Professor",
+          "url": "https://scryfall.com/card/sos/63/pensive-professor?utm_source=api"
+        },
+        {
+          "name": "Hungry Graffalon",
+          "url": "https://scryfall.com/card/sos/151/hungry-graffalon?utm_source=api"
+        },
+        {
+          "name": "Berta, Wise Extrapolator",
+          "url": "https://scryfall.com/card/sos/175/berta-wise-extrapolator?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:incubate",
+      "name": "Incubate",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "To incubate N, create an Incubator token with N +1/+1 counters. Its front is a colorless artifact with {2}: Transform this token; its back is a 0/0 colorless Phyrexian artifact creature. Access follows the source performing the action.",
+      "summary": "To incubate N, create an Incubator token with N +1/+1 counters. Its front is a colorless artifact with {2}: Transform this token; its back is a 0/0 colorless Phyrexian artifact creature. Access follows the source performing the action.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Essence of Orthodoxy — It incubates 2 whenever it or another Phyrexian you control enters.",
+            "cards": [
+              {
+                "name": "Essence of Orthodoxy",
+                "url": "https://scryfall.com/card/mom/323/essence-of-orthodoxy?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Essence%20of%20Orthodoxy%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Assimilate Essence — It counters a creature or battle spell unless its controller pays {4}; if they pay, you incubate 2.",
+            "cards": [
+              {
+                "name": "Assimilate Essence",
+                "url": "https://scryfall.com/card/mom/47/assimilate-essence?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Assimilate%20Essence%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Bloated Processor — When it dies, it incubates X, where X is its power.",
+            "cards": [
+              {
+                "name": "Bloated Processor",
+                "url": "https://scryfall.com/card/mom/93/bloated-processor?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Bloated%20Processor%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Furnace Gremlin — When it dies, it incubates X, where X is its power.",
+            "cards": [
+              {
+                "name": "Furnace Gremlin",
+                "url": "https://scryfall.com/card/mom/139/furnace-gremlin?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Furnace%20Gremlin%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Converter Beast — It incubates 5 on entry.",
+            "cards": [
+              {
+                "name": "Converter Beast",
+                "url": "https://scryfall.com/card/mom/180/converter-beast?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Converter%20Beast%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "W",
+              "B"
+            ],
+            "note": "Brimaz, Blight of Oreskos — Brimaz incubates X whenever you cast a Phyrexian creature or artifact creature spell, where X is that spell's mana value.",
+            "cards": [
+              {
+                "name": "Brimaz, Blight of Oreskos",
+                "url": "https://scryfall.com/card/moc/2/brimaz-blight-of-oreskos?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Brimaz%2C%20Blight%20of%20Oreskos%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "B",
+              "G"
+            ],
+            "note": "Elvish Vatkeeper — It incubates 2 on entry; its {5} ability transforms a target Incubator you control and doubles its +1/+1 counters.",
+            "cards": [
+              {
+                "name": "Elvish Vatkeeper",
+                "url": "https://scryfall.com/card/mom/223/elvish-vatkeeper?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Elvish%20Vatkeeper%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "not_found",
+          "note": "No colorless example found in the reviewed scope.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Essence of Orthodoxy",
+          "url": "https://scryfall.com/card/mom/323/essence-of-orthodoxy?utm_source=api"
+        },
+        {
+          "name": "Assimilate Essence",
+          "url": "https://scryfall.com/card/mom/47/assimilate-essence?utm_source=api"
+        },
+        {
+          "name": "Bloated Processor",
+          "url": "https://scryfall.com/card/mom/93/bloated-processor?utm_source=api"
+        },
+        {
+          "name": "Furnace Gremlin",
+          "url": "https://scryfall.com/card/mom/139/furnace-gremlin?utm_source=api"
+        },
+        {
+          "name": "Converter Beast",
+          "url": "https://scryfall.com/card/mom/180/converter-beast?utm_source=api"
+        },
+        {
+          "name": "Brimaz, Blight of Oreskos",
+          "url": "https://scryfall.com/card/moc/2/brimaz-blight-of-oreskos?utm_source=api"
+        },
+        {
+          "name": "Elvish Vatkeeper",
+          "url": "https://scryfall.com/card/mom/223/elvish-vatkeeper?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:infect",
+      "name": "Infect",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Infect changes damage to players into poison counters and damage to creatures into -1/-1 counters. It does not change damage dealt to other kinds of permanents.",
+      "summary": "Infect changes damage to players into poison counters and damage to creatures into -1/-1 counters. It does not change damage dealt to other kinds of permanents.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Lost Leonin — This white creature has infect.",
+            "cards": [
+              {
+                "name": "Lost Leonin",
+                "url": "https://scryfall.com/card/nph/13/lost-leonin?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Lost%20Leonin%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Blighted Agent — This creature cannot be blocked.",
+            "cards": [
+              {
+                "name": "Blighted Agent",
+                "url": "https://scryfall.com/card/nph/29/blighted-agent?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Blighted%20Agent%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Blackcleave Goblin — This creature also has haste.",
+            "cards": [
+              {
+                "name": "Blackcleave Goblin",
+                "url": "https://scryfall.com/card/som/54/blackcleave-goblin?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Blackcleave%20Goblin%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Fallen Ferromancer — Its {1}{R}, {T} ability deals 1 damage to any target.",
+            "cards": [
+              {
+                "name": "Fallen Ferromancer",
+                "url": "https://scryfall.com/card/nph/82/fallen-ferromancer?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Fallen%20Ferromancer%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Blight Mamba — Its {1}{G} ability regenerates it.",
+            "cards": [
+              {
+                "name": "Blight Mamba",
+                "url": "https://scryfall.com/card/som/112/blight-mamba?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Blight%20Mamba%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "documented",
+          "note": "Blightsteel Colossus — This colorless artifact creature also has trample and indestructible.",
+          "cards": [
+            {
+              "name": "Blightsteel Colossus",
+              "url": "https://scryfall.com/card/2xm/235/blightsteel-colossus?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22Blightsteel%20Colossus%22%29%20include%3Aextras"
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Lost Leonin",
+          "url": "https://scryfall.com/card/nph/13/lost-leonin?utm_source=api"
+        },
+        {
+          "name": "Blighted Agent",
+          "url": "https://scryfall.com/card/nph/29/blighted-agent?utm_source=api"
+        },
+        {
+          "name": "Blackcleave Goblin",
+          "url": "https://scryfall.com/card/som/54/blackcleave-goblin?utm_source=api"
+        },
+        {
+          "name": "Fallen Ferromancer",
+          "url": "https://scryfall.com/card/nph/82/fallen-ferromancer?utm_source=api"
+        },
+        {
+          "name": "Blight Mamba",
+          "url": "https://scryfall.com/card/som/112/blight-mamba?utm_source=api"
+        },
+        {
+          "name": "Blightsteel Colossus",
+          "url": "https://scryfall.com/card/2xm/235/blightsteel-colossus?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:infusion",
+      "name": "Infusion",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Infusion is an ability word grouping abilities that care whether you gained life this turn. The individual card states the condition, timing, and effect.",
+      "summary": "Infusion is an ability word grouping abilities that care whether you gained life this turn. The individual card states the condition, timing, and effect.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "not_found",
+            "note": "No example found in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "U": {
+            "status": "not_found",
+            "note": "No example found in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "B": {
+            "status": "documented",
+            "note": "Foolish Fate — It destroys a target creature; if you gained life this turn, that creature's controller also loses 3 life.",
+            "cards": [
+              {
+                "name": "Foolish Fate",
+                "url": "https://scryfall.com/card/sos/83/foolish-fate?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Foolish%20Fate%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "not_found",
+            "note": "No example found in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "G": {
+            "status": "documented",
+            "note": "Efflorescence — It puts two +1/+1 counters on a target creature; if you gained life this turn, that creature also gains trample and indestructible until end of turn.",
+            "cards": [
+              {
+                "name": "Efflorescence",
+                "url": "https://scryfall.com/card/sos/144/efflorescence?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Efflorescence%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "B",
+              "G"
+            ],
+            "note": "Old-Growth Educator — Its entry trigger puts two +1/+1 counters on it if you gained life this turn.",
+            "cards": [
+              {
+                "name": "Old-Growth Educator",
+                "url": "https://scryfall.com/card/sos/207/old-growth-educator?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Old-Growth%20Educator%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "not_found",
+          "note": "No colorless example found in the reviewed scope.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": [
+          "This map covers released paper cards; digital-only Infusion cards are outside this scope."
+        ]
+      },
+      "citationCards": [
+        {
+          "name": "Foolish Fate",
+          "url": "https://scryfall.com/card/sos/83/foolish-fate?utm_source=api"
+        },
+        {
+          "name": "Efflorescence",
+          "url": "https://scryfall.com/card/sos/144/efflorescence?utm_source=api"
+        },
+        {
+          "name": "Old-Growth Educator",
+          "url": "https://scryfall.com/card/sos/207/old-growth-educator?utm_source=api"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Secrets of Strixhaven Release Notes",
+          "url": "https://magic.wizards.com/en/news/feature/secrets-of-strixhaven-release-notes"
+        }
+      ],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:ingest",
+      "name": "Ingest",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Ingest triggers when the creature deals combat damage to a player; that player exiles the top card of their library. Devoid makes the selected source colorless.",
+      "summary": "Ingest triggers when the creature deals combat damage to a player; that player exiles the top card of their library. Devoid makes the selected source colorless.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "not_found",
+            "note": "No example found in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "U": {
+            "status": "not_found",
+            "note": "No example found in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "B": {
+            "status": "not_found",
+            "note": "No example found in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "R": {
+            "status": "not_found",
+            "note": "No example found in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "G": {
+            "status": "not_found",
+            "note": "No example found in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "documented",
+          "note": "Benthic Infiltrator — Devoid makes this source colorless despite its blue mana cost; it also cannot be blocked.",
+          "cards": [
+            {
+              "name": "Benthic Infiltrator",
+              "url": "https://scryfall.com/card/bfz/55/benthic-infiltrator?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22Benthic%20Infiltrator%22%29%20include%3Aextras"
+        },
+        "limitations": [
+          "The selected paper source has devoid. Its blue mana symbols and commander color identity do not establish blue access."
+        ]
+      },
+      "citationCards": [
+        {
+          "name": "Benthic Infiltrator",
+          "url": "https://scryfall.com/card/bfz/55/benthic-infiltrator?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:inspired",
+      "name": "Inspired",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Inspired is an ability word grouping triggers that occur when the source becomes untapped. Each card states its own effect.",
+      "summary": "Inspired is an ability word grouping triggers that occur when the source becomes untapped. Each card states its own effect.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Oreskos Sun Guide — Its inspired trigger gains you 2 life.",
+            "cards": [
+              {
+                "name": "Oreskos Sun Guide",
+                "url": "https://scryfall.com/card/bng/22/oreskos-sun-guide?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Oreskos%20Sun%20Guide%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Aerie Worshippers — Its inspired trigger lets you pay {2}{U} to create a 2/2 blue Bird enchantment creature token with flying.",
+            "cards": [
+              {
+                "name": "Aerie Worshippers",
+                "url": "https://scryfall.com/card/bng/30/aerie-worshippers?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Aerie%20Worshippers%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "King Macar, the Gold-Cursed — Its inspired trigger may exile a target creature and create a Gold token.",
+            "cards": [
+              {
+                "name": "King Macar, the Gold-Cursed",
+                "url": "https://scryfall.com/card/jou/74/king-macar-the-gold-cursed?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22King%20Macar%2C%20the%20Gold-Cursed%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Kragma Butcher — Its inspired trigger gives it +2/+0 until end of turn.",
+            "cards": [
+              {
+                "name": "Kragma Butcher",
+                "url": "https://scryfall.com/card/bng/100/kragma-butcher?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Kragma%20Butcher%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Pheres-Band Tromper — Its inspired trigger puts a +1/+1 counter on it.",
+            "cards": [
+              {
+                "name": "Pheres-Band Tromper",
+                "url": "https://scryfall.com/card/bng/134/pheres-band-tromper?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Pheres-Band%20Tromper%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "U",
+              "B"
+            ],
+            "note": "Disciple of Deceit — Its inspired trigger lets you discard a nonland card and search your library for a card with the same mana value, reveal it, and put it into your hand.",
+            "cards": [
+              {
+                "name": "Disciple of Deceit",
+                "url": "https://scryfall.com/card/jou/148/disciple-of-deceit?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Disciple%20of%20Deceit%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "not_found",
+          "note": "No colorless example found in the reviewed scope.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Oreskos Sun Guide",
+          "url": "https://scryfall.com/card/bng/22/oreskos-sun-guide?utm_source=api"
+        },
+        {
+          "name": "Aerie Worshippers",
+          "url": "https://scryfall.com/card/bng/30/aerie-worshippers?utm_source=api"
+        },
+        {
+          "name": "King Macar, the Gold-Cursed",
+          "url": "https://scryfall.com/card/jou/74/king-macar-the-gold-cursed?utm_source=api"
+        },
+        {
+          "name": "Kragma Butcher",
+          "url": "https://scryfall.com/card/bng/100/kragma-butcher?utm_source=api"
+        },
+        {
+          "name": "Pheres-Band Tromper",
+          "url": "https://scryfall.com/card/bng/134/pheres-band-tromper?utm_source=api"
+        },
+        {
+          "name": "Disciple of Deceit",
+          "url": "https://scryfall.com/card/jou/148/disciple-of-deceit?utm_source=api"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Born of the Gods Release Notes",
+          "url": "https://magic.wizards.com/en/news/feature/release-notes-2014-01-22"
+        }
+      ],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:catalog-gaps:intensity",
+      "name": "Intensity",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Digital / Alchemy material",
+      "scope": "Intensity is a digital card designation with a starting value that changes perpetually as specified by the card. Cards state which objects intensify and how the value affects their abilities.",
+      "summary": "Intensity is a digital card designation with a starting value that changes perpetually as specified by the card. Cards state which objects intensify and how the value affects their abilities.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Awestruck Cygnet — It starts at intensity 0; other fliers entering under your control intensify cards you own with its name while it is named Awestruck Cygnet.",
+            "cards": [
+              {
+                "name": "Awestruck Cygnet",
+                "url": "https://scryfall.com/card/yblb/1/awestruck-cygnet?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Awestruck%20Cygnet%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Hymn to the Ages — It starts at intensity 1, draws cards equal to its intensity, then intensifies all Chorus cards you own by 1.",
+            "cards": [
+              {
+                "name": "Hymn to the Ages",
+                "url": "https://scryfall.com/card/ylci/6/hymn-to-the-ages?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Hymn%20to%20the%20Ages%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Chittering Skullspeaker — It starts at intensity 0; its entry trigger intensifies cards you own with its name by 1, then draws cards and loses life equal to its intensity.",
+            "cards": [
+              {
+                "name": "Chittering Skullspeaker",
+                "url": "https://scryfall.com/card/yblb/9/chittering-skullspeaker?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Chittering%20Skullspeaker%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Bellowsbreath Ogre — It starts at intensity 1; its attack trigger deals damage equal to its intensity to any target, then intensifies it by 1.",
+            "cards": [
+              {
+                "name": "Bellowsbreath Ogre",
+                "url": "https://scryfall.com/card/yneo/21/bellowsbreath-ogre?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Bellowsbreath%20Ogre%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Runaway Growth — It starts at intensity 1; when enchanted land is tapped for mana, it adds extra {G} equal to this Aura's intensity, then intensifies the Aura by 1.",
+            "cards": [
+              {
+                "name": "Runaway Growth",
+                "url": "https://scryfall.com/card/yneo/28/runaway-growth?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Runaway%20Growth%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "W",
+              "B"
+            ],
+            "note": "Arek, False Goldwarden — Arek starts at intensity 0; other creatures entering under your control intensify cards you own with its name by 1.",
+            "cards": [
+              {
+                "name": "Arek, False Goldwarden",
+                "url": "https://scryfall.com/card/yone/17/arek-false-goldwarden?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Arek%2C%20False%20Goldwarden%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "B",
+              "R"
+            ],
+            "note": "Great Desert Hellion — It starts at intensity 1; discarding a card to its upkeep trigger intensifies it by 1.",
+            "cards": [
+              {
+                "name": "Great Desert Hellion",
+                "url": "https://scryfall.com/card/ybro/19/great-desert-hellion?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Great%20Desert%20Hellion%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "R",
+              "G"
+            ],
+            "note": "Jarsyl, Dark Age Scion — Jarsyl starts at intensity 1; at the beginning of combat on your turn, you may cast a spell with matching mana value from your graveyard without paying its mana cost, then intensify Jarsyl by 1.",
+            "cards": [
+              {
+                "name": "Jarsyl, Dark Age Scion",
+                "url": "https://scryfall.com/card/ybro/20/jarsyl-dark-age-scion?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Jarsyl%2C%20Dark%20Age%20Scion%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "G"
+            ],
+            "note": "Quickbeast Amulet — It starts at intensity 0; a creature entering under your control intensifies it by that creature's power.",
+            "cards": [
+              {
+                "name": "Quickbeast Amulet",
+                "url": "https://scryfall.com/card/ydft/24/quickbeast-amulet?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Quickbeast%20Amulet%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "U",
+              "R"
+            ],
+            "note": "Summitfest Closing Ceremony — It starts at intensity 3; it adds X {U} and X {R}, where X is its intensity, then draws a card.",
+            "cards": [
+              {
+                "name": "Summitfest Closing Ceremony",
+                "url": "https://scryfall.com/card/ysos/28/summitfest-closing-ceremony?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Summitfest%20Closing%20Ceremony%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "R"
+            ],
+            "note": "Sundering Sentinel — It starts at intensity 2; on entry, it deals damage to any target and gains you life equal to its intensity, then intensifies.",
+            "cards": [
+              {
+                "name": "Sundering Sentinel",
+                "url": "https://scryfall.com/card/ysos/29/sundering-sentinel?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Sundering%20Sentinel%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "documented",
+          "note": "Drix Interlacer — It starts at intensity 0; another artifact entering under your control intensifies it by 1. This source is colorless.",
+          "cards": [
+            {
+              "name": "Drix Interlacer",
+              "url": "https://scryfall.com/card/yeoe/29/drix-interlacer?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22Drix%20Interlacer%22%29%20include%3Aextras"
+        },
+        "limitations": [
+          "These examples are digital / Alchemy cards; they do not establish ordinary-paper access."
+        ]
+      },
+      "citationCards": [
+        {
+          "name": "Awestruck Cygnet",
+          "url": "https://scryfall.com/card/yblb/1/awestruck-cygnet?utm_source=api"
+        },
+        {
+          "name": "Hymn to the Ages",
+          "url": "https://scryfall.com/card/ylci/6/hymn-to-the-ages?utm_source=api"
+        },
+        {
+          "name": "Chittering Skullspeaker",
+          "url": "https://scryfall.com/card/yblb/9/chittering-skullspeaker?utm_source=api"
+        },
+        {
+          "name": "Bellowsbreath Ogre",
+          "url": "https://scryfall.com/card/yneo/21/bellowsbreath-ogre?utm_source=api"
+        },
+        {
+          "name": "Runaway Growth",
+          "url": "https://scryfall.com/card/yneo/28/runaway-growth?utm_source=api"
+        },
+        {
+          "name": "Arek, False Goldwarden",
+          "url": "https://scryfall.com/card/yone/17/arek-false-goldwarden?utm_source=api"
+        },
+        {
+          "name": "Great Desert Hellion",
+          "url": "https://scryfall.com/card/ybro/19/great-desert-hellion?utm_source=api"
+        },
+        {
+          "name": "Jarsyl, Dark Age Scion",
+          "url": "https://scryfall.com/card/ybro/20/jarsyl-dark-age-scion?utm_source=api"
+        },
+        {
+          "name": "Quickbeast Amulet",
+          "url": "https://scryfall.com/card/ydft/24/quickbeast-amulet?utm_source=api"
+        },
+        {
+          "name": "Summitfest Closing Ceremony",
+          "url": "https://scryfall.com/card/ysos/28/summitfest-closing-ceremony?utm_source=api"
+        },
+        {
+          "name": "Sundering Sentinel",
+          "url": "https://scryfall.com/card/ysos/29/sundering-sentinel?utm_source=api"
+        },
+        {
+          "name": "Drix Interlacer",
+          "url": "https://scryfall.com/card/yeoe/29/drix-interlacer?utm_source=api"
+        }
+      ],
+      "sources": [
+        {
+          "title": "MTG Arena: State of the Game – Alchemy: Kamigawa | Magic: The Gathering",
+          "url": "https://magic.wizards.com/en/news/mtg-arena/mtg-arena-state-game-alchemy-kamigawa-2022-03-16"
+        }
+      ],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:intimidate",
+      "name": "Intimidate",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "A creature with intimidate can be blocked only by artifact creatures and creatures that share a color with it.",
+      "summary": "A creature with intimidate can be blocked only by artifact creatures and creatures that share a color with it.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Spectral Rider — This white creature has intimidate.",
+            "cards": [
+              {
+                "name": "Spectral Rider",
+                "url": "https://scryfall.com/card/isd/35/spectral-rider?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Spectral%20Rider%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "multicolor_only",
+            "note": "See the separately documented color combinations.",
+            "cards": [
+              {
+                "name": "Vela the Night-Clad",
+                "url": "https://scryfall.com/card/c17/201/vela-the-night-clad?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Vela%20the%20Night-Clad%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Accursed Spirit — This black creature has intimidate.",
+            "cards": [
+              {
+                "name": "Accursed Spirit",
+                "url": "https://scryfall.com/card/m15/85/accursed-spirit?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Accursed%20Spirit%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Academy Raider — It may discard a card, then draw a card when it deals combat damage to a player.",
+            "cards": [
+              {
+                "name": "Academy Raider",
+                "url": "https://scryfall.com/card/m14/124/academy-raider?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Academy%20Raider%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Bellowing Tanglewurm — It also grants intimidate to other green creatures you control.",
+            "cards": [
+              {
+                "name": "Bellowing Tanglewurm",
+                "url": "https://scryfall.com/card/som/111/bellowing-tanglewurm?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Bellowing%20Tanglewurm%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "U",
+              "B"
+            ],
+            "note": "Vela the Night-Clad — Vela also grants intimidate to other creatures you control.",
+            "cards": [
+              {
+                "name": "Vela the Night-Clad",
+                "url": "https://scryfall.com/card/c17/201/vela-the-night-clad?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Vela%20the%20Night-Clad%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "R",
+              "G"
+            ],
+            "note": "Immerwolf — It also gives other Wolves and Werewolves you control +1/+1.",
+            "cards": [
+              {
+                "name": "Immerwolf",
+                "url": "https://scryfall.com/card/dka/141/immerwolf?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Immerwolf%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "B",
+              "G"
+            ],
+            "note": "Korozda Guildmage — Its {1}{B}{G} ability gives a target creature +1/+1 and intimidate until end of turn.",
+            "cards": [
+              {
+                "name": "Korozda Guildmage",
+                "url": "https://scryfall.com/card/cma/181/korozda-guildmage?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Korozda%20Guildmage%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "documented",
+          "note": "Executioner's Hood — This colorless Equipment grants intimidate to its equipped creature; the recipient's color does not replace the source's colors.",
+          "cards": [
+            {
+              "name": "Executioner's Hood",
+              "url": "https://scryfall.com/card/dka/148/executioners-hood?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22Executioner%27s%20Hood%22%29%20include%3Aextras"
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Spectral Rider",
+          "url": "https://scryfall.com/card/isd/35/spectral-rider?utm_source=api"
+        },
+        {
+          "name": "Accursed Spirit",
+          "url": "https://scryfall.com/card/m15/85/accursed-spirit?utm_source=api"
+        },
+        {
+          "name": "Academy Raider",
+          "url": "https://scryfall.com/card/m14/124/academy-raider?utm_source=api"
+        },
+        {
+          "name": "Bellowing Tanglewurm",
+          "url": "https://scryfall.com/card/som/111/bellowing-tanglewurm?utm_source=api"
+        },
+        {
+          "name": "Vela the Night-Clad",
+          "url": "https://scryfall.com/card/c17/201/vela-the-night-clad?utm_source=api"
+        },
+        {
+          "name": "Immerwolf",
+          "url": "https://scryfall.com/card/dka/141/immerwolf?utm_source=api"
+        },
+        {
+          "name": "Korozda Guildmage",
+          "url": "https://scryfall.com/card/cma/181/korozda-guildmage?utm_source=api"
+        },
+        {
+          "name": "Executioner's Hood",
+          "url": "https://scryfall.com/card/dka/148/executioners-hood?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:investigate",
+      "name": "Investigate",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Investigate creates a Clue token, a colorless artifact with {2}, Sacrifice this token: Draw a card. Access follows the source that investigates, rather than the Clue's color.",
+      "summary": "Investigate creates a Clue token, a colorless artifact with {2}, Sacrifice this token: Draw a card. Access follows the source that investigates, rather than the Clue's color.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Thraben Inspector — It investigates on entry.",
+            "cards": [
+              {
+                "name": "Thraben Inspector",
+                "url": "https://scryfall.com/card/inr/45/thraben-inspector?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Thraben%20Inspector%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Confirm Suspicions — It counters a target spell, then investigates three times.",
+            "cards": [
+              {
+                "name": "Confirm Suspicions",
+                "url": "https://scryfall.com/card/mkc/97/confirm-suspicions?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Confirm%20Suspicions%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Foul Play — It destroys a target creature with power 2 or less, then investigates.",
+            "cards": [
+              {
+                "name": "Foul Play",
+                "url": "https://scryfall.com/card/mid/101/foul-play?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Foul%20Play%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Innocent Bystander — It investigates whenever it is dealt 3 or more damage.",
+            "cards": [
+              {
+                "name": "Innocent Bystander",
+                "url": "https://scryfall.com/card/mkm/133/innocent-bystander?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Innocent%20Bystander%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Briarbridge Patrol — It investigates whenever it deals damage to one or more creatures.",
+            "cards": [
+              {
+                "name": "Briarbridge Patrol",
+                "url": "https://scryfall.com/card/soi/195/briarbridge-patrol?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Briarbridge%20Patrol%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "W",
+              "U"
+            ],
+            "note": "Alquist Proft, Master Sleuth — Alquist investigates on entry.",
+            "cards": [
+              {
+                "name": "Alquist Proft, Master Sleuth",
+                "url": "https://scryfall.com/card/mkm/185/alquist-proft-master-sleuth?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Alquist%20Proft%2C%20Master%20Sleuth%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "U",
+              "B"
+            ],
+            "note": "Eloise, Nephalia Sleuth — Eloise investigates whenever another creature you control dies.",
+            "cards": [
+              {
+                "name": "Eloise, Nephalia Sleuth",
+                "url": "https://scryfall.com/card/mic/3/eloise-nephalia-sleuth?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Eloise%2C%20Nephalia%20Sleuth%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "B",
+              "R"
+            ],
+            "note": "Carnage Interpreter — It discards your hand, then investigates four times on entry.",
+            "cards": [
+              {
+                "name": "Carnage Interpreter",
+                "url": "https://scryfall.com/card/clu/26/carnage-interpreter?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Carnage%20Interpreter%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "U",
+              "R"
+            ],
+            "note": "Detective's Satchel — It investigates twice on entry.",
+            "cards": [
+              {
+                "name": "Detective's Satchel",
+                "url": "https://scryfall.com/card/mkm/196/detectives-satchel?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Detective%27s%20Satchel%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "U",
+              "G"
+            ],
+            "note": "Duggan, Private Detective — Duggan investigates on entry and whenever it attacks.",
+            "cards": [
+              {
+                "name": "Duggan, Private Detective",
+                "url": "https://scryfall.com/card/who/123/duggan-private-detective?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Duggan%2C%20Private%20Detective%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "R",
+              "G"
+            ],
+            "note": "Elmar, Ulvenwald Informant — Elmar untaps a target creature, then investigates whenever you cast your second spell each turn.",
+            "cards": [
+              {
+                "name": "Elmar, Ulvenwald Informant",
+                "url": "https://scryfall.com/card/slx/4/elmar-ulvenwald-informant?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Elmar%2C%20Ulvenwald%20Informant%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "U",
+              "B"
+            ],
+            "note": "Inquisitor Greyfax — Greyfax's {1}, {T} ability taps a target creature an opponent controls, then investigates.",
+            "cards": [
+              {
+                "name": "Inquisitor Greyfax",
+                "url": "https://scryfall.com/card/40k/3/inquisitor-greyfax?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Inquisitor%20Greyfax%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "R"
+            ],
+            "note": "Meddling Youths — It investigates whenever you attack with three or more creatures.",
+            "cards": [
+              {
+                "name": "Meddling Youths",
+                "url": "https://scryfall.com/card/mkm/219/meddling-youths?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Meddling%20Youths%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "U",
+              "G"
+            ],
+            "note": "Morska, Undersea Sleuth — Morska investigates at the beginning of your upkeep.",
+            "cards": [
+              {
+                "name": "Morska, Undersea Sleuth",
+                "url": "https://scryfall.com/card/mkc/3/morska-undersea-sleuth?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Morska%2C%20Undersea%20Sleuth%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "B"
+            ],
+            "note": "Teysa, Opulent Oligarch — Teysa investigates at the beginning of your end step for each opponent who lost life that turn.",
+            "cards": [
+              {
+                "name": "Teysa, Opulent Oligarch",
+                "url": "https://scryfall.com/card/mkm/234/teysa-opulent-oligarch?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Teysa%2C%20Opulent%20Oligarch%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "U",
+              "B",
+              "R"
+            ],
+            "note": "The Rani — The Rani investigates whenever a goaded creature deals combat damage to one of your opponents.",
+            "cards": [
+              {
+                "name": "The Rani",
+                "url": "https://scryfall.com/card/who/149/the-rani?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22The%20Rani%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "documented",
+          "note": "Magnifying Glass — This colorless artifact investigates for {4}, {T}.",
+          "cards": [
+            {
+              "name": "Magnifying Glass",
+              "url": "https://scryfall.com/card/mkm/255/magnifying-glass?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22Magnifying%20Glass%22%29%20include%3Aextras"
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Thraben Inspector",
+          "url": "https://scryfall.com/card/inr/45/thraben-inspector?utm_source=api"
+        },
+        {
+          "name": "Confirm Suspicions",
+          "url": "https://scryfall.com/card/mkc/97/confirm-suspicions?utm_source=api"
+        },
+        {
+          "name": "Foul Play",
+          "url": "https://scryfall.com/card/mid/101/foul-play?utm_source=api"
+        },
+        {
+          "name": "Innocent Bystander",
+          "url": "https://scryfall.com/card/mkm/133/innocent-bystander?utm_source=api"
+        },
+        {
+          "name": "Briarbridge Patrol",
+          "url": "https://scryfall.com/card/soi/195/briarbridge-patrol?utm_source=api"
+        },
+        {
+          "name": "Alquist Proft, Master Sleuth",
+          "url": "https://scryfall.com/card/mkm/185/alquist-proft-master-sleuth?utm_source=api"
+        },
+        {
+          "name": "Eloise, Nephalia Sleuth",
+          "url": "https://scryfall.com/card/mic/3/eloise-nephalia-sleuth?utm_source=api"
+        },
+        {
+          "name": "Carnage Interpreter",
+          "url": "https://scryfall.com/card/clu/26/carnage-interpreter?utm_source=api"
+        },
+        {
+          "name": "Detective's Satchel",
+          "url": "https://scryfall.com/card/mkm/196/detectives-satchel?utm_source=api"
+        },
+        {
+          "name": "Duggan, Private Detective",
+          "url": "https://scryfall.com/card/who/123/duggan-private-detective?utm_source=api"
+        },
+        {
+          "name": "Elmar, Ulvenwald Informant",
+          "url": "https://scryfall.com/card/slx/4/elmar-ulvenwald-informant?utm_source=api"
+        },
+        {
+          "name": "Inquisitor Greyfax",
+          "url": "https://scryfall.com/card/40k/3/inquisitor-greyfax?utm_source=api"
+        },
+        {
+          "name": "Meddling Youths",
+          "url": "https://scryfall.com/card/mkm/219/meddling-youths?utm_source=api"
+        },
+        {
+          "name": "Morska, Undersea Sleuth",
+          "url": "https://scryfall.com/card/mkc/3/morska-undersea-sleuth?utm_source=api"
+        },
+        {
+          "name": "Teysa, Opulent Oligarch",
+          "url": "https://scryfall.com/card/mkm/234/teysa-opulent-oligarch?utm_source=api"
+        },
+        {
+          "name": "The Rani",
+          "url": "https://scryfall.com/card/who/149/the-rani?utm_source=api"
+        },
+        {
+          "name": "Magnifying Glass",
+          "url": "https://scryfall.com/card/mkm/255/magnifying-glass?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:variants:islandcycling",
+      "name": "Islandcycling",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Islandcycling [cost] means pay that cost and discard the card to search your library for an Island card, reveal it, put it into your hand, then shuffle. It is a cycling ability.",
+      "summary": "Islandcycling [cost] means pay that cost and discard the card to search your library for an Island card, reveal it, put it into your hand, then shuffle. It is a cycling ability.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "multicolor_only",
+            "note": "See the separately documented color combinations.",
+            "cards": [
+              {
+                "name": "Sanctum Plowbeast",
+                "url": "https://scryfall.com/card/arb/10/sanctum-plowbeast?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Sanctum%20Plowbeast%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Daggermaw Megalodon — It has islandcycling {2} and vigilance.",
+            "cards": [
+              {
+                "name": "Daggermaw Megalodon",
+                "url": "https://scryfall.com/card/dsk/48/daggermaw-megalodon?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Daggermaw%20Megalodon%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "multicolor_only",
+            "note": "See the separately documented color combinations.",
+            "cards": [
+              {
+                "name": "Jhessian Zombies",
+                "url": "https://scryfall.com/card/ddh/56/jhessian-zombies?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Jhessian%20Zombies%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "not_found",
+            "note": "No example found in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "G": {
+            "status": "not_found",
+            "note": "No example found in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "U",
+              "B"
+            ],
+            "note": "Jhessian Zombies — It has islandcycling {2} and swampcycling {2}.",
+            "cards": [
+              {
+                "name": "Jhessian Zombies",
+                "url": "https://scryfall.com/card/ddh/56/jhessian-zombies?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Jhessian%20Zombies%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "U"
+            ],
+            "note": "Sanctum Plowbeast — It has plainscycling {2}, islandcycling {2}, and defender.",
+            "cards": [
+              {
+                "name": "Sanctum Plowbeast",
+                "url": "https://scryfall.com/card/arb/10/sanctum-plowbeast?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Sanctum%20Plowbeast%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "not_found",
+          "note": "No colorless example found in the reviewed scope.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Daggermaw Megalodon",
+          "url": "https://scryfall.com/card/dsk/48/daggermaw-megalodon?utm_source=api"
+        },
+        {
+          "name": "Jhessian Zombies",
+          "url": "https://scryfall.com/card/ddh/56/jhessian-zombies?utm_source=api"
+        },
+        {
+          "name": "Sanctum Plowbeast",
+          "url": "https://scryfall.com/card/arb/10/sanctum-plowbeast?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:shortlist:islandwalk",
+      "name": "Islandwalk",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "A creature with islandwalk cannot be blocked as long as the defending player controls an Island. Explicit grants use the granting source's colors.",
+      "summary": "A creature with islandwalk cannot be blocked as long as the defending player controls an Island. Explicit grants use the granting source's colors.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "multicolor_only",
+            "note": "See the separately documented color combinations.",
+            "cards": [
+              {
+                "name": "Sygg, River Guide",
+                "url": "https://scryfall.com/card/lrw/251/sygg-river-guide?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Sygg%2C%20River%20Guide%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Benthic Behemoth — This blue creature has islandwalk.",
+            "cards": [
+              {
+                "name": "Benthic Behemoth",
+                "url": "https://scryfall.com/card/7ed/63/benthic-behemoth?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Benthic%20Behemoth%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Shore Snapper — Its {U} ability grants itself islandwalk until end of turn. The source is black despite the blue activation cost.",
+            "cards": [
+              {
+                "name": "Shore Snapper",
+                "url": "https://scryfall.com/card/ala/87/shore-snapper?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Shore%20Snapper%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Goblin Flotilla — This red creature has islandwalk.",
+            "cards": [
+              {
+                "name": "Goblin Flotilla",
+                "url": "https://scryfall.com/card/fem/55/goblin-flotilla?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Goblin%20Flotilla%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Bull Hippo — This green creature has islandwalk.",
+            "cards": [
+              {
+                "name": "Bull Hippo",
+                "url": "https://scryfall.com/card/7ed/233/bull-hippo?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Bull%20Hippo%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "U",
+              "B"
+            ],
+            "note": "Benthic Djinn — This blue-black creature also makes you lose 2 life at the beginning of your upkeep.",
+            "cards": [
+              {
+                "name": "Benthic Djinn",
+                "url": "https://scryfall.com/card/mir/257/benthic-djinn?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Benthic%20Djinn%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "U",
+              "G"
+            ],
+            "note": "Cold-Eyed Selkie — It may draw cards equal to the combat damage it deals to a player.",
+            "cards": [
+              {
+                "name": "Cold-Eyed Selkie",
+                "url": "https://scryfall.com/card/otc/218/cold-eyed-selkie?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Cold-Eyed%20Selkie%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "U"
+            ],
+            "note": "Sygg, River Guide — Sygg also has a {1}{W} ability granting a Merfolk you control protection from a color of your choice until end of turn.",
+            "cards": [
+              {
+                "name": "Sygg, River Guide",
+                "url": "https://scryfall.com/card/lrw/251/sygg-river-guide?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Sygg%2C%20River%20Guide%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "documented",
+          "note": "Adrestia — This colorless Vehicle has islandwalk; crew 1 lets it become a creature.",
+          "cards": [
+            {
+              "name": "Adrestia",
+              "url": "https://scryfall.com/card/acr/68/adrestia?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22Adrestia%22%29%20include%3Aextras"
+        },
+        "limitations": [
+          "Cards that merely refer to islandwalk or allow blocking through it do not grant the ability."
+        ]
+      },
+      "citationCards": [
+        {
+          "name": "Benthic Behemoth",
+          "url": "https://scryfall.com/card/7ed/63/benthic-behemoth?utm_source=api"
+        },
+        {
+          "name": "Shore Snapper",
+          "url": "https://scryfall.com/card/ala/87/shore-snapper?utm_source=api"
+        },
+        {
+          "name": "Goblin Flotilla",
+          "url": "https://scryfall.com/card/fem/55/goblin-flotilla?utm_source=api"
+        },
+        {
+          "name": "Bull Hippo",
+          "url": "https://scryfall.com/card/7ed/233/bull-hippo?utm_source=api"
+        },
+        {
+          "name": "Benthic Djinn",
+          "url": "https://scryfall.com/card/mir/257/benthic-djinn?utm_source=api"
+        },
+        {
+          "name": "Cold-Eyed Selkie",
+          "url": "https://scryfall.com/card/otc/218/cold-eyed-selkie?utm_source=api"
+        },
+        {
+          "name": "Sygg, River Guide",
+          "url": "https://scryfall.com/card/lrw/251/sygg-river-guide?utm_source=api"
+        },
+        {
+          "name": "Adrestia",
+          "url": "https://scryfall.com/card/acr/68/adrestia?utm_source=api"
         }
       ],
       "sources": [],

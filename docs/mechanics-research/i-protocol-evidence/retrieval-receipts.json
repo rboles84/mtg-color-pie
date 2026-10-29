@@ -1,0 +1,233 @@
+[
+  {
+    "source": "Scryfall API",
+    "method": "GET",
+    "url": "https://api.scryfall.com/cards/search?q=include%3Aextras+%28o%3Aimpending+or+kw%3Aimpending%29&unique=cards&order=name",
+    "final_url": "https://api.scryfall.com/cards/search?q=include%3Aextras+%28o%3Aimpending+or+kw%3Aimpending%29&unique=cards&order=name",
+    "request_started_at_utc": "2026-10-29T20:47:55.189389+00:00",
+    "retrieved_at_utc": "2026-10-29T20:47:55.679744+00:00",
+    "http_status": 200,
+    "path": "docs/mechanics-research/i-protocol-evidence/impending-discovery-1.json",
+    "sha256": "6a31499427639b01a00980ed8bdfe8ac5bab324809cb307648abae5ac3c9f6bf"
+  },
+  {
+    "source": "Scryfall API",
+    "method": "GET",
+    "url": "https://api.scryfall.com/cards/search?q=include%3Aextras+%28o%3Aimprint+or+kw%3Aimprint%29&unique=cards&order=name",
+    "final_url": "https://api.scryfall.com/cards/search?q=include%3Aextras+%28o%3Aimprint+or+kw%3Aimprint%29&unique=cards&order=name",
+    "request_started_at_utc": "2026-10-29T20:47:55.801048+00:00",
+    "retrieved_at_utc": "2026-10-29T20:47:56.446046+00:00",
+    "http_status": 200,
+    "path": "docs/mechanics-research/i-protocol-evidence/imprint-discovery-1.json",
+    "sha256": "cf40360c0f600d70ef4d04ef21dbd74737dc3bc0113922475bf02bd2fe557e6d"
+  },
+  {
+    "source": "Scryfall API",
+    "method": "GET",
+    "url": "https://api.scryfall.com/cards/search?q=include%3Aextras+%28o%3Aimprovise+or+kw%3Aimprovise%29&unique=cards&order=name",
+    "final_url": "https://api.scryfall.com/cards/search?q=include%3Aextras+%28o%3Aimprovise+or+kw%3Aimprovise%29&unique=cards&order=name",
+    "request_started_at_utc": "2026-10-29T20:47:56.568064+00:00",
+    "retrieved_at_utc": "2026-10-29T20:47:57.225898+00:00",
+    "http_status": 200,
+    "path": "docs/mechanics-research/i-protocol-evidence/improvise-discovery-1.json",
+    "sha256": "dd534b759d0dd1721bdf6614788364c3d86401bc63b076dae4bebb80ac3d4eaf"
+  },
+  {
+    "source": "Scryfall API",
+    "method": "GET",
+    "url": "https://api.scryfall.com/cards/search?q=include%3Aextras+%28o%3Aincrement+or+kw%3Aincrement%29&unique=cards&order=name",
+    "final_url": "https://api.scryfall.com/cards/search?q=include%3Aextras+%28o%3Aincrement+or+kw%3Aincrement%29&unique=cards&order=name",
+    "request_started_at_utc": "2026-10-29T20:47:57.347874+00:00",
+    "retrieved_at_utc": "2026-10-29T20:47:57.742199+00:00",
+    "http_status": 200,
+    "path": "docs/mechanics-research/i-protocol-evidence/increment-discovery-1.json",
+    "sha256": "54ae9a78bf4ab7f5d8fdabc834883ff0bed34499b85f578b6876ca3467ade883"
+  },
+  {
+    "source": "Scryfall API",
+    "method": "GET",
+    "url": "https://api.scryfall.com/cards/search?q=include%3Aextras+%28o%3Aincubate+or+kw%3Aincubate%29&unique=cards&order=name",
+    "final_url": "https://api.scryfall.com/cards/search?q=include%3Aextras+%28o%3Aincubate+or+kw%3Aincubate%29&unique=cards&order=name",
+    "request_started_at_utc": "2026-10-29T20:47:57.863488+00:00",
+    "retrieved_at_utc": "2026-10-29T20:47:58.640770+00:00",
+    "http_status": 200,
+    "path": "docs/mechanics-research/i-protocol-evidence/incubate-discovery-1.json",
+    "sha256": "1ef4a6ce51493a4a85ff1bc3571d7d4113ed234426c0566a364752fc534df961"
+  },
+  {
+    "source": "Scryfall API",
+    "method": "GET",
+    "url": "https://api.scryfall.com/cards/search?q=include%3Aextras+%28o%3Ainfect+or+kw%3Ainfect%29&unique=cards&order=name",
+    "final_url": "https://api.scryfall.com/cards/search?q=include%3Aextras+%28o%3Ainfect+or+kw%3Ainfect%29&unique=cards&order=name",
+    "request_started_at_utc": "2026-10-29T20:47:58.762945+00:00",
+    "retrieved_at_utc": "2026-10-29T20:47:59.803395+00:00",
+    "http_status": 200,
+    "path": "docs/mechanics-research/i-protocol-evidence/infect-discovery-1.json",
+    "sha256": "e0ddf9cdebf5adea0c944b4eb401c283947e4d81f65b5751bdfccafd69a2224c"
+  },
+  {
+    "source": "Scryfall API",
+    "method": "GET",
+    "url": "https://api.scryfall.com/cards/search?q=include%3Aextras+%28o%3Ainfusion+or+kw%3Ainfusion%29&unique=cards&order=name",
+    "final_url": "https://api.scryfall.com/cards/search?q=include%3Aextras+%28o%3Ainfusion+or+kw%3Ainfusion%29&unique=cards&order=name",
+    "request_started_at_utc": "2026-10-29T20:47:59.927274+00:00",
+    "retrieved_at_utc": "2026-10-29T20:48:00.357689+00:00",
+    "http_status": 200,
+    "path": "docs/mechanics-research/i-protocol-evidence/infusion-discovery-1.json",
+    "sha256": "b219251389aae0a9982f886d087b4a5a6251766c2c1f6d9f902d93705aafc835"
+  },
+  {
+    "source": "Scryfall API",
+    "method": "GET",
+    "url": "https://api.scryfall.com/cards/search?q=include%3Aextras+%28o%3Aingest+or+kw%3Aingest%29&unique=cards&order=name",
+    "final_url": "https://api.scryfall.com/cards/search?q=include%3Aextras+%28o%3Aingest+or+kw%3Aingest%29&unique=cards&order=name",
+    "request_started_at_utc": "2026-10-29T20:48:00.479347+00:00",
+    "retrieved_at_utc": "2026-10-29T20:48:00.988217+00:00",
+    "http_status": 200,
+    "path": "docs/mechanics-research/i-protocol-evidence/ingest-discovery-1.json",
+    "sha256": "98b46b3bab13fcf28ee9bc1ddcca77f9311e98048c17765d02e51c2b6de53a97"
+  },
+  {
+    "source": "Scryfall API",
+    "method": "GET",
+    "url": "https://api.scryfall.com/cards/search?q=include%3Aextras+%28o%3Ainspired+or+kw%3Ainspired%29&unique=cards&order=name",
+    "final_url": "https://api.scryfall.com/cards/search?q=include%3Aextras+%28o%3Ainspired+or+kw%3Ainspired%29&unique=cards&order=name",
+    "request_started_at_utc": "2026-10-29T20:48:01.109509+00:00",
+    "retrieved_at_utc": "2026-10-29T20:48:01.804953+00:00",
+    "http_status": 200,
+    "path": "docs/mechanics-research/i-protocol-evidence/inspired-discovery-1.json",
+    "sha256": "7638dd46aff73050713c74efcd7b3bc394031f87db663e78873371e33a48f92c"
+  },
+  {
+    "source": "Scryfall API",
+    "method": "GET",
+    "url": "https://api.scryfall.com/cards/search?q=include%3Aextras+%28o%3Aintimidate+or+kw%3Aintimidate%29&unique=cards&order=name",
+    "final_url": "https://api.scryfall.com/cards/search?q=include%3Aextras+%28o%3Aintimidate+or+kw%3Aintimidate%29&unique=cards&order=name",
+    "request_started_at_utc": "2026-10-29T20:48:01.926831+00:00",
+    "retrieved_at_utc": "2026-10-29T20:48:02.564886+00:00",
+    "http_status": 200,
+    "path": "docs/mechanics-research/i-protocol-evidence/intimidate-discovery-1.json",
+    "sha256": "af17bfeab41763944308c731e6e7449cb8a76af516707904a64d8b73ed363580"
+  },
+  {
+    "source": "Scryfall API",
+    "method": "GET",
+    "url": "https://api.scryfall.com/cards/search?q=include%3Aextras+%28o%3Ainvestigate+or+kw%3Ainvestigate%29&unique=cards&order=name",
+    "final_url": "https://api.scryfall.com/cards/search?q=include%3Aextras+%28o%3Ainvestigate+or+kw%3Ainvestigate%29&unique=cards&order=name",
+    "request_started_at_utc": "2026-10-29T20:48:02.687577+00:00",
+    "retrieved_at_utc": "2026-10-29T20:48:04.619519+00:00",
+    "http_status": 200,
+    "path": "docs/mechanics-research/i-protocol-evidence/investigate-discovery-1.json",
+    "sha256": "46d98e535bc20ccbd15c1dbb7f30376c6548d9e04e15fc4308aae40bfdfa30fc"
+  },
+  {
+    "source": "Scryfall API",
+    "method": "GET",
+    "url": "https://api.scryfall.com/cards/search?q=include%3Aextras+%28o%3Aislandwalk+or+kw%3Aislandwalk%29&unique=cards&order=name",
+    "final_url": "https://api.scryfall.com/cards/search?q=include%3Aextras+%28o%3Aislandwalk+or+kw%3Aislandwalk%29&unique=cards&order=name",
+    "request_started_at_utc": "2026-10-29T20:48:04.745138+00:00",
+    "retrieved_at_utc": "2026-10-29T20:48:05.310819+00:00",
+    "http_status": 200,
+    "path": "docs/mechanics-research/i-protocol-evidence/islandwalk-discovery-1.json",
+    "sha256": "e87fb532e6a34dc5eb8d66ed0c4489a604bb2abbb8054f4c0fed6841b8db2220"
+  },
+  {
+    "source": "Scryfall API",
+    "method": "GET",
+    "url": "https://api.scryfall.com/cards/search?q=include%3Aextras+%28o%3Aislandcycling+or+kw%3Aislandcycling%29&unique=cards&order=name",
+    "final_url": "https://api.scryfall.com/cards/search?q=include%3Aextras+%28o%3Aislandcycling+or+kw%3Aislandcycling%29&unique=cards&order=name",
+    "request_started_at_utc": "2026-10-29T20:48:05.433969+00:00",
+    "retrieved_at_utc": "2026-10-29T20:48:05.960922+00:00",
+    "http_status": 200,
+    "path": "docs/mechanics-research/i-protocol-evidence/islandcycling-discovery-1.json",
+    "sha256": "6680452b5f9eb22a63d6455ed64030cf18504582c35f0ec1651174a9ca8b47a0"
+  },
+  {
+    "source": "Scryfall API",
+    "method": "GET",
+    "url": "https://api.scryfall.com/cards/search?q=include%3Aextras+%28o%3Aintensity+or+kw%3Aintensity%29&unique=cards&order=name",
+    "final_url": "https://api.scryfall.com/cards/search?q=include%3Aextras+%28o%3Aintensity+or+kw%3Aintensity%29&unique=cards&order=name",
+    "request_started_at_utc": "2026-10-29T20:48:06.082841+00:00",
+    "retrieved_at_utc": "2026-10-29T20:48:06.711082+00:00",
+    "http_status": 200,
+    "path": "docs/mechanics-research/i-protocol-evidence/intensity-discovery-1.json",
+    "sha256": "1b9559b8a23ba32792c570356993ebd4f96f4fbb18082e5b77387bbe4654c112"
+  },
+  {
+    "source": "Scryfall API",
+    "method": "GET",
+    "url": "https://api.scryfall.com/cards/search?q=include%3Aextras+%28o%3Aincorporate+or+kw%3Aincorporate%29&unique=cards&order=name",
+    "final_url": "https://api.scryfall.com/cards/search?q=include%3Aextras+%28o%3Aincorporate+or+kw%3Aincorporate%29&unique=cards&order=name",
+    "request_started_at_utc": "2026-10-29T20:48:06.832673+00:00",
+    "retrieved_at_utc": "2026-10-29T20:48:07.334422+00:00",
+    "http_status": 200,
+    "path": "docs/mechanics-research/i-protocol-evidence/incorporate-discovery-1.json",
+    "sha256": "610c0c88672894eb9e05f12a166e25887c9bf4dc32ea4e45b3b44735715b232e"
+  },
+  {
+    "source": "Wizards of the Coast",
+    "method": "GET",
+    "url": "https://magic.wizards.com/en/news/feature/scars-of-mirrodin-mechanics",
+    "final_url": "https://magic.wizards.com/en/news/feature/scars-of-mirrodin-mechanics",
+    "request_started_at_utc": "2026-10-29T20:49:13.770677+00:00",
+    "retrieved_at_utc": "2026-10-29T20:49:14.785630+00:00",
+    "http_status": 200,
+    "path": "docs/mechanics-research/i-protocol-evidence/imprint-official.html",
+    "sha256": "807c91f3d0894fa1c329f68609903fa80671d691e3d1ddb559c094ebcddd62b3"
+  },
+  {
+    "source": "Wizards of the Coast",
+    "method": "GET",
+    "url": "https://magic.wizards.com/en/news/feature/secrets-of-strixhaven-release-notes",
+    "final_url": "https://magic.wizards.com/en/news/feature/secrets-of-strixhaven-release-notes",
+    "request_started_at_utc": "2026-10-29T20:49:14.785822+00:00",
+    "retrieved_at_utc": "2026-10-29T20:49:15.680378+00:00",
+    "http_status": 200,
+    "path": "docs/mechanics-research/i-protocol-evidence/infusion-official.html",
+    "sha256": "e88c8f1123ec9fb3a09c2cac925f0f1f19869dd9e8ea169bbd2aaefc75aaa37a"
+  },
+  {
+    "source": "Wizards of the Coast",
+    "method": "GET",
+    "url": "https://magic.wizards.com/en/news/feature/release-notes-2014-01-22",
+    "final_url": "https://magic.wizards.com/en/news/feature/release-notes-2014-01-22",
+    "request_started_at_utc": "2026-10-29T20:49:15.680858+00:00",
+    "retrieved_at_utc": "2026-10-29T20:49:16.422895+00:00",
+    "http_status": 200,
+    "path": "docs/mechanics-research/i-protocol-evidence/inspired-official.html",
+    "sha256": "94b2559c436f03c722aac03e8c123d698a95cb4708575462e9f6e8f9d97c5664"
+  },
+  {
+    "source": "Wizards of the Coast",
+    "method": "GET",
+    "url": "https://magic.wizards.com/en/news/mtg-arena/mtg-arena-state-game-alchemy-kamigawa-2022-03-16",
+    "final_url": "https://magic.wizards.com/en/news/mtg-arena/mtg-arena-state-game-alchemy-kamigawa-2022-03-16",
+    "request_started_at_utc": "2026-10-29T20:49:16.423149+00:00",
+    "retrieved_at_utc": "2026-10-29T20:49:17.562363+00:00",
+    "http_status": 200,
+    "path": "docs/mechanics-research/i-protocol-evidence/intensity-official.html",
+    "sha256": "7bd20aed47a1c412d28ddc284c829040a206552fe9b073262b42be44292e51e6"
+  },
+  {
+    "source": "Wizards of the Coast",
+    "method": "GET",
+    "url": "https://magic.wizards.com/en/news/mtg-arena/mtg-arena-announcements-march-4-2024",
+    "final_url": "https://magic.wizards.com/en/news/mtg-arena/mtg-arena-announcements-march-4-2024",
+    "request_started_at_utc": "2026-10-29T20:49:17.562529+00:00",
+    "retrieved_at_utc": "2026-10-29T20:49:18.540945+00:00",
+    "http_status": 200,
+    "path": "docs/mechanics-research/i-protocol-evidence/incorporate-official.html",
+    "sha256": "8c99960d96bdfdc209a0a3ce65140ff80a6db469eaf236ab5cbfd1eafe23edc4"
+  },
+  {
+    "source": "Wizards of the Coast",
+    "method": "GET",
+    "url": "https://media.wizards.com/2026/downloads/MagicCompRules%2020260925.txt",
+    "final_url": "https://media.wizards.com/2026/downloads/MagicCompRules%2020260925.txt",
+    "request_started_at_utc": "2026-10-29T20:49:18.541146+00:00",
+    "retrieved_at_utc": "2026-10-29T20:49:19.000300+00:00",
+    "http_status": 200,
+    "path": "docs/mechanics-research/i-protocol-evidence/comprehensive-rules.txt",
+    "sha256": "8d860e451f20f38865b725b42d82feb714c725373dd8f3b32b8652b3eeb070ca"
+  }
+]
