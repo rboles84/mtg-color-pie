@@ -1,4 +1,46 @@
-# Active task — F combination symbol centering
+# Active task — F marker alignment and tri-package review
+
+- Status: qa-passed on exact candidate `dbabe149338c163f8c687d27d798c1a50cfe98c4`. Baseline `ece0daca1a9208dbcc2087e31468697582966e16`. Existing checkout/branch reused. Owner authorized existing Fuse/Friends forever centering repair and read-only review of Downloads/tri-mana-original-glyphs-v2; expressly withheld tri-package integration. No package assets were copied, imported or added. Owner visual acceptance remains pending.
+- Scope: fixed 18px square hosts, nonshrinking native glyphs, centered detail labels and removal of the redundant ready-font outer ring. Mana's native pair/CI line heights are preserved. No source records, payload, card links/examples, palette, dependencies, A–E/other-F branches or frozen2021 calculations changed. Final material diff is confined to the three paths below.
+- Developer: configured RobDev worker /root/f_implementation; separate QA: non-implementing coordinator /root, QA-1 bounded presentation repair. Earlier candidate 748234c was returned for an introduced unitless line-height override that raised the component ink despite centered boxes. Final candidate removes it and adds native-metric regression coverage. QA changed only this evidence ledger after material freeze.
+- Focused persistent browser PASS: node tools/check_assessment_browser.mjs --root . --combinations-only --playwright C:/Users/obake/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright. Guards exact7/15 combination order, labels, links, actual glyph classes, square hosts/glyphs, detail marker/label centers within .5px, native pair ~18.9px / CI ~13.3px line heights and no implied monocolor sockets.
+- Independent PASS: C:/Users/obake/.codex/visualizations/2026/10/29/01a185f4-a2f8-7dd1-998c-7692190f20e8/check-centering.mjs. Baseline reproduces raised markers and2.1875px pair squashing; final candidate all22 detail rows have0px center/aspect error. Both entries pass real before/after glyphs, exact list/search/detail labels, readable no-font fallback, unchanged exact selected card links and360px containment. Enlarged five-device-pixel captures of both entry rows inspected; these are magnified rendering evidence, not a claim of a full500% browser-zoom journey. Syntax and authored whitespace checks PASS. Broad engine/source suites and screenshot matrices not required for this CSS-only scope.
+- Review-only package findings: all10 SVGs use the original Mana1.18.0 W/U/B/R/G path geometry and the pinned split-cost palette. Self-contained SVG/CSS extension requires no replacement font or new runtime dependency. The five needed triple sets map WUG→gwu, UBR→ubr, WUR→urw, BRG→brg, WBG→wbg. Custom compositions remain combination indicators, with accessible names and Combination only labels. README recommends32px+; current glyph14px/host18px means legibility and density need Owner decision before any future integration. Retain attribution if adopted. No decision to install or resize was inferred.
+- Package PASS: exact candidate built into the verified existing _site path;23 allowlisted byte-identical files,4 clean scripts,23 expected HTTP200 paths and24 excluded404 paths. Existing localhost8020/IAB tab refreshed to candidate, Friends forever open with reviewed examples expanded. Screenshot C:/Users/obake/.codex/visualizations/2026/10/29/01a185f4-a2f8-7dd1-998c-7692190f20e8/f-combination-centering-preview.png. Enlarged detail captures Friends-forever-rows-500.png and Fuse-rows-500.png in the same evidence directory.
+- Engineering verdict: PASS / Owner Review. Owner judges visual balance and whether/at what size to adopt the reviewed SVG extension. No push, merge, publication or tri-package integration.
+
+## Material candidate
+
+- Baseline: `ece0daca1a9208dbcc2087e31468697582966e16`
+- Candidate: `dbabe149338c163f8c687d27d798c1a50cfe98c4`
+- Changed paths: `3`
+
+## Files changed
+
+- `HANDOFF.md`
+- `tools/check_assessment_browser.mjs`
+- `vox-color/mechanical-explorer.html`
+
+## Evidence delta
+
+- Material candidate: `dbabe149338c163f8c687d27d798c1a50cfe98c4`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `1`
+- This delta records QA, package and review-only findings; it is not the full task diff.
+
+## Evidence-only paths
+
+- `HANDOFF.md`
+
+## Final branch delta
+
+- Baseline `ece0daca1a9208dbcc2087e31468697582966e16` → evidence `HEAD`.
+- Total changed paths: `3`; evidence adds no material path.
+- Branch codex/a-mechanics-review. Local material and evidence commits only; no push, merge or publication. Worktree status checked after evidence commit.
+
+---
+
+# Implementation packet — F combination symbol centering
 
 - Status: ready-for-qa. Baseline `ece0daca1a9208dbcc2087e31468697582966e16`; envelope remains HANDOFF.md, `vox-color/mechanical-explorer.html`, and `tools/check_assessment_browser.mjs`. Repair only the existing Fuse/Friends forever combination markers: stable square hosts, nonshrinking native glyphs, centered detail rows, and no redundant ready-font outer CI ring. Do not use, import, copy, or integrate any reviewed package assets; Owner explicitly requires review-only treatment pending approval.
 - Acceptance: normal-font pair and CI glyphs center in their 18px host, detail labels center within .5px of the marker, fallback WUBRG text remains readable and 360px wrapping remains contained. Data, links, combos, examples, palette, font URL and all unrelated marks remain unchanged. Focused `--combinations-only` geometry assertions cover each rendered context; independent QA and preview remain coordinator-owned.
