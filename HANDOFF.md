@@ -1,3 +1,74 @@
+# Owner Review — H native indicator containment repair
+
+- Status: qa-passed / Owner Review at exact material `c1c45fc04dc93e276bf995d0e35451c06e515ef5`. Correction baseline `8f12d90b8e0486f0209d71bc862ac0638cfc7dfb`; original H baseline `6ef4ccb64e48ae2510faf05ec14ae8f1448b4c84`. Owner rejected the previous appearance and supplied the F history. Earlier engineering PASS did not establish the paint containment contract and is superseded by this evidence.
+- Cause: Hexproof from WUB and WUBRG bypassed the accepted F vector renderer and returned to independent icon-font/CSS-gradient layers. Tests checked classes and boxes, missing the same fill/border defect already repaired in F. The current fix extends the established native-vector helper for both combinations; all F marker markup and existing pair glyph behavior are preserved. No card facts, source packets, generated data, dependencies, custom icon package, frozen 2021 or route changes.
+- Execution: QA-1; SEPARATE reviewer `/root` did not implement material. Announced bounded escalation from configured Terra medium to known configured Sol high repair worker `/root/h_repair` addressed the repeated miss. Worker completed RobDev handoff and froze candidate; coordinator owns this evidence-only ledger update. Requested/configured models are not backend telemetry claims.
+- Independent source/paint PASS: `check-h-ci-paint.mjs c1c45fc04dc93e276bf995d0e35451c06e515ef5` and `analyze-h-ci-paint.py` in `C:/Users/obake/.codex/visualizations/2026/10/29/01a1889d-966a-7862-8273-f73eb2e28a8a` completed successfully. Original Mana SVG SHA256 `da399dc513828acc373e187a457574c7e10515ee5b89caa1b91fac1bd69c2a8e` and CSS SHA256 `cb6fbca8e631d0a22a449a3ccd5663308cf0a9f1381d07ca3caf97bef416297f` match the retained F audit sources. All native CI3/CI5 paths and section fills match independently extracted original glyph subpaths; SVG frame and 18px dimensions match. Original WUB/WUBRG both reproduce 0.8937 CSSpx exterior fill spill under simultaneous magenta-border/cyan-fill control. All six final list/search/detail captures have no exterior fill; maximum radial reach is 1.1434 CSSpx inside the outer rim, with 0.2px antialias allowance. Results and masks are in `h-ci-paint/result.json` and adjacent captures. Eight-device-pixel controls test objective paint registration, not a full 500% browser-zoom journey or subjective Owner acceptance.
+- Audit helper correction: the first analyzer invocation failed parsing an unrelated malformed XML token in the original full font SVG. The raw source remained immutable; bounded extraction of the two exact glyph tags replaced whole-font XML parsing. Analysis then exited 0 without changing the product or repeating browser captures.
+- Independent focused browser PASS: `node tools/check_assessment_browser.mjs --root _site --combinations-only --playwright C:/Users/obake/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright` returned exit 0, JSON result PASS. Exact F/H combinations, original paths/native painted colors, sampled path containment, centered 18px painted circles, accessibility, unique links and blocked-font fallback passed. Current check requires vector paint rather than merely CI font classes. Browser and raster work justified by the Owner's reproduced escaped-paint defect; no broad suite or screenshot matrix.
+- Independent diff/packaging PASS: `git diff --check 8f12d90..c1c45fc` exited 0; exact three-file correction envelope reviewed. Guarded `_site` remained a direct non-symlink child of the checkout. `python .github/pages/package.py --rev c1c45fc04dc93e276bf995d0e35451c06e515ef5 --out <absolute _site> --verify` exited 0: 23 byte-identical allowlisted files, four syntax-clean inline scripts, 23 expected HTTP 200 paths and 24 excluded paths 404. Existing localhost8020 server reused.
+- Preview verified: CUA reset recovered the previous app connection problem. Existing tab2 refreshed to iframe revision `c1c45fc04dc93e276bf995d0e35451c06e515ef5`; Hexproof from opened, Reviewed card examples expanded, search empty, all five filters false, A-Z active. Screenshot inspected and saved as `C:/Users/obake/.codex/visualizations/2026/10/29/01a1889d-966a-7862-8273-f73eb2e28a8a/h-hexproof-native-vectors.jpg`. Native WUB and five-color indicators are shown with the existing pair symbols; no custom package added.
+- Prior evidence: protected source/qualification and whole-H evidence remain applicable because no related input changed. Full177-entry browser/source suites intentionally not rerun. CPU-heavy validation NOT REQUIRED. Stateful-adversarial coverage NOT APPLICABLE: no owner/state/route changes. No unresolved deterministic defect. Remaining Owner judgment: visual presentation of the repaired indicators. No Owner acceptance, push, merge or publication.
+- Correction delta from `8f12d90b8e0486f0209d71bc862ac0638cfc7dfb`:3 files, +68/-14 at the material candidate. Whole-H scope and subsequent evidence delta follow separately.
+
+## Material candidate
+
+- Baseline: `6ef4ccb64e48ae2510faf05ec14ae8f1448b4c84`
+- Candidate: `c1c45fc04dc93e276bf995d0e35451c06e515ef5`
+- Changed paths: `31`
+
+## Files changed
+
+- `HANDOFF.md`
+- `data/mechanics-assessments.v1.json`
+- `docs/mechanics-research/COLOR-ACCESS-PROTOCOL.md`
+- `docs/mechanics-research/H-ACCESS-REVIEW.md`
+- `docs/mechanics-research/h-protocol-evidence/halflingcycling-discovery-1.json`
+- `docs/mechanics-research/h-protocol-evidence/harmonize-discovery-1.json`
+- `docs/mechanics-research/h-protocol-evidence/harness-discovery-1.json`
+- `docs/mechanics-research/h-protocol-evidence/haunt-discovery-1.json`
+- `docs/mechanics-research/h-protocol-evidence/heal-discovery-1.json`
+- `docs/mechanics-research/h-protocol-evidence/heal-fulloracle-followup-1.json`
+- `docs/mechanics-research/h-protocol-evidence/heist-discovery-1.json`
+- `docs/mechanics-research/h-protocol-evidence/heist-original.html`
+- `docs/mechanics-research/h-protocol-evidence/hellbent-discovery-1.json`
+- `docs/mechanics-research/h-protocol-evidence/hero-s-reward-discovery-1.json`
+- `docs/mechanics-research/h-protocol-evidence/heroic-discovery-1.json`
+- `docs/mechanics-research/h-protocol-evidence/heros-reward-discovery-1.json`
+- `docs/mechanics-research/h-protocol-evidence/hexproof-from-discovery-1.json`
+- `docs/mechanics-research/h-protocol-evidence/hidden-agenda-discovery-1.json`
+- `docs/mechanics-research/h-protocol-evidence/hideaway-discovery-1.json`
+- `docs/mechanics-research/h-protocol-evidence/hire-a-mercenary-discovery-1.json`
+- `docs/mechanics-research/h-protocol-evidence/horsemanship-discovery-1.json`
+- `docs/mechanics-research/h-protocol-evidence/receipts.json`
+- `docs/mechanics-research/h-protocol-evidence/repair-source-receipts.json`
+- `docs/mechanics-research/h-protocol-evidence/rules-20260925.txt`
+- `docs/mechanics-research/h-protocol-evidence/selected-cards-collection-receipt.json`
+- `docs/mechanics-research/h-protocol-evidence/selected-cards-collection-request.json`
+- `docs/mechanics-research/h-protocol-evidence/selected-cards-collection-verified.json`
+- `docs/mechanics-research/h-protocol.json`
+- `tools/build_mechanics_assessments.py`
+- `tools/check_assessment_browser.mjs`
+- `vox-color/mechanical-explorer.html`
+
+## Evidence delta
+
+- Material candidate: `c1c45fc04dc93e276bf995d0e35451c06e515ef5`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `1`
+- Independent paint/browser/preview QA and Git accounting in HANDOFF.md only; not the full task diff.
+
+## Evidence-only paths
+
+- `HANDOFF.md`
+
+## Final branch delta
+
+- Original H baseline `6ef4ccb64e48ae2510faf05ec14ae8f1448b4c84` to evidence HEAD:31 changed paths. Native-vector correction adds no new whole-H path.
+- Worktree cleanliness, candidate containment and change-report validator checked after evidence commit. Local only; no push, merge or publication performed.
+
+---
+
 # Active rework — Hexproof from native Mana CI vectors
 
 - Status: ready-for-qa (`qa-passed -> qa-failed -> dev-in-progress -> ready-for-qa`) after Owner reported the Hexproof from indicators still looked off. Existing branch `codex/a-mechanics-review`; clean correction baseline `8f12d90b8e0486f0209d71bc862ac0638cfc7dfb`. The earlier F conversation is reference evidence: accepted F vector containment at `c752a3983c598937a953b886effa068ba4d6898a` / evidence `2cd1790`, not permission to add the rejected custom tri-mana package.
