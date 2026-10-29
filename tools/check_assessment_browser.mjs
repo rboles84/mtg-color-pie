@@ -116,6 +116,7 @@ try{
         const comboPresentation=['Fuse','Friends forever'].includes(record.name);
         if(comboPresentation){
           assert.deepEqual(await row.locator('.combo-mark').evaluateAll(marks=>marks.map(mark=>mark.dataset.combo)),access.combinations.map(item=>item.colors.join('')));
+          assert.equal(await row.locator('.combo-mark').evaluateAll(marks=>marks.every(mark=>mark.getAttribute('role')==='img'&&mark.getAttribute('aria-label').includes('combination only'))),true);
           assert.equal(await row.locator('.combo-mark .ms-wu,.combo-mark .ms-wb,.combo-mark .ms-ub,.combo-mark .ms-ur,.combo-mark .ms-br,.combo-mark .ms-bg,.combo-mark .ms-rg,.combo-mark .ms-rw,.combo-mark .ms-gw,.combo-mark .ms-gu').count(),access.combinations.filter(item=>item.colors.length===2).length);
           assert.equal(await row.locator('.combo-mark .ms-ci.ms-ci-3').count(),access.combinations.filter(item=>item.colors.length===3).length);
           assert.equal(await row.locator('.access-strip > .sc').count(),0);
@@ -270,7 +271,7 @@ try{
       assert.equal(await fail.evaluate(()=>VMX.assessments().records.length),0); assert.equal(await fail.locator('#list .access-strip').count(),0); await fail.close();
     }
     assert.deepEqual(errors,[]);
-    results.push('All28 E and25 F mana symbols, accessible names, hybrid halves, no-font fallback and escaping; C/D/E/F representative sources, unique combination citations and concise copy; 158 A/B/C/D/E/F access maps; documented/no-example/joint/colorless/rules cases; exact-example and retained non-card links; atomic malformed fail-soft; search keyboard/mobile; unchanged 2021 84 checks');
+    results.push(combinationsOnly ? 'Fuse and Friends forever combination-only strips and detail rows: exact combinations, mana glyph classes, accessible labels, and no implied monocolor sockets.' : 'All28 E and25 F mana symbols, accessible names, hybrid halves, no-font fallback and escaping; C/D/E/F representative sources, unique combination citations and concise copy; 158 A/B/C/D/E/F access maps; documented/no-example/joint/colorless/rules cases; exact-example and retained non-card links; atomic malformed fail-soft; search keyboard/mobile; unchanged 2021 84 checks');
   }
   await page.close();
   console.log(JSON.stringify({result:'PASS',checks:results},null,2));

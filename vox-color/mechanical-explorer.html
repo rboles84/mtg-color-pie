@@ -1258,7 +1258,7 @@ function assessmentStripHTML(a){
 function comboMarkHTML(item){
   const key=item.colors.join(''), pair=key.length===2, pairCode={WR:'rw',WG:'gw',UG:'gu'}[key] || key.toLowerCase(), code=pair ? `ms-${pairCode}` : `ms-ci ms-ci-${item.colors.length} ms-ci-${key.toLowerCase()}`;
   const label=item.colors.map(c=>CNAME[c]).join(' / ');
-  return `<span class="combo-mark" data-combo="${key}" title="${esc(label)} — Combination only" aria-label="${esc(label)} combination only"><i class="ms ${pair ? 'ms-cost ' : ''}${code}" aria-hidden="true"></i><span class="combo-text">${esc(key)}</span></span>`;
+  return `<span class="combo-mark" role="img" data-combo="${key}" title="${esc(label)} — Combination only" aria-label="${esc(label)} combination only"><i class="ms ${pair ? 'ms-cost ' : ''}${code}" aria-hidden="true"></i><span class="combo-text">${esc(key)}</span></span>`;
 }
 function labelHTML(r){ return esc(curly(r.disp)).replace(/\//g, '/<wbr>') + (r.qual ? `<span class="e-q"> · ${esc(r.qual)}</span>` : ''); }
 
