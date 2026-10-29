@@ -1,0 +1,136 @@
+{
+  "source": "Scryfall API",
+  "queries": [
+    {
+      "mechanic": "Harmonize",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Harmonize%22%20include%3Aextras&unique=cards",
+      "retrieved_at_utc": "2026-10-29T17:06:00.000Z",
+      "http_status": 200,
+      "sha256": "9948cc1f249c26b4d3d9b01696a99f179baab0342d909fb2a0a95133c91ba85b",
+      "path": "docs/mechanics-research/h-protocol-evidence/harmonize-discovery-1.json"
+    },
+    {
+      "mechanic": "Haunt",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Haunt%22%20include%3Aextras&unique=cards",
+      "retrieved_at_utc": "2026-10-29T17:06:00.000Z",
+      "http_status": 200,
+      "sha256": "9460197859cf45644b1e97059bd1dfddda7cf00418ecd83dbb22b13cb20f2d6c",
+      "path": "docs/mechanics-research/h-protocol-evidence/haunt-discovery-1.json"
+    },
+    {
+      "mechanic": "Heal",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Heal%22%20include%3Aextras&unique=cards",
+      "retrieved_at_utc": "2026-10-29T17:06:00.000Z",
+      "http_status": 200,
+      "sha256": "8d0cf95eae5bd340ac0ee372dff2bbcdcce532db947eef2a4eb7c3cd3bd61200",
+      "path": "docs/mechanics-research/h-protocol-evidence/heal-discovery-1.json"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?q=fo%3Aheal+include%3Aextras&unique=cards",
+      "final_url": "https://api.scryfall.com/cards/search?q=fo%3Aheal+include%3Aextras&unique=cards",
+      "retrieved_at_utc": "2026-10-29T17:14:35.836886+00:00",
+      "http_status": 200,
+      "sha256": "72d335ce689c0a0d3a578da48e8c536f4a15ab458cea5965fd913ceeba3d2335",
+      "path": "docs/mechanics-research/h-protocol-evidence/heal-fulloracle-followup-1.json"
+    },
+    {
+      "mechanic": "Hellbent",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Hellbent%22%20include%3Aextras&unique=cards",
+      "retrieved_at_utc": "2026-10-29T17:06:00.000Z",
+      "http_status": 200,
+      "sha256": "19d273016d9bd2e8a383239d0c4161daaebba43726b934597f78d64716f4865f",
+      "path": "docs/mechanics-research/h-protocol-evidence/hellbent-discovery-1.json"
+    },
+    {
+      "mechanic": "Heroic",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Heroic%22%20include%3Aextras&unique=cards",
+      "retrieved_at_utc": "2026-10-29T17:06:00.000Z",
+      "http_status": 200,
+      "sha256": "842dd8f5b053885d99bf0d99b202d6624092d79229bcb533d1dce79ef9d2fbb1",
+      "path": "docs/mechanics-research/h-protocol-evidence/heroic-discovery-1.json"
+    },
+    {
+      "mechanic": "Hidden Agenda",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Hidden%20Agenda%22%20include%3Aextras&unique=cards",
+      "retrieved_at_utc": "2026-10-29T17:06:00.000Z",
+      "http_status": 200,
+      "sha256": "3df64290358c5bc011a7954664527763398fc3103eff331f343c1d11dbb68fa8",
+      "path": "docs/mechanics-research/h-protocol-evidence/hidden-agenda-discovery-1.json"
+    },
+    {
+      "mechanic": "Hideaway",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Hideaway%22%20include%3Aextras&unique=cards",
+      "retrieved_at_utc": "2026-10-29T17:06:00.000Z",
+      "http_status": 200,
+      "sha256": "4e7c90e792ee86440b225a2504e1b7f56751530e6eae0e404817104033d0f379",
+      "path": "docs/mechanics-research/h-protocol-evidence/hideaway-discovery-1.json"
+    },
+    {
+      "mechanic": "Horsemanship",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Horsemanship%22%20include%3Aextras&unique=cards",
+      "retrieved_at_utc": "2026-10-29T17:06:00.000Z",
+      "http_status": 200,
+      "sha256": "d6b2e1e0d77158be1c0aeb78d3e1cb5898e69fc9a9129253b2315cee356fe043",
+      "path": "docs/mechanics-research/h-protocol-evidence/horsemanship-discovery-1.json"
+    },
+    {
+      "mechanic": "Hexproof from",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Hexproof%20from%22%20include%3Aextras&unique=cards",
+      "retrieved_at_utc": "2026-10-29T17:06:00.000Z",
+      "http_status": 200,
+      "sha256": "b94959348cb5cb1197cd93965b6556c64b3859705127cad1743c7e30f5b31239",
+      "path": "docs/mechanics-research/h-protocol-evidence/hexproof-from-discovery-1.json"
+    },
+    {
+      "mechanic": "Hire a Mercenary",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Hire%20a%20Mercenary%22%20include%3Aextras&unique=cards",
+      "retrieved_at_utc": "2026-10-29T17:06:00.000Z",
+      "http_status": 200,
+      "sha256": "e06e349b4d2bac30ccda0f65cff7a7a0f74ab29df5944a319596901c82b95f81",
+      "path": "docs/mechanics-research/h-protocol-evidence/hire-a-mercenary-discovery-1.json"
+    },
+    {
+      "mechanic": "Halflingcycling",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Halflingcycling%22%20include%3Aextras&unique=cards",
+      "retrieved_at_utc": "2026-10-29T17:06:00.000Z",
+      "http_status": 200,
+      "sha256": "7ebe1272f804113f34f9f133b20f48ae2f3cbd314a93c4252d04dd0b0cae6221",
+      "path": "docs/mechanics-research/h-protocol-evidence/halflingcycling-discovery-1.json"
+    },
+    {
+      "mechanic": "Harness",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Harness%22%20include%3Aextras&unique=cards",
+      "retrieved_at_utc": "2026-10-29T17:06:00.000Z",
+      "http_status": 200,
+      "sha256": "106d712573833122d22fabbf9e8a27cf8bd106f79763fef54f470194e54adb9c",
+      "path": "docs/mechanics-research/h-protocol-evidence/harness-discovery-1.json"
+    },
+    {
+      "mechanic": "Heist",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Heist%22%20include%3Aextras&unique=cards",
+      "retrieved_at_utc": "2026-10-29T17:06:00.000Z",
+      "http_status": 200,
+      "sha256": "0eccc8e75683497f69a3f4af9388bc4839e30227548346966f920cc4db22c4be",
+      "path": "docs/mechanics-research/h-protocol-evidence/heist-discovery-1.json"
+    },
+    {
+      "mechanic": "Hero's Reward",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Hero%27s%20Reward%22%20include%3Aextras&unique=cards",
+      "retrieved_at_utc": "2026-10-29T17:17:00.000Z",
+      "http_status": 200,
+      "sha256": "51f539877883d725b31a9d8b17f3dd1389972c4932d5105432784d96468bc929",
+      "path": "docs/mechanics-research/h-protocol-evidence/heros-reward-discovery-1.json"
+    }
+  ],
+  "retained_unused_draft_capture": {
+    "path": "docs/mechanics-research/h-protocol-evidence/heros-reward-discovery-1.json",
+    "url": "https://api.scryfall.com/cards/search?q=o%3A%22Hero%27s%20Reward%22%20include%3Aextras&unique=cards",
+    "http_status": 200,
+    "request_metadata_basis": "Original worker recovered the request URL and HTTP 200 from its operation history; retrieval time and original receipt hash were never logged.",
+    "retrieved_at_utc": null,
+    "original_receipt_sha256": null,
+    "current_file_sha256": "51f539877883d725b31a9d8b17f3dd1389972c4932d5105432784d96468bc929",
+    "integrity_checked_at_utc": "2026-10-29T17:19:28.382357+00:00",
+    "evidence_role": "Retained immutable unused draft discovery only; not selected-card authority. Hydra Head is bound to the fully receipted hero-s-reward-discovery-1.json capture."
+  }
+}

@@ -95,6 +95,27 @@ try{
   assert.equal(fRecord("Hero's Reward").access.colorless.cards[0].name,'Hydra Head');
   assert.equal(fRecord('Harness').access.colors.W.cards[0].name,'The Mind Stone');
   assert.equal(fRecord('Harness').access.colors.B.cards[0].name,'The Soul Stone');
+  const hBuckets=record=>[...Object.values(record.access.colors).filter(b=>b.status==='documented'),...record.access.combinations,...(record.access.colorless.status==='documented'?[record.access.colorless]:[])];
+  const hMaps={Harmonize:['U','R','G','UR','URG'],Haunt:['W','B','WB'],Heal:['W','B','R','G','RG','BR','C'],Hellbent:['B','R','BR','C'],Heroic:['W','U','B','R','G','WU','WR'],'Hidden Agenda':['C'],Hideaway:['W','U','B','R','G','C'],Horsemanship:['W','U','B','R','G'],'Hexproof from':['W','U','B','G','WR','WB','WUB','UG','WUBRG','C'],'Hire a Mercenary':['B'],Halflingcycling:['C'],Harness:['W','B'],Heist:['U','B','R','BR','UB','UBR'],"Hero's Reward":['C']};
+  for(const record of hRecords){
+    assert.deepEqual([...Object.entries(record.access.colors).filter(([,b])=>b.status==='documented').map(([c])=>c),...record.access.combinations.map(b=>b.colors.join('')),...(record.access.colorless.status==='documented'?['C']:[])],hMaps[record.name],record.name+' exact observed H access map');
+    assert.ok(hBuckets(record).every(b=>b.cards.length===1),record.name+' one selected witness per bucket');
+  }
+  assert.equal(hRecords.flatMap(hBuckets).length,59);
+  assert.match(fRecord('Harmonize').summary,/generic mana.*power.*exiled when it leaves the stack/i);
+  assert.equal(fRecord('Heal').access.colors.W.cards[0].name,'Knight of the Holy Nimbus','unreleased Dr. McCoy cannot establish released-paper access');
+  assert.match(fRecord('Heal').summary,/keyword action.*marked damage.*regeneration.*destruction.*activate/i);
+  assert.match(fRecord('Heal').access.colors.R.note,/source is red.*black activation cost/i);
+  assert.match(fRecord('Heal').access.colorless.note,/regenerates by discarding a card.*source is colorless/i);
+  assert.match(fRecord('Hidden Agenda').summary,/whenever you have priority/i);
+  assert.match(fRecord('Harness').summary,/designation lasts until it leaves the battlefield/i);
+  assert.match(fRecord('Hire a Mercenary').summary,/3\/2 colorless Shapeshifter.*changeling.*lose 3 life/i);
+  assert.doesNotMatch(fRecord('Hire a Mercenary').summary,/Mercenary token/i);
+  assert.match(fRecord('Haunt').access.combinations[0].note,/lose 2 life.*gain.*2 life.*haunts dies/i);
+  assert.match(fRecord('Hellbent').access.colorless.note,/land is colorless.*red mana/i);
+  assert.match(fRecord('Hexproof from').access.combinations.find(c=>c.colors.join('')==='WUBRG').note,/Sphinx.*all five colors.*characteristic-defining ability/i);
+  assert.match(fRecord('Heist').summary,/three random nonland.*exiles one face down/i);
+  assert.match(fRecord("Hero's Reward").access.colorless.note,/gain 2 life when it leaves the battlefield/i);
   const gRecords=payload.records.filter(r=>r.name.startsWith('G'));
   const gRecord=name=>gRecords.find(r=>r.name===name);
   const gBuckets=record=>[...Object.values(record.access.colors).filter(b=>b.status==='documented'),...record.access.combinations,...(record.access.colorless.status==='documented'?[record.access.colorless]:[])];
@@ -122,7 +143,7 @@ try{
   assert.match(gRecord('Gift').summary,/while casting.*instant or sorcery.*before.*resolves.*permanent.*triggered ability.*enters/i,'Gift distinguishes promise, spell resolution and permanent entry');
   assert.match(gRecord('Gravestorm').access.colors.B.note,/triggers when cast.*copies each exile/i,'Bitter Ordeal cast trigger precedes its search effect');
   assert.doesNotMatch(gRecord('Gravestorm').access.colors.B.note,/when cast after searching/i);
-  const normalGTokens=new Map(); let gVisibleCardLinks=0;
+  const normalGTokens=new Map(), normalHTokens=new Map(); let gVisibleCardLinks=0, hVisibleCardLinks=0;
   assert.equal(payload.records.filter(r=>r.name.startsWith('G')).length,5);
   assert.equal(gRecord('Gift').access.colors.G.cards[0].name,'Longstalk Brawl');
   assert.equal(gRecord('Gift').access.colorless.cards[0].name,'Starforged Sword');
@@ -157,7 +178,7 @@ try{
        rules actions have no invented map, and no access strip uses tier classes. */
     await page.evaluate(()=>VMX.setView('az'));
     for(const record of combinationsOnly ? payload.records.filter(r=>['Fuse','Friends forever'].includes(r.name)) : payload.records){
-      const row=page.locator(`#list .ent[data-k="${record.id}"]`), access=record.access, compactExamples=/^[CDEFG]/.test(record.name);
+      const row=page.locator(`#list .ent[data-k="${record.id}"]`), access=record.access, compactExamples=/^[CDEFGH]/.test(record.name);
       assert.equal(await row.locator('.access-strip').count(),record.kind==='access'?1:0,record.name);
       if(record.kind==='access'){
         const comboPresentation=['Fuse','Friends forever'].includes(record.name);
@@ -186,7 +207,7 @@ try{
       const notes=panel.locator('.assessment-notes');
       assert.match(await panel.innerText(),/Color Access/);
       assert.match(await panel.innerText(),/Outside the 2021 color calculations/);
-      assert.ok((await panel.innerText()).includes(record.name.startsWith('G')?'October 29, 2026':'October 28, 2026'),record.name+' displayed review date');
+      assert.ok((await panel.innerText()).includes(/^[GH]/.test(record.name)?'October 29, 2026':'October 28, 2026'),record.name+' displayed review date');
       assert.doesNotMatch(await panel.innerText(),/Our assessment|Confidence:|Primary:|Secondary:|Tertiary:|assessment - provisional/i);
       if(record.kind==='access'){
         const comboPresentation=['Fuse','Friends forever'].includes(record.name);
@@ -249,6 +270,7 @@ try{
         assert.deepEqual(await page.locator('#detail a').evaluateAll(links=>links.filter(a=>a.hostname==='scryfall.com'&&a.pathname.startsWith('/card/')).map(a=>a.href).sort()),expectedCardLinks,record.name+' whole-detail one-example link contract');
       }
       if(record.name.startsWith('G')) gVisibleCardLinks+=expectedCardLinks.length;
+      if(record.name.startsWith('H')) hVisibleCardLinks+=expectedCardLinks.length;
       const linkedBuckets=cardBuckets.filter(item=>item.findUrl && (!compactExamples || item.cards.length>1));
       for(const findUrl of new Set(linkedBuckets.map(item=>item.findUrl))) assert.equal(await notes.locator(`a[href="${findUrl}"]`).count(),linkedBuckets.filter(item=>item.findUrl===findUrl).length,record.name+' renders every exact reviewed-card bucket link');
       assert.deepEqual(await notes.locator('a').evaluateAll(links=>links.filter(a=>a.protocol!=='https:'||!['scryfall.com','magic.wizards.com'].includes(a.hostname)||a.rel!=='noopener noreferrer').map(a=>a.href)),[]);
@@ -262,6 +284,7 @@ try{
         });
         assert.deepEqual(symbols.rendered.map(s=>s.token),symbols.tokens,record.name+' every brace token becomes a symbol');
         if(record.name.startsWith('G')) normalGTokens.set(record.name,symbols.tokens);
+        if(record.name.startsWith('H')) normalHTokens.set(record.name,symbols.tokens);
         assert.doesNotMatch(symbols.visible,/\{[^{}\r\n]+\}/,record.name+' no visible raw costs');
         for(const symbol of symbols.rendered){
           assert.equal(symbol.role,'img');assert.ok(symbol.label);assert.equal(symbol.fallback,'none');assert.notEqual(symbol.glyph,'none');
@@ -277,7 +300,7 @@ try{
         if(record.name==='Evoke') assert.deepEqual([...new Set(symbols.rendered.filter(s=>s.token.includes('/')).map(s=>s.token))].sort(),['{R/G}','{R/W}','{U/B}','{W/B}']);
       }
     }
-    if(!combinationsOnly) assert.equal(gVisibleCardLinks,36,'all G detail panels show exactly the 36 selected links');
+    if(!combinationsOnly) {assert.equal(gVisibleCardLinks,36,'all G detail panels show exactly the 36 selected links');assert.equal(hVisibleCardLinks,59,'all H detail panels show exactly the 59 selected links');}
     const noFont=await browser.newPage();
     await noFont.route('**/mana-font@1.18.0/**',route=>route.abort());
     await noFont.goto(url);await noFont.waitForFunction(()=>VMX.assessments().status==='ready');
@@ -290,8 +313,8 @@ try{
       await noFont.evaluate(id=>VMX.open(id),record.id);
       await noFont.locator('.assessment-notes > summary').click();
       const symbols=await noFont.locator('#detail .supp-symbol').evaluateAll(items=>items.map(s=>({text:s.innerText,raw:s.querySelector('.supp-symbol-text').textContent,label:s.getAttribute('aria-label'),glyph:getComputedStyle(s.querySelector('.ms')).display})));
-      assert.ok(symbols.every(s=>s.text===s.raw&&s.label&&s.glyph==='none'),record.name+' readable F/G font-failure fallback');
-      if(record.name.startsWith('G')&&!combinationsOnly) assert.deepEqual(symbols.map(s=>s.raw),normalGTokens.get(record.name),record.name+' same actual tokens in normal and blocked-font states');
+      assert.ok(symbols.every(s=>s.text===s.raw&&s.label&&s.glyph==='none'),record.name+' readable F/G/H font-failure fallback');
+      if(/^[GH]/.test(record.name)&&!combinationsOnly) assert.deepEqual(symbols.map(s=>s.raw),(record.name.startsWith('H')?normalHTokens:normalGTokens).get(record.name),record.name+' same actual tokens in normal and blocked-font states');
     }
     for(const record of payload.records.filter(r=>['Fuse','Friends forever'].includes(r.name))){
       await noFont.evaluate(()=>VMX.setView('az'));
@@ -328,7 +351,7 @@ try{
     for(const blocked of [false,true]){
       const gSafe=await browser.newPage(),gInjected=structuredClone(payload),gSupplement=structuredClone(supplement);
       const gScopes=JSON.parse(fs.readFileSync(path.join(root,'data/mechanics-supplement-scope.v1.json'),'utf8'));
-      for(const record of gSupplement.records.filter(r=>r.name.startsWith('G')&&r.target2021===null)){
+      for(const record of gSupplement.records.filter(r=>/^[GH]/.test(r.name)&&r.target2021===null)){
         record.clauses=[{number:'fixture',text:gUnsafe}];
         record.reference={title:'Fixture',verification:'fixture',rules:[],summary:gUnsafe,source:{title:'Fixture',url:'https://magic.wizards.com/en/news/making-magic/back-future-sight-part-3-2020-08-24'}};
       }
@@ -336,18 +359,18 @@ try{
       gScopes.payloadCanonicalSha256=fixtureHash;gInjected.supplementCanonicalSha256=fixtureHash;
       await gSafe.route('**/data/mechanics-supplement.v1.json*',route=>route.fulfill({contentType:'application/json',body:JSON.stringify(gSupplement)}));
       await gSafe.route('**/data/mechanics-supplement-scope.v1.json*',route=>route.fulfill({contentType:'application/json',body:JSON.stringify(gScopes)}));
-      for(const record of gInjected.records.filter(r=>r.name.startsWith('G'))) record.summary=gUnsafe;
+      for(const record of gInjected.records.filter(r=>/^[GH]/.test(r.name))) record.summary=gUnsafe;
       if(blocked) await gSafe.route('**/mana-font@1.18.0/**',route=>route.abort());
       await gSafe.route(assessmentRoute,route=>route.fulfill({contentType:'application/json',body:JSON.stringify(gInjected)}));
       await gSafe.goto(url);await gSafe.waitForFunction(()=>VMX.assessments().status==='ready');
       if(!blocked) await gSafe.waitForFunction(()=>document.documentElement.classList.contains('supp-mana-ready'));
-      for(const record of gRecords){
+      for(const record of [...gRecords,...hRecords]){
         await gSafe.evaluate(id=>VMX.open(id),record.id);await gSafe.locator('.assessment-notes > summary').click();
         for(const selector of ['.assessment-notes > p','#detail .supp-rules .dx-ex','#detail .supp-reference .supp-quote']){
           const prose=gSafe.locator(selector).first();assert.equal(await prose.locator('img').count(),0,record.name+' escapes markup in '+selector);
           assert.ok((await prose.textContent()).includes('<img src=x onerror=alert(1)> {unknown}'),record.name+' preserves unknown notation as text');
           const symbols=await prose.locator('.supp-symbol').evaluateAll(items=>items.map(s=>({label:s.getAttribute('aria-label'),role:s.getAttribute('role'),raw:s.querySelector('.supp-symbol-text').textContent,text:s.innerText,glyph:getComputedStyle(s.querySelector('.ms')).display,fallback:getComputedStyle(s.querySelector('.supp-symbol-text')).display,before:getComputedStyle(s.querySelector('.ms'),'::before').content,after:getComputedStyle(s.querySelector('.ms'),'::after').content})));
-          assert.deepEqual(symbols.map(s=>s.label),gTokenLabels,record.name+' all G numeric/colored/colorless/X/hybrid tokens in '+selector);
+          assert.deepEqual(symbols.map(s=>s.label),gTokenLabels,record.name+' all G/H numeric/colored/colorless/X/hybrid tokens in '+selector);
           assert.ok(symbols.every(s=>s.role==='img'&&(blocked?s.glyph==='none'&&s.text===s.raw&&s.fallback!=='none':s.glyph!=='none'&&s.fallback==='none'&&s.before&&!['none','normal','""'].includes(s.before)&&(s.raw.includes('/')?s.after&&!['none','normal','""'].includes(s.after):true))),record.name+' accessible real glyphs or readable fallback');
           if(!blocked) assert.doesNotMatch(await prose.innerText(),/\{(?:9|W|U|B|R|G|C|X|B\/G|G\/U|B\/R|G\/W|U\/R|W\/B)\}/);
         }
@@ -360,18 +383,19 @@ try{
     await page.evaluate(()=>{VMX.chooseCombo('W');VMX.clearColors();VMX.setView('article');VMX.setView('az');}); assert.equal(await page.evaluate(math),baseline);
     assert.deepEqual(await page.locator('.access-strip .sc').evaluateAll(slots=>slots.map(s=>s.className)),accessBefore,'color lens never retiers access symbols');
     await page.setViewportSize({width:360,height:900}); assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true); await page.setViewportSize({width:1440,height:900});
-    for(const scenario of ['missing','bad-status','unsafe-url','bad-binding','bad-g-date']){
+    for(const scenario of ['missing','bad-status','unsafe-url','bad-binding','bad-g-date','bad-h-date']){
       const fail=await browser.newPage(), bad=structuredClone(payload);
       if(scenario==='bad-status') bad.records[0].access.colors.W.status='invented';
       if(scenario==='unsafe-url') bad.records.find(r=>r.kind==='access').access.colors.W.findUrl='https://scryfall.com@evil.example/';
       if(scenario==='bad-binding') bad.sourceBindings[0].path='docs/mechanics-research/tampered.json';
       if(scenario==='bad-g-date') bad.records.find(r=>r.name==='Gift').researchDate='2026-10-28';
+      if(scenario==='bad-h-date') bad.records.find(r=>r.name==='Harmonize').researchDate='2026-10-28';
       await fail.route(assessmentRoute,route=>route.fulfill(scenario==='missing'?{status:404,body:'Missing'}:{contentType:'application/json',body:JSON.stringify(bad)}));
       await fail.goto(url); await fail.waitForFunction(()=>VMX.assessments().status==='unavailable');
       assert.equal(await fail.evaluate(()=>VMX.assessments().records.length),0); assert.equal(await fail.locator('#list .access-strip').count(),0); await fail.close();
     }
     assert.deepEqual(errors,[]);
-    results.push(combinationsOnly ? 'Fuse and Friends forever combination-only strips and detail rows: exact combinations, pinned Mana CI-3 vectors, accessible labels, readable no-font fallback, and no implied monocolor sockets.' : 'All28 E,25 F and5 G mana-symbol paths: actual tokens plus G numeric/colored/colorless/X/hybrid fixtures in assessment/rules/reference, accessible real glyphs, no-font fallback and escaping; 36 exact G selected links, factual trigger/timing regressions and Oct29 dates; C/D/E/F/G/H representative sources, unique combination citations and concise copy; 177 A/B/C/D/E/F/G/H access maps; documented/no-example/joint/colorless/rules cases; exact-example and retained non-card links; atomic malformed fail-soft; search keyboard/mobile; unchanged 2021 84 checks');
+    results.push(combinationsOnly ? 'Fuse and Friends forever combination-only strips and detail rows: exact combinations, pinned Mana CI-3 vectors, accessible labels, readable no-font fallback, and no implied monocolor sockets.' : 'All28 E,25 F,5 G and14 H mana-symbol paths: actual tokens plus G/H numeric/colored/colorless/X/hybrid fixtures in assessment/rules/reference, accessible real glyphs, no-font fallback and escaping; 36 exact G and59 H selected links, full observed H maps and factual trigger/timing regressions and Oct29 dates; C/D/E/F/G/H representative sources, unique combination citations and concise copy; 177 A/B/C/D/E/F/G/H access maps; documented/no-example/joint/colorless/rules cases; exact-example and retained non-card links; atomic malformed fail-soft; search keyboard/mobile; unchanged 2021 84 checks');
   }
   await page.close();
   console.log(JSON.stringify({result:'PASS',checks:results},null,2));

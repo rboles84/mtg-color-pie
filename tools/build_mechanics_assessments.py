@@ -1,4 +1,4 @@
-"""Deterministic access-only projection from the admitted A/B/C/D/E/F/G protocol packets."""
+"""Deterministic access-only projection from the admitted A/B/C/D/E/F/G/H protocol packets."""
 import argparse, hashlib, json
 from pathlib import Path
 from urllib.parse import quote, urlsplit

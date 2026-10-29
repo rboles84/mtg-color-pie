@@ -1,0 +1,26 @@
+[
+  {
+    "url": "https://api.scryfall.com/cards/search?q=fo%3Aheal+include%3Aextras&unique=cards",
+    "final_url": "https://api.scryfall.com/cards/search?q=fo%3Aheal+include%3Aextras&unique=cards",
+    "retrieved_at_utc": "2026-10-29T17:14:35.836886+00:00",
+    "http_status": 200,
+    "sha256": "72d335ce689c0a0d3a578da48e8c536f4a15ab458cea5965fd913ceeba3d2335",
+    "path": "docs/mechanics-research/h-protocol-evidence/heal-fulloracle-followup-1.json"
+  },
+  {
+    "url": "https://magic.wizards.com/en/news/mtg-arena/mtg-arena-announcements-april-29-2024",
+    "final_url": "https://magic.wizards.com/en/news/mtg-arena/mtg-arena-announcements-april-29-2024",
+    "retrieved_at_utc": "2026-10-29T17:14:36.947768+00:00",
+    "http_status": 200,
+    "sha256": "fefc8cba51485e29843c2b16d31d985831491e955eb7038591793920cd0471d3",
+    "path": "docs/mechanics-research/h-protocol-evidence/heist-original.html"
+  },
+  {
+    "url": "https://media.wizards.com/2026/downloads/MagicCompRules%2020260925.txt",
+    "final_url": "https://media.wizards.com/2026/downloads/MagicCompRules%2020260925.txt",
+    "retrieved_at_utc": "2026-10-29T17:14:37.577286+00:00",
+    "http_status": 200,
+    "sha256": "8d860e451f20f38865b725b42d82feb714c725373dd8f3b32b8652b3eeb070ca",
+    "path": "docs/mechanics-research/h-protocol-evidence/rules-20260925.txt"
+  }
+]

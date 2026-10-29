@@ -67,7 +67,7 @@
     },
     {
       "path": "docs/mechanics-research/h-protocol.json",
-      "sha256": "a8ba511e0b6b55023cca129808680eb5ac61181fc1e322cad3fdbcc855ec8a7b"
+      "sha256": "1fc1f9835dd5f8883072f62342b743d48671f203ce5d66c361af56f5986538fd"
     }
   ],
   "records": [
@@ -37712,37 +37712,37 @@
       "kind": "access",
       "researchDate": "2026-10-29",
       "scopeLabel": "Released paper cards",
-      "scope": "Halflingcycling is a typecycling ability that discards its source card to search for a Halfling card.",
-      "summary": "Halflingcycling is a typecycling ability that discards its source card to search for a Halfling card.",
+      "scope": "Halflingcycling is typecycling: pay its cost and discard the card to search your library for a Halfling card, reveal it, put it into your hand, then shuffle.",
+      "summary": "Halflingcycling is typecycling: pay its cost and discard the card to search your library for a Halfling card, reveal it, put it into your hand, then shuffle.",
       "access": {
         "colors": {
           "W": {
             "status": "not_found",
-            "note": "No selected independent example in the reviewed scope.",
+            "note": "No example found in the reviewed scope.",
             "cards": [],
             "findUrl": null
           },
           "U": {
             "status": "not_found",
-            "note": "No selected independent example in the reviewed scope.",
+            "note": "No example found in the reviewed scope.",
             "cards": [],
             "findUrl": null
           },
           "B": {
             "status": "not_found",
-            "note": "No selected independent example in the reviewed scope.",
+            "note": "No example found in the reviewed scope.",
             "cards": [],
             "findUrl": null
           },
           "R": {
             "status": "not_found",
-            "note": "No selected independent example in the reviewed scope.",
+            "note": "No example found in the reviewed scope.",
             "cards": [],
             "findUrl": null
           },
           "G": {
             "status": "not_found",
-            "note": "No selected independent example in the reviewed scope.",
+            "note": "No example found in the reviewed scope.",
             "cards": [],
             "findUrl": null
           }
@@ -37750,7 +37750,7 @@
         "combinations": [],
         "colorless": {
           "status": "documented",
-          "note": "Hobbit Hole: {T}, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle.",
+          "note": "Hobbit Hole has halflingcycling {4}; the land itself is colorless.",
           "cards": [
             {
               "name": "Hobbit Hole",
@@ -37776,19 +37776,19 @@
       "kind": "access",
       "researchDate": "2026-10-29",
       "scopeLabel": "Released paper cards",
-      "scope": "Harmonize lets its card be cast from its owner’s graveyard for its harmonize cost, with a creature tap reducing that cost by its power.",
-      "summary": "Harmonize lets its card be cast from its owner’s graveyard for its harmonize cost, with a creature tap reducing that cost by its power.",
+      "scope": "Harmonize lets you cast a card from your graveyard for its alternative cost. You may tap one untapped creature you control to reduce the total cost by generic mana equal to its power. A spell cast this way is exiled when it leaves the stack.",
+      "summary": "Harmonize lets you cast a card from your graveyard for its alternative cost. You may tap one untapped creature you control to reduce the total cost by generic mana equal to its power. A spell cast this way is exiled when it leaves the stack.",
       "access": {
         "colors": {
           "W": {
             "status": "not_found",
-            "note": "No selected independent example in the reviewed scope.",
+            "note": "No example found in the reviewed scope.",
             "cards": [],
             "findUrl": null
           },
           "U": {
             "status": "documented",
-            "note": "Unending Whisper: Draw a card.",
+            "note": "Unending Whisper draws a card and has harmonize {5}{U}.",
             "cards": [
               {
                 "name": "Unending Whisper",
@@ -37799,13 +37799,13 @@
           },
           "B": {
             "status": "not_found",
-            "note": "No selected independent example in the reviewed scope.",
+            "note": "No example found in the reviewed scope.",
             "cards": [],
             "findUrl": null
           },
           "R": {
             "status": "documented",
-            "note": "Channeled Dragonfire: Channeled Dragonfire deals 2 damage to any target.",
+            "note": "Channeled Dragonfire deals 2 damage to any target and has harmonize {5}{R}{R}.",
             "cards": [
               {
                 "name": "Channeled Dragonfire",
@@ -37816,7 +37816,7 @@
           },
           "G": {
             "status": "documented",
-            "note": "Nature's Rhythm: Search your library for a creature card with mana value X or less, put it onto the battlefield, then shuffle.",
+            "note": "Nature's Rhythm searches for a creature with mana value X or less and puts it onto the battlefield; its harmonize cost is {X}{G}{G}{G}{G}.",
             "cards": [
               {
                 "name": "Nature's Rhythm",
@@ -37832,7 +37832,7 @@
               "U",
               "R"
             ],
-            "note": "Glacial Dragonhunt: Draw a card, then you may discard a card. When you discard a nonland card this way, Glacial Dragonhunt deals 3 damage to target creature.",
+            "note": "Glacial Dragonhunt draws then optionally discards; discarding a nonland card this way triggers 3 damage to a target creature. Its harmonize cost is {4}{U}{R}.",
             "cards": [
               {
                 "name": "Glacial Dragonhunt",
@@ -37847,7 +37847,7 @@
               "R",
               "G"
             ],
-            "note": "Mammoth Bellow: Create a 5/5 green Elephant creature token.",
+            "note": "Mammoth Bellow creates a 5/5 green Elephant and has harmonize {5}{G}{U}{R}; its source is blue-red-green despite the green token.",
             "cards": [
               {
                 "name": "Mammoth Bellow",
@@ -37859,7 +37859,7 @@
         ],
         "colorless": {
           "status": "not_found",
-          "note": "No selected colorless example in the reviewed scope.",
+          "note": "No colorless example found in the reviewed scope.",
           "cards": [],
           "findUrl": null
         },
@@ -37896,13 +37896,13 @@
       "kind": "access",
       "researchDate": "2026-10-29",
       "scopeLabel": "Released paper cards",
-      "scope": "Harness is an activated action on its source card that makes that card’s ∞ ability active.",
-      "summary": "Harness is an activated action on its source card that makes that card’s ∞ ability active.",
+      "scope": "Harness makes a permanent harnessed if it is not already. That designation lasts until it leaves the battlefield and can be checked by other abilities; the selected Stones use it to enable their infinity-marked abilities.",
+      "summary": "Harness makes a permanent harnessed if it is not already. That designation lasts until it leaves the battlefield and can be checked by other abilities; the selected Stones use it to enable their infinity-marked abilities.",
       "access": {
         "colors": {
           "W": {
             "status": "documented",
-            "note": "The Mind Stone: Indestructible",
+            "note": "The Mind Stone pays {5}{W} and taps to become harnessed. While harnessed, at the beginning of your end step it exiles up to one other target nonland permanent you control, then returns that card. The Stone is white.",
             "cards": [
               {
                 "name": "The Mind Stone",
@@ -37913,13 +37913,13 @@
           },
           "U": {
             "status": "not_found",
-            "note": "No selected independent example in the reviewed scope.",
+            "note": "No example found in the reviewed scope.",
             "cards": [],
             "findUrl": null
           },
           "B": {
             "status": "documented",
-            "note": "The Soul Stone: Indestructible",
+            "note": "The Soul Stone pays {6}{B}, taps, and exiles a creature you control to become harnessed. While harnessed, at the beginning of your upkeep it returns a target creature card from your graveyard to the battlefield. The Stone is black.",
             "cards": [
               {
                 "name": "The Soul Stone",
@@ -37930,13 +37930,13 @@
           },
           "R": {
             "status": "not_found",
-            "note": "No selected independent example in the reviewed scope.",
+            "note": "No example found in the reviewed scope.",
             "cards": [],
             "findUrl": null
           },
           "G": {
             "status": "not_found",
-            "note": "No selected independent example in the reviewed scope.",
+            "note": "No example found in the reviewed scope.",
             "cards": [],
             "findUrl": null
           }
@@ -37944,11 +37944,13 @@
         "combinations": [],
         "colorless": {
           "status": "not_found",
-          "note": "No selected colorless example in the reviewed scope.",
+          "note": "No colorless example found in the reviewed scope.",
           "cards": [],
           "findUrl": null
         },
-        "limitations": []
+        "limitations": [
+          "The Mind Stone and The Soul Stone have actual white and black colors. Harnessed Lightning and Harness Infinity are name matches and do not harness anything."
+        ]
       },
       "citationCards": [
         {
@@ -37969,13 +37971,13 @@
       "kind": "access",
       "researchDate": "2026-10-29",
       "scopeLabel": "Released paper cards",
-      "scope": "Haunt exiles the spell or creature card haunting a target creature after its stated zone change, then its linked effect can trigger when that creature dies.",
-      "summary": "Haunt exiles the spell or creature card haunting a target creature after its stated zone change, then its linked effect can trigger when that creature dies.",
+      "scope": "Haunt triggers when its permanent goes to the graveyard from the battlefield, or its instant or sorcery goes there during resolution. The trigger exiles that card haunting a target creature; linked abilities can trigger when the haunted creature dies.",
+      "summary": "Haunt triggers when its permanent goes to the graveyard from the battlefield, or its instant or sorcery goes there during resolution. The trigger exiles that card haunting a target creature; linked abilities can trigger when the haunted creature dies.",
       "access": {
         "colors": {
           "W": {
             "status": "documented",
-            "note": "Absolver Thrull: Haunt (When this creature dies, exile it haunting target creature.)",
+            "note": "Absolver Thrull destroys a target enchantment when it enters and when the creature it haunts dies.",
             "cards": [
               {
                 "name": "Absolver Thrull",
@@ -37986,13 +37988,13 @@
           },
           "U": {
             "status": "not_found",
-            "note": "No selected independent example in the reviewed scope.",
+            "note": "No example found in the reviewed scope.",
             "cards": [],
             "findUrl": null
           },
           "B": {
             "status": "documented",
-            "note": "Cry of Contrition: Target player discards a card.",
+            "note": "Cry of Contrition makes a target player discard on resolution and again when the creature it haunts dies.",
             "cards": [
               {
                 "name": "Cry of Contrition",
@@ -38003,13 +38005,13 @@
           },
           "R": {
             "status": "not_found",
-            "note": "No selected independent example in the reviewed scope.",
+            "note": "No example found in the reviewed scope.",
             "cards": [],
             "findUrl": null
           },
           "G": {
             "status": "not_found",
-            "note": "No selected independent example in the reviewed scope.",
+            "note": "No example found in the reviewed scope.",
             "cards": [],
             "findUrl": null
           }
@@ -38020,7 +38022,7 @@
               "W",
               "B"
             ],
-            "note": "Blind Hunter: Flying",
+            "note": "Blind Hunter makes a target player lose 2 life and gains you 2 life when it enters and when the creature it haunts dies.",
             "cards": [
               {
                 "name": "Blind Hunter",
@@ -38032,7 +38034,7 @@
         ],
         "colorless": {
           "status": "not_found",
-          "note": "No selected colorless example in the reviewed scope.",
+          "note": "No colorless example found in the reviewed scope.",
           "cards": [],
           "findUrl": null
         },
@@ -38061,54 +38063,59 @@
       "kind": "access",
       "researchDate": "2026-10-29",
       "scopeLabel": "Released paper cards",
-      "scope": "Heal is a direct card-text action that removes damage already dealt, rather than a general rules keyword.",
-      "summary": "Heal is a direct card-text action that removes damage already dealt, rather than a general rules keyword.",
+      "scope": "Heal is a keyword action that removes marked damage from a permanent. Regeneration heals damage when it replaces destruction, rather than when you activate a regeneration ability.",
+      "summary": "Heal is a keyword action that removes marked damage from a permanent. Regeneration heals damage when it replaces destruction, rather than when you activate a regeneration ability.",
       "access": {
         "colors": {
           "W": {
             "status": "documented",
-            "note": "Dr. McCoy, Surly Surgeon: When Dr. McCoy enters, put a +1/+1 counter on another target creature you control.",
+            "note": "Knight of the Holy Nimbus automatically regenerates instead of being destroyed; an opponent can pay {2} to stop its regeneration that turn.",
             "cards": [
               {
-                "name": "Dr. McCoy, Surly Surgeon",
-                "url": "https://scryfall.com/card/trk/14/dr-mccoy-surly-surgeon?utm_source=api"
+                "name": "Knight of the Holy Nimbus",
+                "url": "https://scryfall.com/card/tsr/23/knight-of-the-holy-nimbus?utm_source=api"
               }
             ],
-            "findUrl": "https://scryfall.com/search?q=%28%21%22Dr.%20McCoy%2C%20Surly%20Surgeon%22%29%20include%3Aextras"
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Knight%20of%20the%20Holy%20Nimbus%22%29%20include%3Aextras"
           },
           "U": {
             "status": "not_found",
-            "note": "No selected independent example in the reviewed scope.",
+            "note": "No example found in the reviewed scope.",
             "cards": [],
             "findUrl": null
           },
           "B": {
-            "status": "not_found",
-            "note": "No selected independent example in the reviewed scope.",
-            "cards": [],
-            "findUrl": null
+            "status": "documented",
+            "note": "Drudge Skeletons regenerates for {B}.",
+            "cards": [
+              {
+                "name": "Drudge Skeletons",
+                "url": "https://scryfall.com/card/gvl/36/drudge-skeletons?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Drudge%20Skeletons%22%29%20include%3Aextras"
           },
           "R": {
-            "status": "multicolor_only",
-            "note": "Selected combination evidence only; it does not establish independent monocolor access.",
+            "status": "documented",
+            "note": "Crimson Muckwader regenerates for {2}{B}. The source is red despite the black activation cost.",
             "cards": [
               {
-                "name": "Wolverine, Fierce Fighter",
-                "url": "https://scryfall.com/card/msh/240/wolverine-fierce-fighter?utm_source=api"
+                "name": "Crimson Muckwader",
+                "url": "https://scryfall.com/card/m13/127/crimson-muckwader?utm_source=api"
               }
             ],
-            "findUrl": "https://scryfall.com/search?q=%28%21%22Wolverine%2C%20Fierce%20Fighter%22%29%20include%3Aextras"
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Crimson%20Muckwader%22%29%20include%3Aextras"
           },
           "G": {
-            "status": "multicolor_only",
-            "note": "Selected combination evidence only; it does not establish independent monocolor access.",
+            "status": "documented",
+            "note": "Ancient Silverback regenerates for {G}.",
             "cards": [
               {
-                "name": "Wolverine, Fierce Fighter",
-                "url": "https://scryfall.com/card/msh/240/wolverine-fierce-fighter?utm_source=api"
+                "name": "Ancient Silverback",
+                "url": "https://scryfall.com/card/m15/168/ancient-silverback?utm_source=api"
               }
             ],
-            "findUrl": "https://scryfall.com/search?q=%28%21%22Wolverine%2C%20Fierce%20Fighter%22%29%20include%3Aextras"
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Ancient%20Silverback%22%29%20include%3Aextras"
           }
         },
         "combinations": [
@@ -38117,7 +38124,7 @@
               "R",
               "G"
             ],
-            "note": "Wolverine, Fierce Fighter: Haste",
+            "note": "Wolverine, Fierce Fighter takes incoming damage but heals all other damage already dealt to him as part of the same replacement effect.",
             "cards": [
               {
                 "name": "Wolverine, Fierce Fighter",
@@ -38125,24 +38132,67 @@
               }
             ],
             "findUrl": "https://scryfall.com/search?q=%28%21%22Wolverine%2C%20Fierce%20Fighter%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "B",
+              "R"
+            ],
+            "note": "Gobhobbler Rats gains a {B} regeneration ability while your hand is empty.",
+            "cards": [
+              {
+                "name": "Gobhobbler Rats",
+                "url": "https://scryfall.com/card/rvr/185/gobhobbler-rats?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Gobhobbler%20Rats%22%29%20include%3Aextras"
           }
         ],
         "colorless": {
-          "status": "not_found",
-          "note": "No selected colorless example in the reviewed scope.",
-          "cards": [],
-          "findUrl": null
+          "status": "documented",
+          "note": "Patchwork Gnomes regenerates by discarding a card; the artifact source is colorless.",
+          "cards": [
+            {
+              "name": "Patchwork Gnomes",
+              "url": "https://scryfall.com/card/mh2/299/patchwork-gnomes?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22Patchwork%20Gnomes%22%29%20include%3Aextras"
         },
-        "limitations": []
+        "limitations": [
+          "The regeneration examples have explicit healing in their reminder text, supported by rules 701.19 and 701.69. Activated regeneration creates a shield for the next destruction that turn; static regeneration replaces destruction directly.",
+          "Time Stop mentions healing as part of ending the turn and cleanup, rather than a separate direct healing instruction; it is not selected as blue access. Names such as Healing Technique and healing flavor labels do not qualify.",
+          "Dr. McCoy, Surly Surgeon is excluded from released-paper access because its saved release date is November 13, 2026, after this review date."
+        ]
       },
       "citationCards": [
         {
-          "name": "Dr. McCoy, Surly Surgeon",
-          "url": "https://scryfall.com/card/trk/14/dr-mccoy-surly-surgeon?utm_source=api"
+          "name": "Knight of the Holy Nimbus",
+          "url": "https://scryfall.com/card/tsr/23/knight-of-the-holy-nimbus?utm_source=api"
         },
         {
           "name": "Wolverine, Fierce Fighter",
           "url": "https://scryfall.com/card/msh/240/wolverine-fierce-fighter?utm_source=api"
+        },
+        {
+          "name": "Drudge Skeletons",
+          "url": "https://scryfall.com/card/gvl/36/drudge-skeletons?utm_source=api"
+        },
+        {
+          "name": "Crimson Muckwader",
+          "url": "https://scryfall.com/card/m13/127/crimson-muckwader?utm_source=api"
+        },
+        {
+          "name": "Ancient Silverback",
+          "url": "https://scryfall.com/card/m15/168/ancient-silverback?utm_source=api"
+        },
+        {
+          "name": "Gobhobbler Rats",
+          "url": "https://scryfall.com/card/rvr/185/gobhobbler-rats?utm_source=api"
+        },
+        {
+          "name": "Patchwork Gnomes",
+          "url": "https://scryfall.com/card/mh2/299/patchwork-gnomes?utm_source=api"
         }
       ],
       "sources": [],
@@ -38154,19 +38204,19 @@
       "kind": "access",
       "researchDate": "2026-10-29",
       "scopeLabel": "Digital / Alchemy material",
-      "scope": "Heist targets an opponent’s library, exiles cards from it, and lets its controller play those cards under the card’s stated permission.",
-      "summary": "Heist targets an opponent’s library, exiles cards from it, and lets its controller play those cards under the card’s stated permission.",
+      "scope": "In Alchemy, heist looks at three random nonland cards in a target opponent's library and exiles one face down. You may cast it for as long as it remains exiled, spending mana of any type to cast it.",
+      "summary": "In Alchemy, heist looks at three random nonland cards in a target opponent's library and exiles one face down. You may cast it for as long as it remains exiled, spending mana of any type to cast it.",
       "access": {
         "colors": {
           "W": {
             "status": "not_found",
-            "note": "No selected independent example in the reviewed scope.",
+            "note": "No example found in the reviewed scope.",
             "cards": [],
             "findUrl": null
           },
           "U": {
             "status": "documented",
-            "note": "Thieving Aven: Flying",
+            "note": "Thieving Aven heists a target opponent's library whenever it deals combat damage to a player.",
             "cards": [
               {
                 "name": "Thieving Aven",
@@ -38177,7 +38227,7 @@
           },
           "B": {
             "status": "documented",
-            "note": "Grave Expectations: Choose one —",
+            "note": "Grave Expectations offers heist as one of its two modes.",
             "cards": [
               {
                 "name": "Grave Expectations",
@@ -38188,7 +38238,7 @@
           },
           "R": {
             "status": "documented",
-            "note": "Impetuous Lootmonger: First strike",
+            "note": "Impetuous Lootmonger makes you discard a card, then heists a target opponent's library when it enters.",
             "cards": [
               {
                 "name": "Impetuous Lootmonger",
@@ -38199,7 +38249,7 @@
           },
           "G": {
             "status": "not_found",
-            "note": "No selected independent example in the reviewed scope.",
+            "note": "No example found in the reviewed scope.",
             "cards": [],
             "findUrl": null
           }
@@ -38210,7 +38260,7 @@
               "B",
               "R"
             ],
-            "note": "Grenzo, Crooked Jailer: When Grenzo enters and at the beginning of your upkeep, heist target opponent's library.",
+            "note": "Grenzo, Crooked Jailer heists a target opponent's library when he enters and at the beginning of your upkeep.",
             "cards": [
               {
                 "name": "Grenzo, Crooked Jailer",
@@ -38224,7 +38274,7 @@
               "U",
               "B"
             ],
-            "note": "Weave the Nightmare: Choose one. If you control a nonland permanent you don't own as you cast this spell, you may choose two instead.",
+            "note": "Weave the Nightmare offers heist as a mode; it lets you choose two modes if you control a nonland permanent you do not own as you cast it.",
             "cards": [
               {
                 "name": "Weave the Nightmare",
@@ -38232,15 +38282,32 @@
               }
             ],
             "findUrl": "https://scryfall.com/search?q=%28%21%22Weave%20the%20Nightmare%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "U",
+              "B",
+              "R"
+            ],
+            "note": "Triumphant Getaway heists a target opponent's library twice when it enters.",
+            "cards": [
+              {
+                "name": "Triumphant Getaway",
+                "url": "https://scryfall.com/card/yotj/27/triumphant-getaway?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Triumphant%20Getaway%22%29%20include%3Aextras"
           }
         ],
         "colorless": {
           "status": "not_found",
-          "note": "No selected colorless example in the reviewed scope.",
+          "note": "No colorless example found in the reviewed scope.",
           "cards": [],
           "findUrl": null
         },
-        "limitations": []
+        "limitations": [
+          "These examples are digital Alchemy cards, separate from ordinary-paper color access."
+        ]
       },
       "citationCards": [
         {
@@ -38262,9 +38329,18 @@
         {
           "name": "Weave the Nightmare",
           "url": "https://scryfall.com/card/yotj/29/weave-the-nightmare?utm_source=api"
+        },
+        {
+          "name": "Triumphant Getaway",
+          "url": "https://scryfall.com/card/yotj/27/triumphant-getaway?utm_source=api"
         }
       ],
-      "sources": [],
+      "sources": [
+        {
+          "title": "MTG Arena Announcements – April 29, 2024",
+          "url": "https://magic.wizards.com/en/news/mtg-arena/mtg-arena-announcements-april-29-2024"
+        }
+      ],
       "relatedEffects": []
     },
     {
@@ -38273,25 +38349,25 @@
       "kind": "access",
       "researchDate": "2026-10-29",
       "scopeLabel": "Released paper cards",
-      "scope": "Hellbent labels abilities that apply while their controller has no cards in hand.",
-      "summary": "Hellbent labels abilities that apply while their controller has no cards in hand.",
+      "scope": "Hellbent is an ability word for effects or abilities that depend on you having no cards in hand.",
+      "summary": "Hellbent is an ability word for effects or abilities that depend on you having no cards in hand.",
       "access": {
         "colors": {
           "W": {
             "status": "not_found",
-            "note": "No selected independent example in the reviewed scope.",
+            "note": "No example found in the reviewed scope.",
             "cards": [],
             "findUrl": null
           },
           "U": {
             "status": "not_found",
-            "note": "No selected independent example in the reviewed scope.",
+            "note": "No example found in the reviewed scope.",
             "cards": [],
             "findUrl": null
           },
           "B": {
             "status": "documented",
-            "note": "Infernal Tutor: Reveal a card from your hand. Search your library for a card with the same name as that card, reveal it, put it into your hand, then shuffle.",
+            "note": "With an empty hand, Infernal Tutor searches for any card instead of matching a card revealed from your hand.",
             "cards": [
               {
                 "name": "Infernal Tutor",
@@ -38302,7 +38378,7 @@
           },
           "R": {
             "status": "documented",
-            "note": "Cackling Flames: Cackling Flames deals 3 damage to any target.",
+            "note": "With an empty hand, Cackling Flames deals 5 damage to any target instead of its usual 3.",
             "cards": [
               {
                 "name": "Cackling Flames",
@@ -38313,7 +38389,7 @@
           },
           "G": {
             "status": "not_found",
-            "note": "No selected independent example in the reviewed scope.",
+            "note": "No example found in the reviewed scope.",
             "cards": [],
             "findUrl": null
           }
@@ -38324,7 +38400,7 @@
               "B",
               "R"
             ],
-            "note": "Anthem of Rakdos: Whenever a creature you control attacks, it gets +2/+0 until end of turn and this enchantment deals 1 damage to you.",
+            "note": "Anthem of Rakdos doubles damage your sources would deal to permanents or players while your hand is empty.",
             "cards": [
               {
                 "name": "Anthem of Rakdos",
@@ -38335,10 +38411,15 @@
           }
         ],
         "colorless": {
-          "status": "not_found",
-          "note": "No selected colorless example in the reviewed scope.",
-          "cards": [],
-          "findUrl": null
+          "status": "documented",
+          "note": "Keldon Megaliths has a {1}{R}, {T} damage ability that can be activated only with an empty hand. The land is colorless despite producing red mana.",
+          "cards": [
+            {
+              "name": "Keldon Megaliths",
+              "url": "https://scryfall.com/card/jvc/58/keldon-megaliths?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22Keldon%20Megaliths%22%29%20include%3Aextras"
         },
         "limitations": []
       },
@@ -38354,6 +38435,10 @@
         {
           "name": "Anthem of Rakdos",
           "url": "https://scryfall.com/card/dis/102/anthem-of-rakdos?utm_source=api"
+        },
+        {
+          "name": "Keldon Megaliths",
+          "url": "https://scryfall.com/card/jvc/58/keldon-megaliths?utm_source=api"
         }
       ],
       "sources": [],
@@ -38365,37 +38450,37 @@
       "kind": "access",
       "researchDate": "2026-10-29",
       "scopeLabel": "Face the Hydra / Challenge Deck material",
-      "scope": "Hero's Reward is the card-specific label on Face the Hydra material; each card supplies its own stated leave-the-battlefield effect.",
-      "summary": "Hero's Reward is the card-specific label on Face the Hydra material; each card supplies its own stated leave-the-battlefield effect.",
+      "scope": "Hero's Reward is a card-specific label used in Face the Hydra; each card supplies its own effect.",
+      "summary": "Hero's Reward is a card-specific label used in Face the Hydra; each card supplies its own effect.",
       "access": {
         "colors": {
           "W": {
             "status": "not_found",
-            "note": "No selected independent example in the reviewed scope.",
+            "note": "No example found in the reviewed scope.",
             "cards": [],
             "findUrl": null
           },
           "U": {
             "status": "not_found",
-            "note": "No selected independent example in the reviewed scope.",
+            "note": "No example found in the reviewed scope.",
             "cards": [],
             "findUrl": null
           },
           "B": {
             "status": "not_found",
-            "note": "No selected independent example in the reviewed scope.",
+            "note": "No example found in the reviewed scope.",
             "cards": [],
             "findUrl": null
           },
           "R": {
             "status": "not_found",
-            "note": "No selected independent example in the reviewed scope.",
+            "note": "No example found in the reviewed scope.",
             "cards": [],
             "findUrl": null
           },
           "G": {
             "status": "not_found",
-            "note": "No selected independent example in the reviewed scope.",
+            "note": "No example found in the reviewed scope.",
             "cards": [],
             "findUrl": null
           }
@@ -38403,7 +38488,7 @@
         "combinations": [],
         "colorless": {
           "status": "documented",
-          "note": "Hydra Head is a colorless Face the Hydra card whose Hero's Reward says that when it leaves the battlefield, each player gains 2 life.",
+          "note": "Hydra Head's Hero's Reward makes each player gain 2 life when it leaves the battlefield. This example belongs to the colorless Face the Hydra Challenge Deck.",
           "cards": [
             {
               "name": "Hydra Head",
@@ -38413,7 +38498,7 @@
           "findUrl": "https://scryfall.com/search?q=%28%21%22Hydra%20Head%22%29%20include%3Aextras"
         },
         "limitations": [
-          "The inherited source remains Hydra-specific and definitionVerified=false; this colorless witness does not define a universal Hero’s Reward trigger."
+          "The archived Wizards discussion describes Face the Hydra. This colorless example does not establish a universal Hero's Reward trigger for every Challenge Deck card."
         ]
       },
       "citationCards": [
@@ -38431,13 +38516,13 @@
       "kind": "access",
       "researchDate": "2026-10-29",
       "scopeLabel": "Released paper cards",
-      "scope": "Heroic abilities trigger whenever their creature’s controller casts a spell that targets that creature.",
-      "summary": "Heroic abilities trigger whenever their creature’s controller casts a spell that targets that creature.",
+      "scope": "Heroic is an ability word for triggers caused by you casting a spell that targets the creature with the ability.",
+      "summary": "Heroic is an ability word for triggers caused by you casting a spell that targets the creature with the ability.",
       "access": {
         "colors": {
           "W": {
             "status": "documented",
-            "note": "Favored Hoplite: Heroic — Whenever you cast a spell that targets this creature, put a +1/+1 counter on this creature and prevent all damage that would be dealt to it this turn.",
+            "note": "Favored Hoplite receives a +1/+1 counter and prevents all damage to itself that turn from its heroic trigger.",
             "cards": [
               {
                 "name": "Favored Hoplite",
@@ -38448,7 +38533,7 @@
           },
           "U": {
             "status": "documented",
-            "note": "Artisan of Forms: Heroic — Whenever you cast a spell that targets this creature, you may have this creature become a copy of target creature, except it has this ability.",
+            "note": "Artisan of Forms may become a copy of a target creature from its heroic trigger, retaining that ability.",
             "cards": [
               {
                 "name": "Artisan of Forms",
@@ -38459,7 +38544,7 @@
           },
           "B": {
             "status": "documented",
-            "note": "Agent of the Fates: Deathtouch",
+            "note": "Agent of the Fates makes each opponent sacrifice a creature of their choice from its heroic trigger.",
             "cards": [
               {
                 "name": "Agent of the Fates",
@@ -38470,7 +38555,7 @@
           },
           "R": {
             "status": "documented",
-            "note": "Akroan Crusader: Heroic — Whenever you cast a spell that targets this creature, create a 1/1 red Soldier creature token with haste. (It can attack and {T} as soon as it comes under your control.)",
+            "note": "Akroan Crusader creates a 1/1 red Soldier with haste from its heroic trigger.",
             "cards": [
               {
                 "name": "Akroan Crusader",
@@ -38481,7 +38566,7 @@
           },
           "G": {
             "status": "documented",
-            "note": "Centaur Battlemaster: Heroic — Whenever you cast a spell that targets this creature, put three +1/+1 counters on this creature.",
+            "note": "Centaur Battlemaster receives three +1/+1 counters from its heroic trigger.",
             "cards": [
               {
                 "name": "Centaur Battlemaster",
@@ -38491,14 +38576,45 @@
             "findUrl": "https://scryfall.com/search?q=%28%21%22Centaur%20Battlemaster%22%29%20include%3Aextras"
           }
         },
-        "combinations": [],
+        "combinations": [
+          {
+            "colors": [
+              "W",
+              "U"
+            ],
+            "note": "Battlewise Hoplite receives a +1/+1 counter, then scries 1 from its heroic trigger.",
+            "cards": [
+              {
+                "name": "Battlewise Hoplite",
+                "url": "https://scryfall.com/card/ths/189/battlewise-hoplite?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Battlewise%20Hoplite%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "R"
+            ],
+            "note": "Anax and Cymede give creatures you control +1/+1 and trample until end of turn from their heroic trigger.",
+            "cards": [
+              {
+                "name": "Anax and Cymede",
+                "url": "https://scryfall.com/card/ths/186/anax-and-cymede?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Anax%20and%20Cymede%22%29%20include%3Aextras"
+          }
+        ],
         "colorless": {
           "status": "not_found",
-          "note": "No selected colorless example in the reviewed scope.",
+          "note": "No colorless example found in the reviewed scope.",
           "cards": [],
           "findUrl": null
         },
-        "limitations": []
+        "limitations": [
+          "Mystery Booster 2 playtest cards are outside this paper-card scope."
+        ]
       },
       "citationCards": [
         {
@@ -38520,6 +38636,14 @@
         {
           "name": "Centaur Battlemaster",
           "url": "https://scryfall.com/card/2x2/140/centaur-battlemaster?utm_source=api"
+        },
+        {
+          "name": "Battlewise Hoplite",
+          "url": "https://scryfall.com/card/ths/189/battlewise-hoplite?utm_source=api"
+        },
+        {
+          "name": "Anax and Cymede",
+          "url": "https://scryfall.com/card/ths/186/anax-and-cymede?utm_source=api"
         }
       ],
       "sources": [],
@@ -38531,13 +38655,13 @@
       "kind": "access",
       "researchDate": "2026-10-29",
       "scopeLabel": "Released paper cards",
-      "scope": "Hexproof from limits targeting by the stated quality of spells and abilities an opponent controls.",
-      "summary": "Hexproof from limits targeting by the stated quality of spells and abilities an opponent controls.",
+      "scope": "Hexproof from a stated quality prevents opponents from targeting the permanent with spells of that quality or abilities from sources of that quality. A grant is attributed to the source card, and multicolor sources stay separate combinations.",
+      "summary": "Hexproof from a stated quality prevents opponents from targeting the permanent with spells of that quality or abilities from sources of that quality. A grant is attributed to the source card, and multicolor sources stay separate combinations.",
       "access": {
         "colors": {
           "W": {
             "status": "documented",
-            "note": "Knight of Grace: First strike (This creature deals combat damage before creatures without first strike.)",
+            "note": "Knight of Grace has hexproof from black.",
             "cards": [
               {
                 "name": "Knight of Grace",
@@ -38548,7 +38672,7 @@
           },
           "U": {
             "status": "documented",
-            "note": "Mondo Gecko: {1}, Discard a card: Until end of turn, Mondo Gecko becomes the color of your choice and gains hexproof from that color.",
+            "note": "Mondo Gecko pays {1} and discards a card to become a chosen color and gain hexproof from that color until end of turn.",
             "cards": [
               {
                 "name": "Mondo Gecko",
@@ -38559,7 +38683,7 @@
           },
           "B": {
             "status": "documented",
-            "note": "Knight of Malice: First strike (This creature deals combat damage before creatures without first strike.)",
+            "note": "Knight of Malice has hexproof from white.",
             "cards": [
               {
                 "name": "Knight of Malice",
@@ -38570,18 +38694,22 @@
           },
           "R": {
             "status": "multicolor_only",
-            "note": "Selected combination evidence only; it does not establish independent monocolor access.",
+            "note": "See the separately documented combinations; these do not establish monocolor access.",
             "cards": [
               {
                 "name": "General Ferrous Rokiric",
                 "url": "https://scryfall.com/card/mh2/198/general-ferrous-rokiric?utm_source=api"
+              },
+              {
+                "name": "Sphinx of the Guildpact",
+                "url": "https://scryfall.com/card/2xm/290/sphinx-of-the-guildpact?utm_source=api"
               }
             ],
-            "findUrl": "https://scryfall.com/search?q=%28%21%22General%20Ferrous%20Rokiric%22%29%20include%3Aextras"
+            "findUrl": "https://scryfall.com/search?q=%28%21%22General%20Ferrous%20Rokiric%22%20or%20%21%22Sphinx%20of%20the%20Guildpact%22%29%20include%3Aextras"
           },
           "G": {
             "status": "documented",
-            "note": "Garruk's Harbinger: Hexproof from black",
+            "note": "Garruk's Harbinger has hexproof from black.",
             "cards": [
               {
                 "name": "Garruk's Harbinger",
@@ -38597,7 +38725,7 @@
               "W",
               "R"
             ],
-            "note": "General Ferrous Rokiric: Hexproof from monocolored",
+            "note": "General Ferrous Rokiric has hexproof from monocolored.",
             "cards": [
               {
                 "name": "General Ferrous Rokiric",
@@ -38605,11 +38733,71 @@
               }
             ],
             "findUrl": "https://scryfall.com/search?q=%28%21%22General%20Ferrous%20Rokiric%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "B"
+            ],
+            "note": "Elenda, Saint of Dusk has hexproof from instants.",
+            "cards": [
+              {
+                "name": "Elenda, Saint of Dusk",
+                "url": "https://scryfall.com/card/fdn/119/elenda-saint-of-dusk?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Elenda%2C%20Saint%20of%20Dusk%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "U",
+              "B"
+            ],
+            "note": "Nevinyrral, Urborg Tyrant has hexproof from artifacts, creatures, and enchantments.",
+            "cards": [
+              {
+                "name": "Nevinyrral, Urborg Tyrant",
+                "url": "https://scryfall.com/card/cmr/287/nevinyrral-urborg-tyrant?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Nevinyrral%2C%20Urborg%20Tyrant%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "U",
+              "G"
+            ],
+            "note": "Tam, Mindful First-Year grants each other creature you control hexproof from each of its colors. The source is blue-green regardless of the recipients.",
+            "cards": [
+              {
+                "name": "Tam, Mindful First-Year",
+                "url": "https://scryfall.com/card/ecl/245/tam-mindful-first-year?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Tam%2C%20Mindful%20First-Year%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "U",
+              "B",
+              "R",
+              "G"
+            ],
+            "note": "Sphinx of the Guildpact has hexproof from monocolored and is all five colors by its own characteristic-defining ability, despite its generic mana cost.",
+            "cards": [
+              {
+                "name": "Sphinx of the Guildpact",
+                "url": "https://scryfall.com/card/2xm/290/sphinx-of-the-guildpact?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Sphinx%20of%20the%20Guildpact%22%29%20include%3Aextras"
           }
         ],
         "colorless": {
           "status": "documented",
-          "note": "Dragonfire Blade: Equipped creature gets +2/+2 and has hexproof from monocolored.",
+          "note": "Dragonfire Blade grants the equipped creature +2/+2 and hexproof from monocolored; the grant source is colorless.",
           "cards": [
             {
               "name": "Dragonfire Blade",
@@ -38618,7 +38806,9 @@
           ],
           "findUrl": "https://scryfall.com/search?q=%28%21%22Dragonfire%20Blade%22%29%20include%3Aextras"
         },
-        "limitations": []
+        "limitations": [
+          "Digital Jaheira and Raddic cards and the special Urza's Hot Dog Stand card are outside ordinary-paper access. Sphinx of the Guildpact is all five colors, so it is not a colorless example."
+        ]
       },
       "citationCards": [
         {
@@ -38644,6 +38834,22 @@
         {
           "name": "Dragonfire Blade",
           "url": "https://scryfall.com/card/tdm/240/dragonfire-blade?utm_source=api"
+        },
+        {
+          "name": "Elenda, Saint of Dusk",
+          "url": "https://scryfall.com/card/fdn/119/elenda-saint-of-dusk?utm_source=api"
+        },
+        {
+          "name": "Nevinyrral, Urborg Tyrant",
+          "url": "https://scryfall.com/card/cmr/287/nevinyrral-urborg-tyrant?utm_source=api"
+        },
+        {
+          "name": "Tam, Mindful First-Year",
+          "url": "https://scryfall.com/card/ecl/245/tam-mindful-first-year?utm_source=api"
+        },
+        {
+          "name": "Sphinx of the Guildpact",
+          "url": "https://scryfall.com/card/2xm/290/sphinx-of-the-guildpact?utm_source=api"
         }
       ],
       "sources": [],
@@ -38655,37 +38861,37 @@
       "kind": "access",
       "researchDate": "2026-10-29",
       "scopeLabel": "Conspiracy material",
-      "scope": "Hidden agenda is a Conspiracy ability that begins face down in the command zone with a secretly chosen card name.",
-      "summary": "Hidden agenda is a Conspiracy ability that begins face down in the command zone with a secretly chosen card name.",
+      "scope": "Hidden agenda starts a conspiracy face down in the command zone with a secretly chosen card name. Whenever you have priority, you may turn it face up to reveal the name and apply its effect.",
+      "summary": "Hidden agenda starts a conspiracy face down in the command zone with a secretly chosen card name. Whenever you have priority, you may turn it face up to reveal the name and apply its effect.",
       "access": {
         "colors": {
           "W": {
             "status": "not_found",
-            "note": "No selected independent example in the reviewed scope.",
+            "note": "No example found in the reviewed scope.",
             "cards": [],
             "findUrl": null
           },
           "U": {
             "status": "not_found",
-            "note": "No selected independent example in the reviewed scope.",
+            "note": "No example found in the reviewed scope.",
             "cards": [],
             "findUrl": null
           },
           "B": {
             "status": "not_found",
-            "note": "No selected independent example in the reviewed scope.",
+            "note": "No example found in the reviewed scope.",
             "cards": [],
             "findUrl": null
           },
           "R": {
             "status": "not_found",
-            "note": "No selected independent example in the reviewed scope.",
+            "note": "No example found in the reviewed scope.",
             "cards": [],
             "findUrl": null
           },
           "G": {
             "status": "not_found",
-            "note": "No selected independent example in the reviewed scope.",
+            "note": "No example found in the reviewed scope.",
             "cards": [],
             "findUrl": null
           }
@@ -38693,7 +38899,7 @@
         "combinations": [],
         "colorless": {
           "status": "documented",
-          "note": "Brago's Favor: Hidden agenda (Start the game with this conspiracy face down in the command zone and secretly choose a card name. You may turn this conspiracy face up any time and reveal that name.)",
+          "note": "Brago's Favor reduces the cost of spells you cast with the chosen name by {1}.",
           "cards": [
             {
               "name": "Brago's Favor",
@@ -38719,13 +38925,13 @@
       "kind": "access",
       "researchDate": "2026-10-29",
       "scopeLabel": "Released paper cards",
-      "scope": "Hideaway exiles a card face down from among cards looked at as the permanent enters, with its card supplying the later permission.",
-      "summary": "Hideaway exiles a card face down from among cards looked at as the permanent enters, with its card supplying the later permission.",
+      "scope": "Hideaway triggers when its permanent enters: look at the stated number of cards from the top of your library, exile one face down, and put the rest on the bottom in a random order. Separate card text determines how the exiled card is used.",
+      "summary": "Hideaway triggers when its permanent enters: look at the stated number of cards from the top of your library, exile one face down, and put the rest on the bottom in a random order. Separate card text determines how the exiled card is used.",
       "access": {
         "colors": {
           "W": {
             "status": "documented",
-            "note": "Collector's Cage: Hideaway 5 (When this artifact enters, look at the top five cards of your library, exile one face down, then put the rest on the bottom in a random order.)",
+            "note": "Collector's Cage has hideaway 5. Its {1}, {T} ability puts a +1/+1 counter on a creature you control, then may play the exiled card without paying its mana cost if you control three creatures with different powers.",
             "cards": [
               {
                 "name": "Collector's Cage",
@@ -38736,7 +38942,7 @@
           },
           "U": {
             "status": "documented",
-            "note": "Watcher for Tomorrow: Hideaway 4 (When this creature enters, look at the top four cards of your library, exile one face down, then put the rest on the bottom in a random order.)",
+            "note": "Watcher for Tomorrow has hideaway 4 and enters tapped; when it leaves, the exiled card goes to its owner's hand.",
             "cards": [
               {
                 "name": "Watcher for Tomorrow",
@@ -38747,7 +38953,7 @@
           },
           "B": {
             "status": "documented",
-            "note": "Cemetery Tampering: Hideaway 5 (When this enchantment enters, look at the top five cards of your library, exile one face down, then put the rest on the bottom in a random order.)",
+            "note": "Cemetery Tampering has hideaway 5. At your upkeep, after optionally milling three cards, you may play the exiled card without paying its mana cost if your graveyard holds twenty or more cards.",
             "cards": [
               {
                 "name": "Cemetery Tampering",
@@ -38758,7 +38964,7 @@
           },
           "R": {
             "status": "documented",
-            "note": "Widespread Thieving: Hideaway 5 (When this enchantment enters, look at the top five cards of your library, exile one face down, then put the rest on the bottom in a random order.)",
+            "note": "Widespread Thieving has hideaway 5. Casting a multicolored spell creates a Treasure, then paying {W}{U}{B}{R}{G} lets you play the exiled card without paying its mana cost.",
             "cards": [
               {
                 "name": "Widespread Thieving",
@@ -38769,7 +38975,7 @@
           },
           "G": {
             "status": "documented",
-            "note": "Fight Rigging: Hideaway 5 (When this enchantment enters, look at the top five cards of your library, exile one face down, then put the rest on the bottom in a random order.)",
+            "note": "Fight Rigging has hideaway 5. Its combat trigger puts a +1/+1 counter on a creature you control, then may play the exiled card without paying its mana cost if you control a creature with power 7 or greater.",
             "cards": [
               {
                 "name": "Fight Rigging",
@@ -38782,7 +38988,7 @@
         "combinations": [],
         "colorless": {
           "status": "documented",
-          "note": "Smuggler's Buggy: Hideaway 4 (When this artifact enters, look at the top four cards of your library, exile one face down, then put the rest on the bottom in a random order.)",
+          "note": "Smuggler's Buggy has hideaway 4. Combat damage to a player lets you cast the exiled card without paying its mana cost; if you do, the Buggy returns to its owner's hand.",
           "cards": [
             {
               "name": "Smuggler's Buggy",
@@ -38828,25 +39034,25 @@
       "kind": "access",
       "researchDate": "2026-10-29",
       "scopeLabel": "Card-specific material",
-      "scope": "Hire a Mercenary is Black Market Connections’s named mode, which creates a colorless Shapeshifter Mercenary token.",
-      "summary": "Hire a Mercenary is Black Market Connections’s named mode, which creates a colorless Shapeshifter Mercenary token.",
+      "scope": "Hire a Mercenary is a named mode of Black Market Connections, rather than a general keyword. At the start of your first main phase, that mode creates a 3/2 colorless Shapeshifter creature token with changeling and makes you lose 3 life.",
+      "summary": "Hire a Mercenary is a named mode of Black Market Connections, rather than a general keyword. At the start of your first main phase, that mode creates a 3/2 colorless Shapeshifter creature token with changeling and makes you lose 3 life.",
       "access": {
         "colors": {
           "W": {
             "status": "not_found",
-            "note": "No selected independent example in the reviewed scope.",
+            "note": "No example found in the reviewed scope.",
             "cards": [],
             "findUrl": null
           },
           "U": {
             "status": "not_found",
-            "note": "No selected independent example in the reviewed scope.",
+            "note": "No example found in the reviewed scope.",
             "cards": [],
             "findUrl": null
           },
           "B": {
             "status": "documented",
-            "note": "Black Market Connections: At the beginning of your first main phase, choose one or more —",
+            "note": "Black Market Connections is the black source of the Hire a Mercenary mode; its colorless changeling token does not establish colorless source access.",
             "cards": [
               {
                 "name": "Black Market Connections",
@@ -38857,13 +39063,13 @@
           },
           "R": {
             "status": "not_found",
-            "note": "No selected independent example in the reviewed scope.",
+            "note": "No example found in the reviewed scope.",
             "cards": [],
             "findUrl": null
           },
           "G": {
             "status": "not_found",
-            "note": "No selected independent example in the reviewed scope.",
+            "note": "No example found in the reviewed scope.",
             "cards": [],
             "findUrl": null
           }
@@ -38871,11 +39077,13 @@
         "combinations": [],
         "colorless": {
           "status": "not_found",
-          "note": "No selected colorless example in the reviewed scope.",
+          "note": "No colorless example found in the reviewed scope.",
           "cards": [],
           "findUrl": null
         },
-        "limitations": []
+        "limitations": [
+          "This is a card-specific named mode. Changeling gives the Shapeshifter every creature type, but its stated token type is Shapeshifter."
+        ]
       },
       "citationCards": [
         {
@@ -38892,35 +39100,35 @@
       "kind": "access",
       "researchDate": "2026-10-29",
       "scopeLabel": "Released paper cards",
-      "scope": "Horsemanship is an evasion ability: a creature with it can be blocked only by creatures with horsemanship.",
-      "summary": "Horsemanship is an evasion ability: a creature with it can be blocked only by creatures with horsemanship.",
+      "scope": "A creature with horsemanship can be blocked only by creatures with horsemanship.",
+      "summary": "A creature with horsemanship can be blocked only by creatures with horsemanship.",
       "access": {
         "colors": {
           "W": {
             "status": "documented",
-            "note": "Guan Yu, Sainted Warrior: Horsemanship (This creature can't be blocked except by creatures with horsemanship.)",
+            "note": "Zhao Zilong, Tiger General pairs horsemanship with a +1/+1 bonus until end of turn whenever he blocks.",
             "cards": [
               {
-                "name": "Guan Yu, Sainted Warrior",
-                "url": "https://scryfall.com/card/me3/12/guan-yu-sainted-warrior?utm_source=api"
+                "name": "Zhao Zilong, Tiger General",
+                "url": "https://scryfall.com/card/ptk/33/zhao-zilong-tiger-general?utm_source=api"
               }
             ],
-            "findUrl": "https://scryfall.com/search?q=%28%21%22Guan%20Yu%2C%20Sainted%20Warrior%22%29%20include%3Aextras"
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Zhao%20Zilong%2C%20Tiger%20General%22%29%20include%3Aextras"
           },
           "U": {
             "status": "documented",
-            "note": "Lu Meng, Wu General: Horsemanship (This creature can't be blocked except by creatures with horsemanship.)",
+            "note": "Lu Xun, Scholar General pairs horsemanship with an optional card draw whenever he deals damage to an opponent.",
             "cards": [
               {
-                "name": "Lu Meng, Wu General",
-                "url": "https://scryfall.com/card/me3/41/lu-meng-wu-general?utm_source=api"
+                "name": "Lu Xun, Scholar General",
+                "url": "https://scryfall.com/card/cma/41/lu-xun-scholar-general?utm_source=api"
               }
             ],
-            "findUrl": "https://scryfall.com/search?q=%28%21%22Lu%20Meng%2C%20Wu%20General%22%29%20include%3Aextras"
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Lu%20Xun%2C%20Scholar%20General%22%29%20include%3Aextras"
           },
           "B": {
             "status": "documented",
-            "note": "Cao Ren, Wei Commander: Horsemanship (This creature can't be blocked except by creatures with horsemanship.)",
+            "note": "Cao Ren, Wei Commander has horsemanship and makes you lose 3 life when he enters.",
             "cards": [
               {
                 "name": "Cao Ren, Wei Commander",
@@ -38931,7 +39139,7 @@
           },
           "R": {
             "status": "documented",
-            "note": "Barbarian General: Horsemanship (This creature can't be blocked except by creatures with horsemanship.)",
+            "note": "Barbarian General is a red creature with horsemanship and no additional ability.",
             "cards": [
               {
                 "name": "Barbarian General",
@@ -38942,7 +39150,7 @@
           },
           "G": {
             "status": "documented",
-            "note": "Lady Zhurong, Warrior Queen: Horsemanship (This creature can't be blocked except by creatures with horsemanship.)",
+            "note": "Lady Zhurong, Warrior Queen is a green legendary creature with horsemanship and no additional ability.",
             "cards": [
               {
                 "name": "Lady Zhurong, Warrior Queen",
@@ -38955,20 +39163,22 @@
         "combinations": [],
         "colorless": {
           "status": "not_found",
-          "note": "No selected colorless example in the reviewed scope.",
+          "note": "No colorless example found in the reviewed scope.",
           "cards": [],
           "findUrl": null
         },
-        "limitations": []
+        "limitations": [
+          "The examples are released paper cards. Mystery Booster 2 playtest cards, Heroes of the Realm, acorn cards, and standalone tokens are outside this scope."
+        ]
       },
       "citationCards": [
         {
-          "name": "Guan Yu, Sainted Warrior",
-          "url": "https://scryfall.com/card/me3/12/guan-yu-sainted-warrior?utm_source=api"
+          "name": "Zhao Zilong, Tiger General",
+          "url": "https://scryfall.com/card/ptk/33/zhao-zilong-tiger-general?utm_source=api"
         },
         {
-          "name": "Lu Meng, Wu General",
-          "url": "https://scryfall.com/card/me3/41/lu-meng-wu-general?utm_source=api"
+          "name": "Lu Xun, Scholar General",
+          "url": "https://scryfall.com/card/cma/41/lu-xun-scholar-general?utm_source=api"
         },
         {
           "name": "Cao Ren, Wei Commander",
