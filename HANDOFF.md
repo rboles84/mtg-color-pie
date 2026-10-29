@@ -1,6 +1,6 @@
 # Active task — E Color Access
 
-- Status: ready-for-qa. Continue codex/a-mechanics-review; baseline `9bf9b7d61aa6bee4dedd5bfbf23596aa327f7392`. Owner requests supplemental E with the accepted A–D Color Access approach and refreshed local preview.
+- Status: qa-passed. Continue codex/a-mechanics-review; exact candidate `34137eb07b39c9babd3a6e69b15fb9b30d407ab2`, baseline `9bf9b7d61aa6bee4dedd5bfbf23596aa327f7392`. Owner requests supplemental E with the accepted A–D Color Access approach and refreshed local preview.
 - Allowed files: HANDOFF.md; docs/mechanics-research/e-protocol.json; docs/mechanics-research/e-protocol-evidence/**; docs/mechanics-research/E-ACCESS-REVIEW.md; docs/mechanics-research/COLOR-ACCESS-PROTOCOL.md; tools/build_mechanics_assessments.py; data/mechanics-assessments.v1.json (producer only); vox-color/mechanical-explorer.html; tools/check_assessment_browser.mjs. Temporary helpers outside checkout and ignored _site packaging allowed.
 - Scope: 28 supplemental E records, extending105 to133. Exchange and Exile stay generic rules references; Enchant and Equip are named abilities with card evidence. Preserve all105 A–D records and frozen2021 data, mappings, counts and behavior. No dependency/theme changes, other-letter changes, push/merge/publication.
 - Access contract: one verified qualifying card is sufficient. One linked example per independent color, colorless or multicolor combination. No ranks, confidence labels, frequency comparisons, inferred monocolor access or impossible-color claims. Brief definition once and named-card factual notes; no repeated aggregate card sources. Actual mana colors and colorless diamond retained.
@@ -17,6 +17,117 @@
 - Development PASS: producer133/13 deterministic; all194 selected facts exactly match a declared capture and face-color attribution; raw receipt hashes and HTTP200; existing source/taxonomy/fixture gates and53 recon assertions; A–D105 projected records deep-equal baseline; diff whitespace. Real-Edge focused harness PASS on all133 records, one example per C/D/E bucket, links/palette/colorless/rules/joint states, targeted E source traps, malformed sidecar isolation, keyboard/mobile and unchanged84/84 frozen checks.
 - Final diff is inside envelope. Frozen2021 data/engine and previous A–D source packets unchanged. No push/merge/publication. No all-card census or inferred impossible-color claim. Broad wheel/journey/stress suites skipped because source qualification and bounded presenter targeting are the changed risk.
 - Independent RobQA handoff: review committed exact candidate vs9bf9b7d61aa6bee4dedd5bfbf23596aa327f7392. Check actual saved facts, not memory, including all notes/native costs, scopes, faces and projected URLs (legacy-card join). Reviewer owns HANDOFF.md only; coordinator freezes product edits until findings. Owner review follows verified local package/refresh.
+
+## Independent RobQA PASS — exact candidate `34137eb07b39c9babd3a6e69b15fb9b30d407ab2`
+
+- Change classification: QA-4 semantic qualification with QA-1 presentation projection; SEPARATE review by `/root/c_qa`. Protected A–D105 records and frozen 2021 behavior are unchanged from baseline `9bf9b7d61aa6bee4dedd5bfbf23596aa327f7392`. Owner readability/visual acceptance remains open.
+- Source/objective evidence: independently checked all 28 E records and 194 selected witnesses against their declared saved Scryfall objects, including mechanic-bearing faces, source colors, grants, costs and payoff/name-only exclusions. All facts match saved captures; all 194 projected bucket references use the selected saved printing URL, including shared Oracle IDs through the legacy join. Raw query receipts are HTTP 200 with matching hashes; A–D105 payload records deep-equal baseline.
+- Targeted distinctions PASS: Emerge artifact/colorless behavior; Embalm, Eternalize and Empower Jace source rather than token color; Eminence combinations only; Propagator Drone colorless through devoid; Sliver Gravemother native encore {5} versus granted X; Extort reminder-cost neutrality; Foul Emissary, Shadowed Caravel, Avatar Aang, Emet-Selch and Heroes/playtest-style false matches excluded from access.
+- Checks PASS: `git diff --check`; deterministic producer `--check` (133 records/13 bindings); source/taxonomy/fixture gates and all 53 recon assertions; harness syntax; focused elevated Edge harness on the exact candidate for all 133 maps, representative C/D/E sources, exact links, joint/colorless/rules cases, malformed fail-soft behavior, search/keyboard/mobile and unchanged 84/84 frozen checks. Stateful adversarial coverage is not applicable beyond the exercised loader/fail-soft states; no persistent ownership or history seam changed.
+- CPU-heavy validation: **NOT REQUIRED**. Broad wheel, journey, mutation and research sweeps were skipped because access qualification, deterministic projection and the bounded renderer are the changed risks. No unresolved correctness finding remains; RobQAPass engineering verdict is **PASS**.
+
+## Verified E preview
+
+- Exact material candidate `34137eb07b39c9babd3a6e69b15fb9b30d407ab2` packaged and verified:23 byte-identical allowed files, four clean inline scripts,23 served paths200 and24 excluded paths404. Package PASS.
+- Refreshed existing IAB tab3 at http://127.0.0.1:8020/#mechanical-color-pie. The frame visibly carries the candidate revision and the loaded status reports133 A/B/C/D/E access records. Opened Evolve, expanded Reviewed card examples, cleared search/colors, and left A–Z at E. Marked tab as deliverable.
+- Visible examples: blue Clinging Anemones, black Gluttonous Slug, green Adaptive Snapjaw, blue-green Elusive Krasis, and colorless Propagator Drone, each linked once in the reviewed examples. Actual mana colors/colorless diamond preserved. Screenshot outside repository: ../e-color-access-preview.png.
+- Independent QA passes; Owner visual/readability acceptance remains open. No push, publication or merge performed.
+
+## Material candidate
+
+- Baseline: `9bf9b7d61aa6bee4dedd5bfbf23596aa327f7392`
+- Candidate: `34137eb07b39c9babd3a6e69b15fb9b30d407ab2`
+- Changed paths: `70`
+
+## Files changed
+
+- `HANDOFF.md`
+- `data/mechanics-assessments.v1.json`
+- `docs/mechanics-research/COLOR-ACCESS-PROTOCOL.md`
+- `docs/mechanics-research/E-ACCESS-REVIEW.md`
+- `docs/mechanics-research/e-protocol-evidence/earthbend/receipt.json`
+- `docs/mechanics-research/e-protocol-evidence/earthbend/search-1.json`
+- `docs/mechanics-research/e-protocol-evidence/echo/receipt.json`
+- `docs/mechanics-research/e-protocol-evidence/echo/search-1.json`
+- `docs/mechanics-research/e-protocol-evidence/eerie/receipt.json`
+- `docs/mechanics-research/e-protocol-evidence/eerie/search-1.json`
+- `docs/mechanics-research/e-protocol-evidence/embalm/receipt.json`
+- `docs/mechanics-research/e-protocol-evidence/embalm/search-1.json`
+- `docs/mechanics-research/e-protocol-evidence/emerge/receipt.json`
+- `docs/mechanics-research/e-protocol-evidence/emerge/search-1.json`
+- `docs/mechanics-research/e-protocol-evidence/eminence/receipt.json`
+- `docs/mechanics-research/e-protocol-evidence/eminence/search-1.json`
+- `docs/mechanics-research/e-protocol-evidence/empower-jace/receipt.json`
+- `docs/mechanics-research/e-protocol-evidence/empower-jace/search-1.json`
+- `docs/mechanics-research/e-protocol-evidence/enchant/receipt.json`
+- `docs/mechanics-research/e-protocol-evidence/enchant/search-1.json`
+- `docs/mechanics-research/e-protocol-evidence/enchant/search-2.json`
+- `docs/mechanics-research/e-protocol-evidence/enchant/search-3.json`
+- `docs/mechanics-research/e-protocol-evidence/enchant/search-4.json`
+- `docs/mechanics-research/e-protocol-evidence/enchant/search-5.json`
+- `docs/mechanics-research/e-protocol-evidence/enchant/search-6.json`
+- `docs/mechanics-research/e-protocol-evidence/enchant/search-7.json`
+- `docs/mechanics-research/e-protocol-evidence/enchant/search-8.json`
+- `docs/mechanics-research/e-protocol-evidence/encore/receipt.json`
+- `docs/mechanics-research/e-protocol-evidence/encore/search-1.json`
+- `docs/mechanics-research/e-protocol-evidence/endure/receipt.json`
+- `docs/mechanics-research/e-protocol-evidence/endure/search-1.json`
+- `docs/mechanics-research/e-protocol-evidence/enlist/receipt.json`
+- `docs/mechanics-research/e-protocol-evidence/enlist/search-1.json`
+- `docs/mechanics-research/e-protocol-evidence/enrage/receipt.json`
+- `docs/mechanics-research/e-protocol-evidence/enrage/search-1.json`
+- `docs/mechanics-research/e-protocol-evidence/entwine/receipt.json`
+- `docs/mechanics-research/e-protocol-evidence/entwine/search-1.json`
+- `docs/mechanics-research/e-protocol-evidence/epic/receipt.json`
+- `docs/mechanics-research/e-protocol-evidence/epic/search-1.json`
+- `docs/mechanics-research/e-protocol-evidence/equip/receipt.json`
+- `docs/mechanics-research/e-protocol-evidence/equip/search-1.json`
+- `docs/mechanics-research/e-protocol-evidence/equip/search-2.json`
+- `docs/mechanics-research/e-protocol-evidence/equip/search-3.json`
+- `docs/mechanics-research/e-protocol-evidence/equip/search-4.json`
+- `docs/mechanics-research/e-protocol-evidence/escalate/receipt.json`
+- `docs/mechanics-research/e-protocol-evidence/escalate/search-1.json`
+- `docs/mechanics-research/e-protocol-evidence/escape/receipt.json`
+- `docs/mechanics-research/e-protocol-evidence/escape/search-1.json`
+- `docs/mechanics-research/e-protocol-evidence/eternalize/receipt.json`
+- `docs/mechanics-research/e-protocol-evidence/eternalize/search-1.json`
+- `docs/mechanics-research/e-protocol-evidence/evoke/receipt.json`
+- `docs/mechanics-research/e-protocol-evidence/evoke/search-1.json`
+- `docs/mechanics-research/e-protocol-evidence/evolve/receipt.json`
+- `docs/mechanics-research/e-protocol-evidence/evolve/search-1.json`
+- `docs/mechanics-research/e-protocol-evidence/exalted/receipt.json`
+- `docs/mechanics-research/e-protocol-evidence/exalted/search-1.json`
+- `docs/mechanics-research/e-protocol-evidence/exert/receipt.json`
+- `docs/mechanics-research/e-protocol-evidence/exert/search-1.json`
+- `docs/mechanics-research/e-protocol-evidence/exhaust/receipt.json`
+- `docs/mechanics-research/e-protocol-evidence/exhaust/search-1.json`
+- `docs/mechanics-research/e-protocol-evidence/exploit/receipt.json`
+- `docs/mechanics-research/e-protocol-evidence/exploit/search-1.json`
+- `docs/mechanics-research/e-protocol-evidence/explore/receipt.json`
+- `docs/mechanics-research/e-protocol-evidence/explore/search-1.json`
+- `docs/mechanics-research/e-protocol-evidence/extort/receipt.json`
+- `docs/mechanics-research/e-protocol-evidence/extort/search-1.json`
+- `docs/mechanics-research/e-protocol.json`
+- `tools/build_mechanics_assessments.py`
+- `tools/check_assessment_browser.mjs`
+- `vox-color/mechanical-explorer.html`
+
+## Evidence delta
+
+- Material candidate: `34137eb07b39c9babd3a6e69b15fb9b30d407ab2`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `1`
+- QA/preview/report evidence only; this is not the full task diff.
+
+## Evidence-only paths
+
+- `HANDOFF.md`
+
+## Final branch delta
+
+- Baseline: `9bf9b7d61aa6bee4dedd5bfbf23596aa327f7392` → current evidence `HEAD`.
+- Total changed paths: `70`; evidence-only HANDOFF changes add no path beyond the material set.
+- Branch: `codex/a-mechanics-review`. Local commits only, no push/merge operation. Git worktree cleanliness is verified after the evidence commit.
 
 ---
 
