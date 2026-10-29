@@ -1823,7 +1823,9 @@ function hydrateDetail(k){
     if (card && S.pick === k) addCite(card, true);
   });
   const supplemental = SUP_EXAMPLES.byKey.get(k);
-  if (supplemental && S.pick === k) addCite(supplemental, true, true);
+  // Ready F assessments already supply one reviewed example per access bucket.
+  const fReviewed = REC.get(k)?.supplemental && REC.get(k).head.startsWith('F') && ASSESSMENTS.byKey.has(k);
+  if (supplemental && S.pick === k && !fReviewed) addCite(supplemental, true, true);
 }
 /* The rest of the entries carry a stored printing (mechanical-examples.json),
    chosen from docs/card-examples-mapping.md; no Scryfall request. */
