@@ -1,3 +1,61 @@
+# G Color Access — independent engineering PASS / Owner Review
+
+- Status: qa-passed. All five supplemental G entries are complete for local Owner Review: Gift, Goad, Graft, Grandeur and Gravestorm. There are no mapped G entries. Baseline `00eea727f97815b969989acc405a1bced02f7226`; exact material candidate `559cde134f8d038a04539a536bf3c15b43362ffd`; branch `codex/a-mechanics-review`. Owner visual/product acceptance remains pending. No push, merge or publication was performed.
+- QA classification: QA-4 under this repository's mechanics/source-layer contract. Execution SEPARATE: coordinator `/root` did not implement material; initial configured RobDev Terra medium worker `/root/g_implementation`, followed by announced bounded Sol high repair worker `/root/g_repair` after repeated factual/loader failures. Requested/configured routes are recorded, not inferred backend telemetry. QA edits only this ledger in the repository.
+- Evidence/source PASS: independent `check-g-evidence.py` in `C:/Users/obake/.codex/visualizations/2026/10/29/01a1885f-32d8-72d3-b743-da97d6f034cd` returned exit 0 on this exact candidate: five G records, 36 selected full card objects equal to their saved raw captures, seven raw capture SHA-256 values verified, all selected cards released ordinary paper with actual source-face colors and exact saved links. All 158 prior projected records and 14 prior source bindings match baseline. Candidate changed paths remain within the declared envelope; frozen 2021 sources, calculations, prior source packets and wheel are unchanged.
+- Semantic review PASS: read every selected G card's saved Oracle text and all final player notes; checked each mechanic definition, trigger, controller/target restriction, grant/source attribution, colorless bucket, combination, gift/gravestorm timing and Goad duration. Llanowar Reborn remains colorless despite green production; Rendmaw remains black-green despite black tokens. Serene Sleuth's payoff/removal and Gift name-only hits do not establish access. Unselected discovery hits are not claimed individually reviewed. Grandeur's original Wizards article capture and inherited reference are distinguished. Raw source notation is intact.
+- Producer PASS: `python tools/build_mechanics_assessments.py --check` -> exit 0, 163 deterministic protocol-v2 records and bindings. All G dates are October 29, 2026; A-F dates remain October 28. Generated payload changed only through its producer. `git diff --check 00eea727f97815b969989acc405a1bced02f7226..559cde134f8d038a04539a536bf3c15b43362ffd` -> exit 0.
+- Protected gate PASS: `python tools/check_invariants.py`, `python tools/check_taxonomy.py`, `python tools/check_recon.py`, `python tools/gate.py` -> exit 0 each, 217 source identities / 216 projections, pilot taxonomy 30/216 with zero miscellaneous, 53 reconciliation assertions, source/taxonomy PASS. Executed independently before final copy/loader repair; every protected input and gate file remained identical in the final candidate, so that evidence remains applicable. No broad engine stress or unrelated wheel suite was required.
+- Package PASS: resolved and checked the existing absolute `_site` path under this checkout and confirmed it is not a link before replacement. `python .github/pages/package.py --rev 559cde134f8d038a04539a536bf3c15b43362ffd --out <existing absolute _site> --verify` -> exit 0: 23 byte-identical allowlisted files, shell stamped with exact candidate, four clean inline scripts, 23 expected HTTP 200 paths and 24 excluded 404 paths. Existing server PID 9224 serves that directory on localhost 8020; no new server or publication.
+- Independent packaged browser PASS: `node tools/check_assessment_browser.mjs --root _site --playwright C:/Users/obake/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright` -> observed final exit 0, JSON `result: PASS`. Verifies all 163 access records, all 36 selected G links exactly once, combinations separate from monocolors, non-card Sources, actual G tokens plus numeric/WUBRG/colorless/X/hybrid fixtures in every G assessment/rules/reference path, accessible glyph labels and real hybrid halves, readable blocked-font fallback, escaped markup/unknown-token fallback, safe links, invalid/missing/bad-date/bad-binding atomic fail-soft, keyboard search, 360px containment and the original 84/84 checks. Browser run is justified by loader bindings, rendered symbol/fallback state and one-example presentation; cheaper schema checks cannot prove those DOM results. Page errors were empty under the harness.
+- Failure history: my first browser run on rejected `8b8016b` actually failed after 30 seconds waiting for ready. Static review of rejected `06640bc` then found its missing G binding and incorrect card paraphrases. Both were repaired; the original worker's no-output invocation was not PASS evidence. The repair worker's one fixture-only private-scope failure was corrected by routing fixtures through real loaders; final developer and independent packaged runs passed. No unresolved defect or harness debt remains.
+- Preview verified: `http://127.0.0.1:8020/#mechanical-color-pie` refreshed; iframe source is `vox-color/mechanical-explorer.html?v=559cde134f8d038a04539a536bf3c15b43362ffd`. Graft is open, Reviewed card examples expanded, search empty, all color buttons unselected, A-Z active. Screenshot inspected and saved to `C:/Users/obake/.codex/visualizations/2026/10/29/01a1885f-32d8-72d3-b743-da97d6f034cd/g-color-access-preview.jpg`. It shows blue/green independent examples, separate blue-green example and colorless Llanowar Reborn, with rendered mana symbols. The two incidental CUA DOM-inspection errors did not alter product state; accessible snapshot and screenshot confirmed the requested view.
+- CPU-heavy validation NOT REQUIRED. Stateful-adversarial coverage NOT APPLICABLE to ownership/history: no route, persistence, interaction-owner or execution change. Bound malformed-data/fallback and lens-preservation cases above cover the actual shared loading/presentation risk.
+- Owner review: inspect the open Graft example for readability and symbol presentation; optionally search Goad to read its trigger-specific examples. Engineering PASS does not claim Owner aesthetic acceptance.
+
+## Material candidate
+
+- Baseline: `00eea727f97815b969989acc405a1bced02f7226`
+- Candidate: `559cde134f8d038a04539a536bf3c15b43362ffd`
+- Changed paths: `16`
+
+## Files changed
+
+- `HANDOFF.md`
+- `data/mechanics-assessments.v1.json`
+- `docs/mechanics-research/G-ACCESS-REVIEW.md`
+- `docs/mechanics-research/g-protocol-evidence/gift-discovery-1.json`
+- `docs/mechanics-research/g-protocol-evidence/goad-discovery-1.json`
+- `docs/mechanics-research/g-protocol-evidence/goad-oracle-followup-1.json`
+- `docs/mechanics-research/g-protocol-evidence/graft-discovery-1.json`
+- `docs/mechanics-research/g-protocol-evidence/grandeur-discovery-1.json`
+- `docs/mechanics-research/g-protocol-evidence/grandeur-original.html`
+- `docs/mechanics-research/g-protocol-evidence/gravestorm-discovery-1.json`
+- `docs/mechanics-research/g-protocol-evidence/original-source-receipts.json`
+- `docs/mechanics-research/g-protocol-evidence/receipts.json`
+- `docs/mechanics-research/g-protocol.json`
+- `tools/build_mechanics_assessments.py`
+- `tools/check_assessment_browser.mjs`
+- `vox-color/mechanical-explorer.html`
+
+## Evidence delta
+
+- Material candidate: `559cde134f8d038a04539a536bf3c15b43362ffd`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `1`
+- Independent QA/preview/Git accounting in HANDOFF.md only; not the full task diff.
+
+## Evidence-only paths
+
+- `HANDOFF.md`
+
+## Final branch delta
+
+- Baseline `00eea727f97815b969989acc405a1bced02f7226` to evidence `HEAD`: 16 changed paths. Evidence adds no material path.
+- Worktree cleanliness and no remote-tracking containment of the candidate are checked after the evidence commit. Local task commits only; no push, merge or publication performed.
+
+---
+
 # Implementation packet — G supplemental color access
 
 - Status: ready-for-qa. Baseline `00eea727f97815b969989acc405a1bced02f7226` on `codex/a-mechanics-review`; the worktree was clean at admission. The coordinator confirms the five supplemental G targets are Gift, Goad, Graft, Grandeur, and Gravestorm; there are no mapped G records. RobDev implements and commits the bounded candidate; the coordinator is the non-implementing independent RobQA/preview owner.
@@ -8,7 +66,7 @@
 
 ## RobDev repair — ready for independent QA
 
-- Rejected candidates: `8b8016b` and `06640bc21ccdef9215d4e64dac62950c3e969215`. Independent QA reproduced a 30-second wait for ready on the latter because the loader omitted `g-protocol.json`. Its claimed browser completion was unsupported: no-output/running is not PASS. Further saved-text review found incorrect Goad triggers and target scopes and reversed Bitter Ordeal timing.
+- Rejected candidates: `8b8016b` and `06640bc21ccdef9215d4e64dac62950c3e969215`. Independent QA reproduced a 30-second wait for ready on `8b8016b`; static review of the latter still found the omitted `g-protocol.json` loader binding. Its claimed browser completion was unsupported: no-output/running is not PASS. Further saved-text review found incorrect Goad triggers and target scopes and reversed Bitter Ordeal timing.
 - Repair scope: all 36 selected G notes and five summaries in the canonical packet; producer-only payload regeneration; the missing fifteenth loader binding; exact historical dates (G October 29, A–F October 28); existing focused assertions; and this ledger/review. Raw captures, selected facts/cards, access maps, A–F packets and frozen 2021 remain untouched. F/G inherited-example suppression stays limited to F/G.
 - Factual behavior: Gift distinguishes promising while casting, instant/sorcery resolution, and permanent entry triggers. Gorespawn triggers on entry; Killian on your enchantment entering; Kitt Kanto at combat after tapping two untapped creatures; Kros when you put counters on a creature you don't control; Nelly on attack then all suspected creatures; Maestros covers every creature of the chosen player. Alela requires your Faeries' combat damage to that player; Bhaal requires another nontoken creature you control to die. Gravestorm triggers on casting before spell resolution.
 - Developer checks: `python tools/build_mechanics_assessments.py --check` → exit 0, `PASS: 163 protocol v2.0 A/B/C/D/E/F/G documented-access records; deterministic payload and source bindings`. `node --check tools/check_assessment_browser.mjs` → exit 0. Exact baseline comparison → `PASS: 158 prior rows / 14 prior bindings unchanged`. `git diff --check` → exit 0.
