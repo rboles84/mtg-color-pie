@@ -2277,14 +2277,14 @@
               "8dfd9baf-c3cc-4d2f-a0b0-b323b6480562",
               "4f95664f-6113-41e6-a99e-12bfc9d1710a"
             ],
-            "note": "Prowl converts when a player plays a card it exiled; Ratchet can convert when you gain life. Both are white on their two faces."
+            "note": "Prowl, Stoic Strategist converts when a player plays a card it exiled."
           },
           "U": {
             "status": "documented",
             "card_ids": [
               "38de7183-81ef-4a79-b231-7195ba89a281"
             ],
-            "note": "Jetfire’s blue faces can convert through activated abilities. Jetfire, Air Guardian also adapts after converting."
+            "note": "Jetfire, Air Guardian has an activated ability that converts it, then adapts 3."
           },
           "B": {
             "status": "documented",
@@ -2292,14 +2292,14 @@
               "9a10668a-df42-40c2-88d1-ad3b2aba5b03",
               "3e924a35-0e08-4050-b33a-a143d2ab5aea"
             ],
-            "note": "Blitzwing, Adaptive Assailant converts after dealing combat damage to a player. Starscream, Seeker Leader converts when you become the monarch."
+            "note": "Blitzwing, Adaptive Assailant converts after dealing combat damage to a player."
           },
           "R": {
             "status": "documented",
             "card_ids": [
               "fa716557-8e75-4617-8310-ab23a9ca1af1"
             ],
-            "note": "Slicer, High-Speed Antagonist converts at end of combat after dealing combat damage to a player. Both Slicer faces are red."
+            "note": "Slicer, High-Speed Antagonist converts at end of combat after dealing combat damage to a player."
           },
           "G": {
             "status": "multicolor_only",

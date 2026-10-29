@@ -2037,7 +2037,7 @@ function assessmentHTML(k){
   const exampleNote = item => {
     if (!compactExamples || !item.cards.length) return esc(item.note);
     const card = item.cards[0];
-    const names = [card.name, card.name.split(' // ')[0]];
+    const names = [card.name, ...card.name.split(' // ')];
     const mention = names.flatMap(name => [name, name.replaceAll("'", '’')]).find(name => item.note.includes(name));
     return mention ? esc(item.note).replace(esc(mention), link(mention, card.url)) : `${link(card.name, card.url)} — ${esc(item.note)}`;
   };

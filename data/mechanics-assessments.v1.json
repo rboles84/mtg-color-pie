@@ -47,7 +47,7 @@
     },
     {
       "path": "docs/mechanics-research/c-protocol-special.json",
-      "sha256": "056ba47f234287640a7ce48c502803d34a8c9d13562f86d666a6ee51775e8621"
+      "sha256": "d7ee3520368f6f48e1afc26b192d518f6113368e228d590daa66ea9850eef17a"
     }
   ],
   "records": [
@@ -18294,7 +18294,7 @@
         "colors": {
           "W": {
             "status": "documented",
-            "note": "Prowl converts when a player plays a card it exiled; Ratchet can convert when you gain life. Both are white on their two faces.",
+            "note": "Prowl, Stoic Strategist converts when a player plays a card it exiled.",
             "cards": [
               {
                 "name": "Prowl, Stoic Strategist // Prowl, Pursuit Vehicle",
@@ -18309,7 +18309,7 @@
           },
           "U": {
             "status": "documented",
-            "note": "Jetfire’s blue faces can convert through activated abilities. Jetfire, Air Guardian also adapts after converting.",
+            "note": "Jetfire, Air Guardian has an activated ability that converts it, then adapts 3.",
             "cards": [
               {
                 "name": "Jetfire, Ingenious Scientist // Jetfire, Air Guardian",
@@ -18320,7 +18320,7 @@
           },
           "B": {
             "status": "documented",
-            "note": "Blitzwing, Adaptive Assailant converts after dealing combat damage to a player. Starscream, Seeker Leader converts when you become the monarch.",
+            "note": "Blitzwing, Adaptive Assailant converts after dealing combat damage to a player.",
             "cards": [
               {
                 "name": "Blitzwing, Cruel Tormentor // Blitzwing, Adaptive Assailant",
@@ -18335,7 +18335,7 @@
           },
           "R": {
             "status": "documented",
-            "note": "Slicer, High-Speed Antagonist converts at end of combat after dealing combat damage to a player. Both Slicer faces are red.",
+            "note": "Slicer, High-Speed Antagonist converts at end of combat after dealing combat damage to a player.",
             "cards": [
               {
                 "name": "Slicer, Hired Muscle // Slicer, High-Speed Antagonist",
