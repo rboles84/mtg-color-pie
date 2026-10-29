@@ -144,6 +144,7 @@ try{
           assert.deepEqual(await panel.locator('.own-row[data-combo]').evaluateAll(rows=>rows.map(row=>row.dataset.combo)),access.combinations.map(item=>item.colors.join('')));
           assert.ok(await panel.locator('.own-row .own-t').evaluateAll(nodes=>nodes.every(node=>node.textContent==='Combination only')));
           assert.deepEqual(await row.locator('.combo-mark').evaluateAll(marks=>marks.map(mark=>mark.dataset.combo)),access.combinations.map(item=>item.colors.join('')));
+          assert.ok(await panel.locator('.own-row.combo-row').evaluateAll(rows=>rows.every(item=>{const mark=item.querySelector('.combo-mark').getBoundingClientRect(), glyph=item.querySelector('.combo-mark .ms').getBoundingClientRect(), label=item.querySelector('.own-c').getBoundingClientRect();return Math.abs(mark.width-mark.height)<=.5&&Math.abs(glyph.width-glyph.height)<=.5&&Math.abs((mark.left+mark.width/2)-(glyph.left+glyph.width/2))<=.5&&Math.abs((mark.top+mark.height/2)-(glyph.top+glyph.height/2))<=.5&&Math.abs((mark.top+mark.height/2)-(label.top+label.height/2))<=.5;})),record.name+' detail markers and labels remain centered');
         }
         assert.ok((await panel.innerText()).includes(record.scopeLabel));
         if(!comboPresentation) for(const color of 'WUBRG'){
