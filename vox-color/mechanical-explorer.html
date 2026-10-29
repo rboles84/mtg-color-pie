@@ -1256,7 +1256,7 @@ function assessmentStripHTML(a){
   return '<span class="strip access-strip" aria-hidden="true">' + ORDER.map(c => accessMarkHTML(c,a.access.colors[c].status)).join('') + (a.access.colorless.status === 'documented' ? accessMarkHTML('C','documented') : '') + '</span>';
 }
 function comboMarkHTML(item){
-  const key=item.colors.join(''), pair=key.length===2, pairCode={WR:'rw',WG:'gw',UG:'gu'}[key] || key.toLowerCase(), code=pair ? `ms-${pairCode}` : `ms-ci ms-ci-${key.toLowerCase()}`;
+  const key=item.colors.join(''), pair=key.length===2, pairCode={WR:'rw',WG:'gw',UG:'gu'}[key] || key.toLowerCase(), code=pair ? `ms-${pairCode}` : `ms-ci ms-ci-${item.colors.length} ms-ci-${key.toLowerCase()}`;
   const label=item.colors.map(c=>CNAME[c]).join(' / ');
   return `<span class="combo-mark" data-combo="${key}" title="${esc(label)} — Combination only" aria-label="${esc(label)} combination only"><i class="ms ${pair ? 'ms-cost ' : ''}${code}" aria-hidden="true"></i><span class="combo-text">${esc(key)}</span></span>`;
 }
