@@ -1,7 +1,7 @@
 # Active task — F CI scale alignment
 
 - Status: ready-for-qa. Baseline `22495cf101c65989e2a7d8e3f0b11d694c7c6885`; allowed paths remain HANDOFF.md, `vox-color/mechanical-explorer.html`, and `tools/check_assessment_browser.mjs`. The existing Mana CI glyph alone scales to 18px inside the fixed 18px combination host, matching the pair-cost footprint. Native line-height factors remain untouched; no SVG package assets, new glyphs, palette, font, data or other entries change.
-- Focused regression compares pair/CI computed native line-height factors at their scoped font sizes and comparable rendered footprints/centers in combination-only list, search and detail contexts. `node --check tools/check_assessment_browser.mjs` and `git diff --check` pass. Independent QA owns the focused browser run and preview.
+- Focused regression compares pair/CI computed native line-height factors at their scoped font sizes and comparable rendered footprints in the shared combination strip; each glyph center is measured against its own host, not another grid cell. The existing focused interaction coverage exercises list, search and detail. `node --check tools/check_assessment_browser.mjs` and `git diff --check` pass. Independent QA owns the focused browser run and preview.
 
 # Previous task — F marker alignment and tri-package review
 
