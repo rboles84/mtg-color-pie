@@ -1,3 +1,44 @@
+# Owner Review — I combination-symbol correction
+
+- Status: `qa-passed` / Owner Review. Intimidate, Islandcycling and Islandwalk now use the established Hexproof from presentation: independent colors/colorless retain their own access marks; each exact combination has its existing split Mana symbol and a separate “Combination only” row. Fuse and Friends forever retain their existing combination-only presentation. All three corrected entries were also checked through the actual search UI.
+- Current correction baseline: `fcb65c6f65f84f1425eb392c6abfc67fc9449d13`; material candidate: `412b09d41c6a487256a48cfcccc9af8c99792451`; branch `codex/a-mechanics-review`. The J chat completed and released the shared files before this correction started; the baseline was clean. The original I batch remains complete (15 entries, 96 selected witnesses), and all 196 A–J records are preserved.
+- Roles and independence: configured RobDev Terra medium `/root/i_implementation` implemented the three-path candidate; coordinator `/root`, who did not edit product or harness code, performed a separate exact-candidate QA phase. QA-1 presentation risk. No source, data, producer, frozen 2021 calculation, route, CSS, glyph asset or dependency changed. Prior source/gate certification remains applicable; broader source audits and engine suites were not rerun because their inputs are unchanged.
+- Exact diff review: baseline-to-candidate has 3 files, 25 insertions and 10 deletions. Product changes are two exact-name predicates reusing existing rendering paths. Harness adds the three I names to normal and blocked-font combination coverage, derives independent slots from verified buckets, and checks “Combination only” wording. `git diff --check fcb65c6f65f84f1425eb392c6abfc67fc9449d13..412b09d41c6a487256a48cfcccc9af8c99792451` exited 0; `node --check tools/check_assessment_browser.mjs` exited 0. Working tree was clean at QA start.
+- Independent browser evidence: `node tools/check_assessment_browser.mjs --root . --combinations-only --playwright C:/Users/obake/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright` completed with observed Node exit 0 and JSON `result: PASS`. Covers all six entries, exact independent/combo maps, selected links once, accessible labels, native pair/vector geometry, readable blocked-font fallback, escaping, preserved A–J binding/maps and frozen 84-check baseline. Stdout: `C:/Users/obake/.codex/visualizations/2026/10/29/01a18965-8451-71b0-a50a-1fb5ffadaaf5/i-symbol-qa.stdout.txt`; sibling `i-symbol-qa.stderr.txt` is empty. Developer red/green evidence below is separate from this independently executed pass. No unresolved defect or harness debt remains.
+- Package: verified resolved `_site` is an ordinary direct child of this checkout, then ran `python .github/pages/package.py --rev 412b09d41c6a487256a48cfcccc9af8c99792451 --out <absolute _site> --verify`, exit 0. All 23 allowlisted files match expected bytes, 4 inline scripts parse, 23 URLs return 200 and 24 excluded paths return 404. Existing localhost8020 preview reused.
+- Live preview: refreshed `http://127.0.0.1:8020/#mechanical-color-pie` and verified iframe revision `412b09d41c6a487256a48cfcccc9af8c99792451`. Actual search and detail rows show Intimidate W/B/R/G/C plus UB/RG/BG; Islandcycling U plus UB/WU; Islandwalk U/B/R/G/C plus UB/UG/WU. Islandcycling remains open with Reviewed card examples expanded, empty search, all five color filters false and A–Z active. Visible split symbols and cost symbols inspected. Screenshot: `C:/Users/obake/.codex/visualizations/2026/10/29/01a18965-8451-71b0-a50a-1fb5ffadaaf5/i-combination-symbols-preview.jpg`.
+- Evidence ownership: unchanged I research is retained in `docs/mechanics-research/i-protocol.json`, `I-ACCESS-REVIEW.md` and `i-protocol-evidence/`; this follow-up changes presentation only. No new card retrieval or hash claim is made.
+- Owner check: inspect the open Islandcycling panel for the split Blue/Black and White/Blue symbols and the separation from independent Blue access; optionally inspect Intimidate and Islandwalk using search. Product/visual acceptance remains the Owner's decision. No push, merge or publication performed.
+
+## Material candidate
+
+- Baseline: `fcb65c6f65f84f1425eb392c6abfc67fc9449d13`
+- Candidate: `412b09d41c6a487256a48cfcccc9af8c99792451`
+- Changed paths: `3`
+
+## Files changed
+
+- `HANDOFF.md`
+- `tools/check_assessment_browser.mjs`
+- `vox-color/mechanical-explorer.html`
+
+## Evidence delta
+
+- Material candidate: `412b09d41c6a487256a48cfcccc9af8c99792451`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `1`
+- Coordinator independent QA, live preview and delivery/accounting update to HANDOFF only; this is not the full task diff.
+
+## Evidence-only paths
+
+- `HANDOFF.md`
+
+## Final branch delta
+
+- Correction baseline to evidence HEAD: 3 Git-derived changed paths. The evidence-only update adds no path outside the material set. This correction accounting begins after the completed I and J batches and preserves their earlier reports below.
+
+---
+
 # Owner Review — J supplemental Color Access delivery
 
 ## RobDev report — I mixed Color Access summary
