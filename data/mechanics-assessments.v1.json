@@ -79,7 +79,7 @@
     },
     {
       "path": "docs/mechanics-research/k-protocol.json",
-      "sha256": "0ef3edb4a4f4949feb939dc8a270b31ee581ff64e7917990143c872369809357"
+      "sha256": "1a3584cd47ba3f2756fdefb96a3ee7f61d7338c8fa8a23c4046f2ead77a4bfc2"
     }
   ],
   "records": [
@@ -41778,7 +41778,7 @@
               "U",
               "B"
             ],
-            "note": "Its {4}{U}{B} kicker changes one copied creature token into copies of every target opponent creature.",
+            "note": "Its {4}{U}{B} kicker creates a copy of every creature target opponent controls instead of a copy of one of those creatures.",
             "cards": [
               {
                 "name": "Mirror Universe Intrusion",

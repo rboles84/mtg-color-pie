@@ -1553,7 +1553,7 @@
             "card_ids": [
               "007d08e8-4db2-47d1-ba39-8bb8efa491a1"
             ],
-            "note": "Its {4}{U}{B} kicker changes one copied creature token into copies of every target opponent creature."
+            "note": "Its {4}{U}{B} kicker creates a copy of every creature target opponent controls instead of a copy of one of those creatures."
           },
           {
             "colors": [
