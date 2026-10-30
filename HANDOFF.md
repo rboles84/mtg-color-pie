@@ -1,3 +1,41 @@
+# Owner Review — Kicker combination symbols
+
+- Status: engineering PASS / Owner Review. Kicker now shows independently documented W/U/B/R/G/colorless plus exact WU/UB/BG combination marks in list, search and the top Color Access summary, using the established mixed presentation. Its existing card evidence, notes and links remain unchanged.
+- Branch: `codex/a-mechanics-review`. Fresh clean baseline `6474faaeb8a28a2ffda74c825efc07ae4259da69`; material `803491f8364741c153ad43665fa923cd5d6c2120`. Configured RobDev Terra medium `/root/k_implementation` implemented; non-implementing coordinator `/root` performed SEPARATE QA-1. The product diff adds Kicker to two existing predicates. No source/payload/producer, CSS, glyph/vector, dependency, route, prior entry or frozen2021 calculation changed. Their earlier certification remains applicable.
+- Independent checks: reviewed exact material diff; candidate `git diff --check` and `node --check tools/check_assessment_browser.mjs` exited0. `node tools/check_assessment_browser.mjs --root . --k-only --playwright C:/Users/obake/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright` completed with observed exit0 and JSON PASS. Coverage includes actual Kicker search/list/detail combinations and independent slots, accessible labels,18px glyph sizing, all selected links once, cost tokens/escaping, blocked-font combination fallback, malformed fail-soft and containment. Unrelated stale Friends forever14px harness debt remains disclosed, not rerun or repaired; no all-suite-pass claim.
+- Package: verified `_site` is an ordinary direct child before replacement; `python .github/pages/package.py --rev 803491f8364741c153ad43665fa923cd5d6c2120 --out <absolute _site> --verify` exited0:23 byte-matching files,4 inline scripts parsed,23 allowed HTTP200 and24 excluded HTTP404. Existing localhost8020 reused.
+- Live preview: refreshed and verified iframe revision `803491f8364741c153ad43665fa923cd5d6c2120`; actual search shows WU/UB/BG accessible marks. Kicker left open with reviewed examples expanded, search empty, all color filters false and A-Z active. Its summary has6 independent rows plus3 combination rows. Screenshot: `C:/Users/obake/.codex/visualizations/2026/10/30/01a18ac5-ec16-73d3-8fbb-dc5824814c20/kicker-combinations-preview.jpg`.
+- Verdict: QA PASS; no unresolved correctness finding. Owner judges visual balance and readability. No push, merge or publication performed. Final Git status and report validation follow this evidence-only commit.
+- Accounting correction: Git shows2 material paths, not the initially assumed3; HANDOFF first changed after the material candidate and belongs to the evidence delta. The first report-generation assertion caught this before writing; the subsequent validation correctly rejected the previous K-batch report. This corrected report is derived from Git.
+
+## Material candidate
+
+- Baseline: `6474faaeb8a28a2ffda74c825efc07ae4259da69`
+- Candidate: `803491f8364741c153ad43665fa923cd5d6c2120`
+- Changed paths: `2`
+
+## Files changed
+
+- `tools/check_assessment_browser.mjs`
+- `vox-color/mechanical-explorer.html`
+
+## Evidence delta
+
+- Material candidate: `803491f8364741c153ad43665fa923cd5d6c2120`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `1`
+- Developer/coordinator handoff, independent QA and preview evidence change HANDOFF only; this is not the full task diff.
+
+## Evidence-only paths
+
+- `HANDOFF.md`
+
+## Final branch delta
+
+- Correction baseline to final HEAD:3 Git-derived paths (2 material plus HANDOFF evidence). Earlier K-batch work is already included in the correction baseline.
+
+---
+
 # RobDev preflight — Kicker mixed Color Access presentation
 
 - Status: dev-in-progress. Baseline `6474faaeb8a28a2ffda74c825efc07ae4259da69` was verified clean on `codex/a-mechanics-review`.
