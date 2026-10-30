@@ -1,3 +1,19 @@
+# RobDev preflight — Kicker mixed Color Access presentation
+
+- Status: dev-in-progress. Baseline `6474faaeb8a28a2ffda74c825efc07ae4259da69` was verified clean on `codex/a-mechanics-review`.
+- Outcome: Kicker's list/search strip and detail Color Access rows must show independently documented W/U/B/R/G/colorless slots alongside its exact WU/UB/BG combination symbols, without implying combinations create independent access.
+- Exact envelope: `HANDOFF.md`, `vox-color/mechanical-explorer.html`, and `tools/check_assessment_browser.mjs`. Canonical K sources/payload/producer, all prior batches, frozen 2021 behavior, routes, dependencies, sizing outside Kicker's existing 18px compact surface, package/preview, push, merge, and publication remain protected.
+- Existing machinery: reuse the established mixed-access path for Hexproof from, Intimidate, Islandcycling, and Islandwalk; extend it only for Kicker. Extend `--k-only` to prove actual Kicker list/search/detail combinations, labels, selected-link uniqueness, glyph/no-font fallback and 18px sizing while bypassing only the known unrelated Friends forever 14px debt.
+- Acceptance/non-goals: preserve selected links and sources once, safe/escaped rendering, accessible combo labels and exact WU/UB/BG order. Do not alter Kicker facts, access buckets, generated data, global mixed presentation, or underlying symbol assets.
+
+## RobDev ready for QA — Kicker mixed Color Access presentation
+
+- Status: ready-for-qa after local material commit `803491f8364741c153ad43665fa923cd5d6c2120`. This is a presentation-only correction; it does not claim independent QA, Owner acceptance, package/preview, push, merge, integration, or publication.
+- Changed behavior: Kicker now uses the existing mixed-access presentation only for its own list/search strip and detail summary. Independently documented W/U/B/R/G/colorless slots remain explicit; exact WU/UB/BG evidence appears as labeled `Combination only` marks. Selected reviewed-card links remain one per bucket and are not repeated.
+- Protected behavior: no source packet, generated payload, producer, access map, note, source link, 2021 behavior, route, dependency, glyph/vector asset, or global mixed-access policy changed. The existing 18px Kicker compact surface is retained; unrelated Friends forever 14px harness debt is not repaired.
+- Developer evidence: static red proof against baseline `6474faa` confirmed Kicker was absent from the prior mixed predicate; `node --check tools/check_assessment_browser.mjs` PASS; focused `node tools/check_assessment_browser.mjs --root . --k-only --playwright <cached runtime>` exit 0. The focused path opens Kicker list/search/detail, asserts W/U/B/R/G/C plus WU/UB/BG exact marks and accessible labels, all 15 K selected links once, normal/no-font combination rendering, escaped/fallback behavior, malformed K date fail-soft, 18px Kicker markers and narrow containment.
+- RobQA focus: independently inspect only the Kicker mixed strip/summary/search behavior, combination labels/order and 18px fallback sizing; preserve all source/data and non-Kicker presentation. Owner judges visual balance and readability.
+
 # K supplemental Color Access — delivery and Owner Review
 
 - Status: engineering PASS / Owner Review. All three supplemental K entries are complete: Kicker, Kinship, and Kinfall. Fifteen selected card examples use presence-only independent color, colorless and combination buckets; coverage is 199 A–K records with 19 bindings. No mapped K entries exist. The prior 196 A–J records and frozen 2021 source, names, explanations, placements and calculations are preserved.
