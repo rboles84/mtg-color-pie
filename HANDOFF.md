@@ -1,3 +1,41 @@
+# A–P mixed Color Access labels — Owner Review
+
+- Status: `qa-passed` / separate non-implementing coordinator QA-1 engineering PASS for material `f3cc88b562e597c22da2cc14d1bcd87004dc0b40`. Owner review remains pending. This request supersedes only label presentation, not the earlier P evidence or its pending product acceptance.
+- Scope: 160 mixed A–O records plus 13 mixed P records, including Pack tactics. Independent access stays Access; their combinations say Combination; their existing missing-independent slots say No example found. Seven records with combinations and no documented WUBRG access retain their existing Combination only presentation. No rows were added or removed.
+- Independent checks: focused `--access-labels-only` PASS (173 mixed entries, seven no-monocolor controls and actual Pack tactics search/detail); all 266 full rendered detail/list outputs equal baseline after only the authorized label substitutions, with all 93 nonmixed entries unchanged. Temporary comparison script: `C:/Users/obake/.codex/visualizations/2026/10/29/01a185f4-a2f8-7dd1-998c-7692190f20e8/check-access-label-preservation.mjs`. The check ran against unchanged renderer bytes before the final test-only callback correction; the final delta was independently inspected and syntax checked. No unsupported rerun claim is made.
+- QA finding resolved: five updated older label assertions accidentally referenced Node variables inside browser callbacks; they now pass expected labels explicitly across that boundary. Final `node --check tools/check_assessment_browser.mjs` and `git diff --check` PASS. No known label defect remains.
+- Preservation: Git delta contains only the three paths listed below. All source packets, raw receipts, generated assessment data, card evidence/links, access maps, icons, CSS, dependencies and frozen 2021 content/calculations are unchanged. Full source/research suites, broad browser journeys and viewport matrices were intentionally skipped for this copy-only change; CPU-heavy validation NOT REQUIRED. Stateful adversarial QA NOT APPLICABLE: no state owner or transition changed.
+- Preview: package verification PASS (23 matching files; four clean inline scripts; 23 HTTP 200 paths / 24 excluded 404 paths). Existing server PID 24128 was identity-checked and stopped; localhost-only replacement PID 16820 serves the exact checkout `_site`. The directory was resolved and checked for reparse points before replacement. Existing browser tab refreshed; iframe revision is `f3cc88b562e597c22da2cc14d1bcd87004dc0b40`. Pack tactics is open with Red/Green Access and Red / Green Combination. Screenshot: `C:/Users/obake/.codex/visualizations/2026/10/29/01a185f4-a2f8-7dd1-998c-7692190f20e8/access-labels-preview.png`.
+- Owner check: inspect open Pack tactics for the requested wording. Evidence does not need re-review. No push, merge, integration or publication.
+
+## Material candidate
+
+- Baseline: `0935cb3f02ce465e4c6ccdaa337549ee2b687106`
+- Candidate: `f3cc88b562e597c22da2cc14d1bcd87004dc0b40`
+- Changed paths: `3`
+
+## Files changed
+
+- `HANDOFF.md`
+- `tools/check_assessment_browser.mjs`
+- `vox-color/mechanical-explorer.html`
+
+## Evidence delta
+
+- Material candidate: `f3cc88b562e597c22da2cc14d1bcd87004dc0b40`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `1`
+- This is not the full task diff. This evidence-only delta records QA and delivery; material files remain at the candidate.
+
+## Evidence-only paths
+
+- `HANDOFF.md`
+
+## Final branch delta
+
+- Baseline to final evidence HEAD: 3 paths, exactly the material inventory above.
+- Branch: `codex/a-mechanics-review`; local commits only. Post-commit cleanliness and Git report validation are checked in execution evidence.
+
 # Color Access combination labels — renderer-only correction
 
 - Status: `ready-for-qa`. User-authorized correction of player-facing labels for the 160 A–O and 13 P access records that each have at least one independent WUBRG example and at least one documented multicolor combination.
