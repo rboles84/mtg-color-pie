@@ -2913,6 +2913,22 @@ This ledger-only evidence delta is not the full task diff. Final branch delta fr
 
 ---
 
+# RobDev preflight — L supplemental Color Access
+
+- Status: `dev-in-progress`; this is an implementation preflight, not QA, Owner acceptance, publication, or integration.
+- Product outcome: add documented, presence-only Color Access for each of the eleven unmapped L supplemental records, with one selected linked card per independently supported color, colorless bucket, or observed combination.
+- Authoritative owner and producer: canonical `docs/mechanics-research/l-protocol.json` produces `data/mechanics-assessments.v1.json` only through `tools/build_mechanics_assessments.py`; the explorer and focused harness consume that projection.
+- Approved edit envelope: `HANDOFF.md`; `docs/mechanics-research/l-protocol.json`; `docs/mechanics-research/L-ACCESS-REVIEW.md`; `docs/mechanics-research/l-protocol-evidence/*`; `docs/mechanics-research/COLOR-ACCESS-PROTOCOL.md`; `tools/build_mechanics_assessments.py`; `data/mechanics-assessments.v1.json`; `vox-color/mechanical-explorer.html`; `tools/check_assessment_browser.mjs`.
+- Protected behavior: frozen 2021 content, tiers, calculations, examples and mappings; all A–K records and bindings; routes, dependencies, and package behavior. `Lifelink` is mapped/frozen and excluded. No inferred access, payoff/name/removal evidence, duplicate aggregate card links, or card links in Sources.
+- Planned developer checks: producer determinism; syntax; frozen data gates; direct raw-capture/hash/card-face audit; a focused `--l-only` browser path. The known unrelated full-harness `Friends forever` 14px geometry debt remains out of scope.
+- Expected RobQA class: QA-4 source-backed data/presenter change. Stop if the accepted L records require a file outside this envelope or a source contradicts presence-only/scope rules.
+
+## RobDev progress — L source/producer
+
+- Canonical `l-protocol.json` now admits all eleven unmapped L records and regenerates 210 A–L records. The frozen Lifelink record is not included.
+- Raw Scryfall responses are preserved in `l-protocol-evidence/`; selected card references bind an oracle ID and raw-body SHA-256. Landship and Legacy retain Mystery Booster playtest-only, card-specific limitations.
+- Developer check completed: `python tools/build_mechanics_assessments.py --check` PASS (210 records). Renderer/harness L-specific extension and remaining developer checks are still required before ready-for-QA; no QA or Owner verdict is claimed.
+
 # Prior handoff — selected supplemental card examples
 
 ## Control

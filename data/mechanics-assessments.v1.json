@@ -80,6 +80,10 @@
     {
       "path": "docs/mechanics-research/k-protocol.json",
       "sha256": "1a3584cd47ba3f2756fdefb96a3ee7f61d7338c8fa8a23c4046f2ead77a4bfc2"
+    },
+    {
+      "path": "docs/mechanics-research/l-protocol.json",
+      "sha256": "c0dbba98345a9e08651582ea3bba8a8407daa5ff32ef089536c1756a337a473d"
     }
   ],
   "records": [
@@ -42025,6 +42029,1768 @@
           "url": "https://magic.wizards.com/en/news/making-magic/class-session-2008-01-07"
         }
       ],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:shortlist:landcycling",
+      "name": "Landcycling",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Landcycling is represented by selected released-paper mechanic-bearing card faces.",
+      "summary": "Landcycling lets its card be discarded to find a specified land.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "When this creature enters, exile target creature an opponent controls until this creature leaves the battlefield.",
+            "cards": [
+              {
+                "name": "Alabaster Host Intercessor",
+                "url": "https://scryfall.com/card/mom/3/alabaster-host-intercessor?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Alabaster%20Host%20Intercessor%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": ") Basic landcycling {2} ({2}, Discard this card: Search your library for a basic land card, reveal it, put it into your hand, then shuffle.",
+            "cards": [
+              {
+                "name": "A.I.M. Scientists",
+                "url": "https://scryfall.com/card/msh/44/aim-scientists?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22A.I.M.%20Scientists%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Basic landcycling {1}{B} ({1}{B}, Discard this card: Search your library for a basic land card, reveal it, put it into your hand, then shuffle.",
+            "cards": [
+              {
+                "name": "Absorb Vis",
+                "url": "https://scryfall.com/card/cn2/126/absorb-vis?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Absorb%20Vis%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Basic landcycling {2} ({2}, Discard this card: Search your library for a basic land card, reveal it, put it into your hand, then shuffle.",
+            "cards": [
+              {
+                "name": "Awaken the Inferno",
+                "url": "https://scryfall.com/card/fra/74/awaken-the-inferno?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Awaken%20the%20Inferno%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Trample When this creature enters, you gain 3 life.",
+            "cards": [
+              {
+                "name": "Balamb T-Rexaur",
+                "url": "https://scryfall.com/card/fin/173/balamb-t-rexaur?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Balamb%20T-Rexaur%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "U",
+              "B"
+            ],
+            "note": "Basic landcycling {2} ({2}, Discard this card: Search your library for a basic land card, reveal it, put it into your hand, then shuffle.",
+            "cards": [
+              {
+                "name": "Ancient Excavation",
+                "url": "https://scryfall.com/card/cm2/150/ancient-excavation?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Ancient%20Excavation%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "B",
+              "R"
+            ],
+            "note": "Basic landcycling {2} ({2}, Discard this card: Search your library for a basic land card, reveal it, put it into your hand, then shuffle.",
+            "cards": [
+              {
+                "name": "Grave Upheaval",
+                "url": "https://scryfall.com/card/c16/31/grave-upheaval?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Grave%20Upheaval%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "U",
+              "G"
+            ],
+            "note": "Flying, trample Basic landcycling {2} ({2}, Discard this card: Search your library for a basic land card, reveal it, put it into your hand, then shuffle.",
+            "cards": [
+              {
+                "name": "Lunar Hatchling",
+                "url": "https://scryfall.com/card/who/141/lunar-hatchling?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Lunar%20Hatchling%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "U"
+            ],
+            "note": "Basic landcycling {2} ({2}, Discard this card: Search your library for a basic land card, reveal it, put it into your hand, then shuffle.",
+            "cards": [
+              {
+                "name": "Migratory Route",
+                "url": "https://scryfall.com/card/moc/336/migratory-route?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Migratory%20Route%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "G"
+            ],
+            "note": "Reach (This creature can block creatures with flying.",
+            "cards": [
+              {
+                "name": "Pale Recluse",
+                "url": "https://scryfall.com/card/arc/91/pale-recluse?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Pale%20Recluse%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "R",
+              "G"
+            ],
+            "note": "Basic landcycling {2} ({2}, Discard this card: Search your library for a basic land card, reveal it, put it into your hand, then shuffle.",
+            "cards": [
+              {
+                "name": "Treacherous Terrain",
+                "url": "https://scryfall.com/card/znc/105/treacherous-terrain?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Treacherous%20Terrain%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "documented",
+          "note": "Basic landcycling {1} ({1}, Discard this card: Search your library for a basic land card, reveal it, put it into your hand, then shuffle.",
+          "cards": [
+            {
+              "name": "Ash Barrens",
+              "url": "https://scryfall.com/card/tmc/60/ash-barrens?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22Ash%20Barrens%22%29%20include%3Aextras"
+        },
+        "limitations": [
+          "Unselected discovery hits are not claimed individually reviewed."
+        ]
+      },
+      "citationCards": [
+        {
+          "name": "Absorb Vis",
+          "url": "https://scryfall.com/card/cn2/126/absorb-vis?utm_source=api"
+        },
+        {
+          "name": "A.I.M. Scientists",
+          "url": "https://scryfall.com/card/msh/44/aim-scientists?utm_source=api"
+        },
+        {
+          "name": "Alabaster Host Intercessor",
+          "url": "https://scryfall.com/card/mom/3/alabaster-host-intercessor?utm_source=api"
+        },
+        {
+          "name": "Ancient Excavation",
+          "url": "https://scryfall.com/card/cm2/150/ancient-excavation?utm_source=api"
+        },
+        {
+          "name": "Ash Barrens",
+          "url": "https://scryfall.com/card/tmc/60/ash-barrens?utm_source=api"
+        },
+        {
+          "name": "Awaken the Inferno",
+          "url": "https://scryfall.com/card/fra/74/awaken-the-inferno?utm_source=api"
+        },
+        {
+          "name": "Balamb T-Rexaur",
+          "url": "https://scryfall.com/card/fin/173/balamb-t-rexaur?utm_source=api"
+        },
+        {
+          "name": "Grave Upheaval",
+          "url": "https://scryfall.com/card/c16/31/grave-upheaval?utm_source=api"
+        },
+        {
+          "name": "Lunar Hatchling",
+          "url": "https://scryfall.com/card/who/141/lunar-hatchling?utm_source=api"
+        },
+        {
+          "name": "Migratory Route",
+          "url": "https://scryfall.com/card/moc/336/migratory-route?utm_source=api"
+        },
+        {
+          "name": "Pale Recluse",
+          "url": "https://scryfall.com/card/arc/91/pale-recluse?utm_source=api"
+        },
+        {
+          "name": "Treacherous Terrain",
+          "url": "https://scryfall.com/card/znc/105/treacherous-terrain?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:landfall",
+      "name": "Landfall",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Landfall is represented by selected released-paper mechanic-bearing card faces.",
+      "summary": "Landfall triggers when a land enters under your control.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Flying Landfall — Whenever a land you control enters, you may exile target nonland permanent other than this creature.",
+            "cards": [
+              {
+                "name": "Admonition Angel",
+                "url": "https://scryfall.com/card/znc/10/admonition-angel?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Admonition%20Angel%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": ") Landfall — Whenever a land you control enters, you may switch this creature's power and toughness until end of turn.",
+            "cards": [
+              {
+                "name": "Calcite Snapper",
+                "url": "https://scryfall.com/card/wwk/25/calcite-snapper?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Calcite%20Snapper%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Landfall — Whenever a land you control enters, you may return this card from your graveyard to the battlefield.",
+            "cards": [
+              {
+                "name": "Bloodghast",
+                "url": "https://scryfall.com/card/soc/210/bloodghast?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Bloodghast%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Landfall — Whenever a land you control enters, you may pay {4}{R}{R}.",
+            "cards": [
+              {
+                "name": "Akoum Firebird",
+                "url": "https://scryfall.com/card/bfz/138/akoum-firebird?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Akoum%20Firebird%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": ") Landfall — Whenever a land you control enters, put two +1/+1 counters on target creature you control.",
+            "cards": [
+              {
+                "name": "Amanda Grayson, Logic's Link",
+                "url": "https://scryfall.com/card/trc/77/amanda-grayson-logics-link?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Amanda%20Grayson%2C%20Logic%27s%20Link%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "B",
+              "G"
+            ],
+            "note": "Landfall — Whenever a land you control enters, mill two cards.",
+            "cards": [
+              {
+                "name": "Advanced Floral Invocations",
+                "url": "https://scryfall.com/card/ysos/13/advanced-floral-invocations?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Advanced%20Floral%20Invocations%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "U",
+              "G"
+            ],
+            "note": "Landfall — Whenever a land you control enters, you may draw a card.",
+            "cards": [
+              {
+                "name": "Aesi, Tyrant of Gyre Strait",
+                "url": "https://scryfall.com/card/dsc/210/aesi-tyrant-of-gyre-strait?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Aesi%2C%20Tyrant%20of%20Gyre%20Strait%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "R",
+              "G"
+            ],
+            "note": "Landfall — Whenever a land you control enters, this creature gets +2/+2 until end of turn.",
+            "cards": [
+              {
+                "name": "Brushfire Elemental",
+                "url": "https://scryfall.com/card/znr/221/brushfire-elemental?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Brushfire%20Elemental%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "U"
+            ],
+            "note": "Landfall — Whenever a land you control enters, exile up to one other target creature you control.",
+            "cards": [
+              {
+                "name": "Chief Kyle, Transporter Tech",
+                "url": "https://scryfall.com/card/trc/87/chief-kyle-transporter-tech?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Chief%20Kyle%2C%20Transporter%20Tech%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "U",
+              "G"
+            ],
+            "note": "Landfall — Whenever a land you control enters, Choco gets +1/+0 until end of turn.",
+            "cards": [
+              {
+                "name": "Choco, Seeker of Paradise",
+                "url": "https://scryfall.com/card/fin/215/choco-seeker-of-paradise?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Choco%2C%20Seeker%20of%20Paradise%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "U",
+              "R",
+              "G"
+            ],
+            "note": "Landfall — Whenever a land you control enters, create a 4/4 red Dragon creature token with flying.",
+            "cards": [
+              {
+                "name": "Dragonback Assault",
+                "url": "https://scryfall.com/card/tdm/179/dragonback-assault?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Dragonback%20Assault%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "B",
+              "G"
+            ],
+            "note": "Landfall — Whenever a land you control enters, seek a creature card and manifest it.",
+            "cards": [
+              {
+                "name": "Hamza, Might of the Yathan",
+                "url": "https://scryfall.com/card/ytdm/21/hamza-might-of-the-yathan?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Hamza%2C%20Might%20of%20the%20Yathan%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "U",
+              "B",
+              "G"
+            ],
+            "note": "Landfall — Whenever a land you control enters, any number of target players each mill X cards, where X is twice the number of Crabs, Lobsters, Nautiluses, Starfish, and/or Trilobites you control.",
+            "cards": [
+              {
+                "name": "Homer, the Hermit",
+                "url": "https://scryfall.com/card/mbc/40/homer-the-hermit?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Homer%2C%20the%20Hermit%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "G"
+            ],
+            "note": "Landfall — Whenever a land you control enters, create a 1/1 white Human Warrior creature token.",
+            "cards": [
+              {
+                "name": "Maja, Bretagard Protector",
+                "url": "https://scryfall.com/card/khm/222/maja-bretagard-protector?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Maja%2C%20Bretagard%20Protector%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "U",
+              "B",
+              "R"
+            ],
+            "note": "Deathtouch, vigilance Landfall — Whenever a land you control enters, draw a card.",
+            "cards": [
+              {
+                "name": "Nissa, Leyline Tamer",
+                "url": "https://scryfall.com/card/frc/2/nissa-leyline-tamer?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Nissa%2C%20Leyline%20Tamer%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "R",
+              "G"
+            ],
+            "note": "Landfall — Whenever a land you control enters, put a +1/+1 counter on target creature.",
+            "cards": [
+              {
+                "name": "Obuun, Mul Daya Ancestor",
+                "url": "https://scryfall.com/card/znc/2/obuun-mul-daya-ancestor?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Obuun%2C%20Mul%20Daya%20Ancestor%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "U",
+              "R",
+              "G"
+            ],
+            "note": "Landfall — Whenever a land you control enters, you gain 4 life if this is the first time this ability has resolved this turn.",
+            "cards": [
+              {
+                "name": "Omnath, Locus of Creation",
+                "url": "https://scryfall.com/card/znr/232/omnath-locus-of-creation?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Omnath%2C%20Locus%20of%20Creation%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "documented",
+          "note": "Landfall — Whenever a land you control enters, equipped creature gets +2/+2 until end of turn.",
+          "cards": [
+            {
+              "name": "Adventuring Gear",
+              "url": "https://scryfall.com/card/fdn/249/adventuring-gear?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22Adventuring%20Gear%22%29%20include%3Aextras"
+        },
+        "limitations": [
+          "Unselected discovery hits are not claimed individually reviewed."
+        ]
+      },
+      "citationCards": [
+        {
+          "name": "Admonition Angel",
+          "url": "https://scryfall.com/card/znc/10/admonition-angel?utm_source=api"
+        },
+        {
+          "name": "Advanced Floral Invocations",
+          "url": "https://scryfall.com/card/ysos/13/advanced-floral-invocations?utm_source=api"
+        },
+        {
+          "name": "Adventuring Gear",
+          "url": "https://scryfall.com/card/fdn/249/adventuring-gear?utm_source=api"
+        },
+        {
+          "name": "Aesi, Tyrant of Gyre Strait",
+          "url": "https://scryfall.com/card/dsc/210/aesi-tyrant-of-gyre-strait?utm_source=api"
+        },
+        {
+          "name": "Akoum Firebird",
+          "url": "https://scryfall.com/card/bfz/138/akoum-firebird?utm_source=api"
+        },
+        {
+          "name": "Amanda Grayson, Logic's Link",
+          "url": "https://scryfall.com/card/trc/77/amanda-grayson-logics-link?utm_source=api"
+        },
+        {
+          "name": "Bloodghast",
+          "url": "https://scryfall.com/card/soc/210/bloodghast?utm_source=api"
+        },
+        {
+          "name": "Brushfire Elemental",
+          "url": "https://scryfall.com/card/znr/221/brushfire-elemental?utm_source=api"
+        },
+        {
+          "name": "Calcite Snapper",
+          "url": "https://scryfall.com/card/wwk/25/calcite-snapper?utm_source=api"
+        },
+        {
+          "name": "Chief Kyle, Transporter Tech",
+          "url": "https://scryfall.com/card/trc/87/chief-kyle-transporter-tech?utm_source=api"
+        },
+        {
+          "name": "Choco, Seeker of Paradise",
+          "url": "https://scryfall.com/card/fin/215/choco-seeker-of-paradise?utm_source=api"
+        },
+        {
+          "name": "Dragonback Assault",
+          "url": "https://scryfall.com/card/tdm/179/dragonback-assault?utm_source=api"
+        },
+        {
+          "name": "Hamza, Might of the Yathan",
+          "url": "https://scryfall.com/card/ytdm/21/hamza-might-of-the-yathan?utm_source=api"
+        },
+        {
+          "name": "Homer, the Hermit",
+          "url": "https://scryfall.com/card/mbc/40/homer-the-hermit?utm_source=api"
+        },
+        {
+          "name": "Maja, Bretagard Protector",
+          "url": "https://scryfall.com/card/khm/222/maja-bretagard-protector?utm_source=api"
+        },
+        {
+          "name": "Nissa, Leyline Tamer",
+          "url": "https://scryfall.com/card/frc/2/nissa-leyline-tamer?utm_source=api"
+        },
+        {
+          "name": "Obuun, Mul Daya Ancestor",
+          "url": "https://scryfall.com/card/znc/2/obuun-mul-daya-ancestor?utm_source=api"
+        },
+        {
+          "name": "Omnath, Locus of Creation",
+          "url": "https://scryfall.com/card/znr/232/omnath-locus-of-creation?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:catalog-gaps:landship",
+      "name": "Landship",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Mystery Booster playtest cards",
+      "scope": "Selected cards label their own text Landship.",
+      "summary": "Plane-Merge Elf labels its own upkeep land-reveal token effect Landship.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "not_found",
+            "note": "No W example is represented in this scoped review.",
+            "cards": [],
+            "findUrl": null
+          },
+          "U": {
+            "status": "not_found",
+            "note": "No U example is represented in this scoped review.",
+            "cards": [],
+            "findUrl": null
+          },
+          "B": {
+            "status": "not_found",
+            "note": "No B example is represented in this scoped review.",
+            "cards": [],
+            "findUrl": null
+          },
+          "R": {
+            "status": "not_found",
+            "note": "No R example is represented in this scoped review.",
+            "cards": [],
+            "findUrl": null
+          },
+          "G": {
+            "status": "documented",
+            "note": "Landship — At the beginning of your upkeep, you may look at the top card of your library. If it's a land, you may reveal it. If you do, create a 1/1 green Elf Warrior creature token.",
+            "cards": [
+              {
+                "name": "Plane-Merge Elf",
+                "url": "https://scryfall.com/card/cmb2/83/plane-merge-elf?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Plane-Merge%20Elf%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "not_found",
+          "note": "No colorless example is represented in this scoped review.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": [
+          "Official context does not verify a general Landship rules definition."
+        ]
+      },
+      "citationCards": [
+        {
+          "name": "Plane-Merge Elf",
+          "url": "https://scryfall.com/card/cmb2/83/plane-merge-elf?utm_source=api"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Mystery Booster Release Notes",
+          "url": "https://magic.wizards.com/en/news/feature/mystery-booster-release-notes-2019-11-11"
+        }
+      ],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:landwalk",
+      "name": "Landwalk",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Landwalk is represented by selected released-paper mechanic-bearing card faces.",
+      "summary": "Landwalk can make a creature unblockable for a specified land type.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Mountainwalk (This creature can't be blocked as long as defending player controls a Mountain.",
+            "cards": [
+              {
+                "name": "Cliff Threader",
+                "url": "https://scryfall.com/card/zen/7/cliff-threader?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Cliff%20Threader%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Islandwalk (This creature can't be blocked as long as defending player controls an Island.",
+            "cards": [
+              {
+                "name": "Benthic Behemoth",
+                "url": "https://scryfall.com/card/7ed/63/benthic-behemoth?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Benthic%20Behemoth%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Swampwalk (This creature can't be blocked as long as defending player controls a Swamp.",
+            "cards": [
+              {
+                "name": "Anurid Murkdiver",
+                "url": "https://scryfall.com/card/ons/124/anurid-murkdiver?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Anurid%20Murkdiver%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Plainswalk (This creature can't be blocked as long as defending player controls a Plains.",
+            "cards": [
+              {
+                "name": "Boggart Arsonists",
+                "url": "https://scryfall.com/card/shm/85/boggart-arsonists?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Boggart%20Arsonists%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Swampwalk (This creature can't be blocked as long as defending player controls a Swamp.",
+            "cards": [
+              {
+                "name": "Anaconda",
+                "url": "https://scryfall.com/card/9ed/229/anaconda?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Anaconda%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "U",
+              "B"
+            ],
+            "note": "Islandwalk (This creature can't be blocked as long as defending player controls an Island.",
+            "cards": [
+              {
+                "name": "Benthic Djinn",
+                "url": "https://scryfall.com/card/mir/257/benthic-djinn?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Benthic%20Djinn%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "G"
+            ],
+            "note": "Forestwalk (This creature can't be blocked as long as defending player controls a Forest.",
+            "cards": [
+              {
+                "name": "Chorus of the Conclave",
+                "url": "https://scryfall.com/card/cmd/189/chorus-of-the-conclave?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Chorus%20of%20the%20Conclave%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "U",
+              "G"
+            ],
+            "note": "Islandwalk (This creature can't be blocked as long as defending player controls an Island.",
+            "cards": [
+              {
+                "name": "Cold-Eyed Selkie",
+                "url": "https://scryfall.com/card/otc/218/cold-eyed-selkie?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Cold-Eyed%20Selkie%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "R",
+              "G"
+            ],
+            "note": "Desertwalk (This creature can't be blocked as long as defending player controls a Desert.",
+            "cards": [
+              {
+                "name": "Hazezon, Shaper of Sand",
+                "url": "https://scryfall.com/card/otc/229/hazezon-shaper-of-sand?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Hazezon%2C%20Shaper%20of%20Sand%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "R",
+              "G"
+            ],
+            "note": "First strike; legendary landwalk (This creature can't be blocked as long as defending player controls a legendary land.",
+            "cards": [
+              {
+                "name": "Livonya Silone",
+                "url": "https://scryfall.com/card/me3/160/livonya-silone?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Livonya%20Silone%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "B",
+              "R"
+            ],
+            "note": "Swampwalk (This creature can't be blocked as long as defending player controls a Swamp.",
+            "cards": [
+              {
+                "name": "Marsh Goblins",
+                "url": "https://scryfall.com/card/drk/93/marsh-goblins?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Marsh%20Goblins%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "U",
+              "B",
+              "R"
+            ],
+            "note": "Swampwalk (This creature can't be blocked as long as defending player controls a Swamp.",
+            "cards": [
+              {
+                "name": "Sol'kanar the Swamp King",
+                "url": "https://scryfall.com/card/dmr/200/solkanar-the-swamp-king?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Sol%27kanar%20the%20Swamp%20King%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "B",
+              "G"
+            ],
+            "note": "Swampwalk, forestwalk (This creature can't be blocked as long as defending player controls a Swamp or a Forest.",
+            "cards": [
+              {
+                "name": "Stalker Hag",
+                "url": "https://scryfall.com/card/eve/129/stalker-hag?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Stalker%20Hag%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "U"
+            ],
+            "note": "Islandwalk (This creature can't be blocked as long as defending player controls an Island.",
+            "cards": [
+              {
+                "name": "Sygg, River Guide",
+                "url": "https://scryfall.com/card/lrw/251/sygg-river-guide?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Sygg%2C%20River%20Guide%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "documented",
+          "note": "Islandwalk (This creature can't be blocked as long as defending player controls an Island.",
+          "cards": [
+            {
+              "name": "Adrestia",
+              "url": "https://scryfall.com/card/acr/68/adrestia?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22Adrestia%22%29%20include%3Aextras"
+        },
+        "limitations": [
+          "Unselected discovery hits are not claimed individually reviewed."
+        ]
+      },
+      "citationCards": [
+        {
+          "name": "Adrestia",
+          "url": "https://scryfall.com/card/acr/68/adrestia?utm_source=api"
+        },
+        {
+          "name": "Anaconda",
+          "url": "https://scryfall.com/card/9ed/229/anaconda?utm_source=api"
+        },
+        {
+          "name": "Anurid Murkdiver",
+          "url": "https://scryfall.com/card/ons/124/anurid-murkdiver?utm_source=api"
+        },
+        {
+          "name": "Benthic Behemoth",
+          "url": "https://scryfall.com/card/7ed/63/benthic-behemoth?utm_source=api"
+        },
+        {
+          "name": "Benthic Djinn",
+          "url": "https://scryfall.com/card/mir/257/benthic-djinn?utm_source=api"
+        },
+        {
+          "name": "Boggart Arsonists",
+          "url": "https://scryfall.com/card/shm/85/boggart-arsonists?utm_source=api"
+        },
+        {
+          "name": "Chorus of the Conclave",
+          "url": "https://scryfall.com/card/cmd/189/chorus-of-the-conclave?utm_source=api"
+        },
+        {
+          "name": "Cliff Threader",
+          "url": "https://scryfall.com/card/zen/7/cliff-threader?utm_source=api"
+        },
+        {
+          "name": "Cold-Eyed Selkie",
+          "url": "https://scryfall.com/card/otc/218/cold-eyed-selkie?utm_source=api"
+        },
+        {
+          "name": "Hazezon, Shaper of Sand",
+          "url": "https://scryfall.com/card/otc/229/hazezon-shaper-of-sand?utm_source=api"
+        },
+        {
+          "name": "Livonya Silone",
+          "url": "https://scryfall.com/card/me3/160/livonya-silone?utm_source=api"
+        },
+        {
+          "name": "Marsh Goblins",
+          "url": "https://scryfall.com/card/drk/93/marsh-goblins?utm_source=api"
+        },
+        {
+          "name": "Sol'kanar the Swamp King",
+          "url": "https://scryfall.com/card/dmr/200/solkanar-the-swamp-king?utm_source=api"
+        },
+        {
+          "name": "Stalker Hag",
+          "url": "https://scryfall.com/card/eve/129/stalker-hag?utm_source=api"
+        },
+        {
+          "name": "Sygg, River Guide",
+          "url": "https://scryfall.com/card/lrw/251/sygg-river-guide?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:learn",
+      "name": "Learn",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Learn is represented by selected released-paper mechanic-bearing card faces.",
+      "summary": "Learn lets a player take a Lesson from outside the game or discard to draw.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Learn.",
+            "cards": [
+              {
+                "name": "Guiding Voice",
+                "url": "https://scryfall.com/card/stx/19/guiding-voice?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Guiding%20Voice%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Learn.",
+            "cards": [
+              {
+                "name": "Arcane Subtraction",
+                "url": "https://scryfall.com/card/stx/36/arcane-subtraction?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Arcane%20Subtraction%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Flying When this creature dies, learn.",
+            "cards": [
+              {
+                "name": "Eyetwitch",
+                "url": "https://scryfall.com/card/stx/70/eyetwitch?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Eyetwitch%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Learn.",
+            "cards": [
+              {
+                "name": "Academic Dispute",
+                "url": "https://scryfall.com/card/stx/91/academic-dispute?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Academic%20Dispute%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Learn.",
+            "cards": [
+              {
+                "name": "Field Trip",
+                "url": "https://scryfall.com/card/stx/131/field-trip?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Field%20Trip%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "B",
+              "G"
+            ],
+            "note": "Learn.",
+            "cards": [
+              {
+                "name": "Cram Session",
+                "url": "https://scryfall.com/card/stx/170/cram-session?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Cram%20Session%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "B"
+            ],
+            "note": "Learn.",
+            "cards": [
+              {
+                "name": "Rise of Extus",
+                "url": "https://scryfall.com/card/stx/226/rise-of-extus?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Rise%20of%20Extus%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "not_found",
+          "note": "No colorless example is represented in this reviewed scope.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": [
+          "Unselected discovery hits are not claimed individually reviewed."
+        ]
+      },
+      "citationCards": [
+        {
+          "name": "Academic Dispute",
+          "url": "https://scryfall.com/card/stx/91/academic-dispute?utm_source=api"
+        },
+        {
+          "name": "Arcane Subtraction",
+          "url": "https://scryfall.com/card/stx/36/arcane-subtraction?utm_source=api"
+        },
+        {
+          "name": "Cram Session",
+          "url": "https://scryfall.com/card/stx/170/cram-session?utm_source=api"
+        },
+        {
+          "name": "Eyetwitch",
+          "url": "https://scryfall.com/card/stx/70/eyetwitch?utm_source=api"
+        },
+        {
+          "name": "Field Trip",
+          "url": "https://scryfall.com/card/stx/131/field-trip?utm_source=api"
+        },
+        {
+          "name": "Guiding Voice",
+          "url": "https://scryfall.com/card/stx/19/guiding-voice?utm_source=api"
+        },
+        {
+          "name": "Rise of Extus",
+          "url": "https://scryfall.com/card/stx/226/rise-of-extus?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:catalog-gaps:legacy",
+      "name": "Legacy",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Mystery Booster playtest cards",
+      "scope": "Selected cards label their own text Legacy.",
+      "summary": "The selected playtest cards label their own text Legacy.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "not_found",
+            "note": "No W example is represented in this scoped review.",
+            "cards": [],
+            "findUrl": null
+          },
+          "U": {
+            "status": "not_found",
+            "note": "No U example is represented in this scoped review.",
+            "cards": [],
+            "findUrl": null
+          },
+          "B": {
+            "status": "not_found",
+            "note": "No B example is represented in this scoped review.",
+            "cards": [],
+            "findUrl": null
+          },
+          "R": {
+            "status": "not_found",
+            "note": "No R example is represented in this scoped review.",
+            "cards": [],
+            "findUrl": null
+          },
+          "G": {
+            "status": "documented",
+            "note": "Legacy — Before the game starts, choose a keyword or ability word and write it below.",
+            "cards": [
+              {
+                "name": "Inspirational Antelope",
+                "url": "https://scryfall.com/card/cmb2/78/inspirational-antelope?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Inspirational%20Antelope%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "documented",
+          "note": "{T}: Add {C}.",
+          "cards": [
+            {
+              "name": "Gold Mine",
+              "url": "https://scryfall.com/card/cmb2/116/gold-mine?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22Gold%20Mine%22%29%20include%3Aextras"
+        },
+        "limitations": [
+          "Official context does not verify a general Legacy rules definition."
+        ]
+      },
+      "citationCards": [
+        {
+          "name": "Gold Mine",
+          "url": "https://scryfall.com/card/cmb2/116/gold-mine?utm_source=api"
+        },
+        {
+          "name": "Inspirational Antelope",
+          "url": "https://scryfall.com/card/cmb2/78/inspirational-antelope?utm_source=api"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Mystery Booster Release Notes",
+          "url": "https://magic.wizards.com/en/news/feature/mystery-booster-release-notes-2019-11-11"
+        }
+      ],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:variants:legendary landwalk",
+      "name": "Legendary landwalk",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Legendary landwalk is represented by selected released-paper mechanic-bearing card faces.",
+      "summary": "Legendary landwalk checks whether the defending player controls a legendary land.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "not_found",
+            "note": "No W example is represented in this reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "U": {
+            "status": "not_found",
+            "note": "No U example is represented in this reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "B": {
+            "status": "not_found",
+            "note": "No B example is represented in this reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "R": {
+            "status": "multicolor_only",
+            "note": "Represented only by the selected multicolor card example.",
+            "cards": [
+              {
+                "name": "Livonya Silone",
+                "url": "https://scryfall.com/card/me3/160/livonya-silone?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Livonya%20Silone%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Legendary landwalk (This creature can't be blocked as long as defending player controls a legendary land.",
+            "cards": [
+              {
+                "name": "Ayumi, the Last Visitor",
+                "url": "https://scryfall.com/card/sok/122/ayumi-the-last-visitor?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Ayumi%2C%20the%20Last%20Visitor%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "R",
+              "G"
+            ],
+            "note": "First strike; legendary landwalk (This creature can't be blocked as long as defending player controls a legendary land.",
+            "cards": [
+              {
+                "name": "Livonya Silone",
+                "url": "https://scryfall.com/card/me3/160/livonya-silone?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Livonya%20Silone%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "not_found",
+          "note": "No colorless example is represented in this reviewed scope.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": [
+          "Unselected discovery hits are not claimed individually reviewed."
+        ]
+      },
+      "citationCards": [
+        {
+          "name": "Ayumi, the Last Visitor",
+          "url": "https://scryfall.com/card/sok/122/ayumi-the-last-visitor?utm_source=api"
+        },
+        {
+          "name": "Livonya Silone",
+          "url": "https://scryfall.com/card/me3/160/livonya-silone?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:level up",
+      "name": "Level Up",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Level Up is represented by selected released-paper mechanic-bearing card faces.",
+      "summary": "Level up lets a creature gain level counters as a sorcery.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Level up {2} ({2}: Put a level counter on this.",
+            "cards": [
+              {
+                "name": "Caravan Escort",
+                "url": "https://scryfall.com/card/ddp/3/caravan-escort?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Caravan%20Escort%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Level up {1} ({1}: Put a level counter on this.",
+            "cards": [
+              {
+                "name": "Coralhelm Commander",
+                "url": "https://scryfall.com/card/lcc/148/coralhelm-commander?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Coralhelm%20Commander%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Level up {1}{B} ({1}{B}: Put a level counter on this.",
+            "cards": [
+              {
+                "name": "Guul Draz Assassin",
+                "url": "https://scryfall.com/card/roe/112/guul-draz-assassin?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Guul%20Draz%20Assassin%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Level up {3}{R} ({3}{R}: Put a level counter on this.",
+            "cards": [
+              {
+                "name": "Brimstone Mage",
+                "url": "https://scryfall.com/card/roe/137/brimstone-mage?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Brimstone%20Mage%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Level up {2}{G} ({2}{G}: Put a level counter on this.",
+            "cards": [
+              {
+                "name": "Beastbreaker of Bala Ged",
+                "url": "https://scryfall.com/card/ddp/10/beastbreaker-of-bala-ged?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Beastbreaker%20of%20Bala%20Ged%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "not_found",
+          "note": "No colorless example is represented in this reviewed scope.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": [
+          "Unselected discovery hits are not claimed individually reviewed."
+        ]
+      },
+      "citationCards": [
+        {
+          "name": "Beastbreaker of Bala Ged",
+          "url": "https://scryfall.com/card/ddp/10/beastbreaker-of-bala-ged?utm_source=api"
+        },
+        {
+          "name": "Brimstone Mage",
+          "url": "https://scryfall.com/card/roe/137/brimstone-mage?utm_source=api"
+        },
+        {
+          "name": "Caravan Escort",
+          "url": "https://scryfall.com/card/ddp/3/caravan-escort?utm_source=api"
+        },
+        {
+          "name": "Coralhelm Commander",
+          "url": "https://scryfall.com/card/lcc/148/coralhelm-commander?utm_source=api"
+        },
+        {
+          "name": "Guul Draz Assassin",
+          "url": "https://scryfall.com/card/roe/112/guul-draz-assassin?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:lieutenant",
+      "name": "Lieutenant",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Lieutenant is represented by selected released-paper mechanic-bearing card faces.",
+      "summary": "Lieutenant effects check whether you control your commander.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Flying Lieutenant — As long as you control your commander, this creature gets +2/+2 and creatures you control have vigilance.",
+            "cards": [
+              {
+                "name": "Angelic Field Marshal",
+                "url": "https://scryfall.com/card/cmm/13/angelic-field-marshal?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Angelic%20Field%20Marshal%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Whenever a player casts a noncreature spell, put a +1/+1 counter on Lieutenant Commander Data.",
+            "cards": [
+              {
+                "name": "Lieutenant Commander Data",
+                "url": "https://scryfall.com/card/trk/69/lieutenant-commander-data?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Lieutenant%20Commander%20Data%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Flying Lieutenant — As long as you control your commander, this creature gets +2/+2 and has \"Whenever this creature deals combat damage to a player, that player sacrifices a creature of their choice.",
+            "cards": [
+              {
+                "name": "Demon of Wailing Agonies",
+                "url": "https://scryfall.com/card/c14/21/demon-of-wailing-agonies?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Demon%20of%20Wailing%20Agonies%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Haste Lieutenant — At the beginning of combat on your turn, if you control your commander, create a 1/1 colorless Thopter artifact creature token with flying.",
+            "cards": [
+              {
+                "name": "Loyal Apprentice",
+                "url": "https://scryfall.com/card/tdc/222/loyal-apprentice?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Loyal%20Apprentice%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Whenever Lieutenant Sulu becomes tapped, he explores.",
+            "cards": [
+              {
+                "name": "Lieutenant Hikaru Sulu",
+                "url": "https://scryfall.com/card/trc/80/lieutenant-hikaru-sulu?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Lieutenant%20Hikaru%20Sulu%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "not_found",
+          "note": "No colorless example is represented in this reviewed scope.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": [
+          "Unselected discovery hits are not claimed individually reviewed."
+        ]
+      },
+      "citationCards": [
+        {
+          "name": "Angelic Field Marshal",
+          "url": "https://scryfall.com/card/cmm/13/angelic-field-marshal?utm_source=api"
+        },
+        {
+          "name": "Demon of Wailing Agonies",
+          "url": "https://scryfall.com/card/c14/21/demon-of-wailing-agonies?utm_source=api"
+        },
+        {
+          "name": "Lieutenant Commander Data",
+          "url": "https://scryfall.com/card/trk/69/lieutenant-commander-data?utm_source=api"
+        },
+        {
+          "name": "Lieutenant Hikaru Sulu",
+          "url": "https://scryfall.com/card/trc/80/lieutenant-hikaru-sulu?utm_source=api"
+        },
+        {
+          "name": "Loyal Apprentice",
+          "url": "https://scryfall.com/card/tdc/222/loyal-apprentice?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:living metal",
+      "name": "Living Metal",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Living Metal is represented by selected released-paper mechanic-bearing card faces.",
+      "summary": "Living metal makes a Vehicle creature on its controller’s turn.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Living metal (During your turn, this Vehicle is also a creature.",
+            "cards": [
+              {
+                "name": "Prowl, Stoic Strategist // Prowl, Pursuit Vehicle",
+                "url": "https://scryfall.com/card/bot/1/prowl-stoic-strategist-prowl-pursuit-vehicle?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Prowl%2C%20Stoic%20Strategist%20//%20Prowl%2C%20Pursuit%20Vehicle%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Living metal (During your turn, this Vehicle is also a creature.",
+            "cards": [
+              {
+                "name": "Jetfire, Ingenious Scientist // Jetfire, Air Guardian",
+                "url": "https://scryfall.com/card/bot/3/jetfire-ingenious-scientist-jetfire-air-guardian?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Jetfire%2C%20Ingenious%20Scientist%20//%20Jetfire%2C%20Air%20Guardian%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Living metal (During your turn, this Vehicle is also a creature.",
+            "cards": [
+              {
+                "name": "Blitzwing, Cruel Tormentor // Blitzwing, Adaptive Assailant",
+                "url": "https://scryfall.com/card/bot/4/blitzwing-cruel-tormentor-blitzwing-adaptive-assailant?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Blitzwing%2C%20Cruel%20Tormentor%20//%20Blitzwing%2C%20Adaptive%20Assailant%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Living metal (During your turn, this Vehicle is also a creature.",
+            "cards": [
+              {
+                "name": "Slicer, Hired Muscle // Slicer, High-Speed Antagonist",
+                "url": "https://scryfall.com/card/bot/6/slicer-hired-muscle-slicer-high-speed-antagonist?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Slicer%2C%20Hired%20Muscle%20//%20Slicer%2C%20High-Speed%20Antagonist%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "multicolor_only",
+            "note": "Represented only by the selected multicolor card example.",
+            "cards": [
+              {
+                "name": "Ultra Magnus, Tactician // Ultra Magnus, Armored Carrier",
+                "url": "https://scryfall.com/card/bot/15/ultra-magnus-tactician-ultra-magnus-armored-carrier?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Ultra%20Magnus%2C%20Tactician%20//%20Ultra%20Magnus%2C%20Armored%20Carrier%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "W",
+              "R"
+            ],
+            "note": "Living metal (During your turn, this Vehicle is also a creature.",
+            "cards": [
+              {
+                "name": "Arcee, Sharpshooter // Arcee, Acrobatic Coupe",
+                "url": "https://scryfall.com/card/bot/7/arcee-sharpshooter-arcee-acrobatic-coupe?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Arcee%2C%20Sharpshooter%20//%20Arcee%2C%20Acrobatic%20Coupe%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "U",
+              "B"
+            ],
+            "note": "Living metal (During your turn, this Vehicle is also a creature.",
+            "cards": [
+              {
+                "name": "Cyclonus, the Saboteur // Cyclonus, Cybertronian Fighter",
+                "url": "https://scryfall.com/card/bot/9/cyclonus-the-saboteur-cyclonus-cybertronian-fighter?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Cyclonus%2C%20the%20Saboteur%20//%20Cyclonus%2C%20Cybertronian%20Fighter%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "B",
+              "R"
+            ],
+            "note": "Living metal (During your turn, this Vehicle is also a creature.",
+            "cards": [
+              {
+                "name": "Flamewar, Brash Veteran // Flamewar, Streetwise Operative",
+                "url": "https://scryfall.com/card/bot/10/flamewar-brash-veteran-flamewar-streetwise-operative?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Flamewar%2C%20Brash%20Veteran%20//%20Flamewar%2C%20Streetwise%20Operative%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "U"
+            ],
+            "note": "Living metal (During your turn, this Vehicle is also a creature.",
+            "cards": [
+              {
+                "name": "Goldbug, Humanity's Ally // Goldbug, Scrappy Scout",
+                "url": "https://scryfall.com/card/bot/11/goldbug-humanitys-ally-goldbug-scrappy-scout?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Goldbug%2C%20Humanity%27s%20Ally%20//%20Goldbug%2C%20Scrappy%20Scout%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "B",
+              "R"
+            ],
+            "note": "Living metal (During your turn, this Vehicle is also a creature.",
+            "cards": [
+              {
+                "name": "Megatron, Tyrant // Megatron, Destructive Force",
+                "url": "https://scryfall.com/card/bot/12/megatron-tyrant-megatron-destructive-force?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Megatron%2C%20Tyrant%20//%20Megatron%2C%20Destructive%20Force%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "U",
+              "R"
+            ],
+            "note": "Living metal (During your turn, this Vehicle is also a creature.",
+            "cards": [
+              {
+                "name": "Optimus Prime, Hero // Optimus Prime, Autobot Leader",
+                "url": "https://scryfall.com/card/bot/13/optimus-prime-hero-optimus-prime-autobot-leader?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Optimus%20Prime%2C%20Hero%20//%20Optimus%20Prime%2C%20Autobot%20Leader%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "R",
+              "G"
+            ],
+            "note": "Living metal (During your turn, this Vehicle is also a creature.",
+            "cards": [
+              {
+                "name": "Ultra Magnus, Tactician // Ultra Magnus, Armored Carrier",
+                "url": "https://scryfall.com/card/bot/15/ultra-magnus-tactician-ultra-magnus-armored-carrier?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Ultra%20Magnus%2C%20Tactician%20//%20Ultra%20Magnus%2C%20Armored%20Carrier%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "not_found",
+          "note": "No colorless example is represented in this reviewed scope.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": [
+          "Unselected discovery hits are not claimed individually reviewed."
+        ]
+      },
+      "citationCards": [
+        {
+          "name": "Arcee, Sharpshooter // Arcee, Acrobatic Coupe",
+          "url": "https://scryfall.com/card/bot/7/arcee-sharpshooter-arcee-acrobatic-coupe?utm_source=api"
+        },
+        {
+          "name": "Blitzwing, Cruel Tormentor // Blitzwing, Adaptive Assailant",
+          "url": "https://scryfall.com/card/bot/4/blitzwing-cruel-tormentor-blitzwing-adaptive-assailant?utm_source=api"
+        },
+        {
+          "name": "Cyclonus, the Saboteur // Cyclonus, Cybertronian Fighter",
+          "url": "https://scryfall.com/card/bot/9/cyclonus-the-saboteur-cyclonus-cybertronian-fighter?utm_source=api"
+        },
+        {
+          "name": "Flamewar, Brash Veteran // Flamewar, Streetwise Operative",
+          "url": "https://scryfall.com/card/bot/10/flamewar-brash-veteran-flamewar-streetwise-operative?utm_source=api"
+        },
+        {
+          "name": "Goldbug, Humanity's Ally // Goldbug, Scrappy Scout",
+          "url": "https://scryfall.com/card/bot/11/goldbug-humanitys-ally-goldbug-scrappy-scout?utm_source=api"
+        },
+        {
+          "name": "Jetfire, Ingenious Scientist // Jetfire, Air Guardian",
+          "url": "https://scryfall.com/card/bot/3/jetfire-ingenious-scientist-jetfire-air-guardian?utm_source=api"
+        },
+        {
+          "name": "Megatron, Tyrant // Megatron, Destructive Force",
+          "url": "https://scryfall.com/card/bot/12/megatron-tyrant-megatron-destructive-force?utm_source=api"
+        },
+        {
+          "name": "Optimus Prime, Hero // Optimus Prime, Autobot Leader",
+          "url": "https://scryfall.com/card/bot/13/optimus-prime-hero-optimus-prime-autobot-leader?utm_source=api"
+        },
+        {
+          "name": "Prowl, Stoic Strategist // Prowl, Pursuit Vehicle",
+          "url": "https://scryfall.com/card/bot/1/prowl-stoic-strategist-prowl-pursuit-vehicle?utm_source=api"
+        },
+        {
+          "name": "Slicer, Hired Muscle // Slicer, High-Speed Antagonist",
+          "url": "https://scryfall.com/card/bot/6/slicer-hired-muscle-slicer-high-speed-antagonist?utm_source=api"
+        },
+        {
+          "name": "Ultra Magnus, Tactician // Ultra Magnus, Armored Carrier",
+          "url": "https://scryfall.com/card/bot/15/ultra-magnus-tactician-ultra-magnus-armored-carrier?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:living weapon",
+      "name": "Living Weapon",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Living Weapon is represented by selected released-paper mechanic-bearing card faces.",
+      "summary": "Living weapon creates and equips a Germ token as the Equipment enters.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Living weapon (When this Equipment enters, create a 0/0 black Phyrexian Germ creature token, then attach this to it.",
+            "cards": [
+              {
+                "name": "Mandibular Kite",
+                "url": "https://scryfall.com/card/mh3/34/mandibular-kite?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Mandibular%20Kite%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "not_found",
+            "note": "No U example is represented in this reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "B": {
+            "status": "documented",
+            "note": "Living weapon (When this Equipment enters, create a 0/0 black Phyrexian Germ creature token, then attach this to it.",
+            "cards": [
+              {
+                "name": "Drossclaw",
+                "url": "https://scryfall.com/card/mh3/89/drossclaw?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Drossclaw%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "multicolor_only",
+            "note": "Represented only by the selected multicolor card example.",
+            "cards": [
+              {
+                "name": "Cranial Ram",
+                "url": "https://scryfall.com/card/mh3/180/cranial-ram?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Cranial%20Ram%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Living weapon (When this Equipment enters, create a 0/0 black Phyrexian Germ creature token, then attach this to it.",
+            "cards": [
+              {
+                "name": "Colossal Dreadmask",
+                "url": "https://scryfall.com/card/mh3/148/colossal-dreadmask?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Colossal%20Dreadmask%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "B",
+              "R"
+            ],
+            "note": "Living weapon (When this Equipment enters, create a 0/0 black Phyrexian Germ creature token, then attach this to it.",
+            "cards": [
+              {
+                "name": "Cranial Ram",
+                "url": "https://scryfall.com/card/mh3/180/cranial-ram?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Cranial%20Ram%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "documented",
+          "note": "Living weapon (When this Equipment enters, create a 0/0 black Phyrexian Germ creature token, then attach this to it.",
+          "cards": [
+            {
+              "name": "Batterbone",
+              "url": "https://scryfall.com/card/mh2/221/batterbone?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22Batterbone%22%29%20include%3Aextras"
+        },
+        "limitations": [
+          "Unselected discovery hits are not claimed individually reviewed."
+        ]
+      },
+      "citationCards": [
+        {
+          "name": "Batterbone",
+          "url": "https://scryfall.com/card/mh2/221/batterbone?utm_source=api"
+        },
+        {
+          "name": "Colossal Dreadmask",
+          "url": "https://scryfall.com/card/mh3/148/colossal-dreadmask?utm_source=api"
+        },
+        {
+          "name": "Cranial Ram",
+          "url": "https://scryfall.com/card/mh3/180/cranial-ram?utm_source=api"
+        },
+        {
+          "name": "Drossclaw",
+          "url": "https://scryfall.com/card/mh3/89/drossclaw?utm_source=api"
+        },
+        {
+          "name": "Mandibular Kite",
+          "url": "https://scryfall.com/card/mh3/34/mandibular-kite?utm_source=api"
+        }
+      ],
+      "sources": [],
       "relatedEffects": []
     }
   ]
