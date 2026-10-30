@@ -10,6 +10,7 @@ const root=path.resolve(opt('--root','.'));
 const copyOnly=args.includes('--copy-only');
 const combinationsOnly=args.includes('--combinations-only');
 const kOnly=args.includes('--k-only');
+const lOnly=args.includes('--l-only');
 const {chromium}=createRequire(import.meta.url)(opt('--playwright','playwright'));
 const payload=JSON.parse(fs.readFileSync(path.join(root,'data/mechanics-assessments.v1.json'),'utf8'));
 const supplement=JSON.parse(fs.readFileSync(path.join(root,'data/mechanics-supplement.v1.json'),'utf8'));
@@ -33,10 +34,12 @@ const math=()=>{
 // Exact subpaths/palettes from the pinned Mana 1.18 SVG/CSS, not the rejected font/gradient composition.
 // SVG SHA256 da399dc513828acc373e187a457574c7e10515ee5b89caa1b91fac1bd69c2a8e.
 const ciPathHashes={"3":["131d51ed29e20c9aa775ebb5094d4be8f3511907ad59b88edcfb61f5c5856f06","9d849d80b8320c3cbeb1c3080963c9c5ac6b94b4bfb2b1ea0d6794b5d0775395","a3d12eec27e1749efe27593db8cc60562a46c5cbcb67752c5cb1346d260458a7","a420efa8bb78d81ed9fb8b2004e0eaa87f88042e798ffcc03dd4f181d6e0a165"],"5":["131d51ed29e20c9aa775ebb5094d4be8f3511907ad59b88edcfb61f5c5856f06","4db0f8df52032341284cb588466593dc48353ffad3313892196810bcfb0ffeb5","9301a76f180030b5a3d1a1cb8f5e10a1ffb1b7006cb4dd335b53e2826efaf826","01a8768565729464c95fce3b30418f57e377bf673c0f82e30ef45990529d7603","17ee6820251767f8a3e4a9542e1e2b8598d9f766470940f71504afd1dc776f13","7c284a93d686ba6abb0920657cb8650f218b545237d308893cc5b5a996d8c308"]};
+ciPathHashes['4']=["131d51ed29e20c9aa775ebb5094d4be8f3511907ad59b88edcfb61f5c5856f06","2560b9ed7e9aa624cd36e031f181ee614f4c7a246fd1123bc5cf1538cc157075","b1d4987aa6f47bbcaf3daf7e7e0958af7b0cff1ce8f3f4deedcbc497cb21a1ff","7d9e38864aa717d5956aaa6804c36f54e1cfd6d49a5d289324b94091fcf23295","1ce83b3f14cf8532efe2dc85e3ad6a2842ddef556cd94758cd18ea3cc83e70f1"];
 const ciPalettes={"WUG":["#3b6ba0","#3d684b","#fff"],"UBR":["#c6553e","#3b6ba0","#383431"],"WUR":["#c6553e","#fff","#3b6ba0"],"BRG":["#3d684b","#383431","#c6553e"],"WBG":["#383431","#3d684b","#fff"],"WUB":["#383431","#fff","#3b6ba0"],"WUBRG":["#c6553e","#383431","#3b6ba0","#3d684b","#fff"]};
+Object.assign(ciPalettes,{UBG:['#3d684b','#3b6ba0','#383431'],URG:['#3b6ba0','#c6553e','#3d684b'],WRG:['#fff','#c6553e','#3d684b'],WBR:['#fff','#383431','#c6553e'],WUBR:['#383431','#c6553e','#3b6ba0','#fff'],WURG:['#fff','#3b6ba0','#3d684b','#c6553e']});
 async function checkCIVectors(host,label,size=18){
   assert.equal(await host.locator('.combo-mark .ms-ci').count(),0,label+' has no independent CI font/gradient layer');
-  const glyphs=await host.locator('.ci3-svg,.ci5-svg').evaluateAll(items=>items.map(svg=>{
+  const glyphs=await host.locator('.ci3-svg,.ci4-svg,.ci5-svg').evaluateAll(items=>items.map(svg=>{
     const paths=[...svg.querySelectorAll('path')],outer=paths[0],box=svg.getBoundingClientRect(),ink=outer.getBoundingClientRect(),mark=svg.closest('.combo-mark').getBoundingClientRect();
     return {key:svg.closest('.combo-mark').dataset.combo,viewBox:svg.getAttribute('viewBox'),transform:svg.querySelector('g')?.getAttribute('transform'),
       geometry:[box.width,box.height,ink.width,ink.height,(ink.left+ink.width/2)-(mark.left+mark.width/2),(ink.top+ink.height/2)-(mark.top+mark.height/2)],
@@ -57,9 +60,9 @@ async function checkCIVectors(host,label,size=18){
 // A compact access circle is 14px; detail circles remain 18px. Measure the
 // native pair glyph too, so reducing only the host or its font cannot pass.
 async function checkAccessSizes(host,label,size,blocked=false){
-  const marks=await host.locator('.combo-mark,.access-strip > .sc,.own-row > .sc').evaluateAll(items=>items.map(mark=>{
+  const marks=await host.locator('.combo-mark,.access-strip > .sc:not(.a-none),.own-row > .sc:not(.a-none)').evaluateAll(items=>items.map(mark=>{
     const box=mark.getBoundingClientRect(),combo=mark.classList.contains('combo-mark');
-    const glyph=mark.querySelector('.ms,.ci3-svg,.ci5-svg'),ink=glyph.getBoundingClientRect();
+    const glyph=mark.querySelector('.ms,.ci3-svg,.ci4-svg,.ci5-svg'),ink=glyph.getBoundingClientRect();
     const fallback=mark.querySelector('.combo-text'),text=fallback?.getBoundingClientRect(),optical=new DOMMatrix(getComputedStyle(glyph).transform);
     return {combo,key:mark.dataset.combo||mark.dataset.c,host:[box.width,box.height],glyph:[ink.width,ink.height],
       center:[ink.x+ink.width/2-box.x-box.width/2-optical.e,ink.y+ink.height/2-box.y-box.height/2-optical.f],
@@ -80,6 +83,93 @@ async function checkAccessSizes(host,label,size,blocked=false){
     }
   }
 }
+async function checkL(page,browser,baseline){
+  const records=payload.records.filter(r=>r.name.startsWith('L'));
+  const maps={Landcycling:['W','U','B','R','G','WU','WG','UB','UG','BR','RG','C'],Landfall:['W','U','B','R','G','WUBR','WURG','WUG','WBG','WRG','WG','UBG','URG','UG','BG','RG','C'],Landship:['G'],Landwalk:['W','U','B','R','G','WU','WRG','WG','UB','UBR','UG','BR','BRG','BG','RG','C'],Learn:['W','U','B','R','G','WB','BG'],Legacy:['G','C'],'Legendary landwalk':['G','RG'],'Level Up':['W','U','B','R','G'],Lieutenant:['W','U','B','R','G'],'Living Metal':['W','U','B','R','WU','WUR','WBR','WR','WRG','UB','BR'],'Living Weapon':['W','B','G','BR','C']};
+  const buckets=r=>[...Object.values(r.access.colors).filter(b=>b.status==='documented'),...r.access.combinations,...(r.access.colorless.status==='documented'?[r.access.colorless]:[])];
+  assert.equal(records.length,11);assert.equal(records.flatMap(buckets).length,83);
+  assert.equal(payload.records.length,210);assert.equal(payload.sourceBindings.length,20);
+  assert.equal(payload.records.find(r=>r.name==='Lifelink'),undefined,'mapped Lifelink stays frozen');
+  const packet=JSON.parse(fs.readFileSync(path.join(root,'docs/mechanics-research/l-protocol.json'),'utf8'));
+  const receipts=JSON.parse(fs.readFileSync(path.join(root,'docs/mechanics-research/l-protocol-evidence/retrieval-receipts.json'),'utf8')).retrievals;
+  for(const r of packet.records) for(const card of r.card_review){
+    const binding=card.evidence_binding, raw=fs.readFileSync(path.join(root,binding.path));
+    assert.equal(createHash('sha256').update(raw).digest('hex'),binding.sha256,card.name+' actual raw hash');
+    const receipt=receipts.find(r=>r.path===binding.path);assert.equal(receipt.status,200);assert.equal(receipt.rawSha256,binding.sha256);
+    assert.ok(receipt.url.startsWith('https://api.scryfall.com/cards/')&&receipt.requestStartedUtc&&receipt.requestEndedUtc);
+    const body=JSON.parse(raw),fact=(body.data||[body]).find(c=>c.oracle_id===card.oracle_id);assert.deepEqual(card.card_facts,fact,card.name+' entire saved object matches raw capture');
+    const face=fact.card_faces?.find(f=>f.name===card.mechanic_bearing_face)||fact;
+    assert.deepEqual(card.attributed_colors,[...'WUBRG'].filter(c=>face.colors.includes(c)),card.name+' actual mechanic-bearing face colors');
+    assert.ok(fact.games.includes('paper')&&fact.released_at<='2026-10-29');
+  }
+  await page.waitForFunction(()=>document.documentElement.classList.contains('supp-mana-ready'));
+  const actualTokens=new Map();let links=0;
+  for(const record of records){
+    const a=record.access, independent=[...'WUBRG'].filter(c=>a.colors[c].status==='documented').concat(a.colorless.status==='documented'?['C']:[]), combos=a.combinations.map(b=>b.colors.join(''));
+    assert.deepEqual([...independent.filter(c=>c!=='C'),...combos,...independent.includes('C')?['C']:[]],maps[record.name],record.name+' exact observed map');
+    assert.ok(buckets(record).every(b=>b.cards.length===1));
+    await page.evaluate(()=>VMX.setView('az'));const row=page.locator(`#list .ent[data-k="${record.id}"]`);
+    assert.equal(await row.locator('.access-strip').count(),1);
+    assert.deepEqual(await row.locator('.combo-mark').evaluateAll(items=>items.map(i=>i.dataset.combo)),combos,record.name+' list combinations');
+    assert.deepEqual(await row.locator('.access-strip > .sc').evaluateAll(items=>items.filter(i=>i.classList.contains('a-d')).map(i=>i.dataset.c)),independent);
+    await page.locator('#q').fill(record.name);await page.locator('#q').focus();const option=page.locator(`#res-list .opt[data-k="${record.id}"]`);await option.waitFor({state:'visible'});
+    assert.deepEqual(await option.locator('.combo-mark').evaluateAll(items=>items.map(i=>i.dataset.combo)),combos,record.name+' actual search combinations');
+    await checkAccessSizes(row,record.name+' list',18);await checkCIVectors(row,record.name+' list',18);await checkAccessSizes(option,record.name+' search',18);await checkCIVectors(option,record.name+' search',18);
+    await page.locator('#q').fill('');await page.evaluate(id=>VMX.open(id),record.id);
+    const panel=page.locator('#detail .supp-assessment');assert.match(await panel.innerText(),/October 29, 2026/);
+    assert.deepEqual(await panel.locator('.own-row[data-combo]').evaluateAll(items=>items.map(i=>i.dataset.combo)),combos,record.name+' detail combinations');
+    if(combos.length)assert.deepEqual(await panel.locator('.own-row[data-c]').evaluateAll(items=>items.map(i=>i.dataset.c)),independent);
+    await panel.locator('.assessment-notes > summary').focus();await page.keyboard.press('Enter');
+    const expected=buckets(record).map(b=>b.cards[0].url).sort();links+=expected.length;
+    assert.deepEqual(await page.locator('#detail a').evaluateAll(items=>items.filter(i=>i.hostname==='scryfall.com'&&i.pathname.startsWith('/card/')).map(i=>i.href).sort()),expected,record.name+' exactly one selected link per bucket in whole detail');
+    await checkAccessSizes(panel,record.name+' detail',18);await checkCIVectors(panel,record.name+' detail',18);
+    assert.equal(await panel.locator('.assessment-example').count(),expected.length);
+    assert.equal(await panel.locator('.assessment-notes details').count(),0);
+    assert.doesNotMatch(await panel.innerText(),/Selected .*document|presence evidence|independent example|reviewed scope/);
+    assert.deepEqual(await panel.locator('.assessment-sources a').evaluateAll(items=>items.map(i=>i.href)),record.sources.map(s=>s.url));
+    assert.ok(await page.locator('#detail a').evaluateAll(items=>items.every(i=>i.protocol==='https:'&&['scryfall.com','magic.wizards.com','media.wizards.com'].includes(i.hostname)&&i.rel.includes('noopener'))));
+    await page.waitForFunction(()=>document.documentElement.classList.contains('supp-mana-ready'));
+    const state=await page.locator('#detail').evaluate(el=>{const copy=el.cloneNode(true);copy.querySelectorAll('.supp-symbol').forEach(s=>s.replaceWith(s.querySelector('.supp-symbol-text').textContent));return {tokens:[...copy.textContent.matchAll(/\{[^{}\r\n]+\}/g)].map(m=>m[0]),rendered:[...el.querySelectorAll('.supp-symbol')].map(s=>({token:s.querySelector('.supp-symbol-text').textContent,label:s.getAttribute('aria-label'),glyph:getComputedStyle(s.querySelector('.ms'),'::before').content,fallback:getComputedStyle(s.querySelector('.supp-symbol-text')).display})),visible:el.innerText};});
+    assert.deepEqual(state.rendered.map(s=>s.token),state.tokens,record.name+' every actual prose/rule/reference token rendered');assert.doesNotMatch(state.visible,/\{[^{}\r\n]+\}/);
+    assert.ok(state.rendered.every(s=>s.label&&s.fallback==='none'&&!['none','normal','""'].includes(s.glyph)));actualTokens.set(record.name,state.tokens);
+    assert.ok(await page.locator('#detail .combo-mark').evaluateAll(items=>items.every(i=>i.getAttribute('role')==='img'&&i.getAttribute('aria-label').endsWith('combination only'))));
+    await page.setViewportSize({width:360,height:900});assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),record.name+' narrow containment');await page.setViewportSize({width:1440,height:900});
+  }
+  assert.equal(links,83);
+  assert.match(records.find(r=>r.name==='Lieutenant').access.colors.U.note,/Loyal Drake.*beginning of combat/);
+  assert.match(records.find(r=>r.name==='Lieutenant').access.colors.G.note,/Loyal Guardian.*each creature/);
+  assert.match(records.find(r=>r.name==='Landship').summary,/no general Landship definition has been verified/);
+  assert.match(records.find(r=>r.name==='Legacy').access.colorless.note,/permanently mark/);
+  const tokenText='{0} {1} {2} {3} {4} {5} {6} {7} {8} {9} {12} {W} {U} {B} {R} {G} {C} {X} {B/G} {T}',unsafe='<img src=x onerror=alert(1)> {unknown} '+tokenText;
+  for(const blocked of [false,true]){
+    const fixture=await browser.newPage();if(blocked)await fixture.route('**/mana-font@1.18.0/**',route=>route.abort());
+    const data=structuredClone(supplement),p=structuredClone(payload),scopes=JSON.parse(fs.readFileSync(path.join(root,'data/mechanics-supplement-scope.v1.json'),'utf8'));
+    for(const r of data.records.filter(r=>r.name.startsWith('L')&&r.target2021===null)){r.clauses=[{number:'fixture',text:unsafe}];r.reference={title:'Fixture',verification:'fixture',rules:[],summary:unsafe,source:{title:'Fixture',url:'https://magic.wizards.com/en/news/feature/mystery-booster-release-notes-2019-11-11'}};}
+    const hash=createHash('sha256').update(JSON.stringify(data)).digest('hex');scopes.payloadCanonicalSha256=hash;p.supplementCanonicalSha256=hash;for(const r of p.records.filter(r=>r.name.startsWith('L')))r.summary=unsafe;
+    await fixture.route('**/data/mechanics-supplement.v1.json*',r=>r.fulfill({contentType:'application/json',body:JSON.stringify(data)}));await fixture.route('**/data/mechanics-supplement-scope.v1.json*',r=>r.fulfill({contentType:'application/json',body:JSON.stringify(scopes)}));await fixture.route(assessmentRoute,r=>r.fulfill({contentType:'application/json',body:JSON.stringify(p)}));
+    await fixture.goto(url);await fixture.waitForFunction(()=>VMX.assessments().status==='ready');if(!blocked)await fixture.waitForFunction(()=>document.documentElement.classList.contains('supp-mana-ready'));
+    for(const record of records){await fixture.evaluate(id=>VMX.open(id),record.id);await fixture.locator('.assessment-notes > summary').click();
+      for(const selector of ['.assessment-notes > p','#detail .supp-rules .dx-ex','#detail .supp-reference .supp-quote']){
+        const prose=fixture.locator(selector).first();assert.equal(await prose.locator('img').count(),0);assert.ok((await prose.textContent()).includes('<img src=x onerror=alert(1)> {unknown}'));
+        const symbols=await prose.locator('.supp-symbol').evaluateAll(items=>items.map(s=>({raw:s.querySelector('.supp-symbol-text').textContent,text:s.innerText,role:s.getAttribute('role'),label:s.getAttribute('aria-label'),glyph:getComputedStyle(s.querySelector('.ms')).display,fallback:getComputedStyle(s.querySelector('.supp-symbol-text')).display,before:getComputedStyle(s.querySelector('.ms'),'::before').content,after:getComputedStyle(s.querySelector('.ms'),'::after').content})));
+        assert.deepEqual(symbols.map(s=>s.raw),tokenText.split(' '),record.name+' all fixture tokens across '+selector);assert.ok(symbols.every(s=>s.label&&s.role==='img'&&(blocked?s.glyph==='none'&&s.text===s.raw&&s.fallback!=='none':s.glyph!=='none'&&s.fallback==='none'&&!['none','normal','""'].includes(s.before)&&(s.raw.includes('/')?!['none','normal','""'].includes(s.after):true))));
+      }
+    }await fixture.close();
+  }
+  const noFont=await browser.newPage();await noFont.route('**/mana-font@1.18.0/**',r=>r.abort());await noFont.goto(url);await noFont.waitForFunction(()=>VMX.assessments().status==='ready');await noFont.evaluate(()=>VMX.setView('az'));
+  for(const record of records){await noFont.evaluate(id=>VMX.open(id),record.id);await noFont.locator('.assessment-notes > summary').click();
+    const symbols=await noFont.locator('#detail .supp-symbol').evaluateAll(items=>items.map(s=>({raw:s.querySelector('.supp-symbol-text').textContent,text:s.innerText,label:s.getAttribute('aria-label'),glyph:getComputedStyle(s.querySelector('.ms')).display})));assert.deepEqual(symbols.map(s=>s.raw),actualTokens.get(record.name));assert.ok(symbols.every(s=>s.raw===s.text&&s.label&&s.glyph==='none'));
+    await checkAccessSizes(noFont.locator('#detail .supp-assessment'),record.name+' fallback detail',18,true);
+    const fallbackRow=noFont.locator(`#list .ent[data-k="${record.id}"]`);await checkAccessSizes(fallbackRow,record.name+' fallback list',18,true);
+    await noFont.locator('#q').fill(record.name);await noFont.locator('#q').focus();const fallbackOption=noFont.locator(`#res-list .opt[data-k="${record.id}"]`);await fallbackOption.waitFor({state:'visible'});await checkAccessSizes(fallbackOption,record.name+' fallback search',18,true);await noFont.locator('#q').fill('');
+    assert.ok(await noFont.locator('#detail .combo-mark').evaluateAll(items=>items.every(i=>getComputedStyle(i.querySelector('svg,.ms')).display==='none'&&i.innerText===i.dataset.combo)),record.name+' no-font combinations');
+  }await noFont.close();
+  for(const scenario of ['missing','date','status','unsafe','binding']){const failure=await browser.newPage(),bad=structuredClone(payload),r=bad.records.find(r=>r.name==='Landfall');if(scenario==='date')r.researchDate='2026-10-28';if(scenario==='status')r.access.colors.W.status='invented';if(scenario==='unsafe')r.access.colors.W.cards[0].url='https://scryfall.com@evil.example/';if(scenario==='binding')bad.sourceBindings.at(-1).path='tampered.json';await failure.route(assessmentRoute,route=>route.fulfill(scenario==='missing'?{status:404,body:'Missing'}:{contentType:'application/json',body:JSON.stringify(bad)}));await failure.goto(url);await failure.waitForFunction(()=>VMX.assessments().status==='unavailable');assert.equal(await failure.evaluate(()=>VMX.assessments().records.length),0);await failure.evaluate(()=>VMX.open('deck:vocabulary:landfall'));assert.ok(await failure.locator('#detail .supp-rules').count());await failure.close();}
+  await page.locator('#q').fill('Landfall');await page.locator('#q').focus();await page.locator('#q').press('Enter');assert.equal(await page.locator('#dx-title').innerText(),'Landfall');await page.locator('#q').fill('');
+  await page.evaluate(()=>{VMX.chooseCombo('W');VMX.clearColors();VMX.setView('article');VMX.setView('az');});assert.equal(await page.evaluate(math),baseline);
+  results.push('All eleven L records / 83 exact linked witnesses: fresh raw objects, face colors and receipts; actual list/search/detail independent and combination marks; concise prose; all actual and fixture mana tokens across assessment/rules/reference, escaping, accessible glyphs and blocked-font fallback; malformed isolation, keyboard, narrow containment and unchanged frozen 84-check baseline.');
+}
+
 let browser;const results=[];
 try{
   browser=await chromium.launch({channel:opt('--channel','msedge'),headless:true});
@@ -89,9 +179,10 @@ try{
   await page.waitForFunction(()=>window.VMX?.assessments().status==='ready');
   await page.waitForFunction(()=>document.querySelector('#selftest').textContent.includes('84 of 84 passed'));
   const baseline=await page.evaluate(math);
+  if(lOnly){await checkL(page,browser,baseline);assert.deepEqual(errors,[]);}else{
   assert.equal(await page.locator('#list .ent').count(),216);
-  assert.equal(await page.evaluate(()=>VMX.assessments().records.length),199);
-  const expectedAssessmentIds=supplement.records.filter(r=>/^[ABCDEFGHIJK]/.test(r.name)&&r.target2021===null).map(r=>r.id).sort();
+  assert.equal(await page.evaluate(()=>VMX.assessments().records.length),210);
+  const expectedAssessmentIds=supplement.records.filter(r=>/^[ABCDEFGHIJKL]/.test(r.name)&&r.target2021===null).map(r=>r.id).sort();
   assert.deepEqual(payload.records.map(r=>r.id).sort(),expectedAssessmentIds,'every admitted A/B/C/D/E/F/G/H/I/J/K target has exactly one assessment');
   assert.deepEqual(payload.sourceBindings.map(x=>x.path),[
     'docs/mechanics-research/a-assessments-source.json',
@@ -108,8 +199,8 @@ try{
     'docs/mechanics-research/d-protocol.json',
     'docs/mechanics-research/e-protocol.json',
     'docs/mechanics-research/f-protocol.json',
-    'docs/mechanics-research/g-protocol.json','docs/mechanics-research/h-protocol.json','docs/mechanics-research/i-protocol.json','docs/mechanics-research/j-protocol.json','docs/mechanics-research/k-protocol.json'
-  ],'all nineteen canonical packet bindings are present');
+    'docs/mechanics-research/g-protocol.json','docs/mechanics-research/h-protocol.json','docs/mechanics-research/i-protocol.json','docs/mechanics-research/j-protocol.json','docs/mechanics-research/k-protocol.json','docs/mechanics-research/l-protocol.json'
+  ],'all twenty canonical packet bindings are present');
   assert.deepEqual(['Cast','Counter','Create'].map(name=>payload.records.find(r=>r.name===name)?.kind),['rules','rules','rules'],'generic C rules actions have no invented color access');
   const dRecord=name=>payload.records.find(r=>r.name===name);
   assert.deepEqual(['Double','Destroy','Discard'].map(name=>dRecord(name).kind),['rules','rules','rules'],'generic D actions remain references');
@@ -234,7 +325,7 @@ try{
   const gRecord=name=>gRecords.find(r=>r.name===name);
   const gBuckets=record=>[...Object.values(record.access.colors).filter(b=>b.status==='documented'),...record.access.combinations,...(record.access.colorless.status==='documented'?[record.access.colorless]:[])];
   const gMaps={Gift:['W','U','B','R','G','UG','C'],Goad:['W','U','B','R','G','UB','BRG','UR','BR','RG','WB','WRG','WUG','UBR','WR','BG','C'],Graft:['U','G','UG','C'],Grandeur:['W','U','B','R','G','C'],Gravestorm:['U','B']};
-  for(const record of payload.records) assert.equal(record.researchDate,(record.name.startsWith('G')||record.name.startsWith('H')||record.name.startsWith('I')||record.name.startsWith('J')||record.name.startsWith('K'))?'2026-10-29':'2026-10-28',record.name+' historical review date');
+  for(const record of payload.records) assert.equal(record.researchDate,(record.name.startsWith('G')||record.name.startsWith('H')||record.name.startsWith('I')||record.name.startsWith('J')||record.name.startsWith('K')||record.name.startsWith('L'))?'2026-10-29':'2026-10-28',record.name+' historical review date');
   assert.equal(payload.researchDate,'2026-10-29');
   for(const record of gRecords){
     assert.deepEqual([...Object.entries(record.access.colors).filter(([,b])=>b.status==='documented').map(([c])=>c),...record.access.combinations.map(b=>b.colors.join('')),...(record.access.colorless.status==='documented'?['C']:[])],gMaps[record.name],record.name+' exact access map');
@@ -309,7 +400,7 @@ try{
       assert.ok(await frozenSearch.locator('.strip:not(.access-strip) > .sc').evaluateAll(marks=>marks.length===5&&marks.every(mark=>{const r=mark.getBoundingClientRect();return r.width===12&&r.height===12;})),'frozen2021 search notation remains12px');
       await page.locator('#q').fill('');
     }
-    for(const record of kOnly ? kRecords : combinationsOnly ? payload.records.filter(r=>['Fuse','Friends forever','Hexproof from','Intimidate','Islandcycling','Islandwalk'].includes(r.name)) : payload.records){
+    for(const record of kOnly ? kRecords : combinationsOnly ? payload.records.filter(r=>['Fuse','Friends forever','Hexproof from','Intimidate','Islandcycling','Islandwalk'].includes(r.name)) : payload.records.filter(r=>!r.name.startsWith('L'))){
       const row=page.locator(`#list .ent[data-k="${record.id}"]`), access=record.access, compactExamples=/^[CDEFGHIJK]/.test(record.name);
       assert.equal(await row.locator('.access-strip').count(),record.kind==='access'?1:0,record.name);
       if(record.kind==='access'){
@@ -321,10 +412,10 @@ try{
           assert.equal(await row.locator('.combo-mark .ci3-svg').count(),access.combinations.filter(item=>item.colors.length===3).length);
           if(record.name==='Fuse') assert.deepEqual(await row.locator('.combo-mark .ci3-svg').evaluateAll(glyphs=>glyphs.map(glyph=>glyph.closest('.combo-mark').dataset.combo)),['WUG','UBR','WUR','BRG','WBG'],'Fuse covers every rendered three-color CI combination');
           assert.ok(await row.locator('.combo-mark .ms-cost').evaluateAll(glyphs=>glyphs.every(glyph=>{const style=getComputedStyle(glyph), size=parseFloat(style.fontSize);return Math.abs(parseFloat(style.lineHeight)-size*1.35)<=1;})),record.name+' keeps Mana-native pair metrics at the scoped glyph size');
-          assert.ok(await row.locator('.combo-mark').evaluateAll(marks=>{const pair=marks.find(mark=>mark.querySelector('.ms-cost')), ci=marks.find(mark=>mark.querySelector('.ci3-svg,.ci5-svg'));if(!pair||!ci)return true;const a=pair.querySelector('.ms').getBoundingClientRect(),b=ci.querySelector('.ci3-svg,.ci5-svg').getBoundingClientRect();return Math.abs(a.width-b.width)<=.5&&Math.abs(a.height-b.height)<=.5;}),record.name+' normalizes pair and CI circle footprints');
+          assert.ok(await row.locator('.combo-mark').evaluateAll(marks=>{const pair=marks.find(mark=>mark.querySelector('.ms-cost')), ci=marks.find(mark=>mark.querySelector('.ci3-svg,.ci4-svg,.ci5-svg'));if(!pair||!ci)return true;const a=pair.querySelector('.ms').getBoundingClientRect(),b=ci.querySelector('.ci3-svg,.ci4-svg,.ci5-svg').getBoundingClientRect();return Math.abs(a.width-b.width)<=.5&&Math.abs(a.height-b.height)<=.5;}),record.name+' normalizes pair and CI circle footprints');
           assert.ok(await row.locator('.combo-mark .ci3-svg').evaluateAll(glyphs=>glyphs.every(svg=>{const expected={WUG:['#3b6ba0','#3d684b','#fff'],UBR:['#c6553e','#3b6ba0','#383431'],WUR:['#c6553e','#fff','#3b6ba0'],BRG:['#3d684b','#383431','#c6553e'],WBG:['#383431','#3d684b','#fff'],WUB:['#383431','#fff','#3b6ba0']}[svg.closest('.combo-mark').dataset.combo], paths=[...svg.querySelectorAll('path')];return svg.getAttribute('viewBox')==='0 0 1024 1024'&&svg.querySelector('g')?.getAttribute('transform')==='translate(0 938.667) scale(1 -1)'&&paths.length===4&&paths[0].getAttribute('fill')==='#010101'&&paths.slice(1).map(path=>path.getAttribute('fill')).join('|')===expected.join('|');})),record.name+' renders the pinned Mana CI-3 outline and native interior colors in one shared vector frame');
           const listSize=record.name==='Kicker'?18:14;
-          assert.ok(await row.locator('.combo-mark').evaluateAll((marks,size)=>marks.every(mark=>{const r=mark.getBoundingClientRect(), g=mark.querySelector('.ms,.ci3-svg,.ci5-svg').getBoundingClientRect();return Math.abs(r.width-size)<=.5&&Math.abs(r.height-size)<=.5&&Math.abs((r.left+r.width/2)-(g.left+g.width/2))<=.5&&Math.abs((r.top+r.height/2)-(g.top+g.height/2))<=.5;}),listSize),record.name+' combination markers have expected hosts and centered glyphs');
+          assert.ok(await row.locator('.combo-mark').evaluateAll((marks,size)=>marks.every(mark=>{const r=mark.getBoundingClientRect(), g=mark.querySelector('.ms,.ci3-svg,.ci4-svg,.ci5-svg').getBoundingClientRect();return Math.abs(r.width-size)<=.5&&Math.abs(r.height-size)<=.5&&Math.abs((r.left+r.width/2)-(g.left+g.width/2))<=.5&&Math.abs((r.top+r.height/2)-(g.top+g.height/2))<=.5;}),listSize),record.name+' combination markers have expected hosts and centered glyphs');
           await checkAccessSizes(row,record.name+' list',record.name==='Kicker'?18:14);
           await checkCIVectors(row,record.name+' list',record.name==='Kicker'?18:14);
           assert.deepEqual(await row.locator('.access-strip > .sc').evaluateAll(slots=>slots.map(s=>s.dataset.c)),comboPresentation?[]:independentSlots);
@@ -477,8 +568,8 @@ try{
       await noFont.evaluate(id=>VMX.open(id),record.id);
       const expected=record.access.combinations.map(item=>item.colors.join(''));
       assert.deepEqual(await noFont.locator(`#list .ent[data-k="${record.id}"] .combo-mark`).evaluateAll(marks=>marks.map(mark=>mark.dataset.combo)),expected);
-      assert.ok(await noFont.locator(`#list .ent[data-k="${record.id}"] .combo-mark`).evaluateAll(marks=>marks.every(mark=>{const glyph=mark.querySelector('.ci3-svg,.ci5-svg,.ms');return getComputedStyle(glyph).display==='none'&&getComputedStyle(mark.querySelector('.combo-text')).display!=='none'})),record.name+' retains readable list combination letters without Mana');
-      assert.ok(await noFont.locator('#detail .combo-mark').evaluateAll(marks=>marks.every(mark=>{const glyph=mark.querySelector('.ci3-svg,.ci5-svg,.ms');return getComputedStyle(glyph).display==='none'&&getComputedStyle(mark.querySelector('.combo-text')).display!=='none'})),record.name+' retains readable detail combination letters without Mana');
+      assert.ok(await noFont.locator(`#list .ent[data-k="${record.id}"] .combo-mark`).evaluateAll(marks=>marks.every(mark=>{const glyph=mark.querySelector('.ci3-svg,.ci4-svg,.ci5-svg,.ms');return getComputedStyle(glyph).display==='none'&&getComputedStyle(mark.querySelector('.combo-text')).display!=='none'})),record.name+' retains readable list combination letters without Mana');
+      assert.ok(await noFont.locator('#detail .combo-mark').evaluateAll(marks=>marks.every(mark=>{const glyph=mark.querySelector('.ci3-svg,.ci4-svg,.ci5-svg,.ms');return getComputedStyle(glyph).display==='none'&&getComputedStyle(mark.querySelector('.combo-text')).display!=='none'})),record.name+' retains readable detail combination letters without Mana');
       await checkAccessSizes(noFont.locator(`#list .ent[data-k="${record.id}"]`),record.name+' no-font list',14,true);
       await checkAccessSizes(noFont.locator('#detail .supp-assessment'),record.name+' no-font detail',18,true);
       await noFont.locator('#q').fill(record.name);await noFont.locator('#q').focus();
@@ -491,8 +582,8 @@ try{
       await noFont.evaluate(()=>VMX.setView('az')); await noFont.evaluate(id=>VMX.open(id),kicker.id);
       const expected=kicker.access.combinations.map(item=>item.colors.join(''));
       assert.deepEqual(await noFont.locator(`#list .ent[data-k="${kicker.id}"] .combo-mark`).evaluateAll(marks=>marks.map(mark=>mark.dataset.combo)),expected,'Kicker no-font list retains exact combinations');
-      assert.ok(await noFont.locator(`#list .ent[data-k="${kicker.id}"] .combo-mark`).evaluateAll(marks=>marks.every(mark=>getComputedStyle(mark.querySelector('.ci3-svg,.ci5-svg,.ms')).display==='none'&&getComputedStyle(mark.querySelector('.combo-text')).display!=='none')),'Kicker no-font list retains readable combination letters');
-      assert.ok(await noFont.locator('#detail .combo-mark').evaluateAll(marks=>marks.every(mark=>getComputedStyle(mark.querySelector('.ci3-svg,.ci5-svg,.ms')).display==='none'&&getComputedStyle(mark.querySelector('.combo-text')).display!=='none')),'Kicker no-font detail retains readable combination letters');
+      assert.ok(await noFont.locator(`#list .ent[data-k="${kicker.id}"] .combo-mark`).evaluateAll(marks=>marks.every(mark=>getComputedStyle(mark.querySelector('.ci3-svg,.ci4-svg,.ci5-svg,.ms')).display==='none'&&getComputedStyle(mark.querySelector('.combo-text')).display!=='none')),'Kicker no-font list retains readable combination letters');
+      assert.ok(await noFont.locator('#detail .combo-mark').evaluateAll(marks=>marks.every(mark=>getComputedStyle(mark.querySelector('.ci3-svg,.ci4-svg,.ci5-svg,.ms')).display==='none'&&getComputedStyle(mark.querySelector('.combo-text')).display!=='none')),'Kicker no-font detail retains readable combination letters');
       await checkAccessSizes(noFont.locator(`#list .ent[data-k="${kicker.id}"]`),'Kicker no-font list',18,true);
       await checkAccessSizes(noFont.locator('#detail .supp-assessment'),'Kicker no-font detail',18,true);
       await noFont.locator('#q').fill('Kicker'); await noFont.locator('#q').focus();
@@ -574,6 +665,7 @@ try{
     }
     assert.deepEqual(errors,[]);
     results.push(kOnly ? 'Kicker, Kinship and Kinfall detail/search: exact selected links and card-specific prose, safe escaped assessment/rules/reference tokens, accessible glyph/no-font fallback, malformed K-date fail-soft, mobile containment and frozen baseline.' : combinationsOnly ? 'Fuse/Friends forever, Hexproof from, Intimidate, Islandcycling and Islandwalk list/detail: exact combinations, original Mana CI-3/CI-5 paths and native section colors, contained fills, 14px compact list/search and18px detail circles, matching independent access sizes and frozen2021 search12px, accessible labels and readable no-font fallback.' : 'All28 E,25 F,5 G,14 H,15 I,4 J and3 K mana-symbol paths: actual tokens plus G/H/I/J/K numeric/colored/colorless/X/hybrid fixtures in assessment/rules/reference, accessible real glyphs, no-font fallback and escaping; 36 exact G,59 H,96 I,17 J and15 K selected links, full observed H/I/J/K maps and factual trigger/timing regressions and Oct29 dates; C/D/E/F/G/H/I/J/K representative sources, unique combination citations and concise copy; 199 A/B/C/D/E/F/G/H/I/J/K access maps; documented/no-example/joint/colorless/rules cases; exact-example and retained non-card links; atomic malformed fail-soft; search keyboard/mobile; unchanged 2021 84 checks');
+  }
   }
   await page.close();
   console.log(JSON.stringify({result:'PASS',checks:results},null,2));

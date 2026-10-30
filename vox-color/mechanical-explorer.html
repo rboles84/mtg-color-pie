@@ -416,7 +416,7 @@ button{font:inherit;color:inherit}
 .access-strip.combo-access{grid-auto-flow:row;grid-template-columns:repeat(5,minmax(0,1fr));grid-auto-columns:auto;width:100%;gap:4px}
 .access-strip.mixed-access{grid-auto-flow:row;grid-template-columns:repeat(5,minmax(0,1fr));grid-auto-columns:auto;width:100%;gap:4px}
 .combo-mark{--combo-sz:18px;display:inline-flex;align-items:center;justify-content:center;gap:2px;width:var(--combo-sz);height:var(--combo-sz);flex:0 0 var(--combo-sz);border:1px solid rgba(237,230,211,.22);border-radius:50%;color:var(--bone)}
-.combo-mark .ms,.combo-mark .ci3-svg,.combo-mark .ci5-svg{display:none;flex:none;font-size:calc(var(--combo-sz) * 7 / 9)}.supp-mana-ready .combo-mark{border:0}.supp-mana-ready .combo-mark .ms{display:inline-block}.supp-mana-ready .combo-mark .ci3-svg,.supp-mana-ready .combo-mark .ci5-svg{display:block;width:var(--combo-sz);height:var(--combo-sz)}.supp-mana-ready .combo-mark .combo-text{display:none}
+.combo-mark .ms,.combo-mark .ci3-svg,.combo-mark .ci4-svg,.combo-mark .ci5-svg{display:none;flex:none;font-size:calc(var(--combo-sz) * 7 / 9)}.supp-mana-ready .combo-mark{border:0}.supp-mana-ready .combo-mark .ms{display:inline-block}.supp-mana-ready .combo-mark .ci3-svg,.supp-mana-ready .combo-mark .ci4-svg,.supp-mana-ready .combo-mark .ci5-svg{display:block;width:var(--combo-sz);height:var(--combo-sz)}.supp-mana-ready .combo-mark .combo-text{display:none}
 .ent .strip{--sz:18px}
 .combo-mark .combo-text{font:600 10px/1 var(--f-mono);letter-spacing:-.06em;white-space:nowrap}
 .own-row.combo-row{grid-template-columns:18px auto minmax(12px,1fr) auto;align-items:center}.combo-row .combo-text{font:600 12px/1 var(--f-mono);letter-spacing:-.06em}
@@ -1255,22 +1255,26 @@ function accessMarkHTML(c, status){
 }
 function assessmentStripHTML(a){
   if (a.name === 'Fuse' || a.name === 'Friends forever') return '<span class="strip access-strip combo-access" aria-label="Documented color combinations">' + a.access.combinations.map(comboMarkHTML).join('') + '</span>';
-  if (['Hexproof from','Intimidate','Islandcycling','Islandwalk','Kicker'].includes(a.name)) return '<span class="strip access-strip mixed-access" aria-label="Independent color access and documented color combinations">' + ORDER.filter(c => a.access.colors[c].status === 'documented').map(c => accessMarkHTML(c,'documented')).join('') + (a.access.colorless.status === 'documented' ? accessMarkHTML('C','documented') : '') + a.access.combinations.map(comboMarkHTML).join('') + '</span>';
+  if ((['Hexproof from','Intimidate','Islandcycling','Islandwalk','Kicker'].includes(a.name) || a.name.startsWith('L') && a.access.combinations.length > 0)) return '<span class="strip access-strip mixed-access" aria-label="Independent color access and documented color combinations">' + ORDER.filter(c => a.access.colors[c].status === 'documented').map(c => accessMarkHTML(c,'documented')).join('') + (a.access.colorless.status === 'documented' ? accessMarkHTML('C','documented') : '') + a.access.combinations.map(comboMarkHTML).join('') + '</span>';
   return '<span class="strip access-strip" aria-hidden="true">' + ORDER.map(c => accessMarkHTML(c,a.access.colors[c].status)).join('') + (a.access.colorless.status === 'documented' ? accessMarkHTML('C','documented') : '') + '</span>';
 }
 const CI3_OUTLINE='M512 938.667c282.77 0 512-229.23 512-512s-229.23-512-512-512c-282.77 0-512 229.23-512 512s229.23 512 512 512v0z';
 const CI3_PARTS={left:'M115.88 637.341c-35.408-64.442-51.642-137.532-52.568-210.674 0.314-231.214 184.17-435.738 418.12-447.58v423.676l-365.552 234.578z',right:'M917.446 618.803l-374.878-216.436v-423.28c236.964 13.038 415.166 214.242 418.12 447.58-0.16 66.226-14.458 132.396-43.242 192.136z',top:'M512 875.355c-146.132-0.038-276.922-69.96-363.792-186.12l364.182-233.698 375.158 216.598c-84.128 127.838-223.14 201.29-375.548 203.22z'};
-const CI3_COLORS={WUG:['#3b6ba0','#3d684b','#fff'],UBR:['#c6553e','#3b6ba0','#383431'],WUR:['#c6553e','#fff','#3b6ba0'],BRG:['#3d684b','#383431','#c6553e'],WBG:['#383431','#3d684b','#fff'],WUB:['#383431','#fff','#3b6ba0']};
+const CI3_COLORS={WUG:['#3b6ba0','#3d684b','#fff'],UBR:['#c6553e','#3b6ba0','#383431'],WUR:['#c6553e','#fff','#3b6ba0'],BRG:['#3d684b','#383431','#c6553e'],WBG:['#383431','#3d684b','#fff'],WUB:['#383431','#fff','#3b6ba0'],UBG:['#3d684b','#3b6ba0','#383431'],URG:['#3b6ba0','#c6553e','#3d684b'],WRG:['#fff','#c6553e','#3d684b'],WBR:['#fff','#383431','#c6553e']};
 // Native Mana 1.18 CI-5 cutouts, in original glyph order; the outer contour matches CI-3.
 const CI5_PARTS={"bottomLeft":"M481.432 383.899l-385.022-126.428c63.62-155.132 215.888-269.822 385.022-278.384v404.812z","bottomRight":"M542.568 384.215v-405.128c170.242 8.352 319.536 123.548 384.876 278.044l-384.876 127.084z","upperRight":"M802.336 768.661l-236.006-327.91 380.258-125.56c9.892 36.32 13.624 73.934 14.1 111.476-0.458 129.734-57.626 258.87-158.352 341.994z","upperLeft":"M222.188 769.095c-101.746-83.59-157.228-212.114-158.876-342.428-0.060-37.468 4.676-74.846 14.006-111.118l383.986 126.086-239.116 327.46z","top":"M512 875.355c-87.528 0.264-166.312-24.796-240.626-69.95l242.786-332.486 239.046 332.134c-72.142 46.398-155.786 69.222-241.206 70.302z"};
 const CI5_COLORS=['#c6553e','#383431','#3b6ba0','#3d684b','#fff'];
+
+// L uses the pinned Mana CI-4 native outline/cutouts in the same vector frame.
+const CI4_PARTS=["M513.092 382.347l-294.846-294.846c81.83-71.006 185.87-108.158 293.754-109.522 106.678 0.782 215.252 38.18 294.896 110.562l-293.804 293.806z","M173.874 721.563c-72.47-80.34-109.206-187.698-110.562-294.896 0.638-107.436 38.818-215.966 111.602-296.040l294.948 294.948-295.988 295.988z","M851.164 720.421l-294.844-294.846 293.806-293.806c72.47 80.342 109.206 187.7 110.562 294.898-0.356 112.2-38.606 207.882-109.524 293.754z","M512 875.355c-106.68-0.782-215.25-38.182-294.898-110.562l295.99-295.99 294.948 294.95c-80.59 73.068-188.222 110.238-296.040 111.602z"];
+const CI4_COLORS={WUBR:['#383431','#c6553e','#3b6ba0','#fff'],WURG:['#fff','#3b6ba0','#3d684b','#c6553e']};
 function ciSVG(key){
-  const five=key==='WUBRG', prefix=five?'ci5':'ci3', colors=five?CI5_COLORS:CI3_COLORS[key];
-  const parts=five?Object.entries(CI5_PARTS):[['top',CI3_PARTS.top],['right',CI3_PARTS.right],['left',CI3_PARTS.left]];
+  const five=key==='WUBRG', four=Object.hasOwn(CI4_COLORS,key), prefix=five?'ci5':four?'ci4':'ci3', colors=five?CI5_COLORS:four?CI4_COLORS[key]:CI3_COLORS[key];
+  const parts=five?Object.entries(CI5_PARTS):four?CI4_PARTS.map((d,i)=>[i,d]):[['top',CI3_PARTS.top],['right',CI3_PARTS.right],['left',CI3_PARTS.left]];
   return `<svg class="${prefix}-svg" viewBox="0 0 1024 1024" aria-hidden="true" focusable="false"><g transform="translate(0 938.667) scale(1 -1)"><path class="${prefix}-outline" fill="#010101" d="${CI3_OUTLINE}"/>${parts.map(([name,d],i)=>`<path class="${prefix}-${name}" fill="${colors[i]}" d="${d}"/>`).join('')}</g></svg>`;
 }
 function comboMarkHTML(item){
-  const key=item.colors.join(''), pair=key.length===2, vector=Object.hasOwn(CI3_COLORS,key)||key==='WUBRG', pairCode={WR:'rw',WG:'gw',UG:'gu'}[key] || key.toLowerCase(), glyph=pair ? `<i class="ms ms-cost ms-${pairCode}" aria-hidden="true"></i>` : vector ? ciSVG(key) : `<i class="ms ms-ci ms-ci-${key.length} ms-ci-${key.toLowerCase()}" aria-hidden="true"></i>`;
+  const key=item.colors.join(''), pair=key.length===2, vector=Object.hasOwn(CI3_COLORS,key)||Object.hasOwn(CI4_COLORS,key)||key==='WUBRG', pairCode={WR:'rw',WG:'gw',UG:'gu'}[key] || key.toLowerCase(), glyph=pair ? `<i class="ms ms-cost ms-${pairCode}" aria-hidden="true"></i>` : vector ? ciSVG(key) : `<i class="ms ms-ci ms-ci-${key.length} ms-ci-${key.toLowerCase()}" aria-hidden="true"></i>`;
   const label=item.colors.map(c=>CNAME[c]).join(' / ');
   return `<span class="combo-mark" role="img" data-combo="${key}" title="${esc(label)} — Combination only" aria-label="${esc(label)} combination only">${glyph}<span class="combo-text">${esc(key)}</span></span>`;
 }
@@ -1849,7 +1853,7 @@ function hydrateDetail(k){
   });
   const supplemental = SUP_EXAMPLES.byKey.get(k);
   // Ready F/G/H/I/J/K assessments already supply one reviewed example per access bucket.
-  const assessedSupplement = REC.get(k)?.supplemental && /^[FGHIJK]/.test(REC.get(k).head) && ASSESSMENTS.byKey.has(k);
+  const assessedSupplement = REC.get(k)?.supplemental && /^[FGHIJKL]/.test(REC.get(k).head) && ASSESSMENTS.byKey.has(k);
   if (supplemental && S.pick === k && !assessedSupplement) addCite(supplemental, true, true);
 }
 /* The rest of the entries carry a stored printing (mechanical-examples.json),
@@ -2009,7 +2013,7 @@ function supplementalClassificationHTML(scope, mapped){
     </${mapped ? 'section' : 'div'}>`;
 }
 function supplementalRecordHTML(a, mapped = false){
-  const text = value => supplementalTextHTML(value, !mapped && (a.name.startsWith('I') || a.name.startsWith('J') || a.name.startsWith('K')) ? I_MANA : !mapped && a.name.startsWith('H') ? H_MANA : !mapped && a.name.startsWith('G') ? G_MANA : !mapped && a.name.startsWith('F') ? F_MANA : !mapped && a.name.startsWith('E') ? E_MANA : SUP_MANA);
+  const text = value => supplementalTextHTML(value, !mapped && (a.name.startsWith('I') || a.name.startsWith('J') || a.name.startsWith('K') || a.name.startsWith('L')) ? I_MANA : !mapped && a.name.startsWith('H') ? H_MANA : !mapped && a.name.startsWith('G') ? G_MANA : !mapped && a.name.startsWith('F') ? F_MANA : !mapped && a.name.startsWith('E') ? E_MANA : SUP_MANA);
   const ref = a.reference, review = a.qualifications.acceptedSourceReview, locator = review && review.locator || {};
   const classification = SUP_SCOPE.get(a.id), upfront = new Set([classification.scopeNote, ...classification.qualifications]);
   const kind = ref && ref.referenceKind;
@@ -2049,7 +2053,7 @@ function supplementalDetailHTML(k){
 }
 function isAssessmentTarget(k){
   const r = REC.get(k);
-  return !!r && r.supplemental && /^[ABCDEFGHIJK]/.test(r.head);
+  return !!r && r.supplemental && /^[ABCDEFGHIJKL]/.test(r.head);
 }
 function assessmentSummary(k, full = false){
   const a = ASSESSMENTS.byKey.get(k);
@@ -2065,11 +2069,11 @@ function assessmentHTML(k){
   const a = ASSESSMENTS.byKey.get(k);
   if (!a) return `<section class="dx-sec supp-assessment" aria-label="Color access status"><p class="dx-note">${esc(assessmentSummary(k))}. ${ASSESSMENTS.status === 'unavailable' ? 'The color access record could not be loaded. Reload to try again; rules and other evidence remain available.' : 'Rules and other evidence remain available while the record loads.'}</p></section>`;
   const link = (name, url) => url ? `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(name)}</a>` : esc(name);
-  const text = a.name.startsWith('I') || a.name.startsWith('J') || a.name.startsWith('K') ? value => supplementalTextHTML(value, I_MANA) : a.name.startsWith('H') ? value => supplementalTextHTML(value, H_MANA) : a.name.startsWith('G') ? value => supplementalTextHTML(value, G_MANA) : a.name.startsWith('F') ? value => supplementalTextHTML(value, F_MANA) : a.name.startsWith('E') ? value => supplementalTextHTML(value, E_MANA) : esc;
-  const compactExamples = /^[CDEFGHIJK]/.test(a.name);
+  const text = a.name.startsWith('I') || a.name.startsWith('J') || a.name.startsWith('K') || a.name.startsWith('L') ? value => supplementalTextHTML(value, I_MANA) : a.name.startsWith('H') ? value => supplementalTextHTML(value, H_MANA) : a.name.startsWith('G') ? value => supplementalTextHTML(value, G_MANA) : a.name.startsWith('F') ? value => supplementalTextHTML(value, F_MANA) : a.name.startsWith('E') ? value => supplementalTextHTML(value, E_MANA) : esc;
+  const compactExamples = /^[CDEFGHIJKL]/.test(a.name);
   const displayColors = [...ORDER, ...(a.access.colorless.status === 'documented' ? ['C'] : [])];
   const comboOnly = a.name === 'Fuse' || a.name === 'Friends forever';
-  const independentOnly = ['Hexproof from','Intimidate','Islandcycling','Islandwalk','Kicker'].includes(a.name);
+  const independentOnly = (['Hexproof from','Intimidate','Islandcycling','Islandwalk','Kicker'].includes(a.name) || a.name.startsWith('L') && a.access.combinations.length > 0);
   const combinationRow = item => `<li class="own-row combo-row" data-combo="${item.colors.join('')}">${comboMarkHTML(item)}<span class="own-c">${esc(item.colors.map(c=>CNAME[c]).join(' / '))}</span><span class="own-lead" aria-hidden="true"></span><span class="own-t">Combination only</span></li>`;
   const accessRows = a.kind === 'access' ? (comboOnly ? a.access.combinations.map(combinationRow).join('') : displayColors.filter(c => !independentOnly || c === 'C' || a.access.colors[c].status === 'documented').map(c => { const item=c === 'C' ? a.access.colorless : a.access.colors[c]; return `<li class="own-row${item.status === 'documented' ? '' : ' none'}" data-c="${c}">${accessMarkHTML(c,item.status)}<span class="own-c">${c === 'C' ? 'Colorless' : CNAME[c]}</span><span class="own-lead" aria-hidden="true"></span><span class="own-t">${esc(item.status === 'documented' ? 'Access' : item.status === 'multicolor_only' ? 'Combination only' : item.status === 'not_applicable' ? 'Not applicable' : item.status === 'insufficient_evidence' ? 'Insufficient evidence' : 'No example found')}</span></li>`; }).join('') + (independentOnly ? a.access.combinations.map(combinationRow).join('') : '')) : '';
   // One qualifying example establishes access. Retain the full reviewed set
@@ -2113,20 +2117,20 @@ async function loadAssessments(data, status){
     const object = v => v !== null && typeof v === 'object' && !Array.isArray(v);
     const map = (v, check) => object(v) && Object.keys(v).length === 5 && ORDER.every(c => Object.hasOwn(v, c) && check(v[c]));
     const safeLink = v => !!supplementalURL(v) && ['scryfall.com','magic.wizards.com'].includes(new URL(v).hostname);
-    const names = ['a-assessments-source.json','absorb-assessment-source.json','a-classification-addendum.json','a-protocol-core.json','a-protocol-extended.json','a-protocol-special.json','b-protocol-core.json','b-protocol-extended.json','c-protocol-core.json','c-protocol-extended.json','c-protocol-special.json','d-protocol.json','e-protocol.json','f-protocol.json','g-protocol.json','h-protocol.json','i-protocol.json','j-protocol.json','k-protocol.json'];
-    const expected = new Map(data.records.filter(r => /^[ABCDEFGHIJK]/.test(r.name) && r.target2021 === null).map(r => [r.id,r]));
+    const names = ['a-assessments-source.json','absorb-assessment-source.json','a-classification-addendum.json','a-protocol-core.json','a-protocol-extended.json','a-protocol-special.json','b-protocol-core.json','b-protocol-extended.json','c-protocol-core.json','c-protocol-extended.json','c-protocol-special.json','d-protocol.json','e-protocol.json','f-protocol.json','g-protocol.json','h-protocol.json','i-protocol.json','j-protocol.json','k-protocol.json','l-protocol.json'];
+    const expected = new Map(data.records.filter(r => /^[ABCDEFGHIJKL]/.test(r.name) && r.target2021 === null).map(r => [r.id,r]));
     const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(JSON.stringify(data)));
     const hash = [...new Uint8Array(digest)].map(n => n.toString(16).padStart(2,'0')).join('');
  if (!payload || payload.schemaVersion !== 3 || payload.protocolVersion !== '2.0' || payload.researchDate !== '2026-10-29' || payload.supplementCanonicalSha256 !== hash || payload.sourceBindingFormat !== 'canonical-json-utf8' ||
         !Array.isArray(payload.sourceBindings) || payload.sourceBindings.length !== names.length || !names.every((name,i) => payload.sourceBindings[i]?.path === 'docs/mechanics-research/' + name && /^[a-f0-9]{64}$/.test(payload.sourceBindings[i].sha256)) ||
-        !Array.isArray(payload.records) || payload.records.length !== 199 || expected.size !== 199) throw new Error('Unsupported assessment schema or binding');
+        !Array.isArray(payload.records) || payload.records.length !== 210 || expected.size !== 210) throw new Error('Unsupported assessment schema or binding');
     const staged = new Map();
     for (const a of payload.records){
       const source = expected.get(a?.id);
       const access = a?.access, statuses=['documented','multicolor_only','not_found','not_applicable','insufficient_evidence'];
       const card = c => c && text(c.name) && (c.url === null || safeLink(c.url) && new URL(c.url).hostname === 'scryfall.com');
       const entry = (value, colorless=false) => value && statuses.includes(value.status) && (!colorless || value.status !== 'multicolor_only') && text(value.note) && Array.isArray(value.cards) && value.cards.every(card) && (value.cards.length > 0) === ['documented','multicolor_only'].includes(value.status) && (value.findUrl === null || safeLink(value.findUrl) && new URL(value.findUrl).hostname === 'scryfall.com');
-    if (!source || staged.has(a.id) || a.name !== source.name || a.researchDate !== (a.name.startsWith('G') || a.name.startsWith('H') || a.name.startsWith('I') || a.name.startsWith('J') || a.name.startsWith('K') ? '2026-10-29' : '2026-10-28') || !['access','rules'].includes(a.kind) || !['scopeLabel','scope','summary'].every(k => text(a[k])) ||
+    if (!source || staged.has(a.id) || a.name !== source.name || a.researchDate !== (a.name.startsWith('G') || a.name.startsWith('H') || a.name.startsWith('I') || a.name.startsWith('J') || a.name.startsWith('K') || a.name.startsWith('L') ? '2026-10-29' : '2026-10-28') || !['access','rules'].includes(a.kind) || !['scopeLabel','scope','summary'].every(k => text(a[k])) ||
           !object(access) || !map(access.colors, value => entry(value)) || !entry(access.colorless,true) || !Array.isArray(access.combinations) || !access.combinations.every(x => x && Array.isArray(x.colors) && x.colors.length >= 2 && x.colors.every(c => ORDER.includes(c)) && x.colors.join('') === ORDER.filter(c=>x.colors.includes(c)).join('') && text(x.note) && Array.isArray(x.cards) && x.cards.length && x.cards.every(card) && safeLink(x.findUrl)) || !Array.isArray(access.limitations) || !access.limitations.every(text) ||
           !Array.isArray(a.citationCards) || !a.citationCards.every(card) ||
           !Array.isArray(a.sources) || !a.sources.every(s => s && text(s.title) && safeLink(s.url)) ||
@@ -2135,10 +2139,10 @@ async function loadAssessments(data, status){
       staged.set(a.id, deepFreeze(a));
     }
     ASSESSMENTS.byKey = staged; ASSESSMENTS.status = 'ready';
-    status.textContent += ' 199 A/B/C/D/E/F/G/H/I/J/K color-access records are available; 2021 tiers remain separate.';
+    status.textContent += ' 210 A/B/C/D/E/F/G/H/I/J/K/L color-access records are available; 2021 tiers remain separate.';
   } catch (err){
     ASSESSMENTS.byKey = new Map(); ASSESSMENTS.status = 'unavailable';
-    status.textContent += ' A/B/C/D/E/F/G/H/I/J/K color access is unavailable; rules and other evidence remain available.';
+    status.textContent += ' A/B/C/D/E/F/G/H/I/J/K/L color access is unavailable; rules and other evidence remain available.';
     console.warn('[mechanical-explorer] assessments unavailable:', err.message);
   }
   if (S.view === 'az') layoutList();

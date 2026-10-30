@@ -122,3 +122,11 @@ review verifies card existence only, so the presentation describes that card's
 effect and explicitly does not claim a verified general Kinfall definition.
 The K extension keeps the escaped symbol, safe-link, font-fallback, and
 one-selected-link contracts through assessment, rules, and reference paths.
+
+## L batch, October 29, 2026
+
+The same presence-based contract covers eleven supplemental L records, for 210 A–L assessments. Lifelink remains mapped to frozen 2021. Each independent color, colorless bucket and observed combination has one selected linked witness; all 83 selected full objects bind to fresh accurately receipted captures. Earlier A–K rows and bindings remain unchanged.
+
+Actual mechanic-bearing faces govern Living Metal, including their color indicators. Landwalk grants and token creators use source colors; Landcycling covers basic landcycling and the individual land-type variants. Living Weapon uses the Equipment's colors rather than the Germ token's color. Name-only Lieutenant matches, digital-only Landfall cards and future releases are excluded. Landship remains a narrow Plane-Merge Elf playtest example with no verified general definition. Legacy retains explicit playtest scope and the official 2019 release notes' permanent physical-card changes.
+
+L uses the existing escaped mana renderer through assessment, rules and references, and the existing mixed-access presentation for independent slots plus combinations. Newly encountered three/four-color symbols reuse pinned native Mana paths and colors. Raw inherited captures with missing trustworthy retrieval metadata stay explicitly unreceipted, distinct from fresh selected-card authority. Unselected discovery hits are not claimed individually reviewed.

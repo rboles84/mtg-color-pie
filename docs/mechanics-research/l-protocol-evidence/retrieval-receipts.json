@@ -1,0 +1,339 @@
+{
+  "schemaVersion": 1,
+  "retrievals": [
+    {
+      "path": "docs/mechanics-research/l-protocol-evidence/landcycling-discovery-1.json",
+      "rawSha256": "bd25c86ba8183e0ad554c15a11fd4b2683a00aa5945a733abfa9b27614853926",
+      "url": null,
+      "requestStartedUtc": null,
+      "requestEndedUtc": null,
+      "status": null,
+      "disposition": "Inherited raw body without trustworthy retrieval metadata; retained for audit only. Prior packet placeholder URLs and midnight timestamps are withdrawn. Not current selected-card authority."
+    },
+    {
+      "path": "docs/mechanics-research/l-protocol-evidence/landfall-discovery-1.json",
+      "rawSha256": "5601d71b23ff5fd2bb3cfdde360d0c2ab66567d013428f689ad14d6c2d5338d8",
+      "url": null,
+      "requestStartedUtc": null,
+      "requestEndedUtc": null,
+      "status": null,
+      "disposition": "Inherited raw body without trustworthy retrieval metadata; retained for audit only. Prior packet placeholder URLs and midnight timestamps are withdrawn. Not current selected-card authority."
+    },
+    {
+      "path": "docs/mechanics-research/l-protocol-evidence/landfall-discovery-2.json",
+      "rawSha256": "56f1e7f2a1ca1bea325cef06d8edcbfe748f578c01cef3c44383bc5a4ed658a5",
+      "url": null,
+      "requestStartedUtc": null,
+      "requestEndedUtc": null,
+      "status": null,
+      "disposition": "Inherited raw body without trustworthy retrieval metadata; retained for audit only. Prior packet placeholder URLs and midnight timestamps are withdrawn. Not current selected-card authority."
+    },
+    {
+      "path": "docs/mechanics-research/l-protocol-evidence/landship-plane-merge-elf.json",
+      "rawSha256": "368c74e66f465582adf20831fb74c887a98cbb306168e4b8475780243b0dc41f",
+      "url": null,
+      "requestStartedUtc": null,
+      "requestEndedUtc": null,
+      "status": null,
+      "disposition": "Inherited raw body without trustworthy retrieval metadata; retained for audit only. Prior packet placeholder URLs and midnight timestamps are withdrawn. Not current selected-card authority."
+    },
+    {
+      "path": "docs/mechanics-research/l-protocol-evidence/landwalk-discovery-1.json",
+      "rawSha256": "ffe699ad870b563f3e627c6e9bb7370f0debbfe06cbb916892dd4745e2273b87",
+      "url": null,
+      "requestStartedUtc": null,
+      "requestEndedUtc": null,
+      "status": null,
+      "disposition": "Inherited raw body without trustworthy retrieval metadata; retained for audit only. Prior packet placeholder URLs and midnight timestamps are withdrawn. Not current selected-card authority."
+    },
+    {
+      "path": "docs/mechanics-research/l-protocol-evidence/learn-discovery-1.json",
+      "rawSha256": "d8685323e9a50c8510ca982a716b12d9cd0e4900a13f0a54441eb6d2b6424339",
+      "url": null,
+      "requestStartedUtc": null,
+      "requestEndedUtc": null,
+      "status": null,
+      "disposition": "Inherited raw body without trustworthy retrieval metadata; retained for audit only. Prior packet placeholder URLs and midnight timestamps are withdrawn. Not current selected-card authority."
+    },
+    {
+      "path": "docs/mechanics-research/l-protocol-evidence/legacy-discovery-1.json",
+      "rawSha256": "88ef50e6fa2806dda8291d4bb4582585e6a3f0020ef394cb20fdf0b23108cbff",
+      "url": null,
+      "requestStartedUtc": null,
+      "requestEndedUtc": null,
+      "status": null,
+      "disposition": "Inherited raw body without trustworthy retrieval metadata; retained for audit only. Prior packet placeholder URLs and midnight timestamps are withdrawn. Not current selected-card authority."
+    },
+    {
+      "path": "docs/mechanics-research/l-protocol-evidence/legacy-gold-mine.json",
+      "rawSha256": "aab2286d1dac2fd6a8cc7011a5ed930bdc85174cb6959e9d869c3dc5d3605521",
+      "url": null,
+      "requestStartedUtc": null,
+      "requestEndedUtc": null,
+      "status": null,
+      "disposition": "Inherited raw body without trustworthy retrieval metadata; retained for audit only. Prior packet placeholder URLs and midnight timestamps are withdrawn. Not current selected-card authority."
+    },
+    {
+      "path": "docs/mechanics-research/l-protocol-evidence/legacy-inspirational-antelope.json",
+      "rawSha256": "6b3fe2229698c61627ee881caa049275354e80e4f9c7ff6cc59395d8adadc3ef",
+      "url": null,
+      "requestStartedUtc": null,
+      "requestEndedUtc": null,
+      "status": null,
+      "disposition": "Inherited raw body without trustworthy retrieval metadata; retained for audit only. Prior packet placeholder URLs and midnight timestamps are withdrawn. Not current selected-card authority."
+    },
+    {
+      "path": "docs/mechanics-research/l-protocol-evidence/legendary-landwalk-discovery-1.json",
+      "rawSha256": "39367a87f33de15c09ca601594d3757154a271f978a4945f0866ee9356a48ffa",
+      "url": null,
+      "requestStartedUtc": null,
+      "requestEndedUtc": null,
+      "status": null,
+      "disposition": "Inherited raw body without trustworthy retrieval metadata; retained for audit only. Prior packet placeholder URLs and midnight timestamps are withdrawn. Not current selected-card authority."
+    },
+    {
+      "path": "docs/mechanics-research/l-protocol-evidence/level-up-discovery-1.json",
+      "rawSha256": "03692257602ddfe61fd2da867a77cbf294895d2a315fcc4a590aca3c66095448",
+      "url": null,
+      "requestStartedUtc": null,
+      "requestEndedUtc": null,
+      "status": null,
+      "disposition": "Inherited raw body without trustworthy retrieval metadata; retained for audit only. Prior packet placeholder URLs and midnight timestamps are withdrawn. Not current selected-card authority."
+    },
+    {
+      "path": "docs/mechanics-research/l-protocol-evidence/lieutenant-discovery-1.json",
+      "rawSha256": "43fd7029fb7ef7eb7cfc25438a8dde56ad2e5fbe4801eb554bd19c10c580118b",
+      "url": null,
+      "requestStartedUtc": null,
+      "requestEndedUtc": null,
+      "status": null,
+      "disposition": "Inherited raw body without trustworthy retrieval metadata; retained for audit only. Prior packet placeholder URLs and midnight timestamps are withdrawn. Not current selected-card authority."
+    },
+    {
+      "path": "docs/mechanics-research/l-protocol-evidence/living-metal-discovery-1.json",
+      "rawSha256": "b980aaca0a72c6836a0cdb8cfa4a0e3b66f271cbde5a93e19157ec50473bf60a",
+      "url": null,
+      "requestStartedUtc": null,
+      "requestEndedUtc": null,
+      "status": null,
+      "disposition": "Inherited raw body without trustworthy retrieval metadata; retained for audit only. Prior packet placeholder URLs and midnight timestamps are withdrawn. Not current selected-card authority."
+    },
+    {
+      "path": "docs/mechanics-research/l-protocol-evidence/living-weapon-discovery-1.json",
+      "rawSha256": "5de83ac9e80bcbed7a1adb05d9b2e4579f7198c50633360760bf6670bea3237f",
+      "url": null,
+      "requestStartedUtc": null,
+      "requestEndedUtc": null,
+      "status": null,
+      "disposition": "Inherited raw body without trustworthy retrieval metadata; retained for audit only. Prior packet placeholder URLs and midnight timestamps are withdrawn. Not current selected-card authority."
+    },
+    {
+      "path": "docs/mechanics-research/l-protocol-evidence/mystery-booster-release-notes.html",
+      "rawSha256": "121ed73c7d1f3eb22c66f47095dfed535c81735e72cbf89226eb1a7d63bb24cb",
+      "url": null,
+      "requestStartedUtc": null,
+      "requestEndedUtc": null,
+      "status": null,
+      "disposition": "Inherited raw body without trustworthy retrieval metadata; retained for audit only. Prior packet placeholder URLs and midnight timestamps are withdrawn. Not current selected-card authority."
+    },
+    {
+      "path": "docs/mechanics-research/l-protocol-evidence/landfall-fresh-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=kw%3Alandfall+game%3Apaper+-is%3Afunny+date%3C%3D2026-10-29&unique=cards&order=name",
+      "finalUrl": "https://api.scryfall.com/cards/search?q=kw%3Alandfall+game%3Apaper+-is%3Afunny+date%3C%3D2026-10-29&unique=cards&order=name",
+      "requestStartedUtc": "2026-10-30T04:17:41.483837Z",
+      "requestEndedUtc": "2026-10-30T04:17:42.522241Z",
+      "status": 200,
+      "rawSha256": "d0d053f054df703cd41ea23e0459b09c59b6328c88be066f157445b2880b81b0"
+    },
+    {
+      "path": "docs/mechanics-research/l-protocol-evidence/landfall-fresh-2.json",
+      "url": "https://api.scryfall.com/cards/search?format=json&include_extras=false&include_multilingual=false&include_variations=false&order=name&page=2&q=kw%3Alandfall+game%3Apaper+-is%3Afunny+date%3C%3D2026-10-29&unique=cards",
+      "finalUrl": "https://api.scryfall.com/cards/search?format=json&include_extras=false&include_multilingual=false&include_variations=false&order=name&page=2&q=kw%3Alandfall+game%3Apaper+-is%3Afunny+date%3C%3D2026-10-29&unique=cards",
+      "requestStartedUtc": "2026-10-30T04:17:42.649071Z",
+      "requestEndedUtc": "2026-10-30T04:17:43.017964Z",
+      "status": 200,
+      "rawSha256": "7a35ca191f6e86671c2ae2e525ed7cb508a0fe4e13cedbc320266658e76d24b9"
+    },
+    {
+      "path": "docs/mechanics-research/l-protocol-evidence/landwalk-fresh-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3Awalk+game%3Apaper+-is%3Afunny+date%3C%3D2026-10-29&unique=cards&order=name",
+      "finalUrl": "https://api.scryfall.com/cards/search?q=o%3Awalk+game%3Apaper+-is%3Afunny+date%3C%3D2026-10-29&unique=cards&order=name",
+      "requestStartedUtc": "2026-10-30T04:17:43.140365Z",
+      "requestEndedUtc": "2026-10-30T04:17:44.400266Z",
+      "status": 200,
+      "rawSha256": "2165d6c84aabaf85111310c571107540207a9057fb976adb9d8313cb577dcb9f"
+    },
+    {
+      "path": "docs/mechanics-research/l-protocol-evidence/landwalk-fresh-2.json",
+      "url": "https://api.scryfall.com/cards/search?format=json&include_extras=false&include_multilingual=false&include_variations=false&order=name&page=2&q=o%3Awalk+game%3Apaper+-is%3Afunny+date%3C%3D2026-10-29&unique=cards",
+      "finalUrl": "https://api.scryfall.com/cards/search?format=json&include_extras=false&include_multilingual=false&include_variations=false&order=name&page=2&q=o%3Awalk+game%3Apaper+-is%3Afunny+date%3C%3D2026-10-29&unique=cards",
+      "requestStartedUtc": "2026-10-30T04:17:44.526261Z",
+      "requestEndedUtc": "2026-10-30T04:17:45.449016Z",
+      "status": 200,
+      "rawSha256": "e6eff929c1f719d595fb55d4f8345ec0ccfcfb51fb2595151f46a840ee64b655"
+    },
+    {
+      "path": "docs/mechanics-research/l-protocol-evidence/landwalk-fresh-3.json",
+      "url": "https://api.scryfall.com/cards/search?format=json&include_extras=false&include_multilingual=false&include_variations=false&order=name&page=3&q=o%3Awalk+game%3Apaper+-is%3Afunny+date%3C%3D2026-10-29&unique=cards",
+      "finalUrl": "https://api.scryfall.com/cards/search?format=json&include_extras=false&include_multilingual=false&include_variations=false&order=name&page=3&q=o%3Awalk+game%3Apaper+-is%3Afunny+date%3C%3D2026-10-29&unique=cards",
+      "requestStartedUtc": "2026-10-30T04:17:45.577564Z",
+      "requestEndedUtc": "2026-10-30T04:17:46.669111Z",
+      "status": 200,
+      "rawSha256": "62cac439c080d1af543e6b847a4be7f81e4c24b3817d191d0afce309bc1136d3"
+    },
+    {
+      "path": "docs/mechanics-research/l-protocol-evidence/landwalk-fresh-4.json",
+      "url": "https://api.scryfall.com/cards/search?format=json&include_extras=false&include_multilingual=false&include_variations=false&order=name&page=4&q=o%3Awalk+game%3Apaper+-is%3Afunny+date%3C%3D2026-10-29&unique=cards",
+      "finalUrl": "https://api.scryfall.com/cards/search?format=json&include_extras=false&include_multilingual=false&include_variations=false&order=name&page=4&q=o%3Awalk+game%3Apaper+-is%3Afunny+date%3C%3D2026-10-29&unique=cards",
+      "requestStartedUtc": "2026-10-30T04:17:46.797867Z",
+      "requestEndedUtc": "2026-10-30T04:17:47.716649Z",
+      "status": 200,
+      "rawSha256": "6c9da9a77e918d9818e118e83af37c8d23c85c4a8fb2c6d6f58048c8068875ac"
+    },
+    {
+      "path": "docs/mechanics-research/l-protocol-evidence/landwalk-fresh-5.json",
+      "url": "https://api.scryfall.com/cards/search?format=json&include_extras=false&include_multilingual=false&include_variations=false&order=name&page=5&q=o%3Awalk+game%3Apaper+-is%3Afunny+date%3C%3D2026-10-29&unique=cards",
+      "finalUrl": "https://api.scryfall.com/cards/search?format=json&include_extras=false&include_multilingual=false&include_variations=false&order=name&page=5&q=o%3Awalk+game%3Apaper+-is%3Afunny+date%3C%3D2026-10-29&unique=cards",
+      "requestStartedUtc": "2026-10-30T04:17:47.845049Z",
+      "requestEndedUtc": "2026-10-30T04:17:48.630735Z",
+      "status": 200,
+      "rawSha256": "c9e453a16e3dbba6e7da42e77c81ec75933e79f941c18c49989a033042ad4b2c"
+    },
+    {
+      "path": "docs/mechanics-research/l-protocol-evidence/landwalk-fresh-6.json",
+      "url": "https://api.scryfall.com/cards/search?format=json&include_extras=false&include_multilingual=false&include_variations=false&order=name&page=6&q=o%3Awalk+game%3Apaper+-is%3Afunny+date%3C%3D2026-10-29&unique=cards",
+      "finalUrl": "https://api.scryfall.com/cards/search?format=json&include_extras=false&include_multilingual=false&include_variations=false&order=name&page=6&q=o%3Awalk+game%3Apaper+-is%3Afunny+date%3C%3D2026-10-29&unique=cards",
+      "requestStartedUtc": "2026-10-30T04:17:48.758754Z",
+      "requestEndedUtc": "2026-10-30T04:17:49.885860Z",
+      "status": 200,
+      "rawSha256": "5e212e42ab91198662470c9e9dde6bbd6558465586a53888fdedc3302256a9a7"
+    },
+    {
+      "path": "docs/mechanics-research/l-protocol-evidence/landwalk-fresh-7.json",
+      "url": "https://api.scryfall.com/cards/search?format=json&include_extras=false&include_multilingual=false&include_variations=false&order=name&page=7&q=o%3Awalk+game%3Apaper+-is%3Afunny+date%3C%3D2026-10-29&unique=cards",
+      "finalUrl": "https://api.scryfall.com/cards/search?format=json&include_extras=false&include_multilingual=false&include_variations=false&order=name&page=7&q=o%3Awalk+game%3Apaper+-is%3Afunny+date%3C%3D2026-10-29&unique=cards",
+      "requestStartedUtc": "2026-10-30T04:17:50.013342Z",
+      "requestEndedUtc": "2026-10-30T04:17:50.427358Z",
+      "status": 200,
+      "rawSha256": "c9ec324bc30606dc690fd731e52dd663f782a5436091cf053d3baaaff1c086b9"
+    },
+    {
+      "path": "docs/mechanics-research/l-protocol-evidence/learn-fresh-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=kw%3Alearn+game%3Apaper+-is%3Afunny+date%3C%3D2026-10-29&unique=cards&order=name",
+      "finalUrl": "https://api.scryfall.com/cards/search?q=kw%3Alearn+game%3Apaper+-is%3Afunny+date%3C%3D2026-10-29&unique=cards&order=name",
+      "requestStartedUtc": "2026-10-30T04:17:50.549507Z",
+      "requestEndedUtc": "2026-10-30T04:17:50.854237Z",
+      "status": 200,
+      "rawSha256": "ba73d6ea85e1bdba878d4560bb7307086a321fc674b93f82b73bf74f9f4292eb"
+    },
+    {
+      "path": "docs/mechanics-research/l-protocol-evidence/level-up-fresh-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=kw%3A%22level+up%22+game%3Apaper+-is%3Afunny+date%3C%3D2026-10-29&unique=cards&order=name",
+      "finalUrl": "https://api.scryfall.com/cards/search?q=kw%3A%22level+up%22+game%3Apaper+-is%3Afunny+date%3C%3D2026-10-29&unique=cards&order=name",
+      "requestStartedUtc": "2026-10-30T04:17:50.976339Z",
+      "requestEndedUtc": "2026-10-30T04:17:51.410388Z",
+      "status": 200,
+      "rawSha256": "03692257602ddfe61fd2da867a77cbf294895d2a315fcc4a590aca3c66095448"
+    },
+    {
+      "path": "docs/mechanics-research/l-protocol-evidence/lieutenant-fresh-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3Alieutenant+game%3Apaper+-is%3Afunny+date%3C%3D2026-10-29&unique=cards&order=name",
+      "finalUrl": "https://api.scryfall.com/cards/search?q=o%3Alieutenant+game%3Apaper+-is%3Afunny+date%3C%3D2026-10-29&unique=cards&order=name",
+      "requestStartedUtc": "2026-10-30T04:17:51.532325Z",
+      "requestEndedUtc": "2026-10-30T04:17:51.989012Z",
+      "status": 200,
+      "rawSha256": "4e6854e0e97c0fb3d0bacd97fdacbcb57db425487678a5a95029c9c2099949a3"
+    },
+    {
+      "path": "docs/mechanics-research/l-protocol-evidence/living-metal-fresh-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=kw%3A%22living+metal%22+game%3Apaper+-is%3Afunny+date%3C%3D2026-10-29&unique=cards&order=name",
+      "finalUrl": "https://api.scryfall.com/cards/search?q=kw%3A%22living+metal%22+game%3Apaper+-is%3Afunny+date%3C%3D2026-10-29&unique=cards&order=name",
+      "requestStartedUtc": "2026-10-30T04:17:52.110629Z",
+      "requestEndedUtc": "2026-10-30T04:17:52.520867Z",
+      "status": 200,
+      "rawSha256": "b980aaca0a72c6836a0cdb8cfa4a0e3b66f271cbde5a93e19157ec50473bf60a"
+    },
+    {
+      "path": "docs/mechanics-research/l-protocol-evidence/living-weapon-fresh-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=kw%3A%22living+weapon%22+game%3Apaper+-is%3Afunny+date%3C%3D2026-10-29&unique=cards&order=name",
+      "finalUrl": "https://api.scryfall.com/cards/search?q=kw%3A%22living+weapon%22+game%3Apaper+-is%3Afunny+date%3C%3D2026-10-29&unique=cards&order=name",
+      "requestStartedUtc": "2026-10-30T04:17:52.642817Z",
+      "requestEndedUtc": "2026-10-30T04:17:53.521179Z",
+      "status": 200,
+      "rawSha256": "5de83ac9e80bcbed7a1adb05d9b2e4579f7198c50633360760bf6670bea3237f"
+    },
+    {
+      "path": "docs/mechanics-research/l-protocol-evidence/landcycling-fresh-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=%28o%3Alandcycling+or+o%3Aplainscycling+or+o%3Aislandcycling+or+o%3Aswampcycling+or+o%3Amountaincycling+or+o%3Aforestcycling%29+game%3Apaper+-is%3Afunny+date%3C%3D2026-10-29&unique=cards&order=name",
+      "finalUrl": "https://api.scryfall.com/cards/search?q=%28o%3Alandcycling+or+o%3Aplainscycling+or+o%3Aislandcycling+or+o%3Aswampcycling+or+o%3Amountaincycling+or+o%3Aforestcycling%29+game%3Apaper+-is%3Afunny+date%3C%3D2026-10-29&unique=cards&order=name",
+      "requestStartedUtc": "2026-10-30T04:17:53.643038Z",
+      "requestEndedUtc": "2026-10-30T04:17:55.093076Z",
+      "status": 200,
+      "rawSha256": "8811ed1488951e797deef659ca45020a48e0166fa947059be0ad64d51d2be210"
+    },
+    {
+      "path": "docs/mechanics-research/l-protocol-evidence/legendary-landwalk-fresh-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22legendary+landwalk%22+game%3Apaper+-is%3Afunny+date%3C%3D2026-10-29&unique=cards&order=name",
+      "finalUrl": "https://api.scryfall.com/cards/search?q=o%3A%22legendary+landwalk%22+game%3Apaper+-is%3Afunny+date%3C%3D2026-10-29&unique=cards&order=name",
+      "requestStartedUtc": "2026-10-30T04:17:55.218729Z",
+      "requestEndedUtc": "2026-10-30T04:17:55.478618Z",
+      "status": 200,
+      "rawSha256": "844f6d87616ce23ceca0b7a32c507eed7e25c9aea37b6aa74d70b72d7c35fd02"
+    },
+    {
+      "path": "docs/mechanics-research/l-protocol-evidence/landship-fresh.json",
+      "url": "https://api.scryfall.com/cards/cmb2/83",
+      "finalUrl": "https://api.scryfall.com/cards/cmb2/83",
+      "requestStartedUtc": "2026-10-30T04:17:55.600321Z",
+      "requestEndedUtc": "2026-10-30T04:17:55.700277Z",
+      "status": 200,
+      "rawSha256": "368c74e66f465582adf20831fb74c887a98cbb306168e4b8475780243b0dc41f"
+    },
+    {
+      "path": "docs/mechanics-research/l-protocol-evidence/legacy-gold-mine-fresh.json",
+      "url": "https://api.scryfall.com/cards/cmb2/118",
+      "finalUrl": "https://api.scryfall.com/cards/cmb2/118",
+      "requestStartedUtc": "2026-10-30T04:17:55.821200Z",
+      "requestEndedUtc": "2026-10-30T04:17:56.057082Z",
+      "status": 200,
+      "rawSha256": "f4e9bdbba0b116385429043157619ab43f668d38f148dff09770258f7459d67b",
+      "disposition": "Wrong collector-number request returned Noxious Bayou; excluded from selected evidence. Corrected exact-card request recorded separately."
+    },
+    {
+      "path": "docs/mechanics-research/l-protocol-evidence/legacy-antelope-fresh.json",
+      "url": "https://api.scryfall.com/cards/named?exact=Inspirational%20Antelope",
+      "finalUrl": "https://api.scryfall.com/cards/named?exact=Inspirational%20Antelope",
+      "requestStartedUtc": "2026-10-30T04:17:56.178293Z",
+      "requestEndedUtc": "2026-10-30T04:17:56.285481Z",
+      "status": 200,
+      "rawSha256": "6b3fe2229698c61627ee881caa049275354e80e4f9c7ff6cc59395d8adadc3ef"
+    },
+    {
+      "path": "docs/mechanics-research/l-protocol-evidence/mystery-booster-release-notes-fresh.html",
+      "url": "https://magic.wizards.com/en/news/feature/mystery-booster-release-notes-2019-11-11",
+      "finalUrl": "https://magic.wizards.com/en/news/feature/mystery-booster-release-notes-2019-11-11",
+      "requestStartedUtc": "2026-10-30T04:17:56.406312Z",
+      "requestEndedUtc": "2026-10-30T04:17:56.676026Z",
+      "status": 200,
+      "rawSha256": "121ed73c7d1f3eb22c66f47095dfed535c81735e72cbf89226eb1a7d63bb24cb"
+    },
+    {
+      "path": "docs/mechanics-research/l-protocol-evidence/legacy-gold-mine-corrected-fresh.json",
+      "url": "https://api.scryfall.com/cards/3bffc128-c340-4e1f-b813-04e7b9e72b9e",
+      "finalUrl": "https://api.scryfall.com/cards/3bffc128-c340-4e1f-b813-04e7b9e72b9e",
+      "requestStartedUtc": "2026-10-30T04:19:28.113618Z",
+      "requestEndedUtc": "2026-10-30T04:19:28.377749Z",
+      "status": 200,
+      "rawSha256": "aab2286d1dac2fd6a8cc7011a5ed930bdc85174cb6959e9d869c3dc5d3605521"
+    },
+    {
+      "path": "docs/mechanics-research/l-protocol-evidence/mystery-booster-commander-release-notes-fresh.html",
+      "url": "https://magic.wizards.com/en/news/feature/mystery-booster-commander-edition-release-notes",
+      "finalUrl": "https://magic.wizards.com/en/news/feature/mystery-booster-commander-edition-release-notes",
+      "requestStartedUtc": "2026-10-30T04:21:21.484050Z",
+      "requestEndedUtc": "2026-10-30T04:21:22.353029Z",
+      "status": 200,
+      "rawSha256": "cd46cbfda7473beda13be2f27ade58bb826a9b5b99da304db5ab71cff9a551ad"
+    }
+  ]
+}
