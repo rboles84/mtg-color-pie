@@ -1,3 +1,56 @@
+# Owner Review — J supplemental Color Access delivery
+
+- Status: qa-passed / Owner Review. All four supplemental J entries are complete: Job Select, Join forces, Jump and Jump-Start. They show 17 selected card examples across their independent color, colorless and combination buckets. Coverage is 196 A–J records. Owner product/visual acceptance remains pending.
+- Exact material: `28b58333358a9af803a7863cb9c26698f17695c9`; task baseline `b4a7fe1321fa1076ea78aaae4b0ad9ff856598eb`; branch `codex/a-mechanics-review`. Independent RobQA evidence commit: `78150c6dbac1cb4e0e687293eaaf227e5440040e`. This delivery update changes HANDOFF only and retains the material binding.
+- Roles: configured RobDev Terra medium `/root/j_dev`; bounded repair escalation to explicitly requested Sol high `/root/j_harness_repair` after two failed independent browser reviews contradicted developer PASS claims; separate configured RobQA Sol medium `/root/j_qa`; coordinator `/root` owns package, live preview and Git accounting. These are configured/requested routes, not verified backend telemetry. The coordinator did not implement product changes.
+- Evidence: canonical `docs/mechanics-research/j-protocol.json`, review `docs/mechanics-research/J-ACCESS-REVIEW.md`, and five immutable captures with receipt URLs, UTC timestamps, status and SHA-256 under `docs/mechanics-research/j-protocol-evidence/`. Inherited rule/reference metadata remains distinguished from fresh retrievals. Independent findings and exact executed checks follow in the QA report below.
+- Corrections before delivery: independent QA rejected two developer browser-PASS claims. Missing J conditions affected the date expectation, legacy card citation suppression and symbol/escaping fixture setup. The bounded repair audited those paths and captured a completed browser run before independent re-review. Failed runs remain recorded below and are not represented as passes.
+- Preservation: prior 192 A–I rows and 17 bindings, the frozen 2021 content/calculations and supplemental source remain unchanged. Source colors govern Job Select tokens and Jump-Start grants; Jump remains Cid's card-specific label. Positive access is presence-based and negative results are bounded to reviewed evidence.
+- Package verification: checked that resolved `_site` is a direct ordinary child of this checkout, then ran `python .github/pages/package.py --rev 28b58333358a9af803a7863cb9c26698f17695c9 --out <absolute _site> --verify`, exit 0. All 23 allowlisted files match expected bytes, four inline scripts parse, 23 expected URLs return 200 and 24 excluded paths return 404. Existing localhost8020 server reused; no publication.
+- Live preview: refreshed `http://127.0.0.1:8020/#mechanical-color-pie`; frame revision is `28b58333358a9af803a7863cb9c26698f17695c9`. Job Select is open with Reviewed card examples expanded, six selected links, empty search, all five color filters false and A–Z active. Inspected the visible color symbols, colorless diamond and six examples. Screenshot: `C:/Users/obake/.codex/visualizations/2026/10/30/01a18a77-90ef-7343-b59d-76319e6afcdc/j-color-access-preview.jpg`. The tab is retained as a deliverable. A combobox attribute read timed out; the direct #q DOM read confirmed empty search. This did not affect product behavior or screenshot capture.
+- Owner check: inspect the open Job Select examples for wording and reading flow; optionally inspect Jump-Start's separate multicolor examples. Engineering checks cover facts, unique links, symbols, accessible labels, safe escaping and font fallback.
+- Git state before delivery update: clean. No push, merge or publication performed. Final status, local/remote-tracking containment and canonical change-report validation are checked after this evidence-only commit. Material diff: 14 files changed, 10469 insertions(+), 43 deletions(-).
+
+## Material candidate
+
+- Baseline: `b4a7fe1321fa1076ea78aaae4b0ad9ff856598eb`
+- Candidate: `28b58333358a9af803a7863cb9c26698f17695c9`
+- Changed paths: `14`
+
+## Files changed
+
+- `HANDOFF.md`
+- `data/mechanics-assessments.v1.json`
+- `docs/mechanics-research/COLOR-ACCESS-PROTOCOL.md`
+- `docs/mechanics-research/J-ACCESS-REVIEW.md`
+- `docs/mechanics-research/j-protocol-evidence/job-select-discovery-1.json`
+- `docs/mechanics-research/j-protocol-evidence/join-forces-discovery-1.json`
+- `docs/mechanics-research/j-protocol-evidence/jump-discovery-1.json`
+- `docs/mechanics-research/j-protocol-evidence/jump-official.html`
+- `docs/mechanics-research/j-protocol-evidence/jump-start-discovery-1.json`
+- `docs/mechanics-research/j-protocol-evidence/retrieval-receipts.json`
+- `docs/mechanics-research/j-protocol.json`
+- `tools/build_mechanics_assessments.py`
+- `tools/check_assessment_browser.mjs`
+- `vox-color/mechanical-explorer.html`
+
+## Evidence delta
+
+- Material candidate: `28b58333358a9af803a7863cb9c26698f17695c9`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `1`
+- Independent QA and coordinator delivery/accounting updates to HANDOFF only; this is not the whole task diff.
+
+## Evidence-only paths
+
+- `HANDOFF.md`
+
+## Final branch delta
+
+- Task baseline to evidence HEAD: 14 Git-derived changed paths. Evidence-only updates add no path outside the material set. Material and evidence scopes are separated above.
+
+---
+
 # RobQA PASS / Owner Review — J supplemental Color Access
 
 - Status: `qa-passed` / Owner Review. Exact material candidate `28b58333358a9af803a7863cb9c26698f17695c9` against task baseline `b4a7fe1321fa1076ea78aaae4b0ad9ff856598eb` on `codex/a-mechanics-review`; developer evidence head before QA `ee78c69b0f6b3648a711fe64957321cc99f78389`. This verdict is local and candidate-bound. No Owner acceptance, push, merge, integration or publication is claimed.
