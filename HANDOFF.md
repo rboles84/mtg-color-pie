@@ -3012,6 +3012,12 @@ No new research is authorized or needed to distinguish the retained evidence. Th
 - Harness: `--k-only` retains the K maps/counts, opens all three K details, checks all 15 selected card links once in whole detail, factual notes, escaped assessment/rules/reference tokens, accessible real glyphs, no-font fallback, malformed K date fail-soft, 360px containment, and protected baseline. It bypasses only the known unrelated Friends forever 14px geometry/no-font checks; no assertion is weakened.
 - Developer evidence: `python tools/build_mechanics_assessments.py --check` PASS (199); `node --check tools/check_assessment_browser.mjs` PASS; `node tools/check_assessment_browser.mjs --root . --k-only --playwright <cached runtime>` exit 0 with a K-specific PASS result. The prior full harness failure remains recorded as unrelated stale Friends forever geometry debt. No independent QA, Owner acceptance, package, publication, push, merge, or integration is claimed.
 
+## RobDev rework — Mirror Universe Intrusion note
+
+- Status: ready-for-qa after local material commit `cef24cb243d961ee92351cdb710df9e5f967bf80`. QA returned only this note: its prior wording wrongly described a changed token rather than the actual kicked replacement effect.
+- Correction: the blue-black Kicker note now says that paying `{4}{U}{B}` creates a copy of every creature target opponent controls instead of one of those creatures. It is derived directly from the saved Oracle text. The focused literal now protects that exact distinction.
+- Developer evidence: producer regeneration and `--check` PASS (199); harness syntax PASS; `--k-only` rendered browser path exit 0 with its K-specific detail/link/token/fallback/fail-soft PASS result; `git diff --check` PASS. All other K source/variant/prose findings were independently verified reusable and remain unchanged. No independent QA, Owner acceptance, package, publication, push, merge, or integration is claimed.
+
 ## Independent RobQA rework — K supplemental Color Access, 2026-10-29
 
 - Mode/class/candidate: separate bounded QA-4 rework review of exact material candidate `354e843ba1e418903d37653777178bb07081d522` over the failed K candidate; developer evidence HEAD before this verdict was `9ce44e5a242e970c05cad9b7724a102528d196df`. Verdict: **`qa-failed`**. QA changed only `HANDOFF.md`; no Owner acceptance, package, preview, publication, push, merge, or integration is inferred.
