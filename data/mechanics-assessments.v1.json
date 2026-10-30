@@ -91,7 +91,7 @@
     },
     {
       "path": "docs/mechanics-research/n-protocol.json",
-      "sha256": "bfd33f39cd09b3daa05629920e318eeeb9db2c82027a117bf428fba0a0216102"
+      "sha256": "447cf465551f8fe5aba9133bed73da3116d42ad85d028cb92549569a82001cf3"
     }
   ],
   "records": [
@@ -47542,7 +47542,7 @@
       "researchDate": "2026-10-30",
       "scopeLabel": "Released paper cards",
       "scope": "Nightbound is found on the back face of certain transforming cards; access uses that back face’s actual colors.",
-      "summary": "Selected back faces establish black, red, green, and red-green Nightbound access; front-face colors are not substituted.",
+      "summary": "A nightbound permanent transforms to its front face as it becomes day, or immediately if it is already day. It can transform only through nightbound. If neither day nor night has been established and no daybound permanent is on the battlefield, controlling a nightbound permanent makes it night.",
       "access": {
         "colors": {
           "W": {
@@ -47648,7 +47648,7 @@
       "researchDate": "2026-10-30",
       "scopeLabel": "Released paper cards",
       "scope": "Ninjutsu puts a revealed card from hand onto the battlefield tapped and attacking after an unblocked attacker is returned. Commander ninjutsu is its command-zone variant.",
-      "summary": "Ninjutsu appears on selected white, blue, black, and green cards, with a separate blue-black combination witness.",
+      "summary": "To use ninjutsu, pay its cost, reveal the card from your hand and return an unblocked attacker you control to its owner's hand. The card enters tapped and attacking in its place. Commander ninjutsu also works from the command zone.",
       "access": {
         "colors": {
           "W": {
@@ -47685,10 +47685,15 @@
             "findUrl": "https://scryfall.com/search?q=%28%21%22Azra%20Smokeshaper%22%29%20include%3Aextras"
           },
           "R": {
-            "status": "not_found",
-            "note": "No red example found in the reviewed scope.",
-            "cards": [],
-            "findUrl": null
+            "status": "documented",
+            "note": "Yuffie, Materia Hunter has ninjutsu {1}{R}.",
+            "cards": [
+              {
+                "name": "Yuffie, Materia Hunter",
+                "url": "https://scryfall.com/card/fic/65/yuffie-materia-hunter?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Yuffie%2C%20Materia%20Hunter%22%29%20include%3Aextras"
           },
           "G": {
             "status": "documented",
@@ -47746,6 +47751,10 @@
         {
           "name": "Ingenious Infiltrator",
           "url": "https://scryfall.com/card/mh1/204/ingenious-infiltrator?utm_source=api"
+        },
+        {
+          "name": "Yuffie, Materia Hunter",
+          "url": "https://scryfall.com/card/fic/65/yuffie-materia-hunter?utm_source=api"
         }
       ],
       "sources": [
@@ -47763,7 +47772,7 @@
       "researchDate": "2026-10-30",
       "scopeLabel": "Released paper cards",
       "scope": "Nonbasic landwalk makes a creature unblockable while the defending player controls a nonbasic land.",
-      "summary": "Dryad Sophisticate is a green native use; Trailblazer’s Boots is a colorless Equipment that grants it.",
+      "summary": "A creature with nonbasic landwalk can't be blocked while the defending player controls a nonbasic land.",
       "access": {
         "colors": {
           "W": {

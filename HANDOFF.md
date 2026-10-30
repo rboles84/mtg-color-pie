@@ -3725,3 +3725,41 @@ No new research is authorized or needed to distinguish the retained evidence. Th
 - Acceptance: add Ninjutsu, Nightbound, and Nonbasic landwalk only; preserve actual mechanic-bearing face colors, independent and exact combination buckets, fresh raw binding receipts, safe N-gated brace-token rendering, and frozen A–M/2021 behavior including the M-only cost-run fix. Producer coverage advances only from 235 to 238 and bindings from 21 to 22.
 - Envelope: `HANDOFF.md`, `docs/mechanics-research/n-protocol.json`, `docs/mechanics-research/n-protocol-evidence/**`, `docs/mechanics-research/N-ACCESS-REVIEW.md`, `docs/mechanics-research/COLOR-ACCESS-PROTOCOL.md`, `tools/build_mechanics_assessments.py`, `tools/check_assessment_browser.mjs`, `vox-color/mechanical-explorer.html`, and generated `data/mechanics-assessments.v1.json`.
 - Protected/out of scope: all mapped/frozen 2021 and A–M packet data, routes, dependencies, package/live-preview work, Owner acceptance, integration, and independent RobQA. Expected class: QA-4; developer will run the focused N path and canonical deterministic/source checks only.
+
+
+# N supplemental Color Access — RobDev completion report
+
+- Status: `dev-in-progress`; implementation and developer checks complete, material commit and exact ready-for-QA binding follow. Expected independent class QA-4. Baseline `dae536b9731fef25d84175c64e2a8edfb8dfe323`; prior draft `afd9016c329e9c1bd41deaeb6468ccd4f219b831` was incomplete and is superseded by the completion candidate.
+- Criteria met: exactly Ninjutsu, Nightbound and Nonbasic landwalk; 238 rows / 22 bindings. Ninjutsu is W/U/B/R/G + UB, Nightbound B/R/G + RG using mechanic-bearing back faces, Nonbasic landwalk G + colorless Equipment grant. There are **12** selected examples, not the draft's 11: source screening caught omitted red Yuffie, Materia Hunter, which has ninjutsu {1}{R} and a 2025-06-13 paper release.
+- Source review: all returned qualifying paper objects were screened for actual mechanic-bearing source/face color signatures before comparing the map; no unexpected signature was discarded to fit the draft. Nightbound's white/blue front faces do not grant those colors to red/green backs. Trailblazer's Boots uses its own colorlessness, not its equipped creature's colors. Every selected full object, original Oracle text, paper scope, face colors and URL binds to actual raw captures; all 7 response SHA-256 values and 2 POST-request SHA-256 values match receipts with status200 and ordered UTC timestamps. Original captures are immutable.
+- Provenance correction: retained `o:ninjutsu` was honestly relabeled default Oracle; genuine fresh `fo:ninjutsu` returned39 hits with no next page. Satoru Umezawa's grant and Yuriko's commander variant confirm UB; digital hits are excluded. Yuffie is also present in the original keyword capture. Eleven selected objects use the original collection; the twelfth uses a fresh separate one-object collection. Authored apostrophes are valid U+2019, with zero U+FFFD; the apparent replacements were terminal decoding, so no needless Unicode normalization was made.
+- Owning renderer repair: extend N gates for mixed independent/combination strips and suppress the redundant fallback card plate once the N assessment supplies examples. Every selected href appears exactly once across the whole detail, with no aggregate card Sources list or combination example repeated under constituent colors. Compact evidence explains each mechanic once and gives short factual card notes. N's escaped symbol vocabulary applies to assessment/rules/references; raw saved brace notation is unchanged. A–M formatter decisions and the M-only native cost-run repair remain unchanged.
+- Developer checks (all exit0): `python tools/build_mechanics_assessments.py --check` ->238 deterministic records/source bindings; `python tools/check_invariants.py` ->217 identities/216 peers/zero unresolved; `python tools/check_taxonomy.py` ->source/taxonomy/fixtures PASS; `python tools/check_recon.py` ->all53 assertions; `python tools/gate.py` ->source/taxonomy PASS. `node --check tools/check_assessment_browser.mjs` and `node --check <temporary extracted explorer inline script>` PASS. Final `git diff --check` PASS (only expected CRLF warnings).
+- Focused real-browser command: `node tools/check_assessment_browser.mjs --root . --n-only --playwright C:/Users/obake/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright` ->PASS, all3 entries/12 exact unique selected hrefs, all discovered signatures/full-object/request/receipt checks, actual list/search/detail independent and combo marks, all actual and fixture numeric/colored/colorless/X/hybrid/snow/tap symbols through assessment/rules/references, safe escaping/links, accessible labels, blocked-font glyph/text fallback, missing/date/status/unsafe/binding isolation, keyboard activation,360px containment and unchanged frozen math/84 selfchecks. Fixture tokens supplement actual-token coverage; they are not claimed as source-card costs.
+- Protected real-browser commands: same harness/root/Playwright with `--m-only` ->PASS all25 M/183 selected links, source/full-object checks, formatter/fallback/interaction coverage; with `--mutate-pips-only` ->PASS five exact466px costs, native glyph halves/line-height, separated nonwrapping runs, labels/fallback, Landfall formatter isolation and frozen math. Subsequent changes were confined to N data and its signature assertions.
+- Preservation: N check hashes all235 prior A–M rows and first21 bindings against Git baseline; all match exactly. Explicit Git comparison confirms every frozen data blob except the admitted new assessment projection and original 2021 examples remain unchanged. All changed paths are inside the envelope. No dependencies, package, preview, screenshot, publication, push, merge or Owner acceptance is claimed.
+- Skipped: unrelated broad Friends forever14px/18px harness debt; no repair or all-suite-PASS claim. Independent QA, exact local package/live preview and final aesthetic Owner judgment remain for the coordinator.
+- Draft Owner checklist: (1) open Ninjutsu and judge the six concise examples including red Yuffie and separate UB; (2) open Nightbound and judge readable back-face names/colors with RG combination; (3) open Nonbasic landwalk at narrow width and judge native green/colorless grant examples and symbol readability.
+
+## N material path accounting (Git baseline to staged candidate, before this ledger addition)
+
+```text
+6	0	HANDOFF.md
+314	0	data/mechanics-assessments.v1.json
+8	0	docs/mechanics-research/COLOR-ACCESS-PROTOCOL.md
+17	0	docs/mechanics-research/N-ACCESS-REVIEW.md
+1	0	docs/mechanics-research/n-protocol-evidence/nightbound-discovery.json
+1	0	docs/mechanics-research/n-protocol-evidence/ninjutsu-discovery.json
+1	0	docs/mechanics-research/n-protocol-evidence/ninjutsu-full-oracle-discovery.json
+1	0	docs/mechanics-research/n-protocol-evidence/ninjutsu-grants-discovery.json
+1	0	docs/mechanics-research/n-protocol-evidence/nonbasic-discovery.json
+71	0	docs/mechanics-research/n-protocol-evidence/retrieval-receipts.json
+1	0	docs/mechanics-research/n-protocol-evidence/selected-cards-request.json
+1	0	docs/mechanics-research/n-protocol-evidence/selected-cards.json
+1	0	docs/mechanics-research/n-protocol-evidence/yuffie-request.json
+1	0	docs/mechanics-research/n-protocol-evidence/yuffie-selected-card.json
+2482	0	docs/mechanics-research/n-protocol.json
+9	9	tools/build_mechanics_assessments.py
+121	11	tools/check_assessment_browser.mjs
+15	13	vox-color/mechanical-explorer.html
+```

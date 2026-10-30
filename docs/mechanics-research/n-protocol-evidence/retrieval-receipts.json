@@ -46,6 +46,26 @@
       "requestEndedUtc": "2026-10-30T06:41:54.152Z",
       "status": 200,
       "rawSha256": "53299d7fe8dcebeb2fb2f50373f3e15319438fab44698820b060132ec8bec0db"
+    },
+    {
+      "path": "docs/mechanics-research/n-protocol-evidence/ninjutsu-full-oracle-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?format=json&unique=cards&q=fo%3Aninjutsu",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-30T06:57:52.562Z",
+      "requestEndedUtc": "2026-10-30T06:57:53.215Z",
+      "status": 200,
+      "rawSha256": "680abb0926ecc7c98d42b64dc5c9a7056e04b6d02eed0d55c3358c73e8f2ad27"
+    },
+    {
+      "path": "docs/mechanics-research/n-protocol-evidence/yuffie-selected-card.json",
+      "url": "https://api.scryfall.com/cards/collection",
+      "method": "POST",
+      "requestBodyPath": "docs/mechanics-research/n-protocol-evidence/yuffie-request.json",
+      "requestBodySha256": "ee6d83b24ab361e01095456ad6c34479f1ccd620d7a0b0033705ff354c8649c5",
+      "requestStartedUtc": "2026-10-30T07:01:22.098Z",
+      "requestEndedUtc": "2026-10-30T07:01:22.342Z",
+      "status": 200,
+      "rawSha256": "ce8ef16ba6459700cf50a567439843a30be07995f48f37777310e5ebc0a99201"
     }
   ]
 }
