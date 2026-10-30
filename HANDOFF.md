@@ -1,3 +1,43 @@
+# Mutate pip correction — local preview delivery
+
+- Outcome: Mutate costs stay together with separated, aligned pip boxes while retaining the native Mana glyph artwork. The formatter change is M-only; prior A-L formatting and all canonical/generated mechanics data remain unchanged.
+- Exact material: `bbc8d74c03b748322ac866e2130680a104fa1435`. Independent RobQA PASS is recorded in evidence commit `78385a8d8dcbccbadd9e2fb1bf73750679b7b4ac`; Owner acceptance remains separate.
+- Checks passed: focused `--mutate-pips-only` browser regression at 466px, five exact costs, native glyph styling against historical baseline, non-wrapping cost runs, accessible labels and blocked-font fallback, legacy Landfall formatter isolation, frozen math, JavaScript syntax and whitespace. The original historical page fails the grouping invariant. Broader source audits were reused, not rerun.
+- Local package verification passed for material `bbc8d74`: 23 byte-identical allowed files, 4 inline scripts parsed, 23 HTTP 200 and 24 excluded HTTP 404 responses. The existing localhost preview was refreshed and its iframe revision verified against the exact material SHA.
+- Live inspection: Mutate reviewed examples expanded, search cleared, no color filter selected. Nethroi, Snapdax and Vadrok now show separated pips with native ink positioning. Preview retained for Owner review.
+- Screenshot: `C:/Users/obake/.codex/visualizations/2026/10/30/01a18b41-c4b7-7b61-a59e-7a504e8f8cb6/mutate-pips-fixed.jpg`.
+- Git lists below were derived from Git. Final validator and clean/local-only checks run after this HANDOFF-only commit. No push, merge or publication was performed.
+
+## Material candidate
+
+- Baseline: `15a59b7f5be306d0bb2d0248105c72ce99a9e715`
+- Candidate: `bbc8d74c03b748322ac866e2130680a104fa1435`
+- Changed paths: `3`
+
+## Files changed
+
+- `HANDOFF.md`
+- `tools/check_assessment_browser.mjs`
+- `vox-color/mechanical-explorer.html`
+
+## Evidence delta
+
+- Material candidate: `bbc8d74c03b748322ac866e2130680a104fa1435`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `1`
+- This is not the full task diff.
+
+## Evidence-only paths
+
+- `HANDOFF.md`
+
+## Final branch delta
+
+- Baseline to final evidence HEAD: three paths, exactly the material list above.
+- Branch: `codex/a-mechanics-review`; local review only.
+
+---
+
 # Mutate mana-pip rendering — RobDev envelope
 
 - Status: `qa-passed` (`qa-failed -> dev-in-progress -> ready-for-qa -> qa-passed`) for exact rework material `bbc8d74c03b748322ac866e2130680a104fa1435`; Owner acceptance and integration remain separate.
