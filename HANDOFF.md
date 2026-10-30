@@ -39,7 +39,7 @@
 - Material candidate: `28b58333358a9af803a7863cb9c26698f17695c9`
 - Evidence head: `HEAD`
 - Additional evidence-only paths: `1`
-- Independent QA and coordinator delivery/accounting updates to HANDOFF only; this is not the whole task diff.
+- Independent QA and coordinator delivery/accounting updates to HANDOFF only; this is not the full task diff.
 
 ## Evidence-only paths
 
