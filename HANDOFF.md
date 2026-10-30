@@ -1,3 +1,107 @@
+# P supplemental Color Access - local delivery and Owner Review
+
+- Completed all 22 unmapped P entries with 157 selected bucket witnesses (154 distinct ordinary full objects). Coverage is 266 A-P records / 24 bindings. Play remains a rules reference; Protection and Prowess remain frozen mapped 2021 entries. Main/Special grouping, all A-O rows/bindings/evidence and frozen 2021 content/calculations are preserved.
+- Status: `qa-passed` / independent engineering PASS for exact material `2d61cf43285947b68fff8a05313ef85607430d3a`. Separate RobQA evidence commit `5e6177309d840dd5d704ffc9388f37772435e2a1` binds the corrected candidate. Owner visual/product acceptance remains PENDING; no acceptance is invented.
+- Roles: configured native RobDev Terra medium produced an incomplete draft; announced bounded `gpt-6.1-sol` high completion corrected scope, face attribution, definitions, notes, provenance and focused checks. Separate configured native RobQA Sol medium independently reviewed the material and rebound PASS after the narrow P-binding assertion correction. These are configured/requested routes, not backend telemetry. Coordinator owns local packaging, preview and Git accounting.
+- Evidence: `docs/mechanics-research/p-protocol.json`, `docs/mechanics-research/p-protocol-evidence/` and `docs/mechanics-research/P-ACCESS-REVIEW.md`. All 157 selected witnesses use the matching fresh complete captures; 166 ordinary/special embedded objects were audited. The preserved provisional receipt mismatch and superseded searches are disclosed locally and are not selected authority. Inherited rules evidence remains explicitly inherited.
+- Checks actually passed: deterministic producer (266/24), source invariants, taxonomy, reconciliation (53 assertions), mechanics gate, JavaScript syntax and whitespace; raw/full-object/face/scope/provenance audit; exact preservation of 244 prior rows, 23 bindings and 853 prior blobs. Focused P browser PASS covers all 22 entries / 157 whole-detail links, list/search/detail access maps and combinations, complete costs and symbols, safe escaping/links, accessible native glyphs, blocked-font fallback, malformed isolation, keyboard, 360px containment and frozen 84 selfchecks.
+- O-only and Mutate-pips-only are focused controls for the prior batch and the shared native mana-cost path. Both passed in development and separate QA. The final two-line P source-binding assertion correction changed no source/data/renderer/producer bytes; independent QA reused those unchanged valid browser/source results and independently passed exact ordered 24-path binding equality, syntax, whitespace and delta inspection. No further O/Mutate rerun was needed. The P-caused 23/24 assertion omission was corrected, not waived as historical debt. Unrelated pre-existing broad date/Friends-forever harness debt was neither rerun nor repaired; no all-suite PASS is claimed. CPU-heavy validation was not required.
+- Package verification PASS: `_site` was resolved and confirmed as an ordinary direct child of this exact checkout, with no reparse points, before replacement. The known preview process was identity-checked and stopped. `python .github/pages/package.py --rev 2d61cf43285947b68fff8a05313ef85607430d3a --out <absolute _site> --verify` exited 0: 23 byte-matching allowlisted files, four clean inline scripts, 23 HTTP 200 paths and 24 excluded HTTP 404 paths. The localhost-only server restarted with the checkout as working directory (PID 24128), avoiding the prior Windows package-directory lock.
+- Live preview: `http://127.0.0.1:8020/#mechanical-color-pie` refreshed. The actual iframe src is `vox-color/mechanical-explorer.html?v=2d61cf43285947b68fff8a05313ef85607430d3a`. Prototype is open with Reviewed card examples expanded; search is empty and all five color filters are `aria-pressed=false`. All six selected printing links, five prototyped colors plus normal colorless access, and actual numeric/colored costs were inspected. The visible tab is retained for Owner review.
+- Screenshots saved and inspected: `C:/Users/obake/.codex/visualizations/2026/10/30/01a18ecc-65bc-7011-a9db-336a930e7959/p-color-access-preview.jpg` (entry and access context), `C:/Users/obake/.codex/visualizations/2026/10/30/01a18ecc-65bc-7011-a9db-336a930e7959/p-reviewed-examples.jpg` (all six examples and rules). The entry was returned to its upper view with examples still expanded.
+- Remaining Owner judgment: inspect the open Prototype examples for clarity of the alternate-color explanation, natural wording and comfortable symbol spacing. Deterministic facts do not need manual rechecking. No blocker remains. No push, merge, integration or publication was performed.
+
+## Material candidate
+
+- Baseline: `6eee08fef23729597085775df1e9d39b79ce768d`
+- Candidate: `2d61cf43285947b68fff8a05313ef85607430d3a`
+- Changed paths: `58`
+
+## Files changed
+
+- `HANDOFF.md`
+- `data/mechanics-assessments.v1.json`
+- `docs/mechanics-research/COLOR-ACCESS-PROTOCOL.md`
+- `docs/mechanics-research/P-ACCESS-REVIEW.md`
+- `docs/mechanics-research/p-protocol-evidence/complete-oracle-retrieval-receipts.json`
+- `docs/mechanics-research/p-protocol-evidence/critical-retrieval-receipts.json`
+- `docs/mechanics-research/p-protocol-evidence/pack-tactics-complete-oracle-discovery.json`
+- `docs/mechanics-research/p-protocol-evidence/pack-tactics-discovery.json`
+- `docs/mechanics-research/p-protocol-evidence/parade-complete-oracle-discovery.json`
+- `docs/mechanics-research/p-protocol-evidence/parade-discovery.json`
+- `docs/mechanics-research/p-protocol-evidence/paradigm-complete-oracle-discovery.json`
+- `docs/mechanics-research/p-protocol-evidence/paradigm-discovery.json`
+- `docs/mechanics-research/p-protocol-evidence/paradox-complete-oracle-discovery.json`
+- `docs/mechanics-research/p-protocol-evidence/paradox-discovery.json`
+- `docs/mechanics-research/p-protocol-evidence/parley-complete-oracle-discovery.json`
+- `docs/mechanics-research/p-protocol-evidence/parley-discovery.json`
+- `docs/mechanics-research/p-protocol-evidence/partner-complete-oracle-discovery.json`
+- `docs/mechanics-research/p-protocol-evidence/partner-discovery.json`
+- `docs/mechanics-research/p-protocol-evidence/partner-with-complete-oracle-discovery.json`
+- `docs/mechanics-research/p-protocol-evidence/partner-with-discovery.json`
+- `docs/mechanics-research/p-protocol-evidence/persist-complete-oracle-discovery.json`
+- `docs/mechanics-research/p-protocol-evidence/persist-discovery.json`
+- `docs/mechanics-research/p-protocol-evidence/phasing-complete-oracle-discovery.json`
+- `docs/mechanics-research/p-protocol-evidence/phasing-discovery.json`
+- `docs/mechanics-research/p-protocol-evidence/phasing-full-oracle-discovery.json`
+- `docs/mechanics-research/p-protocol-evidence/plainscycling-complete-oracle-discovery.json`
+- `docs/mechanics-research/p-protocol-evidence/plainscycling-discovery.json`
+- `docs/mechanics-research/p-protocol-evidence/plainswalk-complete-oracle-discovery.json`
+- `docs/mechanics-research/p-protocol-evidence/plainswalk-discovery.json`
+- `docs/mechanics-research/p-protocol-evidence/planeswalk-boundary-discovery.json`
+- `docs/mechanics-research/p-protocol-evidence/planeswalk-complete-oracle-discovery.json`
+- `docs/mechanics-research/p-protocol-evidence/planeswalk-discovery.json`
+- `docs/mechanics-research/p-protocol-evidence/plot-complete-oracle-discovery.json`
+- `docs/mechanics-research/p-protocol-evidence/plot-discovery.json`
+- `docs/mechanics-research/p-protocol-evidence/plot-inflections-discovery.json`
+- `docs/mechanics-research/p-protocol-evidence/poisonous-complete-oracle-discovery.json`
+- `docs/mechanics-research/p-protocol-evidence/poisonous-discovery.json`
+- `docs/mechanics-research/p-protocol-evidence/populate-complete-oracle-discovery.json`
+- `docs/mechanics-research/p-protocol-evidence/populate-discovery.json`
+- `docs/mechanics-research/p-protocol-evidence/power-up-complete-oracle-discovery.json`
+- `docs/mechanics-research/p-protocol-evidence/power-up-discovery.json`
+- `docs/mechanics-research/p-protocol-evidence/prepared-complete-oracle-discovery.json`
+- `docs/mechanics-research/p-protocol-evidence/prepared-discovery.json`
+- `docs/mechanics-research/p-protocol-evidence/proliferate-complete-oracle-discovery.json`
+- `docs/mechanics-research/p-protocol-evidence/proliferate-discovery.json`
+- `docs/mechanics-research/p-protocol-evidence/prototype-complete-oracle-discovery.json`
+- `docs/mechanics-research/p-protocol-evidence/prototype-discovery.json`
+- `docs/mechanics-research/p-protocol-evidence/provenance-integrity-audit.json`
+- `docs/mechanics-research/p-protocol-evidence/provoke-complete-oracle-discovery.json`
+- `docs/mechanics-research/p-protocol-evidence/provoke-discovery.json`
+- `docs/mechanics-research/p-protocol-evidence/prowl-complete-oracle-discovery.json`
+- `docs/mechanics-research/p-protocol-evidence/prowl-discovery.json`
+- `docs/mechanics-research/p-protocol-evidence/retrieval-log.ndjson`
+- `docs/mechanics-research/p-protocol-evidence/retrieval-receipts.json`
+- `docs/mechanics-research/p-protocol.json`
+- `tools/build_mechanics_assessments.py`
+- `tools/check_assessment_browser.mjs`
+- `vox-color/mechanical-explorer.html`
+
+## Evidence delta
+
+- Material candidate: `2d61cf43285947b68fff8a05313ef85607430d3a`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `1`
+- This is not the full task diff. Subsequent records contain observations and verdicts only; material product/source/test bytes match the candidate.
+
+## Evidence-only paths
+
+- `HANDOFF.md`
+
+## Final branch delta
+
+- Baseline to final evidence HEAD: 58 paths, exactly the material path inventory above.
+- Branch: `codex/a-mechanics-review`; local Owner Review only. Worktree was clean before this HANDOFF-only delivery record; final post-commit cleanliness and report validation are checked below in execution evidence.
+- Remote-tracking observations remain:
+
+```text
+refs/remotes/origin/HEAD 9a063b3a98cfcb7672783f83a102e8f968242490
+refs/remotes/origin/master 9a063b3a98cfcb7672783f83a102e8f968242490
+```
+
+---
+
 # RobDev pre-edit contract — P supplemental Color Access
 
 - Status: `ready-for-qa` (`dev-in-progress -> ready-for-qa`). Baseline `6eee08fef23729597085775df1e9d39b79ce768d` on `codex/a-mechanics-review`; clean at admission.
