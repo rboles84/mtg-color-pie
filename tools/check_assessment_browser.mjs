@@ -33,7 +33,7 @@ const math=()=>{
 // SVG SHA256 da399dc513828acc373e187a457574c7e10515ee5b89caa1b91fac1bd69c2a8e.
 const ciPathHashes={"3":["131d51ed29e20c9aa775ebb5094d4be8f3511907ad59b88edcfb61f5c5856f06","9d849d80b8320c3cbeb1c3080963c9c5ac6b94b4bfb2b1ea0d6794b5d0775395","a3d12eec27e1749efe27593db8cc60562a46c5cbcb67752c5cb1346d260458a7","a420efa8bb78d81ed9fb8b2004e0eaa87f88042e798ffcc03dd4f181d6e0a165"],"5":["131d51ed29e20c9aa775ebb5094d4be8f3511907ad59b88edcfb61f5c5856f06","4db0f8df52032341284cb588466593dc48353ffad3313892196810bcfb0ffeb5","9301a76f180030b5a3d1a1cb8f5e10a1ffb1b7006cb4dd335b53e2826efaf826","01a8768565729464c95fce3b30418f57e377bf673c0f82e30ef45990529d7603","17ee6820251767f8a3e4a9542e1e2b8598d9f766470940f71504afd1dc776f13","7c284a93d686ba6abb0920657cb8650f218b545237d308893cc5b5a996d8c308"]};
 const ciPalettes={"WUG":["#3b6ba0","#3d684b","#fff"],"UBR":["#c6553e","#3b6ba0","#383431"],"WUR":["#c6553e","#fff","#3b6ba0"],"BRG":["#3d684b","#383431","#c6553e"],"WBG":["#383431","#3d684b","#fff"],"WUB":["#383431","#fff","#3b6ba0"],"WUBRG":["#c6553e","#383431","#3b6ba0","#3d684b","#fff"]};
-async function checkCIVectors(host,label){
+async function checkCIVectors(host,label,size=18){
   assert.equal(await host.locator('.combo-mark .ms-ci').count(),0,label+' has no independent CI font/gradient layer');
   const glyphs=await host.locator('.ci3-svg,.ci5-svg').evaluateAll(items=>items.map(svg=>{
     const paths=[...svg.querySelectorAll('path')],outer=paths[0],box=svg.getBoundingClientRect(),ink=outer.getBoundingClientRect(),mark=svg.closest('.combo-mark').getBoundingClientRect();
@@ -50,7 +50,33 @@ async function checkCIVectors(host,label){
     assert.deepEqual(glyph.paths.map(p=>p.paint),expected.map(hex=>{const h=hex.length===4?[...hex.slice(1)].map(c=>c+c).join(''):hex.slice(1);return 'rgb('+[0,2,4].map(i=>parseInt(h.slice(i,i+2),16)).join(', ')+')';}),label+' colors actually paint without CSS overrides');
     assert.ok(glyph.paths.every(p=>p.stroke==='none')&&glyph.sharedPaintFrame&&glyph.contained,label+' '+glyph.key+' actual colored paths stay inside the shared native outline');
     assert.equal(glyph.viewBox,'0 0 1024 1024');assert.equal(glyph.transform,'translate(0 938.667) scale(1 -1)');
-    assert.ok(glyph.geometry.slice(0,4).every(n=>Math.abs(n-18)<=.1)&&glyph.geometry.slice(4).every(n=>Math.abs(n)<=.1),label+' '+glyph.key+' native painted circle is centered and normalized to18px');
+    assert.ok(glyph.geometry.slice(0,4).every(n=>Math.abs(n-size)<=.1)&&glyph.geometry.slice(4).every(n=>Math.abs(n)<=.1),label+' '+glyph.key+' native painted circle is centered and normalized to'+size+'px');
+  }
+}
+// A compact access circle is 14px; detail circles remain 18px. Measure the
+// native pair glyph too, so reducing only the host or its font cannot pass.
+async function checkAccessSizes(host,label,size,blocked=false){
+  const marks=await host.locator('.combo-mark,.access-strip > .sc,.own-row > .sc').evaluateAll(items=>items.map(mark=>{
+    const box=mark.getBoundingClientRect(),combo=mark.classList.contains('combo-mark');
+    const glyph=mark.querySelector('.ms,.ci3-svg,.ci5-svg'),ink=glyph.getBoundingClientRect();
+    const fallback=mark.querySelector('.combo-text'),text=fallback?.getBoundingClientRect(),optical=new DOMMatrix(getComputedStyle(glyph).transform);
+    return {combo,key:mark.dataset.combo||mark.dataset.c,host:[box.width,box.height],glyph:[ink.width,ink.height],
+      center:[ink.x+ink.width/2-box.x-box.width/2-optical.e,ink.y+ink.height/2-box.y-box.height/2-optical.f],
+      font:parseFloat(getComputedStyle(glyph).fontSize),hidden:getComputedStyle(glyph).display==='none',
+      fallback:fallback&&{visible:getComputedStyle(fallback).display!=='none',text:fallback.textContent,
+        center:[text.x+text.width/2-box.x-box.width/2,text.y+text.height/2-box.y-box.height/2]}};
+  }));
+  assert.ok(marks.length,label+' has actual marks to measure');
+  for(const mark of marks){
+    assert.ok(mark.host.every(n=>Math.abs(n-size)<=.1),label+' '+mark.key+' '+size+'px host');
+    if(mark.combo&&blocked){
+      assert.ok(mark.hidden&&mark.fallback.visible&&mark.fallback.text===mark.key,label+' '+mark.key+' readable no-font letters');
+      assert.ok(mark.fallback.center.every(n=>Math.abs(n)<=.5),label+' '+mark.key+' centered no-font text');
+    }else if(!blocked){
+      assert.ok(!mark.hidden&&mark.center.every(n=>Math.abs(n)<=.5),label+' '+mark.key+' centered native glyph');
+      if(mark.combo) assert.ok(mark.glyph.every(n=>Math.abs(n-size)<=.5),label+' '+mark.key+' full proportional glyph footprint');
+      else assert.ok(mark.glyph.every(n=>n>0&&n<size),label+' '+mark.key+' independent inner glyph stays within its circle');
+    }
   }
 }
 let browser;const results=[];
@@ -247,6 +273,21 @@ try{
        rules actions have no invented map, and no access strip uses tier classes. */
     await page.evaluate(()=>VMX.setView('az'));
     await page.waitForFunction(()=>document.documentElement.classList.contains('supp-mana-ready'));
+    // Use the real search renderer: its frozen-2021 strip has a 12px default,
+    // which supplemental independent and combination access must override.
+    for(const record of payload.records.filter(r=>['Fuse','Friends forever','Hexproof from','Intimidate','Islandcycling','Islandwalk'].includes(r.name))){
+      await page.locator('#q').fill(record.name);await page.locator('#q').focus();
+      const option=page.locator(`#res-list .opt[data-k="${record.id}"]`);
+      await option.waitFor({state:'visible'});
+      assert.deepEqual(await option.locator('.combo-mark').evaluateAll(marks=>marks.map(mark=>mark.dataset.combo)),record.access.combinations.map(item=>item.colors.join('')),record.name+' actual search exact combinations');
+      assert.deepEqual(await option.locator('.access-strip > .sc').evaluateAll(marks=>marks.map(mark=>mark.dataset.c)),[...'WUBRG'].filter(c=>record.access.colors[c].status==='documented').concat(record.access.colorless.status==='documented'?['C']:[]),record.name+' actual search independent access');
+      await checkAccessSizes(option,record.name+' search',14);
+      await checkCIVectors(option,record.name+' search',14);
+    }
+    await page.locator('#q').fill('Flying');await page.locator('#q').focus();
+    const frozenSearch=page.locator('#res-list .opt[data-k="flying"]');await frozenSearch.waitFor({state:'visible'});
+    assert.ok(await frozenSearch.locator('.strip:not(.access-strip) > .sc').evaluateAll(marks=>marks.length===5&&marks.every(mark=>{const r=mark.getBoundingClientRect();return r.width===12&&r.height===12;})),'frozen2021 search notation remains12px');
+    await page.locator('#q').fill('');
     for(const record of combinationsOnly ? payload.records.filter(r=>['Fuse','Friends forever','Hexproof from','Intimidate','Islandcycling','Islandwalk'].includes(r.name)) : payload.records){
       const row=page.locator(`#list .ent[data-k="${record.id}"]`), access=record.access, compactExamples=/^[CDEFGHIJ]/.test(record.name);
       assert.equal(await row.locator('.access-strip').count(),record.kind==='access'?1:0,record.name);
@@ -261,8 +302,9 @@ try{
           assert.ok(await row.locator('.combo-mark .ms-cost').evaluateAll(glyphs=>glyphs.every(glyph=>{const style=getComputedStyle(glyph), size=parseFloat(style.fontSize);return Math.abs(parseFloat(style.lineHeight)-size*1.35)<=1;})),record.name+' keeps Mana-native pair metrics at the scoped glyph size');
           assert.ok(await row.locator('.combo-mark').evaluateAll(marks=>{const pair=marks.find(mark=>mark.querySelector('.ms-cost')), ci=marks.find(mark=>mark.querySelector('.ci3-svg,.ci5-svg'));if(!pair||!ci)return true;const a=pair.querySelector('.ms').getBoundingClientRect(),b=ci.querySelector('.ci3-svg,.ci5-svg').getBoundingClientRect();return Math.abs(a.width-b.width)<=.5&&Math.abs(a.height-b.height)<=.5;}),record.name+' normalizes pair and CI circle footprints');
           assert.ok(await row.locator('.combo-mark .ci3-svg').evaluateAll(glyphs=>glyphs.every(svg=>{const expected={WUG:['#3b6ba0','#3d684b','#fff'],UBR:['#c6553e','#3b6ba0','#383431'],WUR:['#c6553e','#fff','#3b6ba0'],BRG:['#3d684b','#383431','#c6553e'],WBG:['#383431','#3d684b','#fff'],WUB:['#383431','#fff','#3b6ba0']}[svg.closest('.combo-mark').dataset.combo], paths=[...svg.querySelectorAll('path')];return svg.getAttribute('viewBox')==='0 0 1024 1024'&&svg.querySelector('g')?.getAttribute('transform')==='translate(0 938.667) scale(1 -1)'&&paths.length===4&&paths[0].getAttribute('fill')==='#010101'&&paths.slice(1).map(path=>path.getAttribute('fill')).join('|')===expected.join('|');})),record.name+' renders the pinned Mana CI-3 outline and native interior colors in one shared vector frame');
-          assert.ok(await row.locator('.combo-mark').evaluateAll(marks=>marks.every(mark=>{const r=mark.getBoundingClientRect(), g=mark.querySelector('.ms,.ci3-svg,.ci5-svg').getBoundingClientRect();return Math.abs(r.width-18)<=.5&&Math.abs(r.height-18)<=.5&&Math.abs((r.left+r.width/2)-(g.left+g.width/2))<=.5&&Math.abs((r.top+r.height/2)-(g.top+g.height/2))<=.5;})),record.name+' markers are stable square centered glyph hosts');
-          await checkCIVectors(row,record.name+' list');
+          assert.ok(await row.locator('.combo-mark').evaluateAll(marks=>marks.every(mark=>{const r=mark.getBoundingClientRect(), g=mark.querySelector('.ms,.ci3-svg,.ci5-svg').getBoundingClientRect();return Math.abs(r.width-14)<=.5&&Math.abs(r.height-14)<=.5&&Math.abs((r.left+r.width/2)-(g.left+g.width/2))<=.5&&Math.abs((r.top+r.height/2)-(g.top+g.height/2))<=.5;})),record.name+' compact markers have14px hosts and centered glyphs');
+          await checkAccessSizes(row,record.name+' list',14);
+          await checkCIVectors(row,record.name+' list',14);
           assert.deepEqual(await row.locator('.access-strip > .sc').evaluateAll(slots=>slots.map(s=>s.dataset.c)),comboPresentation?[]:independentSlots);
         } else assert.deepEqual(await row.locator('.access-strip > .sc').evaluateAll(slots=>slots.map(s=>s.dataset.c)),[...'WUBRG',...(access.colorless.status==='documented'?['C']:[])]);
         assert.equal(await row.locator('.access-strip .t-p,.access-strip .t-s,.access-strip .t-t,.access-strip .t-n').count(),0);
@@ -295,7 +337,7 @@ try{
           assert.deepEqual(await panel.locator('.own-row[data-combo]').evaluateAll(rows=>rows.map(row=>row.dataset.combo)),access.combinations.map(item=>item.colors.join('')));
           assert.ok(await panel.locator('.own-row[data-combo] .own-t').evaluateAll(nodes=>nodes.every(node=>node.textContent==='Combination only')),record.name+' labels combinations without implying independent access');
         }
-        if(comboPresentation||mixedPresentation) await checkCIVectors(panel,record.name+' detail');
+        if(comboPresentation||mixedPresentation){await checkAccessSizes(panel,record.name+' detail',18);await checkCIVectors(panel,record.name+' detail');}
         assert.ok((await panel.innerText()).includes(record.scopeLabel));
         if(!comboPresentation && !mixedPresentation) for(const color of 'WUBRG'){
           const item=access.colors[color], rowText=await panel.locator(`.own-row[data-c="${color}"]`).innerText();
@@ -403,6 +445,12 @@ try{
       assert.deepEqual(await noFont.locator(`#list .ent[data-k="${record.id}"] .combo-mark`).evaluateAll(marks=>marks.map(mark=>mark.dataset.combo)),expected);
       assert.ok(await noFont.locator(`#list .ent[data-k="${record.id}"] .combo-mark`).evaluateAll(marks=>marks.every(mark=>{const glyph=mark.querySelector('.ci3-svg,.ci5-svg,.ms');return getComputedStyle(glyph).display==='none'&&getComputedStyle(mark.querySelector('.combo-text')).display!=='none'})),record.name+' retains readable list combination letters without Mana');
       assert.ok(await noFont.locator('#detail .combo-mark').evaluateAll(marks=>marks.every(mark=>{const glyph=mark.querySelector('.ci3-svg,.ci5-svg,.ms');return getComputedStyle(glyph).display==='none'&&getComputedStyle(mark.querySelector('.combo-text')).display!=='none'})),record.name+' retains readable detail combination letters without Mana');
+      await checkAccessSizes(noFont.locator(`#list .ent[data-k="${record.id}"]`),record.name+' no-font list',14,true);
+      await checkAccessSizes(noFont.locator('#detail .supp-assessment'),record.name+' no-font detail',18,true);
+      await noFont.locator('#q').fill(record.name);await noFont.locator('#q').focus();
+      const option=noFont.locator(`#res-list .opt[data-k="${record.id}"]`);await option.waitFor({state:'visible'});
+      await checkAccessSizes(option,record.name+' no-font search',14,true);
+      await noFont.locator('#q').fill('');
     }
     await noFont.close();
     const escaped=await browser.newPage(), injected=structuredClone(payload);
@@ -477,7 +525,7 @@ try{
       assert.equal(await fail.evaluate(()=>VMX.assessments().records.length),0); assert.equal(await fail.locator('#list .access-strip').count(),0); await fail.close();
     }
     assert.deepEqual(errors,[]);
-    results.push(combinationsOnly ? 'Fuse/Friends forever, Hexproof from, Intimidate, Islandcycling and Islandwalk list/detail: exact combinations, original Mana CI-3/CI-5 paths and native section colors, contained fills, centered18px painted circles, accessible labels and readable no-font fallback.' : 'All28 E,25 F,5 G,14 H,15 I and4 J mana-symbol paths: actual tokens plus G/H/I/J numeric/colored/colorless/X/hybrid fixtures in assessment/rules/reference, accessible real glyphs, no-font fallback and escaping; 36 exact G,59 H,96 I and17 J selected links, full observed H/I/J maps and factual trigger/timing regressions and Oct29 dates; C/D/E/F/G/H/I/J representative sources, unique combination citations and concise copy; 196 A/B/C/D/E/F/G/H/I/J access maps; documented/no-example/joint/colorless/rules cases; exact-example and retained non-card links; atomic malformed fail-soft; search keyboard/mobile; unchanged 2021 84 checks');
+    results.push(combinationsOnly ? 'Fuse/Friends forever, Hexproof from, Intimidate, Islandcycling and Islandwalk list/detail: exact combinations, original Mana CI-3/CI-5 paths and native section colors, contained fills, 14px compact list/search and18px detail circles, matching independent access sizes and frozen2021 search12px, accessible labels and readable no-font fallback.' : 'All28 E,25 F,5 G,14 H,15 I and4 J mana-symbol paths: actual tokens plus G/H/I/J numeric/colored/colorless/X/hybrid fixtures in assessment/rules/reference, accessible real glyphs, no-font fallback and escaping; 36 exact G,59 H,96 I and17 J selected links, full observed H/I/J maps and factual trigger/timing regressions and Oct29 dates; C/D/E/F/G/H/I/J representative sources, unique combination citations and concise copy; 196 A/B/C/D/E/F/G/H/I/J access maps; documented/no-example/joint/colorless/rules cases; exact-example and retained non-card links; atomic malformed fail-soft; search keyboard/mobile; unchanged 2021 84 checks');
   }
   await page.close();
   console.log(JSON.stringify({result:'PASS',checks:results},null,2));

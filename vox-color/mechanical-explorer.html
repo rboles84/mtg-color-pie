@@ -415,8 +415,9 @@ button{font:inherit;color:inherit}
 .access-strip .sc.a-d > .ms{display:block}
 .access-strip.combo-access{grid-auto-flow:row;grid-template-columns:repeat(5,minmax(0,1fr));grid-auto-columns:auto;width:100%;gap:4px}
 .access-strip.mixed-access{grid-auto-flow:row;grid-template-columns:repeat(5,minmax(0,1fr));grid-auto-columns:auto;width:100%;gap:4px}
-.combo-mark{display:inline-flex;align-items:center;justify-content:center;gap:2px;width:18px;height:18px;flex:0 0 18px;border:1px solid rgba(237,230,211,.22);border-radius:50%;color:var(--bone)}
-.combo-mark .ms,.combo-mark .ci3-svg,.combo-mark .ci5-svg{display:none;flex:none;font-size:14px}.supp-mana-ready .combo-mark{border:0}.supp-mana-ready .combo-mark .ms{display:inline-block}.supp-mana-ready .combo-mark .ci3-svg,.supp-mana-ready .combo-mark .ci5-svg{display:block;width:18px;height:18px}.supp-mana-ready .combo-mark .combo-text{display:none}
+.combo-mark{--combo-sz:18px;display:inline-flex;align-items:center;justify-content:center;gap:2px;width:var(--combo-sz);height:var(--combo-sz);flex:0 0 var(--combo-sz);border:1px solid rgba(237,230,211,.22);border-radius:50%;color:var(--bone)}
+.combo-mark .ms,.combo-mark .ci3-svg,.combo-mark .ci5-svg{display:none;flex:none;font-size:calc(var(--combo-sz) * 7 / 9)}.supp-mana-ready .combo-mark{border:0}.supp-mana-ready .combo-mark .ms{display:inline-block}.supp-mana-ready .combo-mark .ci3-svg,.supp-mana-ready .combo-mark .ci5-svg{display:block;width:var(--combo-sz);height:var(--combo-sz)}.supp-mana-ready .combo-mark .combo-text{display:none}
+.ent .combo-mark,.opt .combo-mark{--combo-sz:14px}
 .combo-mark .combo-text{font:600 10px/1 var(--f-mono);letter-spacing:-.06em;white-space:nowrap}
 .own-row.combo-row{grid-template-columns:18px auto minmax(12px,1fr) auto;align-items:center}.combo-row .combo-text{font:600 12px/1 var(--f-mono);letter-spacing:-.06em}
 /* Optical centring of the glyphs inside Primary and Secondary circles. Each
@@ -442,6 +443,7 @@ button{font:inherit;color:inherit}
 .ms-cost.ms-g::before{transform:translate(0,-.041em)}
 .sc.bx::before{content:'';position:absolute;left:1px;right:1px;bottom:-4px;height:1.5px;border-radius:1px;background:var(--brass-l)}
 .opt .strip{--sz:12px;--sg:2px}
+.opt .strip.access-strip{--sz:14px}
 /* Two official placements in one slot (Gate A, V11). The slot keeps its one
    footprint; each half draws the full-size tier shape of one claim, clipped to
    its side — left: the article's color lists, right: its explanations — at the
