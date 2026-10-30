@@ -1,3 +1,59 @@
+# K supplemental Color Access — delivery and Owner Review
+
+- Status: engineering PASS / Owner Review. All three supplemental K entries are complete: Kicker, Kinship, and Kinfall. Fifteen selected card examples use presence-only independent color, colorless and combination buckets; coverage is 199 A–K records with 19 bindings. No mapped K entries exist. The prior 196 A–J records and frozen 2021 source, names, explanations, placements and calculations are preserved.
+- Branch: `codex/a-mechanics-review`. Baseline was freshly verified clean at `63dcc8cc2348031aeb32e5a345c7f82fd27ca590`; exact final material is `cef24cb243d961ee92351cdb710df9e5f967bf80`. Independent RobQA PASS is recorded in evidence commit `8be228a442b31874e076d113dc4c9bafe722417f`. Owner product/visual acceptance remains pending; no push, merge or publication was performed.
+- Roles: configured RobDev Terra medium `/root/k_implementation`; separate configured RobQA Sol medium `/root/k_qa`; coordinator `/root` owns package, live preview and accounting. These are configured routes, not independent backend telemetry. Product and harness were frozen during each separate QA review. Earlier failed candidates and corrections remain recorded below.
+- Evidence: `docs/mechanics-research/k-protocol.json`, `K-ACCESS-REVIEW.md`, and `k-protocol-evidence/`. All 15 selected full card objects were independently matched to hashed raw captures and actual source/face colors. Multikicker and Sticker kicker were screened under the inherited Kicker family; they added no new buckets. Kinfall remains the green Plane-Merge Elf playtest-card example, with no general rules definition claimed. The mistaken Kinfall discovery body remains explicitly nonauthoritative; its original HTTP status is unknown, and the corrected exact-card discovery and direct card capture supply the evidence.
+- Checks passed: deterministic producer `python tools/build_mechanics_assessments.py --check` (199 records/19 bindings); `node --check tools/check_assessment_browser.mjs`; frozen checks `python tools/check_invariants.py`, `python tools/check_taxonomy.py`, `python tools/check_recon.py` (53 assertions), and `python tools/gate.py`; source/hash/color audits; prior-row/binding equality; candidate whitespace checks. Unchanged source/frozen evidence was reused for narrow prose repairs.
+- Actual rendered K verification passed independently: `node tools/check_assessment_browser.mjs --root . --k-only --playwright C:/Users/obake/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright`, observed exit 0. This executes K detail/search, all 15 selected links once, factual card notes, accessible mana/cost glyphs across assessment/rules/reference, escaping, safe links, blocked-font fallback, malformed-date isolation, narrow containment, and protected baseline checks.
+- Known harness debt: the broader browser run failed on the unchanged Friends forever 14px search-symbol expectation; baseline CSS already specifies 18px. It remains **Automated test: FAIL / known harness debt**, not an all-tests-pass claim. The earlier claim that `--copy-only` proved K detail rendering was retracted; that mode exits before the rendered assertions. The new actual `--k-only` run supplies directly relevant coverage without weakening the unrelated assertion.
+- Package: verified `_site` resolves to an ordinary direct child of this checkout before replacement. `python .github/pages/package.py --rev cef24cb243d961ee92351cdb710df9e5f967bf80 --out <absolute _site> --verify` completed exit 0: 23 expected byte-matching files, 4 inline scripts parsed, 23 allowed URLs returned 200 and 24 excluded URLs returned 404. Existing localhost8020 server reused.
+- Live preview: refreshed `http://127.0.0.1:8020/#mechanical-color-pie`; iframe revision is `cef24cb243d961ee92351cdb710df9e5f967bf80`. Kicker is open with Reviewed card examples expanded, empty search, W/U/B/R/G filters false and A–Z true. The corrected Mirror Universe Intrusion note targets the opponent and copies every creature that opponent controls. Visible numeric/colored/X symbols and source links were inspected. Screenshot: `C:/Users/obake/.codex/visualizations/2026/10/30/01a18ac5-ec16-73d3-8fbb-dc5824814c20/k-color-access-preview.jpg`.
+- Owner check: inspect the open Kicker examples for reading comfort; optionally open Kinship and the explicitly labeled Kinfall playtest example. No deterministic fact re-audit is required. No unresolved correctness finding remains.
+
+## Material candidate
+
+- Baseline: `63dcc8cc2348031aeb32e5a345c7f82fd27ca590`
+- Candidate: `cef24cb243d961ee92351cdb710df9e5f967bf80`
+- Changed paths: `17`
+
+## Files changed
+
+- `HANDOFF.md`
+- `data/mechanics-assessments.v1.json`
+- `docs/mechanics-research/COLOR-ACCESS-PROTOCOL.md`
+- `docs/mechanics-research/K-ACCESS-REVIEW.md`
+- `docs/mechanics-research/k-protocol-evidence/kicker-discovery-1.json`
+- `docs/mechanics-research/k-protocol-evidence/kicker-discovery-2.json`
+- `docs/mechanics-research/k-protocol-evidence/kinfall-card-1.json`
+- `docs/mechanics-research/k-protocol-evidence/kinfall-discovery-1.json`
+- `docs/mechanics-research/k-protocol-evidence/kinfall-discovery-verified-1.json`
+- `docs/mechanics-research/k-protocol-evidence/kinship-discovery-1.json`
+- `docs/mechanics-research/k-protocol-evidence/multikicker-discovery-1.json`
+- `docs/mechanics-research/k-protocol-evidence/retrieval-receipts.json`
+- `docs/mechanics-research/k-protocol-evidence/sticker-kicker-discovery-1.json`
+- `docs/mechanics-research/k-protocol.json`
+- `tools/build_mechanics_assessments.py`
+- `tools/check_assessment_browser.mjs`
+- `vox-color/mechanical-explorer.html`
+
+## Evidence delta
+
+- Material candidate: `cef24cb243d961ee92351cdb710df9e5f967bf80`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `1`
+- Post-candidate developer, independent QA, preview and accounting notes change HANDOFF only; this is not the full task diff.
+
+## Evidence-only paths
+
+- `HANDOFF.md`
+
+## Final branch delta
+
+- Baseline to final evidence HEAD: 17 Git-derived paths; subsequent evidence adds no path outside the material set. Final status and report validator results are checked after the evidence commit.
+
+---
+
 # Owner Review — 14px compact combination symbols
 
 - Status: `qa-passed` / Owner Review at material `82a6d1a378ae1dc70fa6434fa8d6a13efcf94ca0`; baseline `f0e8ca25b52810e864f278be2996d81cc24a09a5`, branch `codex/a-mechanics-review`. Compact list and supplemental search access circles now match at 14px; independent and combination detail circles remain 18px. Native pair and CI3/CI5 symbols scale proportionally, including their original outlines and interiors. Frozen 2021 search notation stays 12px.
