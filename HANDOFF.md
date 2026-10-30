@@ -1,3 +1,88 @@
+# L supplemental Color Access — engineering PASS and local preview
+
+- All 11 supplemental L entries are complete with 83 selected examples, one link per independent color, colorless bucket or combination. Coverage is 210 A–L records / 20 source bindings. Lifelink and the frozen 2021 source, names, explanations, placements, calculations and behavior remain unchanged; all 199 previous A–K records and 19 prior bindings match the baseline.
+- Status: engineering PASS / Owner Review. Separate configured RobQA Sol medium reviewed material `970e36e5666dec5e3fc38b4ab90a94f1f27891f9`, then the narrow player-language correction at final material `a477d7df9df75956b6ab565d37eac2bc36e70aa4`. Final independent evidence is commit `445a15f3ba75abdcd4a6a7d75fa60d8e84574e16`. No unresolved correctness finding remains. Owner acceptance and integration are separate.
+- Roles: configured RobDev Terra medium began the batch but returned incomplete work. The coordinator announced bounded escalation to Sol high for completion and source/provenance correction. Separate configured RobQA Sol medium performed independent QA. These are configured routes, not backend telemetry. Coordinator `/root` performed packaging, live-preview verification and Git accounting.
+- Evidence: `docs/mechanics-research/l-protocol.json`, `L-ACCESS-REVIEW.md`, and `l-protocol-evidence/retrieval-receipts.json`. All 83 selected full card objects, face colors and bindings were checked against saved captures. All 37 body hashes match: 22 fresh captures have actual request URLs, UTC times and HTTP status; 15 earlier captures retain explicitly unknown metadata and are audit-only. Landship and Legacy remain clearly labeled playtest material; Landship has no verified general definition. Digital, future-release and name-only draft selections were corrected before final review.
+- Checks actually passed: deterministic producer `python tools/build_mechanics_assessments.py --check`; `python tools/check_invariants.py`; `python tools/check_taxonomy.py`; `python tools/check_recon.py` (53 assertions); `python tools/gate.py`; harness/inline script syntax; whitespace; source/raw/face audits and A–K parity. Actual browser `node tools/check_assessment_browser.mjs --root . --l-only --playwright C:/Users/obake/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright` passed independently, including all 11 entries / 83 whole-detail selected links, exact access symbols, native four-color paths, accessible cost symbols across examples/rules/references, safe links/escaping, blocked-font fallback, malformed-data isolation, keyboard search, narrow containment and frozen 84-check behavior. Protected `--k-only` also passed. The narrow prose rework reused unchanged source/glyph/frozen/K evidence and independently reran producer, syntax and actual `--l-only` successfully.
+- Known unrelated harness debt: the broader Friends forever 14px expectation conflicts with unchanged baseline 18px CSS. That broad suite was not rerun or repaired; no all-suite-PASS claim is made.
+- Package: verified `_site` resolves to an ordinary direct child before replacement. `python .github/pages/package.py --rev a477d7df9df75956b6ab565d37eac2bc36e70aa4 --out <absolute _site> --verify` exited 0: 23 expected byte-matching files, 4 inline scripts parsed, 23 allowed URLs returned 200 and 24 excluded URLs returned 404. Existing localhost port 8020 was reused.
+- Live preview: refreshed `http://127.0.0.1:8020/#mechanical-color-pie` and observed iframe revision `a477d7df9df75956b6ab565d37eac2bc36e70aa4`. Living Weapon is open with Reviewed card examples expanded, empty search, all five color filters false and A–Z true. Visible W/B/G/colorless and BR combination symbols, linked factual examples and the absence of research-process limitations were verified through the live DOM and screenshot. The tab is retained as a deliverable.
+- Screenshot: `C:/Users/obake/.codex/visualizations/2026/10/30/01a18af9-b71f-7432-9ea3-69d9153ca3bb/l-color-access-preview.jpg`.
+- Owner review: inspect the open Living Weapon examples for readability and visual balance. No deterministic card-fact re-audit is requested. No push, merge or publication was performed; Git shows the candidate only on the local work branch and no containing remote-tracking branch.
+
+## Material candidate
+
+- Baseline: `d00b6c90e9a952f5b4d61d06cebb2db7a4c850d7`
+- Candidate: `a477d7df9df75956b6ab565d37eac2bc36e70aa4`
+- Changed paths: `46`
+
+## Files changed
+
+- `HANDOFF.md`
+- `data/mechanics-assessments.v1.json`
+- `docs/mechanics-research/COLOR-ACCESS-PROTOCOL.md`
+- `docs/mechanics-research/L-ACCESS-REVIEW.md`
+- `docs/mechanics-research/l-protocol-evidence/landcycling-discovery-1.json`
+- `docs/mechanics-research/l-protocol-evidence/landcycling-fresh-1.json`
+- `docs/mechanics-research/l-protocol-evidence/landfall-discovery-1.json`
+- `docs/mechanics-research/l-protocol-evidence/landfall-discovery-2.json`
+- `docs/mechanics-research/l-protocol-evidence/landfall-fresh-1.json`
+- `docs/mechanics-research/l-protocol-evidence/landfall-fresh-2.json`
+- `docs/mechanics-research/l-protocol-evidence/landship-fresh.json`
+- `docs/mechanics-research/l-protocol-evidence/landship-plane-merge-elf.json`
+- `docs/mechanics-research/l-protocol-evidence/landwalk-discovery-1.json`
+- `docs/mechanics-research/l-protocol-evidence/landwalk-fresh-1.json`
+- `docs/mechanics-research/l-protocol-evidence/landwalk-fresh-2.json`
+- `docs/mechanics-research/l-protocol-evidence/landwalk-fresh-3.json`
+- `docs/mechanics-research/l-protocol-evidence/landwalk-fresh-4.json`
+- `docs/mechanics-research/l-protocol-evidence/landwalk-fresh-5.json`
+- `docs/mechanics-research/l-protocol-evidence/landwalk-fresh-6.json`
+- `docs/mechanics-research/l-protocol-evidence/landwalk-fresh-7.json`
+- `docs/mechanics-research/l-protocol-evidence/learn-discovery-1.json`
+- `docs/mechanics-research/l-protocol-evidence/learn-fresh-1.json`
+- `docs/mechanics-research/l-protocol-evidence/legacy-antelope-fresh.json`
+- `docs/mechanics-research/l-protocol-evidence/legacy-discovery-1.json`
+- `docs/mechanics-research/l-protocol-evidence/legacy-gold-mine-corrected-fresh.json`
+- `docs/mechanics-research/l-protocol-evidence/legacy-gold-mine-fresh.json`
+- `docs/mechanics-research/l-protocol-evidence/legacy-gold-mine.json`
+- `docs/mechanics-research/l-protocol-evidence/legacy-inspirational-antelope.json`
+- `docs/mechanics-research/l-protocol-evidence/legendary-landwalk-discovery-1.json`
+- `docs/mechanics-research/l-protocol-evidence/legendary-landwalk-fresh-1.json`
+- `docs/mechanics-research/l-protocol-evidence/level-up-discovery-1.json`
+- `docs/mechanics-research/l-protocol-evidence/level-up-fresh-1.json`
+- `docs/mechanics-research/l-protocol-evidence/lieutenant-discovery-1.json`
+- `docs/mechanics-research/l-protocol-evidence/lieutenant-fresh-1.json`
+- `docs/mechanics-research/l-protocol-evidence/living-metal-discovery-1.json`
+- `docs/mechanics-research/l-protocol-evidence/living-metal-fresh-1.json`
+- `docs/mechanics-research/l-protocol-evidence/living-weapon-discovery-1.json`
+- `docs/mechanics-research/l-protocol-evidence/living-weapon-fresh-1.json`
+- `docs/mechanics-research/l-protocol-evidence/mystery-booster-commander-release-notes-fresh.html`
+- `docs/mechanics-research/l-protocol-evidence/mystery-booster-release-notes-fresh.html`
+- `docs/mechanics-research/l-protocol-evidence/mystery-booster-release-notes.html`
+- `docs/mechanics-research/l-protocol-evidence/retrieval-receipts.json`
+- `docs/mechanics-research/l-protocol.json`
+- `tools/build_mechanics_assessments.py`
+- `tools/check_assessment_browser.mjs`
+- `vox-color/mechanical-explorer.html`
+
+## Evidence delta
+
+- Material candidate: `a477d7df9df75956b6ab565d37eac2bc36e70aa4`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `1`
+- Post-candidate developer, independent QA, package, live-preview and accounting records change HANDOFF only; this is not the full task diff.
+
+## Evidence-only paths
+
+- `HANDOFF.md`
+
+## Final branch delta
+
+- Baseline to final HEAD: 46 Git-derived paths. The material set is primary; the HANDOFF-only evidence delta adds no new path. Final worktree status and the existing change-report validator are checked after this evidence-only commit.
+
+---
+
 # RobDev rework — L player-facing research language
 
 - Status: `ready-for-qa`, narrow coordinator-reported live-review defect corrected in material `a477d7df9df75956b6ab565d37eac2bc36e70aa4` over clean baseline `e1776e9`. The earlier independent PASS applies to its named material; this correction awaits separate narrow re-review. Allowed correction: canonical L summaries/limitations, regenerated assessment projection, the existing focused L copy assertion and this handoff. Facts, selected cards, evidence, renderer and other batches remain protected.
