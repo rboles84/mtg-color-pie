@@ -1,0 +1,132 @@
+{
+  "retrievals": [
+    {
+      "path": "docs/mechanics-research/o-protocol-evidence/offering-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Offering%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-30T14:37:15.855Z",
+      "requestEndedUtc": "2026-10-30T14:37:16.001Z",
+      "status": 200,
+      "rawSha256": "1c87699ee52e716693b7202594d9fccce09b0ea507bd2673e909b9e034ea6351"
+    },
+    {
+      "path": "docs/mechanics-research/o-protocol-evidence/offspring-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Offspring%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-30T14:37:16.001Z",
+      "requestEndedUtc": "2026-10-30T14:37:16.036Z",
+      "status": 200,
+      "rawSha256": "2e6b34f10f404fd572ee7dee7648991eb97eab8ed4805c4ae8fbc356160ddec2"
+    },
+    {
+      "path": "docs/mechanics-research/o-protocol-evidence/open-an-attraction-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Open%20an%20Attraction%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-30T14:37:16.037Z",
+      "requestEndedUtc": "2026-10-30T14:37:16.082Z",
+      "status": 200,
+      "rawSha256": "2a754b559a1e03b2387e72b4e9c73868fa797993e0003cd9a67d33d570264a47"
+    },
+    {
+      "path": "docs/mechanics-research/o-protocol-evidence/opus-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Opus%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-30T14:37:16.084Z",
+      "requestEndedUtc": "2026-10-30T14:37:16.118Z",
+      "status": 200,
+      "rawSha256": "34147fa406f0d75554b54c65a2227ba330bf78b9e499ff3088efc7ba13865a69"
+    },
+    {
+      "path": "docs/mechanics-research/o-protocol-evidence/outlast-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Outlast%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-30T14:37:16.121Z",
+      "requestEndedUtc": "2026-10-30T14:37:16.171Z",
+      "status": 200,
+      "rawSha256": "653b1aad10499da76effcbf5be42508ca4b35d2a189b08c5990b78c4c0482cfa"
+    },
+    {
+      "path": "docs/mechanics-research/o-protocol-evidence/overload-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Overload%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-30T14:37:16.172Z",
+      "requestEndedUtc": "2026-10-30T14:37:16.199Z",
+      "status": 200,
+      "rawSha256": "d864785a853a142d8c378cc50777ffaf08a8ade76a9d4c0b149196709a8e44fa"
+    },
+    {
+      "path": "docs/mechanics-research/o-protocol-evidence/selected-cards.json",
+      "url": "https://api.scryfall.com/cards/collection",
+      "method": "POST",
+      "requestStartedUtc": "2026-10-30T14:37:16.2Z",
+      "requestEndedUtc": "2026-10-30T14:37:16.949Z",
+      "status": 200,
+      "rawSha256": "99d89e08b04b7ee27113cf3ed47d2a88f2bb3d760490fd67fe76d55e5dfb2288",
+      "requestBodyPath": "docs/mechanics-research/o-protocol-evidence/selected-cards-request.json",
+      "requestBodySha256": "2774f0fa55f4b65da90cc5352221daf8166a934e451460cdb82eb140c1701eba"
+    },
+    {
+      "path": "docs/mechanics-research/o-protocol-evidence/opus-official-mechanics.html",
+      "url": "https://magic.wizards.com/en/news/feature/secrets-of-strixhaven-mechanics",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-30T14:43:31.261912Z",
+      "requestEndedUtc": "2026-10-30T14:43:31.521053Z",
+      "status": 200,
+      "rawSha256": "a9d7bc9c209855bd8e187e29a732b8f6467ec77c0f6c3a05f255714ff19a6412"
+    },
+    {
+      "path": "docs/mechanics-research/o-protocol-evidence/offering-full-oracle-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22offering%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-30T14:43:31.642251Z",
+      "requestEndedUtc": "2026-10-30T14:43:31.981048Z",
+      "status": 200,
+      "rawSha256": "1c87699ee52e716693b7202594d9fccce09b0ea507bd2673e909b9e034ea6351"
+    },
+    {
+      "path": "docs/mechanics-research/o-protocol-evidence/offspring-full-oracle-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22offspring%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-30T14:43:32.102377Z",
+      "requestEndedUtc": "2026-10-30T14:43:32.637590Z",
+      "status": 200,
+      "rawSha256": "2e6b34f10f404fd572ee7dee7648991eb97eab8ed4805c4ae8fbc356160ddec2"
+    },
+    {
+      "path": "docs/mechanics-research/o-protocol-evidence/open-an-attraction-full-oracle-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22open%20an%20attraction%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-30T14:43:32.759000Z",
+      "requestEndedUtc": "2026-10-30T14:43:33.395251Z",
+      "status": 200,
+      "rawSha256": "2a754b559a1e03b2387e72b4e9c73868fa797993e0003cd9a67d33d570264a47"
+    },
+    {
+      "path": "docs/mechanics-research/o-protocol-evidence/opus-full-oracle-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22opus%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-30T14:43:33.516721Z",
+      "requestEndedUtc": "2026-10-30T14:43:34.237738Z",
+      "status": 200,
+      "rawSha256": "34147fa406f0d75554b54c65a2227ba330bf78b9e499ff3088efc7ba13865a69"
+    },
+    {
+      "path": "docs/mechanics-research/o-protocol-evidence/outlast-full-oracle-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22outlast%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-30T14:43:34.359333Z",
+      "requestEndedUtc": "2026-10-30T14:43:34.805470Z",
+      "status": 200,
+      "rawSha256": "653b1aad10499da76effcbf5be42508ca4b35d2a189b08c5990b78c4c0482cfa"
+    },
+    {
+      "path": "docs/mechanics-research/o-protocol-evidence/overload-full-oracle-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22overload%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-30T14:43:34.926451Z",
+      "requestEndedUtc": "2026-10-30T14:43:35.350447Z",
+      "status": 200,
+      "rawSha256": "d864785a853a142d8c378cc50777ffaf08a8ade76a9d4c0b149196709a8e44fa"
+    }
+  ]
+}

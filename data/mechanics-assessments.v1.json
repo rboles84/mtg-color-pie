@@ -92,6 +92,10 @@
     {
       "path": "docs/mechanics-research/n-protocol.json",
       "sha256": "447cf465551f8fe5aba9133bed73da3116d42ad85d028cb92549569a82001cf3"
+    },
+    {
+      "path": "docs/mechanics-research/o-protocol.json",
+      "sha256": "6d045f6de271c2bfc83d76936394dba4f6be94a8a6ea52eb63825192c20ca96b"
     }
   ],
   "records": [
@@ -47835,6 +47839,741 @@
         {
           "name": "Trailblazer's Boots",
           "url": "https://scryfall.com/card/otc/269/trailblazers-boots?utm_source=api"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Magic: The Gathering Comprehensive Rules",
+          "url": "https://magic.wizards.com/en/rules"
+        }
+      ],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:offering",
+      "name": "Offering",
+      "kind": "access",
+      "researchDate": "2026-10-30",
+      "scopeLabel": "Released paper cards",
+      "scope": "Offering lets a spell be cast with flash by sacrificing the named permanent type and paying the mana-cost difference.",
+      "summary": "Offering lets you cast the spell as though it had flash by sacrificing the named permanent type and paying the difference in mana costs.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Patron of the Kitsune has Fox offering.",
+            "cards": [
+              {
+                "name": "Patron of the Kitsune",
+                "url": "https://scryfall.com/card/bok/19/patron-of-the-kitsune?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Patron%20of%20the%20Kitsune%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Patron of the Moon has Moonfolk offering.",
+            "cards": [
+              {
+                "name": "Patron of the Moon",
+                "url": "https://scryfall.com/card/bok/45/patron-of-the-moon?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Patron%20of%20the%20Moon%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Patron of the Nezumi has Rat offering.",
+            "cards": [
+              {
+                "name": "Patron of the Nezumi",
+                "url": "https://scryfall.com/card/cm2/72/patron-of-the-nezumi?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Patron%20of%20the%20Nezumi%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Patron of the Akki has Goblin offering.",
+            "cards": [
+              {
+                "name": "Patron of the Akki",
+                "url": "https://scryfall.com/card/bok/115/patron-of-the-akki?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Patron%20of%20the%20Akki%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Patron of the Orochi has Snake offering.",
+            "cards": [
+              {
+                "name": "Patron of the Orochi",
+                "url": "https://scryfall.com/card/bok/138/patron-of-the-orochi?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Patron%20of%20the%20Orochi%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "not_found",
+          "note": "No colorless example found in the reviewed scope.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Patron of the Kitsune",
+          "url": "https://scryfall.com/card/bok/19/patron-of-the-kitsune?utm_source=api"
+        },
+        {
+          "name": "Patron of the Moon",
+          "url": "https://scryfall.com/card/bok/45/patron-of-the-moon?utm_source=api"
+        },
+        {
+          "name": "Patron of the Nezumi",
+          "url": "https://scryfall.com/card/cm2/72/patron-of-the-nezumi?utm_source=api"
+        },
+        {
+          "name": "Patron of the Akki",
+          "url": "https://scryfall.com/card/bok/115/patron-of-the-akki?utm_source=api"
+        },
+        {
+          "name": "Patron of the Orochi",
+          "url": "https://scryfall.com/card/bok/138/patron-of-the-orochi?utm_source=api"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Magic: The Gathering Comprehensive Rules",
+          "url": "https://magic.wizards.com/en/rules"
+        }
+      ],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:offspring",
+      "name": "Offspring",
+      "kind": "access",
+      "researchDate": "2026-10-30",
+      "scopeLabel": "Released paper cards",
+      "scope": "Offspring is an optional additional cost that creates a 1/1 token copy when the creature enters.",
+      "summary": "You may pay an offspring cost as you cast a creature. If you do, when it enters, create a 1/1 token copy of it.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Flowerfoot Swordmaster has offspring {2} and a valiant ability that boosts your Mice.",
+            "cards": [
+              {
+                "name": "Flowerfoot Swordmaster",
+                "url": "https://scryfall.com/card/blb/14/flowerfoot-swordmaster?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Flowerfoot%20Swordmaster%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Finch Formation has offspring {3}; its entry ability gives a creature you control flying for the turn.",
+            "cards": [
+              {
+                "name": "Finch Formation",
+                "url": "https://scryfall.com/card/blb/50/finch-formation?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Finch%20Formation%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Darkstar Augur has offspring {B}; each copy reveals a card at the beginning of your upkeep, puts it into your hand and costs life equal to its mana value.",
+            "cards": [
+              {
+                "name": "Darkstar Augur",
+                "url": "https://scryfall.com/card/blb/90/darkstar-augur?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Darkstar%20Augur%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Manifold Mouse has offspring {2}; at the start of combat on your turn, each copy gives one of your Mice double strike or trample for the turn.",
+            "cards": [
+              {
+                "name": "Manifold Mouse",
+                "url": "https://scryfall.com/card/blb/143/manifold-mouse?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Manifold%20Mouse%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Pawpatch Recruit has offspring {2} and trample.",
+            "cards": [
+              {
+                "name": "Pawpatch Recruit",
+                "url": "https://scryfall.com/card/blb/187/pawpatch-recruit?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Pawpatch%20Recruit%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "W",
+              "U",
+              "R"
+            ],
+            "note": "Zinnia, Valley's Voice grants offspring {2} to creature spells you cast.",
+            "cards": [
+              {
+                "name": "Zinnia, Valley's Voice",
+                "url": "https://scryfall.com/card/blc/4/zinnia-valleys-voice?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Zinnia%2C%20Valley%27s%20Voice%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "not_found",
+          "note": "No colorless example found in the reviewed scope.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Flowerfoot Swordmaster",
+          "url": "https://scryfall.com/card/blb/14/flowerfoot-swordmaster?utm_source=api"
+        },
+        {
+          "name": "Finch Formation",
+          "url": "https://scryfall.com/card/blb/50/finch-formation?utm_source=api"
+        },
+        {
+          "name": "Darkstar Augur",
+          "url": "https://scryfall.com/card/blb/90/darkstar-augur?utm_source=api"
+        },
+        {
+          "name": "Manifold Mouse",
+          "url": "https://scryfall.com/card/blb/143/manifold-mouse?utm_source=api"
+        },
+        {
+          "name": "Pawpatch Recruit",
+          "url": "https://scryfall.com/card/blb/187/pawpatch-recruit?utm_source=api"
+        },
+        {
+          "name": "Zinnia, Valley's Voice",
+          "url": "https://scryfall.com/card/blc/4/zinnia-valleys-voice?utm_source=api"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Magic: The Gathering Comprehensive Rules",
+          "url": "https://magic.wizards.com/en/rules"
+        }
+      ],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:open an attraction",
+      "name": "Open an Attraction",
+      "kind": "access",
+      "researchDate": "2026-10-30",
+      "scopeLabel": "Released paper cards",
+      "scope": "Open an Attraction puts the top card of an Attraction deck onto the battlefield; these are ordinary non-acorn Unfinity cards.",
+      "summary": "To open an Attraction, put the top card of your Attraction deck onto the battlefield.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Complaints Clerk opens an Attraction when it enters; rolling a 1 also creates a Clown Robot token.",
+            "cards": [
+              {
+                "name": "Complaints Clerk",
+                "url": "https://scryfall.com/card/unf/7/complaints-clerk?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Complaints%20Clerk%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Monitor Monitor opens an Attraction when it enters; once each turn, you may pay {1} to reroll one or more dice you rolled.",
+            "cards": [
+              {
+                "name": "Monitor Monitor",
+                "url": "https://scryfall.com/card/unf/52/monitor-monitor?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Monitor%20Monitor%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Deadbeat Attendant opens an Attraction when it enters.",
+            "cards": [
+              {
+                "name": "Deadbeat Attendant",
+                "url": "https://scryfall.com/card/unf/69/deadbeat-attendant?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Deadbeat%20Attendant%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Rad Rascal opens an Attraction when it enters.",
+            "cards": [
+              {
+                "name": "Rad Rascal",
+                "url": "https://scryfall.com/card/unf/121/rad-rascal?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Rad%20Rascal%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Petting Zookeeper has reach and opens an Attraction when it enters.",
+            "cards": [
+              {
+                "name": "Petting Zookeeper",
+                "url": "https://scryfall.com/card/unf/150/petting-zookeeper?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Petting%20Zookeeper%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "U",
+              "B"
+            ],
+            "note": "Dee Kay, Finder of the Lost opens an Attraction when it enters and has separate triggers for rolls of 2, 4 and 6.",
+            "cards": [
+              {
+                "name": "Dee Kay, Finder of the Lost",
+                "url": "https://scryfall.com/card/unf/167/dee-kay-finder-of-the-lost?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Dee%20Kay%2C%20Finder%20of%20the%20Lost%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "U",
+              "R"
+            ],
+            "note": "Myra the Magnificent opens an Attraction whenever you cast an instant or sorcery spell from your hand.",
+            "cards": [
+              {
+                "name": "Myra the Magnificent",
+                "url": "https://scryfall.com/card/unf/175/myra-the-magnificent?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Myra%20the%20Magnificent%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "B",
+              "G"
+            ],
+            "note": "Spinnerette, Arachnobat opens an Attraction when it enters; controlling at least three Attractions gives it +2/+0 and menace.",
+            "cards": [
+              {
+                "name": "Spinnerette, Arachnobat",
+                "url": "https://scryfall.com/card/unf/180/spinnerette-arachnobat?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Spinnerette%2C%20Arachnobat%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "documented",
+          "note": "Draconian Gate-Bot can open an Attraction as one of its entry modes; its other mode destroys an Attraction.",
+          "cards": [
+            {
+              "name": "Draconian Gate-Bot",
+              "url": "https://scryfall.com/card/unf/188/draconian-gate-bot?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22Draconian%20Gate-Bot%22%29%20include%3Aextras"
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Complaints Clerk",
+          "url": "https://scryfall.com/card/unf/7/complaints-clerk?utm_source=api"
+        },
+        {
+          "name": "Monitor Monitor",
+          "url": "https://scryfall.com/card/unf/52/monitor-monitor?utm_source=api"
+        },
+        {
+          "name": "Deadbeat Attendant",
+          "url": "https://scryfall.com/card/unf/69/deadbeat-attendant?utm_source=api"
+        },
+        {
+          "name": "Rad Rascal",
+          "url": "https://scryfall.com/card/unf/121/rad-rascal?utm_source=api"
+        },
+        {
+          "name": "Petting Zookeeper",
+          "url": "https://scryfall.com/card/unf/150/petting-zookeeper?utm_source=api"
+        },
+        {
+          "name": "Dee Kay, Finder of the Lost",
+          "url": "https://scryfall.com/card/unf/167/dee-kay-finder-of-the-lost?utm_source=api"
+        },
+        {
+          "name": "Myra the Magnificent",
+          "url": "https://scryfall.com/card/unf/175/myra-the-magnificent?utm_source=api"
+        },
+        {
+          "name": "Spinnerette, Arachnobat",
+          "url": "https://scryfall.com/card/unf/180/spinnerette-arachnobat?utm_source=api"
+        },
+        {
+          "name": "Draconian Gate-Bot",
+          "url": "https://scryfall.com/card/unf/188/draconian-gate-bot?utm_source=api"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Magic: The Gathering Comprehensive Rules",
+          "url": "https://magic.wizards.com/en/rules"
+        }
+      ],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:opus",
+      "name": "Opus",
+      "kind": "access",
+      "researchDate": "2026-10-30",
+      "scopeLabel": "Released paper cards",
+      "scope": "Opus is a released-paper ability word from Secrets of Strixhaven (2026); observed cards trigger from instant or sorcery spells and distinguish five or more mana spent.",
+      "summary": "Opus abilities trigger when you cast an instant or sorcery spell, with an additional or alternative effect if you spent at least five mana to cast that spell.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "not_found",
+            "note": "No white example found in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "U": {
+            "status": "documented",
+            "note": "Deluge Virtuoso gets +1/+1 for the turn from opus, or +2/+2 instead if at least five mana was spent on the triggering spell.",
+            "cards": [
+              {
+                "name": "Deluge Virtuoso",
+                "url": "https://scryfall.com/card/sos/42/deluge-virtuoso?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Deluge%20Virtuoso%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "not_found",
+            "note": "No black example found in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "R": {
+            "status": "documented",
+            "note": "Expressive Firedancer gets +1/+1 for the turn from opus and also gains double strike for the turn if at least five mana was spent on the triggering spell.",
+            "cards": [
+              {
+                "name": "Expressive Firedancer",
+                "url": "https://scryfall.com/card/sos/114/expressive-firedancer?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Expressive%20Firedancer%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "not_found",
+            "note": "No green example found in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "U",
+              "R"
+            ],
+            "note": "Colorstorm Stallion gets +1/+1 for the turn from opus and creates a token copy of itself if at least five mana was spent on the triggering spell.",
+            "cards": [
+              {
+                "name": "Colorstorm Stallion",
+                "url": "https://scryfall.com/card/sos/180/colorstorm-stallion?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Colorstorm%20Stallion%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "not_found",
+          "note": "No colorless example found in the reviewed scope.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Deluge Virtuoso",
+          "url": "https://scryfall.com/card/sos/42/deluge-virtuoso?utm_source=api"
+        },
+        {
+          "name": "Expressive Firedancer",
+          "url": "https://scryfall.com/card/sos/114/expressive-firedancer?utm_source=api"
+        },
+        {
+          "name": "Colorstorm Stallion",
+          "url": "https://scryfall.com/card/sos/180/colorstorm-stallion?utm_source=api"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Secrets of Strixhaven Mechanics",
+          "url": "https://magic.wizards.com/en/news/feature/secrets-of-strixhaven-mechanics"
+        }
+      ],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:outlast",
+      "name": "Outlast",
+      "kind": "access",
+      "researchDate": "2026-10-30",
+      "scopeLabel": "Released paper cards",
+      "scope": "Outlast is an activated ability usable only as a sorcery that puts a +1/+1 counter on its source.",
+      "summary": "Pay the outlast cost and tap the creature as a sorcery to put a +1/+1 counter on it.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Abzan Battle Priest activates outlast for {W}, {T}; it also gives your creatures with +1/+1 counters lifelink.",
+            "cards": [
+              {
+                "name": "Abzan Battle Priest",
+                "url": "https://scryfall.com/card/moc/164/abzan-battle-priest?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Abzan%20Battle%20Priest%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "not_found",
+            "note": "No blue example found in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "B": {
+            "status": "documented",
+            "note": "Disowned Ancestor activates outlast for {1}{B}, {T}.",
+            "cards": [
+              {
+                "name": "Disowned Ancestor",
+                "url": "https://scryfall.com/card/ktk/70/disowned-ancestor?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Disowned%20Ancestor%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "not_found",
+            "note": "No red example found in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "G": {
+            "status": "documented",
+            "note": "Longshot Squad activates outlast for {1}{G}, {T}; it also gives your creatures with +1/+1 counters reach.",
+            "cards": [
+              {
+                "name": "Longshot Squad",
+                "url": "https://scryfall.com/card/ktk/140/longshot-squad?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Longshot%20Squad%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "W",
+              "G"
+            ],
+            "note": "Arcus Acolyte activates outlast for {G/W}, {T} and grants outlast {G/W} to each other creature you control without a +1/+1 counter.",
+            "cards": [
+              {
+                "name": "Arcus Acolyte",
+                "url": "https://scryfall.com/card/mh2/185/arcus-acolyte?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Arcus%20Acolyte%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "not_found",
+          "note": "No colorless example found in the reviewed scope.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Abzan Battle Priest",
+          "url": "https://scryfall.com/card/moc/164/abzan-battle-priest?utm_source=api"
+        },
+        {
+          "name": "Disowned Ancestor",
+          "url": "https://scryfall.com/card/ktk/70/disowned-ancestor?utm_source=api"
+        },
+        {
+          "name": "Longshot Squad",
+          "url": "https://scryfall.com/card/ktk/140/longshot-squad?utm_source=api"
+        },
+        {
+          "name": "Arcus Acolyte",
+          "url": "https://scryfall.com/card/mh2/185/arcus-acolyte?utm_source=api"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Magic: The Gathering Comprehensive Rules",
+          "url": "https://magic.wizards.com/en/rules"
+        }
+      ],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:overload",
+      "name": "Overload",
+      "kind": "access",
+      "researchDate": "2026-10-30",
+      "scopeLabel": "Released paper cards",
+      "scope": "Overload is an alternative cost that replaces every instance of the word target in the spell text with each.",
+      "summary": "Casting a spell for its overload cost changes every instance of the word target in its text to each.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Stirring Address can overload for {5}{W} to give each creature you control +2/+2 until end of turn.",
+            "cards": [
+              {
+                "name": "Stirring Address",
+                "url": "https://scryfall.com/card/mh1/32/stirring-address?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Stirring%20Address%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Cyclonic Rift can overload for {6}{U} to return each nonland permanent you do not control to its owner's hand.",
+            "cards": [
+              {
+                "name": "Cyclonic Rift",
+                "url": "https://scryfall.com/card/rvr/40/cyclonic-rift?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Cyclonic%20Rift%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Mind Rake can overload for {1}{B}, making each player discard two cards, including you.",
+            "cards": [
+              {
+                "name": "Mind Rake",
+                "url": "https://scryfall.com/card/mh1/96/mind-rake?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Mind%20Rake%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Dynacharge can overload for {2}{R} to give each creature you control +2/+0 until end of turn.",
+            "cards": [
+              {
+                "name": "Dynacharge",
+                "url": "https://scryfall.com/card/mm3/94/dynacharge?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Dynacharge%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Scale Up can overload for {4}{G}{G} to make each creature you control a green Wurm with base power and toughness 6/4 until end of turn.",
+            "cards": [
+              {
+                "name": "Scale Up",
+                "url": "https://scryfall.com/card/mh1/179/scale-up?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Scale%20Up%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "U",
+              "R"
+            ],
+            "note": "Chemister's Trick can overload for {3}{U}{R}, giving each creature you do not control -2/-0 until end of turn and making it attack this turn if able.",
+            "cards": [
+              {
+                "name": "Chemister's Trick",
+                "url": "https://scryfall.com/card/rtr/149/chemisters-trick?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Chemister%27s%20Trick%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "documented",
+          "note": "Eldritch Immunity can overload for {4}{C} to give each creature you control protection from each color until end of turn.",
+          "cards": [
+            {
+              "name": "Eldritch Immunity",
+              "url": "https://scryfall.com/card/m3c/33/eldritch-immunity?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22Eldritch%20Immunity%22%29%20include%3Aextras"
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Stirring Address",
+          "url": "https://scryfall.com/card/mh1/32/stirring-address?utm_source=api"
+        },
+        {
+          "name": "Cyclonic Rift",
+          "url": "https://scryfall.com/card/rvr/40/cyclonic-rift?utm_source=api"
+        },
+        {
+          "name": "Mind Rake",
+          "url": "https://scryfall.com/card/mh1/96/mind-rake?utm_source=api"
+        },
+        {
+          "name": "Dynacharge",
+          "url": "https://scryfall.com/card/mm3/94/dynacharge?utm_source=api"
+        },
+        {
+          "name": "Scale Up",
+          "url": "https://scryfall.com/card/mh1/179/scale-up?utm_source=api"
+        },
+        {
+          "name": "Chemister's Trick",
+          "url": "https://scryfall.com/card/rtr/149/chemisters-trick?utm_source=api"
+        },
+        {
+          "name": "Eldritch Immunity",
+          "url": "https://scryfall.com/card/m3c/33/eldritch-immunity?utm_source=api"
         }
       ],
       "sources": [
