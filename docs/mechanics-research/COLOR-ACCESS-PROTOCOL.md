@@ -150,3 +150,11 @@ N reuses the escaped mana renderer across assessment, rules and references with 
 ## O batch, October 30, 2026
 
 The same contract covers Offering, Offspring, Open an Attraction, Opus, Outlast and Overload, for 244 A–O assessments and 23 source bindings. Each selected witness is bound to a fresh receipted full-card collection; source colors and exact combinations are never inferred from names, recipients, or color identity. Open an Attraction retains ordinary non-acorn Unfinity cards and excludes acorn-only inflation. Opus is scope-labeled as its released-paper ability-word context. Existing A–N, frozen 2021 calculations, safe escaped mana formatting, accessible fallback and one-link detail presentation remain protected.
+
+## P batch, October 30, 2026
+
+The same contract covers 22 unmapped P entries, for 266 A–P assessments / 24 bindings, with 157 selected bucket witnesses. Protection and Prowess remain frozen 2021; Play remains a generic rules reference. Actual mechanic-bearing faces, color indicators and rules-defined characteristics determine colors. Prepared uses its creature face, Populate its action-bearing face, and Prototype includes the five colored prototyped forms plus a normally cast colorless example under rules 718.3b and 718.4. Prowl retains the red Hunting Velociraptor grant; Phasing includes keyword and direct-action sources.
+
+Ordinary non-acorn Unfinity Parade! qualifies. Payoffs, removal, generic copying, stickers, silver/acorn material, playtest metadata and future printings do not inflate ordinary access. Partner and Partner with remain distinct. Planeswalk retains its existing Special grouping, using ordinary direct source cards for colored/colorless access and preserving planes/phenomena as separate special evidence. Exact combinations remain separate even alongside independent colors.
+
+The 22 fresh complete-Oracle captures have actual matching URL/time/status/hash receipts; original provisional attempts remain separately labeled, including one earlier receipt/body mismatch and the abandoned broad Planeswalk response. No timestamp is reassigned to a later replacement body. P reuses compact escaped mana rendering and one selected link per bucket across the whole detail; A–O and frozen 2021 data remain unchanged.

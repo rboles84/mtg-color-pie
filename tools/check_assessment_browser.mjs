@@ -1,4 +1,4 @@
-// Focused A–O assessment checks using externally supplied Playwright; no new dependency.
+// Focused A–P assessment checks using externally supplied Playwright; no new dependency.
 import fs from 'node:fs';
 import path from 'node:path';
 import http from 'node:http';
@@ -14,6 +14,7 @@ const lOnly=args.includes('--l-only');
 const mOnly=args.includes('--m-only');
 const nOnly=args.includes('--n-only');
 const oOnly=args.includes('--o-only');
+const pOnly=args.includes('--p-only');
 const {chromium}=createRequire(import.meta.url)(opt('--playwright','playwright'));
 const payload=JSON.parse(fs.readFileSync(path.join(root,'data/mechanics-assessments.v1.json'),'utf8'));
 const supplement=JSON.parse(fs.readFileSync(path.join(root,'data/mechanics-supplement.v1.json'),'utf8'));
@@ -39,7 +40,7 @@ const math=()=>{
 const ciPathHashes={"3":["131d51ed29e20c9aa775ebb5094d4be8f3511907ad59b88edcfb61f5c5856f06","9d849d80b8320c3cbeb1c3080963c9c5ac6b94b4bfb2b1ea0d6794b5d0775395","a3d12eec27e1749efe27593db8cc60562a46c5cbcb67752c5cb1346d260458a7","a420efa8bb78d81ed9fb8b2004e0eaa87f88042e798ffcc03dd4f181d6e0a165"],"5":["131d51ed29e20c9aa775ebb5094d4be8f3511907ad59b88edcfb61f5c5856f06","4db0f8df52032341284cb588466593dc48353ffad3313892196810bcfb0ffeb5","9301a76f180030b5a3d1a1cb8f5e10a1ffb1b7006cb4dd335b53e2826efaf826","01a8768565729464c95fce3b30418f57e377bf673c0f82e30ef45990529d7603","17ee6820251767f8a3e4a9542e1e2b8598d9f766470940f71504afd1dc776f13","7c284a93d686ba6abb0920657cb8650f218b545237d308893cc5b5a996d8c308"]};
 ciPathHashes['4']=["131d51ed29e20c9aa775ebb5094d4be8f3511907ad59b88edcfb61f5c5856f06","2560b9ed7e9aa624cd36e031f181ee614f4c7a246fd1123bc5cf1538cc157075","b1d4987aa6f47bbcaf3daf7e7e0958af7b0cff1ce8f3f4deedcbc497cb21a1ff","7d9e38864aa717d5956aaa6804c36f54e1cfd6d49a5d289324b94091fcf23295","1ce83b3f14cf8532efe2dc85e3ad6a2842ddef556cd94758cd18ea3cc83e70f1"];
 const ciPalettes={"WUG":["#3b6ba0","#3d684b","#fff"],"UBR":["#c6553e","#3b6ba0","#383431"],"WUR":["#c6553e","#fff","#3b6ba0"],"BRG":["#3d684b","#383431","#c6553e"],"WBG":["#383431","#3d684b","#fff"],"WUB":["#383431","#fff","#3b6ba0"],"WUBRG":["#c6553e","#383431","#3b6ba0","#3d684b","#fff"]};
-Object.assign(ciPalettes,{UBG:['#3d684b','#3b6ba0','#383431'],URG:['#3b6ba0','#c6553e','#3d684b'],WRG:['#fff','#c6553e','#3d684b'],WBR:['#fff','#383431','#c6553e'],WUBR:['#383431','#c6553e','#3b6ba0','#fff'],WURG:['#fff','#3b6ba0','#3d684b','#c6553e']});
+Object.assign(ciPalettes,{WUBG:['#3b6ba0','#383431','#fff','#3d684b'],UBG:['#3d684b','#3b6ba0','#383431'],URG:['#3b6ba0','#c6553e','#3d684b'],WRG:['#fff','#c6553e','#3d684b'],WBR:['#fff','#383431','#c6553e'],WUBR:['#383431','#c6553e','#3b6ba0','#fff'],WURG:['#fff','#3b6ba0','#3d684b','#c6553e']});
 async function checkCIVectors(host,label,size=18){
   assert.equal(await host.locator('.combo-mark .ms-ci').count(),0,label+' has no independent CI font/gradient layer');
   const glyphs=await host.locator('.ci3-svg,.ci4-svg,.ci5-svg').evaluateAll(items=>items.map(svg=>{
@@ -91,7 +92,7 @@ async function checkL(page,browser,baseline){
   const maps={Landcycling:['W','U','B','R','G','WU','WG','UB','UG','BR','RG','C'],Landfall:['W','U','B','R','G','WUBR','WURG','WUG','WBG','WRG','WG','UBG','URG','UG','BG','RG','C'],Landship:['G'],Landwalk:['W','U','B','R','G','WU','WRG','WG','UB','UBR','UG','BR','BRG','BG','RG','C'],Learn:['W','U','B','R','G','WB','BG'],Legacy:['G','C'],'Legendary landwalk':['G','RG'],'Level Up':['W','U','B','R','G'],Lieutenant:['W','U','B','R','G'],'Living Metal':['W','U','B','R','WU','WUR','WBR','WR','WRG','UB','BR'],'Living Weapon':['W','B','G','BR','C']};
   const buckets=r=>[...Object.values(r.access.colors).filter(b=>b.status==='documented'),...r.access.combinations,...(r.access.colorless.status==='documented'?[r.access.colorless]:[])];
   assert.equal(records.length,11);assert.equal(records.flatMap(buckets).length,83);
-  assert.equal(payload.records.length,244);assert.equal(payload.sourceBindings.length,23);
+  assert.equal(payload.records.filter(r=>!r.name.startsWith('P')).length,244);assert.equal(payload.sourceBindings.slice(0,23).length,23);
   assert.equal(payload.records.find(r=>r.name==='Lifelink'),undefined,'mapped Lifelink stays frozen');
   const packet=JSON.parse(fs.readFileSync(path.join(root,'docs/mechanics-research/l-protocol.json'),'utf8'));
   const receipts=JSON.parse(fs.readFileSync(path.join(root,'docs/mechanics-research/l-protocol-evidence/retrieval-receipts.json'),'utf8')).retrievals;
@@ -180,7 +181,7 @@ async function checkM(page,browser,baseline){
   assert.equal(records.length,25);assert.equal(records.flatMap(buckets).length,183);
   assert.equal(createHash('sha256').update(JSON.stringify(payload.records.filter(r=>!r.name.startsWith('M')&&!r.name.startsWith('N')&&!r.name.startsWith('O')))).digest('hex'),'844a874bfbd33d96acd485db46782bf4ac72b5afbddcf8a614785150fcd98768','all 210 A–L rows unchanged');
   assert.equal(createHash('sha256').update(JSON.stringify(payload.sourceBindings.slice(0,20))).digest('hex'),'945b65c696a960aa7a3bacf71e9c44b5c6817732d02e5b22dd138e4e190f3553','all 20 A–L bindings unchanged');
-  assert.equal(payload.records.length,244);assert.equal(payload.sourceBindings.length,23);
+  assert.equal(payload.records.filter(r=>!r.name.startsWith('P')).length,244);assert.equal(payload.sourceBindings.slice(0,23).length,23);
   for(const name of ['Menace','Mill'])assert.equal(payload.records.find(r=>r.name===name),undefined,name+' mapped entry stays frozen');
   const packet=JSON.parse(fs.readFileSync(path.join(root,'docs/mechanics-research/m-protocol.json'),'utf8'));
   const receipts=JSON.parse(fs.readFileSync(path.join(root,'docs/mechanics-research/m-protocol-evidence/retrieval-receipts.json'),'utf8')).retrievals;
@@ -321,7 +322,7 @@ async function checkN(page,browser,baseline){
   const records=payload.records.filter(r=>r.name.startsWith('N'));
   const maps={Ninjutsu:['W','U','B','R','G','UB'],Nightbound:['B','R','G','RG'],'Nonbasic landwalk':['G','C']};
   const buckets=r=>[...Object.values(r.access.colors).filter(b=>b.status==='documented'),...r.access.combinations,...(r.access.colorless.status==='documented'?[r.access.colorless]:[])];
-  assert.equal(records.length,3);assert.equal(records.flatMap(buckets).length,12);assert.equal(payload.records.length,244);assert.equal(payload.sourceBindings.length,23);
+  assert.equal(records.length,3);assert.equal(records.flatMap(buckets).length,12);assert.equal(payload.records.filter(r=>!r.name.startsWith('P')).length,244);assert.equal(payload.sourceBindings.slice(0,23).length,23);
   assert.equal(createHash('sha256').update(JSON.stringify(payload.records.filter(r=>!r.name.startsWith('N')&&!r.name.startsWith('O')))).digest('hex'),'6e502e205d171be0b573d312561eec574817d9a6e58b6ef9fce58f0afd227cf5','all 235 A–M rows unchanged');
   assert.equal(createHash('sha256').update(JSON.stringify(payload.sourceBindings.slice(0,21))).digest('hex'),'b89202d0eb2e4bb308d34a57501df7c61f02a4d9bb95a64e7d4938e781421af4','all 21 A–M bindings unchanged');
   const packet=JSON.parse(fs.readFileSync(path.join(root,'docs/mechanics-research/n-protocol.json'),'utf8'));
@@ -426,12 +427,139 @@ async function checkN(page,browser,baseline){
   await page.evaluate(()=>{VMX.chooseCombo('W');VMX.clearColors();VMX.setView('article');VMX.setView('az');});assert.equal(await page.evaluate(math),baseline);
   results.push('All 3 N records / 12 exact unique selected links: complete fresh receipts and objects, actual face/source colors, list/search/detail combinations, concise definitions, actual and fixture symbols in assessment/rules/references, escaping, accessible labels, blocked-font fallback, malformed isolation, keyboard, narrow containment and unchanged frozen math.');
 }
+async function checkP(page,browser,baseline){
+  const maps={"Pack tactics":["R","G","RG"],"Parade!":["W"],"Paradigm":["W","U","B","R","G"],"Paradox":["U","R","G","UG"],"Parley":["W","U","G","WRG","WG","UR"],"Partner":["W","U","B","R","G","C","WU","WB","WR","WG","UB","UR","UG","BR","BG","RG"],"Persist":["W","U","B","R","G","C","WB","WG","UB","UG","BR","BG","RG"],"Phasing":["W","U","B","R","G","C","WUBRG","WUG","WB","UB","UR","UG"],"Plot":["W","U","B","R","G","WUG","UR","UG","BG"],"Populate":["W","B","R","G","WUR","WRG","WG","UBG"],"Power-up":["W","U","B","R","G","C","WBR","WG","UG","RG"],"Proliferate":["W","U","B","R","G","C","WUBG","WUR","WUG","WB","WG","UBG","UG","BG"],"Prototype":["W","U","B","R","G","C"],"Provoke":["W","R","G"],"Prowl":["U","B","R"],"Partner with":["W","U","B","R","G","WU","WB","WG","UB","UR","UG","BR","BG","RG"],"Plainscycling":["W","WU","WG"],"Prepared":["W","U","B","R","G","C","WU","WB","WR","WG","UB","UR","UG","BR","BG","RG"],"Plainswalk":["W","R","G"],"Poisonous":["B","G"],"Planeswalk":["W","U","B","R","G","C"],"Play":[]};
+  const records=payload.records.filter(r=>r.name.startsWith('P'));
+  const buckets=r=>[...Object.values(r.access.colors).filter(b=>b.status==='documented'),...r.access.combinations,...(r.access.colorless.status==='documented'?[r.access.colorless]:[])];
+  assert.equal(records.length,22);assert.equal(records.flatMap(buckets).length,157);assert.equal(payload.records.length,266);assert.equal(payload.sourceBindings.length,24);
+  assert.equal(createHash('sha256').update(JSON.stringify(payload.records.filter(r=>!r.name.startsWith('P')))).digest('hex'),'d70f8716c4b25501982bf640f08449604388ab217438b764e0f9eae4bf7c67b3','all 244 prior A–O rows unchanged');
+  assert.equal(createHash('sha256').update(JSON.stringify(payload.sourceBindings.slice(0,23))).digest('hex'),'b9ca0c573a0feb67110ec3769a4053e820c8470b071179340e78ab2682d91981','all 23 prior bindings unchanged');
+  assert.equal(records.find(r=>r.name==='Protection'),undefined);assert.equal(records.find(r=>r.name==='Prowess'),undefined);
+  const packet=JSON.parse(fs.readFileSync(path.join(root,'docs/mechanics-research/p-protocol.json'),'utf8'));
+  assert.doesNotMatch(JSON.stringify(packet),/\uFFFD|TODO/);
+  const receipts=JSON.parse(fs.readFileSync(path.join(root,'docs/mechanics-research/p-protocol-evidence/complete-oracle-retrieval-receipts.json'),'utf8')).retrievals;
+  assert.equal(receipts.length,22);
+  for(const receipt of receipts){
+    const raw=fs.readFileSync(path.join(root,receipt.path));assert.equal(createHash('sha256').update(raw).digest('hex'),receipt.rawSha256);assert.equal(receipt.status,200);
+    assert.equal(new URL(receipt.url).hostname,'api.scryfall.com');assert.equal(new URL(receipt.url).searchParams.get('q'),receipt.query);assert.equal(receipt.method,'GET');
+    assert.ok(Number.isFinite(Date.parse(receipt.requestStartedUtc))&&Date.parse(receipt.requestStartedUtc)<=Date.parse(receipt.requestEndedUtc));
+    const body=JSON.parse(raw);assert.equal(body.has_more,false);assert.equal(body.data.length,body.total_cards,'complete single-page response');
+  }
+  const ordinary=c=>c.games.includes('paper')&&!c.digital&&c.released_at<='2026-10-30'&&c.security_stamp!=='acorn'&&!['silver','gold'].includes(c.border_color)&&!c.promo_types?.includes('playtest')&&(!['funny','memorabilia','token'].includes(c.set_type)||c.set==='unf')&&!['token','double_faced_token','emblem','planar','scheme','vanguard','augment','host','art_series'].includes(c.layout)&&!/\b(?:Token|Stickers|Plane|Phenomenon|Vanguard|Scheme|Conspiracy)\b/.test(c.type_line);
+  const faceColors=f=>[...'WUBRG'].filter(c=>(f.colors||f.color_indicator||f.mana_cost?.match(/[WUBRG]/g)||[]).includes(c));
+  const qualifies=(name,c,f)=>{
+    const t=f.oracle_text||'';
+    if(name==='Partner')return /^Partner(?:\s*\(|\s*$)/m.test(t);
+    if(name==='Partner with')return /^Partner with /m.test(t);
+    if(name==='Power-up')return /^Power-up [—-]/m.test(t);
+    if(name==='Prowl')return /(?:^Prowl |have prowl )\{/mi.test(t);
+    if(['Pack tactics','Paradox','Parley'].includes(name))return new RegExp('^'+name+' [—-]','mi').test(t);
+    if(name==='Phasing')return !['Spatial Binding','The War Doctor'].includes(c.name)&&/\bphasing\b|\bphases? out\b/i.test(t);
+    if(name==='Plot')return /^Plot \{|\b(?:has plot|becomes plotted|become plotted|are plotted)\b/mi.test(t);
+    if(name==='Prepared')return /\b(?:enters prepared|becomes prepared|become prepared)\b/i.test(t);
+    if(name==='Plainswalk')return !['Great Wall','Lord Magnus','Magical Hack','Whim of Volrath'].includes(c.name)&&/\bplainswalk\b/i.test(t);
+    if(name==='Proliferate')return !['Venser, Corpse Puppet','Voidwing Hybrid','Scheming Aspirant','Tekuthal, Inquiry Dominus'].includes(c.name)&&/\bproliferate\b/i.test(t);
+    if(name==='Provoke')return c.name!=='Provoke the Trolls'&&/\bprovoke\b/i.test(t);
+    return t.toLowerCase().includes(name.toLowerCase());
+  };
+  for(const r of packet.records){
+    if(r.mechanic.name==='Play'){assert.equal(r.card_review.length,0);continue;}
+    const query=r.queries.find(q=>q.kind==='fresh_complete_oracle_discovery'),receipt=receipts.find(x=>x.path===query.path),body=JSON.parse(fs.readFileSync(path.join(root,query.path),'utf8'));
+    assert.equal(query.rawSha256,receipt.rawSha256);assert.equal(query.url,receipt.url);
+    const signatures=new Set();
+    for(const fact of body.data)if(ordinary(fact))for(const face of fact.card_faces||[fact])if(qualifies(r.mechanic.name,fact,face)){
+      signatures.add(faceColors(face).join('')||'C');
+      if(r.mechanic.name==='Prototype'){const cost=face.oracle_text.match(/Prototype ((?:\{[^}]+\})+)/)[1];signatures.add([...'WUBRG'].filter(c=>cost.includes(c)).join(''));}
+    }
+    assert.deepEqual([...signatures].sort(),maps[r.mechanic.name].slice().sort(),r.mechanic.name+' complete eligible source/face signature screen');
+    for(const card of r.card_review){
+      const raw=fs.readFileSync(path.join(root,card.evidence_binding.path));assert.equal(createHash('sha256').update(raw).digest('hex'),card.evidence_binding.sha256);
+      const fact=JSON.parse(raw).data.find(c=>c.oracle_id===card.oracle_id);assert.deepEqual(card.card_facts,fact);assert.equal(card.scryfall_url,fact.scryfall_uri);
+      if(!card.included)continue;
+      assert.ok(ordinary(fact),card.name+' released ordinary-paper scope');assert.equal(card.scope,'released paper');assert.equal(card.evidence_binding.sha256,receipt.rawSha256);
+      const face=fact.card_faces?.find(f=>f.name===card.mechanic_face)||fact;assert.ok(qualifies(r.mechanic.name,fact,face));
+      const actual=r.mechanic.name==='Prototype'&&card.characteristic_variant==='prototyped'?[...'WUBRG'].filter(c=>face.oracle_text.match(/Prototype ((?:\{[^}]+\})+)/)[1].includes(c)):faceColors(face);
+      assert.deepEqual(card.attributed_colors,actual,card.name+' actual face/rules-defined variant colors');
+      const note=buckets(records.find(x=>x.name===r.mechanic.name)).find(b=>b.cards[0].name===card.name).note;
+      if(r.mechanic.name==='Power-up')assert.ok(note.includes(face.oracle_text.match(/^Power-up — ((?:\{[^}]+\})+)/m)[1]),card.name+' full cost');
+      if(r.mechanic.name==='Prowl')assert.ok(note.includes(face.oracle_text.match(/prowl ((?:\{[^}]+\})+)/i)[1]),card.name+' complete prowl cost');
+      if(r.mechanic.name==='Plainscycling')assert.match(note,/plainscycling \{2\}/i);
+    }
+  }
+  assert.equal(packet.records.find(r=>r.mechanic.name==='Provoke').card_review.find(c=>c.name==='Squishy Sphinx Ninja').included,false);
+  const proto=packet.records.find(r=>r.mechanic.name==='Prototype');assert.equal(proto.inherited_reference.fresh_retrieval,false);
+  const rules=fs.readFileSync(path.join(root,proto.inherited_reference.capture),'utf8');assert.match(rules,/718\.3b[^\n]*spell and the permanent it becomes are also that color or colors/);assert.match(rules,/718\.4[^\n]*normal characteristics/);
+  await page.waitForFunction(()=>document.documentElement.classList.contains('supp-mana-ready'));
+  const actualTokens=new Map();let links=0;
+  for(const record of records){
+    const a=record.access, independent=[...'WUBRG'].filter(c=>a.colors[c].status==='documented').concat(a.colorless.status==='documented'?['C']:[]), combos=a.combinations.map(b=>b.colors.join(''));
+    assert.deepEqual([...independent.filter(c=>c!=='C'),...combos,...independent.includes('C')?['C']:[]].sort(),maps[record.name].slice().sort(),record.name+' exact observed map');
+    assert.ok(buckets(record).every(b=>b.cards.length===1));
+    await page.evaluate(()=>VMX.setView('az'));const row=page.locator(`#list .ent[data-k="${record.id}"]`);
+    assert.equal(await row.locator('.access-strip').count(),record.kind==='access'?1:0);
+    assert.deepEqual(await row.locator('.combo-mark').evaluateAll(items=>items.map(i=>i.dataset.combo)),combos,record.name+' list combinations');
+    assert.deepEqual(await row.locator('.access-strip > .sc').evaluateAll(items=>items.filter(i=>i.classList.contains('a-d')).map(i=>i.dataset.c)),independent);
+    await page.locator('#q').fill(record.name);await page.locator('#q').focus();const option=page.locator(`#res-list .opt[data-k="${record.id}"]`);await option.waitFor({state:'visible'});
+    assert.deepEqual(await option.locator('.combo-mark').evaluateAll(items=>items.map(i=>i.dataset.combo)),combos,record.name+' actual search combinations');
+    if(record.kind==='access')await checkAccessSizes(row,record.name+' list',18);await checkCIVectors(row,record.name+' list',18);if(record.kind==='access')await checkAccessSizes(option,record.name+' search',18);await checkCIVectors(option,record.name+' search',18);
+    await page.locator('#q').fill('');await page.evaluate(id=>VMX.open(id),record.id);
+    const panel=page.locator('#detail .supp-assessment');assert.match(await panel.innerText(),/October 30, 2026/);
+    if(record.kind==='access')assert.equal(await panel.locator(':scope > .dx-note').first().innerText(),record.scopeLabel+'.','scope label does not repeat the definition');
+    assert.equal(await panel.locator('.assessment-notes > p').first().textContent(),record.summary,'mechanic explanation appears once before card-specific notes');
+    assert.deepEqual(await panel.locator('.own-row[data-combo]').evaluateAll(items=>items.map(i=>i.dataset.combo)),combos,record.name+' detail combinations');
+    if(combos.length)assert.deepEqual(await panel.locator('.own-row[data-c]').evaluateAll(items=>items.map(i=>i.dataset.c)),independent);
+    await panel.locator('.assessment-notes > summary').focus();await page.keyboard.press('Enter');
+    const expected=buckets(record).map(b=>b.cards[0].url).sort();links+=expected.length;assert.equal(new Set(expected).size,expected.length,record.name+' selected hrefs are unique');
+    assert.deepEqual(await page.locator('#detail a').evaluateAll(items=>items.filter(i=>i.hostname==='scryfall.com'&&i.pathname.startsWith('/card/')).map(i=>i.href).sort()),expected,record.name+' exactly one selected link per bucket in whole detail');
+    if(record.kind==='access')await checkAccessSizes(panel,record.name+' detail',18);await checkCIVectors(panel,record.name+' detail',18);
+    assert.equal(await panel.locator('.assessment-example').count(),expected.length);
+    assert.equal(await panel.locator('.assessment-notes details').count(),0);
+    assert.doesNotMatch(await panel.innerText(),/Selected .*document|presence evidence|independent example|reviewed scope|unselected discovery|individually reviewed|narrow witness|name matches/i);
+    assert.deepEqual(await panel.locator('.assessment-sources a').evaluateAll(items=>items.map(i=>i.href)),record.sources.map(s=>s.url));
+    assert.ok(await page.locator('#detail a').evaluateAll(items=>items.every(i=>i.protocol==='https:'&&['scryfall.com','magic.wizards.com','media.wizards.com'].includes(i.hostname)&&i.rel.includes('noopener'))));
+    await page.waitForFunction(()=>document.documentElement.classList.contains('supp-mana-ready'));
+    const state=await page.locator('#detail').evaluate(el=>{const copy=el.cloneNode(true);copy.querySelectorAll('.supp-symbol').forEach(s=>s.replaceWith(s.querySelector('.supp-symbol-text').textContent));return {tokens:[...copy.textContent.matchAll(/\{[^{}\r\n]+\}/g)].map(m=>m[0]),rendered:[...el.querySelectorAll('.supp-symbol')].map(s=>({token:s.querySelector('.supp-symbol-text').textContent,label:s.getAttribute('aria-label'),glyph:getComputedStyle(s.querySelector('.ms'),'::before').content,fallback:getComputedStyle(s.querySelector('.supp-symbol-text')).display})),visible:el.innerText};});
+    assert.deepEqual(state.rendered.map(s=>s.token),state.tokens,record.name+' every actual prose/rule/reference token rendered');assert.doesNotMatch(state.visible,/\{[^{}\r\n]+\}/);
+    assert.ok(state.rendered.every(s=>s.label&&s.fallback==='none'&&!['none','normal','""'].includes(s.glyph)));actualTokens.set(record.name,state.tokens);
+    assert.ok(await page.locator('#detail .combo-mark').evaluateAll(items=>items.every(i=>i.getAttribute('role')==='img'&&i.getAttribute('aria-label').endsWith('combination only'))));
+    await page.setViewportSize({width:360,height:900});assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),record.name+' narrow containment');await page.setViewportSize({width:1440,height:900});
+  }
+  assert.equal(links,157);
+  const tokenText='{0} {1} {2} {3} {4} {5} {6} {7} {8} {9} {12} {W} {U} {B} {R} {G} {C} {X} {B/G} {G/U} {B/R} {G/W} {U/R} {W/B} {U/B} {R/G} {R/W} {W/U} {S} {T}',unsafe='<img src=x onerror=alert(1)> {unknown} '+tokenText;
+  for(const blocked of [false,true]){
+    const fixture=await browser.newPage();if(blocked)await fixture.route('**/mana-font@1.18.0/**',route=>route.abort());
+    const data=structuredClone(supplement),p=structuredClone(payload),scopes=JSON.parse(fs.readFileSync(path.join(root,'data/mechanics-supplement-scope.v1.json'),'utf8'));
+    for(const r of data.records.filter(r=>r.name.startsWith('P')&&r.target2021===null)){r.clauses=[{number:'fixture',text:unsafe}];r.reference={title:'Fixture',verification:'fixture',rules:[],summary:unsafe,source:{title:'Fixture',url:'https://magic.wizards.com/en/news/feature/mystery-booster-release-notes-2019-11-11'}};}
+    const hash=createHash('sha256').update(JSON.stringify(data)).digest('hex');scopes.payloadCanonicalSha256=hash;p.supplementCanonicalSha256=hash;for(const r of p.records.filter(r=>r.name.startsWith('P')))r.summary=unsafe;
+    await fixture.route('**/data/mechanics-supplement.v1.json*',r=>r.fulfill({contentType:'application/json',body:JSON.stringify(data)}));await fixture.route('**/data/mechanics-supplement-scope.v1.json*',r=>r.fulfill({contentType:'application/json',body:JSON.stringify(scopes)}));await fixture.route(assessmentRoute,r=>r.fulfill({contentType:'application/json',body:JSON.stringify(p)}));
+    await fixture.goto(url);await fixture.waitForFunction(()=>VMX.assessments().status==='ready');if(!blocked)await fixture.waitForFunction(()=>document.documentElement.classList.contains('supp-mana-ready'));
+    for(const record of records){await fixture.evaluate(id=>VMX.open(id),record.id);await fixture.locator('.assessment-notes > summary').click();
+      for(const selector of ['.assessment-notes > p','#detail .supp-rules .dx-ex','#detail .supp-reference .supp-quote']){
+        const prose=fixture.locator(selector).first();assert.equal(await prose.locator('img').count(),0);assert.ok((await prose.textContent()).includes('<img src=x onerror=alert(1)> {unknown}'));
+        const symbols=await prose.locator('.supp-symbol').evaluateAll(items=>items.map(s=>({raw:s.querySelector('.supp-symbol-text').textContent,text:s.innerText,role:s.getAttribute('role'),label:s.getAttribute('aria-label'),glyph:getComputedStyle(s.querySelector('.ms')).display,fallback:getComputedStyle(s.querySelector('.supp-symbol-text')).display,before:getComputedStyle(s.querySelector('.ms'),'::before').content,after:getComputedStyle(s.querySelector('.ms'),'::after').content})));
+        assert.deepEqual(symbols.map(s=>s.raw),tokenText.split(' '),record.name+' all fixture tokens across '+selector);assert.ok(symbols.every(s=>s.label&&s.role==='img'&&(blocked?s.glyph==='none'&&s.text===s.raw&&s.fallback!=='none':s.glyph!=='none'&&s.fallback==='none'&&!['none','normal','""'].includes(s.before)&&(s.raw.includes('/')?!['none','normal','""'].includes(s.after):true))));
+      }
+    }await fixture.close();
+  }
+  const noFont=await browser.newPage();await noFont.route('**/mana-font@1.18.0/**',r=>r.abort());await noFont.goto(url);await noFont.waitForFunction(()=>VMX.assessments().status==='ready');await noFont.evaluate(()=>VMX.setView('az'));
+  for(const record of records){await noFont.evaluate(id=>VMX.open(id),record.id);await noFont.locator('.assessment-notes > summary').click();
+    const symbols=await noFont.locator('#detail .supp-symbol').evaluateAll(items=>items.map(s=>({raw:s.querySelector('.supp-symbol-text').textContent,text:s.innerText,label:s.getAttribute('aria-label'),glyph:getComputedStyle(s.querySelector('.ms')).display})));assert.deepEqual(symbols.map(s=>s.raw),actualTokens.get(record.name));assert.ok(symbols.every(s=>s.raw===s.text&&s.label&&s.glyph==='none'));
+    if(record.kind==='access')await checkAccessSizes(noFont.locator('#detail .supp-assessment'),record.name+' fallback detail',18,true);
+    const fallbackRow=noFont.locator(`#list .ent[data-k="${record.id}"]`);if(record.kind==='access')await checkAccessSizes(fallbackRow,record.name+' fallback list',18,true);
+    await noFont.locator('#q').fill(record.name);await noFont.locator('#q').focus();const fallbackOption=noFont.locator(`#res-list .opt[data-k="${record.id}"]`);await fallbackOption.waitFor({state:'visible'});if(record.kind==='access')await checkAccessSizes(fallbackOption,record.name+' fallback search',18,true);await noFont.locator('#q').fill('');
+    assert.ok(await noFont.locator('#detail .combo-mark').evaluateAll(items=>items.every(i=>getComputedStyle(i.querySelector('svg,.ms')).display==='none'&&i.innerText===i.dataset.combo)),record.name+' no-font combinations');
+  }await noFont.close();
+  for(const scenario of ['missing','date','status','unsafe','binding']){const failure=await browser.newPage(),bad=structuredClone(payload),r=bad.records.find(r=>r.name==='Pack tactics');if(scenario==='date')r.researchDate='2026-10-28';if(scenario==='status')r.access.colors.R.status='invented';if(scenario==='unsafe')r.access.colors.R.cards[0].url='https://scryfall.com@evil.example/';if(scenario==='binding')bad.sourceBindings.at(-1).path='tampered.json';await failure.route(assessmentRoute,route=>route.fulfill(scenario==='missing'?{status:404,body:'Missing'}:{contentType:'application/json',body:JSON.stringify(bad)}));await failure.goto(url);await failure.waitForFunction(()=>VMX.assessments().status==='unavailable');assert.equal(await failure.evaluate(()=>VMX.assessments().records.length),0);await failure.evaluate(()=>VMX.open('deck:vocabulary:pack tactics'));assert.ok(await failure.locator('#detail .supp-rules').count());await failure.close();}
+  await page.locator('#q').fill('Pack tactics');await page.locator('#q').focus();await page.locator('#q').press('Enter');assert.equal(await page.locator('#dx-title').innerText(),'Pack tactics');await page.locator('#q').fill('');
+  await page.evaluate(()=>{VMX.chooseCombo('W');VMX.clearColors();VMX.setView('article');VMX.setView('az');});assert.equal(await page.evaluate(math),baseline);
+  results.push('All 22 P records / 157 exact unique selected links: complete fresh receipts and objects, actual face/source colors, list/search/detail combinations, concise definitions, actual and fixture symbols in assessment/rules/references, escaping, accessible labels, blocked-font fallback, malformed isolation, keyboard, narrow containment and unchanged frozen math.');
+}
 async function checkO(page,browser,baseline){
   const records=payload.records.filter(r=>r.name.startsWith('O'));
   const maps={Offering:['W','U','B','R','G'],Offspring:['W','U','B','R','G','WUR'],'Open an Attraction':['W','U','B','R','G','UB','UR','BG','C'],Opus:['U','R','UR'],Outlast:['W','B','G','WG'],Overload:['W','U','B','R','G','UR','C']};
   const buckets=r=>[...Object.values(r.access.colors).filter(b=>b.status==='documented'),...r.access.combinations,...(r.access.colorless.status==='documented'?[r.access.colorless]:[])];
-  assert.equal(records.length,6);assert.equal(records.flatMap(buckets).length,34);assert.equal(payload.records.length,244);assert.equal(payload.sourceBindings.length,23);
-  assert.equal(createHash('sha256').update(JSON.stringify(payload.records.filter(r=>!r.name.startsWith('O')))).digest('hex'),'764869dcccf2a03250329d29005f135c934c832fa1bc8c922dee4750dd10d763','all 238 A–N rows unchanged');
+  assert.equal(records.length,6);assert.equal(records.flatMap(buckets).length,34);assert.equal(payload.records.filter(r=>!r.name.startsWith('P')).length,244);assert.equal(payload.sourceBindings.slice(0,23).length,23);
+  assert.equal(createHash('sha256').update(JSON.stringify(payload.records.filter(r=>!r.name.startsWith('O')&&!r.name.startsWith('P')))).digest('hex'),'764869dcccf2a03250329d29005f135c934c832fa1bc8c922dee4750dd10d763','all 238 A–N rows unchanged');
   assert.equal(createHash('sha256').update(JSON.stringify(payload.sourceBindings.slice(0,22))).digest('hex'),'c95632b2c1ad6b5a609bedaa47a91b555de63163aeaac89f399c0fde7d1ca5e7','all 22 A–N bindings unchanged');
   const packet=JSON.parse(fs.readFileSync(path.join(root,'docs/mechanics-research/o-protocol.json'),'utf8'));
   assert.doesNotMatch(JSON.stringify(packet),/\uFFFD/,'authored O text has no replacement characters');
@@ -545,10 +673,10 @@ try{
   await page.waitForFunction(()=>window.VMX?.assessments().status==='ready');
   await page.waitForFunction(()=>document.querySelector('#selftest').textContent.includes('84 of 84 passed'));
   const baseline=await page.evaluate(math);
-  if(args.includes('--mutate-pips-only')){await checkMutatePips(page,browser,baseline);assert.deepEqual(errors,[]);}else if(oOnly){await checkO(page,browser,baseline);assert.deepEqual(errors,[]);}else if(nOnly){await checkN(page,browser,baseline);assert.deepEqual(errors,[]);}else if(mOnly){await checkM(page,browser,baseline);assert.deepEqual(errors,[]);}else if(lOnly){await checkL(page,browser,baseline);assert.deepEqual(errors,[]);}else{
+  if(args.includes('--mutate-pips-only')){await checkMutatePips(page,browser,baseline);assert.deepEqual(errors,[]);}else if(pOnly){await checkP(page,browser,baseline);assert.deepEqual(errors,[]);}else if(oOnly){await checkO(page,browser,baseline);assert.deepEqual(errors,[]);}else if(nOnly){await checkN(page,browser,baseline);assert.deepEqual(errors,[]);}else if(mOnly){await checkM(page,browser,baseline);assert.deepEqual(errors,[]);}else if(lOnly){await checkL(page,browser,baseline);assert.deepEqual(errors,[]);}else{
   assert.equal(await page.locator('#list .ent').count(),216);
-  assert.equal(await page.evaluate(()=>VMX.assessments().records.length),244);
-  const expectedAssessmentIds=supplement.records.filter(r=>/^[ABCDEFGHIJKLMNO]/.test(r.name)&&r.target2021===null).map(r=>r.id).sort();
+  assert.equal(await page.evaluate(()=>VMX.assessments().records.length),266);
+  const expectedAssessmentIds=supplement.records.filter(r=>/^[ABCDEFGHIJKLMNOP]/.test(r.name)&&r.target2021===null).map(r=>r.id).sort();
   assert.deepEqual(payload.records.map(r=>r.id).sort(),expectedAssessmentIds,'every admitted A/B/C/D/E/F/G/H/I/J/K target has exactly one assessment');
   assert.deepEqual(payload.sourceBindings.map(x=>x.path),[
     'docs/mechanics-research/a-assessments-source.json',

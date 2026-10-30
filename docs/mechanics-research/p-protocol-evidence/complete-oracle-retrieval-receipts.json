@@ -1,0 +1,224 @@
+{
+  "retrievals": [
+    {
+      "path": "docs/mechanics-research/p-protocol-evidence/pack-tactics-complete-oracle-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%2F%5Cbpack+tactics%5Cb%2F&unique=cards&order=name&include_extras=true",
+      "query": "fo:/\\bpack tactics\\b/",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-30T22:09:30.221015+00:00",
+      "requestEndedUtc": "2026-10-30T22:09:30.762043+00:00",
+      "status": 200,
+      "rawSha256": "9e8718631440d4ff3d3a489490cb279daf2cffa4f74d2f81ae7d04117dc556bf"
+    },
+    {
+      "path": "docs/mechanics-research/p-protocol-evidence/parade-complete-oracle-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%2Fparade%21%2F&unique=cards&order=name&include_extras=true",
+      "query": "fo:/parade!/",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-30T22:09:30.964056+00:00",
+      "requestEndedUtc": "2026-10-30T22:09:31.275550+00:00",
+      "status": 200,
+      "rawSha256": "f4245b4bb01d39245617c966f003c3c862883155096c3e343e1eaa5c7cb8d3f8"
+    },
+    {
+      "path": "docs/mechanics-research/p-protocol-evidence/paradigm-complete-oracle-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%2F%5Cbparadigm%5Cb%2F&unique=cards&order=name&include_extras=true",
+      "query": "fo:/\\bparadigm\\b/",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-30T22:09:31.476769+00:00",
+      "requestEndedUtc": "2026-10-30T22:09:31.835497+00:00",
+      "status": 200,
+      "rawSha256": "9e33a9e57a8d83695e700839a384aa960d1a37e6e30ee9eab0489b4658065772"
+    },
+    {
+      "path": "docs/mechanics-research/p-protocol-evidence/paradox-complete-oracle-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%2F%5Cbparadox%5Cb%2F&unique=cards&order=name&include_extras=true",
+      "query": "fo:/\\bparadox\\b/",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-30T22:09:32.036849+00:00",
+      "requestEndedUtc": "2026-10-30T22:09:32.443377+00:00",
+      "status": 200,
+      "rawSha256": "485e0706b6f1a47ec3a07f6c995e74c1d28bbb9d290067daed8f4254d3b97d4b"
+    },
+    {
+      "path": "docs/mechanics-research/p-protocol-evidence/parley-complete-oracle-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%2F%5Cbparley%5Cb%2F&unique=cards&order=name&include_extras=true",
+      "query": "fo:/\\bparley\\b/",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-30T22:09:32.645096+00:00",
+      "requestEndedUtc": "2026-10-30T22:09:33.012485+00:00",
+      "status": 200,
+      "rawSha256": "4f4e57a137f9a723dfa8d905e4ae341cc5e39bde1bd92b07791c04c11444a90a"
+    },
+    {
+      "path": "docs/mechanics-research/p-protocol-evidence/partner-complete-oracle-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%2F%5Cbpartner%5Cb%2F&unique=cards&order=name&include_extras=true",
+      "query": "fo:/\\bpartner\\b/",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-30T22:09:33.214360+00:00",
+      "requestEndedUtc": "2026-10-30T22:09:34.515506+00:00",
+      "status": 200,
+      "rawSha256": "7fc49ae4f13bccd19fe0fe3060b82a0a40fd1c252f50328fc0621e0613cbe269"
+    },
+    {
+      "path": "docs/mechanics-research/p-protocol-evidence/persist-complete-oracle-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%2F%5Cbpersist%5Cb%2F&unique=cards&order=name&include_extras=true",
+      "query": "fo:/\\bpersist\\b/",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-30T22:09:34.721949+00:00",
+      "requestEndedUtc": "2026-10-30T22:09:35.236891+00:00",
+      "status": 200,
+      "rawSha256": "9c60ad703073f2aad5178cfa8622b75dd2a35eb5bc6008ead2064eb24c6467ab"
+    },
+    {
+      "path": "docs/mechanics-research/p-protocol-evidence/phasing-complete-oracle-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%2F%5Cb%28%3F%3Aphasing%7Cphases%3F+%28%3F%3Aout%7Cin%29%7Cphased.out%29%5Cb%2F&unique=cards&order=name&include_extras=true",
+      "query": "fo:/\\b(?:phasing|phases? (?:out|in)|phased.out)\\b/",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-30T22:09:35.440490+00:00",
+      "requestEndedUtc": "2026-10-30T22:09:36.269313+00:00",
+      "status": 200,
+      "rawSha256": "77f313dde0815bf985118734362c5fc676b69758ff8523336b5119f1dc4fbbd8"
+    },
+    {
+      "path": "docs/mechanics-research/p-protocol-evidence/plot-complete-oracle-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%2F%5Cbplot%5Cb%2F&unique=cards&order=name&include_extras=true",
+      "query": "fo:/\\bplot\\b/",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-30T22:09:36.474045+00:00",
+      "requestEndedUtc": "2026-10-30T22:09:37.377306+00:00",
+      "status": 200,
+      "rawSha256": "6488e8a0eab68a13122cdbe24002f90d92ca3fce2fdf8bb5bb0269faea21f48c"
+    },
+    {
+      "path": "docs/mechanics-research/p-protocol-evidence/populate-complete-oracle-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%2F%5Cbpopulate%5Cb%2F&unique=cards&order=name&include_extras=true",
+      "query": "fo:/\\bpopulate\\b/",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-30T22:09:37.580534+00:00",
+      "requestEndedUtc": "2026-10-30T22:09:38.117588+00:00",
+      "status": 200,
+      "rawSha256": "6821af01f2b50488e454fa30d8c9710165ded0181f86d2804a22eb5a0cc47289"
+    },
+    {
+      "path": "docs/mechanics-research/p-protocol-evidence/power-up-complete-oracle-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%2F%5Cbpower-up%5Cb%2F&unique=cards&order=name&include_extras=true",
+      "query": "fo:/\\bpower-up\\b/",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-30T22:09:38.320134+00:00",
+      "requestEndedUtc": "2026-10-30T22:09:38.943978+00:00",
+      "status": 200,
+      "rawSha256": "624b43c54299996a8c001e106b39e88a0b6dea8e4fc66fd7531d28718dd719ca"
+    },
+    {
+      "path": "docs/mechanics-research/p-protocol-evidence/proliferate-complete-oracle-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%2F%5Cbproliferate%5Cb%2F&unique=cards&order=name&include_extras=true",
+      "query": "fo:/\\bproliferate\\b/",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-30T22:09:39.147063+00:00",
+      "requestEndedUtc": "2026-10-30T22:09:39.766483+00:00",
+      "status": 200,
+      "rawSha256": "262e852584e27506ee5c3e52085bfa389f34c220270e048038e8a4a2f5d0b947"
+    },
+    {
+      "path": "docs/mechanics-research/p-protocol-evidence/prototype-complete-oracle-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%2F%5Cbprototype%5Cb%2F&unique=cards&order=name&include_extras=true",
+      "query": "fo:/\\bprototype\\b/",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-30T22:09:39.972306+00:00",
+      "requestEndedUtc": "2026-10-30T22:09:40.373762+00:00",
+      "status": 200,
+      "rawSha256": "4b1f7baaf2df5150b2f9734e5ebaf6a0436bda760be10a385e57bd6ac07a4c91"
+    },
+    {
+      "path": "docs/mechanics-research/p-protocol-evidence/provoke-complete-oracle-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%2F%5Cbprovoke%5Cb%2F&unique=cards&order=name&include_extras=true",
+      "query": "fo:/\\bprovoke\\b/",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-30T22:09:40.576337+00:00",
+      "requestEndedUtc": "2026-10-30T22:09:40.935815+00:00",
+      "status": 200,
+      "rawSha256": "2763bc1c2951485d95f1f5e1365a7b0eb6b3b0f1137fac97e372b74ae7aeb697"
+    },
+    {
+      "path": "docs/mechanics-research/p-protocol-evidence/prowl-complete-oracle-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%2F%5Cbprowl%5Cb%2F&unique=cards&order=name&include_extras=true",
+      "query": "fo:/\\bprowl\\b/",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-30T22:09:41.138053+00:00",
+      "requestEndedUtc": "2026-10-30T22:09:41.418447+00:00",
+      "status": 200,
+      "rawSha256": "3be2b908fd78a992070a832e85278d8c1f8cf312cd2aa57a35478c0a3009b252"
+    },
+    {
+      "path": "docs/mechanics-research/p-protocol-evidence/partner-with-complete-oracle-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%2F%5Cbpartner+with%5Cb%2F&unique=cards&order=name&include_extras=true",
+      "query": "fo:/\\bpartner with\\b/",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-30T22:09:41.620061+00:00",
+      "requestEndedUtc": "2026-10-30T22:09:42.561980+00:00",
+      "status": 200,
+      "rawSha256": "99882cdb2014c0db14469d617e5db8c9f5d2c9479408de5788b37cbdba6a9e2c"
+    },
+    {
+      "path": "docs/mechanics-research/p-protocol-evidence/plainscycling-complete-oracle-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%2F%5Cbplainscycling%5Cb%2F&unique=cards&order=name&include_extras=true",
+      "query": "fo:/\\bplainscycling\\b/",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-30T22:09:42.765780+00:00",
+      "requestEndedUtc": "2026-10-30T22:09:43.256263+00:00",
+      "status": 200,
+      "rawSha256": "4ae0a58ecc7e9738809c05a7fa2bcdbc7879f64edaf3e5b7970c2c34ae9653ae"
+    },
+    {
+      "path": "docs/mechanics-research/p-protocol-evidence/prepared-complete-oracle-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%2F%5Cbprepared%5Cb%2F&unique=cards&order=name&include_extras=true",
+      "query": "fo:/\\bprepared\\b/",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-30T22:09:43.457940+00:00",
+      "requestEndedUtc": "2026-10-30T22:09:44.131178+00:00",
+      "status": 200,
+      "rawSha256": "233c3e3c8c2a0c0e17b75090ecf0e332505f6c88e5c96f0468237d0d3ada88b5"
+    },
+    {
+      "path": "docs/mechanics-research/p-protocol-evidence/plainswalk-complete-oracle-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%2F%5Cbplainswalk%5Cb%2F&unique=cards&order=name&include_extras=true",
+      "query": "fo:/\\bplainswalk\\b/",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-30T22:09:44.336135+00:00",
+      "requestEndedUtc": "2026-10-30T22:09:44.809104+00:00",
+      "status": 200,
+      "rawSha256": "081aa32fa2e9ead26b4f34c80e73aea9160a52306aeb45195b1e9da388a74816"
+    },
+    {
+      "path": "docs/mechanics-research/p-protocol-evidence/poisonous-complete-oracle-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%2F%5Cbpoisonous%5Cb%2F&unique=cards&order=name&include_extras=true",
+      "query": "fo:/\\bpoisonous\\b/",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-30T22:09:45.011401+00:00",
+      "requestEndedUtc": "2026-10-30T22:09:45.296512+00:00",
+      "status": 200,
+      "rawSha256": "429d854b5fad20680c3d4a2ff2553d39b410fe559e2480d1124bc4be8e6d2f93"
+    },
+    {
+      "path": "docs/mechanics-research/p-protocol-evidence/planeswalk-complete-oracle-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%2F%5Cbplaneswalk%28%3F%3As%7Ced%7Cing%29%3F%5Cb%2F&unique=cards&order=name&include_extras=true",
+      "query": "fo:/\\bplaneswalk(?:s|ed|ing)?\\b/",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-30T22:09:45.498025+00:00",
+      "requestEndedUtc": "2026-10-30T22:09:46.701408+00:00",
+      "status": 200,
+      "rawSha256": "158fb4466ef68affb64f962b191ce4087f6c5932df85428fa5cd194ad715e032"
+    },
+    {
+      "path": "docs/mechanics-research/p-protocol-evidence/plot-inflections-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%2F%5Cbplot%28%3F%3Ated%7Cs%7Cting%29%3F%5Cb%2F&unique=cards&order=name&include_extras=true",
+      "query": "fo:/\\bplot(?:ted|s|ting)?\\b/",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-30T22:11:24.619029+00:00",
+      "requestEndedUtc": "2026-10-30T22:11:25.520277+00:00",
+      "status": 200,
+      "rawSha256": "41102801ed8704fe8224cd059ca457176cfa4e639d921d1ae861ff183adeb864"
+    }
+  ]
+}

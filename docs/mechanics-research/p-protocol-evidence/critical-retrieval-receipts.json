@@ -1,0 +1,22 @@
+{
+  "retrievals": [
+    {
+      "path": "docs/mechanics-research/p-protocol-evidence/phasing-full-oracle-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%2F%5Cbphases%3F%20out%5Cb%2F&unique=cards&order=name&include_extras=true",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-30T22:06:04.9712474Z",
+      "retrievedUtc": "2026-10-30T22:06:05.1441854Z",
+      "status": 200,
+      "sha256": "58c65088a293fa938760512e055959024815358c1650fd1bb1785dcad48f55a1"
+    },
+    {
+      "path": "docs/mechanics-research/p-protocol-evidence/planeswalk-boundary-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%2F%5Cbplaneswalk%28%3F%3As%7Ced%7Cing%29%3F%5Cb%2F&unique=cards&order=name&include_extras=true",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-30T22:06:05.1538737Z",
+      "retrievedUtc": "2026-10-30T22:06:05.2509773Z",
+      "status": 200,
+      "sha256": "c104a4ca55dc7499092f09b856078de0336d8621aa678d54904e4a5e4203d9be"
+    }
+  ]
+}
