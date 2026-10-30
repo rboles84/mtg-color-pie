@@ -1964,6 +1964,18 @@ const I_MANA = {...H_MANA};
 // M adds its encountered snow and white/blue hybrid costs without changing A–L.
 const M_MANA = {...I_MANA, S:['s','One mana from a snow source'], 'W/U':['wu','One white or blue mana']};
 function supplementalTextHTML(value, symbols = SUP_MANA){
+  // A–L retain the exact established formatter markup. Cost runs are an M
+  // presentation repair only; earlier packets remain byte-for-byte shaped.
+  if(symbols!==M_MANA){
+    let html = '', cursor = 0;
+    for (const match of value.matchAll(/\{[^{}\r\n]+\}/g)){
+      html += esc(value.slice(cursor, match.index));
+      const symbol = Object.hasOwn(symbols, match[0].slice(1,-1)) ? symbols[match[0].slice(1,-1)] : null;
+      html += symbol ? `<span class="supp-symbol" role="img" aria-label="${esc(symbol[1])}" title="${esc(symbol[1])}"><i class="ms ms-cost ms-${symbol[0]}" aria-hidden="true"></i><span class="supp-symbol-text" aria-hidden="true">${esc(match[0])}</span></span>` : esc(match[0]);
+      cursor = match.index + match[0].length;
+    }
+    return html + esc(value.slice(cursor));
+  }
   const token=/\{[^{}\r\n]+\}/g, run=/(?:\{[^{}\r\n]+\})+/g;
   return value.split(new RegExp(`(${run.source})`)).map((part,index)=>{
     if(index%2===0)return esc(part);

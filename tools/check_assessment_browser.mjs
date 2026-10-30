@@ -299,6 +299,15 @@ async function checkMutatePips(page,browser,baseline){
     assert.ok(geometry.symbols.slice(1).every((symbol,index)=>symbol.x>=geometry.symbols[index].x+geometry.symbols[index].w+.5),name+' pips have visible non-overlapping spacing');
     assert.ok(geometry.symbols.every((symbol,index)=>tokens[index].includes('/')?symbol.after&&!['none','normal','""'].includes(symbol.after):!symbol.after||symbol.after==='none'),name+' only hybrid pips paint a second native half');
   }
+  await page.evaluate(()=>VMX.open('deck:vocabulary:landfall'));await page.locator('.assessment-notes > summary').click();
+  assert.equal(await page.locator('#detail .supp-cost-run').count(),0,'legacy L formatter preserves its established ungrouped markup');
+  const redGreen=await browser.newPage({viewport:{width:466,height:900}}),injected=structuredClone(payload);
+  injected.records.find(record=>record.name==='Mutate').summary='Fixture red before green {R}{G}.';
+  await redGreen.route(assessmentRoute,route=>route.fulfill({contentType:'application/json',body:JSON.stringify(injected)}));await redGreen.goto(url);await redGreen.waitForFunction(()=>VMX.assessments().status==='ready');await redGreen.evaluate(id=>VMX.open(id),mutate.id);await redGreen.locator('.assessment-notes > summary').click();
+  const redGreenPips=await redGreen.locator('#detail .assessment-notes > p').first().locator('.supp-cost-run .ms').evaluateAll(items=>items.map(item=>{const box=item.getBoundingClientRect();return {className:item.className,x:box.x,y:box.y,w:box.width,h:box.height,before:getComputedStyle(item,'::before').content,after:getComputedStyle(item,'::after').content};}));
+  assert.deepEqual(redGreenPips.map(pip=>pip.className),['ms ms-cost ms-r','ms ms-cost ms-g'],'red-before-green fixture preserves source token order');
+  assert.ok(redGreenPips[1].x>=redGreenPips[0].x+redGreenPips[0].w+.5&&Math.abs(redGreenPips[0].y-redGreenPips[1].y)<=.1&&Math.abs(redGreenPips[0].h-redGreenPips[1].h)<=.1,'red-before-green fixture has spaced, aligned painted glyph boxes');
+  assert.ok(redGreenPips.every(pip=>pip.before&&!['none','normal','""'].includes(pip.before)&&pip.after==='none'),'red-before-green fixture has no stray hybrid artwork');await redGreen.close();
   const noFont=await browser.newPage({viewport:{width:466,height:900}});await noFont.route('**/mana-font@1.18.0/**',route=>route.abort());await noFont.goto(url);await noFont.waitForFunction(()=>VMX.assessments().status==='ready');await noFont.evaluate(id=>VMX.open(id),mutate.id);await noFont.locator('.assessment-notes > summary').click();
   for(const [name,tokens] of Object.entries(expected))assert.deepEqual(await noFont.locator('#detail .assessment-example').filter({hasText:name}).locator('.supp-cost-run .supp-symbol').allInnerTexts(),tokens,name+' keeps readable no-font cost text');
   await noFont.close();await page.setViewportSize({width:1440,height:900});await page.evaluate(()=>{VMX.chooseCombo('W');VMX.clearColors();VMX.setView('article');VMX.setView('az');});assert.equal(await page.evaluate(math),baseline);
