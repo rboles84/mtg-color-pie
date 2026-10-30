@@ -1,0 +1,3333 @@
+{
+  "protocol_version": "2.0",
+  "review_date": "2026-10-29",
+  "records": [
+    {
+      "mechanic": {
+        "id": "deck:vocabulary:job select",
+        "sourceId": "job select",
+        "population": "vocabulary",
+        "name": "Job Select",
+        "aliases": [],
+        "category": "keyword ability",
+        "target2021": null,
+        "reference": null,
+        "rule": "702.182",
+        "clauses": [
+          {
+            "number": "702.182a",
+            "text": "Job select is a triggered ability. “Job select” means “When this Equipment enters, create a 1/1 colorless Hero creature token, then attach this Equipment to it.”"
+          }
+        ],
+        "rulesSource": {
+          "date": "2026-09-25",
+          "sourceUrl": "https://media.wizards.com/2026/downloads/MagicCompRules%2020260925.txt",
+          "sourceSha256": "8d860e451f20f38865b725b42d82feb714c725373dd8f3b32b8652b3eeb070ca"
+        },
+        "qualifications": {
+          "sourceCategories": [
+            "keyword-abilities"
+          ],
+          "providerCategories": [
+            "keyword-abilities"
+          ]
+        },
+        "rankings": [],
+        "accepted_id": "deck:vocabulary:job select"
+      },
+      "sources": [],
+      "queries": [
+        {
+          "url": "https://api.scryfall.com/cards/search?q=o%3A%22job%20select%22&unique=cards",
+          "purpose": "job-select discovery"
+        }
+      ],
+      "selection_method": "One released-paper witness is selected for each independently represented color or observed color combination.",
+      "card_review": [
+        {
+          "oracle_id": "7465d02f-3eee-483c-8de3-404381aa21eb",
+          "name": "Dancer's Chakrams",
+          "scryfall_url": "https://scryfall.com/card/fic/17/dancers-chakrams?utm_source=api",
+          "scope": "released_paper",
+          "roles": [
+            "native"
+          ],
+          "included": true,
+          "attributed_colors": [
+            "W"
+          ],
+          "mechanic_face": "Dancer's Chakrams",
+          "inclusion_reason": "Selected witness: Job select (When this Equipment enters, create a 1/1 colorless Hero creature token, then attach this to it.)",
+          "card_facts": {
+            "object": "card",
+            "id": "27ec595f-406b-4539-8d2e-eb98df1a0fc9",
+            "oracle_id": "7465d02f-3eee-483c-8de3-404381aa21eb",
+            "multiverse_ids": [],
+            "resource_id": "B6540AA78FDC156CE106A846966E66B7DE84473FA8A4EC8DA1C0623E151BB31F",
+            "mtgo_id": 140025,
+            "tcgplayer_id": 631100,
+            "cardmarket_id": 824505,
+            "name": "Dancer's Chakrams",
+            "lang": "en",
+            "released_at": "2025-06-13",
+            "uri": "https://api.scryfall.com/cards/27ec595f-406b-4539-8d2e-eb98df1a0fc9",
+            "scryfall_uri": "https://scryfall.com/card/fic/17/dancers-chakrams?utm_source=api",
+            "layout": "normal",
+            "highres_image": true,
+            "image_status": "highres_scan",
+            "image_updated_at": "2026-07-13T01:32:49Z",
+            "image_uris": {
+              "small": "https://cards.scryfall.io/small/front/2/7/27ec595f-406b-4539-8d2e-eb98df1a0fc9.jpg?1783906369",
+              "normal": "https://cards.scryfall.io/normal/front/2/7/27ec595f-406b-4539-8d2e-eb98df1a0fc9.jpg?1783906369",
+              "large": "https://cards.scryfall.io/large/front/2/7/27ec595f-406b-4539-8d2e-eb98df1a0fc9.jpg?1783906369",
+              "png": "https://cards.scryfall.io/png/front/2/7/27ec595f-406b-4539-8d2e-eb98df1a0fc9.png?1783906369",
+              "art_crop": "https://cards.scryfall.io/art_crop/front/2/7/27ec595f-406b-4539-8d2e-eb98df1a0fc9.jpg?1783906369",
+              "border_crop": "https://cards.scryfall.io/border_crop/front/2/7/27ec595f-406b-4539-8d2e-eb98df1a0fc9.jpg?1783906369",
+              "thumb": "https://cards.scryfall.io/thumb/front/2/7/27ec595f-406b-4539-8d2e-eb98df1a0fc9.webp?1783906369",
+              "grid": "https://cards.scryfall.io/grid/front/2/7/27ec595f-406b-4539-8d2e-eb98df1a0fc9.webp?1783906369",
+              "display": "https://cards.scryfall.io/display/front/2/7/27ec595f-406b-4539-8d2e-eb98df1a0fc9.webp?1783906369",
+              "art": "https://cards.scryfall.io/art/front/2/7/27ec595f-406b-4539-8d2e-eb98df1a0fc9.webp?1783906369",
+              "crop": "https://cards.scryfall.io/crop/front/2/7/27ec595f-406b-4539-8d2e-eb98df1a0fc9.webp?1783906369",
+              "jpeg": "https://cards.scryfall.io/normal/front/2/7/27ec595f-406b-4539-8d2e-eb98df1a0fc9.jpg?1783906369"
+            },
+            "mana_cost": "{3}{W}",
+            "cmc": 4.0,
+            "type_line": "Artifact — Equipment",
+            "oracle_text": "Job select (When this Equipment enters, create a 1/1 colorless Hero creature token, then attach this to it.)\nEquipped creature gets +2/+2, has lifelink and \"Other commanders you control get +2/+2 and have lifelink,\" and is a Performer in addition to its other types.\nKrishna — Equip {3}",
+            "colors": [
+              "W"
+            ],
+            "color_identity": [
+              "W"
+            ],
+            "keywords": [
+              "Job select",
+              "Equip",
+              "Krishna"
+            ],
+            "all_parts": [
+              {
+                "object": "related_card",
+                "id": "13764c53-57cc-4418-8a15-cdb72f6f3b0e",
+                "component": "combo_piece",
+                "name": "Dancer's Chakrams",
+                "type_line": "Artifact — Equipment",
+                "uri": "https://api.scryfall.com/cards/13764c53-57cc-4418-8a15-cdb72f6f3b0e"
+              },
+              {
+                "object": "related_card",
+                "id": "17fa0c1f-6737-487c-9101-0bec2e586795",
+                "component": "token",
+                "name": "Hero",
+                "type_line": "Token Creature — Hero",
+                "uri": "https://api.scryfall.com/cards/17fa0c1f-6737-487c-9101-0bec2e586795"
+              }
+            ],
+            "legalities": {
+              "standard": "not_legal",
+              "future": "not_legal",
+              "historic": "not_legal",
+              "timeless": "not_legal",
+              "gladiator": "not_legal",
+              "pioneer": "not_legal",
+              "modern": "not_legal",
+              "legacy": "legal",
+              "pauper": "not_legal",
+              "vintage": "legal",
+              "penny": "not_legal",
+              "commander": "legal",
+              "oathbreaker": "legal",
+              "standardbrawl": "not_legal",
+              "brawl": "not_legal",
+              "competitivebrawl": "not_legal",
+              "alchemy": "not_legal",
+              "paupercommander": "not_legal",
+              "duel": "legal",
+              "oldschool": "not_legal",
+              "premodern": "not_legal",
+              "predh": "not_legal",
+              "tlr": "not_legal"
+            },
+            "games": [
+              "paper",
+              "mtgo"
+            ],
+            "reserved": false,
+            "game_changer": false,
+            "foil": true,
+            "nonfoil": true,
+            "finishes": [
+              "nonfoil",
+              "foil"
+            ],
+            "oversized": false,
+            "promo": false,
+            "reprint": false,
+            "variation": false,
+            "set_id": "30659956-4558-4cbf-a65f-34cd00c89579",
+            "set": "fic",
+            "set_name": "Final Fantasy Commander",
+            "set_type": "commander",
+            "set_uri": "https://api.scryfall.com/sets/30659956-4558-4cbf-a65f-34cd00c89579",
+            "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Afic&unique=prints",
+            "scryfall_set_uri": "https://scryfall.com/sets/fic?utm_source=api",
+            "rulings_uri": "https://api.scryfall.com/cards/27ec595f-406b-4539-8d2e-eb98df1a0fc9/rulings",
+            "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A7465d02f-3eee-483c-8de3-404381aa21eb&unique=prints",
+            "collector_number": "17",
+            "digital": false,
+            "rarity": "rare",
+            "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+            "artist": "Domco.",
+            "artist_ids": [
+              "335ee004-6e6a-4448-9baa-ccbb226a3280"
+            ],
+            "illustration_id": "10783e16-55ff-4c14-940b-1e857598aa67",
+            "border_color": "black",
+            "frame": "2015",
+            "security_stamp": "triangle",
+            "full_art": false,
+            "textless": false,
+            "booster": false,
+            "story_spotlight": false,
+            "promo_types": [
+              "ffxiv",
+              "surgefoil",
+              "universesbeyond"
+            ],
+            "edhrec_rank": 4143,
+            "prices": {
+              "usd": "0.24",
+              "usd_foil": null,
+              "usd_etched": null,
+              "eur": "0.36",
+              "eur_foil": null,
+              "tix": "1.27"
+            },
+            "related_uris": {
+              "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DDancer%2527s%2BChakrams",
+              "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DDancer%2527s%2BChakrams",
+              "edhrec": "https://edhrec.com/route/?cc=Dancer%27s+Chakrams"
+            },
+            "purchase_uris": {
+              "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F631100%3Fpage%3D1",
+              "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=824505&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+              "cardhoarder": "https://www.cardhoarder.com/cards/140025?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+            }
+          },
+          "evidence_binding": {
+            "path": "docs/mechanics-research/j-protocol-evidence/job-select-discovery-1.json",
+            "sha256": "eef341dae5b25d5d3fb5cd626f33d22231f037b7d27194b26faa01315d886f4d",
+            "printing_id": "27ec595f-406b-4539-8d2e-eb98df1a0fc9",
+            "oracle_id": "7465d02f-3eee-483c-8de3-404381aa21eb"
+          }
+        },
+        {
+          "oracle_id": "4dcd0583-cee0-46a6-ba43-93bca5eb0428",
+          "name": "Astrologian's Planisphere",
+          "scryfall_url": "https://scryfall.com/card/fin/46/astrologians-planisphere?utm_source=api",
+          "scope": "released_paper",
+          "roles": [
+            "native"
+          ],
+          "included": true,
+          "attributed_colors": [
+            "U"
+          ],
+          "mechanic_face": "Astrologian's Planisphere",
+          "inclusion_reason": "Selected witness: Job select (When this Equipment enters, create a 1/1 colorless Hero creature token, then attach this to it.)",
+          "card_facts": {
+            "object": "card",
+            "id": "bfa4e927-1d6f-4a64-9801-7d168a5ef3f6",
+            "oracle_id": "4dcd0583-cee0-46a6-ba43-93bca5eb0428",
+            "multiverse_ids": [],
+            "resource_id": "5FFDCAC24AD7044BDD2DC0B13AC3124286574C2F40B94E359EF9EED33ED04AEC",
+            "mtgo_id": 141017,
+            "arena_id": 95902,
+            "tcgplayer_id": 631588,
+            "cardmarket_id": 824943,
+            "name": "Astrologian's Planisphere",
+            "lang": "en",
+            "released_at": "2025-06-13",
+            "uri": "https://api.scryfall.com/cards/bfa4e927-1d6f-4a64-9801-7d168a5ef3f6",
+            "scryfall_uri": "https://scryfall.com/card/fin/46/astrologians-planisphere?utm_source=api",
+            "layout": "normal",
+            "highres_image": true,
+            "image_status": "highres_scan",
+            "image_updated_at": "2026-07-13T01:37:20Z",
+            "image_uris": {
+              "small": "https://cards.scryfall.io/small/front/b/f/bfa4e927-1d6f-4a64-9801-7d168a5ef3f6.jpg?1783906640",
+              "normal": "https://cards.scryfall.io/normal/front/b/f/bfa4e927-1d6f-4a64-9801-7d168a5ef3f6.jpg?1783906640",
+              "large": "https://cards.scryfall.io/large/front/b/f/bfa4e927-1d6f-4a64-9801-7d168a5ef3f6.jpg?1783906640",
+              "png": "https://cards.scryfall.io/png/front/b/f/bfa4e927-1d6f-4a64-9801-7d168a5ef3f6.png?1783906640",
+              "art_crop": "https://cards.scryfall.io/art_crop/front/b/f/bfa4e927-1d6f-4a64-9801-7d168a5ef3f6.jpg?1783906640",
+              "border_crop": "https://cards.scryfall.io/border_crop/front/b/f/bfa4e927-1d6f-4a64-9801-7d168a5ef3f6.jpg?1783906640",
+              "thumb": "https://cards.scryfall.io/thumb/front/b/f/bfa4e927-1d6f-4a64-9801-7d168a5ef3f6.webp?1783906640",
+              "grid": "https://cards.scryfall.io/grid/front/b/f/bfa4e927-1d6f-4a64-9801-7d168a5ef3f6.webp?1783906640",
+              "display": "https://cards.scryfall.io/display/front/b/f/bfa4e927-1d6f-4a64-9801-7d168a5ef3f6.webp?1783906640",
+              "art": "https://cards.scryfall.io/art/front/b/f/bfa4e927-1d6f-4a64-9801-7d168a5ef3f6.webp?1783906640",
+              "crop": "https://cards.scryfall.io/crop/front/b/f/bfa4e927-1d6f-4a64-9801-7d168a5ef3f6.webp?1783906640",
+              "jpeg": "https://cards.scryfall.io/normal/front/b/f/bfa4e927-1d6f-4a64-9801-7d168a5ef3f6.jpg?1783906640"
+            },
+            "mana_cost": "{1}{U}",
+            "cmc": 2.0,
+            "type_line": "Artifact — Equipment",
+            "oracle_text": "Job select (When this Equipment enters, create a 1/1 colorless Hero creature token, then attach this to it.)\nEquipped creature is a Wizard in addition to its other types and has \"Whenever you cast a noncreature spell and whenever you draw your third card each turn, put a +1/+1 counter on this creature.\"\nDiana — Equip {2}",
+            "colors": [
+              "U"
+            ],
+            "color_identity": [
+              "U"
+            ],
+            "keywords": [
+              "Job select",
+              "Diana",
+              "Equip"
+            ],
+            "all_parts": [
+              {
+                "object": "related_card",
+                "id": "a0f6e2d7-58b5-4a7d-8c42-e25185cd173f",
+                "component": "combo_piece",
+                "name": "Astrologian's Planisphere",
+                "type_line": "Artifact — Equipment",
+                "uri": "https://api.scryfall.com/cards/a0f6e2d7-58b5-4a7d-8c42-e25185cd173f"
+              },
+              {
+                "object": "related_card",
+                "id": "17fa0c1f-6737-487c-9101-0bec2e586795",
+                "component": "token",
+                "name": "Hero",
+                "type_line": "Token Creature — Hero",
+                "uri": "https://api.scryfall.com/cards/17fa0c1f-6737-487c-9101-0bec2e586795"
+              }
+            ],
+            "legalities": {
+              "standard": "legal",
+              "future": "legal",
+              "historic": "legal",
+              "timeless": "legal",
+              "gladiator": "legal",
+              "pioneer": "legal",
+              "modern": "legal",
+              "legacy": "legal",
+              "pauper": "not_legal",
+              "vintage": "legal",
+              "penny": "not_legal",
+              "commander": "legal",
+              "oathbreaker": "legal",
+              "standardbrawl": "legal",
+              "brawl": "legal",
+              "competitivebrawl": "legal",
+              "alchemy": "legal",
+              "paupercommander": "not_legal",
+              "duel": "legal",
+              "oldschool": "not_legal",
+              "premodern": "not_legal",
+              "predh": "not_legal",
+              "tlr": "legal"
+            },
+            "games": [
+              "paper",
+              "arena",
+              "mtgo"
+            ],
+            "reserved": false,
+            "game_changer": false,
+            "foil": true,
+            "nonfoil": true,
+            "finishes": [
+              "nonfoil",
+              "foil"
+            ],
+            "oversized": false,
+            "promo": false,
+            "reprint": false,
+            "variation": false,
+            "set_id": "d7beb4b7-e1ff-4d35-ab07-5700f17ea1ea",
+            "set": "fin",
+            "set_name": "Final Fantasy",
+            "set_type": "expansion",
+            "set_uri": "https://api.scryfall.com/sets/d7beb4b7-e1ff-4d35-ab07-5700f17ea1ea",
+            "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Afin&unique=prints",
+            "scryfall_set_uri": "https://scryfall.com/sets/fin?utm_source=api",
+            "rulings_uri": "https://api.scryfall.com/cards/bfa4e927-1d6f-4a64-9801-7d168a5ef3f6/rulings",
+            "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A4dcd0583-cee0-46a6-ba43-93bca5eb0428&unique=prints",
+            "collector_number": "46",
+            "digital": false,
+            "rarity": "rare",
+            "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+            "artist": "Josephine Chang",
+            "artist_ids": [
+              "95f381e8-b7fb-4719-865d-f818511fa331"
+            ],
+            "illustration_id": "4d5bf291-4c44-425c-950d-f49a4583001b",
+            "border_color": "black",
+            "frame": "2015",
+            "security_stamp": "triangle",
+            "full_art": false,
+            "textless": false,
+            "booster": true,
+            "story_spotlight": false,
+            "promo_types": [
+              "ffxiv",
+              "universesbeyond"
+            ],
+            "edhrec_rank": 5117,
+            "prices": {
+              "usd": "0.26",
+              "usd_foil": "0.69",
+              "usd_etched": null,
+              "eur": "0.26",
+              "eur_foil": "0.61",
+              "tix": "0.03"
+            },
+            "related_uris": {
+              "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DAstrologian%2527s%2BPlanisphere",
+              "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DAstrologian%2527s%2BPlanisphere",
+              "edhrec": "https://edhrec.com/route/?cc=Astrologian%27s+Planisphere"
+            },
+            "purchase_uris": {
+              "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F631588%3Fpage%3D1",
+              "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=824943&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+              "cardhoarder": "https://www.cardhoarder.com/cards/141017?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+            }
+          },
+          "evidence_binding": {
+            "path": "docs/mechanics-research/j-protocol-evidence/job-select-discovery-1.json",
+            "sha256": "eef341dae5b25d5d3fb5cd626f33d22231f037b7d27194b26faa01315d886f4d",
+            "printing_id": "bfa4e927-1d6f-4a64-9801-7d168a5ef3f6",
+            "oracle_id": "4dcd0583-cee0-46a6-ba43-93bca5eb0428"
+          }
+        },
+        {
+          "oracle_id": "909b3d90-5762-461b-b49a-004a9e72733d",
+          "name": "Black Mage's Rod",
+          "scryfall_url": "https://scryfall.com/card/fin/90/black-mages-rod?utm_source=api",
+          "scope": "released_paper",
+          "roles": [
+            "native"
+          ],
+          "included": true,
+          "attributed_colors": [
+            "B"
+          ],
+          "mechanic_face": "Black Mage's Rod",
+          "inclusion_reason": "Selected witness: Job select (When this Equipment enters, create a 1/1 colorless Hero creature token, then attach this to it.)",
+          "card_facts": {
+            "object": "card",
+            "id": "35e8f140-055f-4fc7-a765-fb030d828214",
+            "oracle_id": "909b3d90-5762-461b-b49a-004a9e72733d",
+            "multiverse_ids": [],
+            "resource_id": "58E4430C273B05DC3103CEC47E8ADE846C15BF80A2FC7C4D52D3E99C8DF1EC9B",
+            "mtgo_id": 141109,
+            "arena_id": 95948,
+            "tcgplayer_id": 630932,
+            "cardmarket_id": 824134,
+            "name": "Black Mage's Rod",
+            "lang": "en",
+            "released_at": "2025-06-13",
+            "uri": "https://api.scryfall.com/cards/35e8f140-055f-4fc7-a765-fb030d828214",
+            "scryfall_uri": "https://scryfall.com/card/fin/90/black-mages-rod?utm_source=api",
+            "layout": "normal",
+            "highres_image": true,
+            "image_status": "highres_scan",
+            "image_updated_at": "2026-07-13T01:37:02Z",
+            "image_uris": {
+              "small": "https://cards.scryfall.io/small/front/3/5/35e8f140-055f-4fc7-a765-fb030d828214.jpg?1783906622",
+              "normal": "https://cards.scryfall.io/normal/front/3/5/35e8f140-055f-4fc7-a765-fb030d828214.jpg?1783906622",
+              "large": "https://cards.scryfall.io/large/front/3/5/35e8f140-055f-4fc7-a765-fb030d828214.jpg?1783906622",
+              "png": "https://cards.scryfall.io/png/front/3/5/35e8f140-055f-4fc7-a765-fb030d828214.png?1783906622",
+              "art_crop": "https://cards.scryfall.io/art_crop/front/3/5/35e8f140-055f-4fc7-a765-fb030d828214.jpg?1783906622",
+              "border_crop": "https://cards.scryfall.io/border_crop/front/3/5/35e8f140-055f-4fc7-a765-fb030d828214.jpg?1783906622",
+              "thumb": "https://cards.scryfall.io/thumb/front/3/5/35e8f140-055f-4fc7-a765-fb030d828214.webp?1783906622",
+              "grid": "https://cards.scryfall.io/grid/front/3/5/35e8f140-055f-4fc7-a765-fb030d828214.webp?1783906622",
+              "display": "https://cards.scryfall.io/display/front/3/5/35e8f140-055f-4fc7-a765-fb030d828214.webp?1783906622",
+              "art": "https://cards.scryfall.io/art/front/3/5/35e8f140-055f-4fc7-a765-fb030d828214.webp?1783906622",
+              "crop": "https://cards.scryfall.io/crop/front/3/5/35e8f140-055f-4fc7-a765-fb030d828214.webp?1783906622",
+              "jpeg": "https://cards.scryfall.io/normal/front/3/5/35e8f140-055f-4fc7-a765-fb030d828214.jpg?1783906622"
+            },
+            "mana_cost": "{1}{B}",
+            "cmc": 2.0,
+            "type_line": "Artifact — Equipment",
+            "oracle_text": "Job select (When this Equipment enters, create a 1/1 colorless Hero creature token, then attach this to it.)\nEquipped creature gets +1/+0, has \"Whenever you cast a noncreature spell, this creature deals 1 damage to each opponent,\" and is a Wizard in addition to its other types.\nEquip {3}",
+            "colors": [
+              "B"
+            ],
+            "color_identity": [
+              "B"
+            ],
+            "keywords": [
+              "Job select",
+              "Equip"
+            ],
+            "all_parts": [
+              {
+                "object": "related_card",
+                "id": "35e8f140-055f-4fc7-a765-fb030d828214",
+                "component": "combo_piece",
+                "name": "Black Mage's Rod",
+                "type_line": "Artifact — Equipment",
+                "uri": "https://api.scryfall.com/cards/35e8f140-055f-4fc7-a765-fb030d828214"
+              },
+              {
+                "object": "related_card",
+                "id": "17fa0c1f-6737-487c-9101-0bec2e586795",
+                "component": "token",
+                "name": "Hero",
+                "type_line": "Token Creature — Hero",
+                "uri": "https://api.scryfall.com/cards/17fa0c1f-6737-487c-9101-0bec2e586795"
+              }
+            ],
+            "legalities": {
+              "standard": "legal",
+              "future": "legal",
+              "historic": "legal",
+              "timeless": "legal",
+              "gladiator": "legal",
+              "pioneer": "legal",
+              "modern": "legal",
+              "legacy": "legal",
+              "pauper": "legal",
+              "vintage": "legal",
+              "penny": "not_legal",
+              "commander": "legal",
+              "oathbreaker": "legal",
+              "standardbrawl": "legal",
+              "brawl": "legal",
+              "competitivebrawl": "legal",
+              "alchemy": "legal",
+              "paupercommander": "legal",
+              "duel": "legal",
+              "oldschool": "not_legal",
+              "premodern": "not_legal",
+              "predh": "not_legal",
+              "tlr": "legal"
+            },
+            "games": [
+              "paper",
+              "arena",
+              "mtgo"
+            ],
+            "reserved": false,
+            "game_changer": false,
+            "foil": true,
+            "nonfoil": true,
+            "finishes": [
+              "nonfoil",
+              "foil"
+            ],
+            "oversized": false,
+            "promo": false,
+            "reprint": false,
+            "variation": false,
+            "set_id": "d7beb4b7-e1ff-4d35-ab07-5700f17ea1ea",
+            "set": "fin",
+            "set_name": "Final Fantasy",
+            "set_type": "expansion",
+            "set_uri": "https://api.scryfall.com/sets/d7beb4b7-e1ff-4d35-ab07-5700f17ea1ea",
+            "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Afin&unique=prints",
+            "scryfall_set_uri": "https://scryfall.com/sets/fin?utm_source=api",
+            "rulings_uri": "https://api.scryfall.com/cards/35e8f140-055f-4fc7-a765-fb030d828214/rulings",
+            "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A909b3d90-5762-461b-b49a-004a9e72733d&unique=prints",
+            "collector_number": "90",
+            "digital": false,
+            "rarity": "common",
+            "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+            "artist": "Nino Is",
+            "artist_ids": [
+              "ae717001-28ec-46e3-a07e-f16b6deaf9e2"
+            ],
+            "illustration_id": "da5b7d8f-40f3-49e4-bf89-fa915701e828",
+            "border_color": "black",
+            "frame": "2015",
+            "security_stamp": "triangle",
+            "full_art": false,
+            "textless": false,
+            "booster": true,
+            "story_spotlight": false,
+            "promo_types": [
+              "ffi",
+              "universesbeyond"
+            ],
+            "edhrec_rank": 2545,
+            "penny_rank": 3897,
+            "prices": {
+              "usd": "0.31",
+              "usd_foil": "0.52",
+              "usd_etched": null,
+              "eur": "0.24",
+              "eur_foil": "0.53",
+              "tix": "0.03"
+            },
+            "related_uris": {
+              "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DBlack%2BMage%2527s%2BRod",
+              "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DBlack%2BMage%2527s%2BRod",
+              "edhrec": "https://edhrec.com/route/?cc=Black+Mage%27s+Rod"
+            },
+            "purchase_uris": {
+              "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F630932%3Fpage%3D1",
+              "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=824134&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+              "cardhoarder": "https://www.cardhoarder.com/cards/141109?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+            }
+          },
+          "evidence_binding": {
+            "path": "docs/mechanics-research/j-protocol-evidence/job-select-discovery-1.json",
+            "sha256": "eef341dae5b25d5d3fb5cd626f33d22231f037b7d27194b26faa01315d886f4d",
+            "printing_id": "35e8f140-055f-4fc7-a765-fb030d828214",
+            "oracle_id": "909b3d90-5762-461b-b49a-004a9e72733d"
+          }
+        },
+        {
+          "oracle_id": "35ad9e15-3e00-4bd2-96cf-36a6ef49059f",
+          "name": "Red Mage's Rapier",
+          "scryfall_url": "https://scryfall.com/card/fin/152/red-mages-rapier?utm_source=api",
+          "scope": "released_paper",
+          "roles": [
+            "native"
+          ],
+          "included": true,
+          "attributed_colors": [
+            "R"
+          ],
+          "mechanic_face": "Red Mage's Rapier",
+          "inclusion_reason": "Selected witness: Job select (When this Equipment enters, create a 1/1 colorless Hero creature token, then attach this to it.)",
+          "card_facts": {
+            "object": "card",
+            "id": "e0579955-75f9-47a9-8b03-e287d120826a",
+            "oracle_id": "35ad9e15-3e00-4bd2-96cf-36a6ef49059f",
+            "multiverse_ids": [],
+            "resource_id": "A6EDC69E42DEA3F552AD9ADB85B1DC8BE23EF466C2EF223AAA1FA82013176943",
+            "mtgo_id": 141241,
+            "arena_id": 96017,
+            "tcgplayer_id": 634126,
+            "cardmarket_id": 827751,
+            "name": "Red Mage's Rapier",
+            "lang": "en",
+            "released_at": "2025-06-13",
+            "uri": "https://api.scryfall.com/cards/e0579955-75f9-47a9-8b03-e287d120826a",
+            "scryfall_uri": "https://scryfall.com/card/fin/152/red-mages-rapier?utm_source=api",
+            "layout": "normal",
+            "highres_image": true,
+            "image_status": "highres_scan",
+            "image_updated_at": "2026-07-13T01:36:40Z",
+            "image_uris": {
+              "small": "https://cards.scryfall.io/small/front/e/0/e0579955-75f9-47a9-8b03-e287d120826a.jpg?1783906600",
+              "normal": "https://cards.scryfall.io/normal/front/e/0/e0579955-75f9-47a9-8b03-e287d120826a.jpg?1783906600",
+              "large": "https://cards.scryfall.io/large/front/e/0/e0579955-75f9-47a9-8b03-e287d120826a.jpg?1783906600",
+              "png": "https://cards.scryfall.io/png/front/e/0/e0579955-75f9-47a9-8b03-e287d120826a.png?1783906600",
+              "art_crop": "https://cards.scryfall.io/art_crop/front/e/0/e0579955-75f9-47a9-8b03-e287d120826a.jpg?1783906600",
+              "border_crop": "https://cards.scryfall.io/border_crop/front/e/0/e0579955-75f9-47a9-8b03-e287d120826a.jpg?1783906600",
+              "thumb": "https://cards.scryfall.io/thumb/front/e/0/e0579955-75f9-47a9-8b03-e287d120826a.webp?1783906600",
+              "grid": "https://cards.scryfall.io/grid/front/e/0/e0579955-75f9-47a9-8b03-e287d120826a.webp?1783906600",
+              "display": "https://cards.scryfall.io/display/front/e/0/e0579955-75f9-47a9-8b03-e287d120826a.webp?1783906600",
+              "art": "https://cards.scryfall.io/art/front/e/0/e0579955-75f9-47a9-8b03-e287d120826a.webp?1783906600",
+              "crop": "https://cards.scryfall.io/crop/front/e/0/e0579955-75f9-47a9-8b03-e287d120826a.webp?1783906600",
+              "jpeg": "https://cards.scryfall.io/normal/front/e/0/e0579955-75f9-47a9-8b03-e287d120826a.jpg?1783906600"
+            },
+            "mana_cost": "{1}{R}",
+            "cmc": 2.0,
+            "type_line": "Artifact — Equipment",
+            "oracle_text": "Job select (When this Equipment enters, create a 1/1 colorless Hero creature token, then attach this to it.)\nEquipped creature has \"Whenever you cast a noncreature spell, this creature gets +2/+0 until end of turn\" and is a Wizard in addition to its other types.\nEquip {3}",
+            "colors": [
+              "R"
+            ],
+            "color_identity": [
+              "R"
+            ],
+            "keywords": [
+              "Job select",
+              "Equip"
+            ],
+            "all_parts": [
+              {
+                "object": "related_card",
+                "id": "e0579955-75f9-47a9-8b03-e287d120826a",
+                "component": "combo_piece",
+                "name": "Red Mage's Rapier",
+                "type_line": "Artifact — Equipment",
+                "uri": "https://api.scryfall.com/cards/e0579955-75f9-47a9-8b03-e287d120826a"
+              },
+              {
+                "object": "related_card",
+                "id": "17fa0c1f-6737-487c-9101-0bec2e586795",
+                "component": "token",
+                "name": "Hero",
+                "type_line": "Token Creature — Hero",
+                "uri": "https://api.scryfall.com/cards/17fa0c1f-6737-487c-9101-0bec2e586795"
+              }
+            ],
+            "legalities": {
+              "standard": "legal",
+              "future": "legal",
+              "historic": "legal",
+              "timeless": "legal",
+              "gladiator": "legal",
+              "pioneer": "legal",
+              "modern": "legal",
+              "legacy": "legal",
+              "pauper": "legal",
+              "vintage": "legal",
+              "penny": "not_legal",
+              "commander": "legal",
+              "oathbreaker": "legal",
+              "standardbrawl": "legal",
+              "brawl": "legal",
+              "competitivebrawl": "legal",
+              "alchemy": "legal",
+              "paupercommander": "legal",
+              "duel": "legal",
+              "oldschool": "not_legal",
+              "premodern": "not_legal",
+              "predh": "not_legal",
+              "tlr": "legal"
+            },
+            "games": [
+              "paper",
+              "arena",
+              "mtgo"
+            ],
+            "reserved": false,
+            "game_changer": false,
+            "foil": true,
+            "nonfoil": true,
+            "finishes": [
+              "nonfoil",
+              "foil"
+            ],
+            "oversized": false,
+            "promo": false,
+            "reprint": false,
+            "variation": false,
+            "set_id": "d7beb4b7-e1ff-4d35-ab07-5700f17ea1ea",
+            "set": "fin",
+            "set_name": "Final Fantasy",
+            "set_type": "expansion",
+            "set_uri": "https://api.scryfall.com/sets/d7beb4b7-e1ff-4d35-ab07-5700f17ea1ea",
+            "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Afin&unique=prints",
+            "scryfall_set_uri": "https://scryfall.com/sets/fin?utm_source=api",
+            "rulings_uri": "https://api.scryfall.com/cards/e0579955-75f9-47a9-8b03-e287d120826a/rulings",
+            "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A35ad9e15-3e00-4bd2-96cf-36a6ef49059f&unique=prints",
+            "collector_number": "152",
+            "digital": false,
+            "rarity": "common",
+            "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+            "artist": "Alexandre Honoré",
+            "artist_ids": [
+              "82ae431c-d7fa-438b-9611-01f704c3a958"
+            ],
+            "illustration_id": "fa0ca676-ec35-472f-8803-a75dc8d5382e",
+            "border_color": "black",
+            "frame": "2015",
+            "security_stamp": "triangle",
+            "full_art": false,
+            "textless": false,
+            "booster": true,
+            "story_spotlight": false,
+            "promo_types": [
+              "ffi",
+              "universesbeyond"
+            ],
+            "edhrec_rank": 8489,
+            "penny_rank": 7773,
+            "prices": {
+              "usd": "0.18",
+              "usd_foil": "0.31",
+              "usd_etched": null,
+              "eur": "0.06",
+              "eur_foil": "0.16",
+              "tix": "0.03"
+            },
+            "related_uris": {
+              "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DRed%2BMage%2527s%2BRapier",
+              "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DRed%2BMage%2527s%2BRapier",
+              "edhrec": "https://edhrec.com/route/?cc=Red+Mage%27s+Rapier"
+            },
+            "purchase_uris": {
+              "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F634126%3Fpage%3D1",
+              "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=827751&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+              "cardhoarder": "https://www.cardhoarder.com/cards/141241?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+            }
+          },
+          "evidence_binding": {
+            "path": "docs/mechanics-research/j-protocol-evidence/job-select-discovery-1.json",
+            "sha256": "eef341dae5b25d5d3fb5cd626f33d22231f037b7d27194b26faa01315d886f4d",
+            "printing_id": "e0579955-75f9-47a9-8b03-e287d120826a",
+            "oracle_id": "35ad9e15-3e00-4bd2-96cf-36a6ef49059f"
+          }
+        },
+        {
+          "oracle_id": "4aceb786-960d-4719-9de8-79dffd491a51",
+          "name": "Bard's Bow",
+          "scryfall_url": "https://scryfall.com/card/fin/174/bards-bow?utm_source=api",
+          "scope": "released_paper",
+          "roles": [
+            "native"
+          ],
+          "included": true,
+          "attributed_colors": [
+            "G"
+          ],
+          "mechanic_face": "Bard's Bow",
+          "inclusion_reason": "Selected witness: Job select (When this Equipment enters, create a 1/1 colorless Hero creature token, then attach this to it.)",
+          "card_facts": {
+            "object": "card",
+            "id": "2ac03e90-1e16-453f-88e4-a0448db73403",
+            "oracle_id": "4aceb786-960d-4719-9de8-79dffd491a51",
+            "multiverse_ids": [],
+            "resource_id": "A7346A052C603C8D5B9DDB3596F64532F203185BB0A00575B7B32050E7016204",
+            "mtgo_id": 141287,
+            "arena_id": 96040,
+            "tcgplayer_id": 634137,
+            "cardmarket_id": 827762,
+            "name": "Bard's Bow",
+            "lang": "en",
+            "released_at": "2025-06-13",
+            "uri": "https://api.scryfall.com/cards/2ac03e90-1e16-453f-88e4-a0448db73403",
+            "scryfall_uri": "https://scryfall.com/card/fin/174/bards-bow?utm_source=api",
+            "layout": "normal",
+            "highres_image": true,
+            "image_status": "highres_scan",
+            "image_updated_at": "2026-07-13T01:36:31Z",
+            "image_uris": {
+              "small": "https://cards.scryfall.io/small/front/2/a/2ac03e90-1e16-453f-88e4-a0448db73403.jpg?1783906591",
+              "normal": "https://cards.scryfall.io/normal/front/2/a/2ac03e90-1e16-453f-88e4-a0448db73403.jpg?1783906591",
+              "large": "https://cards.scryfall.io/large/front/2/a/2ac03e90-1e16-453f-88e4-a0448db73403.jpg?1783906591",
+              "png": "https://cards.scryfall.io/png/front/2/a/2ac03e90-1e16-453f-88e4-a0448db73403.png?1783906591",
+              "art_crop": "https://cards.scryfall.io/art_crop/front/2/a/2ac03e90-1e16-453f-88e4-a0448db73403.jpg?1783906591",
+              "border_crop": "https://cards.scryfall.io/border_crop/front/2/a/2ac03e90-1e16-453f-88e4-a0448db73403.jpg?1783906591",
+              "thumb": "https://cards.scryfall.io/thumb/front/2/a/2ac03e90-1e16-453f-88e4-a0448db73403.webp?1783906591",
+              "grid": "https://cards.scryfall.io/grid/front/2/a/2ac03e90-1e16-453f-88e4-a0448db73403.webp?1783906591",
+              "display": "https://cards.scryfall.io/display/front/2/a/2ac03e90-1e16-453f-88e4-a0448db73403.webp?1783906591",
+              "art": "https://cards.scryfall.io/art/front/2/a/2ac03e90-1e16-453f-88e4-a0448db73403.webp?1783906591",
+              "crop": "https://cards.scryfall.io/crop/front/2/a/2ac03e90-1e16-453f-88e4-a0448db73403.webp?1783906591",
+              "jpeg": "https://cards.scryfall.io/normal/front/2/a/2ac03e90-1e16-453f-88e4-a0448db73403.jpg?1783906591"
+            },
+            "mana_cost": "{2}{G}",
+            "cmc": 3.0,
+            "type_line": "Artifact — Equipment",
+            "oracle_text": "Job select (When this Equipment enters, create a 1/1 colorless Hero creature token, then attach this to it.)\nEquipped creature gets +2/+2, has reach, and is a Bard in addition to its other types.\nPerseus's Bow — Equip {6} ({6}: Attach to target creature you control. Equip only as a sorcery.)",
+            "colors": [
+              "G"
+            ],
+            "color_identity": [
+              "G"
+            ],
+            "keywords": [
+              "Job select",
+              "Equip"
+            ],
+            "all_parts": [
+              {
+                "object": "related_card",
+                "id": "2ac03e90-1e16-453f-88e4-a0448db73403",
+                "component": "combo_piece",
+                "name": "Bard's Bow",
+                "type_line": "Artifact — Equipment",
+                "uri": "https://api.scryfall.com/cards/2ac03e90-1e16-453f-88e4-a0448db73403"
+              },
+              {
+                "object": "related_card",
+                "id": "17fa0c1f-6737-487c-9101-0bec2e586795",
+                "component": "token",
+                "name": "Hero",
+                "type_line": "Token Creature — Hero",
+                "uri": "https://api.scryfall.com/cards/17fa0c1f-6737-487c-9101-0bec2e586795"
+              }
+            ],
+            "legalities": {
+              "standard": "legal",
+              "future": "legal",
+              "historic": "legal",
+              "timeless": "legal",
+              "gladiator": "legal",
+              "pioneer": "legal",
+              "modern": "legal",
+              "legacy": "legal",
+              "pauper": "legal",
+              "vintage": "legal",
+              "penny": "not_legal",
+              "commander": "legal",
+              "oathbreaker": "legal",
+              "standardbrawl": "legal",
+              "brawl": "legal",
+              "competitivebrawl": "legal",
+              "alchemy": "legal",
+              "paupercommander": "legal",
+              "duel": "legal",
+              "oldschool": "not_legal",
+              "premodern": "not_legal",
+              "predh": "not_legal",
+              "tlr": "legal"
+            },
+            "games": [
+              "paper",
+              "arena",
+              "mtgo"
+            ],
+            "reserved": false,
+            "game_changer": false,
+            "foil": true,
+            "nonfoil": true,
+            "finishes": [
+              "nonfoil",
+              "foil"
+            ],
+            "oversized": false,
+            "promo": false,
+            "reprint": false,
+            "variation": false,
+            "set_id": "d7beb4b7-e1ff-4d35-ab07-5700f17ea1ea",
+            "set": "fin",
+            "set_name": "Final Fantasy",
+            "set_type": "expansion",
+            "set_uri": "https://api.scryfall.com/sets/d7beb4b7-e1ff-4d35-ab07-5700f17ea1ea",
+            "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Afin&unique=prints",
+            "scryfall_set_uri": "https://scryfall.com/sets/fin?utm_source=api",
+            "rulings_uri": "https://api.scryfall.com/cards/2ac03e90-1e16-453f-88e4-a0448db73403/rulings",
+            "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A4aceb786-960d-4719-9de8-79dffd491a51&unique=prints",
+            "collector_number": "174",
+            "digital": false,
+            "rarity": "common",
+            "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+            "artist": "Josephine Chang",
+            "artist_ids": [
+              "95f381e8-b7fb-4719-865d-f818511fa331"
+            ],
+            "illustration_id": "1de21f77-503f-4bf8-8ccd-d794cd115ef1",
+            "border_color": "black",
+            "frame": "2015",
+            "security_stamp": "triangle",
+            "full_art": false,
+            "textless": false,
+            "booster": true,
+            "story_spotlight": false,
+            "promo_types": [
+              "ffxiv",
+              "universesbeyond"
+            ],
+            "edhrec_rank": 16070,
+            "prices": {
+              "usd": "0.16",
+              "usd_foil": "0.21",
+              "usd_etched": null,
+              "eur": "0.04",
+              "eur_foil": "0.17",
+              "tix": "0.03"
+            },
+            "related_uris": {
+              "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DBard%2527s%2BBow",
+              "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DBard%2527s%2BBow",
+              "edhrec": "https://edhrec.com/route/?cc=Bard%27s+Bow"
+            },
+            "purchase_uris": {
+              "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F634137%3Fpage%3D1",
+              "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=827762&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+              "cardhoarder": "https://www.cardhoarder.com/cards/141287?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+            }
+          },
+          "evidence_binding": {
+            "path": "docs/mechanics-research/j-protocol-evidence/job-select-discovery-1.json",
+            "sha256": "eef341dae5b25d5d3fb5cd626f33d22231f037b7d27194b26faa01315d886f4d",
+            "printing_id": "2ac03e90-1e16-453f-88e4-a0448db73403",
+            "oracle_id": "4aceb786-960d-4719-9de8-79dffd491a51"
+          }
+        },
+        {
+          "oracle_id": "1b524149-340e-4f94-9520-6a5258fabb00",
+          "name": "Monk's Fist",
+          "scryfall_url": "https://scryfall.com/card/fin/265/monks-fist?utm_source=api",
+          "scope": "released_paper",
+          "roles": [
+            "native"
+          ],
+          "included": true,
+          "attributed_colors": [],
+          "mechanic_face": "Monk's Fist",
+          "inclusion_reason": "Selected witness: Job select (When this Equipment enters, create a 1/1 colorless Hero creature token, then attach this to it.)",
+          "card_facts": {
+            "object": "card",
+            "id": "995033f0-873d-4e46-b0c9-98ec8ef270ff",
+            "oracle_id": "1b524149-340e-4f94-9520-6a5258fabb00",
+            "multiverse_ids": [],
+            "resource_id": "9F8A68AEB63C963146B5A843962E823ED8362338F3ACE168850C12BA976853E2",
+            "mtgo_id": 141497,
+            "arena_id": 96143,
+            "tcgplayer_id": 634162,
+            "cardmarket_id": 827792,
+            "name": "Monk's Fist",
+            "lang": "en",
+            "released_at": "2025-06-13",
+            "uri": "https://api.scryfall.com/cards/995033f0-873d-4e46-b0c9-98ec8ef270ff",
+            "scryfall_uri": "https://scryfall.com/card/fin/265/monks-fist?utm_source=api",
+            "layout": "normal",
+            "highres_image": true,
+            "image_status": "highres_scan",
+            "image_updated_at": "2026-07-13T01:35:54Z",
+            "image_uris": {
+              "small": "https://cards.scryfall.io/small/front/9/9/995033f0-873d-4e46-b0c9-98ec8ef270ff.jpg?1783906554",
+              "normal": "https://cards.scryfall.io/normal/front/9/9/995033f0-873d-4e46-b0c9-98ec8ef270ff.jpg?1783906554",
+              "large": "https://cards.scryfall.io/large/front/9/9/995033f0-873d-4e46-b0c9-98ec8ef270ff.jpg?1783906554",
+              "png": "https://cards.scryfall.io/png/front/9/9/995033f0-873d-4e46-b0c9-98ec8ef270ff.png?1783906554",
+              "art_crop": "https://cards.scryfall.io/art_crop/front/9/9/995033f0-873d-4e46-b0c9-98ec8ef270ff.jpg?1783906554",
+              "border_crop": "https://cards.scryfall.io/border_crop/front/9/9/995033f0-873d-4e46-b0c9-98ec8ef270ff.jpg?1783906554",
+              "thumb": "https://cards.scryfall.io/thumb/front/9/9/995033f0-873d-4e46-b0c9-98ec8ef270ff.webp?1783906554",
+              "grid": "https://cards.scryfall.io/grid/front/9/9/995033f0-873d-4e46-b0c9-98ec8ef270ff.webp?1783906554",
+              "display": "https://cards.scryfall.io/display/front/9/9/995033f0-873d-4e46-b0c9-98ec8ef270ff.webp?1783906554",
+              "art": "https://cards.scryfall.io/art/front/9/9/995033f0-873d-4e46-b0c9-98ec8ef270ff.webp?1783906554",
+              "crop": "https://cards.scryfall.io/crop/front/9/9/995033f0-873d-4e46-b0c9-98ec8ef270ff.webp?1783906554",
+              "jpeg": "https://cards.scryfall.io/normal/front/9/9/995033f0-873d-4e46-b0c9-98ec8ef270ff.jpg?1783906554"
+            },
+            "mana_cost": "{2}",
+            "cmc": 2.0,
+            "type_line": "Artifact — Equipment",
+            "oracle_text": "Job select (When this Equipment enters, create a 1/1 colorless Hero creature token, then attach this to it.)\nEquipped creature gets +1/+0 and is a Monk in addition to its other types.\nEquip {2} ({2}: Attach to target creature you control. Equip only as a sorcery.)",
+            "colors": [],
+            "color_identity": [],
+            "keywords": [
+              "Job select",
+              "Equip"
+            ],
+            "all_parts": [
+              {
+                "object": "related_card",
+                "id": "995033f0-873d-4e46-b0c9-98ec8ef270ff",
+                "component": "combo_piece",
+                "name": "Monk's Fist",
+                "type_line": "Artifact — Equipment",
+                "uri": "https://api.scryfall.com/cards/995033f0-873d-4e46-b0c9-98ec8ef270ff"
+              },
+              {
+                "object": "related_card",
+                "id": "17fa0c1f-6737-487c-9101-0bec2e586795",
+                "component": "token",
+                "name": "Hero",
+                "type_line": "Token Creature — Hero",
+                "uri": "https://api.scryfall.com/cards/17fa0c1f-6737-487c-9101-0bec2e586795"
+              }
+            ],
+            "legalities": {
+              "standard": "legal",
+              "future": "legal",
+              "historic": "legal",
+              "timeless": "legal",
+              "gladiator": "legal",
+              "pioneer": "legal",
+              "modern": "legal",
+              "legacy": "legal",
+              "pauper": "legal",
+              "vintage": "legal",
+              "penny": "not_legal",
+              "commander": "legal",
+              "oathbreaker": "legal",
+              "standardbrawl": "legal",
+              "brawl": "legal",
+              "competitivebrawl": "legal",
+              "alchemy": "legal",
+              "paupercommander": "legal",
+              "duel": "legal",
+              "oldschool": "not_legal",
+              "premodern": "not_legal",
+              "predh": "not_legal",
+              "tlr": "legal"
+            },
+            "games": [
+              "paper",
+              "arena",
+              "mtgo"
+            ],
+            "reserved": false,
+            "game_changer": false,
+            "foil": true,
+            "nonfoil": true,
+            "finishes": [
+              "nonfoil",
+              "foil"
+            ],
+            "oversized": false,
+            "promo": false,
+            "reprint": false,
+            "variation": false,
+            "set_id": "d7beb4b7-e1ff-4d35-ab07-5700f17ea1ea",
+            "set": "fin",
+            "set_name": "Final Fantasy",
+            "set_type": "expansion",
+            "set_uri": "https://api.scryfall.com/sets/d7beb4b7-e1ff-4d35-ab07-5700f17ea1ea",
+            "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Afin&unique=prints",
+            "scryfall_set_uri": "https://scryfall.com/sets/fin?utm_source=api",
+            "rulings_uri": "https://api.scryfall.com/cards/995033f0-873d-4e46-b0c9-98ec8ef270ff/rulings",
+            "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A1b524149-340e-4f94-9520-6a5258fabb00&unique=prints",
+            "collector_number": "265",
+            "digital": false,
+            "rarity": "common",
+            "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+            "artist": "Thanh Tuấn",
+            "artist_ids": [
+              "4092d03e-ede3-4946-bfdc-888fff30cfdf"
+            ],
+            "illustration_id": "aaa95cf9-6468-4cf8-a697-771c7e41efb1",
+            "border_color": "black",
+            "frame": "2015",
+            "security_stamp": "triangle",
+            "full_art": false,
+            "textless": false,
+            "booster": true,
+            "story_spotlight": false,
+            "promo_types": [
+              "ffi",
+              "universesbeyond"
+            ],
+            "edhrec_rank": 13467,
+            "prices": {
+              "usd": "0.15",
+              "usd_foil": "0.28",
+              "usd_etched": null,
+              "eur": "0.03",
+              "eur_foil": "0.14",
+              "tix": "0.03"
+            },
+            "related_uris": {
+              "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DMonk%2527s%2BFist",
+              "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DMonk%2527s%2BFist",
+              "edhrec": "https://edhrec.com/route/?cc=Monk%27s+Fist"
+            },
+            "purchase_uris": {
+              "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F634162%3Fpage%3D1",
+              "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=827792&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+              "cardhoarder": "https://www.cardhoarder.com/cards/141497?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+            }
+          },
+          "evidence_binding": {
+            "path": "docs/mechanics-research/j-protocol-evidence/job-select-discovery-1.json",
+            "sha256": "eef341dae5b25d5d3fb5cd626f33d22231f037b7d27194b26faa01315d886f4d",
+            "printing_id": "995033f0-873d-4e46-b0c9-98ec8ef270ff",
+            "oracle_id": "1b524149-340e-4f94-9520-6a5258fabb00"
+          }
+        }
+      ],
+      "access_review": {
+        "version": "2.0",
+        "review_date": "2026-10-29",
+        "scope_label": "Released paper cards",
+        "scope": "Job select creates a colorless Hero token and attaches the entering Equipment to it.",
+        "summary": "Job select creates a colorless Hero token and attaches the entering Equipment to it.",
+        "evidence_scope": [
+          "released_paper"
+        ],
+        "colors": {
+          "W": {
+            "status": "documented",
+            "card_ids": [
+              "7465d02f-3eee-483c-8de3-404381aa21eb"
+            ],
+            "note": "Dancer's Chakrams is white and has job select."
+          },
+          "U": {
+            "status": "documented",
+            "card_ids": [
+              "4dcd0583-cee0-46a6-ba43-93bca5eb0428"
+            ],
+            "note": "Astrologian's Planisphere is blue and has job select."
+          },
+          "B": {
+            "status": "documented",
+            "card_ids": [
+              "909b3d90-5762-461b-b49a-004a9e72733d"
+            ],
+            "note": "Black Mage's Rod is black and has job select."
+          },
+          "R": {
+            "status": "documented",
+            "card_ids": [
+              "35ad9e15-3e00-4bd2-96cf-36a6ef49059f"
+            ],
+            "note": "Red Mage's Rapier is red and has job select."
+          },
+          "G": {
+            "status": "documented",
+            "card_ids": [
+              "4aceb786-960d-4719-9de8-79dffd491a51"
+            ],
+            "note": "Bard's Bow is green and has job select."
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "documented",
+          "card_ids": [
+            "1b524149-340e-4f94-9520-6a5258fabb00"
+          ],
+          "note": "Monk's Fist is colorless and has job select."
+        },
+        "limitations": []
+      },
+      "inherited_reference_evidence": {
+        "rulesSource": {
+          "date": "2026-09-25",
+          "sourceUrl": "https://media.wizards.com/2026/downloads/MagicCompRules%2020260925.txt",
+          "sourceSha256": "8d860e451f20f38865b725b42d82feb714c725373dd8f3b32b8652b3eeb070ca"
+        },
+        "reference": null
+      }
+    },
+    {
+      "mechanic": {
+        "id": "deck:vocabulary:join forces",
+        "sourceId": "join forces",
+        "population": "vocabulary",
+        "name": "Join forces",
+        "aliases": [],
+        "category": "ability word",
+        "target2021": null,
+        "reference": {
+          "title": "Join forces",
+          "rules": [
+            "207.2c"
+          ],
+          "referenceKind": "ability-word",
+          "source": {
+            "title": "Commander Masters Release Notes",
+            "url": "https://magic.wizards.com/en/news/feature/commander-masters-release-notes",
+            "section": "Minds Aglow",
+            "kind": "card-example",
+            "verifiedOn": "2026-10-18"
+          },
+          "verification": "verified"
+        },
+        "rule": null,
+        "clauses": [
+          {
+            "number": "207.2c",
+            "text": "An ability word appears in italics at the beginning of some abilities. Ability words are similar to keywords in that they tie together cards that have similar functionality, but they have no special rules meaning and no individual entries in the Comprehensive Rules. The ability words are adamant, addendum, alliance, battalion, bloodrush, celebration, channel, chroma, cohort, constellation, converge, council’s dilemma, coven, delirium, descend 4, descend 8, disappear, domain, eerie, eminence, enrage, fateful hour, fathomless descent, ferocious, flurry, formidable, grandeur, hellbent, heroic, imprint, infusion, inspired, join forces, kinship, landfall, lieutenant, magecraft, metalcraft, morbid, opus, pack tactics, paradox, parley, radiance, raid, rally, renew, repartee, revolt, secret council, spell mastery, strive, survival, sweep, tempting offer, threshold, undergrowth, valiant, vivid, void, and will of the council."
+          }
+        ],
+        "rulesSource": {
+          "date": "2026-09-25",
+          "sourceUrl": "https://media.wizards.com/2026/downloads/MagicCompRules%2020260925.txt",
+          "sourceSha256": "8d860e451f20f38865b725b42d82feb714c725373dd8f3b32b8652b3eeb070ca"
+        },
+        "qualifications": {
+          "sourceCategories": [
+            "ability-words"
+          ],
+          "providerCategories": [
+            "ability-words"
+          ]
+        },
+        "rankings": [],
+        "accepted_id": "deck:vocabulary:join forces"
+      },
+      "sources": [],
+      "queries": [
+        {
+          "url": "https://api.scryfall.com/cards/search?q=o%3A%22join%20forces%22&unique=cards",
+          "purpose": "join-forces discovery"
+        }
+      ],
+      "selection_method": "One released-paper witness is selected for each independently represented color or observed color combination.",
+      "card_review": [
+        {
+          "oracle_id": "be2a4595-4378-4af8-8368-e3b2bb3cb5bb",
+          "name": "Alliance of Arms",
+          "scryfall_url": "https://scryfall.com/card/cmd/4/alliance-of-arms?utm_source=api",
+          "scope": "released_paper",
+          "roles": [
+            "native"
+          ],
+          "included": true,
+          "attributed_colors": [
+            "W"
+          ],
+          "mechanic_face": "Alliance of Arms",
+          "inclusion_reason": "Selected witness: Join forces — Starting with you, each player may pay any amount of mana. Each player creates X 1/1 white Soldier creature tokens, where X is the total amount of mana paid this way.",
+          "card_facts": {
+            "object": "card",
+            "id": "eeb1f8ff-c32f-4d75-8c04-f97d05ba47d6",
+            "oracle_id": "be2a4595-4378-4af8-8368-e3b2bb3cb5bb",
+            "multiverse_ids": [
+              228218
+            ],
+            "mtgo_id": 40620,
+            "mtgo_foil_id": 40940,
+            "tcgplayer_id": 46934,
+            "cardmarket_id": 247046,
+            "name": "Alliance of Arms",
+            "lang": "en",
+            "released_at": "2011-06-17",
+            "uri": "https://api.scryfall.com/cards/eeb1f8ff-c32f-4d75-8c04-f97d05ba47d6",
+            "scryfall_uri": "https://scryfall.com/card/cmd/4/alliance-of-arms?utm_source=api",
+            "layout": "normal",
+            "highres_image": true,
+            "image_status": "highres_scan",
+            "image_updated_at": "2026-07-13T11:14:18Z",
+            "image_uris": {
+              "small": "https://cards.scryfall.io/small/front/e/e/eeb1f8ff-c32f-4d75-8c04-f97d05ba47d6.jpg?1783941258",
+              "normal": "https://cards.scryfall.io/normal/front/e/e/eeb1f8ff-c32f-4d75-8c04-f97d05ba47d6.jpg?1783941258",
+              "large": "https://cards.scryfall.io/large/front/e/e/eeb1f8ff-c32f-4d75-8c04-f97d05ba47d6.jpg?1783941258",
+              "png": "https://cards.scryfall.io/png/front/e/e/eeb1f8ff-c32f-4d75-8c04-f97d05ba47d6.png?1783941258",
+              "art_crop": "https://cards.scryfall.io/art_crop/front/e/e/eeb1f8ff-c32f-4d75-8c04-f97d05ba47d6.jpg?1783941258",
+              "border_crop": "https://cards.scryfall.io/border_crop/front/e/e/eeb1f8ff-c32f-4d75-8c04-f97d05ba47d6.jpg?1783941258",
+              "thumb": "https://cards.scryfall.io/thumb/front/e/e/eeb1f8ff-c32f-4d75-8c04-f97d05ba47d6.webp?1783941258",
+              "grid": "https://cards.scryfall.io/grid/front/e/e/eeb1f8ff-c32f-4d75-8c04-f97d05ba47d6.webp?1783941258",
+              "display": "https://cards.scryfall.io/display/front/e/e/eeb1f8ff-c32f-4d75-8c04-f97d05ba47d6.webp?1783941258",
+              "art": "https://cards.scryfall.io/art/front/e/e/eeb1f8ff-c32f-4d75-8c04-f97d05ba47d6.webp?1783941258",
+              "crop": "https://cards.scryfall.io/crop/front/e/e/eeb1f8ff-c32f-4d75-8c04-f97d05ba47d6.webp?1783941258",
+              "jpeg": "https://cards.scryfall.io/normal/front/e/e/eeb1f8ff-c32f-4d75-8c04-f97d05ba47d6.jpg?1783941258"
+            },
+            "mana_cost": "{W}",
+            "cmc": 1.0,
+            "type_line": "Sorcery",
+            "oracle_text": "Join forces — Starting with you, each player may pay any amount of mana. Each player creates X 1/1 white Soldier creature tokens, where X is the total amount of mana paid this way.",
+            "colors": [
+              "W"
+            ],
+            "color_identity": [
+              "W"
+            ],
+            "keywords": [
+              "Join forces"
+            ],
+            "all_parts": [
+              {
+                "object": "related_card",
+                "id": "eeb1f8ff-c32f-4d75-8c04-f97d05ba47d6",
+                "component": "combo_piece",
+                "name": "Alliance of Arms",
+                "type_line": "Sorcery",
+                "uri": "https://api.scryfall.com/cards/eeb1f8ff-c32f-4d75-8c04-f97d05ba47d6"
+              },
+              {
+                "object": "related_card",
+                "id": "a58c2fc3-c07f-4f06-a9d5-1d0fe3dbde1f",
+                "component": "token",
+                "name": "Soldier",
+                "type_line": "Token Creature — Soldier",
+                "uri": "https://api.scryfall.com/cards/a58c2fc3-c07f-4f06-a9d5-1d0fe3dbde1f"
+              }
+            ],
+            "legalities": {
+              "standard": "not_legal",
+              "future": "not_legal",
+              "historic": "not_legal",
+              "timeless": "not_legal",
+              "gladiator": "not_legal",
+              "pioneer": "not_legal",
+              "modern": "not_legal",
+              "legacy": "legal",
+              "pauper": "not_legal",
+              "vintage": "legal",
+              "penny": "not_legal",
+              "commander": "legal",
+              "oathbreaker": "legal",
+              "standardbrawl": "not_legal",
+              "brawl": "not_legal",
+              "competitivebrawl": "not_legal",
+              "alchemy": "not_legal",
+              "paupercommander": "not_legal",
+              "duel": "legal",
+              "oldschool": "not_legal",
+              "premodern": "not_legal",
+              "predh": "not_legal",
+              "tlr": "legal"
+            },
+            "games": [
+              "paper",
+              "mtgo"
+            ],
+            "reserved": false,
+            "game_changer": false,
+            "foil": false,
+            "nonfoil": true,
+            "finishes": [
+              "nonfoil"
+            ],
+            "oversized": false,
+            "promo": false,
+            "reprint": false,
+            "variation": false,
+            "set_id": "84ff1a64-4e69-4ed2-8c08-26206e3b97a0",
+            "set": "cmd",
+            "set_name": "Commander 2011",
+            "set_type": "commander",
+            "set_uri": "https://api.scryfall.com/sets/84ff1a64-4e69-4ed2-8c08-26206e3b97a0",
+            "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Acmd&unique=prints",
+            "scryfall_set_uri": "https://scryfall.com/sets/cmd?utm_source=api",
+            "rulings_uri": "https://api.scryfall.com/cards/eeb1f8ff-c32f-4d75-8c04-f97d05ba47d6/rulings",
+            "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Abe2a4595-4378-4af8-8368-e3b2bb3cb5bb&unique=prints",
+            "collector_number": "4",
+            "digital": false,
+            "rarity": "rare",
+            "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+            "artist": "Johann Bodin",
+            "artist_ids": [
+              "d92e2dd9-9ef6-43f6-81f8-df87f9066983"
+            ],
+            "illustration_id": "910f8665-a02e-48b5-8320-e766039eff36",
+            "border_color": "black",
+            "frame": "2003",
+            "full_art": false,
+            "textless": false,
+            "booster": false,
+            "story_spotlight": false,
+            "edhrec_rank": 11674,
+            "prices": {
+              "usd": "13.30",
+              "usd_foil": null,
+              "usd_etched": null,
+              "eur": "5.31",
+              "eur_foil": null,
+              "tix": "0.72"
+            },
+            "related_uris": {
+              "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=228218&printed=false",
+              "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DAlliance%2Bof%2BArms",
+              "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DAlliance%2Bof%2BArms",
+              "edhrec": "https://edhrec.com/route/?cc=Alliance+of+Arms"
+            },
+            "purchase_uris": {
+              "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F46934%3Fpage%3D1",
+              "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=247046&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+              "cardhoarder": "https://www.cardhoarder.com/cards/40620?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+            }
+          },
+          "evidence_binding": {
+            "path": "docs/mechanics-research/j-protocol-evidence/join-forces-discovery-1.json",
+            "sha256": "41c05ab9aa39501857e7962cffb4fed447e6872894dccb9a8cf5f89d27211823",
+            "printing_id": "eeb1f8ff-c32f-4d75-8c04-f97d05ba47d6",
+            "oracle_id": "be2a4595-4378-4af8-8368-e3b2bb3cb5bb"
+          }
+        },
+        {
+          "oracle_id": "b259f4e4-04a9-40e0-85e9-34b4b74ee388",
+          "name": "Minds Aglow",
+          "scryfall_url": "https://scryfall.com/card/cmm/105/minds-aglow?utm_source=api",
+          "scope": "released_paper",
+          "roles": [
+            "native"
+          ],
+          "included": true,
+          "attributed_colors": [
+            "U"
+          ],
+          "mechanic_face": "Minds Aglow",
+          "inclusion_reason": "Selected witness: Join forces — Starting with you, each player may pay any amount of mana. Each player draws X cards, where X is the total amount of mana paid this way.",
+          "card_facts": {
+            "object": "card",
+            "id": "ccacc197-7c22-444d-8e6e-950dca63eb2c",
+            "oracle_id": "b259f4e4-04a9-40e0-85e9-34b4b74ee388",
+            "multiverse_ids": [
+              622713
+            ],
+            "mtgo_id": 115309,
+            "tcgplayer_id": 503820,
+            "cardmarket_id": 721879,
+            "name": "Minds Aglow",
+            "lang": "en",
+            "released_at": "2023-08-04",
+            "uri": "https://api.scryfall.com/cards/ccacc197-7c22-444d-8e6e-950dca63eb2c",
+            "scryfall_uri": "https://scryfall.com/card/cmm/105/minds-aglow?utm_source=api",
+            "layout": "normal",
+            "highres_image": true,
+            "image_status": "highres_scan",
+            "image_updated_at": "2026-07-13T04:08:14Z",
+            "image_uris": {
+              "small": "https://cards.scryfall.io/small/front/c/c/ccacc197-7c22-444d-8e6e-950dca63eb2c.jpg?1783915694",
+              "normal": "https://cards.scryfall.io/normal/front/c/c/ccacc197-7c22-444d-8e6e-950dca63eb2c.jpg?1783915694",
+              "large": "https://cards.scryfall.io/large/front/c/c/ccacc197-7c22-444d-8e6e-950dca63eb2c.jpg?1783915694",
+              "png": "https://cards.scryfall.io/png/front/c/c/ccacc197-7c22-444d-8e6e-950dca63eb2c.png?1783915694",
+              "art_crop": "https://cards.scryfall.io/art_crop/front/c/c/ccacc197-7c22-444d-8e6e-950dca63eb2c.jpg?1783915694",
+              "border_crop": "https://cards.scryfall.io/border_crop/front/c/c/ccacc197-7c22-444d-8e6e-950dca63eb2c.jpg?1783915694",
+              "thumb": "https://cards.scryfall.io/thumb/front/c/c/ccacc197-7c22-444d-8e6e-950dca63eb2c.webp?1783915694",
+              "grid": "https://cards.scryfall.io/grid/front/c/c/ccacc197-7c22-444d-8e6e-950dca63eb2c.webp?1783915694",
+              "display": "https://cards.scryfall.io/display/front/c/c/ccacc197-7c22-444d-8e6e-950dca63eb2c.webp?1783915694",
+              "art": "https://cards.scryfall.io/art/front/c/c/ccacc197-7c22-444d-8e6e-950dca63eb2c.webp?1783915694",
+              "crop": "https://cards.scryfall.io/crop/front/c/c/ccacc197-7c22-444d-8e6e-950dca63eb2c.webp?1783915694",
+              "jpeg": "https://cards.scryfall.io/normal/front/c/c/ccacc197-7c22-444d-8e6e-950dca63eb2c.jpg?1783915694"
+            },
+            "mana_cost": "{U}",
+            "cmc": 1.0,
+            "type_line": "Sorcery",
+            "oracle_text": "Join forces — Starting with you, each player may pay any amount of mana. Each player draws X cards, where X is the total amount of mana paid this way.",
+            "colors": [
+              "U"
+            ],
+            "color_identity": [
+              "U"
+            ],
+            "keywords": [
+              "Join forces"
+            ],
+            "legalities": {
+              "standard": "not_legal",
+              "future": "not_legal",
+              "historic": "not_legal",
+              "timeless": "not_legal",
+              "gladiator": "not_legal",
+              "pioneer": "not_legal",
+              "modern": "not_legal",
+              "legacy": "legal",
+              "pauper": "not_legal",
+              "vintage": "legal",
+              "penny": "not_legal",
+              "commander": "legal",
+              "oathbreaker": "legal",
+              "standardbrawl": "not_legal",
+              "brawl": "not_legal",
+              "competitivebrawl": "not_legal",
+              "alchemy": "not_legal",
+              "paupercommander": "not_legal",
+              "duel": "legal",
+              "oldschool": "not_legal",
+              "premodern": "not_legal",
+              "predh": "not_legal",
+              "tlr": "legal"
+            },
+            "games": [
+              "paper",
+              "mtgo"
+            ],
+            "reserved": false,
+            "game_changer": false,
+            "foil": true,
+            "nonfoil": true,
+            "finishes": [
+              "nonfoil",
+              "foil"
+            ],
+            "oversized": false,
+            "promo": false,
+            "reprint": true,
+            "variation": false,
+            "set_id": "cd05036f-2698-43e6-a48e-5c8d82f0a551",
+            "set": "cmm",
+            "set_name": "Commander Masters",
+            "set_type": "masters",
+            "set_uri": "https://api.scryfall.com/sets/cd05036f-2698-43e6-a48e-5c8d82f0a551",
+            "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Acmm&unique=prints",
+            "scryfall_set_uri": "https://scryfall.com/sets/cmm?utm_source=api",
+            "rulings_uri": "https://api.scryfall.com/cards/ccacc197-7c22-444d-8e6e-950dca63eb2c/rulings",
+            "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Ab259f4e4-04a9-40e0-85e9-34b4b74ee388&unique=prints",
+            "collector_number": "105",
+            "digital": false,
+            "rarity": "rare",
+            "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+            "artist": "Yeong-Hao Han",
+            "artist_ids": [
+              "f8e7f8d6-6dde-4059-973c-30f1fd1bbe4e"
+            ],
+            "illustration_id": "af9553a0-57bc-47a4-82c4-68b132a1bd5b",
+            "border_color": "black",
+            "frame": "2015",
+            "security_stamp": "oval",
+            "full_art": false,
+            "textless": false,
+            "booster": true,
+            "story_spotlight": false,
+            "edhrec_rank": 3763,
+            "preview": {
+              "source": "Nitpicking Nerds",
+              "source_uri": "https://twitter.com/NitpickingNerds/status/1679222043974287361",
+              "previewed_at": "2023-07-12"
+            },
+            "prices": {
+              "usd": "1.57",
+              "usd_foil": "2.15",
+              "usd_etched": null,
+              "eur": "0.64",
+              "eur_foil": "0.99",
+              "tix": "1.99"
+            },
+            "related_uris": {
+              "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=622713&printed=false",
+              "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DMinds%2BAglow",
+              "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DMinds%2BAglow",
+              "edhrec": "https://edhrec.com/route/?cc=Minds+Aglow"
+            },
+            "purchase_uris": {
+              "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F503820%3Fpage%3D1",
+              "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=721879&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+              "cardhoarder": "https://www.cardhoarder.com/cards/115309?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+            }
+          },
+          "evidence_binding": {
+            "path": "docs/mechanics-research/j-protocol-evidence/join-forces-discovery-1.json",
+            "sha256": "41c05ab9aa39501857e7962cffb4fed447e6872894dccb9a8cf5f89d27211823",
+            "printing_id": "ccacc197-7c22-444d-8e6e-950dca63eb2c",
+            "oracle_id": "b259f4e4-04a9-40e0-85e9-34b4b74ee388"
+          }
+        },
+        {
+          "oracle_id": "ef9b7588-9bf0-4632-ae5d-1dfebc4d88eb",
+          "name": "Shared Trauma",
+          "scryfall_url": "https://scryfall.com/card/cm2/76/shared-trauma?utm_source=api",
+          "scope": "released_paper",
+          "roles": [
+            "native"
+          ],
+          "included": true,
+          "attributed_colors": [
+            "B"
+          ],
+          "mechanic_face": "Shared Trauma",
+          "inclusion_reason": "Selected witness: Join forces — Starting with you, each player may pay any amount of mana. Each player mills X cards, where X is the total amount of mana paid this way.",
+          "card_facts": {
+            "object": "card",
+            "id": "58f562e0-6a7f-4795-9cca-1ce5f9c9ee18",
+            "oracle_id": "ef9b7588-9bf0-4632-ae5d-1dfebc4d88eb",
+            "multiverse_ids": [
+              446812
+            ],
+            "tcgplayer_id": 166944,
+            "cardmarket_id": 358729,
+            "name": "Shared Trauma",
+            "lang": "en",
+            "released_at": "2018-06-08",
+            "uri": "https://api.scryfall.com/cards/58f562e0-6a7f-4795-9cca-1ce5f9c9ee18",
+            "scryfall_uri": "https://scryfall.com/card/cm2/76/shared-trauma?utm_source=api",
+            "layout": "normal",
+            "highres_image": true,
+            "image_status": "highres_scan",
+            "image_updated_at": "2026-07-13T09:25:53Z",
+            "image_uris": {
+              "small": "https://cards.scryfall.io/small/front/5/8/58f562e0-6a7f-4795-9cca-1ce5f9c9ee18.jpg?1783934753",
+              "normal": "https://cards.scryfall.io/normal/front/5/8/58f562e0-6a7f-4795-9cca-1ce5f9c9ee18.jpg?1783934753",
+              "large": "https://cards.scryfall.io/large/front/5/8/58f562e0-6a7f-4795-9cca-1ce5f9c9ee18.jpg?1783934753",
+              "png": "https://cards.scryfall.io/png/front/5/8/58f562e0-6a7f-4795-9cca-1ce5f9c9ee18.png?1783934753",
+              "art_crop": "https://cards.scryfall.io/art_crop/front/5/8/58f562e0-6a7f-4795-9cca-1ce5f9c9ee18.jpg?1783934753",
+              "border_crop": "https://cards.scryfall.io/border_crop/front/5/8/58f562e0-6a7f-4795-9cca-1ce5f9c9ee18.jpg?1783934753",
+              "thumb": "https://cards.scryfall.io/thumb/front/5/8/58f562e0-6a7f-4795-9cca-1ce5f9c9ee18.webp?1783934753",
+              "grid": "https://cards.scryfall.io/grid/front/5/8/58f562e0-6a7f-4795-9cca-1ce5f9c9ee18.webp?1783934753",
+              "display": "https://cards.scryfall.io/display/front/5/8/58f562e0-6a7f-4795-9cca-1ce5f9c9ee18.webp?1783934753",
+              "art": "https://cards.scryfall.io/art/front/5/8/58f562e0-6a7f-4795-9cca-1ce5f9c9ee18.webp?1783934753",
+              "crop": "https://cards.scryfall.io/crop/front/5/8/58f562e0-6a7f-4795-9cca-1ce5f9c9ee18.webp?1783934753",
+              "jpeg": "https://cards.scryfall.io/normal/front/5/8/58f562e0-6a7f-4795-9cca-1ce5f9c9ee18.jpg?1783934753"
+            },
+            "mana_cost": "{B}",
+            "cmc": 1.0,
+            "type_line": "Sorcery",
+            "oracle_text": "Join forces — Starting with you, each player may pay any amount of mana. Each player mills X cards, where X is the total amount of mana paid this way.",
+            "colors": [
+              "B"
+            ],
+            "color_identity": [
+              "B"
+            ],
+            "keywords": [
+              "Mill",
+              "Join forces"
+            ],
+            "legalities": {
+              "standard": "not_legal",
+              "future": "not_legal",
+              "historic": "not_legal",
+              "timeless": "not_legal",
+              "gladiator": "not_legal",
+              "pioneer": "not_legal",
+              "modern": "not_legal",
+              "legacy": "legal",
+              "pauper": "not_legal",
+              "vintage": "legal",
+              "penny": "not_legal",
+              "commander": "legal",
+              "oathbreaker": "legal",
+              "standardbrawl": "not_legal",
+              "brawl": "not_legal",
+              "competitivebrawl": "not_legal",
+              "alchemy": "not_legal",
+              "paupercommander": "not_legal",
+              "duel": "legal",
+              "oldschool": "not_legal",
+              "premodern": "not_legal",
+              "predh": "not_legal",
+              "tlr": "legal"
+            },
+            "games": [
+              "paper"
+            ],
+            "reserved": false,
+            "game_changer": false,
+            "foil": false,
+            "nonfoil": true,
+            "finishes": [
+              "nonfoil"
+            ],
+            "oversized": false,
+            "promo": false,
+            "reprint": true,
+            "variation": false,
+            "set_id": "2ba5b1a3-40ed-422e-981d-56753004dfc6",
+            "set": "cm2",
+            "set_name": "Commander Anthology Volume II",
+            "set_type": "commander",
+            "set_uri": "https://api.scryfall.com/sets/2ba5b1a3-40ed-422e-981d-56753004dfc6",
+            "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Acm2&unique=prints",
+            "scryfall_set_uri": "https://scryfall.com/sets/cm2?utm_source=api",
+            "rulings_uri": "https://api.scryfall.com/cards/58f562e0-6a7f-4795-9cca-1ce5f9c9ee18/rulings",
+            "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Aef9b7588-9bf0-4632-ae5d-1dfebc4d88eb&unique=prints",
+            "collector_number": "76",
+            "digital": false,
+            "rarity": "rare",
+            "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+            "artist": "Clint Cearley",
+            "artist_ids": [
+              "03b75350-d5a0-4e3a-b3b4-8d4a5554385b"
+            ],
+            "illustration_id": "468bad91-8c98-4655-abed-9cc2840a1ee1",
+            "border_color": "black",
+            "frame": "2015",
+            "security_stamp": "oval",
+            "full_art": false,
+            "textless": false,
+            "booster": false,
+            "story_spotlight": false,
+            "edhrec_rank": 19029,
+            "prices": {
+              "usd": "0.43",
+              "usd_foil": null,
+              "usd_etched": null,
+              "eur": "0.44",
+              "eur_foil": null,
+              "tix": null
+            },
+            "related_uris": {
+              "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=446812&printed=false",
+              "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DShared%2BTrauma",
+              "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DShared%2BTrauma",
+              "edhrec": "https://edhrec.com/route/?cc=Shared+Trauma"
+            },
+            "purchase_uris": {
+              "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F166944%3Fpage%3D1",
+              "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=358729&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+              "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Shared+Trauma&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+            }
+          },
+          "evidence_binding": {
+            "path": "docs/mechanics-research/j-protocol-evidence/join-forces-discovery-1.json",
+            "sha256": "41c05ab9aa39501857e7962cffb4fed447e6872894dccb9a8cf5f89d27211823",
+            "printing_id": "58f562e0-6a7f-4795-9cca-1ce5f9c9ee18",
+            "oracle_id": "ef9b7588-9bf0-4632-ae5d-1dfebc4d88eb"
+          }
+        },
+        {
+          "oracle_id": "87354a7b-01be-419e-b383-4c28e12a2f2b",
+          "name": "Mana-Charged Dragon",
+          "scryfall_url": "https://scryfall.com/card/cma/84/mana-charged-dragon?utm_source=api",
+          "scope": "released_paper",
+          "roles": [
+            "native"
+          ],
+          "included": true,
+          "attributed_colors": [
+            "R"
+          ],
+          "mechanic_face": "Mana-Charged Dragon",
+          "inclusion_reason": "Selected witness: Flying, trample",
+          "card_facts": {
+            "object": "card",
+            "id": "03245712-18b9-48d2-b95e-24a38367abb9",
+            "oracle_id": "87354a7b-01be-419e-b383-4c28e12a2f2b",
+            "multiverse_ids": [
+              430303
+            ],
+            "tcgplayer_id": 132089,
+            "cardmarket_id": 298033,
+            "name": "Mana-Charged Dragon",
+            "lang": "en",
+            "released_at": "2017-06-09",
+            "uri": "https://api.scryfall.com/cards/03245712-18b9-48d2-b95e-24a38367abb9",
+            "scryfall_uri": "https://scryfall.com/card/cma/84/mana-charged-dragon?utm_source=api",
+            "layout": "normal",
+            "highres_image": true,
+            "image_status": "highres_scan",
+            "image_updated_at": "2026-07-13T09:51:15Z",
+            "image_uris": {
+              "small": "https://cards.scryfall.io/small/front/0/3/03245712-18b9-48d2-b95e-24a38367abb9.jpg?1783936275",
+              "normal": "https://cards.scryfall.io/normal/front/0/3/03245712-18b9-48d2-b95e-24a38367abb9.jpg?1783936275",
+              "large": "https://cards.scryfall.io/large/front/0/3/03245712-18b9-48d2-b95e-24a38367abb9.jpg?1783936275",
+              "png": "https://cards.scryfall.io/png/front/0/3/03245712-18b9-48d2-b95e-24a38367abb9.png?1783936275",
+              "art_crop": "https://cards.scryfall.io/art_crop/front/0/3/03245712-18b9-48d2-b95e-24a38367abb9.jpg?1783936275",
+              "border_crop": "https://cards.scryfall.io/border_crop/front/0/3/03245712-18b9-48d2-b95e-24a38367abb9.jpg?1783936275",
+              "thumb": "https://cards.scryfall.io/thumb/front/0/3/03245712-18b9-48d2-b95e-24a38367abb9.webp?1783936275",
+              "grid": "https://cards.scryfall.io/grid/front/0/3/03245712-18b9-48d2-b95e-24a38367abb9.webp?1783936275",
+              "display": "https://cards.scryfall.io/display/front/0/3/03245712-18b9-48d2-b95e-24a38367abb9.webp?1783936275",
+              "art": "https://cards.scryfall.io/art/front/0/3/03245712-18b9-48d2-b95e-24a38367abb9.webp?1783936275",
+              "crop": "https://cards.scryfall.io/crop/front/0/3/03245712-18b9-48d2-b95e-24a38367abb9.webp?1783936275",
+              "jpeg": "https://cards.scryfall.io/normal/front/0/3/03245712-18b9-48d2-b95e-24a38367abb9.jpg?1783936275"
+            },
+            "mana_cost": "{4}{R}{R}",
+            "cmc": 6.0,
+            "type_line": "Creature — Dragon",
+            "oracle_text": "Flying, trample\nJoin forces — Whenever this creature attacks or blocks, each player starting with you may pay any amount of mana. This creature gets +X/+0 until end of turn, where X is the total amount of mana paid this way.",
+            "power": "5",
+            "toughness": "5",
+            "colors": [
+              "R"
+            ],
+            "color_identity": [
+              "R"
+            ],
+            "keywords": [
+              "Flying",
+              "Trample",
+              "Join forces"
+            ],
+            "legalities": {
+              "standard": "not_legal",
+              "future": "not_legal",
+              "historic": "not_legal",
+              "timeless": "not_legal",
+              "gladiator": "not_legal",
+              "pioneer": "not_legal",
+              "modern": "not_legal",
+              "legacy": "legal",
+              "pauper": "not_legal",
+              "vintage": "legal",
+              "penny": "not_legal",
+              "commander": "legal",
+              "oathbreaker": "legal",
+              "standardbrawl": "not_legal",
+              "brawl": "not_legal",
+              "competitivebrawl": "not_legal",
+              "alchemy": "not_legal",
+              "paupercommander": "not_legal",
+              "duel": "legal",
+              "oldschool": "not_legal",
+              "premodern": "not_legal",
+              "predh": "not_legal",
+              "tlr": "not_legal"
+            },
+            "games": [
+              "paper"
+            ],
+            "reserved": false,
+            "game_changer": false,
+            "foil": false,
+            "nonfoil": true,
+            "finishes": [
+              "nonfoil"
+            ],
+            "oversized": false,
+            "promo": false,
+            "reprint": true,
+            "variation": false,
+            "set_id": "fd4d8463-0156-4c60-a40e-778762bb90e4",
+            "set": "cma",
+            "set_name": "Commander Anthology",
+            "set_type": "commander",
+            "set_uri": "https://api.scryfall.com/sets/fd4d8463-0156-4c60-a40e-778762bb90e4",
+            "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Acma&unique=prints",
+            "scryfall_set_uri": "https://scryfall.com/sets/cma?utm_source=api",
+            "rulings_uri": "https://api.scryfall.com/cards/03245712-18b9-48d2-b95e-24a38367abb9/rulings",
+            "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A87354a7b-01be-419e-b383-4c28e12a2f2b&unique=prints",
+            "collector_number": "84",
+            "digital": false,
+            "rarity": "rare",
+            "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+            "artist": "Mike Bierek",
+            "artist_ids": [
+              "e5f52ef5-1a2e-4128-90b0-ccc71cd47ea7"
+            ],
+            "illustration_id": "718684f7-dafc-43c8-a005-6fb05a96e451",
+            "border_color": "black",
+            "frame": "2015",
+            "security_stamp": "oval",
+            "full_art": false,
+            "textless": false,
+            "booster": false,
+            "story_spotlight": false,
+            "edhrec_rank": 19074,
+            "prices": {
+              "usd": "1.41",
+              "usd_foil": null,
+              "usd_etched": null,
+              "eur": "1.01",
+              "eur_foil": null,
+              "tix": null
+            },
+            "related_uris": {
+              "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=430303&printed=false",
+              "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DMana-Charged%2BDragon",
+              "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DMana-Charged%2BDragon",
+              "edhrec": "https://edhrec.com/route/?cc=Mana-Charged+Dragon"
+            },
+            "purchase_uris": {
+              "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F132089%3Fpage%3D1",
+              "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=298033&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+              "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Mana-Charged+Dragon&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+            }
+          },
+          "evidence_binding": {
+            "path": "docs/mechanics-research/j-protocol-evidence/join-forces-discovery-1.json",
+            "sha256": "41c05ab9aa39501857e7962cffb4fed447e6872894dccb9a8cf5f89d27211823",
+            "printing_id": "03245712-18b9-48d2-b95e-24a38367abb9",
+            "oracle_id": "87354a7b-01be-419e-b383-4c28e12a2f2b"
+          }
+        },
+        {
+          "oracle_id": "00f82f84-81a5-45e5-9c35-9d627a180950",
+          "name": "Collective Voyage",
+          "scryfall_url": "https://scryfall.com/card/c16/145/collective-voyage?utm_source=api",
+          "scope": "released_paper",
+          "roles": [
+            "native"
+          ],
+          "included": true,
+          "attributed_colors": [
+            "G"
+          ],
+          "mechanic_face": "Collective Voyage",
+          "inclusion_reason": "Selected witness: Join forces — Starting with you, each player may pay any amount of mana. Each player searches their library for up to X basic land cards, where X is the total amount of mana paid this way, puts them onto the battlefield tapped, then shuffles.",
+          "card_facts": {
+            "object": "card",
+            "id": "3f2d44f0-c71e-4061-bb7c-1f91fbce8f51",
+            "oracle_id": "00f82f84-81a5-45e5-9c35-9d627a180950",
+            "multiverse_ids": [
+              420762
+            ],
+            "tcgplayer_id": 124431,
+            "cardmarket_id": 293643,
+            "name": "Collective Voyage",
+            "lang": "en",
+            "released_at": "2016-11-11",
+            "uri": "https://api.scryfall.com/cards/3f2d44f0-c71e-4061-bb7c-1f91fbce8f51",
+            "scryfall_uri": "https://scryfall.com/card/c16/145/collective-voyage?utm_source=api",
+            "layout": "normal",
+            "highres_image": true,
+            "image_status": "highres_scan",
+            "image_updated_at": "2026-07-13T10:04:21Z",
+            "image_uris": {
+              "small": "https://cards.scryfall.io/small/front/3/f/3f2d44f0-c71e-4061-bb7c-1f91fbce8f51.jpg?1783937061",
+              "normal": "https://cards.scryfall.io/normal/front/3/f/3f2d44f0-c71e-4061-bb7c-1f91fbce8f51.jpg?1783937061",
+              "large": "https://cards.scryfall.io/large/front/3/f/3f2d44f0-c71e-4061-bb7c-1f91fbce8f51.jpg?1783937061",
+              "png": "https://cards.scryfall.io/png/front/3/f/3f2d44f0-c71e-4061-bb7c-1f91fbce8f51.png?1783937061",
+              "art_crop": "https://cards.scryfall.io/art_crop/front/3/f/3f2d44f0-c71e-4061-bb7c-1f91fbce8f51.jpg?1783937061",
+              "border_crop": "https://cards.scryfall.io/border_crop/front/3/f/3f2d44f0-c71e-4061-bb7c-1f91fbce8f51.jpg?1783937061",
+              "thumb": "https://cards.scryfall.io/thumb/front/3/f/3f2d44f0-c71e-4061-bb7c-1f91fbce8f51.webp?1783937061",
+              "grid": "https://cards.scryfall.io/grid/front/3/f/3f2d44f0-c71e-4061-bb7c-1f91fbce8f51.webp?1783937061",
+              "display": "https://cards.scryfall.io/display/front/3/f/3f2d44f0-c71e-4061-bb7c-1f91fbce8f51.webp?1783937061",
+              "art": "https://cards.scryfall.io/art/front/3/f/3f2d44f0-c71e-4061-bb7c-1f91fbce8f51.webp?1783937061",
+              "crop": "https://cards.scryfall.io/crop/front/3/f/3f2d44f0-c71e-4061-bb7c-1f91fbce8f51.webp?1783937061",
+              "jpeg": "https://cards.scryfall.io/normal/front/3/f/3f2d44f0-c71e-4061-bb7c-1f91fbce8f51.jpg?1783937061"
+            },
+            "mana_cost": "{G}",
+            "cmc": 1.0,
+            "type_line": "Sorcery",
+            "oracle_text": "Join forces — Starting with you, each player may pay any amount of mana. Each player searches their library for up to X basic land cards, where X is the total amount of mana paid this way, puts them onto the battlefield tapped, then shuffles.",
+            "colors": [
+              "G"
+            ],
+            "color_identity": [
+              "G"
+            ],
+            "keywords": [
+              "Join forces"
+            ],
+            "legalities": {
+              "standard": "not_legal",
+              "future": "not_legal",
+              "historic": "not_legal",
+              "timeless": "not_legal",
+              "gladiator": "not_legal",
+              "pioneer": "not_legal",
+              "modern": "not_legal",
+              "legacy": "legal",
+              "pauper": "not_legal",
+              "vintage": "legal",
+              "penny": "not_legal",
+              "commander": "legal",
+              "oathbreaker": "legal",
+              "standardbrawl": "not_legal",
+              "brawl": "not_legal",
+              "competitivebrawl": "not_legal",
+              "alchemy": "not_legal",
+              "paupercommander": "not_legal",
+              "duel": "legal",
+              "oldschool": "not_legal",
+              "premodern": "not_legal",
+              "predh": "not_legal",
+              "tlr": "legal"
+            },
+            "games": [
+              "paper"
+            ],
+            "reserved": false,
+            "game_changer": false,
+            "foil": false,
+            "nonfoil": true,
+            "finishes": [
+              "nonfoil"
+            ],
+            "oversized": false,
+            "promo": false,
+            "reprint": true,
+            "variation": false,
+            "set_id": "3e0d713a-b5cb-4287-81b9-a57d4dcaf415",
+            "set": "c16",
+            "set_name": "Commander 2016",
+            "set_type": "commander",
+            "set_uri": "https://api.scryfall.com/sets/3e0d713a-b5cb-4287-81b9-a57d4dcaf415",
+            "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Ac16&unique=prints",
+            "scryfall_set_uri": "https://scryfall.com/sets/c16?utm_source=api",
+            "rulings_uri": "https://api.scryfall.com/cards/3f2d44f0-c71e-4061-bb7c-1f91fbce8f51/rulings",
+            "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A00f82f84-81a5-45e5-9c35-9d627a180950&unique=prints",
+            "collector_number": "145",
+            "digital": false,
+            "rarity": "rare",
+            "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+            "artist": "Charles Urbach",
+            "artist_ids": [
+              "507c67d2-1514-40ab-b7cb-a9f3b96a08e8"
+            ],
+            "illustration_id": "6bc8900b-850f-4d89-9c3b-e2ed4337f70c",
+            "border_color": "black",
+            "frame": "2015",
+            "security_stamp": "oval",
+            "full_art": false,
+            "textless": false,
+            "booster": false,
+            "story_spotlight": false,
+            "edhrec_rank": 4590,
+            "prices": {
+              "usd": "7.29",
+              "usd_foil": null,
+              "usd_etched": null,
+              "eur": "3.74",
+              "eur_foil": null,
+              "tix": null
+            },
+            "related_uris": {
+              "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=420762&printed=false",
+              "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DCollective%2BVoyage",
+              "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DCollective%2BVoyage",
+              "edhrec": "https://edhrec.com/route/?cc=Collective+Voyage"
+            },
+            "purchase_uris": {
+              "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F124431%3Fpage%3D1",
+              "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=293643&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+              "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Collective+Voyage&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+            }
+          },
+          "evidence_binding": {
+            "path": "docs/mechanics-research/j-protocol-evidence/join-forces-discovery-1.json",
+            "sha256": "41c05ab9aa39501857e7962cffb4fed447e6872894dccb9a8cf5f89d27211823",
+            "printing_id": "3f2d44f0-c71e-4061-bb7c-1f91fbce8f51",
+            "oracle_id": "00f82f84-81a5-45e5-9c35-9d627a180950"
+          }
+        }
+      ],
+      "access_review": {
+        "version": "2.0",
+        "review_date": "2026-10-29",
+        "scope_label": "Released paper cards",
+        "scope": "Join forces lets each player contribute mana in turn to a shared total.",
+        "summary": "Join forces lets each player contribute mana in turn to a shared total.",
+        "evidence_scope": [
+          "released_paper"
+        ],
+        "colors": {
+          "W": {
+            "status": "documented",
+            "card_ids": [
+              "be2a4595-4378-4af8-8368-e3b2bb3cb5bb"
+            ],
+            "note": "Alliance of Arms is a W join forces card."
+          },
+          "U": {
+            "status": "documented",
+            "card_ids": [
+              "b259f4e4-04a9-40e0-85e9-34b4b74ee388"
+            ],
+            "note": "Minds Aglow is a U join forces card."
+          },
+          "B": {
+            "status": "documented",
+            "card_ids": [
+              "ef9b7588-9bf0-4632-ae5d-1dfebc4d88eb"
+            ],
+            "note": "Shared Trauma is a B join forces card."
+          },
+          "R": {
+            "status": "documented",
+            "card_ids": [
+              "87354a7b-01be-419e-b383-4c28e12a2f2b"
+            ],
+            "note": "Mana-Charged Dragon is a R join forces card."
+          },
+          "G": {
+            "status": "documented",
+            "card_ids": [
+              "00f82f84-81a5-45e5-9c35-9d627a180950"
+            ],
+            "note": "Collective Voyage is a G join forces card."
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "not_found",
+          "card_ids": [],
+          "note": "No colorless example found in the reviewed scope."
+        },
+        "limitations": []
+      },
+      "inherited_reference_evidence": {
+        "rulesSource": {
+          "date": "2026-09-25",
+          "sourceUrl": "https://media.wizards.com/2026/downloads/MagicCompRules%2020260925.txt",
+          "sourceSha256": "8d860e451f20f38865b725b42d82feb714c725373dd8f3b32b8652b3eeb070ca"
+        },
+        "reference": {
+          "title": "Join forces",
+          "rules": [
+            "207.2c"
+          ],
+          "referenceKind": "ability-word",
+          "source": {
+            "title": "Commander Masters Release Notes",
+            "url": "https://magic.wizards.com/en/news/feature/commander-masters-release-notes",
+            "section": "Minds Aglow",
+            "kind": "card-example",
+            "verifiedOn": "2026-10-18"
+          },
+          "verification": "verified"
+        }
+      }
+    },
+    {
+      "mechanic": {
+        "id": "deck:shortlist:jump",
+        "sourceId": "jump",
+        "population": "shortlist",
+        "name": "Jump",
+        "aliases": [],
+        "category": "provider-reported term",
+        "target2021": null,
+        "reference": {
+          "title": "Jump",
+          "rules": [],
+          "referenceKind": "card-example",
+          "verification": "verified",
+          "cardOracleIds": [
+            "d3bdfb25-dfb2-4df4-b502-ef0909a39f86"
+          ],
+          "source": {
+            "title": "Magic: The Gathering—FINAL FANTASY Release Notes",
+            "url": "https://magic.wizards.com/en/news/feature/final-fantasy-release-notes",
+            "section": "Cid, Freeflier Pilot",
+            "verifiedOn": "2026-10-18",
+            "kind": "card-example"
+          }
+        },
+        "rule": null,
+        "clauses": [],
+        "rulesSource": {
+          "date": "2026-09-25",
+          "sourceUrl": "https://media.wizards.com/2026/downloads/MagicCompRules%2020260925.txt",
+          "sourceSha256": "8d860e451f20f38865b725b42d82feb714c725373dd8f3b32b8652b3eeb070ca"
+        },
+        "qualifications": {
+          "review": "commander-shortlist-2026-10-18",
+          "discovery": "card-specific",
+          "cardOracleIds": [
+            "d3bdfb25-dfb2-4df4-b502-ef0909a39f86"
+          ]
+        },
+        "rankings": [],
+        "accepted_id": "deck:shortlist:jump"
+      },
+      "sources": [
+        {
+          "title": "Magic: The Gathering—FINAL FANTASY Release Notes",
+          "url": "https://magic.wizards.com/en/news/feature/final-fantasy-release-notes"
+        }
+      ],
+      "queries": [
+        {
+          "url": "https://api.scryfall.com/cards/search?q=o%3A%22jump%22&unique=cards",
+          "purpose": "jump discovery"
+        }
+      ],
+      "selection_method": "One released-paper witness is selected for each independently represented color or observed color combination.",
+      "card_review": [
+        {
+          "oracle_id": "d3bdfb25-dfb2-4df4-b502-ef0909a39f86",
+          "name": "Cid, Freeflier Pilot",
+          "scryfall_url": "https://scryfall.com/card/fic/13/cid-freeflier-pilot?utm_source=api",
+          "scope": "released_paper",
+          "roles": [
+            "card_specific_label"
+          ],
+          "included": true,
+          "attributed_colors": [
+            "W"
+          ],
+          "mechanic_face": "Cid, Freeflier Pilot",
+          "inclusion_reason": "Selected witness: Equipment and Vehicle spells you cast cost {1} less to cast.",
+          "card_facts": {
+            "object": "card",
+            "id": "afa9e3e6-a633-46ad-b52a-48574b2f3d07",
+            "oracle_id": "d3bdfb25-dfb2-4df4-b502-ef0909a39f86",
+            "multiverse_ids": [],
+            "resource_id": "D5D8DC5D5768DE76BF579A3AE4A5AAF022B94EB858544E5D31E82D3996B873F2",
+            "mtgo_id": 140017,
+            "tcgplayer_id": 631092,
+            "cardmarket_id": 824501,
+            "name": "Cid, Freeflier Pilot",
+            "lang": "en",
+            "released_at": "2025-06-13",
+            "uri": "https://api.scryfall.com/cards/afa9e3e6-a633-46ad-b52a-48574b2f3d07",
+            "scryfall_uri": "https://scryfall.com/card/fic/13/cid-freeflier-pilot?utm_source=api",
+            "layout": "normal",
+            "highres_image": true,
+            "image_status": "highres_scan",
+            "image_updated_at": "2026-07-13T01:32:49Z",
+            "image_uris": {
+              "small": "https://cards.scryfall.io/small/front/a/f/afa9e3e6-a633-46ad-b52a-48574b2f3d07.jpg?1783906369",
+              "normal": "https://cards.scryfall.io/normal/front/a/f/afa9e3e6-a633-46ad-b52a-48574b2f3d07.jpg?1783906369",
+              "large": "https://cards.scryfall.io/large/front/a/f/afa9e3e6-a633-46ad-b52a-48574b2f3d07.jpg?1783906369",
+              "png": "https://cards.scryfall.io/png/front/a/f/afa9e3e6-a633-46ad-b52a-48574b2f3d07.png?1783906369",
+              "art_crop": "https://cards.scryfall.io/art_crop/front/a/f/afa9e3e6-a633-46ad-b52a-48574b2f3d07.jpg?1783906369",
+              "border_crop": "https://cards.scryfall.io/border_crop/front/a/f/afa9e3e6-a633-46ad-b52a-48574b2f3d07.jpg?1783906369",
+              "thumb": "https://cards.scryfall.io/thumb/front/a/f/afa9e3e6-a633-46ad-b52a-48574b2f3d07.webp?1783906369",
+              "grid": "https://cards.scryfall.io/grid/front/a/f/afa9e3e6-a633-46ad-b52a-48574b2f3d07.webp?1783906369",
+              "display": "https://cards.scryfall.io/display/front/a/f/afa9e3e6-a633-46ad-b52a-48574b2f3d07.webp?1783906369",
+              "art": "https://cards.scryfall.io/art/front/a/f/afa9e3e6-a633-46ad-b52a-48574b2f3d07.webp?1783906369",
+              "crop": "https://cards.scryfall.io/crop/front/a/f/afa9e3e6-a633-46ad-b52a-48574b2f3d07.webp?1783906369",
+              "jpeg": "https://cards.scryfall.io/normal/front/a/f/afa9e3e6-a633-46ad-b52a-48574b2f3d07.jpg?1783906369"
+            },
+            "mana_cost": "{1}{W}",
+            "cmc": 2.0,
+            "type_line": "Legendary Creature — Human Warrior Pilot",
+            "oracle_text": "Equipment and Vehicle spells you cast cost {1} less to cast.\nJump — During your turn, Cid has flying.\n{2}, {T}: Return target Equipment or Vehicle card from your graveyard to your hand.",
+            "power": "2",
+            "toughness": "2",
+            "colors": [
+              "W"
+            ],
+            "color_identity": [
+              "W"
+            ],
+            "keywords": [
+              "Jump"
+            ],
+            "legalities": {
+              "standard": "not_legal",
+              "future": "not_legal",
+              "historic": "not_legal",
+              "timeless": "not_legal",
+              "gladiator": "not_legal",
+              "pioneer": "not_legal",
+              "modern": "not_legal",
+              "legacy": "legal",
+              "pauper": "not_legal",
+              "vintage": "legal",
+              "penny": "not_legal",
+              "commander": "legal",
+              "oathbreaker": "legal",
+              "standardbrawl": "not_legal",
+              "brawl": "not_legal",
+              "competitivebrawl": "not_legal",
+              "alchemy": "not_legal",
+              "paupercommander": "not_legal",
+              "duel": "legal",
+              "oldschool": "not_legal",
+              "premodern": "not_legal",
+              "predh": "not_legal",
+              "tlr": "legal"
+            },
+            "games": [
+              "paper",
+              "mtgo"
+            ],
+            "reserved": false,
+            "game_changer": false,
+            "foil": true,
+            "nonfoil": true,
+            "finishes": [
+              "nonfoil",
+              "foil"
+            ],
+            "oversized": false,
+            "promo": false,
+            "reprint": false,
+            "variation": false,
+            "set_id": "30659956-4558-4cbf-a65f-34cd00c89579",
+            "set": "fic",
+            "set_name": "Final Fantasy Commander",
+            "set_type": "commander",
+            "set_uri": "https://api.scryfall.com/sets/30659956-4558-4cbf-a65f-34cd00c89579",
+            "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Afic&unique=prints",
+            "scryfall_set_uri": "https://scryfall.com/sets/fic?utm_source=api",
+            "rulings_uri": "https://api.scryfall.com/cards/afa9e3e6-a633-46ad-b52a-48574b2f3d07/rulings",
+            "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Ad3bdfb25-dfb2-4df4-b502-ef0909a39f86&unique=prints",
+            "collector_number": "13",
+            "digital": false,
+            "rarity": "rare",
+            "flavor_text": "\"I'm Cid—that's who the hell I am! Now just let me handle it!\"",
+            "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+            "artist": "Billy Christian",
+            "artist_ids": [
+              "10f26f94-64fc-4174-856e-701bea4f1521"
+            ],
+            "illustration_id": "0f6aaa1b-f13c-41ff-956a-f4aa385d4a15",
+            "border_color": "black",
+            "frame": "2015",
+            "frame_effects": [
+              "legendary"
+            ],
+            "security_stamp": "triangle",
+            "full_art": false,
+            "textless": false,
+            "booster": false,
+            "story_spotlight": false,
+            "promo_types": [
+              "surgefoil",
+              "universesbeyond",
+              "ffvii"
+            ],
+            "edhrec_rank": 2518,
+            "prices": {
+              "usd": "0.33",
+              "usd_foil": null,
+              "usd_etched": null,
+              "eur": "0.67",
+              "eur_foil": null,
+              "tix": "8.75"
+            },
+            "related_uris": {
+              "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DCid%252C%2BFreeflier%2BPilot",
+              "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DCid%252C%2BFreeflier%2BPilot",
+              "edhrec": "https://edhrec.com/route/?cc=Cid%2C+Freeflier+Pilot"
+            },
+            "purchase_uris": {
+              "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F631092%3Fpage%3D1",
+              "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=824501&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+              "cardhoarder": "https://www.cardhoarder.com/cards/140017?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+            }
+          },
+          "evidence_binding": {
+            "path": "docs/mechanics-research/j-protocol-evidence/jump-discovery-1.json",
+            "sha256": "448afc9cd138634f2e5b5657c2cc94ccefd4f5ece8a543e6e8caabb773da7023",
+            "printing_id": "afa9e3e6-a633-46ad-b52a-48574b2f3d07",
+            "oracle_id": "d3bdfb25-dfb2-4df4-b502-ef0909a39f86"
+          }
+        }
+      ],
+      "access_review": {
+        "version": "2.0",
+        "review_date": "2026-10-29",
+        "scope_label": "Released paper cards",
+        "scope": "Jump is the card-specific label on Cid, Freeflier Pilot: during its controller’s turn, Cid has flying.",
+        "summary": "Jump is the card-specific label on Cid, Freeflier Pilot: during its controller’s turn, Cid has flying.",
+        "evidence_scope": [
+          "released_paper"
+        ],
+        "colors": {
+          "W": {
+            "status": "documented",
+            "card_ids": [
+              "d3bdfb25-dfb2-4df4-b502-ef0909a39f86"
+            ],
+            "note": "Cid, Freeflier Pilot is white and has the Jump label."
+          },
+          "U": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No example found in the reviewed scope."
+          },
+          "B": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No example found in the reviewed scope."
+          },
+          "R": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No example found in the reviewed scope."
+          },
+          "G": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No example found in the reviewed scope."
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "not_found",
+          "card_ids": [],
+          "note": "No colorless example found in the reviewed scope."
+        },
+        "limitations": []
+      },
+      "inherited_reference_evidence": {
+        "rulesSource": {
+          "date": "2026-09-25",
+          "sourceUrl": "https://media.wizards.com/2026/downloads/MagicCompRules%2020260925.txt",
+          "sourceSha256": "8d860e451f20f38865b725b42d82feb714c725373dd8f3b32b8652b3eeb070ca"
+        },
+        "reference": {
+          "title": "Jump",
+          "rules": [],
+          "referenceKind": "card-example",
+          "verification": "verified",
+          "cardOracleIds": [
+            "d3bdfb25-dfb2-4df4-b502-ef0909a39f86"
+          ],
+          "source": {
+            "title": "Magic: The Gathering—FINAL FANTASY Release Notes",
+            "url": "https://magic.wizards.com/en/news/feature/final-fantasy-release-notes",
+            "section": "Cid, Freeflier Pilot",
+            "verifiedOn": "2026-10-18",
+            "kind": "card-example"
+          }
+        }
+      }
+    },
+    {
+      "mechanic": {
+        "id": "deck:vocabulary:jump-start",
+        "sourceId": "jump-start",
+        "population": "vocabulary",
+        "name": "Jump-Start",
+        "aliases": [],
+        "category": "keyword ability",
+        "target2021": null,
+        "reference": null,
+        "rule": "702.133",
+        "clauses": [
+          {
+            "number": "702.133a",
+            "text": "Jump-start appears on some instants and sorceries. It represents two static abilities: one that functions while the card is in a player’s graveyard and another that functions while the card is on the stack. “Jump-start” means “You may cast this card from your graveyard if the resulting spell is an instant or sorcery spell by discarding a card as an additional cost to cast it” and “If this spell was cast using its jump-start ability, exile this card instead of putting it anywhere else any time it would leave the stack.” Casting a spell using its jump-start ability follows the rules for paying additional costs in rules 601.2b and 601.2f–h."
+          }
+        ],
+        "rulesSource": {
+          "date": "2026-09-25",
+          "sourceUrl": "https://media.wizards.com/2026/downloads/MagicCompRules%2020260925.txt",
+          "sourceSha256": "8d860e451f20f38865b725b42d82feb714c725373dd8f3b32b8652b3eeb070ca"
+        },
+        "qualifications": {
+          "sourceCategories": [
+            "keyword-abilities"
+          ],
+          "providerCategories": [
+            "keyword-abilities"
+          ]
+        },
+        "rankings": [],
+        "accepted_id": "deck:vocabulary:jump-start"
+      },
+      "sources": [],
+      "queries": [
+        {
+          "url": "https://api.scryfall.com/cards/search?q=o%3A%22jump-start%22&unique=cards",
+          "purpose": "jump-start discovery"
+        }
+      ],
+      "selection_method": "One released-paper witness is selected for each independently represented color or observed color combination.",
+      "card_review": [
+        {
+          "oracle_id": "a2cb30d7-c0a9-4f79-bc19-fc88c4986725",
+          "name": "Chemister's Insight",
+          "scryfall_url": "https://scryfall.com/card/clu/81/chemisters-insight?utm_source=api",
+          "scope": "released_paper",
+          "roles": [
+            "native"
+          ],
+          "included": true,
+          "attributed_colors": [
+            "U"
+          ],
+          "mechanic_face": "Chemister's Insight",
+          "inclusion_reason": "Selected witness: Draw two cards.",
+          "card_facts": {
+            "object": "card",
+            "id": "53a7272d-c809-487e-8e1f-cc77c6875493",
+            "oracle_id": "a2cb30d7-c0a9-4f79-bc19-fc88c4986725",
+            "multiverse_ids": [
+              651816
+            ],
+            "mtgo_id": 122946,
+            "tcgplayer_id": 534608,
+            "cardmarket_id": 752664,
+            "name": "Chemister's Insight",
+            "lang": "en",
+            "released_at": "2024-02-23",
+            "uri": "https://api.scryfall.com/cards/53a7272d-c809-487e-8e1f-cc77c6875493",
+            "scryfall_uri": "https://scryfall.com/card/clu/81/chemisters-insight?utm_source=api",
+            "layout": "normal",
+            "highres_image": true,
+            "image_status": "highres_scan",
+            "image_updated_at": "2026-07-13T03:15:58Z",
+            "image_uris": {
+              "small": "https://cards.scryfall.io/small/front/5/3/53a7272d-c809-487e-8e1f-cc77c6875493.jpg?1783912558",
+              "normal": "https://cards.scryfall.io/normal/front/5/3/53a7272d-c809-487e-8e1f-cc77c6875493.jpg?1783912558",
+              "large": "https://cards.scryfall.io/large/front/5/3/53a7272d-c809-487e-8e1f-cc77c6875493.jpg?1783912558",
+              "png": "https://cards.scryfall.io/png/front/5/3/53a7272d-c809-487e-8e1f-cc77c6875493.png?1783912558",
+              "art_crop": "https://cards.scryfall.io/art_crop/front/5/3/53a7272d-c809-487e-8e1f-cc77c6875493.jpg?1783912558",
+              "border_crop": "https://cards.scryfall.io/border_crop/front/5/3/53a7272d-c809-487e-8e1f-cc77c6875493.jpg?1783912558",
+              "thumb": "https://cards.scryfall.io/thumb/front/5/3/53a7272d-c809-487e-8e1f-cc77c6875493.webp?1783912558",
+              "grid": "https://cards.scryfall.io/grid/front/5/3/53a7272d-c809-487e-8e1f-cc77c6875493.webp?1783912558",
+              "display": "https://cards.scryfall.io/display/front/5/3/53a7272d-c809-487e-8e1f-cc77c6875493.webp?1783912558",
+              "art": "https://cards.scryfall.io/art/front/5/3/53a7272d-c809-487e-8e1f-cc77c6875493.webp?1783912558",
+              "crop": "https://cards.scryfall.io/crop/front/5/3/53a7272d-c809-487e-8e1f-cc77c6875493.webp?1783912558",
+              "jpeg": "https://cards.scryfall.io/normal/front/5/3/53a7272d-c809-487e-8e1f-cc77c6875493.jpg?1783912558"
+            },
+            "mana_cost": "{3}{U}",
+            "cmc": 4.0,
+            "type_line": "Instant",
+            "oracle_text": "Draw two cards.\nJump-start (You may cast this card from your graveyard by discarding a card in addition to paying its other costs. Then exile this card.)",
+            "colors": [
+              "U"
+            ],
+            "color_identity": [
+              "U"
+            ],
+            "keywords": [
+              "Jump",
+              "Jump-start"
+            ],
+            "legalities": {
+              "standard": "not_legal",
+              "future": "not_legal",
+              "historic": "legal",
+              "timeless": "legal",
+              "gladiator": "legal",
+              "pioneer": "legal",
+              "modern": "legal",
+              "legacy": "legal",
+              "pauper": "not_legal",
+              "vintage": "legal",
+              "penny": "not_legal",
+              "commander": "legal",
+              "oathbreaker": "legal",
+              "standardbrawl": "not_legal",
+              "brawl": "legal",
+              "competitivebrawl": "legal",
+              "alchemy": "not_legal",
+              "paupercommander": "not_legal",
+              "duel": "legal",
+              "oldschool": "not_legal",
+              "premodern": "not_legal",
+              "predh": "not_legal",
+              "tlr": "not_legal"
+            },
+            "games": [
+              "paper",
+              "mtgo"
+            ],
+            "reserved": false,
+            "game_changer": false,
+            "foil": false,
+            "nonfoil": true,
+            "finishes": [
+              "nonfoil"
+            ],
+            "oversized": false,
+            "promo": false,
+            "reprint": true,
+            "variation": false,
+            "set_id": "d4bfabcf-a859-43a4-9d8a-665533c8b174",
+            "set": "clu",
+            "set_name": "Ravnica: Clue Edition",
+            "set_type": "draft_innovation",
+            "set_uri": "https://api.scryfall.com/sets/d4bfabcf-a859-43a4-9d8a-665533c8b174",
+            "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Aclu&unique=prints",
+            "scryfall_set_uri": "https://scryfall.com/sets/clu?utm_source=api",
+            "rulings_uri": "https://api.scryfall.com/cards/53a7272d-c809-487e-8e1f-cc77c6875493/rulings",
+            "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Aa2cb30d7-c0a9-4f79-bc19-fc88c4986725&unique=prints",
+            "collector_number": "81",
+            "digital": false,
+            "rarity": "uncommon",
+            "watermark": "izzet",
+            "flavor_text": "\"My specialty is theoretical universal limits and ways to circumvent them.\"",
+            "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+            "artist": "Josh Hass",
+            "artist_ids": [
+              "8fa1fdf0-96d6-46f4-a7ff-b1c0257c3735"
+            ],
+            "illustration_id": "3d077e68-6a8a-44a0-871d-b6fdaf935d13",
+            "border_color": "black",
+            "frame": "2015",
+            "full_art": false,
+            "textless": false,
+            "booster": false,
+            "story_spotlight": false,
+            "edhrec_rank": 8206,
+            "penny_rank": 794,
+            "prices": {
+              "usd": "0.12",
+              "usd_foil": null,
+              "usd_etched": null,
+              "eur": "0.13",
+              "eur_foil": null,
+              "tix": "0.02"
+            },
+            "related_uris": {
+              "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=651816&printed=false",
+              "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DChemister%2527s%2BInsight",
+              "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DChemister%2527s%2BInsight",
+              "edhrec": "https://edhrec.com/route/?cc=Chemister%27s+Insight"
+            },
+            "purchase_uris": {
+              "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F534608%3Fpage%3D1",
+              "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=752664&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+              "cardhoarder": "https://www.cardhoarder.com/cards/122946?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+            }
+          },
+          "evidence_binding": {
+            "path": "docs/mechanics-research/j-protocol-evidence/jump-discovery-1.json",
+            "sha256": "448afc9cd138634f2e5b5657c2cc94ccefd4f5ece8a543e6e8caabb773da7023",
+            "printing_id": "53a7272d-c809-487e-8e1f-cc77c6875493",
+            "oracle_id": "a2cb30d7-c0a9-4f79-bc19-fc88c4986725"
+          }
+        },
+        {
+          "oracle_id": "54e34440-c890-4a07-83c6-63a2f7a65639",
+          "name": "Direct Current",
+          "scryfall_url": "https://scryfall.com/card/clu/132/direct-current?utm_source=api",
+          "scope": "released_paper",
+          "roles": [
+            "native"
+          ],
+          "included": true,
+          "attributed_colors": [
+            "R"
+          ],
+          "mechanic_face": "Direct Current",
+          "inclusion_reason": "Selected witness: Direct Current deals 2 damage to any target.",
+          "card_facts": {
+            "object": "card",
+            "id": "6106361a-2ae2-4235-be05-a89d051bb1c7",
+            "oracle_id": "54e34440-c890-4a07-83c6-63a2f7a65639",
+            "multiverse_ids": [
+              651867
+            ],
+            "mtgo_id": 123048,
+            "tcgplayer_id": 535208,
+            "cardmarket_id": 753195,
+            "name": "Direct Current",
+            "lang": "en",
+            "released_at": "2024-02-23",
+            "uri": "https://api.scryfall.com/cards/6106361a-2ae2-4235-be05-a89d051bb1c7",
+            "scryfall_uri": "https://scryfall.com/card/clu/132/direct-current?utm_source=api",
+            "layout": "normal",
+            "highres_image": true,
+            "image_status": "highres_scan",
+            "image_updated_at": "2026-07-13T03:15:40Z",
+            "image_uris": {
+              "small": "https://cards.scryfall.io/small/front/6/1/6106361a-2ae2-4235-be05-a89d051bb1c7.jpg?1783912540",
+              "normal": "https://cards.scryfall.io/normal/front/6/1/6106361a-2ae2-4235-be05-a89d051bb1c7.jpg?1783912540",
+              "large": "https://cards.scryfall.io/large/front/6/1/6106361a-2ae2-4235-be05-a89d051bb1c7.jpg?1783912540",
+              "png": "https://cards.scryfall.io/png/front/6/1/6106361a-2ae2-4235-be05-a89d051bb1c7.png?1783912540",
+              "art_crop": "https://cards.scryfall.io/art_crop/front/6/1/6106361a-2ae2-4235-be05-a89d051bb1c7.jpg?1783912540",
+              "border_crop": "https://cards.scryfall.io/border_crop/front/6/1/6106361a-2ae2-4235-be05-a89d051bb1c7.jpg?1783912540",
+              "thumb": "https://cards.scryfall.io/thumb/front/6/1/6106361a-2ae2-4235-be05-a89d051bb1c7.webp?1783912540",
+              "grid": "https://cards.scryfall.io/grid/front/6/1/6106361a-2ae2-4235-be05-a89d051bb1c7.webp?1783912540",
+              "display": "https://cards.scryfall.io/display/front/6/1/6106361a-2ae2-4235-be05-a89d051bb1c7.webp?1783912540",
+              "art": "https://cards.scryfall.io/art/front/6/1/6106361a-2ae2-4235-be05-a89d051bb1c7.webp?1783912540",
+              "crop": "https://cards.scryfall.io/crop/front/6/1/6106361a-2ae2-4235-be05-a89d051bb1c7.webp?1783912540",
+              "jpeg": "https://cards.scryfall.io/normal/front/6/1/6106361a-2ae2-4235-be05-a89d051bb1c7.jpg?1783912540"
+            },
+            "mana_cost": "{1}{R}{R}",
+            "cmc": 3.0,
+            "type_line": "Sorcery",
+            "oracle_text": "Direct Current deals 2 damage to any target.\nJump-start (You may cast this card from your graveyard by discarding a card in addition to paying its other costs. Then exile this card.)",
+            "colors": [
+              "R"
+            ],
+            "color_identity": [
+              "R"
+            ],
+            "keywords": [
+              "Jump",
+              "Jump-start"
+            ],
+            "legalities": {
+              "standard": "not_legal",
+              "future": "not_legal",
+              "historic": "legal",
+              "timeless": "legal",
+              "gladiator": "legal",
+              "pioneer": "legal",
+              "modern": "legal",
+              "legacy": "legal",
+              "pauper": "legal",
+              "vintage": "legal",
+              "penny": "legal",
+              "commander": "legal",
+              "oathbreaker": "legal",
+              "standardbrawl": "not_legal",
+              "brawl": "legal",
+              "competitivebrawl": "legal",
+              "alchemy": "not_legal",
+              "paupercommander": "legal",
+              "duel": "legal",
+              "oldschool": "not_legal",
+              "premodern": "not_legal",
+              "predh": "not_legal",
+              "tlr": "legal"
+            },
+            "games": [
+              "paper",
+              "mtgo"
+            ],
+            "reserved": false,
+            "game_changer": false,
+            "foil": false,
+            "nonfoil": true,
+            "finishes": [
+              "nonfoil"
+            ],
+            "oversized": false,
+            "promo": false,
+            "reprint": true,
+            "variation": false,
+            "set_id": "d4bfabcf-a859-43a4-9d8a-665533c8b174",
+            "set": "clu",
+            "set_name": "Ravnica: Clue Edition",
+            "set_type": "draft_innovation",
+            "set_uri": "https://api.scryfall.com/sets/d4bfabcf-a859-43a4-9d8a-665533c8b174",
+            "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Aclu&unique=prints",
+            "scryfall_set_uri": "https://scryfall.com/sets/clu?utm_source=api",
+            "rulings_uri": "https://api.scryfall.com/cards/6106361a-2ae2-4235-be05-a89d051bb1c7/rulings",
+            "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A54e34440-c890-4a07-83c6-63a2f7a65639&unique=prints",
+            "collector_number": "132",
+            "digital": false,
+            "rarity": "common",
+            "watermark": "izzet",
+            "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+            "artist": "Dan Murayama Scott",
+            "artist_ids": [
+              "f852fa13-137e-40f2-bbc1-0f01df09c0e0"
+            ],
+            "illustration_id": "2a2817c7-0d52-41ee-8719-24a9bdc6d75f",
+            "border_color": "black",
+            "frame": "2015",
+            "full_art": false,
+            "textless": false,
+            "booster": false,
+            "story_spotlight": false,
+            "edhrec_rank": 25059,
+            "penny_rank": 14874,
+            "prices": {
+              "usd": "0.07",
+              "usd_foil": null,
+              "usd_etched": null,
+              "eur": "0.11",
+              "eur_foil": null,
+              "tix": "0.01"
+            },
+            "related_uris": {
+              "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=651867&printed=false",
+              "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DDirect%2BCurrent",
+              "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DDirect%2BCurrent",
+              "edhrec": "https://edhrec.com/route/?cc=Direct+Current"
+            },
+            "purchase_uris": {
+              "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F535208%3Fpage%3D1",
+              "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=753195&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+              "cardhoarder": "https://www.cardhoarder.com/cards/123048?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+            }
+          },
+          "evidence_binding": {
+            "path": "docs/mechanics-research/j-protocol-evidence/jump-discovery-1.json",
+            "sha256": "448afc9cd138634f2e5b5657c2cc94ccefd4f5ece8a543e6e8caabb773da7023",
+            "printing_id": "6106361a-2ae2-4235-be05-a89d051bb1c7",
+            "oracle_id": "54e34440-c890-4a07-83c6-63a2f7a65639"
+          }
+        },
+        {
+          "oracle_id": "cc929343-db65-43d5-9bf6-9f0bd77c2cd8",
+          "name": "Dihada's Ploy",
+          "scryfall_url": "https://scryfall.com/card/mh2/193/dihadas-ploy?utm_source=api",
+          "scope": "released_paper",
+          "roles": [
+            "native"
+          ],
+          "included": true,
+          "attributed_colors": [
+            "U",
+            "B"
+          ],
+          "mechanic_face": "Dihada's Ploy",
+          "inclusion_reason": "Selected witness: Draw two cards, then discard a card. You gain life equal to the number of cards you've discarded this turn.",
+          "card_facts": {
+            "object": "card",
+            "id": "9091e8dc-b546-4b74-9dc9-aef55f60d13a",
+            "oracle_id": "cc929343-db65-43d5-9bf6-9f0bd77c2cd8",
+            "multiverse_ids": [
+              522269
+            ],
+            "mtgo_id": 90763,
+            "tcgplayer_id": 240409,
+            "cardmarket_id": 566925,
+            "name": "Dihada's Ploy",
+            "lang": "en",
+            "released_at": "2021-06-18",
+            "uri": "https://api.scryfall.com/cards/9091e8dc-b546-4b74-9dc9-aef55f60d13a",
+            "scryfall_uri": "https://scryfall.com/card/mh2/193/dihadas-ploy?utm_source=api",
+            "layout": "normal",
+            "highres_image": true,
+            "image_status": "highres_scan",
+            "image_updated_at": "2026-07-13T07:13:38Z",
+            "image_uris": {
+              "small": "https://cards.scryfall.io/small/front/9/0/9091e8dc-b546-4b74-9dc9-aef55f60d13a.jpg?1783926818",
+              "normal": "https://cards.scryfall.io/normal/front/9/0/9091e8dc-b546-4b74-9dc9-aef55f60d13a.jpg?1783926818",
+              "large": "https://cards.scryfall.io/large/front/9/0/9091e8dc-b546-4b74-9dc9-aef55f60d13a.jpg?1783926818",
+              "png": "https://cards.scryfall.io/png/front/9/0/9091e8dc-b546-4b74-9dc9-aef55f60d13a.png?1783926818",
+              "art_crop": "https://cards.scryfall.io/art_crop/front/9/0/9091e8dc-b546-4b74-9dc9-aef55f60d13a.jpg?1783926818",
+              "border_crop": "https://cards.scryfall.io/border_crop/front/9/0/9091e8dc-b546-4b74-9dc9-aef55f60d13a.jpg?1783926818",
+              "thumb": "https://cards.scryfall.io/thumb/front/9/0/9091e8dc-b546-4b74-9dc9-aef55f60d13a.webp?1783926818",
+              "grid": "https://cards.scryfall.io/grid/front/9/0/9091e8dc-b546-4b74-9dc9-aef55f60d13a.webp?1783926818",
+              "display": "https://cards.scryfall.io/display/front/9/0/9091e8dc-b546-4b74-9dc9-aef55f60d13a.webp?1783926818",
+              "art": "https://cards.scryfall.io/art/front/9/0/9091e8dc-b546-4b74-9dc9-aef55f60d13a.webp?1783926818",
+              "crop": "https://cards.scryfall.io/crop/front/9/0/9091e8dc-b546-4b74-9dc9-aef55f60d13a.webp?1783926818",
+              "jpeg": "https://cards.scryfall.io/normal/front/9/0/9091e8dc-b546-4b74-9dc9-aef55f60d13a.jpg?1783926818"
+            },
+            "mana_cost": "{1}{U}{B}",
+            "cmc": 3.0,
+            "type_line": "Instant",
+            "oracle_text": "Draw two cards, then discard a card. You gain life equal to the number of cards you've discarded this turn.\nJump-start (You may cast this card from your graveyard by discarding a card in addition to paying its other costs. Then exile this card.)",
+            "colors": [
+              "B",
+              "U"
+            ],
+            "color_identity": [
+              "B",
+              "U"
+            ],
+            "keywords": [
+              "Jump",
+              "Jump-start"
+            ],
+            "legalities": {
+              "standard": "not_legal",
+              "future": "not_legal",
+              "historic": "not_legal",
+              "timeless": "not_legal",
+              "gladiator": "not_legal",
+              "pioneer": "not_legal",
+              "modern": "legal",
+              "legacy": "legal",
+              "pauper": "legal",
+              "vintage": "legal",
+              "penny": "not_legal",
+              "commander": "legal",
+              "oathbreaker": "legal",
+              "standardbrawl": "not_legal",
+              "brawl": "not_legal",
+              "competitivebrawl": "not_legal",
+              "alchemy": "not_legal",
+              "paupercommander": "legal",
+              "duel": "legal",
+              "oldschool": "not_legal",
+              "premodern": "not_legal",
+              "predh": "not_legal",
+              "tlr": "legal"
+            },
+            "games": [
+              "paper",
+              "mtgo"
+            ],
+            "reserved": false,
+            "game_changer": false,
+            "foil": true,
+            "nonfoil": true,
+            "finishes": [
+              "nonfoil",
+              "foil"
+            ],
+            "oversized": false,
+            "promo": false,
+            "reprint": false,
+            "variation": false,
+            "set_id": "c1c7eb8c-f205-40ab-a609-767cb296544e",
+            "set": "mh2",
+            "set_name": "Modern Horizons 2",
+            "set_type": "draft_innovation",
+            "set_uri": "https://api.scryfall.com/sets/c1c7eb8c-f205-40ab-a609-767cb296544e",
+            "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Amh2&unique=prints",
+            "scryfall_set_uri": "https://scryfall.com/sets/mh2?utm_source=api",
+            "rulings_uri": "https://api.scryfall.com/cards/9091e8dc-b546-4b74-9dc9-aef55f60d13a/rulings",
+            "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Acc929343-db65-43d5-9bf6-9f0bd77c2cd8&unique=prints",
+            "collector_number": "193",
+            "digital": false,
+            "rarity": "common",
+            "flavor_text": "The last piece was finally in place.",
+            "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+            "artist": "Jason A. Engle",
+            "artist_ids": [
+              "02e2b5de-4341-464c-8fdb-a1adbf873bc0"
+            ],
+            "illustration_id": "98271cb0-89aa-4477-aa56-1977454f46f9",
+            "border_color": "black",
+            "frame": "2015",
+            "full_art": false,
+            "textless": false,
+            "booster": true,
+            "story_spotlight": false,
+            "edhrec_rank": 12336,
+            "penny_rank": 3473,
+            "prices": {
+              "usd": "0.20",
+              "usd_foil": "0.35",
+              "usd_etched": null,
+              "eur": "0.12",
+              "eur_foil": "0.15",
+              "tix": "0.03"
+            },
+            "related_uris": {
+              "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=522269&printed=false",
+              "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DDihada%2527s%2BPloy",
+              "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DDihada%2527s%2BPloy",
+              "edhrec": "https://edhrec.com/route/?cc=Dihada%27s+Ploy"
+            },
+            "purchase_uris": {
+              "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F240409%3Fpage%3D1",
+              "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=566925&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+              "cardhoarder": "https://www.cardhoarder.com/cards/90763?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+            }
+          },
+          "evidence_binding": {
+            "path": "docs/mechanics-research/j-protocol-evidence/jump-discovery-1.json",
+            "sha256": "448afc9cd138634f2e5b5657c2cc94ccefd4f5ece8a543e6e8caabb773da7023",
+            "printing_id": "9091e8dc-b546-4b74-9dc9-aef55f60d13a",
+            "oracle_id": "cc929343-db65-43d5-9bf6-9f0bd77c2cd8"
+          }
+        },
+        {
+          "oracle_id": "884686dd-515c-4484-a324-e7d126903a42",
+          "name": "Beacon Bolt",
+          "scryfall_url": "https://scryfall.com/card/grn/154/beacon-bolt?utm_source=api",
+          "scope": "released_paper",
+          "roles": [
+            "native"
+          ],
+          "included": true,
+          "attributed_colors": [
+            "U",
+            "R"
+          ],
+          "mechanic_face": "Beacon Bolt",
+          "inclusion_reason": "Selected witness: Beacon Bolt deals damage to target creature equal to the total number of instant and sorcery cards you own in exile and in your graveyard.",
+          "card_facts": {
+            "object": "card",
+            "id": "39c9e4b5-364b-4c0b-bb47-266563a6abf2",
+            "oracle_id": "884686dd-515c-4484-a324-e7d126903a42",
+            "multiverse_ids": [
+              452904
+            ],
+            "mtgo_id": 69681,
+            "arena_id": 68615,
+            "tcgplayer_id": 176857,
+            "cardmarket_id": 364198,
+            "name": "Beacon Bolt",
+            "lang": "en",
+            "released_at": "2018-10-05",
+            "uri": "https://api.scryfall.com/cards/39c9e4b5-364b-4c0b-bb47-266563a6abf2",
+            "scryfall_uri": "https://scryfall.com/card/grn/154/beacon-bolt?utm_source=api",
+            "layout": "normal",
+            "highres_image": true,
+            "image_status": "highres_scan",
+            "image_updated_at": "2026-07-13T09:15:42Z",
+            "image_uris": {
+              "small": "https://cards.scryfall.io/small/front/3/9/39c9e4b5-364b-4c0b-bb47-266563a6abf2.jpg?1783934142",
+              "normal": "https://cards.scryfall.io/normal/front/3/9/39c9e4b5-364b-4c0b-bb47-266563a6abf2.jpg?1783934142",
+              "large": "https://cards.scryfall.io/large/front/3/9/39c9e4b5-364b-4c0b-bb47-266563a6abf2.jpg?1783934142",
+              "png": "https://cards.scryfall.io/png/front/3/9/39c9e4b5-364b-4c0b-bb47-266563a6abf2.png?1783934142",
+              "art_crop": "https://cards.scryfall.io/art_crop/front/3/9/39c9e4b5-364b-4c0b-bb47-266563a6abf2.jpg?1783934142",
+              "border_crop": "https://cards.scryfall.io/border_crop/front/3/9/39c9e4b5-364b-4c0b-bb47-266563a6abf2.jpg?1783934142",
+              "thumb": "https://cards.scryfall.io/thumb/front/3/9/39c9e4b5-364b-4c0b-bb47-266563a6abf2.webp?1783934142",
+              "grid": "https://cards.scryfall.io/grid/front/3/9/39c9e4b5-364b-4c0b-bb47-266563a6abf2.webp?1783934142",
+              "display": "https://cards.scryfall.io/display/front/3/9/39c9e4b5-364b-4c0b-bb47-266563a6abf2.webp?1783934142",
+              "art": "https://cards.scryfall.io/art/front/3/9/39c9e4b5-364b-4c0b-bb47-266563a6abf2.webp?1783934142",
+              "crop": "https://cards.scryfall.io/crop/front/3/9/39c9e4b5-364b-4c0b-bb47-266563a6abf2.webp?1783934142",
+              "jpeg": "https://cards.scryfall.io/normal/front/3/9/39c9e4b5-364b-4c0b-bb47-266563a6abf2.jpg?1783934142"
+            },
+            "mana_cost": "{1}{U}{R}",
+            "cmc": 3.0,
+            "type_line": "Sorcery",
+            "oracle_text": "Beacon Bolt deals damage to target creature equal to the total number of instant and sorcery cards you own in exile and in your graveyard.\nJump-start (You may cast this card from your graveyard by discarding a card in addition to paying its other costs. Then exile this card.)",
+            "colors": [
+              "R",
+              "U"
+            ],
+            "color_identity": [
+              "R",
+              "U"
+            ],
+            "keywords": [
+              "Jump",
+              "Jump-start"
+            ],
+            "legalities": {
+              "standard": "not_legal",
+              "future": "not_legal",
+              "historic": "legal",
+              "timeless": "legal",
+              "gladiator": "legal",
+              "pioneer": "legal",
+              "modern": "legal",
+              "legacy": "legal",
+              "pauper": "not_legal",
+              "vintage": "legal",
+              "penny": "not_legal",
+              "commander": "legal",
+              "oathbreaker": "legal",
+              "standardbrawl": "not_legal",
+              "brawl": "legal",
+              "competitivebrawl": "legal",
+              "alchemy": "not_legal",
+              "paupercommander": "not_legal",
+              "duel": "legal",
+              "oldschool": "not_legal",
+              "premodern": "not_legal",
+              "predh": "not_legal",
+              "tlr": "legal"
+            },
+            "games": [
+              "arena",
+              "paper",
+              "mtgo"
+            ],
+            "reserved": false,
+            "game_changer": false,
+            "foil": true,
+            "nonfoil": true,
+            "finishes": [
+              "nonfoil",
+              "foil"
+            ],
+            "oversized": false,
+            "promo": false,
+            "reprint": false,
+            "variation": false,
+            "set_id": "597c6d4a-8212-4903-a6af-12c4ae9e13f0",
+            "set": "grn",
+            "set_name": "Guilds of Ravnica",
+            "set_type": "expansion",
+            "set_uri": "https://api.scryfall.com/sets/597c6d4a-8212-4903-a6af-12c4ae9e13f0",
+            "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Agrn&unique=prints",
+            "scryfall_set_uri": "https://scryfall.com/sets/grn?utm_source=api",
+            "rulings_uri": "https://api.scryfall.com/cards/39c9e4b5-364b-4c0b-bb47-266563a6abf2/rulings",
+            "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A884686dd-515c-4484-a324-e7d126903a42&unique=prints",
+            "collector_number": "154",
+            "digital": false,
+            "rarity": "uncommon",
+            "watermark": "izzet",
+            "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+            "artist": "Titus Lunter",
+            "artist_ids": [
+              "b11e6b3a-f4ca-4cf1-8fd7-475696de5f5c"
+            ],
+            "illustration_id": "c2ce83a1-ddba-429c-9f7b-7e02585ea99d",
+            "border_color": "black",
+            "frame": "2015",
+            "full_art": false,
+            "textless": false,
+            "booster": true,
+            "story_spotlight": false,
+            "edhrec_rank": 12485,
+            "penny_rank": 2288,
+            "prices": {
+              "usd": "0.22",
+              "usd_foil": "0.32",
+              "usd_etched": null,
+              "eur": "0.14",
+              "eur_foil": "0.51",
+              "tix": "0.03"
+            },
+            "related_uris": {
+              "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=452904&printed=false",
+              "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DBeacon%2BBolt",
+              "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DBeacon%2BBolt",
+              "edhrec": "https://edhrec.com/route/?cc=Beacon+Bolt"
+            },
+            "purchase_uris": {
+              "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F176857%3Fpage%3D1",
+              "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=364198&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+              "cardhoarder": "https://www.cardhoarder.com/cards/69681?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+            }
+          },
+          "evidence_binding": {
+            "path": "docs/mechanics-research/j-protocol-evidence/jump-discovery-1.json",
+            "sha256": "448afc9cd138634f2e5b5657c2cc94ccefd4f5ece8a543e6e8caabb773da7023",
+            "printing_id": "39c9e4b5-364b-4c0b-bb47-266563a6abf2",
+            "oracle_id": "884686dd-515c-4484-a324-e7d126903a42"
+          }
+        },
+        {
+          "oracle_id": "4c3a865a-88b1-43e0-b326-17c45670da54",
+          "name": "Niv-Mizzet, Supreme",
+          "scryfall_url": "https://scryfall.com/card/mat/40/niv-mizzet-supreme?utm_source=api",
+          "scope": "released_paper",
+          "roles": [
+            "explicit_grant"
+          ],
+          "included": true,
+          "attributed_colors": [
+            "W",
+            "U",
+            "B",
+            "R",
+            "G"
+          ],
+          "mechanic_face": "Niv-Mizzet, Supreme",
+          "inclusion_reason": "Selected witness: Flying, hexproof from monocolored",
+          "card_facts": {
+            "object": "card",
+            "id": "da1ff886-d3c8-43e5-8bf0-ba4f0b259781",
+            "oracle_id": "4c3a865a-88b1-43e0-b326-17c45670da54",
+            "multiverse_ids": [
+              615433
+            ],
+            "mtgo_id": 109202,
+            "arena_id": 85096,
+            "tcgplayer_id": 495624,
+            "cardmarket_id": 710197,
+            "name": "Niv-Mizzet, Supreme",
+            "lang": "en",
+            "released_at": "2023-05-12",
+            "uri": "https://api.scryfall.com/cards/da1ff886-d3c8-43e5-8bf0-ba4f0b259781",
+            "scryfall_uri": "https://scryfall.com/card/mat/40/niv-mizzet-supreme?utm_source=api",
+            "layout": "normal",
+            "highres_image": true,
+            "image_status": "highres_scan",
+            "image_updated_at": "2026-07-13T04:21:52Z",
+            "image_uris": {
+              "small": "https://cards.scryfall.io/small/front/d/a/da1ff886-d3c8-43e5-8bf0-ba4f0b259781.jpg?1783916512",
+              "normal": "https://cards.scryfall.io/normal/front/d/a/da1ff886-d3c8-43e5-8bf0-ba4f0b259781.jpg?1783916512",
+              "large": "https://cards.scryfall.io/large/front/d/a/da1ff886-d3c8-43e5-8bf0-ba4f0b259781.jpg?1783916512",
+              "png": "https://cards.scryfall.io/png/front/d/a/da1ff886-d3c8-43e5-8bf0-ba4f0b259781.png?1783916512",
+              "art_crop": "https://cards.scryfall.io/art_crop/front/d/a/da1ff886-d3c8-43e5-8bf0-ba4f0b259781.jpg?1783916512",
+              "border_crop": "https://cards.scryfall.io/border_crop/front/d/a/da1ff886-d3c8-43e5-8bf0-ba4f0b259781.jpg?1783916512",
+              "thumb": "https://cards.scryfall.io/thumb/front/d/a/da1ff886-d3c8-43e5-8bf0-ba4f0b259781.webp?1783916512",
+              "grid": "https://cards.scryfall.io/grid/front/d/a/da1ff886-d3c8-43e5-8bf0-ba4f0b259781.webp?1783916512",
+              "display": "https://cards.scryfall.io/display/front/d/a/da1ff886-d3c8-43e5-8bf0-ba4f0b259781.webp?1783916512",
+              "art": "https://cards.scryfall.io/art/front/d/a/da1ff886-d3c8-43e5-8bf0-ba4f0b259781.webp?1783916512",
+              "crop": "https://cards.scryfall.io/crop/front/d/a/da1ff886-d3c8-43e5-8bf0-ba4f0b259781.webp?1783916512",
+              "jpeg": "https://cards.scryfall.io/normal/front/d/a/da1ff886-d3c8-43e5-8bf0-ba4f0b259781.jpg?1783916512"
+            },
+            "mana_cost": "{W}{U}{B}{R}{G}",
+            "cmc": 5.0,
+            "type_line": "Legendary Creature — Dragon Avatar",
+            "oracle_text": "Flying, hexproof from monocolored\nEach instant and sorcery card in your graveyard that's exactly two colors has jump-start. (You may cast that card from your graveyard by discarding a card in addition to paying its other costs. Then exile it.)",
+            "power": "5",
+            "toughness": "5",
+            "colors": [
+              "B",
+              "G",
+              "R",
+              "U",
+              "W"
+            ],
+            "color_identity": [
+              "B",
+              "G",
+              "R",
+              "U",
+              "W"
+            ],
+            "keywords": [
+              "Flying",
+              "Hexproof from",
+              "Hexproof"
+            ],
+            "legalities": {
+              "standard": "not_legal",
+              "future": "not_legal",
+              "historic": "legal",
+              "timeless": "legal",
+              "gladiator": "legal",
+              "pioneer": "legal",
+              "modern": "legal",
+              "legacy": "legal",
+              "pauper": "not_legal",
+              "vintage": "legal",
+              "penny": "legal",
+              "commander": "legal",
+              "oathbreaker": "legal",
+              "standardbrawl": "not_legal",
+              "brawl": "legal",
+              "competitivebrawl": "legal",
+              "alchemy": "not_legal",
+              "paupercommander": "not_legal",
+              "duel": "legal",
+              "oldschool": "not_legal",
+              "premodern": "not_legal",
+              "predh": "not_legal",
+              "tlr": "not_legal"
+            },
+            "games": [
+              "paper",
+              "arena",
+              "mtgo"
+            ],
+            "reserved": false,
+            "game_changer": false,
+            "foil": true,
+            "nonfoil": true,
+            "finishes": [
+              "nonfoil",
+              "foil"
+            ],
+            "oversized": false,
+            "promo": false,
+            "reprint": false,
+            "variation": false,
+            "set_id": "6727e43d-31b6-45b0-ae05-7a811ba72f70",
+            "set": "mat",
+            "set_name": "March of the Machine: The Aftermath",
+            "set_type": "expansion",
+            "set_uri": "https://api.scryfall.com/sets/6727e43d-31b6-45b0-ae05-7a811ba72f70",
+            "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Amat&unique=prints",
+            "scryfall_set_uri": "https://scryfall.com/sets/mat?utm_source=api",
+            "rulings_uri": "https://api.scryfall.com/cards/da1ff886-d3c8-43e5-8bf0-ba4f0b259781/rulings",
+            "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A4c3a865a-88b1-43e0-b326-17c45670da54&unique=prints",
+            "collector_number": "40",
+            "digital": false,
+            "rarity": "rare",
+            "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+            "artist": "Joshua Raphael",
+            "artist_ids": [
+              "553b2a73-780f-414b-b2d7-3b7888821082"
+            ],
+            "illustration_id": "5606e087-cb0d-45bb-8b2f-3be5a9ff6b70",
+            "border_color": "black",
+            "frame": "2015",
+            "frame_effects": [
+              "legendary"
+            ],
+            "security_stamp": "oval",
+            "full_art": false,
+            "textless": false,
+            "booster": true,
+            "story_spotlight": false,
+            "edhrec_rank": 13569,
+            "penny_rank": 6646,
+            "prices": {
+              "usd": "0.28",
+              "usd_foil": "0.43",
+              "usd_etched": null,
+              "eur": "0.34",
+              "eur_foil": "0.60",
+              "tix": "0.02"
+            },
+            "related_uris": {
+              "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=615433&printed=false",
+              "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DNiv-Mizzet%252C%2BSupreme",
+              "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DNiv-Mizzet%252C%2BSupreme",
+              "edhrec": "https://edhrec.com/route/?cc=Niv-Mizzet%2C+Supreme"
+            },
+            "purchase_uris": {
+              "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F495624%3Fpage%3D1",
+              "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=710197&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+              "cardhoarder": "https://www.cardhoarder.com/cards/109202?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+            }
+          },
+          "evidence_binding": {
+            "path": "docs/mechanics-research/j-protocol-evidence/jump-discovery-1.json",
+            "sha256": "448afc9cd138634f2e5b5657c2cc94ccefd4f5ece8a543e6e8caabb773da7023",
+            "printing_id": "da1ff886-d3c8-43e5-8bf0-ba4f0b259781",
+            "oracle_id": "4c3a865a-88b1-43e0-b326-17c45670da54"
+          }
+        }
+      ],
+      "access_review": {
+        "version": "2.0",
+        "review_date": "2026-10-29",
+        "scope_label": "Released paper cards",
+        "scope": "Jump-start lets an instant or sorcery be cast from its owner’s graveyard by discarding a card as an additional cost, then exiles it.",
+        "summary": "Jump-start lets an instant or sorcery be cast from its owner’s graveyard by discarding a card as an additional cost, then exiles it.",
+        "evidence_scope": [
+          "released_paper"
+        ],
+        "colors": {
+          "W": {
+            "status": "multicolor_only",
+            "card_ids": [
+              "4c3a865a-88b1-43e0-b326-17c45670da54"
+            ],
+            "note": "Niv-Mizzet, Supreme is a five-color source that grants jump-start."
+          },
+          "U": {
+            "status": "documented",
+            "card_ids": [
+              "a2cb30d7-c0a9-4f79-bc19-fc88c4986725"
+            ],
+            "note": "Chemister's Insight is blue and has jump-start."
+          },
+          "B": {
+            "status": "multicolor_only",
+            "card_ids": [
+              "cc929343-db65-43d5-9bf6-9f0bd77c2cd8",
+              "4c3a865a-88b1-43e0-b326-17c45670da54"
+            ],
+            "note": "Dihada's Ploy and Niv-Mizzet, Supreme are multicolor sources with jump-start access."
+          },
+          "R": {
+            "status": "documented",
+            "card_ids": [
+              "54e34440-c890-4a07-83c6-63a2f7a65639"
+            ],
+            "note": "Direct Current is red and has jump-start."
+          },
+          "G": {
+            "status": "multicolor_only",
+            "card_ids": [
+              "4c3a865a-88b1-43e0-b326-17c45670da54"
+            ],
+            "note": "Niv-Mizzet, Supreme is a five-color source that grants jump-start."
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "U",
+              "B"
+            ],
+            "card_ids": [
+              "cc929343-db65-43d5-9bf6-9f0bd77c2cd8"
+            ],
+            "note": "Dihada's Ploy is blue-black and has jump-start."
+          },
+          {
+            "colors": [
+              "U",
+              "R"
+            ],
+            "card_ids": [
+              "884686dd-515c-4484-a324-e7d126903a42"
+            ],
+            "note": "Beacon Bolt is blue-red and has jump-start."
+          },
+          {
+            "colors": [
+              "W",
+              "U",
+              "B",
+              "R",
+              "G"
+            ],
+            "card_ids": [
+              "4c3a865a-88b1-43e0-b326-17c45670da54"
+            ],
+            "note": "Niv-Mizzet, Supreme grants jump-start to exactly two-color instant and sorcery cards in its controller’s graveyard."
+          }
+        ],
+        "colorless": {
+          "status": "not_found",
+          "card_ids": [],
+          "note": "No colorless example found in the reviewed scope."
+        },
+        "limitations": []
+      },
+      "inherited_reference_evidence": {
+        "rulesSource": {
+          "date": "2026-09-25",
+          "sourceUrl": "https://media.wizards.com/2026/downloads/MagicCompRules%2020260925.txt",
+          "sourceSha256": "8d860e451f20f38865b725b42d82feb714c725373dd8f3b32b8652b3eeb070ca"
+        },
+        "reference": null
+      }
+    }
+  ]
+}

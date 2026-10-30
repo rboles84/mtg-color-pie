@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "retrievals": [
+    {
+      "path": "docs/mechanics-research/j-protocol-evidence/job-select-discovery-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22job%20select%22&unique=cards",
+      "finalUrl": "https://api.scryfall.com/cards/search?q=o%3A%22job%20select%22&unique=cards",
+      "requestStartedUtc": "2026-10-30T01:46:16.052262Z",
+      "requestEndedUtc": "2026-10-30T01:46:16.193483Z",
+      "status": 200,
+      "rawSha256": "eef341dae5b25d5d3fb5cd626f33d22231f037b7d27194b26faa01315d886f4d"
+    },
+    {
+      "path": "docs/mechanics-research/j-protocol-evidence/join-forces-discovery-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22join%20forces%22&unique=cards",
+      "finalUrl": "https://api.scryfall.com/cards/search?q=o%3A%22join%20forces%22&unique=cards",
+      "requestStartedUtc": "2026-10-30T01:46:16.194648Z",
+      "requestEndedUtc": "2026-10-30T01:46:16.299191Z",
+      "status": 200,
+      "rawSha256": "41c05ab9aa39501857e7962cffb4fed447e6872894dccb9a8cf5f89d27211823"
+    },
+    {
+      "path": "docs/mechanics-research/j-protocol-evidence/jump-discovery-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22jump%22&unique=cards",
+      "finalUrl": "https://api.scryfall.com/cards/search?q=o%3A%22jump%22&unique=cards",
+      "requestStartedUtc": "2026-10-30T01:46:16.299934Z",
+      "requestEndedUtc": "2026-10-30T01:46:16.494749Z",
+      "status": 200,
+      "rawSha256": "448afc9cd138634f2e5b5657c2cc94ccefd4f5ece8a543e6e8caabb773da7023"
+    },
+    {
+      "path": "docs/mechanics-research/j-protocol-evidence/jump-start-discovery-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22jump-start%22&unique=cards",
+      "finalUrl": "https://api.scryfall.com/cards/search?q=o%3A%22jump-start%22&unique=cards",
+      "requestStartedUtc": "2026-10-30T01:46:16.495885Z",
+      "requestEndedUtc": "2026-10-30T01:46:16.707207Z",
+      "status": 200,
+      "rawSha256": "5369619e5c354a6f8285493f1527f827048b7f9116e55df1839cee35aec4a8bd"
+    },
+    {
+      "path": "docs/mechanics-research/j-protocol-evidence/jump-official.html",
+      "url": "https://magic.wizards.com/en/news/feature/final-fantasy-release-notes",
+      "finalUrl": "https://magic.wizards.com/en/news/feature/final-fantasy-release-notes",
+      "requestStartedUtc": "2026-10-30T01:46:16.708131Z",
+      "requestEndedUtc": "2026-10-30T01:46:16.960842Z",
+      "status": 200,
+      "rawSha256": "cae8701098756577ac83c50eb221e781771f2846f2d023a78f344831ddc361b3"
+    }
+  ]
+}

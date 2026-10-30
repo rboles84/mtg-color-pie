@@ -63,8 +63,8 @@ try{
   await page.waitForFunction(()=>document.querySelector('#selftest').textContent.includes('84 of 84 passed'));
   const baseline=await page.evaluate(math);
   assert.equal(await page.locator('#list .ent').count(),216);
-  assert.equal(await page.evaluate(()=>VMX.assessments().records.length),192);
-  const expectedAssessmentIds=supplement.records.filter(r=>/^[ABCDEFGHI]/.test(r.name)&&r.target2021===null).map(r=>r.id).sort();
+  assert.equal(await page.evaluate(()=>VMX.assessments().records.length),196);
+  const expectedAssessmentIds=supplement.records.filter(r=>/^[ABCDEFGHIJ]/.test(r.name)&&r.target2021===null).map(r=>r.id).sort();
   assert.deepEqual(payload.records.map(r=>r.id).sort(),expectedAssessmentIds,'every admitted A/B/C/D/E/F/G/H/I target has exactly one assessment');
   assert.deepEqual(payload.sourceBindings.map(x=>x.path),[
     'docs/mechanics-research/a-assessments-source.json',
@@ -81,8 +81,8 @@ try{
     'docs/mechanics-research/d-protocol.json',
     'docs/mechanics-research/e-protocol.json',
     'docs/mechanics-research/f-protocol.json',
-    'docs/mechanics-research/g-protocol.json','docs/mechanics-research/h-protocol.json','docs/mechanics-research/i-protocol.json'
-  ],'all seventeen canonical packet bindings are present');
+    'docs/mechanics-research/g-protocol.json','docs/mechanics-research/h-protocol.json','docs/mechanics-research/i-protocol.json','docs/mechanics-research/j-protocol.json'
+  ],'all eighteen canonical packet bindings are present');
   assert.deepEqual(['Cast','Counter','Create'].map(name=>payload.records.find(r=>r.name===name)?.kind),['rules','rules','rules'],'generic C rules actions have no invented color access');
   const dRecord=name=>payload.records.find(r=>r.name===name);
   assert.deepEqual(['Double','Destroy','Discard'].map(name=>dRecord(name).kind),['rules','rules','rules'],'generic D actions remain references');
@@ -120,6 +120,18 @@ try{
     assert.ok(iBuckets(record).every(b=>b.cards.length===1),record.name+' exactly one selected witness per bucket');
   }
   assert.equal(iRecords.flatMap(iBuckets).length,96,'all 96 I selected links must render');
+  const jRecords=payload.records.filter(r=>r.name.startsWith('J'));
+  assert.equal(jRecords.length,4,'all four supplemental J records project once');
+  const jMaps={'Job Select':['W','U','B','R','G','C'],'Join forces':['W','U','B','R','G'],'Jump':['W'],'Jump-Start':['U','R','UB','UR','WUBRG']};
+  const jBuckets=record=>[...Object.values(record.access.colors).filter(b=>b.status==='documented'),...record.access.combinations,...(record.access.colorless.status==='documented'?[record.access.colorless]:[])];
+  for(const record of jRecords){
+    assert.deepEqual([...Object.entries(record.access.colors).filter(([,b])=>b.status==='documented').map(([c])=>c),...record.access.combinations.map(b=>b.colors.join('')),...(record.access.colorless.status==='documented'?['C']:[])],jMaps[record.name],record.name+' exact observed J map');
+    assert.ok(jBuckets(record).every(b=>b.cards.length===1),record.name+' exactly one selected J witness per bucket');
+  }
+  assert.equal(jRecords.flatMap(jBuckets).length,17,'all 17 J selected links must render');
+  assert.equal(fRecord('Jump').access.colors.W.cards[0].name,'Cid, Freeflier Pilot','Jump remains the Cid label, not Jump-Start');
+  assert.equal(fRecord('Job Select').access.colorless.cards[0].name,"Monk's Fist");
+  assert.equal(fRecord('Jump-Start').access.combinations.find(c=>c.colors.join('')==='WUBRG').cards[0].name,'Niv-Mizzet, Supreme');
   assert.equal(fRecord('Increment').scopeLabel,'Released paper cards','Increment is CR702.191, not inferred special material');
   assert.equal(fRecord('Ingest').access.colorless.cards[0].name,'Benthic Infiltrator');
   assert.ok(Object.values(fRecord('Ingest').access.colors).every(b=>b.status==='not_found'),'Devoid does not establish colored access');
@@ -177,7 +189,7 @@ try{
   const gRecord=name=>gRecords.find(r=>r.name===name);
   const gBuckets=record=>[...Object.values(record.access.colors).filter(b=>b.status==='documented'),...record.access.combinations,...(record.access.colorless.status==='documented'?[record.access.colorless]:[])];
   const gMaps={Gift:['W','U','B','R','G','UG','C'],Goad:['W','U','B','R','G','UB','BRG','UR','BR','RG','WB','WRG','WUG','UBR','WR','BG','C'],Graft:['U','G','UG','C'],Grandeur:['W','U','B','R','G','C'],Gravestorm:['U','B']};
-  for(const record of payload.records) assert.equal(record.researchDate,(record.name.startsWith('G')||record.name.startsWith('H')||record.name.startsWith('I'))?'2026-10-29':'2026-10-28',record.name+' historical review date');
+  for(const record of payload.records) assert.equal(record.researchDate,(record.name.startsWith('G')||record.name.startsWith('H')||record.name.startsWith('I')||record.name.startsWith('J'))?'2026-10-29':'2026-10-28',record.name+' historical review date');
   assert.equal(payload.researchDate,'2026-10-29');
   for(const record of gRecords){
     assert.deepEqual([...Object.entries(record.access.colors).filter(([,b])=>b.status==='documented').map(([c])=>c),...record.access.combinations.map(b=>b.colors.join('')),...(record.access.colorless.status==='documented'?['C']:[])],gMaps[record.name],record.name+' exact access map');
@@ -236,7 +248,7 @@ try{
     await page.evaluate(()=>VMX.setView('az'));
     await page.waitForFunction(()=>document.documentElement.classList.contains('supp-mana-ready'));
     for(const record of combinationsOnly ? payload.records.filter(r=>['Fuse','Friends forever','Hexproof from'].includes(r.name)) : payload.records){
-      const row=page.locator(`#list .ent[data-k="${record.id}"]`), access=record.access, compactExamples=/^[CDEFGHI]/.test(record.name);
+      const row=page.locator(`#list .ent[data-k="${record.id}"]`), access=record.access, compactExamples=/^[CDEFGHIJ]/.test(record.name);
       assert.equal(await row.locator('.access-strip').count(),record.kind==='access'?1:0,record.name);
       if(record.kind==='access'){
         const comboPresentation=['Fuse','Friends forever'].includes(record.name), mixedPresentation=record.name==='Hexproof from';
@@ -292,7 +304,7 @@ try{
       await notes.locator(':scope > summary').focus(); await page.keyboard.press('Enter'); assert.equal(await notes.getAttribute('open'),'');
       // Restore symbol fallback text only for exact authored-prose comparisons.
       // Separate visible-DOM assertions below prove the braces are not displayed.
-      const noteText = /^[EFGHI]/.test(record.name) ? await notes.evaluate(el=>{
+      const noteText = /^[EFGHIJ]/.test(record.name) ? await notes.evaluate(el=>{
         const copy=el.cloneNode(true);
         copy.querySelectorAll('.supp-symbol').forEach(symbol=>symbol.replaceWith(symbol.querySelector('.supp-symbol-text').textContent));
         return copy.textContent;
@@ -328,7 +340,7 @@ try{
         for(const item of [...access.combinations,...(access.colorless.status==='documented'?[access.colorless]:[])]) assert.ok(noteText.includes(item.note),record.name+' combination/colorless example visible');
       }
       assert.deepEqual(await notes.locator('a').evaluateAll(links=>links.filter(a=>a.hostname==='scryfall.com'&&a.pathname.startsWith('/card/')).map(a=>a.href).sort()),expectedCardLinks,record.name+' no redundant aggregate card list');
-      if(/^[FGHI]/.test(record.name)) {
+      if(/^[FGHIJ]/.test(record.name)) {
         assert.equal(await page.locator('#detail .dx-eg,#detail .cite').count(),0,record.name+' no inherited extra example/image');
         assert.deepEqual(await page.locator('#detail a').evaluateAll(links=>links.filter(a=>a.hostname==='scryfall.com'&&a.pathname.startsWith('/card/')).map(a=>a.href).sort()),expectedCardLinks,record.name+' whole-detail one-example link contract');
       }
@@ -338,7 +350,7 @@ try{
       const linkedBuckets=cardBuckets.filter(item=>item.findUrl && (!compactExamples || item.cards.length>1));
       for(const findUrl of new Set(linkedBuckets.map(item=>item.findUrl))) assert.equal(await notes.locator(`a[href="${findUrl}"]`).count(),linkedBuckets.filter(item=>item.findUrl===findUrl).length,record.name+' renders every exact reviewed-card bucket link');
       assert.deepEqual(await notes.locator('a').evaluateAll(links=>links.filter(a=>a.protocol!=='https:'||!['scryfall.com','magic.wizards.com'].includes(a.hostname)||a.rel!=='noopener noreferrer').map(a=>a.href)),[]);
-      if(/^[EFGHI]/.test(record.name)) {
+      if(/^[EFGHIJ]/.test(record.name)) {
         await page.waitForFunction(()=>document.documentElement.classList.contains('supp-mana-ready'));
         const symbols=await page.locator('#detail').evaluate(el=>{
           const copy=el.cloneNode(true);
@@ -374,7 +386,7 @@ try{
     const fallback=await noFont.locator('.assessment-notes .supp-symbol').evaluateAll(symbols=>symbols.map(s=>({label:s.getAttribute('aria-label'),text:s.innerText,glyph:getComputedStyle(s.querySelector('.ms')).display,fallback:getComputedStyle(s.querySelector('.supp-symbol-text')).display})));
     assert.deepEqual(fallback.map(s=>s.text),['{1}','{1}','{B}'],'costs remain readable without font');
     assert.ok(fallback.every(s=>s.label&&s.glyph==='none'&&s.fallback!=='none'));
-    for(const record of payload.records.filter(r=>/^[FGHI]/.test(r.name))){
+    for(const record of payload.records.filter(r=>/^[FGHIJ]/.test(r.name))){
       await noFont.evaluate(id=>VMX.open(id),record.id);
       await noFont.locator('.assessment-notes > summary').click();
       const symbols=await noFont.locator('#detail .supp-symbol').evaluateAll(items=>items.map(s=>({text:s.innerText,raw:s.querySelector('.supp-symbol-text').textContent,label:s.getAttribute('aria-label'),glyph:getComputedStyle(s.querySelector('.ms')).display})));
@@ -429,7 +441,7 @@ try{
       await gSafe.route(assessmentRoute,route=>route.fulfill({contentType:'application/json',body:JSON.stringify(gInjected)}));
       await gSafe.goto(url);await gSafe.waitForFunction(()=>VMX.assessments().status==='ready');
       if(!blocked) await gSafe.waitForFunction(()=>document.documentElement.classList.contains('supp-mana-ready'));
-      for(const record of [...gRecords,...hRecords,...iRecords]){
+      for(const record of [...gRecords,...hRecords,...iRecords,...jRecords]){
         await gSafe.evaluate(id=>VMX.open(id),record.id);await gSafe.locator('.assessment-notes > summary').click();
         for(const selector of ['.assessment-notes > p','#detail .supp-rules .dx-ex','#detail .supp-reference .supp-quote']){
           const prose=gSafe.locator(selector).first();assert.equal(await prose.locator('img').count(),0,record.name+' escapes markup in '+selector);
@@ -448,7 +460,7 @@ try{
     await page.evaluate(()=>{VMX.chooseCombo('W');VMX.clearColors();VMX.setView('article');VMX.setView('az');}); assert.equal(await page.evaluate(math),baseline);
     assert.deepEqual(await page.locator('.access-strip .sc').evaluateAll(slots=>slots.map(s=>s.className)),accessBefore,'color lens never retiers access symbols');
     await page.setViewportSize({width:360,height:900}); assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true); await page.setViewportSize({width:1440,height:900});
-    for(const scenario of ['missing','bad-status','unsafe-url','bad-binding','bad-g-date','bad-h-date','bad-i-date']){
+    for(const scenario of ['missing','bad-status','unsafe-url','bad-binding','bad-g-date','bad-h-date','bad-i-date','bad-j-date']){
       const fail=await browser.newPage(), bad=structuredClone(payload);
       if(scenario==='bad-status') bad.records[0].access.colors.W.status='invented';
       if(scenario==='unsafe-url') bad.records.find(r=>r.kind==='access').access.colors.W.findUrl='https://scryfall.com@evil.example/';
@@ -456,6 +468,7 @@ try{
       if(scenario==='bad-g-date') bad.records.find(r=>r.name==='Gift').researchDate='2026-10-28';
       if(scenario==='bad-h-date') bad.records.find(r=>r.name==='Harmonize').researchDate='2026-10-28';
       if(scenario==='bad-i-date') bad.records.find(r=>r.name==='Increment').researchDate='2026-10-28';
+      if(scenario==='bad-j-date') bad.records.find(r=>r.name==='Jump').researchDate='2026-10-28';
       await fail.route(assessmentRoute,route=>route.fulfill(scenario==='missing'?{status:404,body:'Missing'}:{contentType:'application/json',body:JSON.stringify(bad)}));
       await fail.goto(url); await fail.waitForFunction(()=>VMX.assessments().status==='unavailable');
       assert.equal(await fail.evaluate(()=>VMX.assessments().records.length),0); assert.equal(await fail.locator('#list .access-strip').count(),0); await fail.close();

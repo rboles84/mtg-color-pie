@@ -72,6 +72,10 @@
     {
       "path": "docs/mechanics-research/i-protocol.json",
       "sha256": "8e5827c19951a7021924951e92bdacec17d95a9ed2d0caa388c65ef2bb9badd1"
+    },
+    {
+      "path": "docs/mechanics-research/j-protocol.json",
+      "sha256": "16459913d270cec51fb9d6fe7424014165b68882aab1af48e2688cad55c4df0c"
     }
   ],
   "records": [
@@ -41251,6 +41255,434 @@
         {
           "name": "Adrestia",
           "url": "https://scryfall.com/card/acr/68/adrestia?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:job select",
+      "name": "Job Select",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Job select creates a colorless Hero token and attaches the entering Equipment to it.",
+      "summary": "Job select creates a colorless Hero token and attaches the entering Equipment to it.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Dancer's Chakrams is white and has job select.",
+            "cards": [
+              {
+                "name": "Dancer's Chakrams",
+                "url": "https://scryfall.com/card/fic/17/dancers-chakrams?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Dancer%27s%20Chakrams%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Astrologian's Planisphere is blue and has job select.",
+            "cards": [
+              {
+                "name": "Astrologian's Planisphere",
+                "url": "https://scryfall.com/card/fin/46/astrologians-planisphere?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Astrologian%27s%20Planisphere%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Black Mage's Rod is black and has job select.",
+            "cards": [
+              {
+                "name": "Black Mage's Rod",
+                "url": "https://scryfall.com/card/fin/90/black-mages-rod?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Black%20Mage%27s%20Rod%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Red Mage's Rapier is red and has job select.",
+            "cards": [
+              {
+                "name": "Red Mage's Rapier",
+                "url": "https://scryfall.com/card/fin/152/red-mages-rapier?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Red%20Mage%27s%20Rapier%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Bard's Bow is green and has job select.",
+            "cards": [
+              {
+                "name": "Bard's Bow",
+                "url": "https://scryfall.com/card/fin/174/bards-bow?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Bard%27s%20Bow%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "documented",
+          "note": "Monk's Fist is colorless and has job select.",
+          "cards": [
+            {
+              "name": "Monk's Fist",
+              "url": "https://scryfall.com/card/fin/265/monks-fist?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22Monk%27s%20Fist%22%29%20include%3Aextras"
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Dancer's Chakrams",
+          "url": "https://scryfall.com/card/fic/17/dancers-chakrams?utm_source=api"
+        },
+        {
+          "name": "Astrologian's Planisphere",
+          "url": "https://scryfall.com/card/fin/46/astrologians-planisphere?utm_source=api"
+        },
+        {
+          "name": "Black Mage's Rod",
+          "url": "https://scryfall.com/card/fin/90/black-mages-rod?utm_source=api"
+        },
+        {
+          "name": "Red Mage's Rapier",
+          "url": "https://scryfall.com/card/fin/152/red-mages-rapier?utm_source=api"
+        },
+        {
+          "name": "Bard's Bow",
+          "url": "https://scryfall.com/card/fin/174/bards-bow?utm_source=api"
+        },
+        {
+          "name": "Monk's Fist",
+          "url": "https://scryfall.com/card/fin/265/monks-fist?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:join forces",
+      "name": "Join forces",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Join forces lets each player contribute mana in turn to a shared total.",
+      "summary": "Join forces lets each player contribute mana in turn to a shared total.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Alliance of Arms is a W join forces card.",
+            "cards": [
+              {
+                "name": "Alliance of Arms",
+                "url": "https://scryfall.com/card/cmd/4/alliance-of-arms?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Alliance%20of%20Arms%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Minds Aglow is a U join forces card.",
+            "cards": [
+              {
+                "name": "Minds Aglow",
+                "url": "https://scryfall.com/card/cmm/105/minds-aglow?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Minds%20Aglow%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Shared Trauma is a B join forces card.",
+            "cards": [
+              {
+                "name": "Shared Trauma",
+                "url": "https://scryfall.com/card/cm2/76/shared-trauma?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Shared%20Trauma%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Mana-Charged Dragon is a R join forces card.",
+            "cards": [
+              {
+                "name": "Mana-Charged Dragon",
+                "url": "https://scryfall.com/card/cma/84/mana-charged-dragon?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Mana-Charged%20Dragon%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Collective Voyage is a G join forces card.",
+            "cards": [
+              {
+                "name": "Collective Voyage",
+                "url": "https://scryfall.com/card/c16/145/collective-voyage?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Collective%20Voyage%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "not_found",
+          "note": "No colorless example found in the reviewed scope.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Alliance of Arms",
+          "url": "https://scryfall.com/card/cmd/4/alliance-of-arms?utm_source=api"
+        },
+        {
+          "name": "Minds Aglow",
+          "url": "https://scryfall.com/card/cmm/105/minds-aglow?utm_source=api"
+        },
+        {
+          "name": "Shared Trauma",
+          "url": "https://scryfall.com/card/cm2/76/shared-trauma?utm_source=api"
+        },
+        {
+          "name": "Mana-Charged Dragon",
+          "url": "https://scryfall.com/card/cma/84/mana-charged-dragon?utm_source=api"
+        },
+        {
+          "name": "Collective Voyage",
+          "url": "https://scryfall.com/card/c16/145/collective-voyage?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:shortlist:jump",
+      "name": "Jump",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Jump is the card-specific label on Cid, Freeflier Pilot: during its controller’s turn, Cid has flying.",
+      "summary": "Jump is the card-specific label on Cid, Freeflier Pilot: during its controller’s turn, Cid has flying.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Cid, Freeflier Pilot is white and has the Jump label.",
+            "cards": [
+              {
+                "name": "Cid, Freeflier Pilot",
+                "url": "https://scryfall.com/card/fic/13/cid-freeflier-pilot?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Cid%2C%20Freeflier%20Pilot%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "not_found",
+            "note": "No example found in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "B": {
+            "status": "not_found",
+            "note": "No example found in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "R": {
+            "status": "not_found",
+            "note": "No example found in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "G": {
+            "status": "not_found",
+            "note": "No example found in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "not_found",
+          "note": "No colorless example found in the reviewed scope.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Cid, Freeflier Pilot",
+          "url": "https://scryfall.com/card/fic/13/cid-freeflier-pilot?utm_source=api"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Magic: The Gathering—FINAL FANTASY Release Notes",
+          "url": "https://magic.wizards.com/en/news/feature/final-fantasy-release-notes"
+        }
+      ],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:jump-start",
+      "name": "Jump-Start",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Jump-start lets an instant or sorcery be cast from its owner’s graveyard by discarding a card as an additional cost, then exiles it.",
+      "summary": "Jump-start lets an instant or sorcery be cast from its owner’s graveyard by discarding a card as an additional cost, then exiles it.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "multicolor_only",
+            "note": "Niv-Mizzet, Supreme is a five-color source that grants jump-start.",
+            "cards": [
+              {
+                "name": "Niv-Mizzet, Supreme",
+                "url": "https://scryfall.com/card/mat/40/niv-mizzet-supreme?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Niv-Mizzet%2C%20Supreme%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Chemister's Insight is blue and has jump-start.",
+            "cards": [
+              {
+                "name": "Chemister's Insight",
+                "url": "https://scryfall.com/card/clu/81/chemisters-insight?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Chemister%27s%20Insight%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "multicolor_only",
+            "note": "Dihada's Ploy and Niv-Mizzet, Supreme are multicolor sources with jump-start access.",
+            "cards": [
+              {
+                "name": "Dihada's Ploy",
+                "url": "https://scryfall.com/card/mh2/193/dihadas-ploy?utm_source=api"
+              },
+              {
+                "name": "Niv-Mizzet, Supreme",
+                "url": "https://scryfall.com/card/mat/40/niv-mizzet-supreme?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Dihada%27s%20Ploy%22%20or%20%21%22Niv-Mizzet%2C%20Supreme%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Direct Current is red and has jump-start.",
+            "cards": [
+              {
+                "name": "Direct Current",
+                "url": "https://scryfall.com/card/clu/132/direct-current?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Direct%20Current%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "multicolor_only",
+            "note": "Niv-Mizzet, Supreme is a five-color source that grants jump-start.",
+            "cards": [
+              {
+                "name": "Niv-Mizzet, Supreme",
+                "url": "https://scryfall.com/card/mat/40/niv-mizzet-supreme?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Niv-Mizzet%2C%20Supreme%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "U",
+              "B"
+            ],
+            "note": "Dihada's Ploy is blue-black and has jump-start.",
+            "cards": [
+              {
+                "name": "Dihada's Ploy",
+                "url": "https://scryfall.com/card/mh2/193/dihadas-ploy?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Dihada%27s%20Ploy%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "U",
+              "R"
+            ],
+            "note": "Beacon Bolt is blue-red and has jump-start.",
+            "cards": [
+              {
+                "name": "Beacon Bolt",
+                "url": "https://scryfall.com/card/grn/154/beacon-bolt?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Beacon%20Bolt%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "U",
+              "B",
+              "R",
+              "G"
+            ],
+            "note": "Niv-Mizzet, Supreme grants jump-start to exactly two-color instant and sorcery cards in its controller’s graveyard.",
+            "cards": [
+              {
+                "name": "Niv-Mizzet, Supreme",
+                "url": "https://scryfall.com/card/mat/40/niv-mizzet-supreme?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Niv-Mizzet%2C%20Supreme%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "not_found",
+          "note": "No colorless example found in the reviewed scope.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Chemister's Insight",
+          "url": "https://scryfall.com/card/clu/81/chemisters-insight?utm_source=api"
+        },
+        {
+          "name": "Direct Current",
+          "url": "https://scryfall.com/card/clu/132/direct-current?utm_source=api"
+        },
+        {
+          "name": "Dihada's Ploy",
+          "url": "https://scryfall.com/card/mh2/193/dihadas-ploy?utm_source=api"
+        },
+        {
+          "name": "Beacon Bolt",
+          "url": "https://scryfall.com/card/grn/154/beacon-bolt?utm_source=api"
+        },
+        {
+          "name": "Niv-Mizzet, Supreme",
+          "url": "https://scryfall.com/card/mat/40/niv-mizzet-supreme?utm_source=api"
         }
       ],
       "sources": [],

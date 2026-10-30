@@ -100,3 +100,10 @@ The same presence-based Color Access contract covers fifteen supplemental I reco
 Increment is a released-paper keyword defined by rule 702.191. Infusion uses its released-paper ability-word scope; Intensity and Incorporate explicitly use digital / Alchemy material. Ingest uses actual Devoid colorlessness. Incubate and Investigate use the source performing the action, rather than their colorless tokens. Grants use their source colors: Archway of Innovation is colorless despite its blue activation cost, and Korozda Guildmage is black-green. Shore Snapper is black despite its blue islandwalk activation cost. Actual mechanic-bearing faces govern split/DFC screening; a combined split-card color array does not assign the other half's colors to a mechanic.
 
 I extends the established escaped mana-token path through assessment, rules and references, retaining numeric, WUBRG, colorless, X, hybrid, tap, accessible labels and blocked-font text fallback. Fresh raw discovery, official articles and rules have actual URL, request-start/retrieval UTC, status and SHA-256 receipts. Each selected full-card object binds to its actual fresh capture, distinct from inherited reference metadata. Unselected discovery hits are not claimed individually reviewed; negative results stay bounded to the reviewed scope.
+# J supplemental packet (2026-10-29)
+
+`j-protocol.json` adds Job Select, Join forces, Jump, and Jump-Start under
+protocol 2.0. It uses fresh Scryfall discovery captures and a fresh official
+FINAL FANTASY release-notes capture for Cid's Jump label. J preserves the
+frozen 2021 placement system and every A–I packet; it is generated into the
+assessment projection only by `tools/build_mechanics_assessments.py`.
