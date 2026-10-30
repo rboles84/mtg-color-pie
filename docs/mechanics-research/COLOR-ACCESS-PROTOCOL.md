@@ -107,3 +107,18 @@ protocol 2.0. It uses fresh Scryfall discovery captures and a fresh official
 FINAL FANTASY release-notes capture for Cid's Jump label. J preserves the
 frozen 2021 placement system and every A–I packet; it is generated into the
 assessment projection only by `tools/build_mechanics_assessments.py`.
+
+## K batch, October 29, 2026
+
+Kicker, Kinship, and Kinfall are covered by the same presence-based contract.
+Kicker and Kinship use selected released-paper mechanic-bearing faces; Kicker
+keeps its observed WU, UB, and BG combinations distinct from independent
+colors. Kicker discovery follows every returned Scryfall page, without
+claiming unselected hits were individually reviewed.
+
+Kinfall is a special scope: the selected green Plane-Merge Elf is a Mystery
+Booster playtest card with a card-specific Kinfall label. Its accepted official
+review verifies card existence only, so the presentation describes that card's
+effect and explicitly does not claim a verified general Kinfall definition.
+The K extension keeps the escaped symbol, safe-link, font-fallback, and
+one-selected-link contracts through assessment, rules, and reference paths.

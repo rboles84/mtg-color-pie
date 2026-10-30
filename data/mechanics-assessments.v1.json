@@ -76,6 +76,10 @@
     {
       "path": "docs/mechanics-research/j-protocol.json",
       "sha256": "16459913d270cec51fb9d6fe7424014165b68882aab1af48e2688cad55c4df0c"
+    },
+    {
+      "path": "docs/mechanics-research/k-protocol.json",
+      "sha256": "47b1fb48edf7652ae7742744864dc2d77517eb422ed0b18f01bb9da991121b7d"
     }
   ],
   "records": [
@@ -41686,6 +41690,341 @@
         }
       ],
       "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:kicker",
+      "name": "Kicker",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Kicker is an optional additional cost paid while casting a spell.",
+      "summary": "Selected released-paper cards show Kicker in each color, colorless, and three observed multicolor combinations.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Archangel of Wrath is white and has kicker.",
+            "cards": [
+              {
+                "name": "Archangel of Wrath",
+                "url": "https://scryfall.com/card/dmu/3/archangel-of-wrath?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Archangel%20of%20Wrath%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Academy Drake is blue and has kicker.",
+            "cards": [
+              {
+                "name": "Academy Drake",
+                "url": "https://scryfall.com/card/dom/40/academy-drake?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Academy%20Drake%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Aggressive Sabotage is black and has kicker.",
+            "cards": [
+              {
+                "name": "Aggressive Sabotage",
+                "url": "https://scryfall.com/card/dmu/78/aggressive-sabotage?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Aggressive%20Sabotage%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Breath of Darigaaz is red and has kicker.",
+            "cards": [
+              {
+                "name": "Breath of Darigaaz",
+                "url": "https://scryfall.com/card/cm2/88/breath-of-darigaaz?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Breath%20of%20Darigaaz%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Baloth Gorger is green and has kicker.",
+            "cards": [
+              {
+                "name": "Baloth Gorger",
+                "url": "https://scryfall.com/card/dom/156/baloth-gorger?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Baloth%20Gorger%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "W",
+              "U"
+            ],
+            "note": "Kangee, Aerie Keeper is white-blue and has kicker.",
+            "cards": [
+              {
+                "name": "Kangee, Aerie Keeper",
+                "url": "https://scryfall.com/card/inv/253/kangee-aerie-keeper?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Kangee%2C%20Aerie%20Keeper%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "U",
+              "B"
+            ],
+            "note": "Mirror Universe Intrusion is blue-black and has kicker.",
+            "cards": [
+              {
+                "name": "Mirror Universe Intrusion",
+                "url": "https://scryfall.com/card/trk/248/mirror-universe-intrusion?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Mirror%20Universe%20Intrusion%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "B",
+              "G"
+            ],
+            "note": "Moss-Pit Skeleton is black-green and has kicker.",
+            "cards": [
+              {
+                "name": "Moss-Pit Skeleton",
+                "url": "https://scryfall.com/card/znr/228/moss-pit-skeleton?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Moss-Pit%20Skeleton%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "documented",
+          "note": "Aang's Journey is colorless and has kicker.",
+          "cards": [
+            {
+              "name": "Aang's Journey",
+              "url": "https://scryfall.com/card/tla/1/aangs-journey?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22Aang%27s%20Journey%22%29%20include%3Aextras"
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Archangel of Wrath",
+          "url": "https://scryfall.com/card/dmu/3/archangel-of-wrath?utm_source=api"
+        },
+        {
+          "name": "Academy Drake",
+          "url": "https://scryfall.com/card/dom/40/academy-drake?utm_source=api"
+        },
+        {
+          "name": "Aggressive Sabotage",
+          "url": "https://scryfall.com/card/dmu/78/aggressive-sabotage?utm_source=api"
+        },
+        {
+          "name": "Breath of Darigaaz",
+          "url": "https://scryfall.com/card/cm2/88/breath-of-darigaaz?utm_source=api"
+        },
+        {
+          "name": "Baloth Gorger",
+          "url": "https://scryfall.com/card/dom/156/baloth-gorger?utm_source=api"
+        },
+        {
+          "name": "Aang's Journey",
+          "url": "https://scryfall.com/card/tla/1/aangs-journey?utm_source=api"
+        },
+        {
+          "name": "Kangee, Aerie Keeper",
+          "url": "https://scryfall.com/card/inv/253/kangee-aerie-keeper?utm_source=api"
+        },
+        {
+          "name": "Mirror Universe Intrusion",
+          "url": "https://scryfall.com/card/trk/248/mirror-universe-intrusion?utm_source=api"
+        },
+        {
+          "name": "Moss-Pit Skeleton",
+          "url": "https://scryfall.com/card/znr/228/moss-pit-skeleton?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:catalog-gaps:kinfall",
+      "name": "Kinfall",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Mystery Booster playtest card",
+      "scope": "Plane-Merge Elf labels its own creature-type-triggered +1/+1 effect Kinfall.",
+      "summary": "The scoped playtest witness is green; this documents that card-specific label only, not a verified general Kinfall definition.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "not_found",
+            "note": "No white example is represented in this scoped review.",
+            "cards": [],
+            "findUrl": null
+          },
+          "U": {
+            "status": "not_found",
+            "note": "No blue example is represented in this scoped review.",
+            "cards": [],
+            "findUrl": null
+          },
+          "B": {
+            "status": "not_found",
+            "note": "No black example is represented in this scoped review.",
+            "cards": [],
+            "findUrl": null
+          },
+          "R": {
+            "status": "not_found",
+            "note": "No red example is represented in this scoped review.",
+            "cards": [],
+            "findUrl": null
+          },
+          "G": {
+            "status": "documented",
+            "note": "Plane-Merge Elf is green and labels its trigger Kinfall.",
+            "cards": [
+              {
+                "name": "Plane-Merge Elf",
+                "url": "https://scryfall.com/card/cmb2/83/plane-merge-elf?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Plane-Merge%20Elf%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "not_found",
+          "note": "No colorless example is represented in this scoped review.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": [
+          "The accepted official review verifies card existence only; it does not verify a general Kinfall definition. This record remains a labeled Plane-Merge Elf playtest-card example."
+        ]
+      },
+      "citationCards": [
+        {
+          "name": "Plane-Merge Elf",
+          "url": "https://scryfall.com/card/cmb2/83/plane-merge-elf?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:kinship",
+      "name": "Kinship",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Kinship is an ability word for an upkeep ability that checks whether the top card shares a creature type with its source.",
+      "summary": "Selected released-paper Kinship cards show one independently documented witness in each color.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Kithkin Zephyrnaut is white and has Kinship.",
+            "cards": [
+              {
+                "name": "Kithkin Zephyrnaut",
+                "url": "https://scryfall.com/card/mor/16/kithkin-zephyrnaut?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Kithkin%20Zephyrnaut%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Ink Dissolver is blue and has Kinship.",
+            "cards": [
+              {
+                "name": "Ink Dissolver",
+                "url": "https://scryfall.com/card/mor/36/ink-dissolver?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Ink%20Dissolver%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Nightshade Schemers is black and has Kinship.",
+            "cards": [
+              {
+                "name": "Nightshade Schemers",
+                "url": "https://scryfall.com/card/mor/69/nightshade-schemers?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Nightshade%20Schemers%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Mudbutton Clanger is red and has Kinship.",
+            "cards": [
+              {
+                "name": "Mudbutton Clanger",
+                "url": "https://scryfall.com/card/mor/95/mudbutton-clanger?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Mudbutton%20Clanger%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Leaf-Crowned Elder is green and has Kinship.",
+            "cards": [
+              {
+                "name": "Leaf-Crowned Elder",
+                "url": "https://scryfall.com/card/mor/128/leaf-crowned-elder?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Leaf-Crowned%20Elder%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "not_found",
+          "note": "No colorless example is represented in this selected review.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Kithkin Zephyrnaut",
+          "url": "https://scryfall.com/card/mor/16/kithkin-zephyrnaut?utm_source=api"
+        },
+        {
+          "name": "Ink Dissolver",
+          "url": "https://scryfall.com/card/mor/36/ink-dissolver?utm_source=api"
+        },
+        {
+          "name": "Nightshade Schemers",
+          "url": "https://scryfall.com/card/mor/69/nightshade-schemers?utm_source=api"
+        },
+        {
+          "name": "Mudbutton Clanger",
+          "url": "https://scryfall.com/card/mor/95/mudbutton-clanger?utm_source=api"
+        },
+        {
+          "name": "Leaf-Crowned Elder",
+          "url": "https://scryfall.com/card/mor/128/leaf-crowned-elder?utm_source=api"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Class Is in Session",
+          "url": "https://magic.wizards.com/en/news/making-magic/class-session-2008-01-07"
+        }
+      ],
       "relatedEffects": []
     }
   ]

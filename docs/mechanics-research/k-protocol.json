@@ -1,0 +1,2658 @@
+{
+  "protocol_version": "2.0",
+  "review_date": "2026-10-29",
+  "records": [
+    {
+      "mechanic": {
+        "name": "Kicker",
+        "accepted_id": "deck:vocabulary:kicker"
+      },
+      "sources": [],
+      "queries": [
+        {
+          "path": "docs/mechanics-research/k-protocol-evidence/kicker-discovery-1.json",
+          "url": "https://api.scryfall.com/cards/search?q=kw%3Akicker&unique=cards",
+          "finalUrl": "https://api.scryfall.com/cards/search?q=kw%3Akicker&unique=cards",
+          "requestStartedUtc": "2026-10-30T03:10:48.5719027Z",
+          "requestEndedUtc": "2026-10-30T03:10:49.3894495Z",
+          "status": 200,
+          "rawSha256": "1928b5efbf17a1f9597f343bbed7330c861a9da0ec3ddc5430b9d56151ce7494"
+        },
+        {
+          "path": "docs/mechanics-research/k-protocol-evidence/kicker-discovery-2.json",
+          "url": "https://api.scryfall.com/cards/search?format=json&include_extras=false&include_multilingual=false&include_variations=false&order=name&page=2&q=kw%3Akicker&unique=cards",
+          "finalUrl": "https://api.scryfall.com/cards/search?format=json&include_extras=false&include_multilingual=false&include_variations=false&order=name&page=2&q=kw%3Akicker&unique=cards",
+          "requestStartedUtc": "2026-10-30T03:12:08.2588309Z",
+          "requestEndedUtc": "2026-10-30T03:12:08.9343175Z",
+          "status": 200,
+          "rawSha256": "6920f79d9656e099a4b635e5fc1629eaec3ddf54779eb82718bbe75cc485bb6b"
+        }
+      ],
+      "selection_method": "One selected witness per independently supported color, colorless bucket, or observed combination. Full objects are bound to their fresh discovery captures; later discovery hits are not individually reviewed or excluded.",
+      "card_review": [
+        {
+          "oracle_id": "022e97af-2a3a-4e13-9b6b-d34fcc8cf168",
+          "name": "Archangel of Wrath",
+          "scryfall_url": "https://scryfall.com/card/dmu/3/archangel-of-wrath?utm_source=api",
+          "scope": "released_paper",
+          "roles": [
+            "native"
+          ],
+          "included": true,
+          "attributed_colors": [
+            "W"
+          ],
+          "mechanic_face": "Archangel of Wrath",
+          "inclusion_reason": "Selected witness: Archangel of Wrath has kicker.",
+          "card_facts": {
+            "object": "card",
+            "id": "2d00bab2-e95d-4296-a805-2a05e7640efb",
+            "oracle_id": "022e97af-2a3a-4e13-9b6b-d34fcc8cf168",
+            "multiverse_ids": [
+              574483
+            ],
+            "mtgo_id": 102482,
+            "arena_id": 82055,
+            "tcgplayer_id": 282765,
+            "cardmarket_id": 671315,
+            "name": "Archangel of Wrath",
+            "lang": "en",
+            "released_at": "2022-09-09",
+            "uri": "https://api.scryfall.com/cards/2d00bab2-e95d-4296-a805-2a05e7640efb",
+            "scryfall_uri": "https://scryfall.com/card/dmu/3/archangel-of-wrath?utm_source=api",
+            "layout": "normal",
+            "highres_image": true,
+            "image_status": "highres_scan",
+            "image_updated_at": "2026-07-13T05:42:52Z",
+            "image_uris": {
+              "small": "https://cards.scryfall.io/small/front/2/d/2d00bab2-e95d-4296-a805-2a05e7640efb.jpg?1783921372",
+              "normal": "https://cards.scryfall.io/normal/front/2/d/2d00bab2-e95d-4296-a805-2a05e7640efb.jpg?1783921372",
+              "large": "https://cards.scryfall.io/large/front/2/d/2d00bab2-e95d-4296-a805-2a05e7640efb.jpg?1783921372",
+              "png": "https://cards.scryfall.io/png/front/2/d/2d00bab2-e95d-4296-a805-2a05e7640efb.png?1783921372",
+              "art_crop": "https://cards.scryfall.io/art_crop/front/2/d/2d00bab2-e95d-4296-a805-2a05e7640efb.jpg?1783921372",
+              "border_crop": "https://cards.scryfall.io/border_crop/front/2/d/2d00bab2-e95d-4296-a805-2a05e7640efb.jpg?1783921372",
+              "thumb": "https://cards.scryfall.io/thumb/front/2/d/2d00bab2-e95d-4296-a805-2a05e7640efb.webp?1783921372",
+              "grid": "https://cards.scryfall.io/grid/front/2/d/2d00bab2-e95d-4296-a805-2a05e7640efb.webp?1783921372",
+              "display": "https://cards.scryfall.io/display/front/2/d/2d00bab2-e95d-4296-a805-2a05e7640efb.webp?1783921372",
+              "art": "https://cards.scryfall.io/art/front/2/d/2d00bab2-e95d-4296-a805-2a05e7640efb.webp?1783921372",
+              "crop": "https://cards.scryfall.io/crop/front/2/d/2d00bab2-e95d-4296-a805-2a05e7640efb.webp?1783921372",
+              "jpeg": "https://cards.scryfall.io/normal/front/2/d/2d00bab2-e95d-4296-a805-2a05e7640efb.jpg?1783921372"
+            },
+            "mana_cost": "{2}{W}{W}",
+            "cmc": 4.0,
+            "type_line": "Creature — Angel",
+            "oracle_text": "Kicker {B} and/or {R} (You may pay an additional {B} and/or {R} as you cast this spell.)\nFlying, lifelink\nWhen this creature enters, if it was kicked, it deals 2 damage to any target.\nWhen this creature enters, if it was kicked twice, it deals 2 damage to any target.",
+            "power": "3",
+            "toughness": "4",
+            "colors": [
+              "W"
+            ],
+            "color_identity": [
+              "B",
+              "R",
+              "W"
+            ],
+            "keywords": [
+              "Kicker",
+              "Flying",
+              "Lifelink"
+            ],
+            "legalities": {
+              "standard": "not_legal",
+              "future": "not_legal",
+              "historic": "legal",
+              "timeless": "legal",
+              "gladiator": "legal",
+              "pioneer": "legal",
+              "modern": "legal",
+              "legacy": "legal",
+              "pauper": "not_legal",
+              "vintage": "legal",
+              "penny": "legal",
+              "commander": "legal",
+              "oathbreaker": "legal",
+              "standardbrawl": "not_legal",
+              "brawl": "legal",
+              "competitivebrawl": "legal",
+              "alchemy": "not_legal",
+              "paupercommander": "not_legal",
+              "duel": "legal",
+              "oldschool": "not_legal",
+              "premodern": "not_legal",
+              "predh": "not_legal",
+              "tlr": "not_legal"
+            },
+            "games": [
+              "paper",
+              "arena",
+              "mtgo"
+            ],
+            "reserved": false,
+            "game_changer": false,
+            "foil": true,
+            "nonfoil": true,
+            "finishes": [
+              "nonfoil",
+              "foil"
+            ],
+            "oversized": false,
+            "promo": false,
+            "reprint": false,
+            "variation": false,
+            "set_id": "4e47a6cd-cdeb-4b0f-8f24-cfe1a0127cb3",
+            "set": "dmu",
+            "set_name": "Dominaria United",
+            "set_type": "expansion",
+            "set_uri": "https://api.scryfall.com/sets/4e47a6cd-cdeb-4b0f-8f24-cfe1a0127cb3",
+            "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Admu&unique=prints",
+            "scryfall_set_uri": "https://scryfall.com/sets/dmu?utm_source=api",
+            "rulings_uri": "https://api.scryfall.com/cards/2d00bab2-e95d-4296-a805-2a05e7640efb/rulings",
+            "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A022e97af-2a3a-4e13-9b6b-d34fcc8cf168&unique=prints",
+            "collector_number": "3",
+            "digital": false,
+            "rarity": "rare",
+            "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+            "artist": "Miguel Mercado",
+            "artist_ids": [
+              "085f314d-cd61-48e0-89d1-048e9891e4a1"
+            ],
+            "illustration_id": "30c90d96-ee9c-46bb-b1ee-bbc1d8097de5",
+            "border_color": "black",
+            "frame": "2015",
+            "security_stamp": "oval",
+            "full_art": false,
+            "textless": false,
+            "booster": true,
+            "story_spotlight": false,
+            "edhrec_rank": 22699,
+            "penny_rank": 3278,
+            "preview": {
+              "source": "Wizards of the Coast",
+              "source_uri": "https://www.twitch.tv/videos/1565562937",
+              "previewed_at": "2022-08-18"
+            },
+            "prices": {
+              "usd": "0.31",
+              "usd_foil": "0.33",
+              "usd_etched": null,
+              "eur": "0.25",
+              "eur_foil": "0.53",
+              "tix": "0.02"
+            },
+            "related_uris": {
+              "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=574483&printed=false",
+              "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DArchangel%2Bof%2BWrath",
+              "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DArchangel%2Bof%2BWrath",
+              "edhrec": "https://edhrec.com/route/?cc=Archangel+of+Wrath"
+            },
+            "purchase_uris": {
+              "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F282765%3Fpage%3D1",
+              "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=671315&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+              "cardhoarder": "https://www.cardhoarder.com/cards/102482?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+            }
+          },
+          "evidence_binding": {
+            "path": "docs/mechanics-research/k-protocol-evidence/kicker-discovery-1.json",
+            "sha256": "1928b5efbf17a1f9597f343bbed7330c861a9da0ec3ddc5430b9d56151ce7494",
+            "printing_id": "2d00bab2-e95d-4296-a805-2a05e7640efb",
+            "oracle_id": "022e97af-2a3a-4e13-9b6b-d34fcc8cf168"
+          }
+        },
+        {
+          "oracle_id": "65f3ebeb-1ca5-4923-b681-032579991c8a",
+          "name": "Academy Drake",
+          "scryfall_url": "https://scryfall.com/card/dom/40/academy-drake?utm_source=api",
+          "scope": "released_paper",
+          "roles": [
+            "native"
+          ],
+          "included": true,
+          "attributed_colors": [
+            "U"
+          ],
+          "mechanic_face": "Academy Drake",
+          "inclusion_reason": "Selected witness: Academy Drake has kicker.",
+          "card_facts": {
+            "object": "card",
+            "id": "f8bacb12-da46-4b00-804f-9ff6bff452bc",
+            "oracle_id": "65f3ebeb-1ca5-4923-b681-032579991c8a",
+            "multiverse_ids": [
+              442928
+            ],
+            "mtgo_id": 67545,
+            "arena_id": 67184,
+            "tcgplayer_id": 162788,
+            "cardmarket_id": 320710,
+            "name": "Academy Drake",
+            "lang": "en",
+            "released_at": "2018-04-27",
+            "uri": "https://api.scryfall.com/cards/f8bacb12-da46-4b00-804f-9ff6bff452bc",
+            "scryfall_uri": "https://scryfall.com/card/dom/40/academy-drake?utm_source=api",
+            "layout": "normal",
+            "highres_image": true,
+            "image_status": "highres_scan",
+            "image_updated_at": "2026-07-13T09:30:36Z",
+            "image_uris": {
+              "small": "https://cards.scryfall.io/small/front/f/8/f8bacb12-da46-4b00-804f-9ff6bff452bc.jpg?1783935036",
+              "normal": "https://cards.scryfall.io/normal/front/f/8/f8bacb12-da46-4b00-804f-9ff6bff452bc.jpg?1783935036",
+              "large": "https://cards.scryfall.io/large/front/f/8/f8bacb12-da46-4b00-804f-9ff6bff452bc.jpg?1783935036",
+              "png": "https://cards.scryfall.io/png/front/f/8/f8bacb12-da46-4b00-804f-9ff6bff452bc.png?1783935036",
+              "art_crop": "https://cards.scryfall.io/art_crop/front/f/8/f8bacb12-da46-4b00-804f-9ff6bff452bc.jpg?1783935036",
+              "border_crop": "https://cards.scryfall.io/border_crop/front/f/8/f8bacb12-da46-4b00-804f-9ff6bff452bc.jpg?1783935036",
+              "thumb": "https://cards.scryfall.io/thumb/front/f/8/f8bacb12-da46-4b00-804f-9ff6bff452bc.webp?1783935036",
+              "grid": "https://cards.scryfall.io/grid/front/f/8/f8bacb12-da46-4b00-804f-9ff6bff452bc.webp?1783935036",
+              "display": "https://cards.scryfall.io/display/front/f/8/f8bacb12-da46-4b00-804f-9ff6bff452bc.webp?1783935036",
+              "art": "https://cards.scryfall.io/art/front/f/8/f8bacb12-da46-4b00-804f-9ff6bff452bc.webp?1783935036",
+              "crop": "https://cards.scryfall.io/crop/front/f/8/f8bacb12-da46-4b00-804f-9ff6bff452bc.webp?1783935036",
+              "jpeg": "https://cards.scryfall.io/normal/front/f/8/f8bacb12-da46-4b00-804f-9ff6bff452bc.jpg?1783935036"
+            },
+            "mana_cost": "{2}{U}",
+            "cmc": 3.0,
+            "type_line": "Creature — Drake",
+            "oracle_text": "Kicker {4} (You may pay an additional {4} as you cast this spell.)\nFlying\nIf this creature was kicked, it enters with two +1/+1 counters on it.",
+            "power": "2",
+            "toughness": "2",
+            "colors": [
+              "U"
+            ],
+            "color_identity": [
+              "U"
+            ],
+            "keywords": [
+              "Kicker",
+              "Flying"
+            ],
+            "legalities": {
+              "standard": "not_legal",
+              "future": "not_legal",
+              "historic": "legal",
+              "timeless": "legal",
+              "gladiator": "legal",
+              "pioneer": "legal",
+              "modern": "legal",
+              "legacy": "legal",
+              "pauper": "legal",
+              "vintage": "legal",
+              "penny": "legal",
+              "commander": "legal",
+              "oathbreaker": "legal",
+              "standardbrawl": "not_legal",
+              "brawl": "legal",
+              "competitivebrawl": "legal",
+              "alchemy": "not_legal",
+              "paupercommander": "legal",
+              "duel": "legal",
+              "oldschool": "not_legal",
+              "premodern": "not_legal",
+              "predh": "not_legal",
+              "tlr": "legal"
+            },
+            "games": [
+              "arena",
+              "paper",
+              "mtgo"
+            ],
+            "reserved": false,
+            "game_changer": false,
+            "foil": true,
+            "nonfoil": true,
+            "finishes": [
+              "nonfoil",
+              "foil"
+            ],
+            "oversized": false,
+            "promo": false,
+            "reprint": false,
+            "variation": false,
+            "set_id": "be1daba3-51c9-4e7e-9212-36e68addc26c",
+            "set": "dom",
+            "set_name": "Dominaria",
+            "set_type": "expansion",
+            "set_uri": "https://api.scryfall.com/sets/be1daba3-51c9-4e7e-9212-36e68addc26c",
+            "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Adom&unique=prints",
+            "scryfall_set_uri": "https://scryfall.com/sets/dom?utm_source=api",
+            "rulings_uri": "https://api.scryfall.com/cards/f8bacb12-da46-4b00-804f-9ff6bff452bc/rulings",
+            "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A65f3ebeb-1ca5-4923-b681-032579991c8a&unique=prints",
+            "collector_number": "40",
+            "digital": false,
+            "rarity": "common",
+            "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+            "artist": "Svetlin Velinov",
+            "artist_ids": [
+              "ffd063ae-c097-4f26-b2e6-b1e2137708bc"
+            ],
+            "illustration_id": "6e5af780-1580-49d5-9ca1-2e0b6ea1bc18",
+            "border_color": "black",
+            "frame": "2015",
+            "full_art": false,
+            "textless": false,
+            "booster": true,
+            "story_spotlight": false,
+            "edhrec_rank": 25621,
+            "penny_rank": 14039,
+            "prices": {
+              "usd": "0.04",
+              "usd_foil": null,
+              "usd_etched": null,
+              "eur": "0.05",
+              "eur_foil": "0.16",
+              "tix": "0.04"
+            },
+            "related_uris": {
+              "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=442928&printed=false",
+              "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DAcademy%2BDrake",
+              "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DAcademy%2BDrake",
+              "edhrec": "https://edhrec.com/route/?cc=Academy+Drake"
+            },
+            "purchase_uris": {
+              "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F162788%3Fpage%3D1",
+              "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=320710&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+              "cardhoarder": "https://www.cardhoarder.com/cards/67545?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+            }
+          },
+          "evidence_binding": {
+            "path": "docs/mechanics-research/k-protocol-evidence/kicker-discovery-1.json",
+            "sha256": "1928b5efbf17a1f9597f343bbed7330c861a9da0ec3ddc5430b9d56151ce7494",
+            "printing_id": "f8bacb12-da46-4b00-804f-9ff6bff452bc",
+            "oracle_id": "65f3ebeb-1ca5-4923-b681-032579991c8a"
+          }
+        },
+        {
+          "oracle_id": "a47ff11e-dbcf-45b1-a13d-fff677ea42c9",
+          "name": "Aggressive Sabotage",
+          "scryfall_url": "https://scryfall.com/card/dmu/78/aggressive-sabotage?utm_source=api",
+          "scope": "released_paper",
+          "roles": [
+            "native"
+          ],
+          "included": true,
+          "attributed_colors": [
+            "B"
+          ],
+          "mechanic_face": "Aggressive Sabotage",
+          "inclusion_reason": "Selected witness: Aggressive Sabotage has kicker.",
+          "card_facts": {
+            "object": "card",
+            "id": "ac809fca-664a-4e7d-a39f-2bc1dea0fbd8",
+            "oracle_id": "a47ff11e-dbcf-45b1-a13d-fff677ea42c9",
+            "multiverse_ids": [
+              574558
+            ],
+            "mtgo_id": 102632,
+            "arena_id": 82130,
+            "tcgplayer_id": 283617,
+            "cardmarket_id": 672660,
+            "name": "Aggressive Sabotage",
+            "lang": "en",
+            "released_at": "2022-09-09",
+            "uri": "https://api.scryfall.com/cards/ac809fca-664a-4e7d-a39f-2bc1dea0fbd8",
+            "scryfall_uri": "https://scryfall.com/card/dmu/78/aggressive-sabotage?utm_source=api",
+            "layout": "normal",
+            "highres_image": true,
+            "image_status": "highres_scan",
+            "image_updated_at": "2026-07-13T05:42:19Z",
+            "image_uris": {
+              "small": "https://cards.scryfall.io/small/front/a/c/ac809fca-664a-4e7d-a39f-2bc1dea0fbd8.jpg?1783921339",
+              "normal": "https://cards.scryfall.io/normal/front/a/c/ac809fca-664a-4e7d-a39f-2bc1dea0fbd8.jpg?1783921339",
+              "large": "https://cards.scryfall.io/large/front/a/c/ac809fca-664a-4e7d-a39f-2bc1dea0fbd8.jpg?1783921339",
+              "png": "https://cards.scryfall.io/png/front/a/c/ac809fca-664a-4e7d-a39f-2bc1dea0fbd8.png?1783921339",
+              "art_crop": "https://cards.scryfall.io/art_crop/front/a/c/ac809fca-664a-4e7d-a39f-2bc1dea0fbd8.jpg?1783921339",
+              "border_crop": "https://cards.scryfall.io/border_crop/front/a/c/ac809fca-664a-4e7d-a39f-2bc1dea0fbd8.jpg?1783921339",
+              "thumb": "https://cards.scryfall.io/thumb/front/a/c/ac809fca-664a-4e7d-a39f-2bc1dea0fbd8.webp?1783921339",
+              "grid": "https://cards.scryfall.io/grid/front/a/c/ac809fca-664a-4e7d-a39f-2bc1dea0fbd8.webp?1783921339",
+              "display": "https://cards.scryfall.io/display/front/a/c/ac809fca-664a-4e7d-a39f-2bc1dea0fbd8.webp?1783921339",
+              "art": "https://cards.scryfall.io/art/front/a/c/ac809fca-664a-4e7d-a39f-2bc1dea0fbd8.webp?1783921339",
+              "crop": "https://cards.scryfall.io/crop/front/a/c/ac809fca-664a-4e7d-a39f-2bc1dea0fbd8.webp?1783921339",
+              "jpeg": "https://cards.scryfall.io/normal/front/a/c/ac809fca-664a-4e7d-a39f-2bc1dea0fbd8.jpg?1783921339"
+            },
+            "mana_cost": "{2}{B}",
+            "cmc": 3.0,
+            "type_line": "Sorcery",
+            "oracle_text": "Kicker {R} (You may pay an additional {R} as you cast this spell.)\nTarget player discards two cards. If this spell was kicked, it deals 3 damage to that player.",
+            "colors": [
+              "B"
+            ],
+            "color_identity": [
+              "B",
+              "R"
+            ],
+            "keywords": [
+              "Kicker"
+            ],
+            "legalities": {
+              "standard": "not_legal",
+              "future": "not_legal",
+              "historic": "legal",
+              "timeless": "legal",
+              "gladiator": "legal",
+              "pioneer": "legal",
+              "modern": "legal",
+              "legacy": "legal",
+              "pauper": "legal",
+              "vintage": "legal",
+              "penny": "not_legal",
+              "commander": "legal",
+              "oathbreaker": "legal",
+              "standardbrawl": "not_legal",
+              "brawl": "legal",
+              "competitivebrawl": "legal",
+              "alchemy": "not_legal",
+              "paupercommander": "legal",
+              "duel": "legal",
+              "oldschool": "not_legal",
+              "premodern": "not_legal",
+              "predh": "not_legal",
+              "tlr": "legal"
+            },
+            "games": [
+              "paper",
+              "arena",
+              "mtgo"
+            ],
+            "reserved": false,
+            "game_changer": false,
+            "foil": true,
+            "nonfoil": true,
+            "finishes": [
+              "nonfoil",
+              "foil"
+            ],
+            "oversized": false,
+            "promo": false,
+            "reprint": false,
+            "variation": false,
+            "set_id": "4e47a6cd-cdeb-4b0f-8f24-cfe1a0127cb3",
+            "set": "dmu",
+            "set_name": "Dominaria United",
+            "set_type": "expansion",
+            "set_uri": "https://api.scryfall.com/sets/4e47a6cd-cdeb-4b0f-8f24-cfe1a0127cb3",
+            "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Admu&unique=prints",
+            "scryfall_set_uri": "https://scryfall.com/sets/dmu?utm_source=api",
+            "rulings_uri": "https://api.scryfall.com/cards/ac809fca-664a-4e7d-a39f-2bc1dea0fbd8/rulings",
+            "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Aa47ff11e-dbcf-45b1-a13d-fff677ea42c9&unique=prints",
+            "collector_number": "78",
+            "digital": false,
+            "rarity": "common",
+            "flavor_text": "Squee's orders basically came down to \"attack the squishy parts.\"",
+            "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+            "artist": "Daarken",
+            "artist_ids": [
+              "e607a0d4-fc12-4c01-9e3f-501f5269b9cb"
+            ],
+            "illustration_id": "6eb0346f-0e0d-4372-a285-3db78d4d63e2",
+            "border_color": "black",
+            "frame": "2015",
+            "full_art": false,
+            "textless": false,
+            "booster": true,
+            "story_spotlight": false,
+            "edhrec_rank": 25473,
+            "prices": {
+              "usd": "0.05",
+              "usd_foil": "0.12",
+              "usd_etched": null,
+              "eur": "0.04",
+              "eur_foil": "0.09",
+              "tix": "0.03"
+            },
+            "related_uris": {
+              "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=574558&printed=false",
+              "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DAggressive%2BSabotage",
+              "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DAggressive%2BSabotage",
+              "edhrec": "https://edhrec.com/route/?cc=Aggressive+Sabotage"
+            },
+            "purchase_uris": {
+              "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F283617%3Fpage%3D1",
+              "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=672660&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+              "cardhoarder": "https://www.cardhoarder.com/cards/102632?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+            }
+          },
+          "evidence_binding": {
+            "path": "docs/mechanics-research/k-protocol-evidence/kicker-discovery-1.json",
+            "sha256": "1928b5efbf17a1f9597f343bbed7330c861a9da0ec3ddc5430b9d56151ce7494",
+            "printing_id": "ac809fca-664a-4e7d-a39f-2bc1dea0fbd8",
+            "oracle_id": "a47ff11e-dbcf-45b1-a13d-fff677ea42c9"
+          }
+        },
+        {
+          "oracle_id": "1954994f-17bf-4ea5-af72-60f9bfcb6569",
+          "name": "Breath of Darigaaz",
+          "scryfall_url": "https://scryfall.com/card/cm2/88/breath-of-darigaaz?utm_source=api",
+          "scope": "released_paper",
+          "roles": [
+            "native"
+          ],
+          "included": true,
+          "attributed_colors": [
+            "R"
+          ],
+          "mechanic_face": "Breath of Darigaaz",
+          "inclusion_reason": "Selected witness: Breath of Darigaaz has kicker.",
+          "card_facts": {
+            "object": "card",
+            "id": "cbb60f03-7bcf-46a3-9310-c2067d9c5396",
+            "oracle_id": "1954994f-17bf-4ea5-af72-60f9bfcb6569",
+            "multiverse_ids": [
+              446824
+            ],
+            "tcgplayer_id": 166749,
+            "cardmarket_id": 358741,
+            "name": "Breath of Darigaaz",
+            "lang": "en",
+            "released_at": "2018-06-08",
+            "uri": "https://api.scryfall.com/cards/cbb60f03-7bcf-46a3-9310-c2067d9c5396",
+            "scryfall_uri": "https://scryfall.com/card/cm2/88/breath-of-darigaaz?utm_source=api",
+            "layout": "normal",
+            "highres_image": true,
+            "image_status": "highres_scan",
+            "image_updated_at": "2026-07-13T09:25:48Z",
+            "image_uris": {
+              "small": "https://cards.scryfall.io/small/front/c/b/cbb60f03-7bcf-46a3-9310-c2067d9c5396.jpg?1783934748",
+              "normal": "https://cards.scryfall.io/normal/front/c/b/cbb60f03-7bcf-46a3-9310-c2067d9c5396.jpg?1783934748",
+              "large": "https://cards.scryfall.io/large/front/c/b/cbb60f03-7bcf-46a3-9310-c2067d9c5396.jpg?1783934748",
+              "png": "https://cards.scryfall.io/png/front/c/b/cbb60f03-7bcf-46a3-9310-c2067d9c5396.png?1783934748",
+              "art_crop": "https://cards.scryfall.io/art_crop/front/c/b/cbb60f03-7bcf-46a3-9310-c2067d9c5396.jpg?1783934748",
+              "border_crop": "https://cards.scryfall.io/border_crop/front/c/b/cbb60f03-7bcf-46a3-9310-c2067d9c5396.jpg?1783934748",
+              "thumb": "https://cards.scryfall.io/thumb/front/c/b/cbb60f03-7bcf-46a3-9310-c2067d9c5396.webp?1783934748",
+              "grid": "https://cards.scryfall.io/grid/front/c/b/cbb60f03-7bcf-46a3-9310-c2067d9c5396.webp?1783934748",
+              "display": "https://cards.scryfall.io/display/front/c/b/cbb60f03-7bcf-46a3-9310-c2067d9c5396.webp?1783934748",
+              "art": "https://cards.scryfall.io/art/front/c/b/cbb60f03-7bcf-46a3-9310-c2067d9c5396.webp?1783934748",
+              "crop": "https://cards.scryfall.io/crop/front/c/b/cbb60f03-7bcf-46a3-9310-c2067d9c5396.webp?1783934748",
+              "jpeg": "https://cards.scryfall.io/normal/front/c/b/cbb60f03-7bcf-46a3-9310-c2067d9c5396.jpg?1783934748"
+            },
+            "mana_cost": "{1}{R}",
+            "cmc": 2.0,
+            "type_line": "Sorcery",
+            "oracle_text": "Kicker {2} (You may pay an additional {2} as you cast this spell.)\nBreath of Darigaaz deals 1 damage to each creature without flying and each player. If this spell was kicked, it deals 4 damage to each creature without flying and each player instead.",
+            "colors": [
+              "R"
+            ],
+            "color_identity": [
+              "R"
+            ],
+            "keywords": [
+              "Kicker"
+            ],
+            "legalities": {
+              "standard": "not_legal",
+              "future": "not_legal",
+              "historic": "not_legal",
+              "timeless": "not_legal",
+              "gladiator": "not_legal",
+              "pioneer": "not_legal",
+              "modern": "not_legal",
+              "legacy": "legal",
+              "pauper": "not_legal",
+              "vintage": "legal",
+              "penny": "not_legal",
+              "commander": "legal",
+              "oathbreaker": "legal",
+              "standardbrawl": "not_legal",
+              "brawl": "not_legal",
+              "competitivebrawl": "not_legal",
+              "alchemy": "not_legal",
+              "paupercommander": "not_legal",
+              "duel": "legal",
+              "oldschool": "not_legal",
+              "premodern": "legal",
+              "predh": "legal",
+              "tlr": "legal"
+            },
+            "games": [
+              "paper"
+            ],
+            "reserved": false,
+            "game_changer": false,
+            "foil": false,
+            "nonfoil": true,
+            "finishes": [
+              "nonfoil"
+            ],
+            "oversized": false,
+            "promo": false,
+            "reprint": true,
+            "variation": false,
+            "set_id": "2ba5b1a3-40ed-422e-981d-56753004dfc6",
+            "set": "cm2",
+            "set_name": "Commander Anthology Volume II",
+            "set_type": "commander",
+            "set_uri": "https://api.scryfall.com/sets/2ba5b1a3-40ed-422e-981d-56753004dfc6",
+            "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Acm2&unique=prints",
+            "scryfall_set_uri": "https://scryfall.com/sets/cm2?utm_source=api",
+            "rulings_uri": "https://api.scryfall.com/cards/cbb60f03-7bcf-46a3-9310-c2067d9c5396/rulings",
+            "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A1954994f-17bf-4ea5-af72-60f9bfcb6569&unique=prints",
+            "collector_number": "88",
+            "digital": false,
+            "rarity": "uncommon",
+            "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+            "artist": "Greg Hildebrandt & Tim Hildebrandt",
+            "artist_ids": [
+              "020f967b-0d2f-4166-aabe-901dba8bc7ec",
+              "caa7228c-f74c-4145-91fb-1af8d623c353"
+            ],
+            "illustration_id": "bb2f58ae-11d6-4888-8d0d-7951f0e092a5",
+            "border_color": "black",
+            "frame": "2015",
+            "full_art": false,
+            "textless": false,
+            "booster": false,
+            "story_spotlight": false,
+            "edhrec_rank": 14697,
+            "penny_rank": 3369,
+            "prices": {
+              "usd": "0.33",
+              "usd_foil": null,
+              "usd_etched": null,
+              "eur": "0.24",
+              "eur_foil": null,
+              "tix": null
+            },
+            "related_uris": {
+              "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=446824&printed=false",
+              "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DBreath%2Bof%2BDarigaaz",
+              "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DBreath%2Bof%2BDarigaaz",
+              "edhrec": "https://edhrec.com/route/?cc=Breath+of+Darigaaz"
+            },
+            "purchase_uris": {
+              "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F166749%3Fpage%3D1",
+              "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=358741&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+              "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Breath+of+Darigaaz&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+            }
+          },
+          "evidence_binding": {
+            "path": "docs/mechanics-research/k-protocol-evidence/kicker-discovery-1.json",
+            "sha256": "1928b5efbf17a1f9597f343bbed7330c861a9da0ec3ddc5430b9d56151ce7494",
+            "printing_id": "cbb60f03-7bcf-46a3-9310-c2067d9c5396",
+            "oracle_id": "1954994f-17bf-4ea5-af72-60f9bfcb6569"
+          }
+        },
+        {
+          "oracle_id": "7f9bc0c9-0333-4c02-bc14-e6affe848b5d",
+          "name": "Baloth Gorger",
+          "scryfall_url": "https://scryfall.com/card/dom/156/baloth-gorger?utm_source=api",
+          "scope": "released_paper",
+          "roles": [
+            "native"
+          ],
+          "included": true,
+          "attributed_colors": [
+            "G"
+          ],
+          "mechanic_face": "Baloth Gorger",
+          "inclusion_reason": "Selected witness: Baloth Gorger has kicker.",
+          "card_facts": {
+            "object": "card",
+            "id": "504090bb-d183-4833-aea5-d4193b5c57a1",
+            "oracle_id": "7f9bc0c9-0333-4c02-bc14-e6affe848b5d",
+            "multiverse_ids": [
+              443044
+            ],
+            "mtgo_id": 67777,
+            "arena_id": 67416,
+            "tcgplayer_id": 162218,
+            "cardmarket_id": 319741,
+            "name": "Baloth Gorger",
+            "lang": "en",
+            "released_at": "2018-04-27",
+            "uri": "https://api.scryfall.com/cards/504090bb-d183-4833-aea5-d4193b5c57a1",
+            "scryfall_uri": "https://scryfall.com/card/dom/156/baloth-gorger?utm_source=api",
+            "layout": "normal",
+            "highres_image": true,
+            "image_status": "highres_scan",
+            "image_updated_at": "2026-07-13T09:29:42Z",
+            "image_uris": {
+              "small": "https://cards.scryfall.io/small/front/5/0/504090bb-d183-4833-aea5-d4193b5c57a1.jpg?1783934982",
+              "normal": "https://cards.scryfall.io/normal/front/5/0/504090bb-d183-4833-aea5-d4193b5c57a1.jpg?1783934982",
+              "large": "https://cards.scryfall.io/large/front/5/0/504090bb-d183-4833-aea5-d4193b5c57a1.jpg?1783934982",
+              "png": "https://cards.scryfall.io/png/front/5/0/504090bb-d183-4833-aea5-d4193b5c57a1.png?1783934982",
+              "art_crop": "https://cards.scryfall.io/art_crop/front/5/0/504090bb-d183-4833-aea5-d4193b5c57a1.jpg?1783934982",
+              "border_crop": "https://cards.scryfall.io/border_crop/front/5/0/504090bb-d183-4833-aea5-d4193b5c57a1.jpg?1783934982",
+              "thumb": "https://cards.scryfall.io/thumb/front/5/0/504090bb-d183-4833-aea5-d4193b5c57a1.webp?1783934982",
+              "grid": "https://cards.scryfall.io/grid/front/5/0/504090bb-d183-4833-aea5-d4193b5c57a1.webp?1783934982",
+              "display": "https://cards.scryfall.io/display/front/5/0/504090bb-d183-4833-aea5-d4193b5c57a1.webp?1783934982",
+              "art": "https://cards.scryfall.io/art/front/5/0/504090bb-d183-4833-aea5-d4193b5c57a1.webp?1783934982",
+              "crop": "https://cards.scryfall.io/crop/front/5/0/504090bb-d183-4833-aea5-d4193b5c57a1.webp?1783934982",
+              "jpeg": "https://cards.scryfall.io/normal/front/5/0/504090bb-d183-4833-aea5-d4193b5c57a1.jpg?1783934982"
+            },
+            "mana_cost": "{2}{G}{G}",
+            "cmc": 4.0,
+            "type_line": "Creature — Beast",
+            "oracle_text": "Kicker {4} (You may pay an additional {4} as you cast this spell.)\nIf this creature was kicked, it enters with three +1/+1 counters on it.",
+            "power": "4",
+            "toughness": "4",
+            "colors": [
+              "G"
+            ],
+            "color_identity": [
+              "G"
+            ],
+            "keywords": [
+              "Kicker"
+            ],
+            "legalities": {
+              "standard": "not_legal",
+              "future": "not_legal",
+              "historic": "legal",
+              "timeless": "legal",
+              "gladiator": "legal",
+              "pioneer": "legal",
+              "modern": "legal",
+              "legacy": "legal",
+              "pauper": "legal",
+              "vintage": "legal",
+              "penny": "legal",
+              "commander": "legal",
+              "oathbreaker": "legal",
+              "standardbrawl": "not_legal",
+              "brawl": "legal",
+              "competitivebrawl": "legal",
+              "alchemy": "not_legal",
+              "paupercommander": "legal",
+              "duel": "legal",
+              "oldschool": "not_legal",
+              "premodern": "not_legal",
+              "predh": "not_legal",
+              "tlr": "not_legal"
+            },
+            "games": [
+              "arena",
+              "paper",
+              "mtgo"
+            ],
+            "reserved": false,
+            "game_changer": false,
+            "foil": true,
+            "nonfoil": true,
+            "finishes": [
+              "nonfoil",
+              "foil"
+            ],
+            "oversized": false,
+            "promo": false,
+            "reprint": false,
+            "variation": false,
+            "set_id": "be1daba3-51c9-4e7e-9212-36e68addc26c",
+            "set": "dom",
+            "set_name": "Dominaria",
+            "set_type": "expansion",
+            "set_uri": "https://api.scryfall.com/sets/be1daba3-51c9-4e7e-9212-36e68addc26c",
+            "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Adom&unique=prints",
+            "scryfall_set_uri": "https://scryfall.com/sets/dom?utm_source=api",
+            "rulings_uri": "https://api.scryfall.com/cards/504090bb-d183-4833-aea5-d4193b5c57a1/rulings",
+            "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A7f9bc0c9-0333-4c02-bc14-e6affe848b5d&unique=prints",
+            "collector_number": "156",
+            "digital": false,
+            "rarity": "common",
+            "flavor_text": "A baloth only cares about the many things it eats and the few things that eat it.",
+            "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+            "artist": "Zezhou Chen",
+            "artist_ids": [
+              "810677e5-a502-4c03-b726-78cd808a75d4"
+            ],
+            "illustration_id": "8aff6e23-dc2a-4df4-b981-d150b7618177",
+            "border_color": "black",
+            "frame": "2015",
+            "full_art": false,
+            "textless": false,
+            "booster": true,
+            "story_spotlight": false,
+            "edhrec_rank": 23322,
+            "penny_rank": 12064,
+            "prices": {
+              "usd": "0.07",
+              "usd_foil": "0.16",
+              "usd_etched": null,
+              "eur": "0.04",
+              "eur_foil": "0.16",
+              "tix": "0.03"
+            },
+            "related_uris": {
+              "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=443044&printed=false",
+              "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DBaloth%2BGorger",
+              "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DBaloth%2BGorger",
+              "edhrec": "https://edhrec.com/route/?cc=Baloth+Gorger"
+            },
+            "purchase_uris": {
+              "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F162218%3Fpage%3D1",
+              "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=319741&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+              "cardhoarder": "https://www.cardhoarder.com/cards/67777?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+            }
+          },
+          "evidence_binding": {
+            "path": "docs/mechanics-research/k-protocol-evidence/kicker-discovery-1.json",
+            "sha256": "1928b5efbf17a1f9597f343bbed7330c861a9da0ec3ddc5430b9d56151ce7494",
+            "printing_id": "504090bb-d183-4833-aea5-d4193b5c57a1",
+            "oracle_id": "7f9bc0c9-0333-4c02-bc14-e6affe848b5d"
+          }
+        },
+        {
+          "oracle_id": "ddf461b9-a205-4dc7-a9c3-c047b1ff709f",
+          "name": "Aang's Journey",
+          "scryfall_url": "https://scryfall.com/card/tla/1/aangs-journey?utm_source=api",
+          "scope": "released_paper",
+          "roles": [
+            "native"
+          ],
+          "included": true,
+          "attributed_colors": [],
+          "mechanic_face": "Aang's Journey",
+          "inclusion_reason": "Selected witness: Aang's Journey is colorless and has kicker.",
+          "card_facts": {
+            "object": "card",
+            "id": "5e51f727-5a9b-4bc7-83a9-dbcf1c933e15",
+            "oracle_id": "ddf461b9-a205-4dc7-a9c3-c047b1ff709f",
+            "multiverse_ids": [],
+            "resource_id": "5A118A95398AD89B902235EDAF22E46AEBF7E1BB8849A07AD0FBE4859DA76C9C",
+            "mtgo_id": 144478,
+            "arena_id": 97274,
+            "tcgplayer_id": 648730,
+            "cardmarket_id": 842843,
+            "name": "Aang's Journey",
+            "lang": "en",
+            "released_at": "2025-11-21",
+            "uri": "https://api.scryfall.com/cards/5e51f727-5a9b-4bc7-83a9-dbcf1c933e15",
+            "scryfall_uri": "https://scryfall.com/card/tla/1/aangs-journey?utm_source=api",
+            "layout": "normal",
+            "highres_image": true,
+            "image_status": "highres_scan",
+            "image_updated_at": "2026-07-13T01:10:08Z",
+            "image_uris": {
+              "small": "https://cards.scryfall.io/small/front/5/e/5e51f727-5a9b-4bc7-83a9-dbcf1c933e15.jpg?1783905008",
+              "normal": "https://cards.scryfall.io/normal/front/5/e/5e51f727-5a9b-4bc7-83a9-dbcf1c933e15.jpg?1783905008",
+              "large": "https://cards.scryfall.io/large/front/5/e/5e51f727-5a9b-4bc7-83a9-dbcf1c933e15.jpg?1783905008",
+              "png": "https://cards.scryfall.io/png/front/5/e/5e51f727-5a9b-4bc7-83a9-dbcf1c933e15.png?1783905008",
+              "art_crop": "https://cards.scryfall.io/art_crop/front/5/e/5e51f727-5a9b-4bc7-83a9-dbcf1c933e15.jpg?1783905008",
+              "border_crop": "https://cards.scryfall.io/border_crop/front/5/e/5e51f727-5a9b-4bc7-83a9-dbcf1c933e15.jpg?1783905008",
+              "thumb": "https://cards.scryfall.io/thumb/front/5/e/5e51f727-5a9b-4bc7-83a9-dbcf1c933e15.webp?1783905008",
+              "grid": "https://cards.scryfall.io/grid/front/5/e/5e51f727-5a9b-4bc7-83a9-dbcf1c933e15.webp?1783905008",
+              "display": "https://cards.scryfall.io/display/front/5/e/5e51f727-5a9b-4bc7-83a9-dbcf1c933e15.webp?1783905008",
+              "art": "https://cards.scryfall.io/art/front/5/e/5e51f727-5a9b-4bc7-83a9-dbcf1c933e15.webp?1783905008",
+              "crop": "https://cards.scryfall.io/crop/front/5/e/5e51f727-5a9b-4bc7-83a9-dbcf1c933e15.webp?1783905008",
+              "jpeg": "https://cards.scryfall.io/normal/front/5/e/5e51f727-5a9b-4bc7-83a9-dbcf1c933e15.jpg?1783905008"
+            },
+            "mana_cost": "{2}",
+            "cmc": 2.0,
+            "type_line": "Sorcery — Lesson",
+            "oracle_text": "Kicker {2} (You may pay an additional {2} as you cast this spell.)\nSearch your library for a basic land card. If this spell was kicked, instead search your library for a basic land card and a Shrine card. Reveal those cards, put them into your hand, then shuffle.\nYou gain 2 life.",
+            "colors": [],
+            "color_identity": [],
+            "keywords": [
+              "Kicker"
+            ],
+            "legalities": {
+              "standard": "legal",
+              "future": "legal",
+              "historic": "legal",
+              "timeless": "legal",
+              "gladiator": "legal",
+              "pioneer": "legal",
+              "modern": "legal",
+              "legacy": "legal",
+              "pauper": "legal",
+              "vintage": "legal",
+              "penny": "legal",
+              "commander": "legal",
+              "oathbreaker": "legal",
+              "standardbrawl": "legal",
+              "brawl": "legal",
+              "competitivebrawl": "legal",
+              "alchemy": "legal",
+              "paupercommander": "legal",
+              "duel": "legal",
+              "oldschool": "not_legal",
+              "premodern": "not_legal",
+              "predh": "not_legal",
+              "tlr": "legal"
+            },
+            "games": [
+              "paper",
+              "arena",
+              "mtgo"
+            ],
+            "reserved": false,
+            "game_changer": false,
+            "foil": true,
+            "nonfoil": true,
+            "finishes": [
+              "nonfoil",
+              "foil"
+            ],
+            "oversized": false,
+            "promo": false,
+            "reprint": false,
+            "variation": false,
+            "set_id": "118f7e64-5caa-4cb7-99a8-184f4d3a7422",
+            "set": "tla",
+            "set_name": "Avatar: The Last Airbender",
+            "set_type": "expansion",
+            "set_uri": "https://api.scryfall.com/sets/118f7e64-5caa-4cb7-99a8-184f4d3a7422",
+            "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Atla&unique=prints",
+            "scryfall_set_uri": "https://scryfall.com/sets/tla?utm_source=api",
+            "rulings_uri": "https://api.scryfall.com/cards/5e51f727-5a9b-4bc7-83a9-dbcf1c933e15/rulings",
+            "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Addf461b9-a205-4dc7-a9c3-c047b1ff709f&unique=prints",
+            "collector_number": "1",
+            "digital": false,
+            "rarity": "common",
+            "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+            "artist": "Kotakan",
+            "artist_ids": [
+              "81519769-b8a8-4a28-a5c6-a64b1a345495"
+            ],
+            "illustration_id": "3463965d-4666-4b59-943e-81adddcc73f3",
+            "border_color": "black",
+            "frame": "2015",
+            "frame_effects": [
+              "lesson"
+            ],
+            "full_art": false,
+            "textless": false,
+            "booster": true,
+            "story_spotlight": false,
+            "promo_types": [
+              "universesbeyond"
+            ],
+            "edhrec_rank": 4414,
+            "penny_rank": 7727,
+            "prices": {
+              "usd": "0.21",
+              "usd_foil": "0.27",
+              "usd_etched": null,
+              "eur": "0.07",
+              "eur_foil": "0.23",
+              "tix": "0.03"
+            },
+            "related_uris": {
+              "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DAang%2527s%2BJourney",
+              "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DAang%2527s%2BJourney",
+              "edhrec": "https://edhrec.com/route/?cc=Aang%27s+Journey"
+            },
+            "purchase_uris": {
+              "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F648730%3Fpage%3D1",
+              "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=842843&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+              "cardhoarder": "https://www.cardhoarder.com/cards/144478?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+            }
+          },
+          "evidence_binding": {
+            "path": "docs/mechanics-research/k-protocol-evidence/kicker-discovery-1.json",
+            "sha256": "1928b5efbf17a1f9597f343bbed7330c861a9da0ec3ddc5430b9d56151ce7494",
+            "printing_id": "5e51f727-5a9b-4bc7-83a9-dbcf1c933e15",
+            "oracle_id": "ddf461b9-a205-4dc7-a9c3-c047b1ff709f"
+          }
+        },
+        {
+          "oracle_id": "555f9e75-8892-4c8e-9c5e-8ab14a589118",
+          "name": "Kangee, Aerie Keeper",
+          "scryfall_url": "https://scryfall.com/card/inv/253/kangee-aerie-keeper?utm_source=api",
+          "scope": "released_paper",
+          "roles": [
+            "native"
+          ],
+          "included": true,
+          "attributed_colors": [
+            "W",
+            "U"
+          ],
+          "mechanic_face": "Kangee, Aerie Keeper",
+          "inclusion_reason": "Selected witness: Kangee, Aerie Keeper is white-blue and has kicker.",
+          "card_facts": {
+            "object": "card",
+            "id": "3afd7e8e-4fcc-4003-9791-7baf10ef1880",
+            "oracle_id": "555f9e75-8892-4c8e-9c5e-8ab14a589118",
+            "multiverse_ids": [
+              23186
+            ],
+            "mtgo_id": 14347,
+            "mtgo_foil_id": 14348,
+            "tcgplayer_id": 7531,
+            "cardmarket_id": 3527,
+            "name": "Kangee, Aerie Keeper",
+            "lang": "en",
+            "released_at": "2000-10-02",
+            "uri": "https://api.scryfall.com/cards/3afd7e8e-4fcc-4003-9791-7baf10ef1880",
+            "scryfall_uri": "https://scryfall.com/card/inv/253/kangee-aerie-keeper?utm_source=api",
+            "layout": "normal",
+            "highres_image": true,
+            "image_status": "highres_scan",
+            "image_updated_at": "2026-07-13T12:27:41Z",
+            "image_uris": {
+              "small": "https://cards.scryfall.io/small/front/3/a/3afd7e8e-4fcc-4003-9791-7baf10ef1880.jpg?1783945661",
+              "normal": "https://cards.scryfall.io/normal/front/3/a/3afd7e8e-4fcc-4003-9791-7baf10ef1880.jpg?1783945661",
+              "large": "https://cards.scryfall.io/large/front/3/a/3afd7e8e-4fcc-4003-9791-7baf10ef1880.jpg?1783945661",
+              "png": "https://cards.scryfall.io/png/front/3/a/3afd7e8e-4fcc-4003-9791-7baf10ef1880.png?1783945661",
+              "art_crop": "https://cards.scryfall.io/art_crop/front/3/a/3afd7e8e-4fcc-4003-9791-7baf10ef1880.jpg?1783945661",
+              "border_crop": "https://cards.scryfall.io/border_crop/front/3/a/3afd7e8e-4fcc-4003-9791-7baf10ef1880.jpg?1783945661",
+              "thumb": "https://cards.scryfall.io/thumb/front/3/a/3afd7e8e-4fcc-4003-9791-7baf10ef1880.webp?1783945661",
+              "grid": "https://cards.scryfall.io/grid/front/3/a/3afd7e8e-4fcc-4003-9791-7baf10ef1880.webp?1783945661",
+              "display": "https://cards.scryfall.io/display/front/3/a/3afd7e8e-4fcc-4003-9791-7baf10ef1880.webp?1783945661",
+              "art": "https://cards.scryfall.io/art/front/3/a/3afd7e8e-4fcc-4003-9791-7baf10ef1880.webp?1783945661",
+              "crop": "https://cards.scryfall.io/crop/front/3/a/3afd7e8e-4fcc-4003-9791-7baf10ef1880.webp?1783945661",
+              "jpeg": "https://cards.scryfall.io/normal/front/3/a/3afd7e8e-4fcc-4003-9791-7baf10ef1880.jpg?1783945661"
+            },
+            "mana_cost": "{2}{W}{U}",
+            "cmc": 4.0,
+            "type_line": "Legendary Creature — Bird Wizard",
+            "oracle_text": "Kicker {X}{2} (You may pay an additional {X}{2} as you cast this spell.)\nFlying\nWhen Kangee enters, if it was kicked, put X feather counters on it.\nOther Bird creatures get +1/+1 for each feather counter on Kangee.",
+            "power": "2",
+            "toughness": "2",
+            "colors": [
+              "U",
+              "W"
+            ],
+            "color_identity": [
+              "U",
+              "W"
+            ],
+            "keywords": [
+              "Kicker",
+              "Flying"
+            ],
+            "legalities": {
+              "standard": "not_legal",
+              "future": "not_legal",
+              "historic": "not_legal",
+              "timeless": "not_legal",
+              "gladiator": "not_legal",
+              "pioneer": "not_legal",
+              "modern": "not_legal",
+              "legacy": "legal",
+              "pauper": "not_legal",
+              "vintage": "legal",
+              "penny": "not_legal",
+              "commander": "legal",
+              "oathbreaker": "legal",
+              "standardbrawl": "not_legal",
+              "brawl": "not_legal",
+              "competitivebrawl": "not_legal",
+              "alchemy": "not_legal",
+              "paupercommander": "not_legal",
+              "duel": "legal",
+              "oldschool": "not_legal",
+              "premodern": "legal",
+              "predh": "legal",
+              "tlr": "not_legal"
+            },
+            "games": [
+              "paper",
+              "mtgo"
+            ],
+            "reserved": false,
+            "game_changer": false,
+            "foil": true,
+            "nonfoil": true,
+            "finishes": [
+              "nonfoil",
+              "foil"
+            ],
+            "oversized": false,
+            "promo": false,
+            "reprint": false,
+            "variation": false,
+            "set_id": "b9ae5e02-7726-47ca-b5e4-5ec402b41cd1",
+            "set": "inv",
+            "set_name": "Invasion",
+            "set_type": "expansion",
+            "set_uri": "https://api.scryfall.com/sets/b9ae5e02-7726-47ca-b5e4-5ec402b41cd1",
+            "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Ainv&unique=prints",
+            "scryfall_set_uri": "https://scryfall.com/sets/inv?utm_source=api",
+            "rulings_uri": "https://api.scryfall.com/cards/3afd7e8e-4fcc-4003-9791-7baf10ef1880/rulings",
+            "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A555f9e75-8892-4c8e-9c5e-8ab14a589118&unique=prints",
+            "collector_number": "253",
+            "digital": false,
+            "rarity": "rare",
+            "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+            "artist": "Mark Romanoski",
+            "artist_ids": [
+              "4ec62588-d6cc-41a2-a9be-a0f95b9613cc"
+            ],
+            "illustration_id": "10d7c5a0-ecff-45a9-8718-613a8c2cbff4",
+            "border_color": "black",
+            "frame": "1997",
+            "full_art": false,
+            "textless": false,
+            "booster": true,
+            "story_spotlight": false,
+            "edhrec_rank": 14059,
+            "prices": {
+              "usd": "7.23",
+              "usd_foil": "34.92",
+              "usd_etched": null,
+              "eur": "1.89",
+              "eur_foil": "16.58",
+              "tix": "0.44"
+            },
+            "related_uris": {
+              "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=23186&printed=false",
+              "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DKangee%252C%2BAerie%2BKeeper",
+              "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DKangee%252C%2BAerie%2BKeeper",
+              "edhrec": "https://edhrec.com/route/?cc=Kangee%2C+Aerie+Keeper"
+            },
+            "purchase_uris": {
+              "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F7531%3Fpage%3D1",
+              "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=3527&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+              "cardhoarder": "https://www.cardhoarder.com/cards/14347?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+            }
+          },
+          "evidence_binding": {
+            "path": "docs/mechanics-research/k-protocol-evidence/kicker-discovery-1.json",
+            "sha256": "1928b5efbf17a1f9597f343bbed7330c861a9da0ec3ddc5430b9d56151ce7494",
+            "printing_id": "3afd7e8e-4fcc-4003-9791-7baf10ef1880",
+            "oracle_id": "555f9e75-8892-4c8e-9c5e-8ab14a589118"
+          }
+        },
+        {
+          "oracle_id": "007d08e8-4db2-47d1-ba39-8bb8efa491a1",
+          "name": "Mirror Universe Intrusion",
+          "scryfall_url": "https://scryfall.com/card/trk/248/mirror-universe-intrusion?utm_source=api",
+          "scope": "released_paper",
+          "roles": [
+            "native"
+          ],
+          "included": true,
+          "attributed_colors": [
+            "U",
+            "B"
+          ],
+          "mechanic_face": "Mirror Universe Intrusion",
+          "inclusion_reason": "Selected witness: Mirror Universe Intrusion is blue-black and has kicker.",
+          "card_facts": {
+            "object": "card",
+            "id": "3507f99b-15fb-4f66-9484-8e8115e7f5de",
+            "oracle_id": "007d08e8-4db2-47d1-ba39-8bb8efa491a1",
+            "multiverse_ids": [],
+            "tcgplayer_id": 725403,
+            "cardmarket_id": 918744,
+            "name": "Mirror Universe Intrusion",
+            "lang": "en",
+            "released_at": "2026-11-13",
+            "uri": "https://api.scryfall.com/cards/3507f99b-15fb-4f66-9484-8e8115e7f5de",
+            "scryfall_uri": "https://scryfall.com/card/trk/248/mirror-universe-intrusion?utm_source=api",
+            "layout": "normal",
+            "highres_image": true,
+            "image_status": "highres_scan",
+            "image_updated_at": "2026-10-22T11:28:46Z",
+            "image_uris": {
+              "small": "https://cards.scryfall.io/small/front/3/5/3507f99b-15fb-4f66-9484-8e8115e7f5de.jpg?1792668526",
+              "normal": "https://cards.scryfall.io/normal/front/3/5/3507f99b-15fb-4f66-9484-8e8115e7f5de.jpg?1792668526",
+              "large": "https://cards.scryfall.io/large/front/3/5/3507f99b-15fb-4f66-9484-8e8115e7f5de.jpg?1792668526",
+              "png": "https://cards.scryfall.io/png/front/3/5/3507f99b-15fb-4f66-9484-8e8115e7f5de.png?1792668526",
+              "art_crop": "https://cards.scryfall.io/art_crop/front/3/5/3507f99b-15fb-4f66-9484-8e8115e7f5de.jpg?1792668526",
+              "border_crop": "https://cards.scryfall.io/border_crop/front/3/5/3507f99b-15fb-4f66-9484-8e8115e7f5de.jpg?1792668526",
+              "thumb": "https://cards.scryfall.io/thumb/front/3/5/3507f99b-15fb-4f66-9484-8e8115e7f5de.webp?1792668526",
+              "grid": "https://cards.scryfall.io/grid/front/3/5/3507f99b-15fb-4f66-9484-8e8115e7f5de.webp?1792668526",
+              "display": "https://cards.scryfall.io/display/front/3/5/3507f99b-15fb-4f66-9484-8e8115e7f5de.webp?1792668526",
+              "art": "https://cards.scryfall.io/art/front/3/5/3507f99b-15fb-4f66-9484-8e8115e7f5de.webp?1792668526",
+              "crop": "https://cards.scryfall.io/crop/front/3/5/3507f99b-15fb-4f66-9484-8e8115e7f5de.webp?1792668526",
+              "jpeg": "https://cards.scryfall.io/normal/front/3/5/3507f99b-15fb-4f66-9484-8e8115e7f5de.jpg?1792668526"
+            },
+            "mana_cost": "{1}{U}{B}",
+            "cmc": 3.0,
+            "type_line": "Sorcery",
+            "oracle_text": "Kicker {4}{U}{B} (You may pay an additional 4 as you cast this spell.)\nCreate a token that's a copy of target creature an opponent controls, except it has menace. If this spell was kicked, instead for each creature target opponent controls, create a token that's a copy of that creature, except it has menace.",
+            "colors": [
+              "B",
+              "U"
+            ],
+            "color_identity": [
+              "B",
+              "U"
+            ],
+            "keywords": [
+              "Kicker"
+            ],
+            "legalities": {
+              "standard": "not_legal",
+              "future": "not_legal",
+              "historic": "not_legal",
+              "timeless": "not_legal",
+              "gladiator": "not_legal",
+              "pioneer": "not_legal",
+              "modern": "not_legal",
+              "legacy": "not_legal",
+              "pauper": "not_legal",
+              "vintage": "not_legal",
+              "penny": "not_legal",
+              "commander": "not_legal",
+              "oathbreaker": "not_legal",
+              "standardbrawl": "not_legal",
+              "brawl": "not_legal",
+              "competitivebrawl": "not_legal",
+              "alchemy": "not_legal",
+              "paupercommander": "not_legal",
+              "duel": "not_legal",
+              "oldschool": "not_legal",
+              "premodern": "not_legal",
+              "predh": "not_legal",
+              "tlr": "not_legal"
+            },
+            "games": [
+              "paper",
+              "mtgo",
+              "arena"
+            ],
+            "reserved": false,
+            "game_changer": false,
+            "foil": true,
+            "nonfoil": true,
+            "finishes": [
+              "nonfoil",
+              "foil"
+            ],
+            "oversized": false,
+            "promo": false,
+            "reprint": false,
+            "variation": false,
+            "set_id": "b47039dc-da5a-448c-8feb-e77d458108a6",
+            "set": "trk",
+            "set_name": "Star Trek",
+            "set_type": "expansion",
+            "set_uri": "https://api.scryfall.com/sets/b47039dc-da5a-448c-8feb-e77d458108a6",
+            "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Atrk&unique=prints",
+            "scryfall_set_uri": "https://scryfall.com/sets/trk?utm_source=api",
+            "rulings_uri": "https://api.scryfall.com/cards/3507f99b-15fb-4f66-9484-8e8115e7f5de/rulings",
+            "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A007d08e8-4db2-47d1-ba39-8bb8efa491a1&unique=prints",
+            "collector_number": "248",
+            "digital": false,
+            "rarity": "rare",
+            "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+            "artist": "John Tyler Christopher",
+            "artist_ids": [
+              "b029218f-baba-45aa-8f5a-24353077dcc9"
+            ],
+            "illustration_id": "3081fac9-4ae8-400b-9eff-91f9e90ae5c4",
+            "border_color": "black",
+            "frame": "2015",
+            "security_stamp": "oval",
+            "full_art": false,
+            "textless": false,
+            "booster": false,
+            "story_spotlight": false,
+            "promo_types": [
+              "universesbeyond"
+            ],
+            "edhrec_rank": 32190,
+            "preview": {
+              "source": "IGN",
+              "source_uri": "https://www.ign.com/articles/exclusive-see-7-new-cards-from-magic-the-gathering-star-trek-including-1-that-remembers-the-most-iconic-drink-of-tng",
+              "previewed_at": "2026-10-21"
+            },
+            "prices": {
+              "usd": "10.94",
+              "usd_foil": null,
+              "usd_etched": null,
+              "eur": null,
+              "eur_foil": null,
+              "tix": null
+            },
+            "related_uris": {
+              "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DMirror%2BUniverse%2BIntrusion",
+              "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DMirror%2BUniverse%2BIntrusion",
+              "edhrec": "https://edhrec.com/route/?cc=Mirror+Universe+Intrusion"
+            },
+            "purchase_uris": {
+              "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F725403%3Fpage%3D1",
+              "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=918744&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+              "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Mirror+Universe+Intrusion&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+            }
+          },
+          "evidence_binding": {
+            "path": "docs/mechanics-research/k-protocol-evidence/kicker-discovery-1.json",
+            "sha256": "1928b5efbf17a1f9597f343bbed7330c861a9da0ec3ddc5430b9d56151ce7494",
+            "printing_id": "3507f99b-15fb-4f66-9484-8e8115e7f5de",
+            "oracle_id": "007d08e8-4db2-47d1-ba39-8bb8efa491a1"
+          }
+        },
+        {
+          "oracle_id": "edf0e7c0-d9a1-4d29-9cee-5267d3a3978f",
+          "name": "Moss-Pit Skeleton",
+          "scryfall_url": "https://scryfall.com/card/znr/228/moss-pit-skeleton?utm_source=api",
+          "scope": "released_paper",
+          "roles": [
+            "native"
+          ],
+          "included": true,
+          "attributed_colors": [
+            "B",
+            "G"
+          ],
+          "mechanic_face": "Moss-Pit Skeleton",
+          "inclusion_reason": "Selected witness: Moss-Pit Skeleton is black-green and has kicker.",
+          "card_facts": {
+            "object": "card",
+            "id": "95a445dc-3aea-4281-a145-0ab3a28ec6c6",
+            "oracle_id": "edf0e7c0-d9a1-4d29-9cee-5267d3a3978f",
+            "multiverse_ids": [
+              491879
+            ],
+            "mtgo_id": 83451,
+            "arena_id": 73440,
+            "tcgplayer_id": 222088,
+            "cardmarket_id": 496230,
+            "name": "Moss-Pit Skeleton",
+            "lang": "en",
+            "released_at": "2020-09-25",
+            "uri": "https://api.scryfall.com/cards/95a445dc-3aea-4281-a145-0ab3a28ec6c6",
+            "scryfall_uri": "https://scryfall.com/card/znr/228/moss-pit-skeleton?utm_source=api",
+            "layout": "normal",
+            "highres_image": true,
+            "image_status": "highres_scan",
+            "image_updated_at": "2026-07-13T07:55:23Z",
+            "image_uris": {
+              "small": "https://cards.scryfall.io/small/front/9/5/95a445dc-3aea-4281-a145-0ab3a28ec6c6.jpg?1783929323",
+              "normal": "https://cards.scryfall.io/normal/front/9/5/95a445dc-3aea-4281-a145-0ab3a28ec6c6.jpg?1783929323",
+              "large": "https://cards.scryfall.io/large/front/9/5/95a445dc-3aea-4281-a145-0ab3a28ec6c6.jpg?1783929323",
+              "png": "https://cards.scryfall.io/png/front/9/5/95a445dc-3aea-4281-a145-0ab3a28ec6c6.png?1783929323",
+              "art_crop": "https://cards.scryfall.io/art_crop/front/9/5/95a445dc-3aea-4281-a145-0ab3a28ec6c6.jpg?1783929323",
+              "border_crop": "https://cards.scryfall.io/border_crop/front/9/5/95a445dc-3aea-4281-a145-0ab3a28ec6c6.jpg?1783929323",
+              "thumb": "https://cards.scryfall.io/thumb/front/9/5/95a445dc-3aea-4281-a145-0ab3a28ec6c6.webp?1783929323",
+              "grid": "https://cards.scryfall.io/grid/front/9/5/95a445dc-3aea-4281-a145-0ab3a28ec6c6.webp?1783929323",
+              "display": "https://cards.scryfall.io/display/front/9/5/95a445dc-3aea-4281-a145-0ab3a28ec6c6.webp?1783929323",
+              "art": "https://cards.scryfall.io/art/front/9/5/95a445dc-3aea-4281-a145-0ab3a28ec6c6.webp?1783929323",
+              "crop": "https://cards.scryfall.io/crop/front/9/5/95a445dc-3aea-4281-a145-0ab3a28ec6c6.webp?1783929323",
+              "jpeg": "https://cards.scryfall.io/normal/front/9/5/95a445dc-3aea-4281-a145-0ab3a28ec6c6.jpg?1783929323"
+            },
+            "mana_cost": "{B}{G}",
+            "cmc": 2.0,
+            "type_line": "Creature — Plant Skeleton",
+            "oracle_text": "Kicker {3} (You may pay an additional {3} as you cast this spell.)\nIf this creature was kicked, it enters with three +1/+1 counters on it.\nWhenever one or more +1/+1 counters are put on a creature you control, if this card is in your graveyard, you may put this card on top of your library.",
+            "power": "2",
+            "toughness": "2",
+            "colors": [
+              "B",
+              "G"
+            ],
+            "color_identity": [
+              "B",
+              "G"
+            ],
+            "keywords": [
+              "Kicker"
+            ],
+            "legalities": {
+              "standard": "not_legal",
+              "future": "not_legal",
+              "historic": "legal",
+              "timeless": "legal",
+              "gladiator": "legal",
+              "pioneer": "legal",
+              "modern": "legal",
+              "legacy": "legal",
+              "pauper": "not_legal",
+              "vintage": "legal",
+              "penny": "not_legal",
+              "commander": "legal",
+              "oathbreaker": "legal",
+              "standardbrawl": "not_legal",
+              "brawl": "legal",
+              "competitivebrawl": "legal",
+              "alchemy": "not_legal",
+              "paupercommander": "not_legal",
+              "duel": "legal",
+              "oldschool": "not_legal",
+              "premodern": "not_legal",
+              "predh": "not_legal",
+              "tlr": "legal"
+            },
+            "games": [
+              "arena",
+              "paper",
+              "mtgo"
+            ],
+            "reserved": false,
+            "game_changer": false,
+            "foil": true,
+            "nonfoil": true,
+            "finishes": [
+              "nonfoil",
+              "foil"
+            ],
+            "oversized": false,
+            "promo": false,
+            "reprint": false,
+            "variation": false,
+            "set_id": "f4e01fa7-b254-42dd-849f-69b58027a8c4",
+            "set": "znr",
+            "set_name": "Zendikar Rising",
+            "set_type": "expansion",
+            "set_uri": "https://api.scryfall.com/sets/f4e01fa7-b254-42dd-849f-69b58027a8c4",
+            "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Aznr&unique=prints",
+            "scryfall_set_uri": "https://scryfall.com/sets/znr?utm_source=api",
+            "rulings_uri": "https://api.scryfall.com/cards/95a445dc-3aea-4281-a145-0ab3a28ec6c6/rulings",
+            "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Aedf0e7c0-d9a1-4d29-9cee-5267d3a3978f&unique=prints",
+            "collector_number": "228",
+            "digital": false,
+            "rarity": "uncommon",
+            "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+            "artist": "Bryan Sola",
+            "artist_ids": [
+              "e6879299-a28b-48bc-8db1-9cafcf36de09"
+            ],
+            "illustration_id": "a0045d0a-8cde-4c16-a9a6-3d4ed215f2ca",
+            "border_color": "black",
+            "frame": "2015",
+            "full_art": false,
+            "textless": false,
+            "booster": true,
+            "story_spotlight": false,
+            "edhrec_rank": 21631,
+            "penny_rank": 11629,
+            "preview": {
+              "source": "WaifuGate",
+              "source_uri": "https://www.twitch.tv/waifugate/",
+              "previewed_at": "2020-09-07"
+            },
+            "prices": {
+              "usd": "0.18",
+              "usd_foil": "0.32",
+              "usd_etched": null,
+              "eur": "0.08",
+              "eur_foil": "0.14",
+              "tix": "0.03"
+            },
+            "related_uris": {
+              "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=491879&printed=false",
+              "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DMoss-Pit%2BSkeleton",
+              "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DMoss-Pit%2BSkeleton",
+              "edhrec": "https://edhrec.com/route/?cc=Moss-Pit+Skeleton"
+            },
+            "purchase_uris": {
+              "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F222088%3Fpage%3D1",
+              "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=496230&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+              "cardhoarder": "https://www.cardhoarder.com/cards/83451?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+            }
+          },
+          "evidence_binding": {
+            "path": "docs/mechanics-research/k-protocol-evidence/kicker-discovery-1.json",
+            "sha256": "1928b5efbf17a1f9597f343bbed7330c861a9da0ec3ddc5430b9d56151ce7494",
+            "printing_id": "95a445dc-3aea-4281-a145-0ab3a28ec6c6",
+            "oracle_id": "edf0e7c0-d9a1-4d29-9cee-5267d3a3978f"
+          }
+        }
+      ],
+      "access_review": {
+        "version": "2.0",
+        "review_date": "2026-10-29",
+        "scope_label": "Released paper cards",
+        "scope": "Kicker is an optional additional cost paid while casting a spell.",
+        "summary": "Selected released-paper cards show Kicker in each color, colorless, and three observed multicolor combinations.",
+        "evidence_scope": [
+          "released_paper"
+        ],
+        "colors": {
+          "W": {
+            "status": "documented",
+            "card_ids": [
+              "022e97af-2a3a-4e13-9b6b-d34fcc8cf168"
+            ],
+            "note": "Archangel of Wrath is white and has kicker."
+          },
+          "U": {
+            "status": "documented",
+            "card_ids": [
+              "65f3ebeb-1ca5-4923-b681-032579991c8a"
+            ],
+            "note": "Academy Drake is blue and has kicker."
+          },
+          "B": {
+            "status": "documented",
+            "card_ids": [
+              "a47ff11e-dbcf-45b1-a13d-fff677ea42c9"
+            ],
+            "note": "Aggressive Sabotage is black and has kicker."
+          },
+          "R": {
+            "status": "documented",
+            "card_ids": [
+              "1954994f-17bf-4ea5-af72-60f9bfcb6569"
+            ],
+            "note": "Breath of Darigaaz is red and has kicker."
+          },
+          "G": {
+            "status": "documented",
+            "card_ids": [
+              "7f9bc0c9-0333-4c02-bc14-e6affe848b5d"
+            ],
+            "note": "Baloth Gorger is green and has kicker."
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "W",
+              "U"
+            ],
+            "card_ids": [
+              "555f9e75-8892-4c8e-9c5e-8ab14a589118"
+            ],
+            "note": "Kangee, Aerie Keeper is white-blue and has kicker."
+          },
+          {
+            "colors": [
+              "U",
+              "B"
+            ],
+            "card_ids": [
+              "007d08e8-4db2-47d1-ba39-8bb8efa491a1"
+            ],
+            "note": "Mirror Universe Intrusion is blue-black and has kicker."
+          },
+          {
+            "colors": [
+              "B",
+              "G"
+            ],
+            "card_ids": [
+              "edf0e7c0-d9a1-4d29-9cee-5267d3a3978f"
+            ],
+            "note": "Moss-Pit Skeleton is black-green and has kicker."
+          }
+        ],
+        "colorless": {
+          "status": "documented",
+          "card_ids": [
+            "ddf461b9-a205-4dc7-a9c3-c047b1ff709f"
+          ],
+          "note": "Aang's Journey is colorless and has kicker."
+        },
+        "limitations": []
+      }
+    },
+    {
+      "mechanic": {
+        "name": "Kinship",
+        "accepted_id": "deck:vocabulary:kinship"
+      },
+      "sources": [
+        {
+          "title": "Class Is in Session",
+          "url": "https://magic.wizards.com/en/news/making-magic/class-session-2008-01-07"
+        }
+      ],
+      "queries": [
+        {
+          "path": "docs/mechanics-research/k-protocol-evidence/kinship-discovery-1.json",
+          "url": "https://api.scryfall.com/cards/search?q=o%3A%22kinship%22&unique=cards",
+          "finalUrl": "https://api.scryfall.com/cards/search?q=o%3A%22kinship%22&unique=cards",
+          "requestStartedUtc": "2026-10-30T03:10:49.4030289Z",
+          "requestEndedUtc": "2026-10-30T03:10:49.7586186Z",
+          "status": 200,
+          "rawSha256": "32e933ff37f41bef9697a3a95c5642b012a915c7ddf47e0014864e4b898a8c9e"
+        }
+      ],
+      "selection_method": "One selected witness per independently supported color. Full objects are bound to their fresh discovery capture; unselected hits are not individually reviewed or excluded.",
+      "card_review": [
+        {
+          "oracle_id": "f69e9629-a7f7-4241-bf0c-c8def7d19d66",
+          "name": "Kithkin Zephyrnaut",
+          "scryfall_url": "https://scryfall.com/card/mor/16/kithkin-zephyrnaut?utm_source=api",
+          "scope": "released_paper",
+          "roles": [
+            "native"
+          ],
+          "included": true,
+          "attributed_colors": [
+            "W"
+          ],
+          "mechanic_face": "Kithkin Zephyrnaut",
+          "inclusion_reason": "Selected witness: Kithkin Zephyrnaut has Kinship.",
+          "card_facts": {
+            "object": "card",
+            "id": "8671abe8-4333-4b23-a87e-58bcc65deef2",
+            "oracle_id": "f69e9629-a7f7-4241-bf0c-c8def7d19d66",
+            "multiverse_ids": [
+              152858
+            ],
+            "mtgo_id": 29106,
+            "mtgo_foil_id": 29107,
+            "tcgplayer_id": 18004,
+            "cardmarket_id": 18845,
+            "name": "Kithkin Zephyrnaut",
+            "lang": "en",
+            "released_at": "2008-02-01",
+            "uri": "https://api.scryfall.com/cards/8671abe8-4333-4b23-a87e-58bcc65deef2",
+            "scryfall_uri": "https://scryfall.com/card/mor/16/kithkin-zephyrnaut?utm_source=api",
+            "layout": "normal",
+            "highres_image": true,
+            "image_status": "highres_scan",
+            "image_updated_at": "2026-07-13T11:40:04Z",
+            "image_uris": {
+              "small": "https://cards.scryfall.io/small/front/8/6/8671abe8-4333-4b23-a87e-58bcc65deef2.jpg?1783942804",
+              "normal": "https://cards.scryfall.io/normal/front/8/6/8671abe8-4333-4b23-a87e-58bcc65deef2.jpg?1783942804",
+              "large": "https://cards.scryfall.io/large/front/8/6/8671abe8-4333-4b23-a87e-58bcc65deef2.jpg?1783942804",
+              "png": "https://cards.scryfall.io/png/front/8/6/8671abe8-4333-4b23-a87e-58bcc65deef2.png?1783942804",
+              "art_crop": "https://cards.scryfall.io/art_crop/front/8/6/8671abe8-4333-4b23-a87e-58bcc65deef2.jpg?1783942804",
+              "border_crop": "https://cards.scryfall.io/border_crop/front/8/6/8671abe8-4333-4b23-a87e-58bcc65deef2.jpg?1783942804",
+              "thumb": "https://cards.scryfall.io/thumb/front/8/6/8671abe8-4333-4b23-a87e-58bcc65deef2.webp?1783942804",
+              "grid": "https://cards.scryfall.io/grid/front/8/6/8671abe8-4333-4b23-a87e-58bcc65deef2.webp?1783942804",
+              "display": "https://cards.scryfall.io/display/front/8/6/8671abe8-4333-4b23-a87e-58bcc65deef2.webp?1783942804",
+              "art": "https://cards.scryfall.io/art/front/8/6/8671abe8-4333-4b23-a87e-58bcc65deef2.webp?1783942804",
+              "crop": "https://cards.scryfall.io/crop/front/8/6/8671abe8-4333-4b23-a87e-58bcc65deef2.webp?1783942804",
+              "jpeg": "https://cards.scryfall.io/normal/front/8/6/8671abe8-4333-4b23-a87e-58bcc65deef2.jpg?1783942804"
+            },
+            "mana_cost": "{2}{W}",
+            "cmc": 3.0,
+            "type_line": "Creature — Kithkin Soldier",
+            "oracle_text": "Kinship — At the beginning of your upkeep, you may look at the top card of your library. If it shares a creature type with this creature, you may reveal it. If you do, this creature gets +2/+2 and gains flying and vigilance until end of turn.",
+            "power": "2",
+            "toughness": "2",
+            "colors": [
+              "W"
+            ],
+            "color_identity": [
+              "W"
+            ],
+            "keywords": [
+              "Kinship"
+            ],
+            "legalities": {
+              "standard": "not_legal",
+              "future": "not_legal",
+              "historic": "not_legal",
+              "timeless": "not_legal",
+              "gladiator": "not_legal",
+              "pioneer": "not_legal",
+              "modern": "legal",
+              "legacy": "legal",
+              "pauper": "legal",
+              "vintage": "legal",
+              "penny": "legal",
+              "commander": "legal",
+              "oathbreaker": "legal",
+              "standardbrawl": "not_legal",
+              "brawl": "not_legal",
+              "competitivebrawl": "not_legal",
+              "alchemy": "not_legal",
+              "paupercommander": "legal",
+              "duel": "legal",
+              "oldschool": "not_legal",
+              "premodern": "not_legal",
+              "predh": "legal",
+              "tlr": "legal"
+            },
+            "games": [
+              "paper",
+              "mtgo"
+            ],
+            "reserved": false,
+            "game_changer": false,
+            "foil": true,
+            "nonfoil": true,
+            "finishes": [
+              "nonfoil",
+              "foil"
+            ],
+            "oversized": false,
+            "promo": false,
+            "reprint": false,
+            "variation": false,
+            "set_id": "c41550df-7b41-41a3-85ab-8612eb2f168f",
+            "set": "mor",
+            "set_name": "Morningtide",
+            "set_type": "expansion",
+            "set_uri": "https://api.scryfall.com/sets/c41550df-7b41-41a3-85ab-8612eb2f168f",
+            "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Amor&unique=prints",
+            "scryfall_set_uri": "https://scryfall.com/sets/mor?utm_source=api",
+            "rulings_uri": "https://api.scryfall.com/cards/8671abe8-4333-4b23-a87e-58bcc65deef2/rulings",
+            "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Af69e9629-a7f7-4241-bf0c-c8def7d19d66&unique=prints",
+            "collector_number": "16",
+            "digital": false,
+            "rarity": "common",
+            "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+            "artist": "Quinton Hoover & Val Mayerik",
+            "artist_ids": [
+              "1a2db619-92a5-431a-822b-101cdcc5bd5d",
+              "289e552e-3b58-484f-a939-64a01426e84d"
+            ],
+            "illustration_id": "44bc3ef2-180a-4c7e-95fe-fc947ebd5583",
+            "border_color": "black",
+            "frame": "2003",
+            "full_art": false,
+            "textless": false,
+            "booster": true,
+            "story_spotlight": false,
+            "edhrec_rank": 26525,
+            "penny_rank": 13767,
+            "prices": {
+              "usd": "0.18",
+              "usd_foil": "0.29",
+              "usd_etched": null,
+              "eur": "0.05",
+              "eur_foil": "0.26",
+              "tix": "0.03"
+            },
+            "related_uris": {
+              "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=152858&printed=false",
+              "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DKithkin%2BZephyrnaut",
+              "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DKithkin%2BZephyrnaut",
+              "edhrec": "https://edhrec.com/route/?cc=Kithkin+Zephyrnaut"
+            },
+            "purchase_uris": {
+              "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F18004%3Fpage%3D1",
+              "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=18845&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+              "cardhoarder": "https://www.cardhoarder.com/cards/29106?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+            }
+          },
+          "evidence_binding": {
+            "path": "docs/mechanics-research/k-protocol-evidence/kinship-discovery-1.json",
+            "sha256": "32e933ff37f41bef9697a3a95c5642b012a915c7ddf47e0014864e4b898a8c9e",
+            "printing_id": "8671abe8-4333-4b23-a87e-58bcc65deef2",
+            "oracle_id": "f69e9629-a7f7-4241-bf0c-c8def7d19d66"
+          }
+        },
+        {
+          "oracle_id": "a138ca33-6ea4-468e-9cfb-c908ee62c516",
+          "name": "Ink Dissolver",
+          "scryfall_url": "https://scryfall.com/card/mor/36/ink-dissolver?utm_source=api",
+          "scope": "released_paper",
+          "roles": [
+            "native"
+          ],
+          "included": true,
+          "attributed_colors": [
+            "U"
+          ],
+          "mechanic_face": "Ink Dissolver",
+          "inclusion_reason": "Selected witness: Ink Dissolver has Kinship.",
+          "card_facts": {
+            "object": "card",
+            "id": "6e1bf0ad-f718-4118-9e9b-19041cfbb5cf",
+            "oracle_id": "a138ca33-6ea4-468e-9cfb-c908ee62c516",
+            "multiverse_ids": [
+              152736
+            ],
+            "mtgo_id": 29084,
+            "mtgo_foil_id": 29085,
+            "tcgplayer_id": 17999,
+            "cardmarket_id": 18865,
+            "name": "Ink Dissolver",
+            "lang": "en",
+            "released_at": "2008-02-01",
+            "uri": "https://api.scryfall.com/cards/6e1bf0ad-f718-4118-9e9b-19041cfbb5cf",
+            "scryfall_uri": "https://scryfall.com/card/mor/36/ink-dissolver?utm_source=api",
+            "layout": "normal",
+            "highres_image": true,
+            "image_status": "highres_scan",
+            "image_updated_at": "2026-07-13T11:39:59Z",
+            "image_uris": {
+              "small": "https://cards.scryfall.io/small/front/6/e/6e1bf0ad-f718-4118-9e9b-19041cfbb5cf.jpg?1783942799",
+              "normal": "https://cards.scryfall.io/normal/front/6/e/6e1bf0ad-f718-4118-9e9b-19041cfbb5cf.jpg?1783942799",
+              "large": "https://cards.scryfall.io/large/front/6/e/6e1bf0ad-f718-4118-9e9b-19041cfbb5cf.jpg?1783942799",
+              "png": "https://cards.scryfall.io/png/front/6/e/6e1bf0ad-f718-4118-9e9b-19041cfbb5cf.png?1783942799",
+              "art_crop": "https://cards.scryfall.io/art_crop/front/6/e/6e1bf0ad-f718-4118-9e9b-19041cfbb5cf.jpg?1783942799",
+              "border_crop": "https://cards.scryfall.io/border_crop/front/6/e/6e1bf0ad-f718-4118-9e9b-19041cfbb5cf.jpg?1783942799",
+              "thumb": "https://cards.scryfall.io/thumb/front/6/e/6e1bf0ad-f718-4118-9e9b-19041cfbb5cf.webp?1783942799",
+              "grid": "https://cards.scryfall.io/grid/front/6/e/6e1bf0ad-f718-4118-9e9b-19041cfbb5cf.webp?1783942799",
+              "display": "https://cards.scryfall.io/display/front/6/e/6e1bf0ad-f718-4118-9e9b-19041cfbb5cf.webp?1783942799",
+              "art": "https://cards.scryfall.io/art/front/6/e/6e1bf0ad-f718-4118-9e9b-19041cfbb5cf.webp?1783942799",
+              "crop": "https://cards.scryfall.io/crop/front/6/e/6e1bf0ad-f718-4118-9e9b-19041cfbb5cf.webp?1783942799",
+              "jpeg": "https://cards.scryfall.io/normal/front/6/e/6e1bf0ad-f718-4118-9e9b-19041cfbb5cf.jpg?1783942799"
+            },
+            "mana_cost": "{1}{U}",
+            "cmc": 2.0,
+            "type_line": "Creature — Merfolk Wizard",
+            "oracle_text": "Kinship — At the beginning of your upkeep, you may look at the top card of your library. If it shares a creature type with this creature, you may reveal it. If you do, each opponent mills three cards.",
+            "power": "2",
+            "toughness": "1",
+            "colors": [
+              "U"
+            ],
+            "color_identity": [
+              "U"
+            ],
+            "keywords": [
+              "Kinship",
+              "Mill"
+            ],
+            "legalities": {
+              "standard": "not_legal",
+              "future": "not_legal",
+              "historic": "not_legal",
+              "timeless": "not_legal",
+              "gladiator": "not_legal",
+              "pioneer": "not_legal",
+              "modern": "legal",
+              "legacy": "legal",
+              "pauper": "legal",
+              "vintage": "legal",
+              "penny": "legal",
+              "commander": "legal",
+              "oathbreaker": "legal",
+              "standardbrawl": "not_legal",
+              "brawl": "not_legal",
+              "competitivebrawl": "not_legal",
+              "alchemy": "not_legal",
+              "paupercommander": "legal",
+              "duel": "legal",
+              "oldschool": "not_legal",
+              "premodern": "not_legal",
+              "predh": "legal",
+              "tlr": "legal"
+            },
+            "games": [
+              "paper",
+              "mtgo"
+            ],
+            "reserved": false,
+            "game_changer": false,
+            "foil": true,
+            "nonfoil": true,
+            "finishes": [
+              "nonfoil",
+              "foil"
+            ],
+            "oversized": false,
+            "promo": false,
+            "reprint": false,
+            "variation": false,
+            "set_id": "c41550df-7b41-41a3-85ab-8612eb2f168f",
+            "set": "mor",
+            "set_name": "Morningtide",
+            "set_type": "expansion",
+            "set_uri": "https://api.scryfall.com/sets/c41550df-7b41-41a3-85ab-8612eb2f168f",
+            "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Amor&unique=prints",
+            "scryfall_set_uri": "https://scryfall.com/sets/mor?utm_source=api",
+            "rulings_uri": "https://api.scryfall.com/cards/6e1bf0ad-f718-4118-9e9b-19041cfbb5cf/rulings",
+            "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Aa138ca33-6ea4-468e-9cfb-c908ee62c516&unique=prints",
+            "collector_number": "36",
+            "digital": false,
+            "rarity": "common",
+            "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+            "artist": "Brandon Dorman",
+            "artist_ids": [
+              "2c514655-e3b0-4bab-a329-6ec883eeda6a"
+            ],
+            "illustration_id": "81c48d0c-fdac-4d63-9f21-2902544b87ca",
+            "border_color": "black",
+            "frame": "2003",
+            "full_art": false,
+            "textless": false,
+            "booster": true,
+            "story_spotlight": false,
+            "edhrec_rank": 26558,
+            "penny_rank": 12514,
+            "prices": {
+              "usd": "0.13",
+              "usd_foil": "0.77",
+              "usd_etched": null,
+              "eur": "0.14",
+              "eur_foil": "0.37",
+              "tix": "0.03"
+            },
+            "related_uris": {
+              "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=152736&printed=false",
+              "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DInk%2BDissolver",
+              "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DInk%2BDissolver",
+              "edhrec": "https://edhrec.com/route/?cc=Ink+Dissolver"
+            },
+            "purchase_uris": {
+              "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F17999%3Fpage%3D1",
+              "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=18865&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+              "cardhoarder": "https://www.cardhoarder.com/cards/29084?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+            }
+          },
+          "evidence_binding": {
+            "path": "docs/mechanics-research/k-protocol-evidence/kinship-discovery-1.json",
+            "sha256": "32e933ff37f41bef9697a3a95c5642b012a915c7ddf47e0014864e4b898a8c9e",
+            "printing_id": "6e1bf0ad-f718-4118-9e9b-19041cfbb5cf",
+            "oracle_id": "a138ca33-6ea4-468e-9cfb-c908ee62c516"
+          }
+        },
+        {
+          "oracle_id": "fd7b0b56-2f55-4933-bedc-e7711dbdd556",
+          "name": "Nightshade Schemers",
+          "scryfall_url": "https://scryfall.com/card/mor/69/nightshade-schemers?utm_source=api",
+          "scope": "released_paper",
+          "roles": [
+            "native"
+          ],
+          "included": true,
+          "attributed_colors": [
+            "B"
+          ],
+          "mechanic_face": "Nightshade Schemers",
+          "inclusion_reason": "Selected witness: Nightshade Schemers has Kinship.",
+          "card_facts": {
+            "object": "card",
+            "id": "af9a61cd-3a26-4142-83ce-9c41cdb16eb4",
+            "oracle_id": "fd7b0b56-2f55-4933-bedc-e7711dbdd556",
+            "multiverse_ids": [
+              153001
+            ],
+            "mtgo_id": 29154,
+            "mtgo_foil_id": 29155,
+            "tcgplayer_id": 18026,
+            "cardmarket_id": 18898,
+            "name": "Nightshade Schemers",
+            "lang": "en",
+            "released_at": "2008-02-01",
+            "uri": "https://api.scryfall.com/cards/af9a61cd-3a26-4142-83ce-9c41cdb16eb4",
+            "scryfall_uri": "https://scryfall.com/card/mor/69/nightshade-schemers?utm_source=api",
+            "layout": "normal",
+            "highres_image": true,
+            "image_status": "highres_scan",
+            "image_updated_at": "2026-07-13T11:39:52Z",
+            "image_uris": {
+              "small": "https://cards.scryfall.io/small/front/a/f/af9a61cd-3a26-4142-83ce-9c41cdb16eb4.jpg?1783942792",
+              "normal": "https://cards.scryfall.io/normal/front/a/f/af9a61cd-3a26-4142-83ce-9c41cdb16eb4.jpg?1783942792",
+              "large": "https://cards.scryfall.io/large/front/a/f/af9a61cd-3a26-4142-83ce-9c41cdb16eb4.jpg?1783942792",
+              "png": "https://cards.scryfall.io/png/front/a/f/af9a61cd-3a26-4142-83ce-9c41cdb16eb4.png?1783942792",
+              "art_crop": "https://cards.scryfall.io/art_crop/front/a/f/af9a61cd-3a26-4142-83ce-9c41cdb16eb4.jpg?1783942792",
+              "border_crop": "https://cards.scryfall.io/border_crop/front/a/f/af9a61cd-3a26-4142-83ce-9c41cdb16eb4.jpg?1783942792",
+              "thumb": "https://cards.scryfall.io/thumb/front/a/f/af9a61cd-3a26-4142-83ce-9c41cdb16eb4.webp?1783942792",
+              "grid": "https://cards.scryfall.io/grid/front/a/f/af9a61cd-3a26-4142-83ce-9c41cdb16eb4.webp?1783942792",
+              "display": "https://cards.scryfall.io/display/front/a/f/af9a61cd-3a26-4142-83ce-9c41cdb16eb4.webp?1783942792",
+              "art": "https://cards.scryfall.io/art/front/a/f/af9a61cd-3a26-4142-83ce-9c41cdb16eb4.webp?1783942792",
+              "crop": "https://cards.scryfall.io/crop/front/a/f/af9a61cd-3a26-4142-83ce-9c41cdb16eb4.webp?1783942792",
+              "jpeg": "https://cards.scryfall.io/normal/front/a/f/af9a61cd-3a26-4142-83ce-9c41cdb16eb4.jpg?1783942792"
+            },
+            "mana_cost": "{4}{B}",
+            "cmc": 5.0,
+            "type_line": "Creature — Faerie Wizard",
+            "oracle_text": "Flying\nKinship — At the beginning of your upkeep, you may look at the top card of your library. If it shares a creature type with this creature, you may reveal it. If you do, each opponent loses 2 life.",
+            "power": "3",
+            "toughness": "2",
+            "colors": [
+              "B"
+            ],
+            "color_identity": [
+              "B"
+            ],
+            "keywords": [
+              "Flying",
+              "Kinship"
+            ],
+            "legalities": {
+              "standard": "not_legal",
+              "future": "not_legal",
+              "historic": "not_legal",
+              "timeless": "not_legal",
+              "gladiator": "not_legal",
+              "pioneer": "not_legal",
+              "modern": "legal",
+              "legacy": "legal",
+              "pauper": "not_legal",
+              "vintage": "legal",
+              "penny": "legal",
+              "commander": "legal",
+              "oathbreaker": "legal",
+              "standardbrawl": "not_legal",
+              "brawl": "not_legal",
+              "competitivebrawl": "not_legal",
+              "alchemy": "not_legal",
+              "paupercommander": "not_legal",
+              "duel": "legal",
+              "oldschool": "not_legal",
+              "premodern": "not_legal",
+              "predh": "legal",
+              "tlr": "not_legal"
+            },
+            "games": [
+              "paper",
+              "mtgo"
+            ],
+            "reserved": false,
+            "game_changer": false,
+            "foil": true,
+            "nonfoil": true,
+            "finishes": [
+              "nonfoil",
+              "foil"
+            ],
+            "oversized": false,
+            "promo": false,
+            "reprint": false,
+            "variation": false,
+            "set_id": "c41550df-7b41-41a3-85ab-8612eb2f168f",
+            "set": "mor",
+            "set_name": "Morningtide",
+            "set_type": "expansion",
+            "set_uri": "https://api.scryfall.com/sets/c41550df-7b41-41a3-85ab-8612eb2f168f",
+            "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Amor&unique=prints",
+            "scryfall_set_uri": "https://scryfall.com/sets/mor?utm_source=api",
+            "rulings_uri": "https://api.scryfall.com/cards/af9a61cd-3a26-4142-83ce-9c41cdb16eb4/rulings",
+            "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Afd7b0b56-2f55-4933-bedc-e7711dbdd556&unique=prints",
+            "collector_number": "69",
+            "digital": false,
+            "rarity": "uncommon",
+            "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+            "artist": "Paolo Parente",
+            "artist_ids": [
+              "d48dd097-720d-476a-8722-6a02854ae28b"
+            ],
+            "illustration_id": "6b855e02-c76d-4e34-b4d5-3dca6a2243d3",
+            "border_color": "black",
+            "frame": "2003",
+            "full_art": false,
+            "textless": false,
+            "booster": true,
+            "story_spotlight": false,
+            "edhrec_rank": 23581,
+            "prices": {
+              "usd": "0.28",
+              "usd_foil": "1.14",
+              "usd_etched": null,
+              "eur": "0.11",
+              "eur_foil": "0.31",
+              "tix": "0.03"
+            },
+            "related_uris": {
+              "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=153001&printed=false",
+              "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DNightshade%2BSchemers",
+              "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DNightshade%2BSchemers",
+              "edhrec": "https://edhrec.com/route/?cc=Nightshade+Schemers"
+            },
+            "purchase_uris": {
+              "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F18026%3Fpage%3D1",
+              "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=18898&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+              "cardhoarder": "https://www.cardhoarder.com/cards/29154?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+            }
+          },
+          "evidence_binding": {
+            "path": "docs/mechanics-research/k-protocol-evidence/kinship-discovery-1.json",
+            "sha256": "32e933ff37f41bef9697a3a95c5642b012a915c7ddf47e0014864e4b898a8c9e",
+            "printing_id": "af9a61cd-3a26-4142-83ce-9c41cdb16eb4",
+            "oracle_id": "fd7b0b56-2f55-4933-bedc-e7711dbdd556"
+          }
+        },
+        {
+          "oracle_id": "b57e13ac-12fc-4b6a-9ca4-3ffb60c6b6ad",
+          "name": "Mudbutton Clanger",
+          "scryfall_url": "https://scryfall.com/card/mor/95/mudbutton-clanger?utm_source=api",
+          "scope": "released_paper",
+          "roles": [
+            "native"
+          ],
+          "included": true,
+          "attributed_colors": [
+            "R"
+          ],
+          "mechanic_face": "Mudbutton Clanger",
+          "inclusion_reason": "Selected witness: Mudbutton Clanger has Kinship.",
+          "card_facts": {
+            "object": "card",
+            "id": "bc5e2771-ae35-4aff-a92d-7fc7f3ca915f",
+            "oracle_id": "b57e13ac-12fc-4b6a-9ca4-3ffb60c6b6ad",
+            "multiverse_ids": [
+              152876
+            ],
+            "mtgo_id": 29114,
+            "mtgo_foil_id": 29115,
+            "tcgplayer_id": 18021,
+            "cardmarket_id": 18924,
+            "name": "Mudbutton Clanger",
+            "lang": "en",
+            "released_at": "2008-02-01",
+            "uri": "https://api.scryfall.com/cards/bc5e2771-ae35-4aff-a92d-7fc7f3ca915f",
+            "scryfall_uri": "https://scryfall.com/card/mor/95/mudbutton-clanger?utm_source=api",
+            "layout": "normal",
+            "highres_image": true,
+            "image_status": "highres_scan",
+            "image_updated_at": "2026-07-13T11:39:45Z",
+            "image_uris": {
+              "small": "https://cards.scryfall.io/small/front/b/c/bc5e2771-ae35-4aff-a92d-7fc7f3ca915f.jpg?1783942785",
+              "normal": "https://cards.scryfall.io/normal/front/b/c/bc5e2771-ae35-4aff-a92d-7fc7f3ca915f.jpg?1783942785",
+              "large": "https://cards.scryfall.io/large/front/b/c/bc5e2771-ae35-4aff-a92d-7fc7f3ca915f.jpg?1783942785",
+              "png": "https://cards.scryfall.io/png/front/b/c/bc5e2771-ae35-4aff-a92d-7fc7f3ca915f.png?1783942785",
+              "art_crop": "https://cards.scryfall.io/art_crop/front/b/c/bc5e2771-ae35-4aff-a92d-7fc7f3ca915f.jpg?1783942785",
+              "border_crop": "https://cards.scryfall.io/border_crop/front/b/c/bc5e2771-ae35-4aff-a92d-7fc7f3ca915f.jpg?1783942785",
+              "thumb": "https://cards.scryfall.io/thumb/front/b/c/bc5e2771-ae35-4aff-a92d-7fc7f3ca915f.webp?1783942785",
+              "grid": "https://cards.scryfall.io/grid/front/b/c/bc5e2771-ae35-4aff-a92d-7fc7f3ca915f.webp?1783942785",
+              "display": "https://cards.scryfall.io/display/front/b/c/bc5e2771-ae35-4aff-a92d-7fc7f3ca915f.webp?1783942785",
+              "art": "https://cards.scryfall.io/art/front/b/c/bc5e2771-ae35-4aff-a92d-7fc7f3ca915f.webp?1783942785",
+              "crop": "https://cards.scryfall.io/crop/front/b/c/bc5e2771-ae35-4aff-a92d-7fc7f3ca915f.webp?1783942785",
+              "jpeg": "https://cards.scryfall.io/normal/front/b/c/bc5e2771-ae35-4aff-a92d-7fc7f3ca915f.jpg?1783942785"
+            },
+            "mana_cost": "{R}",
+            "cmc": 1.0,
+            "type_line": "Creature — Goblin Warrior",
+            "oracle_text": "Kinship — At the beginning of your upkeep, you may look at the top card of your library. If it shares a creature type with this creature, you may reveal it. If you do, this creature gets +1/+1 until end of turn.",
+            "power": "1",
+            "toughness": "1",
+            "colors": [
+              "R"
+            ],
+            "color_identity": [
+              "R"
+            ],
+            "keywords": [
+              "Kinship"
+            ],
+            "legalities": {
+              "standard": "not_legal",
+              "future": "not_legal",
+              "historic": "not_legal",
+              "timeless": "not_legal",
+              "gladiator": "not_legal",
+              "pioneer": "not_legal",
+              "modern": "legal",
+              "legacy": "legal",
+              "pauper": "legal",
+              "vintage": "legal",
+              "penny": "not_legal",
+              "commander": "legal",
+              "oathbreaker": "legal",
+              "standardbrawl": "not_legal",
+              "brawl": "not_legal",
+              "competitivebrawl": "not_legal",
+              "alchemy": "not_legal",
+              "paupercommander": "legal",
+              "duel": "legal",
+              "oldschool": "not_legal",
+              "premodern": "not_legal",
+              "predh": "legal",
+              "tlr": "legal"
+            },
+            "games": [
+              "paper",
+              "mtgo"
+            ],
+            "reserved": false,
+            "game_changer": false,
+            "foil": true,
+            "nonfoil": true,
+            "finishes": [
+              "nonfoil",
+              "foil"
+            ],
+            "oversized": false,
+            "promo": false,
+            "reprint": false,
+            "variation": false,
+            "set_id": "c41550df-7b41-41a3-85ab-8612eb2f168f",
+            "set": "mor",
+            "set_name": "Morningtide",
+            "set_type": "expansion",
+            "set_uri": "https://api.scryfall.com/sets/c41550df-7b41-41a3-85ab-8612eb2f168f",
+            "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Amor&unique=prints",
+            "scryfall_set_uri": "https://scryfall.com/sets/mor?utm_source=api",
+            "rulings_uri": "https://api.scryfall.com/cards/bc5e2771-ae35-4aff-a92d-7fc7f3ca915f/rulings",
+            "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3Ab57e13ac-12fc-4b6a-9ca4-3ffb60c6b6ad&unique=prints",
+            "collector_number": "95",
+            "digital": false,
+            "rarity": "common",
+            "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+            "artist": "Larry MacDougall",
+            "artist_ids": [
+              "73932957-e76e-4ff0-8f0a-b3ad2d8dfae2"
+            ],
+            "illustration_id": "ef5b3845-aaae-430a-8211-98b9422a5633",
+            "border_color": "black",
+            "frame": "2003",
+            "full_art": false,
+            "textless": false,
+            "booster": true,
+            "story_spotlight": false,
+            "edhrec_rank": 25858,
+            "penny_rank": 11915,
+            "prices": {
+              "usd": "0.19",
+              "usd_foil": "0.49",
+              "usd_etched": null,
+              "eur": "0.11",
+              "eur_foil": "0.35",
+              "tix": "0.03"
+            },
+            "related_uris": {
+              "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=152876&printed=false",
+              "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DMudbutton%2BClanger",
+              "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DMudbutton%2BClanger",
+              "edhrec": "https://edhrec.com/route/?cc=Mudbutton+Clanger"
+            },
+            "purchase_uris": {
+              "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F18021%3Fpage%3D1",
+              "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=18924&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+              "cardhoarder": "https://www.cardhoarder.com/cards/29114?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+            }
+          },
+          "evidence_binding": {
+            "path": "docs/mechanics-research/k-protocol-evidence/kinship-discovery-1.json",
+            "sha256": "32e933ff37f41bef9697a3a95c5642b012a915c7ddf47e0014864e4b898a8c9e",
+            "printing_id": "bc5e2771-ae35-4aff-a92d-7fc7f3ca915f",
+            "oracle_id": "b57e13ac-12fc-4b6a-9ca4-3ffb60c6b6ad"
+          }
+        },
+        {
+          "oracle_id": "9416fd24-15a2-46d0-8b5f-55f5e7b65465",
+          "name": "Leaf-Crowned Elder",
+          "scryfall_url": "https://scryfall.com/card/mor/128/leaf-crowned-elder?utm_source=api",
+          "scope": "released_paper",
+          "roles": [
+            "native"
+          ],
+          "included": true,
+          "attributed_colors": [
+            "G"
+          ],
+          "mechanic_face": "Leaf-Crowned Elder",
+          "inclusion_reason": "Selected witness: Leaf-Crowned Elder has Kinship.",
+          "card_facts": {
+            "object": "card",
+            "id": "c666dc97-8780-4982-b9e7-7d4a358f922c",
+            "oracle_id": "9416fd24-15a2-46d0-8b5f-55f5e7b65465",
+            "multiverse_ids": [
+              152682
+            ],
+            "mtgo_id": 28966,
+            "mtgo_foil_id": 28967,
+            "tcgplayer_id": 18007,
+            "cardmarket_id": 18957,
+            "name": "Leaf-Crowned Elder",
+            "lang": "en",
+            "released_at": "2008-02-01",
+            "uri": "https://api.scryfall.com/cards/c666dc97-8780-4982-b9e7-7d4a358f922c",
+            "scryfall_uri": "https://scryfall.com/card/mor/128/leaf-crowned-elder?utm_source=api",
+            "layout": "normal",
+            "highres_image": true,
+            "image_status": "highres_scan",
+            "image_updated_at": "2026-07-13T11:39:37Z",
+            "image_uris": {
+              "small": "https://cards.scryfall.io/small/front/c/6/c666dc97-8780-4982-b9e7-7d4a358f922c.jpg?1783942777",
+              "normal": "https://cards.scryfall.io/normal/front/c/6/c666dc97-8780-4982-b9e7-7d4a358f922c.jpg?1783942777",
+              "large": "https://cards.scryfall.io/large/front/c/6/c666dc97-8780-4982-b9e7-7d4a358f922c.jpg?1783942777",
+              "png": "https://cards.scryfall.io/png/front/c/6/c666dc97-8780-4982-b9e7-7d4a358f922c.png?1783942777",
+              "art_crop": "https://cards.scryfall.io/art_crop/front/c/6/c666dc97-8780-4982-b9e7-7d4a358f922c.jpg?1783942777",
+              "border_crop": "https://cards.scryfall.io/border_crop/front/c/6/c666dc97-8780-4982-b9e7-7d4a358f922c.jpg?1783942777",
+              "thumb": "https://cards.scryfall.io/thumb/front/c/6/c666dc97-8780-4982-b9e7-7d4a358f922c.webp?1783942777",
+              "grid": "https://cards.scryfall.io/grid/front/c/6/c666dc97-8780-4982-b9e7-7d4a358f922c.webp?1783942777",
+              "display": "https://cards.scryfall.io/display/front/c/6/c666dc97-8780-4982-b9e7-7d4a358f922c.webp?1783942777",
+              "art": "https://cards.scryfall.io/art/front/c/6/c666dc97-8780-4982-b9e7-7d4a358f922c.webp?1783942777",
+              "crop": "https://cards.scryfall.io/crop/front/c/6/c666dc97-8780-4982-b9e7-7d4a358f922c.webp?1783942777",
+              "jpeg": "https://cards.scryfall.io/normal/front/c/6/c666dc97-8780-4982-b9e7-7d4a358f922c.jpg?1783942777"
+            },
+            "mana_cost": "{2}{G}{G}",
+            "cmc": 4.0,
+            "type_line": "Creature — Treefolk Shaman",
+            "oracle_text": "Kinship — At the beginning of your upkeep, you may look at the top card of your library. If it shares a creature type with this creature, you may reveal it. If you do, you may play that card without paying its mana cost.",
+            "power": "3",
+            "toughness": "5",
+            "colors": [
+              "G"
+            ],
+            "color_identity": [
+              "G"
+            ],
+            "keywords": [
+              "Kinship"
+            ],
+            "legalities": {
+              "standard": "not_legal",
+              "future": "not_legal",
+              "historic": "not_legal",
+              "timeless": "not_legal",
+              "gladiator": "not_legal",
+              "pioneer": "not_legal",
+              "modern": "legal",
+              "legacy": "legal",
+              "pauper": "not_legal",
+              "vintage": "legal",
+              "penny": "legal",
+              "commander": "legal",
+              "oathbreaker": "legal",
+              "standardbrawl": "not_legal",
+              "brawl": "not_legal",
+              "competitivebrawl": "not_legal",
+              "alchemy": "not_legal",
+              "paupercommander": "not_legal",
+              "duel": "legal",
+              "oldschool": "not_legal",
+              "premodern": "not_legal",
+              "predh": "legal",
+              "tlr": "not_legal"
+            },
+            "games": [
+              "paper",
+              "mtgo"
+            ],
+            "reserved": false,
+            "game_changer": false,
+            "foil": true,
+            "nonfoil": true,
+            "finishes": [
+              "nonfoil",
+              "foil"
+            ],
+            "oversized": false,
+            "promo": false,
+            "reprint": false,
+            "variation": false,
+            "set_id": "c41550df-7b41-41a3-85ab-8612eb2f168f",
+            "set": "mor",
+            "set_name": "Morningtide",
+            "set_type": "expansion",
+            "set_uri": "https://api.scryfall.com/sets/c41550df-7b41-41a3-85ab-8612eb2f168f",
+            "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Amor&unique=prints",
+            "scryfall_set_uri": "https://scryfall.com/sets/mor?utm_source=api",
+            "rulings_uri": "https://api.scryfall.com/cards/c666dc97-8780-4982-b9e7-7d4a358f922c/rulings",
+            "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A9416fd24-15a2-46d0-8b5f-55f5e7b65465&unique=prints",
+            "collector_number": "128",
+            "digital": false,
+            "rarity": "rare",
+            "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+            "artist": "Wayne Reynolds",
+            "artist_ids": [
+              "afc47cec-3ccc-404e-a8c6-4d83dd504271"
+            ],
+            "illustration_id": "4212c350-9d1c-4f81-85b7-06e303097d94",
+            "border_color": "black",
+            "frame": "2003",
+            "full_art": false,
+            "textless": false,
+            "booster": true,
+            "story_spotlight": false,
+            "edhrec_rank": 10890,
+            "penny_rank": 5620,
+            "prices": {
+              "usd": "8.03",
+              "usd_foil": "18.17",
+              "usd_etched": null,
+              "eur": "1.62",
+              "eur_foil": "11.18",
+              "tix": "0.02"
+            },
+            "related_uris": {
+              "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=152682&printed=false",
+              "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DLeaf-Crowned%2BElder",
+              "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DLeaf-Crowned%2BElder",
+              "edhrec": "https://edhrec.com/route/?cc=Leaf-Crowned+Elder"
+            },
+            "purchase_uris": {
+              "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F18007%3Fpage%3D1",
+              "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=18957&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+              "cardhoarder": "https://www.cardhoarder.com/cards/28966?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+            }
+          },
+          "evidence_binding": {
+            "path": "docs/mechanics-research/k-protocol-evidence/kinship-discovery-1.json",
+            "sha256": "32e933ff37f41bef9697a3a95c5642b012a915c7ddf47e0014864e4b898a8c9e",
+            "printing_id": "c666dc97-8780-4982-b9e7-7d4a358f922c",
+            "oracle_id": "9416fd24-15a2-46d0-8b5f-55f5e7b65465"
+          }
+        }
+      ],
+      "access_review": {
+        "version": "2.0",
+        "review_date": "2026-10-29",
+        "scope_label": "Released paper cards",
+        "scope": "Kinship is an ability word for an upkeep ability that checks whether the top card shares a creature type with its source.",
+        "summary": "Selected released-paper Kinship cards show one independently documented witness in each color.",
+        "evidence_scope": [
+          "released_paper"
+        ],
+        "colors": {
+          "W": {
+            "status": "documented",
+            "card_ids": [
+              "f69e9629-a7f7-4241-bf0c-c8def7d19d66"
+            ],
+            "note": "Kithkin Zephyrnaut is white and has Kinship."
+          },
+          "U": {
+            "status": "documented",
+            "card_ids": [
+              "a138ca33-6ea4-468e-9cfb-c908ee62c516"
+            ],
+            "note": "Ink Dissolver is blue and has Kinship."
+          },
+          "B": {
+            "status": "documented",
+            "card_ids": [
+              "fd7b0b56-2f55-4933-bedc-e7711dbdd556"
+            ],
+            "note": "Nightshade Schemers is black and has Kinship."
+          },
+          "R": {
+            "status": "documented",
+            "card_ids": [
+              "b57e13ac-12fc-4b6a-9ca4-3ffb60c6b6ad"
+            ],
+            "note": "Mudbutton Clanger is red and has Kinship."
+          },
+          "G": {
+            "status": "documented",
+            "card_ids": [
+              "9416fd24-15a2-46d0-8b5f-55f5e7b65465"
+            ],
+            "note": "Leaf-Crowned Elder is green and has Kinship."
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "not_found",
+          "card_ids": [],
+          "note": "No colorless example is represented in this selected review."
+        },
+        "limitations": []
+      }
+    },
+    {
+      "mechanic": {
+        "name": "Kinfall",
+        "accepted_id": "deck:catalog-gaps:kinfall"
+      },
+      "sources": [],
+      "queries": [
+        {
+          "path": "docs/mechanics-research/k-protocol-evidence/kinfall-card-1.json",
+          "url": "https://api.scryfall.com/cards/cmb2/83",
+          "finalUrl": "https://api.scryfall.com/cards/cmb2/83",
+          "requestStartedUtc": "2026-10-30T03:13:53.3117127Z",
+          "requestEndedUtc": "2026-10-30T03:13:53.4825126Z",
+          "status": 200,
+          "rawSha256": "368c74e66f465582adf20831fb74c887a98cbb306168e4b8475780243b0dc41f"
+        },
+        {
+          "path": "docs/mechanics-research/k-protocol-evidence/kinfall-discovery-verified-1.json",
+          "url": "https://api.scryfall.com/cards/search?q=!%22Plane-Merge%20Elf%22&unique=cards&include_extras=true",
+          "finalUrl": "https://api.scryfall.com/cards/search?q=!%22Plane-Merge%20Elf%22&unique=cards&include_extras=true",
+          "requestStartedUtc": "2026-10-30T03:17:14.4219793Z",
+          "requestEndedUtc": "2026-10-30T03:17:14.7555545Z",
+          "status": 200,
+          "rawSha256": "366f44f0fb6eb67d7437c76724a1e1a0422cc0c0c26ce76413bde931ba6c3df1",
+          "disposition": "Verified exact-card discovery; authoritative Kinfall scope capture."
+        }
+      ],
+      "selection_method": "The sole selected witness is the accepted source-card-specific playtest example. No unverified general definition is inferred.",
+      "card_review": [
+        {
+          "oracle_id": "45f94525-84f6-462d-99da-14735f2c273c",
+          "name": "Plane-Merge Elf",
+          "scryfall_url": "https://scryfall.com/card/cmb2/83/plane-merge-elf?utm_source=api",
+          "scope": "designer_playtest",
+          "roles": [
+            "card_specific_label"
+          ],
+          "included": true,
+          "attributed_colors": [
+            "G"
+          ],
+          "mechanic_face": "Plane-Merge Elf",
+          "inclusion_reason": "Selected playtest witness: Plane-Merge Elf labels its creature-type trigger Kinfall.",
+          "card_facts": {
+            "object": "card",
+            "id": "e6047d50-84bd-4095-af6c-eae6e9480ed7",
+            "oracle_id": "45f94525-84f6-462d-99da-14735f2c273c",
+            "multiverse_ids": [],
+            "tcgplayer_id": 247029,
+            "cardmarket_id": 574531,
+            "name": "Plane-Merge Elf",
+            "lang": "en",
+            "released_at": "2021-08-20",
+            "uri": "https://api.scryfall.com/cards/e6047d50-84bd-4095-af6c-eae6e9480ed7",
+            "scryfall_uri": "https://scryfall.com/card/cmb2/83/plane-merge-elf?utm_source=api",
+            "layout": "normal",
+            "highres_image": true,
+            "image_status": "highres_scan",
+            "image_updated_at": "2026-07-13T06:58:46Z",
+            "image_uris": {
+              "small": "https://cards.scryfall.io/small/front/e/6/e6047d50-84bd-4095-af6c-eae6e9480ed7.jpg?1783925926",
+              "normal": "https://cards.scryfall.io/normal/front/e/6/e6047d50-84bd-4095-af6c-eae6e9480ed7.jpg?1783925926",
+              "large": "https://cards.scryfall.io/large/front/e/6/e6047d50-84bd-4095-af6c-eae6e9480ed7.jpg?1783925926",
+              "png": "https://cards.scryfall.io/png/front/e/6/e6047d50-84bd-4095-af6c-eae6e9480ed7.png?1783925926",
+              "art_crop": "https://cards.scryfall.io/art_crop/front/e/6/e6047d50-84bd-4095-af6c-eae6e9480ed7.jpg?1783925926",
+              "border_crop": "https://cards.scryfall.io/border_crop/front/e/6/e6047d50-84bd-4095-af6c-eae6e9480ed7.jpg?1783925926",
+              "thumb": "https://cards.scryfall.io/thumb/front/e/6/e6047d50-84bd-4095-af6c-eae6e9480ed7.webp?1783925926",
+              "grid": "https://cards.scryfall.io/grid/front/e/6/e6047d50-84bd-4095-af6c-eae6e9480ed7.webp?1783925926",
+              "display": "https://cards.scryfall.io/display/front/e/6/e6047d50-84bd-4095-af6c-eae6e9480ed7.webp?1783925926",
+              "art": "https://cards.scryfall.io/art/front/e/6/e6047d50-84bd-4095-af6c-eae6e9480ed7.webp?1783925926",
+              "crop": "https://cards.scryfall.io/crop/front/e/6/e6047d50-84bd-4095-af6c-eae6e9480ed7.webp?1783925926",
+              "jpeg": "https://cards.scryfall.io/normal/front/e/6/e6047d50-84bd-4095-af6c-eae6e9480ed7.jpg?1783925926"
+            },
+            "mana_cost": "{4}{G}",
+            "cmc": 5.0,
+            "type_line": "Creature — Elf Warrior",
+            "oracle_text": "Landship — At the beginning of your upkeep, you may look at the top card of your library. If it's a land, you may reveal it. If you do, create a 1/1 green Elf Warrior creature token.\nKinfall — Whenever a creature enters the battlefield under your control, if it shares a creature type with Plane-Merge Elf, creatures you control get +1/+1 until end of turn.",
+            "power": "3",
+            "toughness": "3",
+            "colors": [
+              "G"
+            ],
+            "color_identity": [
+              "G"
+            ],
+            "keywords": [
+              "Kinfall",
+              "Landship"
+            ],
+            "legalities": {
+              "standard": "not_legal",
+              "future": "not_legal",
+              "historic": "not_legal",
+              "timeless": "not_legal",
+              "gladiator": "not_legal",
+              "pioneer": "not_legal",
+              "modern": "not_legal",
+              "legacy": "not_legal",
+              "pauper": "not_legal",
+              "vintage": "not_legal",
+              "penny": "not_legal",
+              "commander": "not_legal",
+              "oathbreaker": "not_legal",
+              "standardbrawl": "not_legal",
+              "brawl": "not_legal",
+              "competitivebrawl": "not_legal",
+              "alchemy": "not_legal",
+              "paupercommander": "not_legal",
+              "duel": "not_legal",
+              "oldschool": "not_legal",
+              "premodern": "not_legal",
+              "predh": "not_legal",
+              "tlr": "not_legal"
+            },
+            "games": [
+              "paper"
+            ],
+            "reserved": false,
+            "game_changer": false,
+            "foil": false,
+            "nonfoil": true,
+            "finishes": [
+              "nonfoil"
+            ],
+            "oversized": false,
+            "promo": false,
+            "reprint": true,
+            "variation": false,
+            "set_id": "e18a60f0-bf18-487e-a7bb-a23ac6bd7a65",
+            "set": "cmb2",
+            "set_name": "Mystery Booster Playtest Cards 2021",
+            "set_type": "funny",
+            "set_uri": "https://api.scryfall.com/sets/e18a60f0-bf18-487e-a7bb-a23ac6bd7a65",
+            "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Acmb2&unique=prints",
+            "scryfall_set_uri": "https://scryfall.com/sets/cmb2?utm_source=api",
+            "rulings_uri": "https://api.scryfall.com/cards/e6047d50-84bd-4095-af6c-eae6e9480ed7/rulings",
+            "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A45f94525-84f6-462d-99da-14735f2c273c&unique=prints",
+            "collector_number": "83",
+            "digital": false,
+            "rarity": "rare",
+            "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+            "artist": "Nataly Anderson",
+            "artist_ids": [
+              "15e4e690-68d4-4c47-93cb-704160155f7e"
+            ],
+            "illustration_id": "69a32390-f899-4372-9cba-9b730410be00",
+            "border_color": "black",
+            "frame": "2015",
+            "full_art": false,
+            "textless": false,
+            "booster": false,
+            "story_spotlight": false,
+            "promo_types": [
+              "playtest"
+            ],
+            "prices": {
+              "usd": "0.31",
+              "usd_foil": null,
+              "usd_etched": null,
+              "eur": "0.20",
+              "eur_foil": null,
+              "tix": null
+            },
+            "related_uris": {
+              "tcgplayer_infinite_articles": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Farticles&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Farticles%3FproductLineName%3Dmagic%26q%3DPlane-Merge%2BElf",
+              "tcgplayer_infinite_decks": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&trafcat=tcgplayer.com%2Fsearch%2Fdecks&u=https%3A%2F%2Fwww.tcgplayer.com%2Fsearch%2Fdecks%3FproductLineName%3Dmagic%26q%3DPlane-Merge%2BElf",
+              "edhrec": "https://edhrec.com/route/?cc=Plane-Merge+Elf"
+            },
+            "purchase_uris": {
+              "tcgplayer": "https://partner.tcgplayer.com/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F247029%3Fpage%3D1",
+              "cardmarket": "https://www.cardmarket.com/en/Magic/Products?idProduct=574531&referrer=scryfall&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+              "cardhoarder": "https://www.cardhoarder.com/cards?affiliate_id=scryfall&data%5Bsearch%5D=Plane-Merge+Elf&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+            }
+          },
+          "evidence_binding": {
+            "path": "docs/mechanics-research/k-protocol-evidence/kinfall-card-1.json",
+            "sha256": "368c74e66f465582adf20831fb74c887a98cbb306168e4b8475780243b0dc41f",
+            "printing_id": "e6047d50-84bd-4095-af6c-eae6e9480ed7",
+            "oracle_id": "45f94525-84f6-462d-99da-14735f2c273c"
+          }
+        }
+      ],
+      "access_review": {
+        "version": "2.0",
+        "review_date": "2026-10-29",
+        "scope_label": "Mystery Booster playtest card",
+        "scope": "Plane-Merge Elf labels its own creature-type-triggered +1/+1 effect Kinfall.",
+        "summary": "The scoped playtest witness is green; this documents that card-specific label only, not a verified general Kinfall definition.",
+        "evidence_scope": [
+          "designer_playtest"
+        ],
+        "colors": {
+          "W": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No white example is represented in this scoped review."
+          },
+          "U": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No blue example is represented in this scoped review."
+          },
+          "B": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No black example is represented in this scoped review."
+          },
+          "R": {
+            "status": "not_found",
+            "card_ids": [],
+            "note": "No red example is represented in this scoped review."
+          },
+          "G": {
+            "status": "documented",
+            "card_ids": [
+              "45f94525-84f6-462d-99da-14735f2c273c"
+            ],
+            "note": "Plane-Merge Elf is green and labels its trigger Kinfall."
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "not_found",
+          "card_ids": [],
+          "note": "No colorless example is represented in this scoped review."
+        },
+        "limitations": [
+          "The accepted official review verifies card existence only; it does not verify a general Kinfall definition. This record remains a labeled Plane-Merge Elf playtest-card example."
+        ]
+      }
+    }
+  ]
+}

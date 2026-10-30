@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "retrievals": [
+    {
+      "path": "docs/mechanics-research/k-protocol-evidence/kicker-discovery-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=kw%3Akicker&unique=cards",
+      "finalUrl": "https://api.scryfall.com/cards/search?q=kw%3Akicker&unique=cards",
+      "requestStartedUtc": "2026-10-30T03:10:48.5719027Z",
+      "requestEndedUtc": "2026-10-30T03:10:49.3894495Z",
+      "status": 200,
+      "rawSha256": "1928b5efbf17a1f9597f343bbed7330c861a9da0ec3ddc5430b9d56151ce7494"
+    },
+    {
+      "path": "docs/mechanics-research/k-protocol-evidence/kinship-discovery-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22kinship%22&unique=cards",
+      "finalUrl": "https://api.scryfall.com/cards/search?q=o%3A%22kinship%22&unique=cards",
+      "requestStartedUtc": "2026-10-30T03:10:49.4030289Z",
+      "requestEndedUtc": "2026-10-30T03:10:49.7586186Z",
+      "status": 200,
+      "rawSha256": "32e933ff37f41bef9697a3a95c5642b012a915c7ddf47e0014864e4b898a8c9e"
+    },
+    {
+      "path": "docs/mechanics-research/k-protocol-evidence/kinfall-discovery-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22kinfall%22&unique=cards",
+      "finalUrl": null,
+      "requestStartedUtc": "2026-10-30T03:10:49.7596016Z",
+      "requestEndedUtc": "2026-10-30T03:10:50.299836Z",
+      "status": null,
+      "rawSha256": "32e933ff37f41bef9697a3a95c5642b012a915c7ddf47e0014864e4b898a8c9e",
+      "disposition": "Suspect artifact: body duplicates the Kinship response; retained for audit only and excluded from all K authority/bindings."
+    },
+    {
+      "path": "docs/mechanics-research/k-protocol-evidence/kicker-discovery-2.json",
+      "url": "https://api.scryfall.com/cards/search?format=json&include_extras=false&include_multilingual=false&include_variations=false&order=name&page=2&q=kw%3Akicker&unique=cards",
+      "finalUrl": "https://api.scryfall.com/cards/search?format=json&include_extras=false&include_multilingual=false&include_variations=false&order=name&page=2&q=kw%3Akicker&unique=cards",
+      "requestStartedUtc": "2026-10-30T03:12:08.2588309Z",
+      "requestEndedUtc": "2026-10-30T03:12:08.9343175Z",
+      "status": 200,
+      "rawSha256": "6920f79d9656e099a4b635e5fc1629eaec3ddf54779eb82718bbe75cc485bb6b"
+    },
+    {
+      "path": "docs/mechanics-research/k-protocol-evidence/kinfall-card-1.json",
+      "url": "https://api.scryfall.com/cards/cmb2/83",
+      "finalUrl": "https://api.scryfall.com/cards/cmb2/83",
+      "requestStartedUtc": "2026-10-30T03:13:53.3117127Z",
+      "requestEndedUtc": "2026-10-30T03:13:53.4825126Z",
+      "status": 200,
+      "rawSha256": "368c74e66f465582adf20831fb74c887a98cbb306168e4b8475780243b0dc41f"
+    },
+    {
+      "path": "docs/mechanics-research/k-protocol-evidence/kinfall-discovery-verified-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=!%22Plane-Merge%20Elf%22&unique=cards&include_extras=true",
+      "finalUrl": "https://api.scryfall.com/cards/search?q=!%22Plane-Merge%20Elf%22&unique=cards&include_extras=true",
+      "requestStartedUtc": "2026-10-30T03:17:14.4219793Z",
+      "requestEndedUtc": "2026-10-30T03:17:14.7555545Z",
+      "status": 200,
+      "rawSha256": "366f44f0fb6eb67d7437c76724a1e1a0422cc0c0c26ce76413bde931ba6c3df1",
+      "disposition": "Verified exact-card discovery; authoritative Kinfall scope capture."
+    }
+  ]
+}
