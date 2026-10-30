@@ -1,3 +1,66 @@
+# O supplemental Color Access — local delivery and Owner Review
+
+- Completed all six supplemental O entries: Offering, Offspring, Open an Attraction, Opus, Outlast and Overload, with 34 selected examples. Coverage is 244 A–O records / 23 bindings. Prior A–N rows/bindings and frozen 2021 content, placements and calculations remain unchanged.
+- Status: `qa-passed` / independent engineering PASS for material `4ea9847478f2384549e5b4baeb4d644730898b24`. Separate configured RobQA Sol medium evidence commit `05d6e997e6066c1a2f4614e3f91734b8f9b9271f` found no defects. Owner product acceptance remains separate.
+- Roles: initial configured RobDev Terra medium returned an incomplete draft; announced bounded Sol high completion corrected notes, evidence, renderer admission and checks. Separate configured RobQA Sol medium independently reviewed the completed exact material. These are configured routes, not backend telemetry. Coordinator owns local packaging, live preview and Git accounting.
+- Evidence: `docs/mechanics-research/o-protocol.json`, `docs/mechanics-research/o-protocol-evidence/` and `docs/mechanics-research/O-ACCESS-REVIEW.md`. Fourteen captured response bodies and one preserved POST request have actual matching hashes and retrieval receipts. All 34 selected full objects match their capture. Fresh official Opus mechanics evidence stays distinct from inherited release-notes metadata; unselected discoveries are not claimed individually reviewed.
+- Checks actually passed in development and independent QA: deterministic assessment producer; source invariants; taxonomy; reconciliation (53 assertions); mechanics gate; JavaScript syntax and whitespace; raw response/request/card/source-color audit; exact A–N parity; O-only browser checks for all six entries / 34 unique links, complete costs and symbols across assessment/rules/references, safe links/escaping, accessible labels, blocked-font fallback, malformed-data isolation, keyboard, narrow containment and frozen math. N-only and Mutate-pips-only controls also passed. The known unrelated broad Friends-forever 14px/18px harness debt was not rerun or repaired; no all-suite-PASS claim is made.
+- Package verification PASS: `_site` was verified as an ordinary direct child of this checkout before replacement. The first package attempt encountered a Windows lock because the restarted preview server used `_site` as its working directory; the known server was stopped, packaging rerun successfully, and the localhost-only server restarted with the checkout as working directory. `python .github/pages/package.py --rev 4ea9847478f2384549e5b4baeb4d644730898b24 --out <absolute _site> --verify` exited 0: 23 byte-matching allowed files, four inline scripts parsed, 23 HTTP 200 and 24 excluded HTTP 404 paths.
+- Live preview: `http://127.0.0.1:8020/#mechanical-color-pie` refreshed and iframe revision verified as the exact material SHA. Overload is open with Reviewed card examples expanded, search empty, and all five color filters `aria-pressed=false`. Visible independent access, colorless diamond, separate Blue/Red combination, selected links and numeric/colored/colorless costs were inspected. The tab is retained for Owner review.
+- Screenshots: `C:/Users/obake/.codex/visualizations/2026/10/30/01a18d39-ae9b-7752-a74a-5f1526be7d63/o-color-access-preview.jpg` and `C:/Users/obake/.codex/visualizations/2026/10/30/01a18d39-ae9b-7752-a74a-5f1526be7d63/o-reviewed-examples.jpg`.
+- Remaining Owner judgment: inspect the open Overload examples for natural wording, useful explanation and comfortable symbol spacing. Deterministic facts do not need manual rechecking. No push, merge or publication was performed. Git/report-validator and final clean/local-only checks follow this HANDOFF-only record commit.
+
+## Material candidate
+
+- Baseline: `d835683ca11b4930d01928aadacd5a2c1acec229`
+- Candidate: `4ea9847478f2384549e5b4baeb4d644730898b24`
+- Changed paths: `24`
+
+## Files changed
+
+- `HANDOFF.md`
+- `data/mechanics-assessments.v1.json`
+- `docs/mechanics-research/COLOR-ACCESS-PROTOCOL.md`
+- `docs/mechanics-research/O-ACCESS-REVIEW.md`
+- `docs/mechanics-research/o-protocol-evidence/offering-discovery.json`
+- `docs/mechanics-research/o-protocol-evidence/offering-full-oracle-discovery.json`
+- `docs/mechanics-research/o-protocol-evidence/offspring-discovery.json`
+- `docs/mechanics-research/o-protocol-evidence/offspring-full-oracle-discovery.json`
+- `docs/mechanics-research/o-protocol-evidence/open-an-attraction-discovery.json`
+- `docs/mechanics-research/o-protocol-evidence/open-an-attraction-full-oracle-discovery.json`
+- `docs/mechanics-research/o-protocol-evidence/opus-discovery.json`
+- `docs/mechanics-research/o-protocol-evidence/opus-full-oracle-discovery.json`
+- `docs/mechanics-research/o-protocol-evidence/opus-official-mechanics.html`
+- `docs/mechanics-research/o-protocol-evidence/outlast-discovery.json`
+- `docs/mechanics-research/o-protocol-evidence/outlast-full-oracle-discovery.json`
+- `docs/mechanics-research/o-protocol-evidence/overload-discovery.json`
+- `docs/mechanics-research/o-protocol-evidence/overload-full-oracle-discovery.json`
+- `docs/mechanics-research/o-protocol-evidence/retrieval-receipts.json`
+- `docs/mechanics-research/o-protocol-evidence/selected-cards-request.json`
+- `docs/mechanics-research/o-protocol-evidence/selected-cards.json`
+- `docs/mechanics-research/o-protocol.json`
+- `tools/build_mechanics_assessments.py`
+- `tools/check_assessment_browser.mjs`
+- `vox-color/mechanical-explorer.html`
+
+## Evidence delta
+
+- Material candidate: `4ea9847478f2384549e5b4baeb4d644730898b24`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `1`
+- This is not the full task diff.
+
+## Evidence-only paths
+
+- `HANDOFF.md`
+
+## Final branch delta
+
+- Baseline to final evidence HEAD: 24 paths, exactly the material list above.
+- Branch: `codex/a-mechanics-review`; local review only. Remote-tracking refs remain `9a063b3a98cfcb7672783f83a102e8f968242490` for origin/HEAD and origin/master. No remote operation was performed. Final worktree and ref verification follows this record commit.
+
+---
+
 # Owner Accepted — N supplemental Color Access
 
 - Owner response: "looks good" (October 30, 2026), accepting exact material `23082d9bb09e334dfe371703168f8a4095296fdc` as delivered at evidence HEAD `35cbe0776434655ff7803ea237fa0abc2d738406`.
