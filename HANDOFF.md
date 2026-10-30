@@ -1,3 +1,72 @@
+# RobDev ready for QA — L supplemental Color Access
+
+- Status: `ready-for-qa` after local material commit `970e36e5666dec5e3fc38b4ab90a94f1f27891f9`, over clean Owner-accepted K baseline `d00b6c90e9a952f5b4d61d06cebb2db7a4c850d7`, branch `codex/a-mechanics-review`. This is a developer handoff, not independent QA, Owner acceptance, integration or publication. Product/source/harness edits stop here pending separate RobQA.
+- Outcome: all eleven unmapped L entries project once, giving 210 A–L assessments / 20 packet bindings. The 83 selected witnesses produce one linked example per supported independent color, colorless bucket and exact combination across each whole detail. Lifelink remains mapped to frozen 2021. Presence establishes access; no inferred tiers, name-only/payoff/removal examples or combination-to-monocolor inference.
+- Source corrections: removed Arena-only/future-release Landfall witnesses and the unsupported WU combination; replaced BG/WBG/green witnesses with Nissa of Shadowed Boughs, The Necrobloom and Architect of the Untamed. Replaced Lieutenant name matches with Loyal Drake/Loyal Guardian. Added the BRG Lord Windgrace token-creator witness to Landwalk. Livonya uses the actual paper Legends printing. Living Metal retains full two-face objects and attributes its converted Vehicle faces through their color indicators. Living Weapon follows Equipment colors, rather than black Germ colors. The final Ultra Magnus note matches its saved back face: haste, attacking-creature indestructible and the total-power-8 conversion condition.
+- Special scope: Landship remains only the Plane-Merge Elf playtest example, with no verified general definition. Legacy uses Gold Mine and Inspirational Antelope, with the official 2019 release notes' physical marks/word permanence. Neither special packet implies Commander legality. Fresh official MBC release notes verify Homer as a new ordinary paper card in the 1–60 range rather than playtest/acorn material despite anomalous Scryfall legality fields.
+- Provenance: all 83 full selected objects equal objects in their exact fresh raw captures; oracle IDs, mechanic-bearing faces and actual hashes agree. The 37 retained fresh/inherited bodies all match receipt SHA-256. Actual fresh URLs/start/end UTC/status are recorded. Inherited generic URLs/midnight timestamps are withdrawn as unknown and those bodies are audit-only. A fresh wrong collector-number request returned Noxious Bayou; its accurate receipt is explicitly excluded and a separate corrected Gold Mine capture supplies authority. Unselected discovery hits are not claimed individually reviewed.
+- Renderer: L joins existing target admission, compact selected examples, extra-example suppression and escaped mana paths across assessment/rules/reference. L mixed-access rows expose independently supported slots alongside every exact combination in list, search and detail. Newly encountered CI-3 palettes and native CI-4 paths/palettes extend the established pinned Mana vector renderer; existing A–K native paths/palettes are unchanged. No route, dependency, color token, type role, frozen source or unrelated surface changed.
+- Developer evidence: `python tools/build_mechanics_assessments.py --check` PASS (210 records); all inline explorer scripts and `node --check tools/check_assessment_browser.mjs` PASS; `python tools/check_invariants.py`, `python tools/check_taxonomy.py`, `python tools/check_recon.py` (53 assertions), `python tools/gate.py` PASS. Exact baseline comparison PASS: all 199 A–K rows and their 19 bindings equal the accepted baseline. Selected scope/face/indicator/hash audit and all 37 capture hashes PASS. Tracked and newly added file whitespace checks PASS (expected Git LF/CRLF warnings only).
+- Actual rendered evidence: final `node tools/check_assessment_browser.mjs --root . --l-only --playwright C:/Users/obake/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright` completed exit0 / JSON PASS. It opens every L entry and checks all 83 links once, exact maps in list/search/detail, native CI-3/CI-4 hashes/palettes, 18px marks, accessible labels, every actual brace token, numeric/WUBRG/colorless/X/hybrid/tap fixtures in assessment/rules/reference, markup escaping and unknown-token retention, blocked-font cost/combination fallback, malformed-date/status/link/binding/missing isolation, keyboard search, 360px containment, no page errors and unchanged frozen84 checks. The separate protected `--k-only` run also completed exit0 / JSON PASS through the shared renderer. These are developer runs, not independent QA.
+- Known unrelated debt: the broad harness's unchanged Friends forever 14px search assertion conflicts with its baseline18px CSS. It was not rerun or repaired; no broad-suite-PASS claim. `--copy-only` does not prove rendered behavior and is not used as that evidence.
+- Separate RobQA focus (QA-4): inspect exact candidate/source semantics and raw bindings, the newly represented L combinations including native four-color symbols, whole-detail source uniqueness, fail-soft rendering and preserved A–K/frozen behavior. Coordinator owns package/live preview/screenshot, final Git report validation and Owner Review; those have not been claimed complete by RobDev.
+- Draft Owner checklist: in the local packaged Mechanical Color Pie, open Landfall and inspect its independent/combination symbols and short card examples; open Living Metal for concise converted-face notes; open Legacy/Landship for clear playtest scope. Judge reading comfort and visual balance after engineering QA.
+
+## Git-derived material accounting
+
+- Baseline-to-material paths: 46. The initial incomplete `b107cef` is part of this total; the completion commit alone is not the task diff. The following developer report changes HANDOFF only.
+
+| Path | Added | Removed |
+|---|---:|---:|
+| `HANDOFF.md` | 16 | 0 |
+| `data/mechanics-assessments.v1.json` | 1769 | 0 |
+| `docs/mechanics-research/COLOR-ACCESS-PROTOCOL.md` | 8 | 0 |
+| `docs/mechanics-research/L-ACCESS-REVIEW.md` | 39 | 0 |
+| `docs/mechanics-research/l-protocol-evidence/landcycling-discovery-1.json` | 1 | 0 |
+| `docs/mechanics-research/l-protocol-evidence/landcycling-fresh-1.json` | 1 | 0 |
+| `docs/mechanics-research/l-protocol-evidence/landfall-discovery-1.json` | 1 | 0 |
+| `docs/mechanics-research/l-protocol-evidence/landfall-discovery-2.json` | 1 | 0 |
+| `docs/mechanics-research/l-protocol-evidence/landfall-fresh-1.json` | 1 | 0 |
+| `docs/mechanics-research/l-protocol-evidence/landfall-fresh-2.json` | 1 | 0 |
+| `docs/mechanics-research/l-protocol-evidence/landship-fresh.json` | 1 | 0 |
+| `docs/mechanics-research/l-protocol-evidence/landship-plane-merge-elf.json` | 1 | 0 |
+| `docs/mechanics-research/l-protocol-evidence/landwalk-discovery-1.json` | 1 | 0 |
+| `docs/mechanics-research/l-protocol-evidence/landwalk-fresh-1.json` | 1 | 0 |
+| `docs/mechanics-research/l-protocol-evidence/landwalk-fresh-2.json` | 1 | 0 |
+| `docs/mechanics-research/l-protocol-evidence/landwalk-fresh-3.json` | 1 | 0 |
+| `docs/mechanics-research/l-protocol-evidence/landwalk-fresh-4.json` | 1 | 0 |
+| `docs/mechanics-research/l-protocol-evidence/landwalk-fresh-5.json` | 1 | 0 |
+| `docs/mechanics-research/l-protocol-evidence/landwalk-fresh-6.json` | 1 | 0 |
+| `docs/mechanics-research/l-protocol-evidence/landwalk-fresh-7.json` | 1 | 0 |
+| `docs/mechanics-research/l-protocol-evidence/learn-discovery-1.json` | 1 | 0 |
+| `docs/mechanics-research/l-protocol-evidence/learn-fresh-1.json` | 1 | 0 |
+| `docs/mechanics-research/l-protocol-evidence/legacy-antelope-fresh.json` | 1 | 0 |
+| `docs/mechanics-research/l-protocol-evidence/legacy-discovery-1.json` | 6 | 0 |
+| `docs/mechanics-research/l-protocol-evidence/legacy-gold-mine-corrected-fresh.json` | 1 | 0 |
+| `docs/mechanics-research/l-protocol-evidence/legacy-gold-mine-fresh.json` | 1 | 0 |
+| `docs/mechanics-research/l-protocol-evidence/legacy-gold-mine.json` | 1 | 0 |
+| `docs/mechanics-research/l-protocol-evidence/legacy-inspirational-antelope.json` | 1 | 0 |
+| `docs/mechanics-research/l-protocol-evidence/legendary-landwalk-discovery-1.json` | 1 | 0 |
+| `docs/mechanics-research/l-protocol-evidence/legendary-landwalk-fresh-1.json` | 1 | 0 |
+| `docs/mechanics-research/l-protocol-evidence/level-up-discovery-1.json` | 1 | 0 |
+| `docs/mechanics-research/l-protocol-evidence/level-up-fresh-1.json` | 1 | 0 |
+| `docs/mechanics-research/l-protocol-evidence/lieutenant-discovery-1.json` | 1 | 0 |
+| `docs/mechanics-research/l-protocol-evidence/lieutenant-fresh-1.json` | 1 | 0 |
+| `docs/mechanics-research/l-protocol-evidence/living-metal-discovery-1.json` | 1 | 0 |
+| `docs/mechanics-research/l-protocol-evidence/living-metal-fresh-1.json` | 1 | 0 |
+| `docs/mechanics-research/l-protocol-evidence/living-weapon-discovery-1.json` | 1 | 0 |
+| `docs/mechanics-research/l-protocol-evidence/living-weapon-fresh-1.json` | 1 | 0 |
+| `docs/mechanics-research/l-protocol-evidence/mystery-booster-commander-release-notes-fresh.html` | 1088 | 0 |
+| `docs/mechanics-research/l-protocol-evidence/mystery-booster-release-notes-fresh.html` | 190 | 0 |
+| `docs/mechanics-research/l-protocol-evidence/mystery-booster-release-notes.html` | 190 | 0 |
+| `docs/mechanics-research/l-protocol-evidence/retrieval-receipts.json` | 339 | 0 |
+| `docs/mechanics-research/l-protocol.json` | 15444 | 0 |
+| `tools/build_mechanics_assessments.py` | 9 | 9 |
+| `tools/check_assessment_browser.mjs` | 107 | 15 |
+| `vox-color/mechanical-explorer.html` | 22 | 18 |
+
+---
+
 # Owner Accepted — K supplemental Color Access and Kicker combination symbols
 
 - Owner decision, October 29, 2026: "K looks good." Accepted the complete K batch (Kicker, Kinship, Kinfall) including the combination-symbol correction at exact material `803491f8364741c153ad43665fa923cd5d6c2120`, reviewed with evidence HEAD `8b19a685f8e2a9b8a9d7be7f451754e67f104b49`. The underlying K source/content candidate is `cef24cb243d961ee92351cdb710df9e5f967bf80`. This closes product/visual review for this local delivery; the existing no-push, no-merge, no-publication instruction remains in force. This acceptance update changes HANDOFF only; no product tests or preview rebuild are needed.
