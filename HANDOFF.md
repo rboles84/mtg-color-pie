@@ -3914,3 +3914,41 @@ No new research is authorized or needed to distinguish the retained evidence. Th
 - Preservation/scope: exact Git-baseline comparison confirms all 238 prior A–N rows and first 22 bindings equal the baseline. Git-normalized comparisons confirm all 835 other prior tracked data/research blobs unchanged, including frozen 2021 and A–N packets; worktree CRLF is expected. `git diff --check` and individual no-index whitespace checks for all 18 new O files PASS. Changed paths remain within the admitted envelope; no dependency, route, package, preview, screenshot, publication, push, merge, integration or Owner acceptance is claimed.
 - Stateful coverage: source capture → canonical full object → deterministic projection → whole-detail rendered link/token continuity is checked, with malformed explicit payload replacement failing closed. No new persistent navigation/history/reset ownership is introduced; broader state-journey certification is not applicable. N and native Mutate represent structurally different protected renderer branches.
 - Owner judgment, after independent engineering QA: (1) open Offering and Offspring and judge whether subtype/cost notes and separate WUR grant read naturally; (2) open Open an Attraction and Opus and judge whether their direct triggers and distinct card results are useful; (3) open Outlast and Overload at phone width and judge cost readability, WG/UR combinations and colorless Eldritch Immunity. Coordinator owns the exact review URL, package/preview and requested screenshot.
+
+
+## O exact candidate handoff — ready for independent QA
+
+- Status: `ready-for-qa` (`dev-in-progress -> ready-for-qa`). Exact completed material candidate: `4ea9847478f2384549e5b4baeb4d644730898b24` over baseline `d835683ca11b4930d01928aadacd5a2c1acec229`. Separate non-implementing QA-4 is required; the developer evidence above binds to this candidate. No engineering QA verdict or Owner acceptance is inferred.
+- Git material accounting: exactly 24 paths, 7,639 additions / 32 deletions. This includes the O pre-edit contract and developer report, not just the completion patch. All paths are inside the admitted envelope. File names and per-path additions/deletions follow.
+
+```text
+23	0	HANDOFF.md
+739	0	data/mechanics-assessments.v1.json
+4	0	docs/mechanics-research/COLOR-ACCESS-PROTOCOL.md
+28	0	docs/mechanics-research/O-ACCESS-REVIEW.md
+1	0	docs/mechanics-research/o-protocol-evidence/offering-discovery.json
+1	0	docs/mechanics-research/o-protocol-evidence/offering-full-oracle-discovery.json
+1	0	docs/mechanics-research/o-protocol-evidence/offspring-discovery.json
+1	0	docs/mechanics-research/o-protocol-evidence/offspring-full-oracle-discovery.json
+1	0	docs/mechanics-research/o-protocol-evidence/open-an-attraction-discovery.json
+1	0	docs/mechanics-research/o-protocol-evidence/open-an-attraction-full-oracle-discovery.json
+1	0	docs/mechanics-research/o-protocol-evidence/opus-discovery.json
+1	0	docs/mechanics-research/o-protocol-evidence/opus-full-oracle-discovery.json
+333	0	docs/mechanics-research/o-protocol-evidence/opus-official-mechanics.html
+1	0	docs/mechanics-research/o-protocol-evidence/outlast-discovery.json
+1	0	docs/mechanics-research/o-protocol-evidence/outlast-full-oracle-discovery.json
+1	0	docs/mechanics-research/o-protocol-evidence/overload-discovery.json
+1	0	docs/mechanics-research/o-protocol-evidence/overload-full-oracle-discovery.json
+132	0	docs/mechanics-research/o-protocol-evidence/retrieval-receipts.json
+1	0	docs/mechanics-research/o-protocol-evidence/selected-cards-request.json
+1	0	docs/mechanics-research/o-protocol-evidence/selected-cards.json
+6221	0	docs/mechanics-research/o-protocol.json
+8	8	tools/build_mechanics_assessments.py
+122	11	tools/check_assessment_browser.mjs
+15	13	vox-color/mechanical-explorer.html
+```
+
+- Provenance inventory: 12 complete Scryfall discovery responses (six retained default-Oracle + six fresh full-Oracle), one selected-card collection response, one fresh official mechanics HTML response, 14 response receipts with matching raw/committed-blob hashes, one preserved name-based POST request/hash, and 34 distinct selected full-card objects/bucket examples. Inherited Opus release-notes metadata remains explicitly separate.
+- Evidence delta: this subsequent ledger commit changes only `HANDOFF.md` beyond material `4ea9847478f2384549e5b4baeb4d644730898b24`. The final branch delta remains the same 24 paths. Branch `codex/a-mechanics-review`, local only; no remote operations, push, merge, publication or integration were performed.
+- Independent QA emphasis: review all six authored maps and 34 notes against actual full Oracle text; derive discovered signatures before accepting the map, including Zinnia/Arcus grants and ordinary non-acorn Unfinity; recompute all response/request hashes and selected bindings; verify complete costs, source colors, one-link whole-detail output, definition uniqueness, non-card Sources, all three symbol surfaces, fallback/injection/fail-soft, A–N exact payload/binding parity and protected Mutate cost runs. The developer commands/results and bounded Owner checklist are above.
+- RobDev stops material edits here. Coordinator owns independent QA dispatch, exact package/live preview, requested screenshot and final Git reporting. No material work remains pending.
