@@ -3117,6 +3117,15 @@ This ledger-only evidence delta is not the full task diff. Final branch delta fr
 - Protected: all non-Landwalk records and bindings, including frozen 2021. Exact requested Scryfall print links and concise `[Card] has [walk].` notes are required.
 - Expected QA: bounded source-backed QA-4. Developer checks: raw-object/hash/color/walk assertions and deterministic producer.
 
+## RobDev handoff — Landwalk monocolor witness correction
+
+- Material candidate: `16925a9d457ffbec463d66e3cab16b8af52960b9`.
+- Changed only Landwalk's monocolor selected witnesses in `l-protocol.json`, then regenerated `data/mechanics-assessments.v1.json`: W Righteous Avengers (plainswalk), U Benthic Behemoth (islandwalk), B Anurid Murkdiver (swampwalk), R Dwarven Grunt (mountainwalk), and G Cat Warriors (forestwalk, `{1}{G}{G}`). All use the requested exact links where supplied; each note is `[Card] has [walk].`
+- Each witness is the full object contained in its existing `landwalk-fresh-*.json` raw capture and retains a matching path/SHA-256/oracle-ID binding. The previous W/R/G selected cards were removed from `card_review`; no raw evidence was removed.
+- Protected unchanged: Landwalk combinations, colorless/status/summary/rules, all other 209 records, producer, renderer, and harness.
+- Developer checks: `python tools/build_mechanics_assessments.py`; `python tools/build_mechanics_assessments.py --check`; `git diff --check` — PASS. No harness assertion named any replaced card, so no harness edit was required.
+- RobQA focus: verify the five exact selected printing URLs, raw containment and hashes, walk text/colors/mana cost, absence of Cliff Threader/Boggart Arsonists/Anaconda from selected Landwalk buckets, and byte-semantic preservation outside Landwalk. Owner check: open Landwalk and confirm the five concise witness labels read naturally.
+
 - Status: `dev-in-progress`; this is an implementation preflight, not QA, Owner acceptance, publication, or integration.
 - Product outcome: add documented, presence-only Color Access for each of the eleven unmapped L supplemental records, with one selected linked card per independently supported color, colorless bucket, or observed combination.
 - Authoritative owner and producer: canonical `docs/mechanics-research/l-protocol.json` produces `data/mechanics-assessments.v1.json` only through `tools/build_mechanics_assessments.py`; the explorer and focused harness consume that projection.
