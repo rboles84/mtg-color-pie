@@ -3719,3 +3719,9 @@ No new research is authorized or needed to distinguish the retained evidence. Th
 ## Current K QA verdict
 
 - The candidate-bound final verdict above for `cef24cb243d961ee92351cdb710df9e5f967bf80` supersedes both historical K `qa-failed` records: **RobQAPass PASS; proceed to Owner Review**. Owner acceptance and integration remain separate.
+# RobDev pre-edit contract — N supplemental Color Access
+
+- Status: dev-in-progress. Baseline `dae536b9731fef25d84175c64e2a8edfb8dfe323` on `codex/a-mechanics-review`; user authorized the bounded three-entry N packet.
+- Acceptance: add Ninjutsu, Nightbound, and Nonbasic landwalk only; preserve actual mechanic-bearing face colors, independent and exact combination buckets, fresh raw binding receipts, safe N-gated brace-token rendering, and frozen A–M/2021 behavior including the M-only cost-run fix. Producer coverage advances only from 235 to 238 and bindings from 21 to 22.
+- Envelope: `HANDOFF.md`, `docs/mechanics-research/n-protocol.json`, `docs/mechanics-research/n-protocol-evidence/**`, `docs/mechanics-research/N-ACCESS-REVIEW.md`, `docs/mechanics-research/COLOR-ACCESS-PROTOCOL.md`, `tools/build_mechanics_assessments.py`, `tools/check_assessment_browser.mjs`, `vox-color/mechanical-explorer.html`, and generated `data/mechanics-assessments.v1.json`.
+- Protected/out of scope: all mapped/frozen 2021 and A–M packet data, routes, dependencies, package/live-preview work, Owner acceptance, integration, and independent RobQA. Expected class: QA-4; developer will run the focused N path and canonical deterministic/source checks only.

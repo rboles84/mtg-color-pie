@@ -12,6 +12,7 @@ const combinationsOnly=args.includes('--combinations-only');
 const kOnly=args.includes('--k-only');
 const lOnly=args.includes('--l-only');
 const mOnly=args.includes('--m-only');
+const nOnly=args.includes('--n-only');
 const {chromium}=createRequire(import.meta.url)(opt('--playwright','playwright'));
 const payload=JSON.parse(fs.readFileSync(path.join(root,'data/mechanics-assessments.v1.json'),'utf8'));
 const supplement=JSON.parse(fs.readFileSync(path.join(root,'data/mechanics-supplement.v1.json'),'utf8'));
@@ -315,6 +316,16 @@ async function checkMutatePips(page,browser,baseline){
   results.push('Mutate costs keep each saved cost run together, align hybrid and single pips, preserve native hybrid halves, spacing, labels and no-font fallback.');
 }
 
+async function checkN(page){
+  const records=payload.records.filter(r=>r.name.startsWith('N'));
+  assert.equal(records.length,3);assert.equal(payload.records.length,238);assert.equal(payload.sourceBindings.length,22);
+  const packet=JSON.parse(fs.readFileSync(path.join(root,'docs/mechanics-research/n-protocol.json'),'utf8'));
+  const receipts=JSON.parse(fs.readFileSync(path.join(root,'docs/mechanics-research/n-protocol-evidence/retrieval-receipts.json'),'utf8')).retrievals;
+  for(const r of packet.records)for(const card of r.card_review){const raw=fs.readFileSync(path.join(root,card.evidence_binding.path));assert.equal(createHash('sha256').update(raw).digest('hex'),card.evidence_binding.sha256);const body=JSON.parse(raw),fact=body.data.find(c=>c.oracle_id===card.oracle_id),face=fact.card_faces?.find(f=>f.name===card.mechanic_face)||fact;assert.deepEqual(card.card_facts,fact);assert.deepEqual(card.attributed_colors,[...'WUBRG'].filter(c=>face.colors.includes(c)));assert.equal(receipts.find(x=>x.path===card.evidence_binding.path).status,200);}
+  const maps={Ninjutsu:['W','U','B','G','UB'],Nightbound:['B','R','G','RG'],'Nonbasic landwalk':['G','C']};
+  for(const r of records){const got=[...'WUBRG'].filter(c=>r.access.colors[c].status==='documented').concat(r.access.combinations.map(x=>x.colors.join('')),r.access.colorless.status==='documented'?['C']:[]);assert.deepEqual(got,maps[r.name]);await page.evaluate(id=>VMX.open(id),r.id);await page.locator('.assessment-notes > summary').click();assert.ok(await page.locator('#detail a').evaluateAll(items=>items.filter(x=>x.hostname==='scryfall.com'&&x.pathname.startsWith('/card/')).length)>=got.length);}
+  assert.equal(records.find(r=>r.name==='Nightbound').access.colors.W.status,'not_found');assert.equal(records.find(r=>r.name==='Nightbound').access.colors.U.status,'not_found');results.push('N records retain exact maps, fresh full-object bindings, Nightbound back-face attribution, selected links and safe detail rendering.');
+}
 let browser;const results=[];
 try{
   browser=await chromium.launch({channel:opt('--channel','msedge'),headless:true});
@@ -324,7 +335,7 @@ try{
   await page.waitForFunction(()=>window.VMX?.assessments().status==='ready');
   await page.waitForFunction(()=>document.querySelector('#selftest').textContent.includes('84 of 84 passed'));
   const baseline=await page.evaluate(math);
-  if(args.includes('--mutate-pips-only')){await checkMutatePips(page,browser,baseline);assert.deepEqual(errors,[]);}else if(mOnly){await checkM(page,browser,baseline);assert.deepEqual(errors,[]);}else if(lOnly){await checkL(page,browser,baseline);assert.deepEqual(errors,[]);}else{
+  if(args.includes('--mutate-pips-only')){await checkMutatePips(page,browser,baseline);assert.deepEqual(errors,[]);}else if(nOnly){await checkN(page);assert.deepEqual(errors,[]);}else if(mOnly){await checkM(page,browser,baseline);assert.deepEqual(errors,[]);}else if(lOnly){await checkL(page,browser,baseline);assert.deepEqual(errors,[]);}else{
   assert.equal(await page.locator('#list .ent').count(),216);
   assert.equal(await page.evaluate(()=>VMX.assessments().records.length),235);
   const expectedAssessmentIds=supplement.records.filter(r=>/^[ABCDEFGHIJKLM]/.test(r.name)&&r.target2021===null).map(r=>r.id).sort();

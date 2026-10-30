@@ -1,0 +1,51 @@
+{
+  "retrievals": [
+    {
+      "path": "docs/mechanics-research/n-protocol-evidence/ninjutsu-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?format=json&unique=cards&q=kw%3Aninjutsu",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-30T06:43:23.316Z",
+      "requestEndedUtc": "2026-10-30T06:43:23.443Z",
+      "status": 200,
+      "rawSha256": "a924595f78d03833bea3ead17acb2053f82d74017e610b6c1248ca4f0ccd234b"
+    },
+    {
+      "path": "docs/mechanics-research/n-protocol-evidence/ninjutsu-grants-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?format=json&unique=cards&q=o%3Aninjutsu",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-30T06:43:23.598Z",
+      "requestEndedUtc": "2026-10-30T06:43:24.083Z",
+      "status": 200,
+      "rawSha256": "778ea1a0251502a6a2bebd662bcf6b7461fc67460cd3a51cf3e8ce111dc9e3c3"
+    },
+    {
+      "path": "docs/mechanics-research/n-protocol-evidence/nightbound-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?format=json&unique=cards&q=kw%3Anightbound",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-30T06:43:23.455Z",
+      "requestEndedUtc": "2026-10-30T06:43:23.596Z",
+      "status": 200,
+      "rawSha256": "9c8ff074aed64060ae55e21b9222d325e4132ee4391c115f70a1dc7729556b39"
+    },
+    {
+      "path": "docs/mechanics-research/n-protocol-evidence/nonbasic-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?format=json&unique=cards&q=o%3Anonbasic%20landwalk",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-30T06:43:24.084Z",
+      "requestEndedUtc": "2026-10-30T06:43:24.169Z",
+      "status": 200,
+      "rawSha256": "86c592f138dd9b217f8f1fdcc5c4753479c9974f2ba693be5e79ab7be07f9be9"
+    },
+    {
+      "path": "docs/mechanics-research/n-protocol-evidence/selected-cards.json",
+      "url": "https://api.scryfall.com/cards/collection",
+      "method": "POST",
+      "requestBodyPath": "docs/mechanics-research/n-protocol-evidence/selected-cards-request.json",
+      "requestBodySha256": "05a20449f0476c6e9b6cb141f4408de2470291c6958e3032825c73b01184c708",
+      "requestStartedUtc": "2026-10-30T06:41:53.829Z",
+      "requestEndedUtc": "2026-10-30T06:41:54.152Z",
+      "status": 200,
+      "rawSha256": "53299d7fe8dcebeb2fb2f50373f3e15319438fab44698820b060132ec8bec0db"
+    }
+  ]
+}

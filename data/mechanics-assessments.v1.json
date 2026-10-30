@@ -88,6 +88,10 @@
     {
       "path": "docs/mechanics-research/m-protocol.json",
       "sha256": "f45c64a57ee74f0b9030353aeea4fdba62b491ab5a2a79c60a497aecabd9882c"
+    },
+    {
+      "path": "docs/mechanics-research/n-protocol.json",
+      "sha256": "bfd33f39cd09b3daa05629920e318eeeb9db2c82027a117bf428fba0a0216102"
     }
   ],
   "records": [
@@ -47529,6 +47533,307 @@
         }
       ],
       "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:variants:nightbound",
+      "name": "Nightbound",
+      "kind": "access",
+      "researchDate": "2026-10-30",
+      "scopeLabel": "Released paper cards",
+      "scope": "Nightbound is found on the back face of certain transforming cards; access uses that back face’s actual colors.",
+      "summary": "Selected back faces establish black, red, green, and red-green Nightbound access; front-face colors are not substituted.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "not_found",
+            "note": "No white nightbound face found in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "U": {
+            "status": "not_found",
+            "note": "No blue nightbound face found in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "B": {
+            "status": "documented",
+            "note": "Baneclaw Marauder is the black nightbound face.",
+            "cards": [
+              {
+                "name": "Baneblade Scoundrel // Baneclaw Marauder",
+                "url": "https://scryfall.com/card/mid/85/baneblade-scoundrel-baneclaw-marauder?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Baneblade%20Scoundrel%20//%20Baneclaw%20Marauder%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Ballista Wielder is the red nightbound face.",
+            "cards": [
+              {
+                "name": "Ballista Watcher // Ballista Wielder",
+                "url": "https://scryfall.com/card/vow/143/ballista-watcher-ballista-wielder?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Ballista%20Watcher%20//%20Ballista%20Wielder%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Tovolar's Packleader is the green nightbound face.",
+            "cards": [
+              {
+                "name": "Tovolar's Huntmaster // Tovolar's Packleader",
+                "url": "https://scryfall.com/card/mid/204/tovolars-huntmaster-tovolars-packleader?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Tovolar%27s%20Huntmaster%20//%20Tovolar%27s%20Packleader%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "R",
+              "G"
+            ],
+            "note": "Arlinn, the Moon's Fury is the red-green nightbound face.",
+            "cards": [
+              {
+                "name": "Arlinn, the Pack's Hope // Arlinn, the Moon's Fury",
+                "url": "https://scryfall.com/card/mid/211/arlinn-the-packs-hope-arlinn-the-moons-fury?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Arlinn%2C%20the%20Pack%27s%20Hope%20//%20Arlinn%2C%20the%20Moon%27s%20Fury%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "not_found",
+          "note": "No colorless nightbound face found in the reviewed scope.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Baneblade Scoundrel // Baneclaw Marauder",
+          "url": "https://scryfall.com/card/mid/85/baneblade-scoundrel-baneclaw-marauder?utm_source=api"
+        },
+        {
+          "name": "Ballista Watcher // Ballista Wielder",
+          "url": "https://scryfall.com/card/vow/143/ballista-watcher-ballista-wielder?utm_source=api"
+        },
+        {
+          "name": "Tovolar's Huntmaster // Tovolar's Packleader",
+          "url": "https://scryfall.com/card/mid/204/tovolars-huntmaster-tovolars-packleader?utm_source=api"
+        },
+        {
+          "name": "Arlinn, the Pack's Hope // Arlinn, the Moon's Fury",
+          "url": "https://scryfall.com/card/mid/211/arlinn-the-packs-hope-arlinn-the-moons-fury?utm_source=api"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Magic: The Gathering Comprehensive Rules",
+          "url": "https://magic.wizards.com/en/rules"
+        }
+      ],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:ninjutsu",
+      "name": "Ninjutsu",
+      "kind": "access",
+      "researchDate": "2026-10-30",
+      "scopeLabel": "Released paper cards",
+      "scope": "Ninjutsu puts a revealed card from hand onto the battlefield tapped and attacking after an unblocked attacker is returned. Commander ninjutsu is its command-zone variant.",
+      "summary": "Ninjutsu appears on selected white, blue, black, and green cards, with a separate blue-black combination witness.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Blade-Blizzard Kitsune has ninjutsu {3}{W}.",
+            "cards": [
+              {
+                "name": "Blade-Blizzard Kitsune",
+                "url": "https://scryfall.com/card/neo/5/blade-blizzard-kitsune?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Blade-Blizzard%20Kitsune%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Moon-Circuit Hacker has ninjutsu {U}.",
+            "cards": [
+              {
+                "name": "Moon-Circuit Hacker",
+                "url": "https://scryfall.com/card/neo/67/moon-circuit-hacker?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Moon-Circuit%20Hacker%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Azra Smokeshaper has ninjutsu {1}{B}.",
+            "cards": [
+              {
+                "name": "Azra Smokeshaper",
+                "url": "https://scryfall.com/card/mh1/79/azra-smokeshaper?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Azra%20Smokeshaper%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "not_found",
+            "note": "No red example found in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "G": {
+            "status": "documented",
+            "note": "Coiling Stalker has ninjutsu {1}{G}.",
+            "cards": [
+              {
+                "name": "Coiling Stalker",
+                "url": "https://scryfall.com/card/neo/179/coiling-stalker?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Coiling%20Stalker%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "U",
+              "B"
+            ],
+            "note": "Ingenious Infiltrator has ninjutsu {U}{B}.",
+            "cards": [
+              {
+                "name": "Ingenious Infiltrator",
+                "url": "https://scryfall.com/card/mh1/204/ingenious-infiltrator?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Ingenious%20Infiltrator%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "not_found",
+          "note": "No colorless example found in the reviewed scope.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Blade-Blizzard Kitsune",
+          "url": "https://scryfall.com/card/neo/5/blade-blizzard-kitsune?utm_source=api"
+        },
+        {
+          "name": "Moon-Circuit Hacker",
+          "url": "https://scryfall.com/card/neo/67/moon-circuit-hacker?utm_source=api"
+        },
+        {
+          "name": "Azra Smokeshaper",
+          "url": "https://scryfall.com/card/mh1/79/azra-smokeshaper?utm_source=api"
+        },
+        {
+          "name": "Coiling Stalker",
+          "url": "https://scryfall.com/card/neo/179/coiling-stalker?utm_source=api"
+        },
+        {
+          "name": "Ingenious Infiltrator",
+          "url": "https://scryfall.com/card/mh1/204/ingenious-infiltrator?utm_source=api"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Magic: The Gathering Comprehensive Rules",
+          "url": "https://magic.wizards.com/en/rules"
+        }
+      ],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:variants:nonbasic landwalk",
+      "name": "Nonbasic landwalk",
+      "kind": "access",
+      "researchDate": "2026-10-30",
+      "scopeLabel": "Released paper cards",
+      "scope": "Nonbasic landwalk makes a creature unblockable while the defending player controls a nonbasic land.",
+      "summary": "Dryad Sophisticate is a green native use; Trailblazer’s Boots is a colorless Equipment that grants it.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "not_found",
+            "note": "No white example found in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "U": {
+            "status": "not_found",
+            "note": "No blue example found in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "B": {
+            "status": "not_found",
+            "note": "No black example found in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "R": {
+            "status": "not_found",
+            "note": "No red example found in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "G": {
+            "status": "documented",
+            "note": "Dryad Sophisticate has nonbasic landwalk.",
+            "cards": [
+              {
+                "name": "Dryad Sophisticate",
+                "url": "https://scryfall.com/card/gpt/83/dryad-sophisticate?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Dryad%20Sophisticate%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "documented",
+          "note": "Trailblazer's Boots is colorless and grants nonbasic landwalk to the equipped creature.",
+          "cards": [
+            {
+              "name": "Trailblazer's Boots",
+              "url": "https://scryfall.com/card/otc/269/trailblazers-boots?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22Trailblazer%27s%20Boots%22%29%20include%3Aextras"
+        },
+        "limitations": [
+          "Trailblazer’s Boots establishes colorless access through its source, not through the equipped creature’s colors."
+        ]
+      },
+      "citationCards": [
+        {
+          "name": "Dryad Sophisticate",
+          "url": "https://scryfall.com/card/gpt/83/dryad-sophisticate?utm_source=api"
+        },
+        {
+          "name": "Trailblazer's Boots",
+          "url": "https://scryfall.com/card/otc/269/trailblazers-boots?utm_source=api"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Magic: The Gathering Comprehensive Rules",
+          "url": "https://magic.wizards.com/en/rules"
+        }
+      ],
       "relatedEffects": []
     }
   ]
