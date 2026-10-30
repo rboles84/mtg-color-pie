@@ -1,4 +1,4 @@
-// Focused A/B/C/D/E/F/G/H/I assessment checks using externally supplied Playwright; no new dependency.
+// Focused A/B/C/D/E/F/G/H/I/J assessment checks using externally supplied Playwright; no new dependency.
 import fs from 'node:fs';
 import path from 'node:path';
 import http from 'node:http';
@@ -65,7 +65,7 @@ try{
   assert.equal(await page.locator('#list .ent').count(),216);
   assert.equal(await page.evaluate(()=>VMX.assessments().records.length),196);
   const expectedAssessmentIds=supplement.records.filter(r=>/^[ABCDEFGHIJ]/.test(r.name)&&r.target2021===null).map(r=>r.id).sort();
-  assert.deepEqual(payload.records.map(r=>r.id).sort(),expectedAssessmentIds,'every admitted A/B/C/D/E/F/G/H/I target has exactly one assessment');
+  assert.deepEqual(payload.records.map(r=>r.id).sort(),expectedAssessmentIds,'every admitted A/B/C/D/E/F/G/H/I/J target has exactly one assessment');
   assert.deepEqual(payload.sourceBindings.map(x=>x.path),[
     'docs/mechanics-research/a-assessments-source.json',
     'docs/mechanics-research/absorb-assessment-source.json',
@@ -212,7 +212,7 @@ try{
   assert.match(gRecord('Gift').summary,/while casting.*instant or sorcery.*before.*resolves.*permanent.*triggered ability.*enters/i,'Gift distinguishes promise, spell resolution and permanent entry');
   assert.match(gRecord('Gravestorm').access.colors.B.note,/triggers when cast.*copies each exile/i,'Bitter Ordeal cast trigger precedes its search effect');
   assert.doesNotMatch(gRecord('Gravestorm').access.colors.B.note,/when cast after searching/i);
-  const normalGTokens=new Map(), normalHTokens=new Map(),normalITokens=new Map(); let gVisibleCardLinks=0, hVisibleCardLinks=0, iVisibleCardLinks=0;
+  const normalGTokens=new Map(), normalHTokens=new Map(),normalITokens=new Map(),normalJTokens=new Map(); let gVisibleCardLinks=0, hVisibleCardLinks=0, iVisibleCardLinks=0, jVisibleCardLinks=0;
   assert.equal(payload.records.filter(r=>r.name.startsWith('G')).length,5);
   assert.equal(gRecord('Gift').access.colors.G.cards[0].name,'Longstalk Brawl');
   assert.equal(gRecord('Gift').access.colorless.cards[0].name,'Starforged Sword');
@@ -347,6 +347,7 @@ try{
       if(record.name.startsWith('G')) gVisibleCardLinks+=expectedCardLinks.length;
       if(record.name.startsWith('H')) hVisibleCardLinks+=expectedCardLinks.length;
       if(record.name.startsWith('I')) iVisibleCardLinks+=expectedCardLinks.length;
+      if(record.name.startsWith('J')) jVisibleCardLinks+=expectedCardLinks.length;
       const linkedBuckets=cardBuckets.filter(item=>item.findUrl && (!compactExamples || item.cards.length>1));
       for(const findUrl of new Set(linkedBuckets.map(item=>item.findUrl))) assert.equal(await notes.locator(`a[href="${findUrl}"]`).count(),linkedBuckets.filter(item=>item.findUrl===findUrl).length,record.name+' renders every exact reviewed-card bucket link');
       assert.deepEqual(await notes.locator('a').evaluateAll(links=>links.filter(a=>a.protocol!=='https:'||!['scryfall.com','magic.wizards.com'].includes(a.hostname)||a.rel!=='noopener noreferrer').map(a=>a.href)),[]);
@@ -362,6 +363,7 @@ try{
         if(record.name.startsWith('G')) normalGTokens.set(record.name,symbols.tokens);
         if(record.name.startsWith('H')) normalHTokens.set(record.name,symbols.tokens);
         if(record.name.startsWith('I')) normalITokens.set(record.name,symbols.tokens);
+        if(record.name.startsWith('J')) normalJTokens.set(record.name,symbols.tokens);
         assert.doesNotMatch(symbols.visible,/\{[^{}\r\n]+\}/,record.name+' no visible raw costs');
         for(const symbol of symbols.rendered){
           assert.equal(symbol.role,'img');assert.ok(symbol.label);assert.equal(symbol.fallback,'none');assert.notEqual(symbol.glyph,'none');
@@ -377,7 +379,7 @@ try{
         if(record.name==='Evoke') assert.deepEqual([...new Set(symbols.rendered.filter(s=>s.token.includes('/')).map(s=>s.token))].sort(),['{R/G}','{R/W}','{U/B}','{W/B}']);
       }
     }
-    if(!combinationsOnly) {assert.equal(gVisibleCardLinks,36,'all G detail panels show exactly the 36 selected links');assert.equal(hVisibleCardLinks,59,'all H detail panels show exactly the 59 selected links');assert.equal(iVisibleCardLinks,96,'all I detail panels show exactly the 96 selected links');}
+    if(!combinationsOnly) {assert.equal(gVisibleCardLinks,36,'all G detail panels show exactly the 36 selected links');assert.equal(hVisibleCardLinks,59,'all H detail panels show exactly the 59 selected links');assert.equal(iVisibleCardLinks,96,'all I detail panels show exactly the 96 selected links');assert.equal(jVisibleCardLinks,17,'all J detail panels show exactly the 17 selected links');}
     const noFont=await browser.newPage();
     await noFont.route('**/mana-font@1.18.0/**',route=>route.abort());
     await noFont.goto(url);await noFont.waitForFunction(()=>VMX.assessments().status==='ready');
@@ -390,8 +392,8 @@ try{
       await noFont.evaluate(id=>VMX.open(id),record.id);
       await noFont.locator('.assessment-notes > summary').click();
       const symbols=await noFont.locator('#detail .supp-symbol').evaluateAll(items=>items.map(s=>({text:s.innerText,raw:s.querySelector('.supp-symbol-text').textContent,label:s.getAttribute('aria-label'),glyph:getComputedStyle(s.querySelector('.ms')).display})));
-      assert.ok(symbols.every(s=>s.text===s.raw&&s.label&&s.glyph==='none'),record.name+' readable F/G/H/I font-failure fallback');
-      if(/^[GHI]/.test(record.name)&&!combinationsOnly) assert.deepEqual(symbols.map(s=>s.raw),(record.name.startsWith('I')?normalITokens:record.name.startsWith('H')?normalHTokens:normalGTokens).get(record.name),record.name+' same actual tokens in normal and blocked-font states');
+      assert.ok(symbols.every(s=>s.text===s.raw&&s.label&&s.glyph==='none'),record.name+' readable F/G/H/I/J font-failure fallback');
+      if(/^[GHIJ]/.test(record.name)&&!combinationsOnly) assert.deepEqual(symbols.map(s=>s.raw),(record.name.startsWith('J')?normalJTokens:record.name.startsWith('I')?normalITokens:record.name.startsWith('H')?normalHTokens:normalGTokens).get(record.name),record.name+' same actual tokens in normal and blocked-font states');
     }
     for(const record of payload.records.filter(r=>['Fuse','Friends forever','Hexproof from'].includes(r.name))){
       await noFont.evaluate(()=>VMX.setView('az'));
@@ -428,7 +430,7 @@ try{
     for(const blocked of [false,true]){
       const gSafe=await browser.newPage(),gInjected=structuredClone(payload),gSupplement=structuredClone(supplement);
       const gScopes=JSON.parse(fs.readFileSync(path.join(root,'data/mechanics-supplement-scope.v1.json'),'utf8'));
-      for(const record of gSupplement.records.filter(r=>/^[GHI]/.test(r.name)&&r.target2021===null)){
+      for(const record of gSupplement.records.filter(r=>/^[GHIJ]/.test(r.name)&&r.target2021===null)){
         record.clauses=[{number:'fixture',text:gUnsafe}];
         record.reference={title:'Fixture',verification:'fixture',rules:[],summary:gUnsafe,source:{title:'Fixture',url:'https://magic.wizards.com/en/news/making-magic/back-future-sight-part-3-2020-08-24'}};
       }
@@ -436,7 +438,7 @@ try{
       gScopes.payloadCanonicalSha256=fixtureHash;gInjected.supplementCanonicalSha256=fixtureHash;
       await gSafe.route('**/data/mechanics-supplement.v1.json*',route=>route.fulfill({contentType:'application/json',body:JSON.stringify(gSupplement)}));
       await gSafe.route('**/data/mechanics-supplement-scope.v1.json*',route=>route.fulfill({contentType:'application/json',body:JSON.stringify(gScopes)}));
-      for(const record of gInjected.records.filter(r=>/^[GHI]/.test(r.name))) record.summary=gUnsafe;
+      for(const record of gInjected.records.filter(r=>/^[GHIJ]/.test(r.name))) record.summary=gUnsafe;
       if(blocked) await gSafe.route('**/mana-font@1.18.0/**',route=>route.abort());
       await gSafe.route(assessmentRoute,route=>route.fulfill({contentType:'application/json',body:JSON.stringify(gInjected)}));
       await gSafe.goto(url);await gSafe.waitForFunction(()=>VMX.assessments().status==='ready');
@@ -447,7 +449,7 @@ try{
           const prose=gSafe.locator(selector).first();assert.equal(await prose.locator('img').count(),0,record.name+' escapes markup in '+selector);
           assert.ok((await prose.textContent()).includes('<img src=x onerror=alert(1)> {unknown}'),record.name+' preserves unknown notation as text');
           const symbols=await prose.locator('.supp-symbol').evaluateAll(items=>items.map(s=>({label:s.getAttribute('aria-label'),role:s.getAttribute('role'),raw:s.querySelector('.supp-symbol-text').textContent,text:s.innerText,glyph:getComputedStyle(s.querySelector('.ms')).display,fallback:getComputedStyle(s.querySelector('.supp-symbol-text')).display,before:getComputedStyle(s.querySelector('.ms'),'::before').content,after:getComputedStyle(s.querySelector('.ms'),'::after').content})));
-          assert.deepEqual(symbols.map(s=>s.label),gTokenLabels,record.name+' all G/H/I numeric/colored/colorless/X/hybrid tokens in '+selector);
+          assert.deepEqual(symbols.map(s=>s.label),gTokenLabels,record.name+' all G/H/I/J numeric/colored/colorless/X/hybrid tokens in '+selector);
           assert.ok(symbols.every(s=>s.role==='img'&&(blocked?s.glyph==='none'&&s.text===s.raw&&s.fallback!=='none':s.glyph!=='none'&&s.fallback==='none'&&s.before&&!['none','normal','""'].includes(s.before)&&(s.raw.includes('/')?s.after&&!['none','normal','""'].includes(s.after):true))),record.name+' accessible real glyphs or readable fallback');
           if(!blocked) assert.doesNotMatch(await prose.innerText(),/\{(?:9|W|U|B|R|G|C|X|B\/G|G\/U|B\/R|G\/W|U\/R|W\/B)\}/);
         }
@@ -474,7 +476,7 @@ try{
       assert.equal(await fail.evaluate(()=>VMX.assessments().records.length),0); assert.equal(await fail.locator('#list .access-strip').count(),0); await fail.close();
     }
     assert.deepEqual(errors,[]);
-    results.push(combinationsOnly ? 'Fuse/Friends forever and Hexproof from list/detail: exact combinations, original Mana CI-3/CI-5 paths and native section colors, contained fills, centered18px painted circles, accessible labels and readable no-font fallback.' : 'All28 E,25 F,5 G,14 H and15 I mana-symbol paths: actual tokens plus G/H/I numeric/colored/colorless/X/hybrid fixtures in assessment/rules/reference, accessible real glyphs, no-font fallback and escaping; 36 exact G,59 H and96 I selected links, full observed H/I maps and factual trigger/timing regressions and Oct29 dates; C/D/E/F/G/H/I representative sources, unique combination citations and concise copy; 192 A/B/C/D/E/F/G/H/I access maps; documented/no-example/joint/colorless/rules cases; exact-example and retained non-card links; atomic malformed fail-soft; search keyboard/mobile; unchanged 2021 84 checks');
+    results.push(combinationsOnly ? 'Fuse/Friends forever and Hexproof from list/detail: exact combinations, original Mana CI-3/CI-5 paths and native section colors, contained fills, centered18px painted circles, accessible labels and readable no-font fallback.' : 'All28 E,25 F,5 G,14 H,15 I and4 J mana-symbol paths: actual tokens plus G/H/I/J numeric/colored/colorless/X/hybrid fixtures in assessment/rules/reference, accessible real glyphs, no-font fallback and escaping; 36 exact G,59 H,96 I and17 J selected links, full observed H/I/J maps and factual trigger/timing regressions and Oct29 dates; C/D/E/F/G/H/I/J representative sources, unique combination citations and concise copy; 196 A/B/C/D/E/F/G/H/I/J access maps; documented/no-example/joint/colorless/rules cases; exact-example and retained non-card links; atomic malformed fail-soft; search keyboard/mobile; unchanged 2021 84 checks');
   }
   await page.close();
   console.log(JSON.stringify({result:'PASS',checks:results},null,2));

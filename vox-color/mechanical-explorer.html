@@ -2008,7 +2008,7 @@ function supplementalClassificationHTML(scope, mapped){
     </${mapped ? 'section' : 'div'}>`;
 }
 function supplementalRecordHTML(a, mapped = false){
-  const text = value => supplementalTextHTML(value, !mapped && a.name.startsWith('I') ? I_MANA : !mapped && a.name.startsWith('H') ? H_MANA : !mapped && a.name.startsWith('G') ? G_MANA : !mapped && a.name.startsWith('F') ? F_MANA : !mapped && a.name.startsWith('E') ? E_MANA : SUP_MANA);
+  const text = value => supplementalTextHTML(value, !mapped && (a.name.startsWith('I') || a.name.startsWith('J')) ? I_MANA : !mapped && a.name.startsWith('H') ? H_MANA : !mapped && a.name.startsWith('G') ? G_MANA : !mapped && a.name.startsWith('F') ? F_MANA : !mapped && a.name.startsWith('E') ? E_MANA : SUP_MANA);
   const ref = a.reference, review = a.qualifications.acceptedSourceReview, locator = review && review.locator || {};
   const classification = SUP_SCOPE.get(a.id), upfront = new Set([classification.scopeNote, ...classification.qualifications]);
   const kind = ref && ref.referenceKind;
