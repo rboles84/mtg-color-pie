@@ -1,3 +1,90 @@
+# M supplemental Color Access — engineering PASS and local preview
+
+- All 25 supplemental M entries are complete with 183 selected bucket examples using 182 exact full card objects. Coverage is 235 A–M records / 21 bindings. Menace, Mill, frozen 2021 names/explanations/placements/calculations and all 210 prior A–L rows / 20 prior bindings remain unchanged.
+- Status: engineering PASS / Owner Review. Separate configured RobQA Sol medium reviewed material `5dcf24babdd2c1e4dc7d6989cc7b0b962bb19b47`; independent evidence commit `e0e3fd541dc2adef2d9464d0d4a8f36472d3f3f9` records PASS with no findings. Owner acceptance remains separate.
+- Roles: configured RobDev Terra medium returned an incomplete scaffold. The coordinator announced bounded escalation to Sol high for source, copy, provenance, renderer and validation completion. Separate configured RobQA Sol medium performed independent QA. These are configured routes, not backend telemetry. Coordinator `/root` packaged the candidate, verified the live preview and recorded Git accounting.
+- Evidence: `docs/mechanics-research/m-protocol.json`, `M-ACCESS-REVIEW.md` and `m-protocol-evidence/retrieval-receipts.json`. Independent review checked 35 body hashes, 3 request-body hashes, 182 request identifiers against full response objects, and all 183 selected bucket bindings. Derived or incompletely receipted initial discovery remains explicitly audit-only; every selected fact binds to a fresh complete request/response capture. Unselected discovery hits are not claimed individually reviewed.
+- Checks actually passed: producer determinism; invariant, taxonomy, reconciliation (53 assertions) and mechanics gate chain; harness and inline-script syntax; whitespace; raw/request/card/face-color audit; exact A–L parity. Independent actual `--m-only` covered all 25 M entries / 183 links, symbols through examples/rules/references, snow and hybrid glyphs, escaping, safe links, accessible labels, blocked-font fallback, malformed-data isolation, keyboard, narrow containment and frozen 84-check behavior. Protected `--l-only` passed all 11 L entries / 83 links.
+- Known unrelated harness debt: the broad Friends forever 14px expectation conflicts with unchanged 18px CSS. That broader suite was neither rerun nor repaired; no all-suite-PASS claim is made.
+- Local package: `_site` was verified as an ordinary direct child of this checkout before replacement. `python .github/pages/package.py --rev 5dcf24babdd2c1e4dc7d6989cc7b0b962bb19b47 --out <absolute _site> --verify` exited 0: 23 byte-matching files, 4 inline scripts parsed, 23 allowed HTTP 200 responses and 24 excluded HTTP 404 responses.
+- Live preview: refreshed `http://127.0.0.1:8020/#mechanical-color-pie`; iframe revision equals the material SHA. Monstrosity is open with Reviewed card examples expanded, search empty and all five color filters false. Actual independent colors, colorless diamond, combinations, selected links, numeric/colored/X/snow costs were observed. The tab is retained for Owner review.
+- Screenshot: `C:/Users/obake/.codex/visualizations/2026/10/30/01a18b41-c4b7-7b61-a59e-7a504e8f8cb6/m-color-access-preview.jpg`.
+- Owner review: inspect the open Monstrosity examples for readability, usefulness and visual flow. No deterministic card-fact re-audit is requested. No push, merge or publication was performed. Final Git checks and the existing change-report validator run after this HANDOFF-only delivery commit.
+
+## Material candidate
+
+- Baseline: `04f84845d46433692eb61456a2d9155c827ca79a`
+- Candidate: `5dcf24babdd2c1e4dc7d6989cc7b0b962bb19b47`
+- Changed paths: `48`
+
+## Files changed
+
+- `HANDOFF.md`
+- `data/mechanics-assessments.v1.json`
+- `docs/mechanics-research/COLOR-ACCESS-PROTOCOL.md`
+- `docs/mechanics-research/M-ACCESS-REVIEW.md`
+- `docs/mechanics-research/m-protocol-evidence/grant-discovery-1.json`
+- `docs/mechanics-research/m-protocol-evidence/m-discovery.json`
+- `docs/mechanics-research/m-protocol-evidence/madness-discovery-1.json`
+- `docs/mechanics-research/m-protocol-evidence/magecraft-discovery-1.json`
+- `docs/mechanics-research/m-protocol-evidence/manifest-discovery-1.json`
+- `docs/mechanics-research/m-protocol-evidence/manifest-dread-discovery-1.json`
+- `docs/mechanics-research/m-protocol-evidence/mark-of-chaos-ascendant-discovery-1.json`
+- `docs/mechanics-research/m-protocol-evidence/max-speed-discovery-1.json`
+- `docs/mechanics-research/m-protocol-evidence/mayhem-discovery-1.json`
+- `docs/mechanics-research/m-protocol-evidence/megamorph-discovery-1.json`
+- `docs/mechanics-research/m-protocol-evidence/meld-discovery-1.json`
+- `docs/mechanics-research/m-protocol-evidence/melee-discovery-1.json`
+- `docs/mechanics-research/m-protocol-evidence/mentor-colorless-1.json`
+- `docs/mechanics-research/m-protocol-evidence/mentor-discovery-1.json`
+- `docs/mechanics-research/m-protocol-evidence/metalcraft-discovery-1.json`
+- `docs/mechanics-research/m-protocol-evidence/miracle-discovery-1.json`
+- `docs/mechanics-research/m-protocol-evidence/mobilize-discovery-1.json`
+- `docs/mechanics-research/m-protocol-evidence/modular-discovery-1.json`
+- `docs/mechanics-research/m-protocol-evidence/mold-earth-discovery-1.json`
+- `docs/mechanics-research/m-protocol-evidence/monstrosity-discovery-1.json`
+- `docs/mechanics-research/m-protocol-evidence/morbid-discovery-1.json`
+- `docs/mechanics-research/m-protocol-evidence/more-than-meets-the-eye-discovery-1.json`
+- `docs/mechanics-research/m-protocol-evidence/morph-discovery-1.json`
+- `docs/mechanics-research/m-protocol-evidence/mountaincycling-discovery-1.json`
+- `docs/mechanics-research/m-protocol-evidence/mountainwalk-discovery-1.json`
+- `docs/mechanics-research/m-protocol-evidence/mountainwalk-full-1.json`
+- `docs/mechanics-research/m-protocol-evidence/multikicker-discovery-1.json`
+- `docs/mechanics-research/m-protocol-evidence/mutate-discovery-1.json`
+- `docs/mechanics-research/m-protocol-evidence/myriad-discovery-1.json`
+- `docs/mechanics-research/m-protocol-evidence/retrieval-receipts.json`
+- `docs/mechanics-research/m-protocol-evidence/selected-cards-1.json`
+- `docs/mechanics-research/m-protocol-evidence/selected-cards-2.json`
+- `docs/mechanics-research/m-protocol-evidence/selected-cards-3.json`
+- `docs/mechanics-research/m-protocol-evidence/selected-fresh-1-request.json`
+- `docs/mechanics-research/m-protocol-evidence/selected-fresh-1.json`
+- `docs/mechanics-research/m-protocol-evidence/selected-fresh-2-request.json`
+- `docs/mechanics-research/m-protocol-evidence/selected-fresh-2.json`
+- `docs/mechanics-research/m-protocol-evidence/selected-fresh-3-request.json`
+- `docs/mechanics-research/m-protocol-evidence/selected-fresh-3.json`
+- `docs/mechanics-research/m-protocol-evidence/selection-plan.json`
+- `docs/mechanics-research/m-protocol.json`
+- `tools/build_mechanics_assessments.py`
+- `tools/check_assessment_browser.mjs`
+- `vox-color/mechanical-explorer.html`
+
+## Evidence delta
+
+- Material candidate: `5dcf24babdd2c1e4dc7d6989cc7b0b962bb19b47`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `1`
+- Subsequent developer, independent QA and local delivery records change HANDOFF only; this is not the full task diff.
+
+## Evidence-only paths
+
+- `HANDOFF.md`
+
+## Final branch delta
+
+- Baseline to final HEAD: 48 Git-derived paths; the evidence-only HANDOFF delta adds no new path.
+
+---
+
 # M supplemental Color Access — RobDev envelope
 
 - Status: `qa-passed` (`ready-for-qa -> qa-passed`) for exact material candidate `5dcf24babdd2c1e4dc7d6989cc7b0b962bb19b47`; Owner acceptance and integration remain separate.
