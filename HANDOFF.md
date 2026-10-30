@@ -1,3 +1,60 @@
+# N supplemental Color Access — local completion and Owner Review
+
+- All three supplemental N entries are complete: Ninjutsu, Nightbound and Nonbasic landwalk. Twelve selected examples establish presence across independent colors, colorless access and exact combinations. Ninjutsu includes red Yuffie, Materia Hunter; Nightbound uses its actual back-face colors; Trailblazer's Boots establishes colorless access as the granting source.
+- Status: `qa-passed` / engineering PASS for material `23082d9bb09e334dfe371703168f8a4095296fdc`. Separate RobQA evidence `c386790bada88c69faf015de21937fa803285dd3` found no defects. Owner product acceptance remains separate. Completed A–M packets, all 235 prior rows / 21 bindings, and frozen 2021 records/calculations remain unchanged; total coverage is 238 rows / 22 bindings.
+- Roles: initial configured RobDev Terra medium produced an incomplete draft; announced bounded Sol high completion corrected source, presentation and test gaps. Separate configured RobQA Sol medium independently passed the exact completed material. These are configured routes, not backend telemetry. Coordinator owns this package/live-preview/report delivery.
+- Evidence: `docs/mechanics-research/n-protocol.json`, `docs/mechanics-research/n-protocol-evidence/` and `docs/mechanics-research/N-ACCESS-REVIEW.md`. Seven response and two request hashes, actual status/timestamp receipts and twelve selected full-object bindings passed. Inherited rules references remain distinct from fresh Scryfall evidence; the default-Oracle versus full-Oracle query correction is explicit.
+- Checks passed: deterministic assessment producer; source invariants, taxonomy, reconciliation (53 assertions) and gate; JavaScript syntax and whitespace; N-only real-browser checks for all three entries / twelve exact-once selected links, discovered color signatures, combinations, actual/fixture mana symbols across assessment/rules/references, accessible labels, safe escaping/links, blocked-font fallback, malformed isolation, keyboard, narrow containment and frozen math. Protected M-only (25 entries / 183 examples) and Mutate-pips-only regressions also passed in development and independent QA. Exact commands and observed results are in the candidate/QA sections below. The unrelated broad Friends-forever harness debt was not rerun; no all-suite PASS is claimed.
+- Package verification: `_site` was confirmed as a normal direct child of this exact checkout before replacement. `python .github/pages/package.py --rev 23082d9bb09e334dfe371703168f8a4095296fdc --out <absolute _site> --verify` exited 0: 23 byte-identical allowed files, four clean inline scripts, 23 HTTP 200 paths and 24 excluded HTTP 404 paths.
+- Live preview: refreshed `http://127.0.0.1:8020/#mechanical-color-pie`; observed iframe revision `23082d9bb09e334dfe371703168f8a4095296fdc`. Ninjutsu's five independent colors, separate UB and six linked symbol-cost examples were verified. Final visible deliverable is Nonbasic landwalk with reviewed examples expanded, green and colorless diamond shown, and the two selected links visible. Search was verified empty and all five color buttons `aria-pressed=false`. Opening the browser visibly changed the layout and collapsed the disclosure; it was reopened and its final state captured.
+- Screenshot: `C:/Users/obake/.codex/visualizations/2026/10/30/01a18b86-1d8f-78d1-a412-c3a5a54bb3b6/n-color-access-preview.jpg`.
+- Local delivery is complete. No push, merge or publication. Final Git/report-validator checks follow this HANDOFF-only commit; the package contains exact approved material bytes. Remaining Owner judgment is wording naturalness and visual reading comfort.
+
+## Material candidate
+
+- Baseline: `dae536b9731fef25d84175c64e2a8edfb8dfe323`
+- Candidate: `23082d9bb09e334dfe371703168f8a4095296fdc`
+- Changed paths: `18`
+
+## Files changed
+
+- `HANDOFF.md`
+- `data/mechanics-assessments.v1.json`
+- `docs/mechanics-research/COLOR-ACCESS-PROTOCOL.md`
+- `docs/mechanics-research/N-ACCESS-REVIEW.md`
+- `docs/mechanics-research/n-protocol-evidence/nightbound-discovery.json`
+- `docs/mechanics-research/n-protocol-evidence/ninjutsu-discovery.json`
+- `docs/mechanics-research/n-protocol-evidence/ninjutsu-full-oracle-discovery.json`
+- `docs/mechanics-research/n-protocol-evidence/ninjutsu-grants-discovery.json`
+- `docs/mechanics-research/n-protocol-evidence/nonbasic-discovery.json`
+- `docs/mechanics-research/n-protocol-evidence/retrieval-receipts.json`
+- `docs/mechanics-research/n-protocol-evidence/selected-cards-request.json`
+- `docs/mechanics-research/n-protocol-evidence/selected-cards.json`
+- `docs/mechanics-research/n-protocol-evidence/yuffie-request.json`
+- `docs/mechanics-research/n-protocol-evidence/yuffie-selected-card.json`
+- `docs/mechanics-research/n-protocol.json`
+- `tools/build_mechanics_assessments.py`
+- `tools/check_assessment_browser.mjs`
+- `vox-color/mechanical-explorer.html`
+
+## Evidence delta
+
+- Material candidate: `23082d9bb09e334dfe371703168f8a4095296fdc`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `1`
+- This is not the full task diff.
+
+## Evidence-only paths
+
+- `HANDOFF.md`
+
+## Final branch delta
+
+- Baseline to final evidence HEAD: 18 paths, exactly the material list above.
+- Branch: `codex/a-mechanics-review`; local review only. Remote-tracking refs were `9a063b3a98cfcb7672783f83a102e8f968242490` before this task; no remote operations were performed. Final worktree and remote-ref verification follows the report commit.
+
+---
+
 # Mutate pip correction — local preview delivery
 
 - Outcome: Mutate costs stay together with separated, aligned pip boxes while retaining the native Mana glyph artwork. The formatter change is M-only; prior A-L formatting and all canonical/generated mechanics data remain unchanged.
