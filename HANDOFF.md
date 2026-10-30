@@ -3763,3 +3763,54 @@ No new research is authorized or needed to distinguish the retained evidence. Th
 121	11	tools/check_assessment_browser.mjs
 15	13	vox-color/mechanical-explorer.html
 ```
+
+## N exact candidate handoff — ready for independent QA
+
+- Status: `ready-for-qa` (`dev-in-progress -> ready-for-qa`). Exact completed material candidate: `23082d9bb09e334dfe371703168f8a4095296fdc` over baseline `dae536b9731fef25d84175c64e2a8edfb8dfe323`. Separate non-implementing QA-4 is required. The complete developer evidence above binds to this material; no engineering QA verdict or Owner acceptance is inferred.
+- Material scope: 18 paths. Git-derived additions/deletions are below; these include the initial draft plus completion, not just the final correction commit.
+
+```text
+44	0	HANDOFF.md
+314	0	data/mechanics-assessments.v1.json
+8	0	docs/mechanics-research/COLOR-ACCESS-PROTOCOL.md
+17	0	docs/mechanics-research/N-ACCESS-REVIEW.md
+1	0	docs/mechanics-research/n-protocol-evidence/nightbound-discovery.json
+1	0	docs/mechanics-research/n-protocol-evidence/ninjutsu-discovery.json
+1	0	docs/mechanics-research/n-protocol-evidence/ninjutsu-full-oracle-discovery.json
+1	0	docs/mechanics-research/n-protocol-evidence/ninjutsu-grants-discovery.json
+1	0	docs/mechanics-research/n-protocol-evidence/nonbasic-discovery.json
+71	0	docs/mechanics-research/n-protocol-evidence/retrieval-receipts.json
+1	0	docs/mechanics-research/n-protocol-evidence/selected-cards-request.json
+1	0	docs/mechanics-research/n-protocol-evidence/selected-cards.json
+1	0	docs/mechanics-research/n-protocol-evidence/yuffie-request.json
+1	0	docs/mechanics-research/n-protocol-evidence/yuffie-selected-card.json
+2482	0	docs/mechanics-research/n-protocol.json
+9	9	tools/build_mechanics_assessments.py
+121	11	tools/check_assessment_browser.mjs
+15	13	vox-color/mechanical-explorer.html
+```
+
+- Files changed (material candidate):
+
+- `HANDOFF.md`
+- `data/mechanics-assessments.v1.json`
+- `docs/mechanics-research/COLOR-ACCESS-PROTOCOL.md`
+- `docs/mechanics-research/N-ACCESS-REVIEW.md`
+- `docs/mechanics-research/n-protocol-evidence/nightbound-discovery.json`
+- `docs/mechanics-research/n-protocol-evidence/ninjutsu-discovery.json`
+- `docs/mechanics-research/n-protocol-evidence/ninjutsu-full-oracle-discovery.json`
+- `docs/mechanics-research/n-protocol-evidence/ninjutsu-grants-discovery.json`
+- `docs/mechanics-research/n-protocol-evidence/nonbasic-discovery.json`
+- `docs/mechanics-research/n-protocol-evidence/retrieval-receipts.json`
+- `docs/mechanics-research/n-protocol-evidence/selected-cards-request.json`
+- `docs/mechanics-research/n-protocol-evidence/selected-cards.json`
+- `docs/mechanics-research/n-protocol-evidence/yuffie-request.json`
+- `docs/mechanics-research/n-protocol-evidence/yuffie-selected-card.json`
+- `docs/mechanics-research/n-protocol.json`
+- `tools/build_mechanics_assessments.py`
+- `tools/check_assessment_browser.mjs`
+- `vox-color/mechanical-explorer.html`
+
+- Evidence delta: this handoff commit changes only `HANDOFF.md` beyond material `23082d9bb09e334dfe371703168f8a4095296fdc`. Final branch delta remains the same 18 paths. Branch `codex/a-mechanics-review`; local only.
+- Independent QA emphasis: derive observed signature sets from saved discovery before accepting the authored map; verify red Yuffie, Satoru grant/Yuriko variant, Nightbound back-face colors and source-colored Boots. Inspect 12 full selected bindings/7 response hashes/2 request hashes, exact-once whole-detail links, N-specific mixed strip and fallback-plate suppression, mana-token paths, A–M hashes and protected Mutate repair.
+- RobDev stops product edits at this handoff. Coordinator owns package, live-preview/screenshot and final Owner review; no new material is pending.
