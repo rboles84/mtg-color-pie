@@ -543,6 +543,11 @@ html.sheet-open .bar{position:relative}
 .supp-symbol .ms{display:none;font-size:.9em;vertical-align:baseline}
 .supp-mana-ready .supp-symbol .ms{display:inline-block}
 .supp-mana-ready .supp-symbol-text{display:none}
+/* A cost is one readable unit: keep its pips together and give the font's
+   hybrid overlay the same centered line box as its neighboring single pips. */
+.supp-cost-run{display:inline-flex;align-items:center;gap:1px;white-space:nowrap;vertical-align:baseline}
+.supp-cost-run .supp-symbol{display:inline-flex;align-items:center;height:1.25em}
+.supp-cost-run .supp-symbol .ms{line-height:1;vertical-align:middle}
 .dx-ex.is-empty{font-style:italic;font-size:14px;color:var(--ink-dim)}
 .dx-list{margin:0;padding:0;list-style:none;display:grid;gap:6px;font:400 13.5px/1.5 var(--f-read);color:var(--ink)}
 .dx-list li::before{content:'\2014\00A0';color:var(--brass-q)}
@@ -1959,14 +1964,14 @@ const I_MANA = {...H_MANA};
 // M adds its encountered snow and white/blue hybrid costs without changing A–L.
 const M_MANA = {...I_MANA, S:['s','One mana from a snow source'], 'W/U':['wu','One white or blue mana']};
 function supplementalTextHTML(value, symbols = SUP_MANA){
-  let html = '', cursor = 0;
-  for (const match of value.matchAll(/\{[^{}\r\n]+\}/g)){
-    html += esc(value.slice(cursor, match.index));
-    const symbol = Object.hasOwn(symbols, match[0].slice(1,-1)) ? symbols[match[0].slice(1,-1)] : null;
-    html += symbol ? `<span class="supp-symbol" role="img" aria-label="${esc(symbol[1])}" title="${esc(symbol[1])}"><i class="ms ms-cost ms-${symbol[0]}" aria-hidden="true"></i><span class="supp-symbol-text" aria-hidden="true">${esc(match[0])}</span></span>` : esc(match[0]);
-    cursor = match.index + match[0].length;
-  }
-  return html + esc(value.slice(cursor));
+  const token=/\{[^{}\r\n]+\}/g, run=/(?:\{[^{}\r\n]+\})+/g;
+  return value.split(new RegExp(`(${run.source})`)).map((part,index)=>{
+    if(index%2===0)return esc(part);
+    return `<span class="supp-cost-run">${[...part.matchAll(token)].map(match=>{
+      const symbol=Object.hasOwn(symbols,match[0].slice(1,-1))?symbols[match[0].slice(1,-1)]:null;
+      return symbol ? `<span class="supp-symbol" role="img" aria-label="${esc(symbol[1])}" title="${esc(symbol[1])}"><i class="ms ms-cost ms-${symbol[0]}" aria-hidden="true"></i><span class="supp-symbol-text" aria-hidden="true">${esc(match[0])}</span></span>` : esc(match[0]);
+    }).join('')}</span>`;
+  }).join('');
 }
 /* Presentation selects player-facing evidence explicitly. Transport metadata stays
    in the unchanged payload and audit artifacts, outside the detail DOM. */

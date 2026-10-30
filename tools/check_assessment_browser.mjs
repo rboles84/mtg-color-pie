@@ -278,6 +278,33 @@ async function checkM(page,browser,baseline){
   results.push('All 25 M records / 183 exact linked witnesses: fresh raw objects, face colors and receipts; actual list/search/detail independent and combination marks; concise prose; all actual and fixture mana tokens across assessment/rules/reference, escaping, accessible glyphs and blocked-font fallback; malformed isolation, keyboard, narrow containment and unchanged frozen 84-check baseline.');
 }
 
+async function checkMutatePips(page,browser,baseline){
+  const mutate=payload.records.find(record=>record.name==='Mutate');
+  const expected={
+    'Nethroi, Apex of Death':['{4}','{G/W}','{B}','{B}'],
+    'Snapdax, Apex of the Hunt':['{2}','{B/R}','{W}','{W}'],
+    'Vadrok, Apex of Thunder':['{1}','{W/U}','{R}','{R}'],
+    'Necropanther':['{2}','{W/B}','{W/B}'],
+    'Regal Leosaur':['{1}','{R/W}','{R/W}']
+  };
+  await page.setViewportSize({width:466,height:900});
+  await page.evaluate(id=>VMX.open(id),mutate.id);await page.locator('.assessment-notes > summary').click();
+  for(const [name,tokens] of Object.entries(expected)){
+    const example=page.locator('#detail .assessment-example').filter({hasText:name});
+    const run=example.locator('.supp-cost-run');await run.waitFor();
+    assert.deepEqual(await run.locator('.supp-symbol-text').allTextContents(),tokens,name+' retains every saved cost token in one run');
+    const geometry=await run.evaluate(el=>{const box=el.getBoundingClientRect(),symbols=[...el.querySelectorAll('.supp-symbol')].map(symbol=>{const box=symbol.getBoundingClientRect(),glyph=symbol.querySelector('.ms');return {x:box.x,y:box.y,w:box.width,h:box.height,before:getComputedStyle(glyph,'::before').content,after:getComputedStyle(glyph,'::after').content};});return {box,symbols};});
+    assert.ok(geometry.box.width>0&&geometry.symbols.length===tokens.length,name+' has one visible contiguous cost run');
+    assert.ok(geometry.symbols.every(symbol=>Math.abs(symbol.y-geometry.symbols[0].y)<=.1&&Math.abs(symbol.h-geometry.symbols[0].h)<=.1),name+' centers hybrid and single pips in one line box');
+    assert.ok(geometry.symbols.slice(1).every((symbol,index)=>symbol.x>=geometry.symbols[index].x+geometry.symbols[index].w+.5),name+' pips have visible non-overlapping spacing');
+    assert.ok(geometry.symbols.every((symbol,index)=>tokens[index].includes('/')?symbol.after&&!['none','normal','""'].includes(symbol.after):!symbol.after||symbol.after==='none'),name+' only hybrid pips paint a second native half');
+  }
+  const noFont=await browser.newPage({viewport:{width:466,height:900}});await noFont.route('**/mana-font@1.18.0/**',route=>route.abort());await noFont.goto(url);await noFont.waitForFunction(()=>VMX.assessments().status==='ready');await noFont.evaluate(id=>VMX.open(id),mutate.id);await noFont.locator('.assessment-notes > summary').click();
+  for(const [name,tokens] of Object.entries(expected))assert.deepEqual(await noFont.locator('#detail .assessment-example').filter({hasText:name}).locator('.supp-cost-run .supp-symbol').allInnerTexts(),tokens,name+' keeps readable no-font cost text');
+  await noFont.close();await page.setViewportSize({width:1440,height:900});await page.evaluate(()=>{VMX.chooseCombo('W');VMX.clearColors();VMX.setView('article');VMX.setView('az');});assert.equal(await page.evaluate(math),baseline);
+  results.push('Mutate costs keep each saved cost run together, align hybrid and single pips, preserve native hybrid halves, spacing, labels and no-font fallback.');
+}
+
 let browser;const results=[];
 try{
   browser=await chromium.launch({channel:opt('--channel','msedge'),headless:true});
@@ -287,7 +314,7 @@ try{
   await page.waitForFunction(()=>window.VMX?.assessments().status==='ready');
   await page.waitForFunction(()=>document.querySelector('#selftest').textContent.includes('84 of 84 passed'));
   const baseline=await page.evaluate(math);
-  if(mOnly){await checkM(page,browser,baseline);assert.deepEqual(errors,[]);}else if(lOnly){await checkL(page,browser,baseline);assert.deepEqual(errors,[]);}else{
+  if(args.includes('--mutate-pips-only')){await checkMutatePips(page,browser,baseline);assert.deepEqual(errors,[]);}else if(mOnly){await checkM(page,browser,baseline);assert.deepEqual(errors,[]);}else if(lOnly){await checkL(page,browser,baseline);assert.deepEqual(errors,[]);}else{
   assert.equal(await page.locator('#list .ent').count(),216);
   assert.equal(await page.evaluate(()=>VMX.assessments().records.length),235);
   const expectedAssessmentIds=supplement.records.filter(r=>/^[ABCDEFGHIJKLM]/.test(r.name)&&r.target2021===null).map(r=>r.id).sort();
