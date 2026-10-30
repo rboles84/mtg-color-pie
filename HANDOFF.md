@@ -1,3 +1,12 @@
+# Owner Accepted — O supplemental Color Access
+
+- Owner response: "O is good" (October 30, 2026), accepting exact material `4ea9847478f2384549e5b4baeb4d644730898b24` as delivered at evidence HEAD `55d387640337b7819931cb53923f287ee38536fe`.
+- Status: `complete` (`qa-passed -> complete`) for the bounded local O batch. This supersedes pending Owner judgment in the historical delivery record below.
+- Owner located Open an Attraction in Special-format and Un-set material; all six O entries are accounted for, with five in the main O row. No regrouping was requested.
+- This acceptance record changes only `HANDOFF.md`; product files and the verified local preview remain unchanged. No push, merge or publication is authorized or performed.
+
+---
+
 # O supplemental Color Access — local delivery and Owner Review
 
 - Completed all six supplemental O entries: Offering, Offspring, Open an Attraction, Opus, Outlast and Overload, with 34 selected examples. Coverage is 244 A–O records / 23 bindings. Prior A–N rows/bindings and frozen 2021 content, placements and calculations remain unchanged.
