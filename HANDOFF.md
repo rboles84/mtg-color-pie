@@ -1,3 +1,11 @@
+# Owner Accepted — L supplemental Color Access
+
+- Owner decision: "L is done." Accepted the complete L batch, including the Landwalk monocolor example correction, at exact material `16925a9d457ffbec463d66e3cab16b8af52960b9`, reviewed with evidence HEAD `56e25e3ab4d0109773f63bcb3c0f885d2130afee`.
+- Status: complete / Owner ACCEPTED for this local delivery. All eleven supplemental L entries are complete. This supersedes the pending Owner-review language in the historical delivery records below.
+- This acceptance changes HANDOFF only. Product, source evidence, generated payload and preview are unchanged; no product tests or preview rebuild are needed. The existing no-push, no-merge and no-publication instruction remains in force.
+
+---
+
 # Landwalk selected examples — local delivery
 
 - User-requested surgical correction: White Righteous Avengers / plainswalk; Blue Benthic Behemoth / islandwalk; Black Anurid Murkdiver / swampwalk; Red Dwarven Grunt / mountainwalk; Green Cat Warriors / forestwalk. Exact user-supplied printings are linked. Cat Warriors has the verified {1}{G}{G} cost. The old white/red/green selections were replaced; no new color-access claim was introduced.
