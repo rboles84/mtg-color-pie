@@ -3094,10 +3094,7 @@
           ],
           "note": "Adventuring Gear gives its equipped creature +2/+2 until end of turn."
         },
-        "limitations": [
-          "Unselected discovery hits are not claimed individually reviewed.",
-          "Digital-only Advanced Floral Invocations and Hamza, Might of the Yathan, plus unreleased Amanda Grayson and Chief Kyle, are excluded. Homer is an ordinary new paper card in MBC’s 1–60 range, as distinguished from playtest and acorn cards in the official release notes."
-        ]
+        "limitations": []
       }
     },
     {
@@ -5907,9 +5904,7 @@
           ],
           "note": "Adrestia has islandwalk."
         },
-        "limitations": [
-          "Unselected discovery hits are not claimed individually reviewed."
-        ]
+        "limitations": []
       }
     },
     {
@@ -7126,9 +7121,7 @@
           "card_ids": [],
           "note": "No colorless example found in the reviewed scope."
         },
-        "limitations": [
-          "Unselected discovery hits are not claimed individually reviewed."
-        ]
+        "limitations": []
       }
     },
     {
@@ -7974,9 +7967,7 @@
           "card_ids": [],
           "note": "No colorless example found in the reviewed scope."
         },
-        "limitations": [
-          "Unselected discovery hits are not claimed individually reviewed."
-        ]
+        "limitations": []
       }
     },
     {
@@ -8853,10 +8844,7 @@
           "card_ids": [],
           "note": "No colorless example found in the reviewed scope."
         },
-        "limitations": [
-          "Unselected discovery hits are not claimed individually reviewed.",
-          "Lieutenant Commander Data, Lieutenant Hikaru Sulu and Lieutenant Kirtar are name matches without the Lieutenant ability word and do not establish access."
-        ]
+        "limitations": []
       }
     },
     {
@@ -11384,9 +11372,7 @@
           "card_ids": [],
           "note": "No colorless example found in the reviewed scope."
         },
-        "limitations": [
-          "Unselected discovery hits are not claimed individually reviewed."
-        ]
+        "limitations": []
       }
     },
     {
@@ -12360,9 +12346,7 @@
           ],
           "note": "Batterbone gives its Germ +1/+1, vigilance and lifelink; the Equipment itself is colorless despite the black token."
         },
-        "limitations": [
-          "Unselected discovery hits are not claimed individually reviewed."
-        ]
+        "limitations": []
       }
     },
     {
@@ -14427,9 +14411,7 @@
           ],
           "note": "Ash Barrens has basic landcycling {1}; its ability to produce {C} does not give it a color."
         },
-        "limitations": [
-          "Unselected discovery hits are not claimed individually reviewed."
-        ]
+        "limitations": []
       }
     },
     {
@@ -14821,9 +14803,7 @@
           "card_ids": [],
           "note": "No colorless example found in the reviewed scope."
         },
-        "limitations": [
-          "Unselected discovery hits are not claimed individually reviewed."
-        ]
+        "limitations": []
       }
     },
     {
@@ -15001,8 +14981,8 @@
         "version": "2.0",
         "review_date": "2026-10-29",
         "scope_label": "Mystery Booster playtest cards",
-        "scope": "Plane-Merge Elf uses the Landship label for its upkeep ability. This playtest card is the narrow witness; no general Landship definition has been verified.",
-        "summary": "Plane-Merge Elf uses the Landship label for its upkeep ability. This playtest card is the narrow witness; no general Landship definition has been verified.",
+        "scope": "Plane-Merge Elf uses the Landship label for its upkeep ability. This is a playtest-card example; no general Landship definition has been verified.",
+        "summary": "Plane-Merge Elf uses the Landship label for its upkeep ability. This is a playtest-card example; no general Landship definition has been verified.",
         "evidence_scope": [
           "mystery_booster_playtest"
         ],

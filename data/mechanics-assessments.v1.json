@@ -83,7 +83,7 @@
     },
     {
       "path": "docs/mechanics-research/l-protocol.json",
-      "sha256": "655ed43f2256e4b9f3343b1f8b2eb47d755893b3807c8eb72ca832f15e62ddbe"
+      "sha256": "0a3a218c2152c6f6c55436f596db4879ee771d99f549d2ca5d068ae7448e151e"
     }
   ],
   "records": [
@@ -42194,9 +42194,7 @@
           ],
           "findUrl": "https://scryfall.com/search?q=%28%21%22Ash%20Barrens%22%29%20include%3Aextras"
         },
-        "limitations": [
-          "Unselected discovery hits are not claimed individually reviewed."
-        ]
+        "limitations": []
       },
       "citationCards": [
         {
@@ -42493,10 +42491,7 @@
           ],
           "findUrl": "https://scryfall.com/search?q=%28%21%22Adventuring%20Gear%22%29%20include%3Aextras"
         },
-        "limitations": [
-          "Unselected discovery hits are not claimed individually reviewed.",
-          "Digital-only Advanced Floral Invocations and Hamza, Might of the Yathan, plus unreleased Amanda Grayson and Chief Kyle, are excluded. Homer is an ordinary new paper card in MBC’s 1–60 range, as distinguished from playtest and acorn cards in the official release notes."
-        ]
+        "limitations": []
       },
       "citationCards": [
         {
@@ -42582,8 +42577,8 @@
       "kind": "access",
       "researchDate": "2026-10-29",
       "scopeLabel": "Mystery Booster playtest cards",
-      "scope": "Plane-Merge Elf uses the Landship label for its upkeep ability. This playtest card is the narrow witness; no general Landship definition has been verified.",
-      "summary": "Plane-Merge Elf uses the Landship label for its upkeep ability. This playtest card is the narrow witness; no general Landship definition has been verified.",
+      "scope": "Plane-Merge Elf uses the Landship label for its upkeep ability. This is a playtest-card example; no general Landship definition has been verified.",
+      "summary": "Plane-Merge Elf uses the Landship label for its upkeep ability. This is a playtest-card example; no general Landship definition has been verified.",
       "access": {
         "colors": {
           "W": {
@@ -42864,9 +42859,7 @@
           ],
           "findUrl": "https://scryfall.com/search?q=%28%21%22Adrestia%22%29%20include%3Aextras"
         },
-        "limitations": [
-          "Unselected discovery hits are not claimed individually reviewed."
-        ]
+        "limitations": []
       },
       "citationCards": [
         {
@@ -43039,9 +43032,7 @@
           "cards": [],
           "findUrl": null
         },
-        "limitations": [
-          "Unselected discovery hits are not claimed individually reviewed."
-        ]
+        "limitations": []
       },
       "citationCards": [
         {
@@ -43229,9 +43220,7 @@
           "cards": [],
           "findUrl": null
         },
-        "limitations": [
-          "Unselected discovery hits are not claimed individually reviewed."
-        ]
+        "limitations": []
       },
       "citationCards": [
         {
@@ -43319,9 +43308,7 @@
           "cards": [],
           "findUrl": null
         },
-        "limitations": [
-          "Unselected discovery hits are not claimed individually reviewed."
-        ]
+        "limitations": []
       },
       "citationCards": [
         {
@@ -43421,10 +43408,7 @@
           "cards": [],
           "findUrl": null
         },
-        "limitations": [
-          "Unselected discovery hits are not claimed individually reviewed.",
-          "Lieutenant Commander Data, Lieutenant Hikaru Sulu and Lieutenant Kirtar are name matches without the Lieutenant ability word and do not establish access."
-        ]
+        "limitations": []
       },
       "citationCards": [
         {
@@ -43626,9 +43610,7 @@
           "cards": [],
           "findUrl": null
         },
-        "limitations": [
-          "Unselected discovery hits are not claimed individually reviewed."
-        ]
+        "limitations": []
       },
       "citationCards": [
         {
@@ -43767,9 +43749,7 @@
           ],
           "findUrl": "https://scryfall.com/search?q=%28%21%22Batterbone%22%29%20include%3Aextras"
         },
-        "limitations": [
-          "Unselected discovery hits are not claimed individually reviewed."
-        ]
+        "limitations": []
       },
       "citationCards": [
         {

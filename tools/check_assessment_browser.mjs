@@ -125,7 +125,7 @@ async function checkL(page,browser,baseline){
     await checkAccessSizes(panel,record.name+' detail',18);await checkCIVectors(panel,record.name+' detail',18);
     assert.equal(await panel.locator('.assessment-example').count(),expected.length);
     assert.equal(await panel.locator('.assessment-notes details').count(),0);
-    assert.doesNotMatch(await panel.innerText(),/Selected .*document|presence evidence|independent example|reviewed scope/);
+    assert.doesNotMatch(await panel.innerText(),/Selected .*document|presence evidence|independent example|reviewed scope|unselected discovery|individually reviewed|narrow witness|name matches/i);
     assert.deepEqual(await panel.locator('.assessment-sources a').evaluateAll(items=>items.map(i=>i.href)),record.sources.map(s=>s.url));
     assert.ok(await page.locator('#detail a').evaluateAll(items=>items.every(i=>i.protocol==='https:'&&['scryfall.com','magic.wizards.com','media.wizards.com'].includes(i.hostname)&&i.rel.includes('noopener'))));
     await page.waitForFunction(()=>document.documentElement.classList.contains('supp-mana-ready'));
