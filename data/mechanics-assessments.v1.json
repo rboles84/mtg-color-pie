@@ -79,7 +79,7 @@
     },
     {
       "path": "docs/mechanics-research/k-protocol.json",
-      "sha256": "47b1fb48edf7652ae7742744864dc2d77517eb422ed0b18f01bb9da991121b7d"
+      "sha256": "0ef3edb4a4f4949feb939dc8a270b31ee581ff64e7917990143c872369809357"
     }
   ],
   "records": [
@@ -41699,12 +41699,12 @@
       "researchDate": "2026-10-29",
       "scopeLabel": "Released paper cards",
       "scope": "Kicker is an optional additional cost paid while casting a spell.",
-      "summary": "Selected released-paper cards show Kicker in each color, colorless, and three observed multicolor combinations.",
+      "summary": "Kicker lets a spell be cast for an additional cost; Multikicker permits that cost any number of times, while Sticker kicker can grant a ticket counter and a sticker when its extra cost is paid.",
       "access": {
         "colors": {
           "W": {
             "status": "documented",
-            "note": "Archangel of Wrath is white and has kicker.",
+            "note": "Its {B} and/or {R} kicker makes its entry deal 2 damage, twice if both costs were paid.",
             "cards": [
               {
                 "name": "Archangel of Wrath",
@@ -41715,7 +41715,7 @@
           },
           "U": {
             "status": "documented",
-            "note": "Academy Drake is blue and has kicker.",
+            "note": "Its {4} kicker makes it enter with two +1/+1 counters.",
             "cards": [
               {
                 "name": "Academy Drake",
@@ -41726,7 +41726,7 @@
           },
           "B": {
             "status": "documented",
-            "note": "Aggressive Sabotage is black and has kicker.",
+            "note": "Its {R} kicker adds 3 damage after the target player discards two cards.",
             "cards": [
               {
                 "name": "Aggressive Sabotage",
@@ -41737,7 +41737,7 @@
           },
           "R": {
             "status": "documented",
-            "note": "Breath of Darigaaz is red and has kicker.",
+            "note": "Its {2} kicker raises its damage from 1 to 4 for each creature without flying and each player.",
             "cards": [
               {
                 "name": "Breath of Darigaaz",
@@ -41748,7 +41748,7 @@
           },
           "G": {
             "status": "documented",
-            "note": "Baloth Gorger is green and has kicker.",
+            "note": "Its {4} kicker makes it enter with three +1/+1 counters.",
             "cards": [
               {
                 "name": "Baloth Gorger",
@@ -41764,7 +41764,7 @@
               "W",
               "U"
             ],
-            "note": "Kangee, Aerie Keeper is white-blue and has kicker.",
+            "note": "Its {X}{2} kicker puts X feather counters on it for a Bird-wide power and toughness bonus.",
             "cards": [
               {
                 "name": "Kangee, Aerie Keeper",
@@ -41778,7 +41778,7 @@
               "U",
               "B"
             ],
-            "note": "Mirror Universe Intrusion is blue-black and has kicker.",
+            "note": "Its {4}{U}{B} kicker changes one copied creature token into copies of every target opponent creature.",
             "cards": [
               {
                 "name": "Mirror Universe Intrusion",
@@ -41792,7 +41792,7 @@
               "B",
               "G"
             ],
-            "note": "Moss-Pit Skeleton is black-green and has kicker.",
+            "note": "Its {3} kicker makes it enter with three +1/+1 counters.",
             "cards": [
               {
                 "name": "Moss-Pit Skeleton",
@@ -41804,7 +41804,7 @@
         ],
         "colorless": {
           "status": "documented",
-          "note": "Aang's Journey is colorless and has kicker.",
+          "note": "Its {2} kicker searches for a basic land and a Shrine instead of only a basic land.",
           "cards": [
             {
               "name": "Aang's Journey",
@@ -41863,7 +41863,7 @@
       "researchDate": "2026-10-29",
       "scopeLabel": "Mystery Booster playtest card",
       "scope": "Plane-Merge Elf labels its own creature-type-triggered +1/+1 effect Kinfall.",
-      "summary": "The scoped playtest witness is green; this documents that card-specific label only, not a verified general Kinfall definition.",
+      "summary": "Plane-Merge Elf gives creatures you control +1/+1 until end of turn when a creature of its type enters under your control. Playtest card example; no general Kinfall rules definition is provided.",
       "access": {
         "colors": {
           "W": {
@@ -41892,7 +41892,7 @@
           },
           "G": {
             "status": "documented",
-            "note": "Plane-Merge Elf is green and labels its trigger Kinfall.",
+            "note": "When a creature sharing its type enters under your control, your creatures get +1/+1 until end of turn.",
             "cards": [
               {
                 "name": "Plane-Merge Elf",
@@ -41929,12 +41929,12 @@
       "researchDate": "2026-10-29",
       "scopeLabel": "Released paper cards",
       "scope": "Kinship is an ability word for an upkeep ability that checks whether the top card shares a creature type with its source.",
-      "summary": "Selected released-paper Kinship cards show one independently documented witness in each color.",
+      "summary": "Kinship checks the top card at upkeep for a shared creature type, then each card supplies its own reward.",
       "access": {
         "colors": {
           "W": {
             "status": "documented",
-            "note": "Kithkin Zephyrnaut is white and has Kinship.",
+            "note": "On a matching reveal, it gets +2/+2 plus flying and vigilance until end of turn.",
             "cards": [
               {
                 "name": "Kithkin Zephyrnaut",
@@ -41945,7 +41945,7 @@
           },
           "U": {
             "status": "documented",
-            "note": "Ink Dissolver is blue and has Kinship.",
+            "note": "On a matching reveal, each opponent mills three cards.",
             "cards": [
               {
                 "name": "Ink Dissolver",
@@ -41956,7 +41956,7 @@
           },
           "B": {
             "status": "documented",
-            "note": "Nightshade Schemers is black and has Kinship.",
+            "note": "On a matching reveal, each opponent loses 2 life.",
             "cards": [
               {
                 "name": "Nightshade Schemers",
@@ -41967,7 +41967,7 @@
           },
           "R": {
             "status": "documented",
-            "note": "Mudbutton Clanger is red and has Kinship.",
+            "note": "On a matching reveal, it gets +1/+1 until end of turn.",
             "cards": [
               {
                 "name": "Mudbutton Clanger",
@@ -41978,7 +41978,7 @@
           },
           "G": {
             "status": "documented",
-            "note": "Leaf-Crowned Elder is green and has Kinship.",
+            "note": "On a matching reveal, you may play that card without paying its mana cost.",
             "cards": [
               {
                 "name": "Leaf-Crowned Elder",

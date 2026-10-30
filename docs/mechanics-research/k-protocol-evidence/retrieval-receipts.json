@@ -56,6 +56,26 @@
       "status": 200,
       "rawSha256": "366f44f0fb6eb67d7437c76724a1e1a0422cc0c0c26ce76413bde931ba6c3df1",
       "disposition": "Verified exact-card discovery; authoritative Kinfall scope capture."
+    },
+    {
+      "path": "docs/mechanics-research/k-protocol-evidence/multikicker-discovery-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=kw%3Amultikicker&unique=cards",
+      "finalUrl": "https://api.scryfall.com/cards/search?q=kw%3Amultikicker&unique=cards",
+      "requestStartedUtc": "2026-10-30T03:29:29.6983432Z",
+      "requestEndedUtc": "2026-10-30T03:29:30.0734682Z",
+      "status": 200,
+      "rawSha256": "1ecfc0cffcfe7477c06ee625e9461d1fb8b37ad9056d0642419a7d982b4c3ccf",
+      "disposition": "Fresh Kicker-variant discovery capture."
+    },
+    {
+      "path": "docs/mechanics-research/k-protocol-evidence/sticker-kicker-discovery-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Sticker%20kicker%22&unique=cards",
+      "finalUrl": "https://api.scryfall.com/cards/search?q=o%3A%22Sticker%20kicker%22&unique=cards",
+      "requestStartedUtc": "2026-10-30T03:29:30.0817961Z",
+      "requestEndedUtc": "2026-10-30T03:29:30.3603964Z",
+      "status": 200,
+      "rawSha256": "d62fcda2890d8521447ee471ad0033a0518a2dcd87a03d79a0f1c451579d21bd",
+      "disposition": "Fresh Kicker-variant discovery capture."
     }
   ]
 }

@@ -2026,7 +2026,7 @@ function supplementalRecordHTML(a, mapped = false){
     ${a.category === 'ability word' && a.clauses.length ? '<p class="dx-note">The numbered rule describes ability words as a group.</p>' : ''}
     ${excerpts.map(excerpt => `<blockquote class="dx-ex is-supplemental supp-quote">${text(excerpt)}</blockquote>`).join('')}
     ${!a.clauses.length && !excerpts.length ? '<p class="dx-note">No definition text is reproduced in this reference.</p>' : ''}
-    ${supplementalSources(a)}</section>` : '';
+    ${!mapped && isAssessmentTarget(a.id) && example ? '' : supplementalSources(a)}</section>` : '';
   const scope = review || ref && (ref.definitionVerified === false || ref.playtest) ? `<section class="dx-sec supp-scope" aria-label="Scope and limitations"><h3 class="dx-h">Scope and limitations</h3>
     ${(ref && ref.definitionVerified === false || review && review.officialGeneralDefinitionVerified === false) && !scopeNotesUnverifiedDefinition(classification) && !classification.qualifications.includes('General definition unverified') ? '<p class="dx-note">A general definition has not been verified.</p>' : ''}
     ${review && review.verifiedScope && !upfront.has(review.verifiedScope) ? `<p class="dx-note">${esc(review.verifiedScope)}</p>` : ''}

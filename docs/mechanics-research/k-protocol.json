@@ -26,6 +26,26 @@
           "requestEndedUtc": "2026-10-30T03:12:08.9343175Z",
           "status": 200,
           "rawSha256": "6920f79d9656e099a4b635e5fc1629eaec3ddf54779eb82718bbe75cc485bb6b"
+        },
+        {
+          "path": "docs/mechanics-research/k-protocol-evidence/multikicker-discovery-1.json",
+          "url": "https://api.scryfall.com/cards/search?q=kw%3Amultikicker&unique=cards",
+          "finalUrl": "https://api.scryfall.com/cards/search?q=kw%3Amultikicker&unique=cards",
+          "requestStartedUtc": "2026-10-30T03:29:29.6983432Z",
+          "requestEndedUtc": "2026-10-30T03:29:30.0734682Z",
+          "status": 200,
+          "rawSha256": "1ecfc0cffcfe7477c06ee625e9461d1fb8b37ad9056d0642419a7d982b4c3ccf",
+          "disposition": "Fresh Kicker-variant discovery capture."
+        },
+        {
+          "path": "docs/mechanics-research/k-protocol-evidence/sticker-kicker-discovery-1.json",
+          "url": "https://api.scryfall.com/cards/search?q=o%3A%22Sticker%20kicker%22&unique=cards",
+          "finalUrl": "https://api.scryfall.com/cards/search?q=o%3A%22Sticker%20kicker%22&unique=cards",
+          "requestStartedUtc": "2026-10-30T03:29:30.0817961Z",
+          "requestEndedUtc": "2026-10-30T03:29:30.3603964Z",
+          "status": 200,
+          "rawSha256": "d62fcda2890d8521447ee471ad0033a0518a2dcd87a03d79a0f1c451579d21bd",
+          "disposition": "Fresh Kicker-variant discovery capture."
         }
       ],
       "selection_method": "One selected witness per independently supported color, colorless bucket, or observed combination. Full objects are bound to their fresh discovery captures; later discovery hits are not individually reviewed or excluded.",
@@ -1473,7 +1493,7 @@
         "review_date": "2026-10-29",
         "scope_label": "Released paper cards",
         "scope": "Kicker is an optional additional cost paid while casting a spell.",
-        "summary": "Selected released-paper cards show Kicker in each color, colorless, and three observed multicolor combinations.",
+        "summary": "Kicker lets a spell be cast for an additional cost; Multikicker permits that cost any number of times, while Sticker kicker can grant a ticket counter and a sticker when its extra cost is paid.",
         "evidence_scope": [
           "released_paper"
         ],
@@ -1483,35 +1503,35 @@
             "card_ids": [
               "022e97af-2a3a-4e13-9b6b-d34fcc8cf168"
             ],
-            "note": "Archangel of Wrath is white and has kicker."
+            "note": "Its {B} and/or {R} kicker makes its entry deal 2 damage, twice if both costs were paid."
           },
           "U": {
             "status": "documented",
             "card_ids": [
               "65f3ebeb-1ca5-4923-b681-032579991c8a"
             ],
-            "note": "Academy Drake is blue and has kicker."
+            "note": "Its {4} kicker makes it enter with two +1/+1 counters."
           },
           "B": {
             "status": "documented",
             "card_ids": [
               "a47ff11e-dbcf-45b1-a13d-fff677ea42c9"
             ],
-            "note": "Aggressive Sabotage is black and has kicker."
+            "note": "Its {R} kicker adds 3 damage after the target player discards two cards."
           },
           "R": {
             "status": "documented",
             "card_ids": [
               "1954994f-17bf-4ea5-af72-60f9bfcb6569"
             ],
-            "note": "Breath of Darigaaz is red and has kicker."
+            "note": "Its {2} kicker raises its damage from 1 to 4 for each creature without flying and each player."
           },
           "G": {
             "status": "documented",
             "card_ids": [
               "7f9bc0c9-0333-4c02-bc14-e6affe848b5d"
             ],
-            "note": "Baloth Gorger is green and has kicker."
+            "note": "Its {4} kicker makes it enter with three +1/+1 counters."
           }
         },
         "combinations": [
@@ -1523,7 +1543,7 @@
             "card_ids": [
               "555f9e75-8892-4c8e-9c5e-8ab14a589118"
             ],
-            "note": "Kangee, Aerie Keeper is white-blue and has kicker."
+            "note": "Its {X}{2} kicker puts X feather counters on it for a Bird-wide power and toughness bonus."
           },
           {
             "colors": [
@@ -1533,7 +1553,7 @@
             "card_ids": [
               "007d08e8-4db2-47d1-ba39-8bb8efa491a1"
             ],
-            "note": "Mirror Universe Intrusion is blue-black and has kicker."
+            "note": "Its {4}{U}{B} kicker changes one copied creature token into copies of every target opponent creature."
           },
           {
             "colors": [
@@ -1543,7 +1563,7 @@
             "card_ids": [
               "edf0e7c0-d9a1-4d29-9cee-5267d3a3978f"
             ],
-            "note": "Moss-Pit Skeleton is black-green and has kicker."
+            "note": "Its {3} kicker makes it enter with three +1/+1 counters."
           }
         ],
         "colorless": {
@@ -1551,7 +1571,7 @@
           "card_ids": [
             "ddf461b9-a205-4dc7-a9c3-c047b1ff709f"
           ],
-          "note": "Aang's Journey is colorless and has kicker."
+          "note": "Its {2} kicker searches for a basic land and a Shrine instead of only a basic land."
         },
         "limitations": []
       }
@@ -2373,7 +2393,7 @@
         "review_date": "2026-10-29",
         "scope_label": "Released paper cards",
         "scope": "Kinship is an ability word for an upkeep ability that checks whether the top card shares a creature type with its source.",
-        "summary": "Selected released-paper Kinship cards show one independently documented witness in each color.",
+        "summary": "Kinship checks the top card at upkeep for a shared creature type, then each card supplies its own reward.",
         "evidence_scope": [
           "released_paper"
         ],
@@ -2383,35 +2403,35 @@
             "card_ids": [
               "f69e9629-a7f7-4241-bf0c-c8def7d19d66"
             ],
-            "note": "Kithkin Zephyrnaut is white and has Kinship."
+            "note": "On a matching reveal, it gets +2/+2 plus flying and vigilance until end of turn."
           },
           "U": {
             "status": "documented",
             "card_ids": [
               "a138ca33-6ea4-468e-9cfb-c908ee62c516"
             ],
-            "note": "Ink Dissolver is blue and has Kinship."
+            "note": "On a matching reveal, each opponent mills three cards."
           },
           "B": {
             "status": "documented",
             "card_ids": [
               "fd7b0b56-2f55-4933-bedc-e7711dbdd556"
             ],
-            "note": "Nightshade Schemers is black and has Kinship."
+            "note": "On a matching reveal, each opponent loses 2 life."
           },
           "R": {
             "status": "documented",
             "card_ids": [
               "b57e13ac-12fc-4b6a-9ca4-3ffb60c6b6ad"
             ],
-            "note": "Mudbutton Clanger is red and has Kinship."
+            "note": "On a matching reveal, it gets +1/+1 until end of turn."
           },
           "G": {
             "status": "documented",
             "card_ids": [
               "9416fd24-15a2-46d0-8b5f-55f5e7b65465"
             ],
-            "note": "Leaf-Crowned Elder is green and has Kinship."
+            "note": "On a matching reveal, you may play that card without paying its mana cost."
           }
         },
         "combinations": [],
@@ -2610,7 +2630,7 @@
         "review_date": "2026-10-29",
         "scope_label": "Mystery Booster playtest card",
         "scope": "Plane-Merge Elf labels its own creature-type-triggered +1/+1 effect Kinfall.",
-        "summary": "The scoped playtest witness is green; this documents that card-specific label only, not a verified general Kinfall definition.",
+        "summary": "Plane-Merge Elf gives creatures you control +1/+1 until end of turn when a creature of its type enters under your control. Playtest card example; no general Kinfall rules definition is provided.",
         "evidence_scope": [
           "designer_playtest"
         ],
@@ -2640,7 +2660,7 @@
             "card_ids": [
               "45f94525-84f6-462d-99da-14735f2c273c"
             ],
-            "note": "Plane-Merge Elf is green and labels its trigger Kinfall."
+            "note": "When a creature sharing its type enters under your control, your creatures get +1/+1 until end of turn."
           }
         },
         "combinations": [],

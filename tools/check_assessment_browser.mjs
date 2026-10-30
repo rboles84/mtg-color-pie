@@ -9,6 +9,7 @@ const args=process.argv.slice(2), opt=(n,d)=>args.includes(n)?args[args.indexOf(
 const root=path.resolve(opt('--root','.'));
 const copyOnly=args.includes('--copy-only');
 const combinationsOnly=args.includes('--combinations-only');
+const kOnly=args.includes('--k-only');
 const {chromium}=createRequire(import.meta.url)(opt('--playwright','playwright'));
 const payload=JSON.parse(fs.readFileSync(path.join(root,'data/mechanics-assessments.v1.json'),'utf8'));
 const supplement=JSON.parse(fs.readFileSync(path.join(root,'data/mechanics-supplement.v1.json'),'utf8'));
@@ -166,7 +167,13 @@ try{
   assert.equal(kRecords.flatMap(kBuckets).length,15,'all 15 K selected links must render');
   assert.equal(fRecord('Kicker').access.colorless.cards[0].name,"Aang's Journey");
   assert.equal(fRecord('Kinfall').scopeLabel,'Mystery Booster playtest card');
-  assert.match(fRecord('Kinfall').summary,/card-specific label only.*not a verified general Kinfall definition/i);
+  assert.match(fRecord('Kinfall').summary,/creatures you control.*\+1\/\+1.*no general Kinfall rules definition is provided/i);
+  assert.match(fRecord('Kicker').summary,/additional cost.*Multikicker.*ticket counter.*sticker/i,'Kicker explains its CR702.33 variants in player terms');
+  assert.match(fRecord('Kinship').summary,/top card.*shared creature type.*own reward/i,'Kinship explains its trigger and card-specific rewards');
+  for(const [name,detail] of Object.entries({'Archangel of Wrath':'entry deal 2 damage','Academy Drake':'two +1/+1 counters','Aggressive Sabotage':'adds 3 damage','Breath of Darigaaz':'damage from 1 to 4','Baloth Gorger':'three +1/+1 counters',"Aang's Journey":'basic land and a Shrine','Kangee, Aerie Keeper':'feather counters','Mirror Universe Intrusion':'every target opponent creature','Moss-Pit Skeleton':'three +1/+1 counters','Kithkin Zephyrnaut':'flying and vigilance','Ink Dissolver':'mills three cards','Nightshade Schemers':'loses 2 life','Mudbutton Clanger':'gets +1/+1','Leaf-Crowned Elder':'without paying its mana cost'})){
+    const bucket=kBuckets(fRecord(name==='Kithkin Zephyrnaut'||name==='Ink Dissolver'||name==='Nightshade Schemers'||name==='Mudbutton Clanger'||name==='Leaf-Crowned Elder'?'Kinship':'Kicker')).find(b=>b.cards[0].name===name);
+    assert.ok(bucket.note.includes(detail),name+' selected note states its actual saved-card behavior');
+  }
   assert.equal(fRecord('Jump').access.colors.W.cards[0].name,'Cid, Freeflier Pilot','Jump remains the Cid label, not Jump-Start');
   assert.equal(fRecord('Job Select').access.colorless.cards[0].name,"Monk's Fist");
   assert.equal(fRecord('Jump-Start').access.combinations.find(c=>c.colors.join('')==='WUBRG').cards[0].name,'Niv-Mizzet, Supreme');
@@ -287,7 +294,7 @@ try{
     await page.waitForFunction(()=>document.documentElement.classList.contains('supp-mana-ready'));
     // Use the real search renderer: its frozen-2021 strip has a 12px default,
     // which supplemental independent and combination access must override.
-    for(const record of payload.records.filter(r=>['Fuse','Friends forever','Hexproof from','Intimidate','Islandcycling','Islandwalk'].includes(r.name))){
+    if(!kOnly) for(const record of payload.records.filter(r=>['Fuse','Friends forever','Hexproof from','Intimidate','Islandcycling','Islandwalk'].includes(r.name))){
       await page.locator('#q').fill(record.name);await page.locator('#q').focus();
       const option=page.locator(`#res-list .opt[data-k="${record.id}"]`);
       await option.waitFor({state:'visible'});
@@ -296,11 +303,13 @@ try{
       await checkAccessSizes(option,record.name+' search',14);
       await checkCIVectors(option,record.name+' search',14);
     }
-    await page.locator('#q').fill('Flying');await page.locator('#q').focus();
-    const frozenSearch=page.locator('#res-list .opt[data-k="flying"]');await frozenSearch.waitFor({state:'visible'});
-    assert.ok(await frozenSearch.locator('.strip:not(.access-strip) > .sc').evaluateAll(marks=>marks.length===5&&marks.every(mark=>{const r=mark.getBoundingClientRect();return r.width===12&&r.height===12;})),'frozen2021 search notation remains12px');
-    await page.locator('#q').fill('');
-    for(const record of combinationsOnly ? payload.records.filter(r=>['Fuse','Friends forever','Hexproof from','Intimidate','Islandcycling','Islandwalk'].includes(r.name)) : payload.records){
+    if(!kOnly){
+      await page.locator('#q').fill('Flying');await page.locator('#q').focus();
+      const frozenSearch=page.locator('#res-list .opt[data-k="flying"]');await frozenSearch.waitFor({state:'visible'});
+      assert.ok(await frozenSearch.locator('.strip:not(.access-strip) > .sc').evaluateAll(marks=>marks.length===5&&marks.every(mark=>{const r=mark.getBoundingClientRect();return r.width===12&&r.height===12;})),'frozen2021 search notation remains12px');
+      await page.locator('#q').fill('');
+    }
+    for(const record of kOnly ? kRecords : combinationsOnly ? payload.records.filter(r=>['Fuse','Friends forever','Hexproof from','Intimidate','Islandcycling','Islandwalk'].includes(r.name)) : payload.records){
       const row=page.locator(`#list .ent[data-k="${record.id}"]`), access=record.access, compactExamples=/^[CDEFGHIJK]/.test(record.name);
       assert.equal(await row.locator('.access-strip').count(),record.kind==='access'?1:0,record.name);
       if(record.kind==='access'){
@@ -436,7 +445,8 @@ try{
         if(record.name==='Evoke') assert.deepEqual([...new Set(symbols.rendered.filter(s=>s.token.includes('/')).map(s=>s.token))].sort(),['{R/G}','{R/W}','{U/B}','{W/B}']);
       }
     }
-    if(!combinationsOnly) {assert.equal(gVisibleCardLinks,36,'all G detail panels show exactly the 36 selected links');assert.equal(hVisibleCardLinks,59,'all H detail panels show exactly the 59 selected links');assert.equal(iVisibleCardLinks,96,'all I detail panels show exactly the 96 selected links');assert.equal(jVisibleCardLinks,17,'all J detail panels show exactly the 17 selected links');assert.equal(kVisibleCardLinks,15,'all K detail panels show exactly the 15 selected links');}
+    if(kOnly) assert.equal(kVisibleCardLinks,15,'all K detail panels show exactly the 15 selected links');
+    else if(!combinationsOnly) {assert.equal(gVisibleCardLinks,36,'all G detail panels show exactly the 36 selected links');assert.equal(hVisibleCardLinks,59,'all H detail panels show exactly the 59 selected links');assert.equal(iVisibleCardLinks,96,'all I detail panels show exactly the 96 selected links');assert.equal(jVisibleCardLinks,17,'all J detail panels show exactly the 17 selected links');assert.equal(kVisibleCardLinks,15,'all K detail panels show exactly the 15 selected links');}
     const noFont=await browser.newPage();
     await noFont.route('**/mana-font@1.18.0/**',route=>route.abort());
     await noFont.goto(url);await noFont.waitForFunction(()=>VMX.assessments().status==='ready');
@@ -445,14 +455,14 @@ try{
     const fallback=await noFont.locator('.assessment-notes .supp-symbol').evaluateAll(symbols=>symbols.map(s=>({label:s.getAttribute('aria-label'),text:s.innerText,glyph:getComputedStyle(s.querySelector('.ms')).display,fallback:getComputedStyle(s.querySelector('.supp-symbol-text')).display})));
     assert.deepEqual(fallback.map(s=>s.text),['{1}','{1}','{B}'],'costs remain readable without font');
     assert.ok(fallback.every(s=>s.label&&s.glyph==='none'&&s.fallback!=='none'));
-    for(const record of payload.records.filter(r=>/^[FGHIJK]/.test(r.name))){
+    for(const record of (kOnly?kRecords:payload.records.filter(r=>/^[FGHIJK]/.test(r.name)))){
       await noFont.evaluate(id=>VMX.open(id),record.id);
       await noFont.locator('.assessment-notes > summary').click();
       const symbols=await noFont.locator('#detail .supp-symbol').evaluateAll(items=>items.map(s=>({text:s.innerText,raw:s.querySelector('.supp-symbol-text').textContent,label:s.getAttribute('aria-label'),glyph:getComputedStyle(s.querySelector('.ms')).display})));
       assert.ok(symbols.every(s=>s.text===s.raw&&s.label&&s.glyph==='none'),record.name+' readable F/G/H/I/J/K font-failure fallback');
       if(/^[GHIJK]/.test(record.name)&&!combinationsOnly) assert.deepEqual(symbols.map(s=>s.raw),(record.name.startsWith('K')?normalKTokens:record.name.startsWith('J')?normalJTokens:record.name.startsWith('I')?normalITokens:record.name.startsWith('H')?normalHTokens:normalGTokens).get(record.name),record.name+' same actual tokens in normal and blocked-font states');
     }
-    for(const record of payload.records.filter(r=>['Fuse','Friends forever','Hexproof from','Intimidate','Islandcycling','Islandwalk'].includes(r.name))){
+    for(const record of (kOnly?[]:payload.records.filter(r=>['Fuse','Friends forever','Hexproof from','Intimidate','Islandcycling','Islandwalk'].includes(r.name)))){
       await noFont.evaluate(()=>VMX.setView('az'));
       await noFont.evaluate(id=>VMX.open(id),record.id);
       const expected=record.access.combinations.map(item=>item.colors.join(''));
@@ -493,7 +503,7 @@ try{
     for(const blocked of [false,true]){
       const gSafe=await browser.newPage(),gInjected=structuredClone(payload),gSupplement=structuredClone(supplement);
       const gScopes=JSON.parse(fs.readFileSync(path.join(root,'data/mechanics-supplement-scope.v1.json'),'utf8'));
-      for(const record of gSupplement.records.filter(r=>/^[GHIJK]/.test(r.name)&&r.target2021===null)){
+      for(const record of gSupplement.records.filter(r=>(kOnly?/^K/:/^[GHIJK]/).test(r.name)&&r.target2021===null)){
         record.clauses=[{number:'fixture',text:gUnsafe}];
         record.reference={title:'Fixture',verification:'fixture',rules:[],summary:gUnsafe,source:{title:'Fixture',url:'https://magic.wizards.com/en/news/making-magic/back-future-sight-part-3-2020-08-24'}};
       }
@@ -501,12 +511,12 @@ try{
       gScopes.payloadCanonicalSha256=fixtureHash;gInjected.supplementCanonicalSha256=fixtureHash;
       await gSafe.route('**/data/mechanics-supplement.v1.json*',route=>route.fulfill({contentType:'application/json',body:JSON.stringify(gSupplement)}));
       await gSafe.route('**/data/mechanics-supplement-scope.v1.json*',route=>route.fulfill({contentType:'application/json',body:JSON.stringify(gScopes)}));
-      for(const record of gInjected.records.filter(r=>/^[GHIJK]/.test(r.name))) record.summary=gUnsafe;
+      for(const record of gInjected.records.filter(r=>(kOnly?/^K/:/^[GHIJK]/).test(r.name))) record.summary=gUnsafe;
       if(blocked) await gSafe.route('**/mana-font@1.18.0/**',route=>route.abort());
       await gSafe.route(assessmentRoute,route=>route.fulfill({contentType:'application/json',body:JSON.stringify(gInjected)}));
       await gSafe.goto(url);await gSafe.waitForFunction(()=>VMX.assessments().status==='ready');
       if(!blocked) await gSafe.waitForFunction(()=>document.documentElement.classList.contains('supp-mana-ready'));
-      for(const record of [...gRecords,...hRecords,...iRecords,...jRecords,...kRecords]){
+      for(const record of (kOnly?kRecords:[...gRecords,...hRecords,...iRecords,...jRecords,...kRecords])){
         await gSafe.evaluate(id=>VMX.open(id),record.id);await gSafe.locator('.assessment-notes > summary').click();
         for(const selector of ['.assessment-notes > p','#detail .supp-rules .dx-ex','#detail .supp-reference .supp-quote']){
           const prose=gSafe.locator(selector).first();assert.equal(await prose.locator('img').count(),0,record.name+' escapes markup in '+selector);
@@ -540,7 +550,7 @@ try{
       assert.equal(await fail.evaluate(()=>VMX.assessments().records.length),0); assert.equal(await fail.locator('#list .access-strip').count(),0); await fail.close();
     }
     assert.deepEqual(errors,[]);
-    results.push(combinationsOnly ? 'Fuse/Friends forever, Hexproof from, Intimidate, Islandcycling and Islandwalk list/detail: exact combinations, original Mana CI-3/CI-5 paths and native section colors, contained fills, 14px compact list/search and18px detail circles, matching independent access sizes and frozen2021 search12px, accessible labels and readable no-font fallback.' : 'All28 E,25 F,5 G,14 H,15 I,4 J and3 K mana-symbol paths: actual tokens plus G/H/I/J/K numeric/colored/colorless/X/hybrid fixtures in assessment/rules/reference, accessible real glyphs, no-font fallback and escaping; 36 exact G,59 H,96 I,17 J and15 K selected links, full observed H/I/J/K maps and factual trigger/timing regressions and Oct29 dates; C/D/E/F/G/H/I/J/K representative sources, unique combination citations and concise copy; 199 A/B/C/D/E/F/G/H/I/J/K access maps; documented/no-example/joint/colorless/rules cases; exact-example and retained non-card links; atomic malformed fail-soft; search keyboard/mobile; unchanged 2021 84 checks');
+    results.push(kOnly ? 'Kicker, Kinship and Kinfall detail/search: exact selected links and card-specific prose, safe escaped assessment/rules/reference tokens, accessible glyph/no-font fallback, malformed K-date fail-soft, mobile containment and frozen baseline.' : combinationsOnly ? 'Fuse/Friends forever, Hexproof from, Intimidate, Islandcycling and Islandwalk list/detail: exact combinations, original Mana CI-3/CI-5 paths and native section colors, contained fills, 14px compact list/search and18px detail circles, matching independent access sizes and frozen2021 search12px, accessible labels and readable no-font fallback.' : 'All28 E,25 F,5 G,14 H,15 I,4 J and3 K mana-symbol paths: actual tokens plus G/H/I/J/K numeric/colored/colorless/X/hybrid fixtures in assessment/rules/reference, accessible real glyphs, no-font fallback and escaping; 36 exact G,59 H,96 I,17 J and15 K selected links, full observed H/I/J/K maps and factual trigger/timing regressions and Oct29 dates; C/D/E/F/G/H/I/J/K representative sources, unique combination citations and concise copy; 199 A/B/C/D/E/F/G/H/I/J/K access maps; documented/no-example/joint/colorless/rules cases; exact-example and retained non-card links; atomic malformed fail-soft; search keyboard/mobile; unchanged 2021 84 checks');
   }
   await page.close();
   console.log(JSON.stringify({result:'PASS',checks:results},null,2));
