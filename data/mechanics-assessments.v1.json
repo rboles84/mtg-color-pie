@@ -83,7 +83,7 @@
     },
     {
       "path": "docs/mechanics-research/l-protocol.json",
-      "sha256": "0a3a218c2152c6f6c55436f596db4879ee771d99f549d2ca5d068ae7448e151e"
+      "sha256": "a10947b6e47c5cb09e11e20cd2d5a9af2b3b50aed7de10e499beecedcdd66e53"
     }
   ],
   "records": [
@@ -42649,14 +42649,14 @@
         "colors": {
           "W": {
             "status": "documented",
-            "note": "Cliff Threader has mountainwalk.",
+            "note": "Righteous Avengers has plainswalk.",
             "cards": [
               {
-                "name": "Cliff Threader",
-                "url": "https://scryfall.com/card/zen/7/cliff-threader?utm_source=api"
+                "name": "Righteous Avengers",
+                "url": "https://scryfall.com/card/leg/34/righteous-avengers"
               }
             ],
-            "findUrl": "https://scryfall.com/search?q=%28%21%22Cliff%20Threader%22%29%20include%3Aextras"
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Righteous%20Avengers%22%29%20include%3Aextras"
           },
           "U": {
             "status": "documented",
@@ -42664,7 +42664,7 @@
             "cards": [
               {
                 "name": "Benthic Behemoth",
-                "url": "https://scryfall.com/card/7ed/63/benthic-behemoth?utm_source=api"
+                "url": "https://scryfall.com/card/7ed/63/benthic-behemoth"
               }
             ],
             "findUrl": "https://scryfall.com/search?q=%28%21%22Benthic%20Behemoth%22%29%20include%3Aextras"
@@ -42675,32 +42675,32 @@
             "cards": [
               {
                 "name": "Anurid Murkdiver",
-                "url": "https://scryfall.com/card/ons/124/anurid-murkdiver?utm_source=api"
+                "url": "https://scryfall.com/card/ons/124/anurid-murkdiver"
               }
             ],
             "findUrl": "https://scryfall.com/search?q=%28%21%22Anurid%20Murkdiver%22%29%20include%3Aextras"
           },
           "R": {
             "status": "documented",
-            "note": "Boggart Arsonists has plainswalk and can be sacrificed to destroy a Scarecrow or Plains.",
+            "note": "Dwarven Grunt has mountainwalk.",
             "cards": [
               {
-                "name": "Boggart Arsonists",
-                "url": "https://scryfall.com/card/shm/85/boggart-arsonists?utm_source=api"
+                "name": "Dwarven Grunt",
+                "url": "https://scryfall.com/card/ody/185/dwarven-grunt"
               }
             ],
-            "findUrl": "https://scryfall.com/search?q=%28%21%22Boggart%20Arsonists%22%29%20include%3Aextras"
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Dwarven%20Grunt%22%29%20include%3Aextras"
           },
           "G": {
             "status": "documented",
-            "note": "Anaconda has swampwalk.",
+            "note": "Cat Warriors has forestwalk.",
             "cards": [
               {
-                "name": "Anaconda",
-                "url": "https://scryfall.com/card/9ed/229/anaconda?utm_source=api"
+                "name": "Cat Warriors",
+                "url": "https://scryfall.com/card/6ed/219/cat-warriors"
               }
             ],
-            "findUrl": "https://scryfall.com/search?q=%28%21%22Anaconda%22%29%20include%3Aextras"
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Cat%20Warriors%22%29%20include%3Aextras"
           }
         },
         "combinations": [
@@ -42867,32 +42867,12 @@
           "url": "https://scryfall.com/card/acr/68/adrestia?utm_source=api"
         },
         {
-          "name": "Anaconda",
-          "url": "https://scryfall.com/card/9ed/229/anaconda?utm_source=api"
-        },
-        {
-          "name": "Anurid Murkdiver",
-          "url": "https://scryfall.com/card/ons/124/anurid-murkdiver?utm_source=api"
-        },
-        {
-          "name": "Benthic Behemoth",
-          "url": "https://scryfall.com/card/7ed/63/benthic-behemoth?utm_source=api"
-        },
-        {
           "name": "Benthic Djinn",
           "url": "https://scryfall.com/card/mir/257/benthic-djinn?utm_source=api"
         },
         {
-          "name": "Boggart Arsonists",
-          "url": "https://scryfall.com/card/shm/85/boggart-arsonists?utm_source=api"
-        },
-        {
           "name": "Chorus of the Conclave",
           "url": "https://scryfall.com/card/cmd/189/chorus-of-the-conclave?utm_source=api"
-        },
-        {
-          "name": "Cliff Threader",
-          "url": "https://scryfall.com/card/zen/7/cliff-threader?utm_source=api"
         },
         {
           "name": "Cold-Eyed Selkie",
@@ -42925,6 +42905,26 @@
         {
           "name": "Lord Windgrace",
           "url": "https://scryfall.com/card/c18/43/lord-windgrace?utm_source=api"
+        },
+        {
+          "name": "Righteous Avengers",
+          "url": "https://scryfall.com/card/leg/34/righteous-avengers"
+        },
+        {
+          "name": "Benthic Behemoth",
+          "url": "https://scryfall.com/card/7ed/63/benthic-behemoth"
+        },
+        {
+          "name": "Anurid Murkdiver",
+          "url": "https://scryfall.com/card/ons/124/anurid-murkdiver"
+        },
+        {
+          "name": "Dwarven Grunt",
+          "url": "https://scryfall.com/card/ody/185/dwarven-grunt"
+        },
+        {
+          "name": "Cat Warriors",
+          "url": "https://scryfall.com/card/6ed/219/cat-warriors"
         }
       ],
       "sources": [],

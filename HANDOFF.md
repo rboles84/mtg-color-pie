@@ -3110,6 +3110,13 @@ This ledger-only evidence delta is not the full task diff. Final branch delta fr
 
 # RobDev preflight — L supplemental Color Access
 
+## RobDev preflight — Landwalk monocolor witness correction
+
+- Scope: replace only Landwalk's selected W, R, and G monocolor witnesses; retain the already exact U/B witnesses and every access status, colorless/combo bucket, source, renderer, and other record.
+- Files: `HANDOFF.md`, `docs/mechanics-research/l-protocol.json`, and producer-generated `data/mechanics-assessments.v1.json`; existing harness only if its selected literal requires it.
+- Protected: all non-Landwalk records and bindings, including frozen 2021. Exact requested Scryfall print links and concise `[Card] has [walk].` notes are required.
+- Expected QA: bounded source-backed QA-4. Developer checks: raw-object/hash/color/walk assertions and deterministic producer.
+
 - Status: `dev-in-progress`; this is an implementation preflight, not QA, Owner acceptance, publication, or integration.
 - Product outcome: add documented, presence-only Color Access for each of the eleven unmapped L supplemental records, with one selected linked card per independently supported color, colorless bucket, or observed combination.
 - Authoritative owner and producer: canonical `docs/mechanics-research/l-protocol.json` produces `data/mechanics-assessments.v1.json` only through `tools/build_mechanics_assessments.py`; the explorer and focused harness consume that projection.
