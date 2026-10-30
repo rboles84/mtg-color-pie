@@ -1,6 +1,6 @@
 # RobDev pre-edit contract — P supplemental Color Access
 
-- Status: `dev-in-progress`. Baseline `6eee08fef23729597085775df1e9d39b79ce768d` on `codex/a-mechanics-review`; clean at admission.
+- Status: `ready-for-qa` (`dev-in-progress -> ready-for-qa`). Baseline `6eee08fef23729597085775df1e9d39b79ce768d` on `codex/a-mechanics-review`; clean at admission.
 - Outcome: add only the 22 unmapped canonical P entries as documented Color Access, retaining every special scope separately. Protection and Prowess remain frozen 2021 entries.
 - Owner/producer: the authored P packet and immutable raw evidence own facts; `tools/build_mechanics_assessments.py` is the only projection writer; `data/mechanics-assessments.v1.json` is generated. The explorer/harness consume that projection.
 - Envelope: P source/evidence/review and protocol note; `HANDOFF.md`; producer/generated projection; explorer/harness; and `data/mechanics-supplement.v1.json` only for a necessary source correction. Protected: frozen 2021; A–O packets/bindings/rendering; special navigation; escaped safe mana links; actual face/source colors; exact combinations; ordinary/special separation. No dependency, package/preview, publication, push, merge, integration, Owner acceptance or independent QA.
@@ -23,6 +23,16 @@
 - Proportionality: CPU-heavy validation NOT REQUIRED. Browser execution was justified by objective whole-detail link uniqueness, actual glyph/fallback output, accessible controls/keyboard and measurable 360px containment, which source checks cannot establish. Intentionally skipped unrelated broad harness (known Friends forever 14px/18px debt), screenshots/visual matrices, network recapture beyond the bounded P evidence, package/live preview, publication, push, merge and integration. No all-suite-PASS or aesthetic verdict is claimed.
 - State/provenance: capture -> full-object/face -> canonical bucket -> producer -> whole-detail link/token continuity passed, including explicit malformed payload replacement failing closed and rules remaining usable. No persistent route/history/reset owner was introduced, so broad state-journey certification/reverse-transition matrix is not applicable. O and Mutate are structurally different shared-path controls.
 - Remaining Owner judgment after independent QA: (1) open Prototype and judge whether its five colored forms and normal colorless example read clearly; (2) open Prepared and judge whether its creature-face examples and combinations are useful; (3) open Power-up at phone width and judge native costs, hybrid spacing and reading flow. Coordinator owns the exact review URL/package/live preview and requested screenshot. Deterministic source facts and link counts do not require manual re-proof.
+
+
+
+## P exact candidate handoff — ready for independent QA
+
+- Status: `ready-for-qa`. Exact material candidate `abf9e8463708958aabf85cdbdbff6fee3b2c5145` over baseline `6eee08fef23729597085775df1e9d39b79ce768d`, on `codex/a-mechanics-review`. The developer evidence above binds to this candidate; the final focused P command returned JSON PASS after the final authored-text rebuild. Separate non-implementing RobQA must issue the engineering verdict. No Owner acceptance is inferred.
+- Git material delta: 58 admitted paths, 35,290 additions / 33 deletions. This includes the pre-edit contract, development report, canonical P packet, all raw attempts and successful captures, provenance-integrity audit, factual/protocol review, producer/projection, renderer and focused harness. No earlier packet/frozen source changed. Git owns the full path/numstat inventory; coordinator owns final Git report/validator accounting.
+- Evidence-only delta after material: this subsequent commit changes only `HANDOFF.md`, recording the candidate SHA and task transition. Product/source/test files are frozen here. No pending implementation work remains; independent QA owns only its ledger finding/verdict. A returned correctness defect reopens the same task/branch under the existing repair flow.
+- Independent emphasis: inspect Prototype’s rules-defined colors rather than activation-cost inference; Prepared/Populate face costs where face.colors is absent; red Prowl grant and green Phasing; ordinary non-acorn Parade!; MB2 playtest metadata, stickers and payoffs; Planeswalk ordinary TARDIS versus separately retained phenomenon/commemorative plane; all 157 authored notes, one-link whole-detail output, complete full costs and symbol/fallback boundaries. Recompute fresh receipts and full-object bindings; distinguish the known provisional receipt mismatch from actual replacement evidence. Confirm A–O payload/bindings and frozen math remain exact.
+- Coordinator retains package/live preview, screenshot, Owner Review delivery and final accounting. No push, merge, publication or integration was performed.
 
 
 # Owner Accepted — O supplemental Color Access
