@@ -15,6 +15,7 @@ const mOnly=args.includes('--m-only');
 const nOnly=args.includes('--n-only');
 const oOnly=args.includes('--o-only');
 const pOnly=args.includes('--p-only');
+const accessLabelsOnly=args.includes('--access-labels-only');
 const {chromium}=createRequire(import.meta.url)(opt('--playwright','playwright'));
 const payload=JSON.parse(fs.readFileSync(path.join(root,'data/mechanics-assessments.v1.json'),'utf8'));
 const supplement=JSON.parse(fs.readFileSync(path.join(root,'data/mechanics-supplement.v1.json'),'utf8'));
@@ -87,6 +88,43 @@ async function checkAccessSizes(host,label,size,blocked=false){
     }
   }
 }
+async function checkAccessLabels(page){
+  const mixed=payload.records.filter(record=>record.access.combinations.length&&'WUBRG'.split('').some(color=>record.access.colors[color].status==='documented'));
+  const mixedAO=mixed.filter(record=>/^[A-O]/.test(record.name)),mixedP=mixed.filter(record=>record.name.startsWith('P'));
+  const noMono=['Commander ninjutsu','Companion','Covercast','Eminence','Friends forever','Fuse','Mark of Chaos Ascendant'].map(name=>payload.records.find(record=>record.name===name));
+  assert.equal(mixedAO.length,160,'the fixed A–O mixed-access cohort is exact');
+  assert.equal(mixedP.length,13,'the fixed P mixed-access cohort is exact');
+  assert.equal(mixed.length,173,'the fixed A–P mixed-access cohort is exact');
+  await page.evaluate(()=>VMX.setView('az'));
+  for(const record of mixed){
+    await page.evaluate(id=>VMX.open(id),record.id);
+    const panel=page.locator('#detail .supp-assessment');
+    const slots=await panel.locator('.own-row[data-c]').evaluateAll(rows=>rows.map(row=>({color:row.dataset.c,label:row.querySelector('.own-t')?.textContent})));
+    for(const slot of slots){
+      const status=(slot.color==='C'?record.access.colorless:record.access.colors[slot.color])?.status;
+      assert.equal(slot.label,status==='documented'?'Access':status==='multicolor_only'?'No example found':status==='not_applicable'?'Not applicable':status==='insufficient_evidence'?'Insufficient evidence':'No example found',record.name+' '+slot.color+' keeps an independent-access label');
+    }
+    const combinations=panel.locator('.combo-mark');
+    assert.ok(await combinations.evaluateAll(items=>items.every(item=>item.getAttribute('title').endsWith(' — Combination')&&item.getAttribute('aria-label').endsWith(' combination'))),record.name+' combination marker metadata uses Combination');
+    assert.ok(await panel.locator('.own-row[data-combo] .own-t').evaluateAll(items=>items.every(item=>item.textContent==='Combination')),record.name+' visible combination rows use Combination');
+  }
+  for(const record of noMono){
+    await page.evaluate(id=>VMX.open(id),record.id);
+    const panel=page.locator('#detail .supp-assessment');
+    const slots=await panel.locator('.own-row[data-c]').evaluateAll(rows=>rows.map(row=>({color:row.dataset.c,label:row.querySelector('.own-t')?.textContent})));
+    for(const slot of slots){
+      const status=(slot.color==='C'?record.access.colorless:record.access.colors[slot.color])?.status;
+      assert.equal(slot.label,status==='multicolor_only'?'Combination only':status==='documented'?'Access':status==='not_applicable'?'Not applicable':status==='insufficient_evidence'?'Insufficient evidence':'No example found',record.name+' retains its baseline '+slot.color+' label');
+    }
+    assert.ok(await panel.locator('.combo-mark').evaluateAll(items=>items.every(item=>item.getAttribute('title').endsWith(' — Combination only')&&item.getAttribute('aria-label').endsWith(' combination only'))),record.name+' retains no-independent-access marker metadata');
+  }
+  await page.locator('#q').fill('Pack tactics');await page.locator('#q').focus();
+  const option=page.locator('#res-list .opt[data-k="deck:vocabulary:pack tactics"]');await option.waitFor({state:'visible'});await option.click();
+  const pack=page.locator('#detail .supp-assessment');
+  assert.deepEqual(await pack.locator('.own-row[data-c]').evaluateAll(rows=>rows.map(row=>[row.dataset.c,row.querySelector('.own-t').textContent])),[['R','Access'],['G','Access']],'Pack tactics preserves its independent color rows');
+  assert.deepEqual(await pack.locator('.own-row[data-combo] .own-t').allTextContents(),['Combination'],'Pack tactics labels Red / Green as Combination');
+  await page.locator('#q').fill('');
+}
 async function checkL(page,browser,baseline){
   const records=payload.records.filter(r=>r.name.startsWith('L'));
   const maps={Landcycling:['W','U','B','R','G','WU','WG','UB','UG','BR','RG','C'],Landfall:['W','U','B','R','G','WUBR','WURG','WUG','WBG','WRG','WG','UBG','URG','UG','BG','RG','C'],Landship:['G'],Landwalk:['W','U','B','R','G','WU','WRG','WG','UB','UBR','UG','BR','BRG','BG','RG','C'],Learn:['W','U','B','R','G','WB','BG'],Legacy:['G','C'],'Legendary landwalk':['G','RG'],'Level Up':['W','U','B','R','G'],Lieutenant:['W','U','B','R','G'],'Living Metal':['W','U','B','R','WU','WUR','WBR','WR','WRG','UB','BR'],'Living Weapon':['W','B','G','BR','C']};
@@ -136,7 +174,7 @@ async function checkL(page,browser,baseline){
     const state=await page.locator('#detail').evaluate(el=>{const copy=el.cloneNode(true);copy.querySelectorAll('.supp-symbol').forEach(s=>s.replaceWith(s.querySelector('.supp-symbol-text').textContent));return {tokens:[...copy.textContent.matchAll(/\{[^{}\r\n]+\}/g)].map(m=>m[0]),rendered:[...el.querySelectorAll('.supp-symbol')].map(s=>({token:s.querySelector('.supp-symbol-text').textContent,label:s.getAttribute('aria-label'),glyph:getComputedStyle(s.querySelector('.ms'),'::before').content,fallback:getComputedStyle(s.querySelector('.supp-symbol-text')).display})),visible:el.innerText};});
     assert.deepEqual(state.rendered.map(s=>s.token),state.tokens,record.name+' every actual prose/rule/reference token rendered');assert.doesNotMatch(state.visible,/\{[^{}\r\n]+\}/);
     assert.ok(state.rendered.every(s=>s.label&&s.fallback==='none'&&!['none','normal','""'].includes(s.glyph)));actualTokens.set(record.name,state.tokens);
-    assert.ok(await page.locator('#detail .combo-mark').evaluateAll(items=>items.every(i=>i.getAttribute('role')==='img'&&i.getAttribute('aria-label').endsWith('combination only'))));
+    assert.ok(await page.locator('#detail .combo-mark').evaluateAll((items,label)=>items.every(i=>i.getAttribute('role')==='img'&&i.getAttribute('aria-label').endsWith(label)),'WUBRG'.split('').some(color=>record.access.colors[color].status==='documented')?'combination':'combination only'));
     await page.setViewportSize({width:360,height:900});assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),record.name+' narrow containment');await page.setViewportSize({width:1440,height:900});
   }
   assert.equal(links,83);
@@ -235,7 +273,7 @@ async function checkM(page,browser,baseline){
     const state=await page.locator('#detail').evaluate(el=>{const copy=el.cloneNode(true);copy.querySelectorAll('.supp-symbol').forEach(s=>s.replaceWith(s.querySelector('.supp-symbol-text').textContent));return {tokens:[...copy.textContent.matchAll(/\{[^{}\r\n]+\}/g)].map(m=>m[0]),rendered:[...el.querySelectorAll('.supp-symbol')].map(s=>({token:s.querySelector('.supp-symbol-text').textContent,label:s.getAttribute('aria-label'),glyph:getComputedStyle(s.querySelector('.ms'),'::before').content,fallback:getComputedStyle(s.querySelector('.supp-symbol-text')).display})),visible:el.innerText};});
     assert.deepEqual(state.rendered.map(s=>s.token),state.tokens,record.name+' every actual prose/rule/reference token rendered');assert.doesNotMatch(state.visible,/\{[^{}\r\n]+\}/);
     assert.ok(state.rendered.every(s=>s.label&&s.fallback==='none'&&!['none','normal','""'].includes(s.glyph)));actualTokens.set(record.name,state.tokens);
-    assert.ok(await page.locator('#detail .combo-mark').evaluateAll(items=>items.every(i=>i.getAttribute('role')==='img'&&i.getAttribute('aria-label').endsWith('combination only'))));
+    assert.ok(await page.locator('#detail .combo-mark').evaluateAll((items,label)=>items.every(i=>i.getAttribute('role')==='img'&&i.getAttribute('aria-label').endsWith(label)),'WUBRG'.split('').some(color=>record.access.colors[color].status==='documented')?'combination':'combination only'));
     await page.setViewportSize({width:360,height:900});assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),record.name+' narrow containment');await page.setViewportSize({width:1440,height:900});
   }
   assert.equal(links,183);
@@ -394,7 +432,7 @@ async function checkN(page,browser,baseline){
     const state=await page.locator('#detail').evaluate(el=>{const copy=el.cloneNode(true);copy.querySelectorAll('.supp-symbol').forEach(s=>s.replaceWith(s.querySelector('.supp-symbol-text').textContent));return {tokens:[...copy.textContent.matchAll(/\{[^{}\r\n]+\}/g)].map(m=>m[0]),rendered:[...el.querySelectorAll('.supp-symbol')].map(s=>({token:s.querySelector('.supp-symbol-text').textContent,label:s.getAttribute('aria-label'),glyph:getComputedStyle(s.querySelector('.ms'),'::before').content,fallback:getComputedStyle(s.querySelector('.supp-symbol-text')).display})),visible:el.innerText};});
     assert.deepEqual(state.rendered.map(s=>s.token),state.tokens,record.name+' every actual prose/rule/reference token rendered');assert.doesNotMatch(state.visible,/\{[^{}\r\n]+\}/);
     assert.ok(state.rendered.every(s=>s.label&&s.fallback==='none'&&!['none','normal','""'].includes(s.glyph)));actualTokens.set(record.name,state.tokens);
-    assert.ok(await page.locator('#detail .combo-mark').evaluateAll(items=>items.every(i=>i.getAttribute('role')==='img'&&i.getAttribute('aria-label').endsWith('combination only'))));
+    assert.ok(await page.locator('#detail .combo-mark').evaluateAll((items,label)=>items.every(i=>i.getAttribute('role')==='img'&&i.getAttribute('aria-label').endsWith(label)),'WUBRG'.split('').some(color=>record.access.colors[color].status==='documented')?'combination':'combination only'));
     await page.setViewportSize({width:360,height:900});assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),record.name+' narrow containment');await page.setViewportSize({width:1440,height:900});
   }
   assert.equal(links,12);
@@ -521,7 +559,7 @@ async function checkP(page,browser,baseline){
     const state=await page.locator('#detail').evaluate(el=>{const copy=el.cloneNode(true);copy.querySelectorAll('.supp-symbol').forEach(s=>s.replaceWith(s.querySelector('.supp-symbol-text').textContent));return {tokens:[...copy.textContent.matchAll(/\{[^{}\r\n]+\}/g)].map(m=>m[0]),rendered:[...el.querySelectorAll('.supp-symbol')].map(s=>({token:s.querySelector('.supp-symbol-text').textContent,label:s.getAttribute('aria-label'),glyph:getComputedStyle(s.querySelector('.ms'),'::before').content,fallback:getComputedStyle(s.querySelector('.supp-symbol-text')).display})),visible:el.innerText};});
     assert.deepEqual(state.rendered.map(s=>s.token),state.tokens,record.name+' every actual prose/rule/reference token rendered');assert.doesNotMatch(state.visible,/\{[^{}\r\n]+\}/);
     assert.ok(state.rendered.every(s=>s.label&&s.fallback==='none'&&!['none','normal','""'].includes(s.glyph)));actualTokens.set(record.name,state.tokens);
-    assert.ok(await page.locator('#detail .combo-mark').evaluateAll(items=>items.every(i=>i.getAttribute('role')==='img'&&i.getAttribute('aria-label').endsWith('combination only'))));
+    assert.ok(await page.locator('#detail .combo-mark').evaluateAll((items,label)=>items.every(i=>i.getAttribute('role')==='img'&&i.getAttribute('aria-label').endsWith(label)),'WUBRG'.split('').some(color=>record.access.colors[color].status==='documented')?'combination':'combination only'));
     await page.setViewportSize({width:360,height:900});assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),record.name+' narrow containment');await page.setViewportSize({width:1440,height:900});
   }
   assert.equal(links,157);
@@ -631,7 +669,7 @@ async function checkO(page,browser,baseline){
     const state=await page.locator('#detail').evaluate(el=>{const copy=el.cloneNode(true);copy.querySelectorAll('.supp-symbol').forEach(s=>s.replaceWith(s.querySelector('.supp-symbol-text').textContent));return {tokens:[...copy.textContent.matchAll(/\{[^{}\r\n]+\}/g)].map(m=>m[0]),rendered:[...el.querySelectorAll('.supp-symbol')].map(s=>({token:s.querySelector('.supp-symbol-text').textContent,label:s.getAttribute('aria-label'),glyph:getComputedStyle(s.querySelector('.ms'),'::before').content,fallback:getComputedStyle(s.querySelector('.supp-symbol-text')).display})),visible:el.innerText};});
     assert.deepEqual(state.rendered.map(s=>s.token),state.tokens,record.name+' every actual prose/rule/reference token rendered');assert.doesNotMatch(state.visible,/\{[^{}\r\n]+\}/);
     assert.ok(state.rendered.every(s=>s.label&&s.fallback==='none'&&!['none','normal','""'].includes(s.glyph)));actualTokens.set(record.name,state.tokens);
-    assert.ok(await page.locator('#detail .combo-mark').evaluateAll(items=>items.every(i=>i.getAttribute('role')==='img'&&i.getAttribute('aria-label').endsWith('combination only'))));
+    assert.ok(await page.locator('#detail .combo-mark').evaluateAll((items,label)=>items.every(i=>i.getAttribute('role')==='img'&&i.getAttribute('aria-label').endsWith(label)),'WUBRG'.split('').some(color=>record.access.colors[color].status==='documented')?'combination':'combination only'));
     await page.setViewportSize({width:360,height:900});assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),record.name+' narrow containment');await page.setViewportSize({width:1440,height:900});
   }
   assert.equal(links,34);
@@ -673,7 +711,7 @@ try{
   await page.waitForFunction(()=>window.VMX?.assessments().status==='ready');
   await page.waitForFunction(()=>document.querySelector('#selftest').textContent.includes('84 of 84 passed'));
   const baseline=await page.evaluate(math);
-  if(args.includes('--mutate-pips-only')){await checkMutatePips(page,browser,baseline);assert.deepEqual(errors,[]);}else if(pOnly){await checkP(page,browser,baseline);assert.deepEqual(errors,[]);}else if(oOnly){await checkO(page,browser,baseline);assert.deepEqual(errors,[]);}else if(nOnly){await checkN(page,browser,baseline);assert.deepEqual(errors,[]);}else if(mOnly){await checkM(page,browser,baseline);assert.deepEqual(errors,[]);}else if(lOnly){await checkL(page,browser,baseline);assert.deepEqual(errors,[]);}else{
+  if(accessLabelsOnly){await checkAccessLabels(page);assert.deepEqual(errors,[]);results.push('All 173 mixed A–P access records emit Combination labels without changing their evidence; the seven no-independent-access records retain Combination only; Pack tactics search/detail confirms the player-facing rule.');}else if(args.includes('--mutate-pips-only')){await checkMutatePips(page,browser,baseline);assert.deepEqual(errors,[]);}else if(pOnly){await checkP(page,browser,baseline);assert.deepEqual(errors,[]);}else if(oOnly){await checkO(page,browser,baseline);assert.deepEqual(errors,[]);}else if(nOnly){await checkN(page,browser,baseline);assert.deepEqual(errors,[]);}else if(mOnly){await checkM(page,browser,baseline);assert.deepEqual(errors,[]);}else if(lOnly){await checkL(page,browser,baseline);assert.deepEqual(errors,[]);}else{
   assert.equal(await page.locator('#list .ent').count(),216);
   assert.equal(await page.evaluate(()=>VMX.assessments().records.length),266);
   const expectedAssessmentIds=supplement.records.filter(r=>/^[ABCDEFGHIJKLMNOP]/.test(r.name)&&r.target2021===null).map(r=>r.id).sort();
@@ -901,7 +939,7 @@ try{
         const comboPresentation=['Fuse','Friends forever'].includes(record.name), mixedPresentation=['Hexproof from','Intimidate','Islandcycling','Islandwalk','Kicker'].includes(record.name), independentSlots=[...('WUBRG')].filter(color=>access.colors[color].status==='documented').concat(access.colorless.status==='documented'?['C']:[]);
         if(comboPresentation || mixedPresentation){
           assert.deepEqual(await row.locator('.combo-mark').evaluateAll(marks=>marks.map(mark=>mark.dataset.combo)),access.combinations.map(item=>item.colors.join('')));
-          assert.equal(await row.locator('.combo-mark').evaluateAll(marks=>marks.every(mark=>mark.getAttribute('role')==='img'&&mark.getAttribute('aria-label').includes('combination only'))),true);
+          assert.equal(await row.locator('.combo-mark').evaluateAll((marks,label)=>marks.every(mark=>mark.getAttribute('role')==='img'&&mark.getAttribute('aria-label').includes(label)),'WUBRG'.split('').some(color=>access.colors[color].status==='documented')?'combination':'combination only'),true);
           assert.equal(await row.locator('.combo-mark .ms-wu,.combo-mark .ms-wb,.combo-mark .ms-ub,.combo-mark .ms-ur,.combo-mark .ms-br,.combo-mark .ms-bg,.combo-mark .ms-rg,.combo-mark .ms-rw,.combo-mark .ms-gw,.combo-mark .ms-gu').count(),access.combinations.filter(item=>item.colors.length===2).length);
           assert.equal(await row.locator('.combo-mark .ci3-svg').count(),access.combinations.filter(item=>item.colors.length===3).length);
           if(record.name==='Fuse') assert.deepEqual(await row.locator('.combo-mark .ci3-svg').evaluateAll(glyphs=>glyphs.map(glyph=>glyph.closest('.combo-mark').dataset.combo)),['WUG','UBR','WUR','BRG','WBG'],'Fuse covers every rendered three-color CI combination');
@@ -921,7 +959,7 @@ try{
           const option=page.locator(`#res-list .opt[data-k="${record.id}"]`); await option.waitFor({state:'visible'});
           assert.deepEqual(await option.locator('.access-strip > .sc').evaluateAll(items=>items.map(item=>item.dataset.c)),independentSlots,'Kicker search exposes only independent WUBRG/colorless slots');
           assert.deepEqual(await option.locator('.combo-mark').evaluateAll(items=>items.map(item=>item.dataset.combo)),access.combinations.map(item=>item.colors.join('')),'Kicker search retains exact documented combinations');
-          assert.ok(await option.locator('.combo-mark').evaluateAll(items=>items.every(item=>item.getAttribute('aria-label').endsWith('combination only'))),'Kicker search labels combinations without implied independent access');
+          assert.ok(await option.locator('.combo-mark').evaluateAll(items=>items.every(item=>item.getAttribute('aria-label').endsWith('combination'))),'Kicker search labels documented combinations');
           await checkAccessSizes(option,'Kicker search',18); await checkCIVectors(option,'Kicker search',18);
           await page.locator('#q').fill('');
         }
@@ -951,13 +989,13 @@ try{
         } else if(mixedPresentation){
           assert.deepEqual(await panel.locator('.own-row[data-c]').evaluateAll(rows=>rows.map(row=>row.dataset.c)),independentSlots);
           assert.deepEqual(await panel.locator('.own-row[data-combo]').evaluateAll(rows=>rows.map(row=>row.dataset.combo)),access.combinations.map(item=>item.colors.join('')));
-          assert.ok(await panel.locator('.own-row[data-combo] .own-t').evaluateAll(nodes=>nodes.every(node=>node.textContent==='Combination only')),record.name+' labels combinations without implying independent access');
+          assert.ok(await panel.locator('.own-row[data-combo] .own-t').evaluateAll(nodes=>nodes.every(node=>node.textContent==='Combination')),record.name+' labels documented combinations');
         }
         if(comboPresentation||mixedPresentation){await checkAccessSizes(panel,record.name+' detail',18);await checkCIVectors(panel,record.name+' detail');}
         assert.ok((await panel.innerText()).includes(record.scopeLabel));
         if(!comboPresentation && !mixedPresentation) for(const color of 'WUBRG'){
           const item=access.colors[color], rowText=await panel.locator(`.own-row[data-c="${color}"]`).innerText();
-          assert.match(rowText,new RegExp(item.status==='documented'?'Access':item.status==='multicolor_only'?'Combination only':item.status==='not_found'?'No example found':item.status==='not_applicable'?'Not applicable':'Insufficient evidence'));
+          assert.match(rowText,new RegExp(item.status==='documented'?'Access':item.status==='multicolor_only'&&'WUBRG'.split('').some(color=>access.colors[color].status==='documented')?'No example found':item.status==='multicolor_only'?'Combination only':item.status==='not_found'?'No example found':item.status==='not_applicable'?'Not applicable':'Insufficient evidence'));
         }
       }
       await notes.locator(':scope > summary').focus(); await page.keyboard.press('Enter'); assert.equal(await notes.getAttribute('open'),'');
