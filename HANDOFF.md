@@ -9,6 +9,15 @@
 - Applicability: C:\\dev workflow informs capability/process routing only; target local `AGENTS.md` and this ledger control this buildless repo. No unrelated VM task record is created.
 
 
+
+## P narrow coordinator correction — default harness binding admission
+
+- Status: `ready-for-qa`; review of this new candidate is PENDING. After the original P engineering PASS, the coordinator identified a directly caused omission: the general harness expected only 23 source bindings ending at O, while the P payload correctly has 24. This is a same-task correction, not historical harness debt. Prior PASS remains bound to its earlier exact candidate and does not automatically certify this delta.
+- Scope/outcome: changed only `tools/check_assessment_browser.mjs` and this ledger. Appended `docs/mechanics-research/p-protocol.json` to the default harness’s exact-path assertion and changed its label to twenty-four. No source, data, renderer, raw evidence, dependency, route or product behavior changed. The pre-existing O date expectation and Friends forever glyph debt were left untouched.
+- Checks actually run, all exit 0: targeted Python static extraction confirmed the original exact discrepancy (23 expected versus 24 actual, only P missing), then compared the corrected 24 expected paths with `data/mechanics-assessments.v1.json` in exact order -> PASS; `node --check tools/check_assessment_browser.mjs` -> PASS; `git diff --check` -> PASS. The two-line harness diff was inspected. No broad default browser was run or represented as passing.
+- Proportionality: this changes a static test expectation only; CPU-heavy/browser validation NOT REQUIRED. Existing P/O/Mutate browser, source and preservation evidence remains unchanged; the independent reviewer decides its reuse and the new candidate verdict. Coordinator owns packaging and final accounting. Exact new material SHA is recorded in the subsequent handoff entry; source/product files remain frozen.
+
+
 ## P supplemental Color Access — RobDev completion report
 
 - Status: `dev-in-progress`; implementation and selected developer checks complete. Baseline `6eee08fef23729597085775df1e9d39b79ce768d`, branch `codex/a-mechanics-review`. Separate non-implementing QA-4 is required because this changes evidence qualification and shared presentation; no independent QA or Owner acceptance is claimed. The exact material SHA follows in the ready-for-QA ledger.

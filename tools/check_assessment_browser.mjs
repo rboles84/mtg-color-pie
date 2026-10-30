@@ -693,8 +693,8 @@ try{
     'docs/mechanics-research/d-protocol.json',
     'docs/mechanics-research/e-protocol.json',
     'docs/mechanics-research/f-protocol.json',
-    'docs/mechanics-research/g-protocol.json','docs/mechanics-research/h-protocol.json','docs/mechanics-research/i-protocol.json','docs/mechanics-research/j-protocol.json','docs/mechanics-research/k-protocol.json','docs/mechanics-research/l-protocol.json','docs/mechanics-research/m-protocol.json','docs/mechanics-research/n-protocol.json','docs/mechanics-research/o-protocol.json'
-  ],'all twenty-three canonical packet bindings are present');
+    'docs/mechanics-research/g-protocol.json','docs/mechanics-research/h-protocol.json','docs/mechanics-research/i-protocol.json','docs/mechanics-research/j-protocol.json','docs/mechanics-research/k-protocol.json','docs/mechanics-research/l-protocol.json','docs/mechanics-research/m-protocol.json','docs/mechanics-research/n-protocol.json','docs/mechanics-research/o-protocol.json','docs/mechanics-research/p-protocol.json'
+  ],'all twenty-four canonical packet bindings are present');
   assert.deepEqual(['Cast','Counter','Create'].map(name=>payload.records.find(r=>r.name===name)?.kind),['rules','rules','rules'],'generic C rules actions have no invented color access');
   const dRecord=name=>payload.records.find(r=>r.name===name);
   assert.deepEqual(['Double','Destroy','Discard'].map(name=>dRecord(name).kind),['rules','rules','rules'],'generic D actions remain references');
