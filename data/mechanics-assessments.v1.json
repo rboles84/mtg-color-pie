@@ -84,6 +84,10 @@
     {
       "path": "docs/mechanics-research/l-protocol.json",
       "sha256": "a10947b6e47c5cb09e11e20cd2d5a9af2b3b50aed7de10e499beecedcdd66e53"
+    },
+    {
+      "path": "docs/mechanics-research/m-protocol.json",
+      "sha256": "f45c64a57ee74f0b9030353aeea4fdba62b491ab5a2a79c60a497aecabd9882c"
     }
   ],
   "records": [
@@ -43771,6 +43775,3757 @@
         {
           "name": "Mandibular Kite",
           "url": "https://scryfall.com/card/mh3/34/mandibular-kite?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:madness",
+      "name": "Madness",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Madness on released paper cards, including explicit grants where present.",
+      "summary": "Madness exiles a card as you discard it, then lets you cast it for its madness cost or put it into your graveyard.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Frantic Purification has a madness cost of {W}.",
+            "cards": [
+              {
+                "name": "Frantic Purification",
+                "url": "https://scryfall.com/card/tor/6/frantic-purification?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Frantic%20Purification%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Broken Concentration has a madness cost of {3}{U}.",
+            "cards": [
+              {
+                "name": "Broken Concentration",
+                "url": "https://scryfall.com/card/soi/50/broken-concentration?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Broken%20Concentration%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Alms of the Vein has a madness cost of {B}.",
+            "cards": [
+              {
+                "name": "Alms of the Vein",
+                "url": "https://scryfall.com/card/soi/98/alms-of-the-vein?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Alms%20of%20the%20Vein%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Abandon Reason has a madness cost of {1}{R}.",
+            "cards": [
+              {
+                "name": "Abandon Reason",
+                "url": "https://scryfall.com/card/emn/115/abandon-reason?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Abandon%20Reason%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Arrogant Wurm has a madness cost of {2}{G}.",
+            "cards": [
+              {
+                "name": "Arrogant Wurm",
+                "url": "https://scryfall.com/card/tor/120/arrogant-wurm?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Arrogant%20Wurm%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "B",
+              "R"
+            ],
+            "note": "Bloodhall Priest has a madness cost of {1}{B}{R}.",
+            "cards": [
+              {
+                "name": "Bloodhall Priest",
+                "url": "https://scryfall.com/card/inr/232/bloodhall-priest?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Bloodhall%20Priest%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "documented",
+          "note": "Emrakul, the World Anew has a madness cost of six {C}.",
+          "cards": [
+            {
+              "name": "Emrakul, the World Anew",
+              "url": "https://scryfall.com/card/mh3/6/emrakul-the-world-anew?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22Emrakul%2C%20the%20World%20Anew%22%29%20include%3Aextras"
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Abandon Reason",
+          "url": "https://scryfall.com/card/emn/115/abandon-reason?utm_source=api"
+        },
+        {
+          "name": "Alms of the Vein",
+          "url": "https://scryfall.com/card/soi/98/alms-of-the-vein?utm_source=api"
+        },
+        {
+          "name": "Arrogant Wurm",
+          "url": "https://scryfall.com/card/tor/120/arrogant-wurm?utm_source=api"
+        },
+        {
+          "name": "Bloodhall Priest",
+          "url": "https://scryfall.com/card/inr/232/bloodhall-priest?utm_source=api"
+        },
+        {
+          "name": "Broken Concentration",
+          "url": "https://scryfall.com/card/soi/50/broken-concentration?utm_source=api"
+        },
+        {
+          "name": "Emrakul, the World Anew",
+          "url": "https://scryfall.com/card/mh3/6/emrakul-the-world-anew?utm_source=api"
+        },
+        {
+          "name": "Frantic Purification",
+          "url": "https://scryfall.com/card/tor/6/frantic-purification?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:magecraft",
+      "name": "Magecraft",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Magecraft on released paper cards, including explicit grants where present.",
+      "summary": "Magecraft abilities trigger when you cast or copy an instant or sorcery spell; the reward depends on the card.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Clever Lumimancer gets +2/+2 until end of turn for each magecraft trigger.",
+            "cards": [
+              {
+                "name": "Clever Lumimancer",
+                "url": "https://scryfall.com/card/stx/10/clever-lumimancer?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Clever%20Lumimancer%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Archmage Emeritus draws a card for each magecraft trigger.",
+            "cards": [
+              {
+                "name": "Archmage Emeritus",
+                "url": "https://scryfall.com/card/soc/188/archmage-emeritus?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Archmage%20Emeritus%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Professor Onyx makes each opponent lose 2 life and gains you 2 life for each magecraft trigger.",
+            "cards": [
+              {
+                "name": "Professor Onyx",
+                "url": "https://scryfall.com/card/dsc/153/professor-onyx?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Professor%20Onyx%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Ashling, Flame Dancer discards then draws; the second resolution in a turn deals 2 damage to each opponent and their creatures, and the third adds {R}{R}{R}{R}.",
+            "cards": [
+              {
+                "name": "Ashling, Flame Dancer",
+                "url": "https://scryfall.com/card/mh3/115/ashling-flame-dancer?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Ashling%2C%20Flame%20Dancer%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Dragonsguard Elite gets a +1/+1 counter for each magecraft trigger.",
+            "cards": [
+              {
+                "name": "Dragonsguard Elite",
+                "url": "https://scryfall.com/card/stx/127/dragonsguard-elite?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Dragonsguard%20Elite%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "B",
+              "G"
+            ],
+            "note": "Witherbloom Apprentice makes each opponent lose 1 life and gains you 1 life for each magecraft trigger.",
+            "cards": [
+              {
+                "name": "Witherbloom Apprentice",
+                "url": "https://scryfall.com/card/stx/247/witherbloom-apprentice?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Witherbloom%20Apprentice%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "U",
+              "G"
+            ],
+            "note": "Quandrix Apprentice looks at your top three cards and can put a revealed land into your hand.",
+            "cards": [
+              {
+                "name": "Quandrix Apprentice",
+                "url": "https://scryfall.com/card/soc/324/quandrix-apprentice?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Quandrix%20Apprentice%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "U",
+              "R"
+            ],
+            "note": "Elemental Expressionist gives a target creature you control a temporary exile replacement effect and a trigger that creates a 4/4 blue and red Elemental when it is exiled.",
+            "cards": [
+              {
+                "name": "Elemental Expressionist",
+                "url": "https://scryfall.com/card/stx/181/elemental-expressionist?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Elemental%20Expressionist%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "B"
+            ],
+            "note": "Extus, Oriq Overlord returns a target nonlegendary creature card from your graveyard to your hand for each magecraft trigger.",
+            "cards": [
+              {
+                "name": "Extus, Oriq Overlord // Awaken the Blood Avatar",
+                "url": "https://scryfall.com/card/stx/149/extus-oriq-overlord-awaken-the-blood-avatar?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Extus%2C%20Oriq%20Overlord%20//%20Awaken%20the%20Blood%20Avatar%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "R"
+            ],
+            "note": "Lorehold Apprentice temporarily lets your Spirits tap to deal 1 damage to each opponent.",
+            "cards": [
+              {
+                "name": "Lorehold Apprentice",
+                "url": "https://scryfall.com/card/stx/198/lorehold-apprentice?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Lorehold%20Apprentice%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "documented",
+          "note": "Spell Satchel gets a book counter for each magecraft trigger, then can spend those counters to produce mana or draw.",
+          "cards": [
+            {
+              "name": "Spell Satchel",
+              "url": "https://scryfall.com/card/stx/258/spell-satchel?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22Spell%20Satchel%22%29%20include%3Aextras"
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Archmage Emeritus",
+          "url": "https://scryfall.com/card/soc/188/archmage-emeritus?utm_source=api"
+        },
+        {
+          "name": "Ashling, Flame Dancer",
+          "url": "https://scryfall.com/card/mh3/115/ashling-flame-dancer?utm_source=api"
+        },
+        {
+          "name": "Clever Lumimancer",
+          "url": "https://scryfall.com/card/stx/10/clever-lumimancer?utm_source=api"
+        },
+        {
+          "name": "Dragonsguard Elite",
+          "url": "https://scryfall.com/card/stx/127/dragonsguard-elite?utm_source=api"
+        },
+        {
+          "name": "Elemental Expressionist",
+          "url": "https://scryfall.com/card/stx/181/elemental-expressionist?utm_source=api"
+        },
+        {
+          "name": "Extus, Oriq Overlord // Awaken the Blood Avatar",
+          "url": "https://scryfall.com/card/stx/149/extus-oriq-overlord-awaken-the-blood-avatar?utm_source=api"
+        },
+        {
+          "name": "Lorehold Apprentice",
+          "url": "https://scryfall.com/card/stx/198/lorehold-apprentice?utm_source=api"
+        },
+        {
+          "name": "Professor Onyx",
+          "url": "https://scryfall.com/card/dsc/153/professor-onyx?utm_source=api"
+        },
+        {
+          "name": "Quandrix Apprentice",
+          "url": "https://scryfall.com/card/soc/324/quandrix-apprentice?utm_source=api"
+        },
+        {
+          "name": "Spell Satchel",
+          "url": "https://scryfall.com/card/stx/258/spell-satchel?utm_source=api"
+        },
+        {
+          "name": "Witherbloom Apprentice",
+          "url": "https://scryfall.com/card/stx/247/witherbloom-apprentice?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:manifest",
+      "name": "Manifest",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Manifest actions other than the separately listed Manifest Dread action.",
+      "summary": "Manifest puts a card onto the battlefield face down as a 2/2 creature. If it is a creature card, you can pay its mana cost to turn it face up when you have priority.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Guardian of the Forgotten manifests your top card whenever a modified creature you control dies.",
+            "cards": [
+              {
+                "name": "Guardian of the Forgotten",
+                "url": "https://scryfall.com/card/mh3/28/guardian-of-the-forgotten?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Guardian%20of%20the%20Forgotten%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Cloudform becomes an Aura when it enters, manifests your top card and attaches to it, giving that creature flying and hexproof.",
+            "cards": [
+              {
+                "name": "Cloudform",
+                "url": "https://scryfall.com/card/c18/83/cloudform?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Cloudform%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Ghastly Conscription exiles all creature cards from a target player’s graveyard, shuffles that face-down pile and manifests those cards.",
+            "cards": [
+              {
+                "name": "Ghastly Conscription",
+                "url": "https://scryfall.com/card/c19/115/ghastly-conscription?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Ghastly%20Conscription%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Fierce Invocation manifests your top card and puts two +1/+1 counters on it.",
+            "cards": [
+              {
+                "name": "Fierce Invocation",
+                "url": "https://scryfall.com/card/frf/98/fierce-invocation?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Fierce%20Invocation%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Arashin War Beast manifests your top card when it deals combat damage to one or more blocking creatures.",
+            "cards": [
+              {
+                "name": "Arashin War Beast",
+                "url": "https://scryfall.com/card/frf/123/arashin-war-beast?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Arashin%20War%20Beast%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "U",
+              "G"
+            ],
+            "note": "Ethereal Ambush manifests the top two cards of your library.",
+            "cards": [
+              {
+                "name": "Ethereal Ambush",
+                "url": "https://scryfall.com/card/frf/152/ethereal-ambush?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Ethereal%20Ambush%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "U",
+              "R"
+            ],
+            "note": "Cryptic Pursuit manifests your top card whenever you cast an instant or sorcery from your hand.",
+            "cards": [
+              {
+                "name": "Cryptic Pursuit",
+                "url": "https://scryfall.com/card/ncc/70/cryptic-pursuit?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Cryptic%20Pursuit%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "documented",
+          "note": "Scroll of Fate taps to manifest a card from your hand.",
+          "cards": [
+            {
+              "name": "Scroll of Fate",
+              "url": "https://scryfall.com/card/dsc/251/scroll-of-fate?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22Scroll%20of%20Fate%22%29%20include%3Aextras"
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Cloudform",
+          "url": "https://scryfall.com/card/c18/83/cloudform?utm_source=api"
+        },
+        {
+          "name": "Arashin War Beast",
+          "url": "https://scryfall.com/card/frf/123/arashin-war-beast?utm_source=api"
+        },
+        {
+          "name": "Scroll of Fate",
+          "url": "https://scryfall.com/card/dsc/251/scroll-of-fate?utm_source=api"
+        },
+        {
+          "name": "Cryptic Pursuit",
+          "url": "https://scryfall.com/card/ncc/70/cryptic-pursuit?utm_source=api"
+        },
+        {
+          "name": "Ethereal Ambush",
+          "url": "https://scryfall.com/card/frf/152/ethereal-ambush?utm_source=api"
+        },
+        {
+          "name": "Fierce Invocation",
+          "url": "https://scryfall.com/card/frf/98/fierce-invocation?utm_source=api"
+        },
+        {
+          "name": "Ghastly Conscription",
+          "url": "https://scryfall.com/card/c19/115/ghastly-conscription?utm_source=api"
+        },
+        {
+          "name": "Guardian of the Forgotten",
+          "url": "https://scryfall.com/card/mh3/28/guardian-of-the-forgotten?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:manifest dread",
+      "name": "Manifest Dread",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Manifest Dread on released paper cards, including explicit grants where present.",
+      "summary": "Manifest dread looks at the top two cards of your library, manifests one and puts the other into your graveyard.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Unsettling Twins manifests dread when it enters.",
+            "cards": [
+              {
+                "name": "Unsettling Twins",
+                "url": "https://scryfall.com/card/dsk/38/unsettling-twins?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Unsettling%20Twins%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Abhorrent Oculus manifests dread at the beginning of each opponent’s upkeep.",
+            "cards": [
+              {
+                "name": "Abhorrent Oculus",
+                "url": "https://scryfall.com/card/dsk/42/abhorrent-oculus?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Abhorrent%20Oculus%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Innocuous Rat manifests dread when it dies.",
+            "cards": [
+              {
+                "name": "Innocuous Rat",
+                "url": "https://scryfall.com/card/dsk/103/innocuous-rat?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Innocuous%20Rat%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Turn Inside Out gives a target creature +3/+0 for the turn and manifests dread if it dies that turn.",
+            "cards": [
+              {
+                "name": "Turn Inside Out",
+                "url": "https://scryfall.com/card/dsk/160/turn-inside-out?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Turn%20Inside%20Out%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Bashful Beastie manifests dread when it dies.",
+            "cards": [
+              {
+                "name": "Bashful Beastie",
+                "url": "https://scryfall.com/card/dsk/169/bashful-beastie?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Bashful%20Beastie%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "B",
+              "R"
+            ],
+            "note": "Disturbing Mirth manifests dread when you sacrifice it.",
+            "cards": [
+              {
+                "name": "Disturbing Mirth",
+                "url": "https://scryfall.com/card/dsk/212/disturbing-mirth?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Disturbing%20Mirth%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "U",
+              "G"
+            ],
+            "note": "Growing Dread manifests dread when it enters and adds a +1/+1 counter whenever you turn a permanent face up.",
+            "cards": [
+              {
+                "name": "Growing Dread",
+                "url": "https://scryfall.com/card/dsk/216/growing-dread?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Growing%20Dread%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "documented",
+          "note": "Conductive Machete manifests dread when it enters, then attaches itself to that creature.",
+          "cards": [
+            {
+              "name": "Conductive Machete",
+              "url": "https://scryfall.com/card/dsk/244/conductive-machete?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22Conductive%20Machete%22%29%20include%3Aextras"
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Abhorrent Oculus",
+          "url": "https://scryfall.com/card/dsk/42/abhorrent-oculus?utm_source=api"
+        },
+        {
+          "name": "Bashful Beastie",
+          "url": "https://scryfall.com/card/dsk/169/bashful-beastie?utm_source=api"
+        },
+        {
+          "name": "Conductive Machete",
+          "url": "https://scryfall.com/card/dsk/244/conductive-machete?utm_source=api"
+        },
+        {
+          "name": "Disturbing Mirth",
+          "url": "https://scryfall.com/card/dsk/212/disturbing-mirth?utm_source=api"
+        },
+        {
+          "name": "Growing Dread",
+          "url": "https://scryfall.com/card/dsk/216/growing-dread?utm_source=api"
+        },
+        {
+          "name": "Innocuous Rat",
+          "url": "https://scryfall.com/card/dsk/103/innocuous-rat?utm_source=api"
+        },
+        {
+          "name": "Turn Inside Out",
+          "url": "https://scryfall.com/card/dsk/160/turn-inside-out?utm_source=api"
+        },
+        {
+          "name": "Unsettling Twins",
+          "url": "https://scryfall.com/card/dsk/38/unsettling-twins?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:shortlist:mark of chaos ascendant",
+      "name": "Mark of Chaos Ascendant",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "The named card-specific flavor label.",
+      "summary": "Mark of Chaos Ascendant is Abaddon the Despoiler’s card-specific label for granting cascade to qualifying spells.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "not_found",
+            "note": "No example found in the reviewed released-paper scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "U": {
+            "status": "multicolor_only",
+            "note": "Documented in the color combinations below.",
+            "cards": [
+              {
+                "name": "Abaddon the Despoiler",
+                "url": "https://scryfall.com/card/40k/2/abaddon-the-despoiler?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Abaddon%20the%20Despoiler%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "multicolor_only",
+            "note": "Documented in the color combinations below.",
+            "cards": [
+              {
+                "name": "Abaddon the Despoiler",
+                "url": "https://scryfall.com/card/40k/2/abaddon-the-despoiler?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Abaddon%20the%20Despoiler%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "multicolor_only",
+            "note": "Documented in the color combinations below.",
+            "cards": [
+              {
+                "name": "Abaddon the Despoiler",
+                "url": "https://scryfall.com/card/40k/2/abaddon-the-despoiler?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Abaddon%20the%20Despoiler%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "not_found",
+            "note": "No example found in the reviewed released-paper scope.",
+            "cards": [],
+            "findUrl": null
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "U",
+              "B",
+              "R"
+            ],
+            "note": "Abaddon the Despoiler grants cascade during your turn to spells you cast from your hand with mana value no greater than the total life your opponents lost that turn.",
+            "cards": [
+              {
+                "name": "Abaddon the Despoiler",
+                "url": "https://scryfall.com/card/40k/2/abaddon-the-despoiler?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Abaddon%20the%20Despoiler%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "not_found",
+          "note": "No colorless example found in the reviewed released-paper scope.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Abaddon the Despoiler",
+          "url": "https://scryfall.com/card/40k/2/abaddon-the-despoiler?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:max speed",
+      "name": "Max Speed",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Max Speed on released paper cards, including explicit grants where present.",
+      "summary": "A max speed ability supplies its stated ability while your speed is 4.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Leonin Surveyor can be exiled from your graveyard for {3} to draw a card at max speed.",
+            "cards": [
+              {
+                "name": "Leonin Surveyor",
+                "url": "https://scryfall.com/card/dft/18/leonin-surveyor?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Leonin%20Surveyor%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Aether Syphon makes each opponent mill two cards whenever you draw a card at max speed.",
+            "cards": [
+              {
+                "name": "Aether Syphon",
+                "url": "https://scryfall.com/card/dft/38/aether-syphon?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Aether%20Syphon%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Gas Guzzler can pay {B} and sacrifice another creature or Vehicle to draw a card at max speed.",
+            "cards": [
+              {
+                "name": "Gas Guzzler",
+                "url": "https://scryfall.com/card/dft/85/gas-guzzler?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Gas%20Guzzler%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Burnout Bashtronaut has double strike at max speed.",
+            "cards": [
+              {
+                "name": "Burnout Bashtronaut",
+                "url": "https://scryfall.com/card/dft/115/burnout-bashtronaut?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Burnout%20Bashtronaut%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Loxodon Surveyor can be exiled from your graveyard for {3} to draw a card at max speed.",
+            "cards": [
+              {
+                "name": "Loxodon Surveyor",
+                "url": "https://scryfall.com/card/dft/167/loxodon-surveyor?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Loxodon%20Surveyor%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "B",
+              "R"
+            ],
+            "note": "Far Fortune, End Boss adds 1 to damage your sources deal to opponents or their permanents at max speed.",
+            "cards": [
+              {
+                "name": "Far Fortune, End Boss",
+                "url": "https://scryfall.com/card/dft/203/far-fortune-end-boss?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Far%20Fortune%2C%20End%20Boss%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "B"
+            ],
+            "note": "Embalmed Ascendant makes each opponent lose 1 life and gains you 1 life whenever a creature you control dies at max speed.",
+            "cards": [
+              {
+                "name": "Embalmed Ascendant",
+                "url": "https://scryfall.com/card/dft/201/embalmed-ascendant?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Embalmed%20Ascendant%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "B",
+              "R"
+            ],
+            "note": "Tsagan, Raider Warlord has deathtouch and gives your other creatures first strike at max speed.",
+            "cards": [
+              {
+                "name": "Tsagan, Raider Warlord",
+                "url": "https://scryfall.com/card/mbc/53/tsagan-raider-warlord?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Tsagan%2C%20Raider%20Warlord%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "U"
+            ],
+            "note": "Mendicant Core, Guidelight lets you pay {1} to copy an artifact spell you cast at max speed.",
+            "cards": [
+              {
+                "name": "Mendicant Core, Guidelight",
+                "url": "https://scryfall.com/card/dft/213/mendicant-core-guidelight?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Mendicant%20Core%2C%20Guidelight%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "documented",
+          "note": "Amonkhet Raceway can tap to give a target creature haste until end of turn at max speed.",
+          "cards": [
+            {
+              "name": "Amonkhet Raceway",
+              "url": "https://scryfall.com/card/dft/248/amonkhet-raceway?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22Amonkhet%20Raceway%22%29%20include%3Aextras"
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Aether Syphon",
+          "url": "https://scryfall.com/card/dft/38/aether-syphon?utm_source=api"
+        },
+        {
+          "name": "Amonkhet Raceway",
+          "url": "https://scryfall.com/card/dft/248/amonkhet-raceway?utm_source=api"
+        },
+        {
+          "name": "Burnout Bashtronaut",
+          "url": "https://scryfall.com/card/dft/115/burnout-bashtronaut?utm_source=api"
+        },
+        {
+          "name": "Embalmed Ascendant",
+          "url": "https://scryfall.com/card/dft/201/embalmed-ascendant?utm_source=api"
+        },
+        {
+          "name": "Far Fortune, End Boss",
+          "url": "https://scryfall.com/card/dft/203/far-fortune-end-boss?utm_source=api"
+        },
+        {
+          "name": "Gas Guzzler",
+          "url": "https://scryfall.com/card/dft/85/gas-guzzler?utm_source=api"
+        },
+        {
+          "name": "Leonin Surveyor",
+          "url": "https://scryfall.com/card/dft/18/leonin-surveyor?utm_source=api"
+        },
+        {
+          "name": "Loxodon Surveyor",
+          "url": "https://scryfall.com/card/dft/167/loxodon-surveyor?utm_source=api"
+        },
+        {
+          "name": "Mendicant Core, Guidelight",
+          "url": "https://scryfall.com/card/dft/213/mendicant-core-guidelight?utm_source=api"
+        },
+        {
+          "name": "Tsagan, Raider Warlord",
+          "url": "https://scryfall.com/card/mbc/53/tsagan-raider-warlord?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:mayhem",
+      "name": "Mayhem",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Mayhem on released paper cards, including explicit grants where present.",
+      "summary": "Mayhem lets you cast a card from your graveyard for its mayhem cost if you discarded it that turn. Mayhem without a cost lets you play the card instead; normal timing still applies.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "not_found",
+            "note": "No example found in the reviewed released-paper scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "U": {
+            "status": "documented",
+            "note": "Chameleon, Master of Disguise has a mayhem cost of {2}{U}.",
+            "cards": [
+              {
+                "name": "Chameleon, Master of Disguise",
+                "url": "https://scryfall.com/card/msc/148/chameleon-master-of-disguise?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Chameleon%2C%20Master%20of%20Disguise%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Green Goblin, Back for More has a mayhem cost of {3}{B}{B}.",
+            "cards": [
+              {
+                "name": "Green Goblin, Back for More",
+                "url": "https://scryfall.com/card/msc/657/green-goblin-back-for-more?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Green%20Goblin%2C%20Back%20for%20More%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Abomination, World Ravager has a mayhem cost of {4}{R}.",
+            "cards": [
+              {
+                "name": "Abomination, World Ravager",
+                "url": "https://scryfall.com/card/msc/47/abomination-world-ravager?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Abomination%2C%20World%20Ravager%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "not_found",
+            "note": "No example found in the reviewed released-paper scope.",
+            "cards": [],
+            "findUrl": null
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "B",
+              "R"
+            ],
+            "note": "Carnage, Crimson Chaos has a mayhem cost of {B}{R}.",
+            "cards": [
+              {
+                "name": "Carnage, Crimson Chaos",
+                "url": "https://scryfall.com/card/spm/125/carnage-crimson-chaos?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Carnage%2C%20Crimson%20Chaos%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "U",
+              "B",
+              "R"
+            ],
+            "note": "Green Goblin gives nonland cards in your graveyard mayhem with a cost equal to each card’s mana cost.",
+            "cards": [
+              {
+                "name": "Norman Osborn // Green Goblin",
+                "url": "https://scryfall.com/card/spm/39/norman-osborn-green-goblin?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Norman%20Osborn%20//%20Green%20Goblin%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "U",
+              "R"
+            ],
+            "note": "The Squadron Sinister has a mayhem cost of {3}{U}{R}.",
+            "cards": [
+              {
+                "name": "The Squadron Sinister",
+                "url": "https://scryfall.com/card/msc/96/the-squadron-sinister?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22The%20Squadron%20Sinister%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "documented",
+          "note": "Oscorp Industries has mayhem without a cost, letting you play it from your graveyard if you discarded it that turn; land-play limits still apply.",
+          "cards": [
+            {
+              "name": "Oscorp Industries",
+              "url": "https://scryfall.com/card/spm/182/oscorp-industries?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22Oscorp%20Industries%22%29%20include%3Aextras"
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Abomination, World Ravager",
+          "url": "https://scryfall.com/card/msc/47/abomination-world-ravager?utm_source=api"
+        },
+        {
+          "name": "Carnage, Crimson Chaos",
+          "url": "https://scryfall.com/card/spm/125/carnage-crimson-chaos?utm_source=api"
+        },
+        {
+          "name": "Chameleon, Master of Disguise",
+          "url": "https://scryfall.com/card/msc/148/chameleon-master-of-disguise?utm_source=api"
+        },
+        {
+          "name": "Green Goblin, Back for More",
+          "url": "https://scryfall.com/card/msc/657/green-goblin-back-for-more?utm_source=api"
+        },
+        {
+          "name": "Oscorp Industries",
+          "url": "https://scryfall.com/card/spm/182/oscorp-industries?utm_source=api"
+        },
+        {
+          "name": "The Squadron Sinister",
+          "url": "https://scryfall.com/card/msc/96/the-squadron-sinister?utm_source=api"
+        },
+        {
+          "name": "Norman Osborn // Green Goblin",
+          "url": "https://scryfall.com/card/spm/39/norman-osborn-green-goblin?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:shortlist:megamorph",
+      "name": "Megamorph",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Megamorph on released paper cards, including explicit grants where present.",
+      "summary": "Megamorph lets you cast a creature face down for {3}, then turn it face up for its megamorph cost when you have priority, adding a +1/+1 counter as it turns face up.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Aven Sunstriker has a megamorph cost of {4}{W}.",
+            "cards": [
+              {
+                "name": "Aven Sunstriker",
+                "url": "https://scryfall.com/card/dtk/5/aven-sunstriker?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Aven%20Sunstriker%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Belltoll Dragon has a megamorph cost of {5}{U}{U}.",
+            "cards": [
+              {
+                "name": "Belltoll Dragon",
+                "url": "https://scryfall.com/card/dtk/46/belltoll-dragon?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Belltoll%20Dragon%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Acid-Spewer Dragon has a megamorph cost of {5}{B}{B}.",
+            "cards": [
+              {
+                "name": "Acid-Spewer Dragon",
+                "url": "https://scryfall.com/card/dtk/86/acid-spewer-dragon?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Acid-Spewer%20Dragon%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Atarka Efreet has a megamorph cost of {2}{R}.",
+            "cards": [
+              {
+                "name": "Atarka Efreet",
+                "url": "https://scryfall.com/card/dtk/128/atarka-efreet?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Atarka%20Efreet%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Aerie Bowmasters has a megamorph cost of {5}{G}.",
+            "cards": [
+              {
+                "name": "Aerie Bowmasters",
+                "url": "https://scryfall.com/card/dtk/170/aerie-bowmasters?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Aerie%20Bowmasters%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "not_found",
+          "note": "No colorless example found in the reviewed released-paper scope.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Acid-Spewer Dragon",
+          "url": "https://scryfall.com/card/dtk/86/acid-spewer-dragon?utm_source=api"
+        },
+        {
+          "name": "Aerie Bowmasters",
+          "url": "https://scryfall.com/card/dtk/170/aerie-bowmasters?utm_source=api"
+        },
+        {
+          "name": "Atarka Efreet",
+          "url": "https://scryfall.com/card/dtk/128/atarka-efreet?utm_source=api"
+        },
+        {
+          "name": "Aven Sunstriker",
+          "url": "https://scryfall.com/card/dtk/5/aven-sunstriker?utm_source=api"
+        },
+        {
+          "name": "Belltoll Dragon",
+          "url": "https://scryfall.com/card/dtk/46/belltoll-dragon?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:meld",
+      "name": "Meld",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Meld on released paper cards, including explicit grants where present.",
+      "summary": "Meld combines the two cards of a matching meld pair into one permanent with their back faces up.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Gisela, the Broken Blade can meld with Bruna, the Fading Light into Brisela, Voice of Nightmares at your end step if you own and control both.",
+            "cards": [
+              {
+                "name": "Gisela, the Broken Blade",
+                "url": "https://scryfall.com/card/inr/24/gisela-the-broken-blade?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Gisela%2C%20the%20Broken%20Blade%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "multicolor_only",
+            "note": "Documented in the color combinations below.",
+            "cards": [
+              {
+                "name": "Urza, Lord Protector",
+                "url": "https://scryfall.com/card/bro/225/urza-lord-protector?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Urza%2C%20Lord%20Protector%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Graf Rats can meld with Midnight Scavengers into Chittering Host at the beginning of combat on your turn if you own and control both.",
+            "cards": [
+              {
+                "name": "Graf Rats",
+                "url": "https://scryfall.com/card/inr/113/graf-rats?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Graf%20Rats%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "multicolor_only",
+            "note": "Documented in the color combinations below.",
+            "cards": [
+              {
+                "name": "Mishra, Claimed by Gix",
+                "url": "https://scryfall.com/card/bro/216/mishra-claimed-by-gix?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Mishra%2C%20Claimed%20by%20Gix%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Titania, Voice of Gaea can meld with Argoth, Sanctum of Nature during your upkeep if you own and control both and have four or more land cards in your graveyard.",
+            "cards": [
+              {
+                "name": "Titania, Voice of Gaea",
+                "url": "https://scryfall.com/card/bro/193/titania-voice-of-gaea?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Titania%2C%20Voice%20of%20Gaea%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "B",
+              "R"
+            ],
+            "note": "Mishra, Claimed by Gix melds with Phyrexian Dragon Engine when both attack and you own and control both, returning Mishra, Lost to Phyrexia tapped and attacking.",
+            "cards": [
+              {
+                "name": "Mishra, Claimed by Gix",
+                "url": "https://scryfall.com/card/bro/216/mishra-claimed-by-gix?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Mishra%2C%20Claimed%20by%20Gix%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "U"
+            ],
+            "note": "Urza, Lord Protector can pay {7} at sorcery speed to meld with The Mightstone and Weakstone if you own and control both.",
+            "cards": [
+              {
+                "name": "Urza, Lord Protector",
+                "url": "https://scryfall.com/card/bro/225/urza-lord-protector?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Urza%2C%20Lord%20Protector%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "documented",
+          "note": "Hanweir Battlements can pay {3}{R}{R} and tap to meld with Hanweir Garrison if you own and control both; its red activation cost does not make the land red.",
+          "cards": [
+            {
+              "name": "Hanweir Battlements",
+              "url": "https://scryfall.com/card/inr/279/hanweir-battlements?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22Hanweir%20Battlements%22%29%20include%3Aextras"
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Gisela, the Broken Blade",
+          "url": "https://scryfall.com/card/inr/24/gisela-the-broken-blade?utm_source=api"
+        },
+        {
+          "name": "Graf Rats",
+          "url": "https://scryfall.com/card/inr/113/graf-rats?utm_source=api"
+        },
+        {
+          "name": "Hanweir Battlements",
+          "url": "https://scryfall.com/card/inr/279/hanweir-battlements?utm_source=api"
+        },
+        {
+          "name": "Mishra, Claimed by Gix",
+          "url": "https://scryfall.com/card/bro/216/mishra-claimed-by-gix?utm_source=api"
+        },
+        {
+          "name": "Titania, Voice of Gaea",
+          "url": "https://scryfall.com/card/bro/193/titania-voice-of-gaea?utm_source=api"
+        },
+        {
+          "name": "Urza, Lord Protector",
+          "url": "https://scryfall.com/card/bro/225/urza-lord-protector?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:melee",
+      "name": "Melee",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Melee on released paper cards, including explicit grants where present.",
+      "summary": "When a creature with melee attacks, it gets +1/+1 until end of turn for each opponent you attacked with a creature that combat.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Custodi Soulcaller has melee and can return a creature card when it attacks, with the mana-value limit set by the number of players you attacked.",
+            "cards": [
+              {
+                "name": "Custodi Soulcaller",
+                "url": "https://scryfall.com/card/cn2/15/custodi-soulcaller?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Custodi%20Soulcaller%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "not_found",
+            "note": "No example found in the reviewed released-paper scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "B": {
+            "status": "not_found",
+            "note": "No example found in the reviewed released-paper scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "R": {
+            "status": "documented",
+            "note": "Deputized Protester has menace as well as melee.",
+            "cards": [
+              {
+                "name": "Deputized Protester",
+                "url": "https://scryfall.com/card/clu/131/deputized-protester?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Deputized%20Protester%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Fang of the Pack has melee and grants another creature you control melee until end of turn at the beginning of combat on your turn.",
+            "cards": [
+              {
+                "name": "Fang of the Pack",
+                "url": "https://scryfall.com/card/cn2/65/fang-of-the-pack?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Fang%20of%20the%20Pack%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "R",
+              "G"
+            ],
+            "note": "Wulfgar of Icewind Dale has melee and makes abilities of your permanents triggered by your creatures attacking trigger an additional time.",
+            "cards": [
+              {
+                "name": "Wulfgar of Icewind Dale",
+                "url": "https://scryfall.com/card/afc/56/wulfgar-of-icewind-dale?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Wulfgar%20of%20Icewind%20Dale%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "R"
+            ],
+            "note": "Adriana, Captain of the Guard has melee and grants it to your other creatures.",
+            "cards": [
+              {
+                "name": "Adriana, Captain of the Guard",
+                "url": "https://scryfall.com/card/dmc/139/adriana-captain-of-the-guard?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Adriana%2C%20Captain%20of%20the%20Guard%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "R",
+              "G"
+            ],
+            "note": "Tifa, Martial Artist has melee and can grant another combat when your creatures with power 7 or greater deal combat damage to a player during your first combat.",
+            "cards": [
+              {
+                "name": "Tifa, Martial Artist",
+                "url": "https://scryfall.com/card/fic/6/tifa-martial-artist?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Tifa%2C%20Martial%20Artist%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "not_found",
+          "note": "No colorless example found in the reviewed released-paper scope.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Adriana, Captain of the Guard",
+          "url": "https://scryfall.com/card/dmc/139/adriana-captain-of-the-guard?utm_source=api"
+        },
+        {
+          "name": "Custodi Soulcaller",
+          "url": "https://scryfall.com/card/cn2/15/custodi-soulcaller?utm_source=api"
+        },
+        {
+          "name": "Deputized Protester",
+          "url": "https://scryfall.com/card/clu/131/deputized-protester?utm_source=api"
+        },
+        {
+          "name": "Fang of the Pack",
+          "url": "https://scryfall.com/card/cn2/65/fang-of-the-pack?utm_source=api"
+        },
+        {
+          "name": "Tifa, Martial Artist",
+          "url": "https://scryfall.com/card/fic/6/tifa-martial-artist?utm_source=api"
+        },
+        {
+          "name": "Wulfgar of Icewind Dale",
+          "url": "https://scryfall.com/card/afc/56/wulfgar-of-icewind-dale?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:mentor",
+      "name": "Mentor",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Mentor on released paper cards, including explicit grants where present.",
+      "summary": "When a creature with mentor attacks, it puts a +1/+1 counter on a target attacking creature with less power.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Blade Instructor has mentor.",
+            "cards": [
+              {
+                "name": "Blade Instructor",
+                "url": "https://scryfall.com/card/grn/1/blade-instructor?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Blade%20Instructor%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Danny Pink has mentor and grants your creatures a card-draw trigger for the first counters placed on each of them each turn.",
+            "cards": [
+              {
+                "name": "Danny Pink",
+                "url": "https://scryfall.com/card/who/39/danny-pink?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Danny%20Pink%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "multicolor_only",
+            "note": "Documented in the color combinations below.",
+            "cards": [
+              {
+                "name": "Felisa, Fang of Silverquill",
+                "url": "https://scryfall.com/card/clb/845/felisa-fang-of-silverquill?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Felisa%2C%20Fang%20of%20Silverquill%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Barging Sergeant has haste and mentor.",
+            "cards": [
+              {
+                "name": "Barging Sergeant",
+                "url": "https://scryfall.com/card/grn/92/barging-sergeant?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Barging%20Sergeant%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Tributary Instructor has mentor and draws a card when a creature you control with a +1/+1 counter dies.",
+            "cards": [
+              {
+                "name": "Tributary Instructor",
+                "url": "https://scryfall.com/card/lcc/96/tributary-instructor?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Tributary%20Instructor%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "W",
+              "B"
+            ],
+            "note": "Felisa, Fang of Silverquill has flying and mentor, and turns counters on dying nontoken creatures into tapped Inkling tokens.",
+            "cards": [
+              {
+                "name": "Felisa, Fang of Silverquill",
+                "url": "https://scryfall.com/card/clb/845/felisa-fang-of-silverquill?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Felisa%2C%20Fang%20of%20Silverquill%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "R"
+            ],
+            "note": "Aurelia, Exemplar of Justice has flying and mentor, and can give a creature +2/+0 and color-dependent abilities at the beginning of combat on your turn.",
+            "cards": [
+              {
+                "name": "Aurelia, Exemplar of Justice",
+                "url": "https://scryfall.com/card/rvr/164/aurelia-exemplar-of-justice?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Aurelia%2C%20Exemplar%20of%20Justice%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "not_found",
+          "note": "No colorless example found in the reviewed released-paper scope.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Aurelia, Exemplar of Justice",
+          "url": "https://scryfall.com/card/rvr/164/aurelia-exemplar-of-justice?utm_source=api"
+        },
+        {
+          "name": "Barging Sergeant",
+          "url": "https://scryfall.com/card/grn/92/barging-sergeant?utm_source=api"
+        },
+        {
+          "name": "Blade Instructor",
+          "url": "https://scryfall.com/card/grn/1/blade-instructor?utm_source=api"
+        },
+        {
+          "name": "Danny Pink",
+          "url": "https://scryfall.com/card/who/39/danny-pink?utm_source=api"
+        },
+        {
+          "name": "Felisa, Fang of Silverquill",
+          "url": "https://scryfall.com/card/clb/845/felisa-fang-of-silverquill?utm_source=api"
+        },
+        {
+          "name": "Tributary Instructor",
+          "url": "https://scryfall.com/card/lcc/96/tributary-instructor?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:metalcraft",
+      "name": "Metalcraft",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Metalcraft on released paper cards, including explicit grants where present.",
+      "summary": "Metalcraft labels abilities that reward controlling three or more artifacts.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Ardent Recruit gets +2/+2 while you control three or more artifacts.",
+            "cards": [
+              {
+                "name": "Ardent Recruit",
+                "url": "https://scryfall.com/card/mbs/2/ardent-recruit?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Ardent%20Recruit%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Argent Sphinx can pay {U} to exile itself until the next end step if you control three or more artifacts.",
+            "cards": [
+              {
+                "name": "Argent Sphinx",
+                "url": "https://scryfall.com/card/mm2/41/argent-sphinx?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Argent%20Sphinx%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Bleak Coven Vampires makes a target player lose 4 life and gains you 4 life when it enters if you control three or more artifacts.",
+            "cards": [
+              {
+                "name": "Bleak Coven Vampires",
+                "url": "https://scryfall.com/card/som/55/bleak-coven-vampires?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Bleak%20Coven%20Vampires%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Blade-Tribe Berserkers gets +3/+3 and haste for the turn when it enters if you control three or more artifacts.",
+            "cards": [
+              {
+                "name": "Blade-Tribe Berserkers",
+                "url": "https://scryfall.com/card/som/84/blade-tribe-berserkers?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Blade-Tribe%20Berserkers%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Carapace Forger gets +2/+2 while you control three or more artifacts.",
+            "cards": [
+              {
+                "name": "Carapace Forger",
+                "url": "https://scryfall.com/card/som/114/carapace-forger?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Carapace%20Forger%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "W",
+              "R"
+            ],
+            "note": "Jor Kadeen, the Prevailer gives creatures you control +3/+0 while you control three or more artifacts.",
+            "cards": [
+              {
+                "name": "Jor Kadeen, the Prevailer",
+                "url": "https://scryfall.com/card/c21/220/jor-kadeen-the-prevailer?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Jor%20Kadeen%2C%20the%20Prevailer%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "documented",
+          "note": "Chrome Steed gets +2/+2 while you control three or more artifacts.",
+          "cards": [
+            {
+              "name": "Chrome Steed",
+              "url": "https://scryfall.com/card/som/142/chrome-steed?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22Chrome%20Steed%22%29%20include%3Aextras"
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Ardent Recruit",
+          "url": "https://scryfall.com/card/mbs/2/ardent-recruit?utm_source=api"
+        },
+        {
+          "name": "Argent Sphinx",
+          "url": "https://scryfall.com/card/mm2/41/argent-sphinx?utm_source=api"
+        },
+        {
+          "name": "Blade-Tribe Berserkers",
+          "url": "https://scryfall.com/card/som/84/blade-tribe-berserkers?utm_source=api"
+        },
+        {
+          "name": "Bleak Coven Vampires",
+          "url": "https://scryfall.com/card/som/55/bleak-coven-vampires?utm_source=api"
+        },
+        {
+          "name": "Carapace Forger",
+          "url": "https://scryfall.com/card/som/114/carapace-forger?utm_source=api"
+        },
+        {
+          "name": "Chrome Steed",
+          "url": "https://scryfall.com/card/som/142/chrome-steed?utm_source=api"
+        },
+        {
+          "name": "Jor Kadeen, the Prevailer",
+          "url": "https://scryfall.com/card/c21/220/jor-kadeen-the-prevailer?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:miracle",
+      "name": "Miracle",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Miracle on released paper cards, including explicit grants where present.",
+      "summary": "Miracle lets you reveal the first card you draw in a turn as you draw it, then cast it for its miracle cost when the resulting ability resolves.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Banishing Stroke has a miracle cost of {W}.",
+            "cards": [
+              {
+                "name": "Banishing Stroke",
+                "url": "https://scryfall.com/card/c18/63/banishing-stroke?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Banishing%20Stroke%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Devastation Tide has a miracle cost of {1}{U}.",
+            "cards": [
+              {
+                "name": "Devastation Tide",
+                "url": "https://scryfall.com/card/c18/85/devastation-tide?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Devastation%20Tide%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Entreat the Dead has a miracle cost of {X}{B}{B}.",
+            "cards": [
+              {
+                "name": "Entreat the Dead",
+                "url": "https://scryfall.com/card/c18/15/entreat-the-dead?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Entreat%20the%20Dead%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Bonfire of the Damned has a miracle cost of {X}{R}.",
+            "cards": [
+              {
+                "name": "Bonfire of the Damned",
+                "url": "https://scryfall.com/card/mm3/91/bonfire-of-the-damned?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Bonfire%20of%20the%20Damned%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Blessings of Nature has a miracle cost of {G}.",
+            "cards": [
+              {
+                "name": "Blessings of Nature",
+                "url": "https://scryfall.com/card/avr/168/blessings-of-nature?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Blessings%20of%20Nature%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "W",
+              "B"
+            ],
+            "note": "Sister Repentia has a miracle cost of {W}{B}.",
+            "cards": [
+              {
+                "name": "Sister Repentia",
+                "url": "https://scryfall.com/card/40k/142/sister-repentia?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Sister%20Repentia%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "R"
+            ],
+            "note": "Lorehold, the Historian gives each instant and sorcery card in your hand miracle {2}.",
+            "cards": [
+              {
+                "name": "Lorehold, the Historian",
+                "url": "https://scryfall.com/card/sos/201/lorehold-the-historian?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Lorehold%2C%20the%20Historian%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "U",
+              "B"
+            ],
+            "note": "Aminatou, Veil Piercer gives enchantment cards in your hand miracle; each miracle cost is that card’s mana cost reduced by {4}.",
+            "cards": [
+              {
+                "name": "Aminatou, Veil Piercer",
+                "url": "https://scryfall.com/card/dsc/1/aminatou-veil-piercer?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Aminatou%2C%20Veil%20Piercer%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "documented",
+          "note": "Molecule Man gives nonland cards in your hand miracle {0}.",
+          "cards": [
+            {
+              "name": "Molecule Man",
+              "url": "https://scryfall.com/card/msc/9/molecule-man?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22Molecule%20Man%22%29%20include%3Aextras"
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Banishing Stroke",
+          "url": "https://scryfall.com/card/c18/63/banishing-stroke?utm_source=api"
+        },
+        {
+          "name": "Blessings of Nature",
+          "url": "https://scryfall.com/card/avr/168/blessings-of-nature?utm_source=api"
+        },
+        {
+          "name": "Bonfire of the Damned",
+          "url": "https://scryfall.com/card/mm3/91/bonfire-of-the-damned?utm_source=api"
+        },
+        {
+          "name": "Devastation Tide",
+          "url": "https://scryfall.com/card/c18/85/devastation-tide?utm_source=api"
+        },
+        {
+          "name": "Entreat the Dead",
+          "url": "https://scryfall.com/card/c18/15/entreat-the-dead?utm_source=api"
+        },
+        {
+          "name": "Sister Repentia",
+          "url": "https://scryfall.com/card/40k/142/sister-repentia?utm_source=api"
+        },
+        {
+          "name": "Aminatou, Veil Piercer",
+          "url": "https://scryfall.com/card/dsc/1/aminatou-veil-piercer?utm_source=api"
+        },
+        {
+          "name": "Lorehold, the Historian",
+          "url": "https://scryfall.com/card/sos/201/lorehold-the-historian?utm_source=api"
+        },
+        {
+          "name": "Molecule Man",
+          "url": "https://scryfall.com/card/msc/9/molecule-man?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:mobilize",
+      "name": "Mobilize",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Mobilize on released paper cards, including explicit grants where present.",
+      "summary": "When a creature with mobilize attacks, it creates the stated number of tapped and attacking 1/1 red Warrior tokens. You sacrifice those tokens at the beginning of the next end step.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Dalkovan Packbeasts has vigilance and mobilize 3.",
+            "cards": [
+              {
+                "name": "Dalkovan Packbeasts",
+                "url": "https://scryfall.com/card/tdm/7/dalkovan-packbeasts?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Dalkovan%20Packbeasts%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "not_found",
+            "note": "No example found in the reviewed released-paper scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "B": {
+            "status": "documented",
+            "note": "Avenger of the Fallen has mobilize X, where X is the number of creature cards in your graveyard.",
+            "cards": [
+              {
+                "name": "Avenger of the Fallen",
+                "url": "https://scryfall.com/card/tdm/73/avenger-of-the-fallen?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Avenger%20of%20the%20Fallen%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Shock Brigade has menace and mobilize 1.",
+            "cards": [
+              {
+                "name": "Shock Brigade",
+                "url": "https://scryfall.com/card/tdm/120/shock-brigade?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Shock%20Brigade%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "not_found",
+            "note": "No example found in the reviewed released-paper scope.",
+            "cards": [],
+            "findUrl": null
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "W",
+              "B",
+              "R"
+            ],
+            "note": "Bone-Cairn Butcher has mobilize 2 and gives attacking tokens you control deathtouch.",
+            "cards": [
+              {
+                "name": "Bone-Cairn Butcher",
+                "url": "https://scryfall.com/card/tdm/173/bone-cairn-butcher?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Bone-Cairn%20Butcher%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "not_found",
+          "note": "No colorless example found in the reviewed released-paper scope.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Avenger of the Fallen",
+          "url": "https://scryfall.com/card/tdm/73/avenger-of-the-fallen?utm_source=api"
+        },
+        {
+          "name": "Bone-Cairn Butcher",
+          "url": "https://scryfall.com/card/tdm/173/bone-cairn-butcher?utm_source=api"
+        },
+        {
+          "name": "Dalkovan Packbeasts",
+          "url": "https://scryfall.com/card/tdm/7/dalkovan-packbeasts?utm_source=api"
+        },
+        {
+          "name": "Shock Brigade",
+          "url": "https://scryfall.com/card/tdm/120/shock-brigade?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:modular",
+      "name": "Modular",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Modular on released paper cards, including explicit grants where present.",
+      "summary": "Modular makes a permanent enter with the stated number of +1/+1 counters. When it dies, you may put its +1/+1 counters on a target artifact creature.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Arcbound Javelineer has modular 1 and can tap and remove +1/+1 counters to damage an attacking or blocking creature.",
+            "cards": [
+              {
+                "name": "Arcbound Javelineer",
+                "url": "https://scryfall.com/card/mh2/2/arcbound-javelineer?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Arcbound%20Javelineer%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "not_found",
+            "note": "No example found in the reviewed released-paper scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "B": {
+            "status": "documented",
+            "note": "Arcbound Condor has flying and modular 3.",
+            "cards": [
+              {
+                "name": "Arcbound Condor",
+                "url": "https://scryfall.com/card/mh3/81/arcbound-condor?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Arcbound%20Condor%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Arcbound Slasher has modular 4 and riot.",
+            "cards": [
+              {
+                "name": "Arcbound Slasher",
+                "url": "https://scryfall.com/card/mh2/111/arcbound-slasher?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Arcbound%20Slasher%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "multicolor_only",
+            "note": "Documented in the color combinations below.",
+            "cards": [
+              {
+                "name": "Blaster, Combat DJ // Blaster, Morale Booster",
+                "url": "https://scryfall.com/card/bot/8/blaster-combat-dj-blaster-morale-booster?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Blaster%2C%20Combat%20DJ%20//%20Blaster%2C%20Morale%20Booster%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "R",
+              "G"
+            ],
+            "note": "Blaster, Combat DJ grants modular 1 to your other nontoken artifact creatures and Vehicles.",
+            "cards": [
+              {
+                "name": "Blaster, Combat DJ // Blaster, Morale Booster",
+                "url": "https://scryfall.com/card/bot/8/blaster-combat-dj-blaster-morale-booster?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Blaster%2C%20Combat%20DJ%20//%20Blaster%2C%20Morale%20Booster%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "R"
+            ],
+            "note": "Arcbound Shikari has modular 2 and puts a +1/+1 counter on your other artifact creatures when it enters.",
+            "cards": [
+              {
+                "name": "Arcbound Shikari",
+                "url": "https://scryfall.com/card/mh2/184/arcbound-shikari?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Arcbound%20Shikari%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "documented",
+          "note": "Arcbound Bruiser has modular 3.",
+          "cards": [
+            {
+              "name": "Arcbound Bruiser",
+              "url": "https://scryfall.com/card/dst/94/arcbound-bruiser?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22Arcbound%20Bruiser%22%29%20include%3Aextras"
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Arcbound Bruiser",
+          "url": "https://scryfall.com/card/dst/94/arcbound-bruiser?utm_source=api"
+        },
+        {
+          "name": "Arcbound Condor",
+          "url": "https://scryfall.com/card/mh3/81/arcbound-condor?utm_source=api"
+        },
+        {
+          "name": "Arcbound Javelineer",
+          "url": "https://scryfall.com/card/mh2/2/arcbound-javelineer?utm_source=api"
+        },
+        {
+          "name": "Arcbound Shikari",
+          "url": "https://scryfall.com/card/mh2/184/arcbound-shikari?utm_source=api"
+        },
+        {
+          "name": "Arcbound Slasher",
+          "url": "https://scryfall.com/card/mh2/111/arcbound-slasher?utm_source=api"
+        },
+        {
+          "name": "Blaster, Combat DJ // Blaster, Morale Booster",
+          "url": "https://scryfall.com/card/bot/8/blaster-combat-dj-blaster-morale-booster?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:shortlist:mold earth",
+      "name": "Mold Earth",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "The named card-specific flavor label.",
+      "summary": "Mold Earth is the card-specific label for Deep Gnome Terramancer’s land-search ability.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Deep Gnome Terramancer can find a Plains and put it onto the battlefield tapped when an opponent’s lands enter without being played, once each turn.",
+            "cards": [
+              {
+                "name": "Deep Gnome Terramancer",
+                "url": "https://scryfall.com/card/clb/658/deep-gnome-terramancer?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Deep%20Gnome%20Terramancer%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "not_found",
+            "note": "No example found in the reviewed released-paper scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "B": {
+            "status": "not_found",
+            "note": "No example found in the reviewed released-paper scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "R": {
+            "status": "not_found",
+            "note": "No example found in the reviewed released-paper scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "G": {
+            "status": "not_found",
+            "note": "No example found in the reviewed released-paper scope.",
+            "cards": [],
+            "findUrl": null
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "not_found",
+          "note": "No colorless example found in the reviewed released-paper scope.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Deep Gnome Terramancer",
+          "url": "https://scryfall.com/card/clb/658/deep-gnome-terramancer?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:monstrosity",
+      "name": "Monstrosity",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Monstrosity on released paper cards, including explicit grants where present.",
+      "summary": "Monstrosity puts the stated number of +1/+1 counters on a permanent if it is not already monstrous, then makes it monstrous.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Hundred-Handed One has monstrosity 3 for {3}{W}{W}{W}; while monstrous, it has reach and can block ninety-nine additional creatures each combat.",
+            "cards": [
+              {
+                "name": "Hundred-Handed One",
+                "url": "https://scryfall.com/card/cn2/93/hundred-handed-one?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Hundred-Handed%20One%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Chillerpillar has monstrosity 2 for {4}{S}{S} and has flying while monstrous.",
+            "cards": [
+              {
+                "name": "Chillerpillar",
+                "url": "https://scryfall.com/card/mh1/43/chillerpillar?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Chillerpillar%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Hythonia the Cruel has monstrosity 3 for {6}{B}{B}; becoming monstrous destroys all non-Gorgon creatures.",
+            "cards": [
+              {
+                "name": "Hythonia the Cruel",
+                "url": "https://scryfall.com/card/ths/91/hythonia-the-cruel?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Hythonia%20the%20Cruel%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Death Kiss has monstrosity X for {X}{X}{R} and goads up to X opposing creatures when it becomes monstrous.",
+            "cards": [
+              {
+                "name": "Death Kiss",
+                "url": "https://scryfall.com/card/clb/675/death-kiss?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Death%20Kiss%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Arbor Colossus has monstrosity 3 for {3}{G}{G}{G}; becoming monstrous destroys a target flying creature an opponent controls.",
+            "cards": [
+              {
+                "name": "Arbor Colossus",
+                "url": "https://scryfall.com/card/c15/174/arbor-colossus?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Arbor%20Colossus%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "B",
+              "G"
+            ],
+            "note": "Alpha Deathclaw has monstrosity 4 for {5}{B}{G}; becoming monstrous triggers destruction of a target permanent.",
+            "cards": [
+              {
+                "name": "Alpha Deathclaw",
+                "url": "https://scryfall.com/card/pip/91/alpha-deathclaw?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Alpha%20Deathclaw%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "R",
+              "G"
+            ],
+            "note": "Polis Crusher has monstrosity 3 for {4}{R}{G}; while monstrous, its combat damage to a player can destroy an enchantment that player controls.",
+            "cards": [
+              {
+                "name": "Polis Crusher",
+                "url": "https://scryfall.com/card/ths/198/polis-crusher?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Polis%20Crusher%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "U",
+              "G"
+            ],
+            "note": "Fleetfeather Cockatrice has monstrosity 3 for {5}{G}{U}.",
+            "cards": [
+              {
+                "name": "Fleetfeather Cockatrice",
+                "url": "https://scryfall.com/card/jou/149/fleetfeather-cockatrice?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Fleetfeather%20Cockatrice%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "G"
+            ],
+            "note": "Fleecemane Lion has monstrosity 1 for {3}{G}{W} and has hexproof and indestructible while monstrous.",
+            "cards": [
+              {
+                "name": "Fleecemane Lion",
+                "url": "https://scryfall.com/card/afc/185/fleecemane-lion?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Fleecemane%20Lion%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "documented",
+          "note": "Clay Golem rolls a d8 and has monstrosity X for {6}, using that result for X; becoming monstrous destroys a target permanent.",
+          "cards": [
+            {
+              "name": "Clay Golem",
+              "url": "https://scryfall.com/card/afc/58/clay-golem?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22Clay%20Golem%22%29%20include%3Aextras"
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Alpha Deathclaw",
+          "url": "https://scryfall.com/card/pip/91/alpha-deathclaw?utm_source=api"
+        },
+        {
+          "name": "Arbor Colossus",
+          "url": "https://scryfall.com/card/c15/174/arbor-colossus?utm_source=api"
+        },
+        {
+          "name": "Chillerpillar",
+          "url": "https://scryfall.com/card/mh1/43/chillerpillar?utm_source=api"
+        },
+        {
+          "name": "Clay Golem",
+          "url": "https://scryfall.com/card/afc/58/clay-golem?utm_source=api"
+        },
+        {
+          "name": "Death Kiss",
+          "url": "https://scryfall.com/card/clb/675/death-kiss?utm_source=api"
+        },
+        {
+          "name": "Fleecemane Lion",
+          "url": "https://scryfall.com/card/afc/185/fleecemane-lion?utm_source=api"
+        },
+        {
+          "name": "Fleetfeather Cockatrice",
+          "url": "https://scryfall.com/card/jou/149/fleetfeather-cockatrice?utm_source=api"
+        },
+        {
+          "name": "Hundred-Handed One",
+          "url": "https://scryfall.com/card/cn2/93/hundred-handed-one?utm_source=api"
+        },
+        {
+          "name": "Hythonia the Cruel",
+          "url": "https://scryfall.com/card/ths/91/hythonia-the-cruel?utm_source=api"
+        },
+        {
+          "name": "Polis Crusher",
+          "url": "https://scryfall.com/card/ths/198/polis-crusher?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:morbid",
+      "name": "Morbid",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Morbid on released paper cards, including explicit grants where present.",
+      "summary": "Morbid labels abilities that check whether a creature died during the current turn.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Muster the Departed populates at your end step if a creature died that turn.",
+            "cards": [
+              {
+                "name": "Muster the Departed",
+                "url": "https://scryfall.com/card/mh3/36/muster-the-departed?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Muster%20the%20Departed%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "not_found",
+            "note": "No example found in the reviewed released-paper scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "B": {
+            "status": "documented",
+            "note": "Gruesome Discovery lets you choose the two discarded cards from the target player’s revealed hand if a creature died that turn.",
+            "cards": [
+              {
+                "name": "Gruesome Discovery",
+                "url": "https://scryfall.com/card/dka/66/gruesome-discovery?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Gruesome%20Discovery%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Brimstone Volley deals 5 damage instead of 3 if a creature died that turn.",
+            "cards": [
+              {
+                "name": "Brimstone Volley",
+                "url": "https://scryfall.com/card/2xm/120/brimstone-volley?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Brimstone%20Volley%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Cackling Prowler gets a +1/+1 counter at your end step if a creature died that turn.",
+            "cards": [
+              {
+                "name": "Cackling Prowler",
+                "url": "https://scryfall.com/card/fdn/101/cackling-prowler?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Cackling%20Prowler%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "B",
+              "G"
+            ],
+            "note": "Deathreap Ritual can draw you a card at each end step if a creature died that turn.",
+            "cards": [
+              {
+                "name": "Deathreap Ritual",
+                "url": "https://scryfall.com/card/dsc/86/deathreap-ritual?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Deathreap%20Ritual%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "documented",
+          "note": "Séance Board gets a soul counter at each end step if a creature died that turn, and taps for mana equal to its soul counters with a spell-type spending restriction.",
+          "cards": [
+            {
+              "name": "Séance Board",
+              "url": "https://scryfall.com/card/dsc/40/s%C3%A9ance-board?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22S%C3%A9ance%20Board%22%29%20include%3Aextras"
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Brimstone Volley",
+          "url": "https://scryfall.com/card/2xm/120/brimstone-volley?utm_source=api"
+        },
+        {
+          "name": "Cackling Prowler",
+          "url": "https://scryfall.com/card/fdn/101/cackling-prowler?utm_source=api"
+        },
+        {
+          "name": "Deathreap Ritual",
+          "url": "https://scryfall.com/card/dsc/86/deathreap-ritual?utm_source=api"
+        },
+        {
+          "name": "Gruesome Discovery",
+          "url": "https://scryfall.com/card/dka/66/gruesome-discovery?utm_source=api"
+        },
+        {
+          "name": "Muster the Departed",
+          "url": "https://scryfall.com/card/mh3/36/muster-the-departed?utm_source=api"
+        },
+        {
+          "name": "Séance Board",
+          "url": "https://scryfall.com/card/dsc/40/s%C3%A9ance-board?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:more than meets the eye",
+      "name": "More Than Meets the Eye",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "More Than Meets the Eye on released paper cards, including explicit grants where present.",
+      "summary": "More Than Meets the Eye lets you cast the card converted for its listed alternative cost, so it enters with its back face up.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Prowl, Stoic Strategist can be cast converted for {2}{W}.",
+            "cards": [
+              {
+                "name": "Prowl, Stoic Strategist // Prowl, Pursuit Vehicle",
+                "url": "https://scryfall.com/card/bot/1/prowl-stoic-strategist-prowl-pursuit-vehicle?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Prowl%2C%20Stoic%20Strategist%20//%20Prowl%2C%20Pursuit%20Vehicle%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Jetfire, Ingenious Scientist can be cast converted for {3}{U}.",
+            "cards": [
+              {
+                "name": "Jetfire, Ingenious Scientist // Jetfire, Air Guardian",
+                "url": "https://scryfall.com/card/bot/3/jetfire-ingenious-scientist-jetfire-air-guardian?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Jetfire%2C%20Ingenious%20Scientist%20//%20Jetfire%2C%20Air%20Guardian%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Blitzwing, Cruel Tormentor can be cast converted for {3}{B}.",
+            "cards": [
+              {
+                "name": "Blitzwing, Cruel Tormentor // Blitzwing, Adaptive Assailant",
+                "url": "https://scryfall.com/card/bot/4/blitzwing-cruel-tormentor-blitzwing-adaptive-assailant?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Blitzwing%2C%20Cruel%20Tormentor%20//%20Blitzwing%2C%20Adaptive%20Assailant%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Slicer, Hired Muscle can be cast converted for {2}{R}.",
+            "cards": [
+              {
+                "name": "Slicer, Hired Muscle // Slicer, High-Speed Antagonist",
+                "url": "https://scryfall.com/card/bot/6/slicer-hired-muscle-slicer-high-speed-antagonist?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Slicer%2C%20Hired%20Muscle%20//%20Slicer%2C%20High-Speed%20Antagonist%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "multicolor_only",
+            "note": "Documented in the color combinations below.",
+            "cards": [
+              {
+                "name": "Blaster, Combat DJ // Blaster, Morale Booster",
+                "url": "https://scryfall.com/card/bot/8/blaster-combat-dj-blaster-morale-booster?utm_source=api"
+              },
+              {
+                "name": "Ultra Magnus, Tactician // Ultra Magnus, Armored Carrier",
+                "url": "https://scryfall.com/card/bot/15/ultra-magnus-tactician-ultra-magnus-armored-carrier?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Blaster%2C%20Combat%20DJ%20//%20Blaster%2C%20Morale%20Booster%22%20or%20%21%22Ultra%20Magnus%2C%20Tactician%20//%20Ultra%20Magnus%2C%20Armored%20Carrier%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "B",
+              "R"
+            ],
+            "note": "Flamewar, Brash Veteran can be cast converted for {B}{R}.",
+            "cards": [
+              {
+                "name": "Flamewar, Brash Veteran // Flamewar, Streetwise Operative",
+                "url": "https://scryfall.com/card/bot/10/flamewar-brash-veteran-flamewar-streetwise-operative?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Flamewar%2C%20Brash%20Veteran%20//%20Flamewar%2C%20Streetwise%20Operative%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "R",
+              "G"
+            ],
+            "note": "Blaster, Combat DJ can be cast converted for {1}{R}{G}.",
+            "cards": [
+              {
+                "name": "Blaster, Combat DJ // Blaster, Morale Booster",
+                "url": "https://scryfall.com/card/bot/8/blaster-combat-dj-blaster-morale-booster?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Blaster%2C%20Combat%20DJ%20//%20Blaster%2C%20Morale%20Booster%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "U",
+              "B"
+            ],
+            "note": "Cyclonus, the Saboteur can be cast converted for {5}{U}{B}.",
+            "cards": [
+              {
+                "name": "Cyclonus, the Saboteur // Cyclonus, Cybertronian Fighter",
+                "url": "https://scryfall.com/card/bot/9/cyclonus-the-saboteur-cyclonus-cybertronian-fighter?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Cyclonus%2C%20the%20Saboteur%20//%20Cyclonus%2C%20Cybertronian%20Fighter%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "B",
+              "R"
+            ],
+            "note": "Megatron, Tyrant can be cast converted for {1}{R}{W}{B}.",
+            "cards": [
+              {
+                "name": "Megatron, Tyrant // Megatron, Destructive Force",
+                "url": "https://scryfall.com/card/bot/12/megatron-tyrant-megatron-destructive-force?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Megatron%2C%20Tyrant%20//%20Megatron%2C%20Destructive%20Force%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "R"
+            ],
+            "note": "Arcee, Sharpshooter can be cast converted for {R}{W}.",
+            "cards": [
+              {
+                "name": "Arcee, Sharpshooter // Arcee, Acrobatic Coupe",
+                "url": "https://scryfall.com/card/bot/7/arcee-sharpshooter-arcee-acrobatic-coupe?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Arcee%2C%20Sharpshooter%20//%20Arcee%2C%20Acrobatic%20Coupe%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "R",
+              "G"
+            ],
+            "note": "Ultra Magnus, Tactician can be cast converted for {2}{R}{G}{W}.",
+            "cards": [
+              {
+                "name": "Ultra Magnus, Tactician // Ultra Magnus, Armored Carrier",
+                "url": "https://scryfall.com/card/bot/15/ultra-magnus-tactician-ultra-magnus-armored-carrier?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Ultra%20Magnus%2C%20Tactician%20//%20Ultra%20Magnus%2C%20Armored%20Carrier%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "U"
+            ],
+            "note": "Goldbug, Humanity's Ally can be cast converted for {W}{U}.",
+            "cards": [
+              {
+                "name": "Goldbug, Humanity's Ally // Goldbug, Scrappy Scout",
+                "url": "https://scryfall.com/card/bot/11/goldbug-humanitys-ally-goldbug-scrappy-scout?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Goldbug%2C%20Humanity%27s%20Ally%20//%20Goldbug%2C%20Scrappy%20Scout%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "U",
+              "B"
+            ],
+            "note": "Soundwave, Sonic Spy can be cast converted for {2}{W}{U}{B}.",
+            "cards": [
+              {
+                "name": "Soundwave, Sonic Spy // Soundwave, Superior Captain",
+                "url": "https://scryfall.com/card/bot/14/soundwave-sonic-spy-soundwave-superior-captain?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Soundwave%2C%20Sonic%20Spy%20//%20Soundwave%2C%20Superior%20Captain%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "U",
+              "R"
+            ],
+            "note": "Optimus Prime, Hero can be cast converted for {2}{U}{R}{W}.",
+            "cards": [
+              {
+                "name": "Optimus Prime, Hero // Optimus Prime, Autobot Leader",
+                "url": "https://scryfall.com/card/bot/13/optimus-prime-hero-optimus-prime-autobot-leader?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Optimus%20Prime%2C%20Hero%20//%20Optimus%20Prime%2C%20Autobot%20Leader%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "not_found",
+          "note": "No colorless example found in the reviewed released-paper scope.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Arcee, Sharpshooter // Arcee, Acrobatic Coupe",
+          "url": "https://scryfall.com/card/bot/7/arcee-sharpshooter-arcee-acrobatic-coupe?utm_source=api"
+        },
+        {
+          "name": "Blaster, Combat DJ // Blaster, Morale Booster",
+          "url": "https://scryfall.com/card/bot/8/blaster-combat-dj-blaster-morale-booster?utm_source=api"
+        },
+        {
+          "name": "Blitzwing, Cruel Tormentor // Blitzwing, Adaptive Assailant",
+          "url": "https://scryfall.com/card/bot/4/blitzwing-cruel-tormentor-blitzwing-adaptive-assailant?utm_source=api"
+        },
+        {
+          "name": "Cyclonus, the Saboteur // Cyclonus, Cybertronian Fighter",
+          "url": "https://scryfall.com/card/bot/9/cyclonus-the-saboteur-cyclonus-cybertronian-fighter?utm_source=api"
+        },
+        {
+          "name": "Flamewar, Brash Veteran // Flamewar, Streetwise Operative",
+          "url": "https://scryfall.com/card/bot/10/flamewar-brash-veteran-flamewar-streetwise-operative?utm_source=api"
+        },
+        {
+          "name": "Goldbug, Humanity's Ally // Goldbug, Scrappy Scout",
+          "url": "https://scryfall.com/card/bot/11/goldbug-humanitys-ally-goldbug-scrappy-scout?utm_source=api"
+        },
+        {
+          "name": "Jetfire, Ingenious Scientist // Jetfire, Air Guardian",
+          "url": "https://scryfall.com/card/bot/3/jetfire-ingenious-scientist-jetfire-air-guardian?utm_source=api"
+        },
+        {
+          "name": "Megatron, Tyrant // Megatron, Destructive Force",
+          "url": "https://scryfall.com/card/bot/12/megatron-tyrant-megatron-destructive-force?utm_source=api"
+        },
+        {
+          "name": "Optimus Prime, Hero // Optimus Prime, Autobot Leader",
+          "url": "https://scryfall.com/card/bot/13/optimus-prime-hero-optimus-prime-autobot-leader?utm_source=api"
+        },
+        {
+          "name": "Prowl, Stoic Strategist // Prowl, Pursuit Vehicle",
+          "url": "https://scryfall.com/card/bot/1/prowl-stoic-strategist-prowl-pursuit-vehicle?utm_source=api"
+        },
+        {
+          "name": "Slicer, Hired Muscle // Slicer, High-Speed Antagonist",
+          "url": "https://scryfall.com/card/bot/6/slicer-hired-muscle-slicer-high-speed-antagonist?utm_source=api"
+        },
+        {
+          "name": "Soundwave, Sonic Spy // Soundwave, Superior Captain",
+          "url": "https://scryfall.com/card/bot/14/soundwave-sonic-spy-soundwave-superior-captain?utm_source=api"
+        },
+        {
+          "name": "Ultra Magnus, Tactician // Ultra Magnus, Armored Carrier",
+          "url": "https://scryfall.com/card/bot/15/ultra-magnus-tactician-ultra-magnus-armored-carrier?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:morph",
+      "name": "Morph",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Morph and explicit grants of morph; Megamorph is listed separately.",
+      "summary": "Morph lets you cast a card face down as a 2/2 creature for {3}. When you have priority, you can pay its morph cost to turn it face up.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Aven Liberator has a morph cost of {3}{W}.",
+            "cards": [
+              {
+                "name": "Aven Liberator",
+                "url": "https://scryfall.com/card/scg/4/aven-liberator?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Aven%20Liberator%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Aphetto Alchemist has a morph cost of {U}.",
+            "cards": [
+              {
+                "name": "Aphetto Alchemist",
+                "url": "https://scryfall.com/card/ons/64/aphetto-alchemist?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Aphetto%20Alchemist%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Aphetto Exterminator has a morph cost of {3}{B}.",
+            "cards": [
+              {
+                "name": "Aphetto Exterminator",
+                "url": "https://scryfall.com/card/lgn/59/aphetto-exterminator?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Aphetto%20Exterminator%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Ainok Tracker has a morph cost of {4}{R}.",
+            "cards": [
+              {
+                "name": "Ainok Tracker",
+                "url": "https://scryfall.com/card/ktk/96/ainok-tracker?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Ainok%20Tracker%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Birchlore Rangers has a morph cost of {G}.",
+            "cards": [
+              {
+                "name": "Birchlore Rangers",
+                "url": "https://scryfall.com/card/ons/248/birchlore-rangers?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Birchlore%20Rangers%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "U",
+              "B",
+              "G"
+            ],
+            "note": "Abomination of Gudul has a morph cost of {2}{B}{G}{U}.",
+            "cards": [
+              {
+                "name": "Abomination of Gudul",
+                "url": "https://scryfall.com/card/ktk/159/abomination-of-gudul?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Abomination%20of%20Gudul%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "U",
+              "G"
+            ],
+            "note": "Icefeather Aven has a morph cost of {1}{G}{U}.",
+            "cards": [
+              {
+                "name": "Icefeather Aven",
+                "url": "https://scryfall.com/card/c19/194/icefeather-aven?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Icefeather%20Aven%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "U",
+              "R",
+              "G"
+            ],
+            "note": "Snowhorn Rider has a morph cost of {2}{G}{U}{R}.",
+            "cards": [
+              {
+                "name": "Snowhorn Rider",
+                "url": "https://scryfall.com/card/ktk/201/snowhorn-rider?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Snowhorn%20Rider%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "B",
+              "G"
+            ],
+            "note": "Abzan Guide has a morph cost of {2}{W}{B}{G}.",
+            "cards": [
+              {
+                "name": "Abzan Guide",
+                "url": "https://scryfall.com/card/ktk/162/abzan-guide?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Abzan%20Guide%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "B",
+              "R"
+            ],
+            "note": "Ponyback Brigade has a morph cost of {2}{R}{W}{B}.",
+            "cards": [
+              {
+                "name": "Ponyback Brigade",
+                "url": "https://scryfall.com/card/ktk/191/ponyback-brigade?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Ponyback%20Brigade%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "U",
+              "R"
+            ],
+            "note": "Efreet Weaponmaster has a morph cost of {2}{U}{R}{W}.",
+            "cards": [
+              {
+                "name": "Efreet Weaponmaster",
+                "url": "https://scryfall.com/card/ktk/175/efreet-weaponmaster?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Efreet%20Weaponmaster%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "documented",
+          "note": "Proteus Machine has a morph cost of {0}.",
+          "cards": [
+            {
+              "name": "Proteus Machine",
+              "url": "https://scryfall.com/card/scg/141/proteus-machine?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22Proteus%20Machine%22%29%20include%3Aextras"
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Abomination of Gudul",
+          "url": "https://scryfall.com/card/ktk/159/abomination-of-gudul?utm_source=api"
+        },
+        {
+          "name": "Abzan Guide",
+          "url": "https://scryfall.com/card/ktk/162/abzan-guide?utm_source=api"
+        },
+        {
+          "name": "Ainok Tracker",
+          "url": "https://scryfall.com/card/ktk/96/ainok-tracker?utm_source=api"
+        },
+        {
+          "name": "Aphetto Alchemist",
+          "url": "https://scryfall.com/card/ons/64/aphetto-alchemist?utm_source=api"
+        },
+        {
+          "name": "Aphetto Exterminator",
+          "url": "https://scryfall.com/card/lgn/59/aphetto-exterminator?utm_source=api"
+        },
+        {
+          "name": "Aven Liberator",
+          "url": "https://scryfall.com/card/scg/4/aven-liberator?utm_source=api"
+        },
+        {
+          "name": "Birchlore Rangers",
+          "url": "https://scryfall.com/card/ons/248/birchlore-rangers?utm_source=api"
+        },
+        {
+          "name": "Efreet Weaponmaster",
+          "url": "https://scryfall.com/card/ktk/175/efreet-weaponmaster?utm_source=api"
+        },
+        {
+          "name": "Icefeather Aven",
+          "url": "https://scryfall.com/card/c19/194/icefeather-aven?utm_source=api"
+        },
+        {
+          "name": "Ponyback Brigade",
+          "url": "https://scryfall.com/card/ktk/191/ponyback-brigade?utm_source=api"
+        },
+        {
+          "name": "Proteus Machine",
+          "url": "https://scryfall.com/card/scg/141/proteus-machine?utm_source=api"
+        },
+        {
+          "name": "Snowhorn Rider",
+          "url": "https://scryfall.com/card/ktk/201/snowhorn-rider?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:variants:mountaincycling",
+      "name": "Mountaincycling",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Mountaincycling on released paper cards, including explicit grants where present.",
+      "summary": "Mountaincycling lets you pay its cost and discard the card to find a Mountain card, reveal it, put it into your hand and shuffle.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "not_found",
+            "note": "No example found in the reviewed released-paper scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "U": {
+            "status": "not_found",
+            "note": "No example found in the reviewed released-paper scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "B": {
+            "status": "multicolor_only",
+            "note": "Documented in the color combinations below.",
+            "cards": [
+              {
+                "name": "Igneous Pouncer",
+                "url": "https://scryfall.com/card/ddh/57/igneous-pouncer?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Igneous%20Pouncer%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Bedhead Beastie has mountaincycling for {2}.",
+            "cards": [
+              {
+                "name": "Bedhead Beastie",
+                "url": "https://scryfall.com/card/dsk/125/bedhead-beastie?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Bedhead%20Beastie%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "multicolor_only",
+            "note": "Documented in the color combinations below.",
+            "cards": [
+              {
+                "name": "Valley Rannet",
+                "url": "https://scryfall.com/card/c13/224/valley-rannet?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Valley%20Rannet%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "B",
+              "R"
+            ],
+            "note": "Igneous Pouncer has mountaincycling for {2}.",
+            "cards": [
+              {
+                "name": "Igneous Pouncer",
+                "url": "https://scryfall.com/card/ddh/57/igneous-pouncer?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Igneous%20Pouncer%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "R",
+              "G"
+            ],
+            "note": "Valley Rannet has mountaincycling for {2}.",
+            "cards": [
+              {
+                "name": "Valley Rannet",
+                "url": "https://scryfall.com/card/c13/224/valley-rannet?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Valley%20Rannet%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "not_found",
+          "note": "No colorless example found in the reviewed released-paper scope.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Bedhead Beastie",
+          "url": "https://scryfall.com/card/dsk/125/bedhead-beastie?utm_source=api"
+        },
+        {
+          "name": "Igneous Pouncer",
+          "url": "https://scryfall.com/card/ddh/57/igneous-pouncer?utm_source=api"
+        },
+        {
+          "name": "Valley Rannet",
+          "url": "https://scryfall.com/card/c13/224/valley-rannet?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:variants:mountainwalk",
+      "name": "Mountainwalk",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Mountainwalk on released paper cards, including explicit grants where present.",
+      "summary": "A creature with mountainwalk cannot be blocked while the defending player controls a Mountain.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Cliff Threader has mountainwalk.",
+            "cards": [
+              {
+                "name": "Cliff Threader",
+                "url": "https://scryfall.com/card/zen/7/cliff-threader?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Cliff%20Threader%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "River Merfolk can pay {U} to gain mountainwalk until end of turn.",
+            "cards": [
+              {
+                "name": "River Merfolk",
+                "url": "https://scryfall.com/card/fem/24/river-merfolk?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22River%20Merfolk%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "not_found",
+            "note": "No example found in the reviewed released-paper scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "R": {
+            "status": "documented",
+            "note": "Canyon Wildcat has mountainwalk.",
+            "cards": [
+              {
+                "name": "Canyon Wildcat",
+                "url": "https://scryfall.com/card/ddh/6/canyon-wildcat?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Canyon%20Wildcat%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Glissa's Courier has mountainwalk.",
+            "cards": [
+              {
+                "name": "Glissa's Courier",
+                "url": "https://scryfall.com/card/mbs/80/glissas-courier?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Glissa%27s%20Courier%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "not_found",
+          "note": "No colorless example found in the reviewed released-paper scope.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Canyon Wildcat",
+          "url": "https://scryfall.com/card/ddh/6/canyon-wildcat?utm_source=api"
+        },
+        {
+          "name": "Cliff Threader",
+          "url": "https://scryfall.com/card/zen/7/cliff-threader?utm_source=api"
+        },
+        {
+          "name": "Glissa's Courier",
+          "url": "https://scryfall.com/card/mbs/80/glissas-courier?utm_source=api"
+        },
+        {
+          "name": "River Merfolk",
+          "url": "https://scryfall.com/card/fem/24/river-merfolk?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:variants:multikicker",
+      "name": "Multikicker",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Multikicker on released paper cards, including explicit grants where present.",
+      "summary": "Multikicker lets you pay its additional cost any number of times as you cast the spell. The card specifies what each payment changes.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Apex Hawks has a multikicker cost of {1}{W}.",
+            "cards": [
+              {
+                "name": "Apex Hawks",
+                "url": "https://scryfall.com/card/cns/67/apex-hawks?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Apex%20Hawks%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Enclave Elite has a multikicker cost of {1}{U}.",
+            "cards": [
+              {
+                "name": "Enclave Elite",
+                "url": "https://scryfall.com/card/cns/96/enclave-elite?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Enclave%20Elite%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Bloodhusk Ritualist has a multikicker cost of {B}.",
+            "cards": [
+              {
+                "name": "Bloodhusk Ritualist",
+                "url": "https://scryfall.com/card/c17/101/bloodhusk-ritualist?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Bloodhusk%20Ritualist%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Batroc the Leaper has a multikicker cost of {2}.",
+            "cards": [
+              {
+                "name": "Batroc the Leaper",
+                "url": "https://scryfall.com/card/msc/49/batroc-the-leaper?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Batroc%20the%20Leaper%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Gnarlid Pack has a multikicker cost of {1}{G}.",
+            "cards": [
+              {
+                "name": "Gnarlid Pack",
+                "url": "https://scryfall.com/card/mm2/144/gnarlid-pack?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Gnarlid%20Pack%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "W",
+              "U"
+            ],
+            "note": "Zethi, Arcane Blademaster has a multikicker cost of {W/U}.",
+            "cards": [
+              {
+                "name": "Zethi, Arcane Blademaster",
+                "url": "https://scryfall.com/card/slx/17/zethi-arcane-blademaster?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Zethi%2C%20Arcane%20Blademaster%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "documented",
+          "note": "Everflowing Chalice has a multikicker cost of {2}.",
+          "cards": [
+            {
+              "name": "Everflowing Chalice",
+              "url": "https://scryfall.com/card/eoc/137/everflowing-chalice?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22Everflowing%20Chalice%22%29%20include%3Aextras"
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Apex Hawks",
+          "url": "https://scryfall.com/card/cns/67/apex-hawks?utm_source=api"
+        },
+        {
+          "name": "Batroc the Leaper",
+          "url": "https://scryfall.com/card/msc/49/batroc-the-leaper?utm_source=api"
+        },
+        {
+          "name": "Bloodhusk Ritualist",
+          "url": "https://scryfall.com/card/c17/101/bloodhusk-ritualist?utm_source=api"
+        },
+        {
+          "name": "Enclave Elite",
+          "url": "https://scryfall.com/card/cns/96/enclave-elite?utm_source=api"
+        },
+        {
+          "name": "Everflowing Chalice",
+          "url": "https://scryfall.com/card/eoc/137/everflowing-chalice?utm_source=api"
+        },
+        {
+          "name": "Gnarlid Pack",
+          "url": "https://scryfall.com/card/mm2/144/gnarlid-pack?utm_source=api"
+        },
+        {
+          "name": "Zethi, Arcane Blademaster",
+          "url": "https://scryfall.com/card/slx/17/zethi-arcane-blademaster?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:mutate",
+      "name": "Mutate",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Mutate on released paper cards, including explicit grants where present.",
+      "summary": "Mutate lets you pay an alternative cost to merge the spell with a target non-Human creature you own. You choose which card goes on top; the resulting creature has all abilities from the merged cards.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Cubwarden has a mutate cost of {2}{W}{W}.",
+            "cards": [
+              {
+                "name": "Cubwarden",
+                "url": "https://scryfall.com/card/iko/7/cubwarden?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Cubwarden%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Archipelagore has a mutate cost of {5}{U}.",
+            "cards": [
+              {
+                "name": "Archipelagore",
+                "url": "https://scryfall.com/card/iko/41/archipelagore?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Archipelagore%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Cavern Whisperer has a mutate cost of {3}{B}.",
+            "cards": [
+              {
+                "name": "Cavern Whisperer",
+                "url": "https://scryfall.com/card/iko/79/cavern-whisperer?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Cavern%20Whisperer%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Cloudpiercer has a mutate cost of {3}{R}.",
+            "cards": [
+              {
+                "name": "Cloudpiercer",
+                "url": "https://scryfall.com/card/iko/112/cloudpiercer?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Cloudpiercer%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Auspicious Starrix has a mutate cost of {5}{G}.",
+            "cards": [
+              {
+                "name": "Auspicious Starrix",
+                "url": "https://scryfall.com/card/iko/144/auspicious-starrix?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Auspicious%20Starrix%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "B",
+              "G"
+            ],
+            "note": "Boneyard Lurker has a mutate cost of {2}{B/G}{B/G}.",
+            "cards": [
+              {
+                "name": "Boneyard Lurker",
+                "url": "https://scryfall.com/card/iko/178/boneyard-lurker?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Boneyard%20Lurker%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "U",
+              "B",
+              "G"
+            ],
+            "note": "Brokkos, Apex of Forever has a mutate cost of {2}{U/B}{G}{G}.",
+            "cards": [
+              {
+                "name": "Brokkos, Apex of Forever",
+                "url": "https://scryfall.com/card/iko/179/brokkos-apex-of-forever?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Brokkos%2C%20Apex%20of%20Forever%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "U",
+              "G"
+            ],
+            "note": "Parcelbeast has a mutate cost of {G}{U}.",
+            "cards": [
+              {
+                "name": "Parcelbeast",
+                "url": "https://scryfall.com/card/iko/199/parcelbeast?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Parcelbeast%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "U",
+              "R"
+            ],
+            "note": "Lore Drakkis has a mutate cost of {U/R}{U/R}.",
+            "cards": [
+              {
+                "name": "Lore Drakkis",
+                "url": "https://scryfall.com/card/iko/194/lore-drakkis?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Lore%20Drakkis%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "U",
+              "R",
+              "G"
+            ],
+            "note": "Illuna, Apex of Wishes has a mutate cost of {3}{R/G}{U}{U}.",
+            "cards": [
+              {
+                "name": "Illuna, Apex of Wishes",
+                "url": "https://scryfall.com/card/dmc/154/illuna-apex-of-wishes?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Illuna%2C%20Apex%20of%20Wishes%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "B"
+            ],
+            "note": "Necropanther has a mutate cost of {2}{W/B}{W/B}.",
+            "cards": [
+              {
+                "name": "Necropanther",
+                "url": "https://scryfall.com/card/iko/196/necropanther?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Necropanther%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "B",
+              "G"
+            ],
+            "note": "Nethroi, Apex of Death has a mutate cost of {4}{G/W}{B}{B}.",
+            "cards": [
+              {
+                "name": "Nethroi, Apex of Death",
+                "url": "https://scryfall.com/card/dmc/163/nethroi-apex-of-death?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Nethroi%2C%20Apex%20of%20Death%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "B",
+              "R"
+            ],
+            "note": "Snapdax, Apex of the Hunt has a mutate cost of {2}{B/R}{W}{W}.",
+            "cards": [
+              {
+                "name": "Snapdax, Apex of the Hunt",
+                "url": "https://scryfall.com/card/iko/209/snapdax-apex-of-the-hunt?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Snapdax%2C%20Apex%20of%20the%20Hunt%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "R"
+            ],
+            "note": "Regal Leosaur has a mutate cost of {1}{R/W}{R/W}.",
+            "cards": [
+              {
+                "name": "Regal Leosaur",
+                "url": "https://scryfall.com/card/iko/202/regal-leosaur?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Regal%20Leosaur%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "U",
+              "R"
+            ],
+            "note": "Vadrok, Apex of Thunder has a mutate cost of {1}{W/U}{R}{R}.",
+            "cards": [
+              {
+                "name": "Vadrok, Apex of Thunder",
+                "url": "https://scryfall.com/card/iko/214/vadrok-apex-of-thunder?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Vadrok%2C%20Apex%20of%20Thunder%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "not_found",
+          "note": "No colorless example found in the reviewed released-paper scope.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Archipelagore",
+          "url": "https://scryfall.com/card/iko/41/archipelagore?utm_source=api"
+        },
+        {
+          "name": "Auspicious Starrix",
+          "url": "https://scryfall.com/card/iko/144/auspicious-starrix?utm_source=api"
+        },
+        {
+          "name": "Boneyard Lurker",
+          "url": "https://scryfall.com/card/iko/178/boneyard-lurker?utm_source=api"
+        },
+        {
+          "name": "Brokkos, Apex of Forever",
+          "url": "https://scryfall.com/card/iko/179/brokkos-apex-of-forever?utm_source=api"
+        },
+        {
+          "name": "Cavern Whisperer",
+          "url": "https://scryfall.com/card/iko/79/cavern-whisperer?utm_source=api"
+        },
+        {
+          "name": "Cloudpiercer",
+          "url": "https://scryfall.com/card/iko/112/cloudpiercer?utm_source=api"
+        },
+        {
+          "name": "Cubwarden",
+          "url": "https://scryfall.com/card/iko/7/cubwarden?utm_source=api"
+        },
+        {
+          "name": "Illuna, Apex of Wishes",
+          "url": "https://scryfall.com/card/dmc/154/illuna-apex-of-wishes?utm_source=api"
+        },
+        {
+          "name": "Lore Drakkis",
+          "url": "https://scryfall.com/card/iko/194/lore-drakkis?utm_source=api"
+        },
+        {
+          "name": "Necropanther",
+          "url": "https://scryfall.com/card/iko/196/necropanther?utm_source=api"
+        },
+        {
+          "name": "Nethroi, Apex of Death",
+          "url": "https://scryfall.com/card/dmc/163/nethroi-apex-of-death?utm_source=api"
+        },
+        {
+          "name": "Parcelbeast",
+          "url": "https://scryfall.com/card/iko/199/parcelbeast?utm_source=api"
+        },
+        {
+          "name": "Regal Leosaur",
+          "url": "https://scryfall.com/card/iko/202/regal-leosaur?utm_source=api"
+        },
+        {
+          "name": "Snapdax, Apex of the Hunt",
+          "url": "https://scryfall.com/card/iko/209/snapdax-apex-of-the-hunt?utm_source=api"
+        },
+        {
+          "name": "Vadrok, Apex of Thunder",
+          "url": "https://scryfall.com/card/iko/214/vadrok-apex-of-thunder?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:myriad",
+      "name": "Myriad",
+      "kind": "access",
+      "researchDate": "2026-10-29",
+      "scopeLabel": "Released paper cards",
+      "scope": "Myriad on released paper cards, including explicit grants where present.",
+      "summary": "When a creature with myriad attacks, you may create a tapped and attacking token copy for each opponent other than the defending player. The copies attack those opponents or their planeswalkers and are exiled at end of combat.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Battle Angels of Tyr has flying and myriad, with combat-damage rewards based on the cards in hand, lands and life of the player it damaged.",
+            "cards": [
+              {
+                "name": "Battle Angels of Tyr",
+                "url": "https://scryfall.com/card/clb/9/battle-angels-of-tyr?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Battle%20Angels%20of%20Tyr%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Broodbirth Viper has myriad and may draw you a card when it deals combat damage to a player.",
+            "cards": [
+              {
+                "name": "Broodbirth Viper",
+                "url": "https://scryfall.com/card/c15/10/broodbirth-viper?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Broodbirth%20Viper%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Banshee of the Dread Choir has myriad and makes a player discard a card when it deals combat damage to that player.",
+            "cards": [
+              {
+                "name": "Banshee of the Dread Choir",
+                "url": "https://scryfall.com/card/cma/47/banshee-of-the-dread-choir?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Banshee%20of%20the%20Dread%20Choir%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Elturel Survivors has trample and myriad, and gains power equal to the defending player’s lands while attacking.",
+            "cards": [
+              {
+                "name": "Elturel Survivors",
+                "url": "https://scryfall.com/card/clb/172/elturel-survivors?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Elturel%20Survivors%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Caller of the Pack has trample and myriad.",
+            "cards": [
+              {
+                "name": "Caller of the Pack",
+                "url": "https://scryfall.com/card/cma/94/caller-of-the-pack?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Caller%20of%20the%20Pack%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "B",
+              "R"
+            ],
+            "note": "The Master, Multiplied has myriad and prevents your triggered abilities from sacrificing or exiling your creature tokens, including its myriad copies.",
+            "cards": [
+              {
+                "name": "The Master, Multiplied",
+                "url": "https://scryfall.com/card/who/146/the-master-multiplied?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22The%20Master%2C%20Multiplied%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "U",
+              "R"
+            ],
+            "note": "Corporeal Projection gives a target creature you control myriad until end of turn, or each creature you control when overloaded for {3}{U}{U}{R}{R}.",
+            "cards": [
+              {
+                "name": "Corporeal Projection",
+                "url": "https://scryfall.com/card/clu/28/corporeal-projection?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Corporeal%20Projection%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "G"
+            ],
+            "note": "Conclave Evangelist has myriad and creates another copy of itself when it deals combat damage to a player.",
+            "cards": [
+              {
+                "name": "Conclave Evangelist",
+                "url": "https://scryfall.com/card/clu/27/conclave-evangelist?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Conclave%20Evangelist%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "R"
+            ],
+            "note": "Duke Ulder Ravengard gives another target creature you control haste and myriad until end of turn at the beginning of combat on your turn.",
+            "cards": [
+              {
+                "name": "Duke Ulder Ravengard",
+                "url": "https://scryfall.com/card/clb/272/duke-ulder-ravengard?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Duke%20Ulder%20Ravengard%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "U",
+              "B",
+              "R",
+              "G"
+            ],
+            "note": "Mass of Mysteries gives another target Elemental you control myriad until end of turn at the beginning of combat on your turn.",
+            "cards": [
+              {
+                "name": "Mass of Mysteries",
+                "url": "https://scryfall.com/card/ecc/3/mass-of-mysteries?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Mass%20of%20Mysteries%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "documented",
+          "note": "Chittering Dispatcher has myriad and is colorless because of devoid, despite its green mana cost.",
+          "cards": [
+            {
+              "name": "Chittering Dispatcher",
+              "url": "https://scryfall.com/card/m3c/63/chittering-dispatcher?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22Chittering%20Dispatcher%22%29%20include%3Aextras"
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Banshee of the Dread Choir",
+          "url": "https://scryfall.com/card/cma/47/banshee-of-the-dread-choir?utm_source=api"
+        },
+        {
+          "name": "Battle Angels of Tyr",
+          "url": "https://scryfall.com/card/clb/9/battle-angels-of-tyr?utm_source=api"
+        },
+        {
+          "name": "Broodbirth Viper",
+          "url": "https://scryfall.com/card/c15/10/broodbirth-viper?utm_source=api"
+        },
+        {
+          "name": "Caller of the Pack",
+          "url": "https://scryfall.com/card/cma/94/caller-of-the-pack?utm_source=api"
+        },
+        {
+          "name": "Chittering Dispatcher",
+          "url": "https://scryfall.com/card/m3c/63/chittering-dispatcher?utm_source=api"
+        },
+        {
+          "name": "Conclave Evangelist",
+          "url": "https://scryfall.com/card/clu/27/conclave-evangelist?utm_source=api"
+        },
+        {
+          "name": "Elturel Survivors",
+          "url": "https://scryfall.com/card/clb/172/elturel-survivors?utm_source=api"
+        },
+        {
+          "name": "The Master, Multiplied",
+          "url": "https://scryfall.com/card/who/146/the-master-multiplied?utm_source=api"
+        },
+        {
+          "name": "Duke Ulder Ravengard",
+          "url": "https://scryfall.com/card/clb/272/duke-ulder-ravengard?utm_source=api"
+        },
+        {
+          "name": "Corporeal Projection",
+          "url": "https://scryfall.com/card/clu/28/corporeal-projection?utm_source=api"
+        },
+        {
+          "name": "Mass of Mysteries",
+          "url": "https://scryfall.com/card/ecc/3/mass-of-mysteries?utm_source=api"
         }
       ],
       "sources": [],

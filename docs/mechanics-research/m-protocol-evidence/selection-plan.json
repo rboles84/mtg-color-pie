@@ -1,0 +1,1658 @@
+{
+  "classification": "derived_selection_manifest",
+  "authority": "m-protocol.json",
+  "records": [
+    {
+      "mechanic": "Madness",
+      "selected": [
+        {
+          "name": "Abandon Reason",
+          "oracle_id": "fa43793d-a215-4a64-a09c-ed9799f745a4",
+          "mechanic_bearing_face": "Abandon Reason",
+          "colors": [
+            "R"
+          ]
+        },
+        {
+          "name": "Alms of the Vein",
+          "oracle_id": "2013a774-e6ab-4f2d-a84f-fd277a637d7e",
+          "mechanic_bearing_face": "Alms of the Vein",
+          "colors": [
+            "B"
+          ]
+        },
+        {
+          "name": "Arrogant Wurm",
+          "oracle_id": "dc7f0c33-80ea-453e-a237-473f077f038e",
+          "mechanic_bearing_face": "Arrogant Wurm",
+          "colors": [
+            "G"
+          ]
+        },
+        {
+          "name": "Bloodhall Priest",
+          "oracle_id": "2eed5eb1-ab67-4f23-885d-922131364aba",
+          "mechanic_bearing_face": "Bloodhall Priest",
+          "colors": [
+            "B",
+            "R"
+          ]
+        },
+        {
+          "name": "Broken Concentration",
+          "oracle_id": "7b0fa80e-6b16-4a4a-9776-6a91f145fc63",
+          "mechanic_bearing_face": "Broken Concentration",
+          "colors": [
+            "U"
+          ]
+        },
+        {
+          "name": "Emrakul, the World Anew",
+          "oracle_id": "33300e69-29f6-41e4-92ab-82d8b018b217",
+          "mechanic_bearing_face": "Emrakul, the World Anew",
+          "colors": []
+        },
+        {
+          "name": "Frantic Purification",
+          "oracle_id": "b4025136-3146-499a-8c17-ed9de548ab8d",
+          "mechanic_bearing_face": "Frantic Purification",
+          "colors": [
+            "W"
+          ]
+        }
+      ]
+    },
+    {
+      "mechanic": "Magecraft",
+      "selected": [
+        {
+          "name": "Archmage Emeritus",
+          "oracle_id": "8305d576-21d8-4ce7-8eda-a7cd9793aca5",
+          "mechanic_bearing_face": "Archmage Emeritus",
+          "colors": [
+            "U"
+          ]
+        },
+        {
+          "name": "Ashling, Flame Dancer",
+          "oracle_id": "6fe9fd59-9cac-4572-8f94-bc19bea44f94",
+          "mechanic_bearing_face": "Ashling, Flame Dancer",
+          "colors": [
+            "R"
+          ]
+        },
+        {
+          "name": "Clever Lumimancer",
+          "oracle_id": "901eb916-f318-4a30-a43e-8e7f9eef358b",
+          "mechanic_bearing_face": "Clever Lumimancer",
+          "colors": [
+            "W"
+          ]
+        },
+        {
+          "name": "Dragonsguard Elite",
+          "oracle_id": "9bc966b3-1b6e-4bea-ab1d-321bc03d2bc7",
+          "mechanic_bearing_face": "Dragonsguard Elite",
+          "colors": [
+            "G"
+          ]
+        },
+        {
+          "name": "Elemental Expressionist",
+          "oracle_id": "dfc45c58-821c-42f3-ab48-05b912748bdf",
+          "mechanic_bearing_face": "Elemental Expressionist",
+          "colors": [
+            "U",
+            "R"
+          ]
+        },
+        {
+          "name": "Extus, Oriq Overlord // Awaken the Blood Avatar",
+          "oracle_id": "0b299983-9f0f-404a-acd1-8f142572b1f1",
+          "mechanic_bearing_face": "Extus, Oriq Overlord",
+          "colors": [
+            "W",
+            "B"
+          ]
+        },
+        {
+          "name": "Lorehold Apprentice",
+          "oracle_id": "3858a2ff-cdc9-4e40-bc2c-42ed691aae08",
+          "mechanic_bearing_face": "Lorehold Apprentice",
+          "colors": [
+            "W",
+            "R"
+          ]
+        },
+        {
+          "name": "Professor Onyx",
+          "oracle_id": "9df2e909-ed13-456a-9636-7398732009a9",
+          "mechanic_bearing_face": "Professor Onyx",
+          "colors": [
+            "B"
+          ]
+        },
+        {
+          "name": "Quandrix Apprentice",
+          "oracle_id": "92116bbd-c7ad-4033-8d98-3ea09fea8ae7",
+          "mechanic_bearing_face": "Quandrix Apprentice",
+          "colors": [
+            "U",
+            "G"
+          ]
+        },
+        {
+          "name": "Spell Satchel",
+          "oracle_id": "912c5e71-554c-4e31-8831-018760752eb1",
+          "mechanic_bearing_face": "Spell Satchel",
+          "colors": []
+        },
+        {
+          "name": "Witherbloom Apprentice",
+          "oracle_id": "696f554d-0485-48a5-9273-3f6fb7d16a5d",
+          "mechanic_bearing_face": "Witherbloom Apprentice",
+          "colors": [
+            "B",
+            "G"
+          ]
+        }
+      ]
+    },
+    {
+      "mechanic": "Manifest",
+      "selected": [
+        {
+          "name": "Cloudform",
+          "oracle_id": "2b9384a0-db2d-49e2-b121-6b81a0d77722",
+          "mechanic_bearing_face": "Cloudform",
+          "colors": [
+            "U"
+          ]
+        },
+        {
+          "name": "Arashin War Beast",
+          "oracle_id": "75c81ce4-ca1d-464a-bb39-e568f8ebf71f",
+          "mechanic_bearing_face": "Arashin War Beast",
+          "colors": [
+            "G"
+          ]
+        },
+        {
+          "name": "Scroll of Fate",
+          "oracle_id": "c15c13d2-8db9-4801-a1f0-f087f2551c92",
+          "mechanic_bearing_face": "Scroll of Fate",
+          "colors": []
+        },
+        {
+          "name": "Cryptic Pursuit",
+          "oracle_id": "214cfbc8-369e-4035-9b65-80d0e0024889",
+          "mechanic_bearing_face": "Cryptic Pursuit",
+          "colors": [
+            "U",
+            "R"
+          ]
+        },
+        {
+          "name": "Ethereal Ambush",
+          "oracle_id": "c0604afb-eae2-41c8-b390-dbc0f7e025ed",
+          "mechanic_bearing_face": "Ethereal Ambush",
+          "colors": [
+            "U",
+            "G"
+          ]
+        },
+        {
+          "name": "Fierce Invocation",
+          "oracle_id": "4e75fc29-68e3-41a9-9f59-adb4460663b2",
+          "mechanic_bearing_face": "Fierce Invocation",
+          "colors": [
+            "R"
+          ]
+        },
+        {
+          "name": "Ghastly Conscription",
+          "oracle_id": "3bf20e68-0e19-4242-bfba-a8a1bb244685",
+          "mechanic_bearing_face": "Ghastly Conscription",
+          "colors": [
+            "B"
+          ]
+        },
+        {
+          "name": "Guardian of the Forgotten",
+          "oracle_id": "89b88a6c-92be-43eb-9de4-f79cc75c6d90",
+          "mechanic_bearing_face": "Guardian of the Forgotten",
+          "colors": [
+            "W"
+          ]
+        }
+      ]
+    },
+    {
+      "mechanic": "Manifest Dread",
+      "selected": [
+        {
+          "name": "Abhorrent Oculus",
+          "oracle_id": "b1a0e129-27f0-4a09-b00d-497e18777306",
+          "mechanic_bearing_face": "Abhorrent Oculus",
+          "colors": [
+            "U"
+          ]
+        },
+        {
+          "name": "Bashful Beastie",
+          "oracle_id": "e7aeabd9-a72c-47ee-b275-b025d7142766",
+          "mechanic_bearing_face": "Bashful Beastie",
+          "colors": [
+            "G"
+          ]
+        },
+        {
+          "name": "Conductive Machete",
+          "oracle_id": "513dbf8a-a250-4fd9-a5ae-2fb9c4810ecc",
+          "mechanic_bearing_face": "Conductive Machete",
+          "colors": []
+        },
+        {
+          "name": "Disturbing Mirth",
+          "oracle_id": "7010bfbb-8aea-473b-a9a5-27488de13cc5",
+          "mechanic_bearing_face": "Disturbing Mirth",
+          "colors": [
+            "B",
+            "R"
+          ]
+        },
+        {
+          "name": "Growing Dread",
+          "oracle_id": "aa1d8bfa-729a-4e10-8069-57a1d4f4392b",
+          "mechanic_bearing_face": "Growing Dread",
+          "colors": [
+            "U",
+            "G"
+          ]
+        },
+        {
+          "name": "Innocuous Rat",
+          "oracle_id": "114725ef-ac81-4d13-9153-0a303c3ce9c4",
+          "mechanic_bearing_face": "Innocuous Rat",
+          "colors": [
+            "B"
+          ]
+        },
+        {
+          "name": "Turn Inside Out",
+          "oracle_id": "be0a3925-8e0d-4ef6-85cb-c9f5eef6b4bb",
+          "mechanic_bearing_face": "Turn Inside Out",
+          "colors": [
+            "R"
+          ]
+        },
+        {
+          "name": "Unsettling Twins",
+          "oracle_id": "b0b2ca8c-cb5a-45f8-ae7c-63ad9ebb4afd",
+          "mechanic_bearing_face": "Unsettling Twins",
+          "colors": [
+            "W"
+          ]
+        }
+      ]
+    },
+    {
+      "mechanic": "Mark of Chaos Ascendant",
+      "selected": [
+        {
+          "name": "Abaddon the Despoiler",
+          "oracle_id": "8dedb9a7-0afa-4dff-b124-2344c170f11a",
+          "mechanic_bearing_face": "Abaddon the Despoiler",
+          "colors": [
+            "U",
+            "B",
+            "R"
+          ]
+        }
+      ]
+    },
+    {
+      "mechanic": "Max Speed",
+      "selected": [
+        {
+          "name": "Aether Syphon",
+          "oracle_id": "d8956775-fda8-475d-9e8a-b61196a958ea",
+          "mechanic_bearing_face": "Aether Syphon",
+          "colors": [
+            "U"
+          ]
+        },
+        {
+          "name": "Amonkhet Raceway",
+          "oracle_id": "fe174586-d36b-40f6-babd-1f98e76eec22",
+          "mechanic_bearing_face": "Amonkhet Raceway",
+          "colors": []
+        },
+        {
+          "name": "Burnout Bashtronaut",
+          "oracle_id": "1b122fbb-c2e1-42d1-bfc5-fcacacdfa0bc",
+          "mechanic_bearing_face": "Burnout Bashtronaut",
+          "colors": [
+            "R"
+          ]
+        },
+        {
+          "name": "Embalmed Ascendant",
+          "oracle_id": "2f4d7988-3f5b-45d7-9838-02897d7180be",
+          "mechanic_bearing_face": "Embalmed Ascendant",
+          "colors": [
+            "W",
+            "B"
+          ]
+        },
+        {
+          "name": "Far Fortune, End Boss",
+          "oracle_id": "8b9734c1-7185-40f6-8582-9f87109e3a09",
+          "mechanic_bearing_face": "Far Fortune, End Boss",
+          "colors": [
+            "B",
+            "R"
+          ]
+        },
+        {
+          "name": "Gas Guzzler",
+          "oracle_id": "7c98626b-ba97-4d1e-9be7-291480ae8d22",
+          "mechanic_bearing_face": "Gas Guzzler",
+          "colors": [
+            "B"
+          ]
+        },
+        {
+          "name": "Leonin Surveyor",
+          "oracle_id": "97c29db0-b3e1-4704-afe8-5218250c044c",
+          "mechanic_bearing_face": "Leonin Surveyor",
+          "colors": [
+            "W"
+          ]
+        },
+        {
+          "name": "Loxodon Surveyor",
+          "oracle_id": "970f26d4-c916-444a-a2d2-4c1f5bb5556b",
+          "mechanic_bearing_face": "Loxodon Surveyor",
+          "colors": [
+            "G"
+          ]
+        },
+        {
+          "name": "Mendicant Core, Guidelight",
+          "oracle_id": "b20d74a4-0e08-4779-972a-499f1a2be15a",
+          "mechanic_bearing_face": "Mendicant Core, Guidelight",
+          "colors": [
+            "W",
+            "U"
+          ]
+        },
+        {
+          "name": "Tsagan, Raider Warlord",
+          "oracle_id": "3194c964-1693-40b6-b4f2-64fe056e7cd9",
+          "mechanic_bearing_face": "Tsagan, Raider Warlord",
+          "colors": [
+            "W",
+            "B",
+            "R"
+          ]
+        }
+      ]
+    },
+    {
+      "mechanic": "Mayhem",
+      "selected": [
+        {
+          "name": "Abomination, World Ravager",
+          "oracle_id": "e0b12c48-7234-40b5-a84c-6901d2b4e5b0",
+          "mechanic_bearing_face": "Abomination, World Ravager",
+          "colors": [
+            "R"
+          ]
+        },
+        {
+          "name": "Carnage, Crimson Chaos",
+          "oracle_id": "c0efafc6-8ffb-4908-ae64-3f391722370a",
+          "mechanic_bearing_face": "Carnage, Crimson Chaos",
+          "colors": [
+            "B",
+            "R"
+          ]
+        },
+        {
+          "name": "Chameleon, Master of Disguise",
+          "oracle_id": "1ce239f2-79ad-4a30-8e8f-f985045f78dc",
+          "mechanic_bearing_face": "Chameleon, Master of Disguise",
+          "colors": [
+            "U"
+          ]
+        },
+        {
+          "name": "Green Goblin, Back for More",
+          "oracle_id": "622fbc01-9099-4b6c-b2ce-e41247fc7355",
+          "mechanic_bearing_face": "Green Goblin, Back for More",
+          "colors": [
+            "B"
+          ]
+        },
+        {
+          "name": "Oscorp Industries",
+          "oracle_id": "f432eb6a-f1bf-4ce7-b915-1488dccb4bb9",
+          "mechanic_bearing_face": "Oscorp Industries",
+          "colors": []
+        },
+        {
+          "name": "The Squadron Sinister",
+          "oracle_id": "3b7352e6-6508-491c-9935-426a6eebb429",
+          "mechanic_bearing_face": "The Squadron Sinister",
+          "colors": [
+            "U",
+            "R"
+          ]
+        },
+        {
+          "name": "Norman Osborn // Green Goblin",
+          "oracle_id": "aa5b06a4-90c3-45e7-ab83-cb5c96ded21d",
+          "mechanic_bearing_face": "Green Goblin",
+          "colors": [
+            "U",
+            "B",
+            "R"
+          ]
+        }
+      ]
+    },
+    {
+      "mechanic": "Megamorph",
+      "selected": [
+        {
+          "name": "Acid-Spewer Dragon",
+          "oracle_id": "f4378682-359f-48b0-adb7-b996b8d972db",
+          "mechanic_bearing_face": "Acid-Spewer Dragon",
+          "colors": [
+            "B"
+          ]
+        },
+        {
+          "name": "Aerie Bowmasters",
+          "oracle_id": "43ace4d5-9006-4bad-bd17-3d368c20564d",
+          "mechanic_bearing_face": "Aerie Bowmasters",
+          "colors": [
+            "G"
+          ]
+        },
+        {
+          "name": "Atarka Efreet",
+          "oracle_id": "177c1f2d-abb9-40ea-afe4-141b08fdeabb",
+          "mechanic_bearing_face": "Atarka Efreet",
+          "colors": [
+            "R"
+          ]
+        },
+        {
+          "name": "Aven Sunstriker",
+          "oracle_id": "60b0fd7c-a4cc-4a41-8455-debcfeccff81",
+          "mechanic_bearing_face": "Aven Sunstriker",
+          "colors": [
+            "W"
+          ]
+        },
+        {
+          "name": "Belltoll Dragon",
+          "oracle_id": "d0e529e3-0f77-4a55-ba35-46591f48d960",
+          "mechanic_bearing_face": "Belltoll Dragon",
+          "colors": [
+            "U"
+          ]
+        }
+      ]
+    },
+    {
+      "mechanic": "Meld",
+      "selected": [
+        {
+          "name": "Gisela, the Broken Blade",
+          "oracle_id": "f3e23d5e-bd88-4e7c-a3fb-db2a8cb05b22",
+          "mechanic_bearing_face": "Gisela, the Broken Blade",
+          "colors": [
+            "W"
+          ]
+        },
+        {
+          "name": "Graf Rats",
+          "oracle_id": "852edc00-9d98-427c-9869-7d0c8c121118",
+          "mechanic_bearing_face": "Graf Rats",
+          "colors": [
+            "B"
+          ]
+        },
+        {
+          "name": "Hanweir Battlements",
+          "oracle_id": "0e735ba6-7fd1-4d12-b20c-21525dc1e2b5",
+          "mechanic_bearing_face": "Hanweir Battlements",
+          "colors": []
+        },
+        {
+          "name": "Mishra, Claimed by Gix",
+          "oracle_id": "26a623a1-60c9-47e3-af96-616e29551865",
+          "mechanic_bearing_face": "Mishra, Claimed by Gix",
+          "colors": [
+            "B",
+            "R"
+          ]
+        },
+        {
+          "name": "Titania, Voice of Gaea",
+          "oracle_id": "42bccda5-1754-4619-b94f-7a72f934a718",
+          "mechanic_bearing_face": "Titania, Voice of Gaea",
+          "colors": [
+            "G"
+          ]
+        },
+        {
+          "name": "Urza, Lord Protector",
+          "oracle_id": "df2af646-3e5b-43a3-8f3e-50565889f456",
+          "mechanic_bearing_face": "Urza, Lord Protector",
+          "colors": [
+            "W",
+            "U"
+          ]
+        }
+      ]
+    },
+    {
+      "mechanic": "Melee",
+      "selected": [
+        {
+          "name": "Adriana, Captain of the Guard",
+          "oracle_id": "de23275e-e9c1-4151-aed8-f79ead03d5d4",
+          "mechanic_bearing_face": "Adriana, Captain of the Guard",
+          "colors": [
+            "W",
+            "R"
+          ]
+        },
+        {
+          "name": "Custodi Soulcaller",
+          "oracle_id": "dc25bdde-1c73-4c61-99d8-b772aae278cd",
+          "mechanic_bearing_face": "Custodi Soulcaller",
+          "colors": [
+            "W"
+          ]
+        },
+        {
+          "name": "Deputized Protester",
+          "oracle_id": "09947592-1730-4c1c-bfa5-be53a68d6919",
+          "mechanic_bearing_face": "Deputized Protester",
+          "colors": [
+            "R"
+          ]
+        },
+        {
+          "name": "Fang of the Pack",
+          "oracle_id": "ae8dffde-e59f-4f4f-8e7f-e7dc34f62e92",
+          "mechanic_bearing_face": "Fang of the Pack",
+          "colors": [
+            "G"
+          ]
+        },
+        {
+          "name": "Tifa, Martial Artist",
+          "oracle_id": "0836c8d1-c453-4a3a-a52a-eb66839b8542",
+          "mechanic_bearing_face": "Tifa, Martial Artist",
+          "colors": [
+            "W",
+            "R",
+            "G"
+          ]
+        },
+        {
+          "name": "Wulfgar of Icewind Dale",
+          "oracle_id": "b19d1459-eb08-4e75-95f4-402d86371a78",
+          "mechanic_bearing_face": "Wulfgar of Icewind Dale",
+          "colors": [
+            "R",
+            "G"
+          ]
+        }
+      ]
+    },
+    {
+      "mechanic": "Mentor",
+      "selected": [
+        {
+          "name": "Aurelia, Exemplar of Justice",
+          "oracle_id": "2e1e0385-1537-4cb6-9d24-e4593d9a8f4a",
+          "mechanic_bearing_face": "Aurelia, Exemplar of Justice",
+          "colors": [
+            "W",
+            "R"
+          ]
+        },
+        {
+          "name": "Barging Sergeant",
+          "oracle_id": "af422a4b-087c-4753-9288-c31fb3457740",
+          "mechanic_bearing_face": "Barging Sergeant",
+          "colors": [
+            "R"
+          ]
+        },
+        {
+          "name": "Blade Instructor",
+          "oracle_id": "77cff683-013c-4568-8ae0-f86ef0590fe1",
+          "mechanic_bearing_face": "Blade Instructor",
+          "colors": [
+            "W"
+          ]
+        },
+        {
+          "name": "Danny Pink",
+          "oracle_id": "92cda790-7907-47d1-8e5a-d3364c1e881f",
+          "mechanic_bearing_face": "Danny Pink",
+          "colors": [
+            "U"
+          ]
+        },
+        {
+          "name": "Felisa, Fang of Silverquill",
+          "oracle_id": "39144f72-789e-457a-a7e7-862f90c34e15",
+          "mechanic_bearing_face": "Felisa, Fang of Silverquill",
+          "colors": [
+            "W",
+            "B"
+          ]
+        },
+        {
+          "name": "Tributary Instructor",
+          "oracle_id": "1c70b9d8-b04e-48f8-a4e0-12ce077d22f2",
+          "mechanic_bearing_face": "Tributary Instructor",
+          "colors": [
+            "G"
+          ]
+        }
+      ]
+    },
+    {
+      "mechanic": "Metalcraft",
+      "selected": [
+        {
+          "name": "Ardent Recruit",
+          "oracle_id": "9275108c-7eaf-4edd-aa6d-e5263d5ac7fd",
+          "mechanic_bearing_face": "Ardent Recruit",
+          "colors": [
+            "W"
+          ]
+        },
+        {
+          "name": "Argent Sphinx",
+          "oracle_id": "7220c391-8d0e-4f43-94fc-ff77ffa2ee8d",
+          "mechanic_bearing_face": "Argent Sphinx",
+          "colors": [
+            "U"
+          ]
+        },
+        {
+          "name": "Blade-Tribe Berserkers",
+          "oracle_id": "655847c6-7c5e-4659-870e-825d0cf5e90c",
+          "mechanic_bearing_face": "Blade-Tribe Berserkers",
+          "colors": [
+            "R"
+          ]
+        },
+        {
+          "name": "Bleak Coven Vampires",
+          "oracle_id": "698f3526-489e-47a1-ac10-70cca73dea10",
+          "mechanic_bearing_face": "Bleak Coven Vampires",
+          "colors": [
+            "B"
+          ]
+        },
+        {
+          "name": "Carapace Forger",
+          "oracle_id": "9e623e0a-3c2d-4536-b12f-9437ef820499",
+          "mechanic_bearing_face": "Carapace Forger",
+          "colors": [
+            "G"
+          ]
+        },
+        {
+          "name": "Chrome Steed",
+          "oracle_id": "8475f55e-473c-4df0-bae2-3cbbbde4ff12",
+          "mechanic_bearing_face": "Chrome Steed",
+          "colors": []
+        },
+        {
+          "name": "Jor Kadeen, the Prevailer",
+          "oracle_id": "7c4dbaa8-e24f-4126-81fe-3f218f520d8c",
+          "mechanic_bearing_face": "Jor Kadeen, the Prevailer",
+          "colors": [
+            "W",
+            "R"
+          ]
+        }
+      ]
+    },
+    {
+      "mechanic": "Miracle",
+      "selected": [
+        {
+          "name": "Banishing Stroke",
+          "oracle_id": "a6898364-c29e-4b97-a500-344efa3ec24a",
+          "mechanic_bearing_face": "Banishing Stroke",
+          "colors": [
+            "W"
+          ]
+        },
+        {
+          "name": "Blessings of Nature",
+          "oracle_id": "1e77cf90-ac51-4ac7-b123-be04aabe1688",
+          "mechanic_bearing_face": "Blessings of Nature",
+          "colors": [
+            "G"
+          ]
+        },
+        {
+          "name": "Bonfire of the Damned",
+          "oracle_id": "13822dcf-0639-4852-9a7f-e1d55719e82c",
+          "mechanic_bearing_face": "Bonfire of the Damned",
+          "colors": [
+            "R"
+          ]
+        },
+        {
+          "name": "Devastation Tide",
+          "oracle_id": "4245ee98-2d4c-49d1-8d07-80760cae2bf9",
+          "mechanic_bearing_face": "Devastation Tide",
+          "colors": [
+            "U"
+          ]
+        },
+        {
+          "name": "Entreat the Dead",
+          "oracle_id": "2de6c3d9-1759-40a2-99c6-8cbe17b4bcdd",
+          "mechanic_bearing_face": "Entreat the Dead",
+          "colors": [
+            "B"
+          ]
+        },
+        {
+          "name": "Sister Repentia",
+          "oracle_id": "24e9a1cb-b58b-491f-9d08-3f039a86851e",
+          "mechanic_bearing_face": "Sister Repentia",
+          "colors": [
+            "W",
+            "B"
+          ]
+        },
+        {
+          "name": "Aminatou, Veil Piercer",
+          "oracle_id": "bf45f5ee-4d5f-4920-b612-b5492c2f035d",
+          "mechanic_bearing_face": "Aminatou, Veil Piercer",
+          "colors": [
+            "W",
+            "U",
+            "B"
+          ]
+        },
+        {
+          "name": "Lorehold, the Historian",
+          "oracle_id": "61a41cf1-60cc-45ba-aa98-493c14e87d9d",
+          "mechanic_bearing_face": "Lorehold, the Historian",
+          "colors": [
+            "W",
+            "R"
+          ]
+        },
+        {
+          "name": "Molecule Man",
+          "oracle_id": "ba944437-0b55-47cb-92dc-2477ce6726c3",
+          "mechanic_bearing_face": "Molecule Man",
+          "colors": []
+        }
+      ]
+    },
+    {
+      "mechanic": "Mobilize",
+      "selected": [
+        {
+          "name": "Avenger of the Fallen",
+          "oracle_id": "158d0272-a850-4399-8afa-d0caa143c3cb",
+          "mechanic_bearing_face": "Avenger of the Fallen",
+          "colors": [
+            "B"
+          ]
+        },
+        {
+          "name": "Bone-Cairn Butcher",
+          "oracle_id": "449db6bf-d766-4d09-a7bd-9c45b3d4c4c3",
+          "mechanic_bearing_face": "Bone-Cairn Butcher",
+          "colors": [
+            "W",
+            "B",
+            "R"
+          ]
+        },
+        {
+          "name": "Dalkovan Packbeasts",
+          "oracle_id": "cdd1a043-bd47-4197-be26-e2f7d3f1d209",
+          "mechanic_bearing_face": "Dalkovan Packbeasts",
+          "colors": [
+            "W"
+          ]
+        },
+        {
+          "name": "Shock Brigade",
+          "oracle_id": "8676e917-17dd-4047-99c4-402f2e909e16",
+          "mechanic_bearing_face": "Shock Brigade",
+          "colors": [
+            "R"
+          ]
+        }
+      ]
+    },
+    {
+      "mechanic": "Modular",
+      "selected": [
+        {
+          "name": "Arcbound Bruiser",
+          "oracle_id": "51577a8b-28d6-4f9e-8d3f-6a1380270fab",
+          "mechanic_bearing_face": "Arcbound Bruiser",
+          "colors": []
+        },
+        {
+          "name": "Arcbound Condor",
+          "oracle_id": "d484be42-5dd4-49e0-afcd-2d3c1a2c3037",
+          "mechanic_bearing_face": "Arcbound Condor",
+          "colors": [
+            "B"
+          ]
+        },
+        {
+          "name": "Arcbound Javelineer",
+          "oracle_id": "48e3f6dd-68ab-420a-ad4d-fe7ee39486d3",
+          "mechanic_bearing_face": "Arcbound Javelineer",
+          "colors": [
+            "W"
+          ]
+        },
+        {
+          "name": "Arcbound Shikari",
+          "oracle_id": "acb8d6a0-4bbd-4a42-bcac-3656367cc051",
+          "mechanic_bearing_face": "Arcbound Shikari",
+          "colors": [
+            "W",
+            "R"
+          ]
+        },
+        {
+          "name": "Arcbound Slasher",
+          "oracle_id": "bf86376d-474d-4658-8cf3-d0e2a01cdfff",
+          "mechanic_bearing_face": "Arcbound Slasher",
+          "colors": [
+            "R"
+          ]
+        },
+        {
+          "name": "Blaster, Combat DJ // Blaster, Morale Booster",
+          "oracle_id": "59c2af34-a2e5-4c67-af2d-a782e41a8e1e",
+          "mechanic_bearing_face": "Blaster, Combat DJ",
+          "colors": [
+            "R",
+            "G"
+          ]
+        }
+      ]
+    },
+    {
+      "mechanic": "Mold Earth",
+      "selected": [
+        {
+          "name": "Deep Gnome Terramancer",
+          "oracle_id": "d4e3440d-4e34-40d7-8a42-c673225c0332",
+          "mechanic_bearing_face": "Deep Gnome Terramancer",
+          "colors": [
+            "W"
+          ]
+        }
+      ]
+    },
+    {
+      "mechanic": "Monstrosity",
+      "selected": [
+        {
+          "name": "Alpha Deathclaw",
+          "oracle_id": "0a7d0d1f-a5ac-4db9-860c-9fcbe3fd9e71",
+          "mechanic_bearing_face": "Alpha Deathclaw",
+          "colors": [
+            "B",
+            "G"
+          ]
+        },
+        {
+          "name": "Arbor Colossus",
+          "oracle_id": "bec585af-0c59-46a7-838f-d747c80a9e97",
+          "mechanic_bearing_face": "Arbor Colossus",
+          "colors": [
+            "G"
+          ]
+        },
+        {
+          "name": "Chillerpillar",
+          "oracle_id": "5607bc18-f3b7-40b0-b97d-2e06affa99ac",
+          "mechanic_bearing_face": "Chillerpillar",
+          "colors": [
+            "U"
+          ]
+        },
+        {
+          "name": "Clay Golem",
+          "oracle_id": "8773c2ea-ef41-4403-bb52-07f0d70d9bbe",
+          "mechanic_bearing_face": "Clay Golem",
+          "colors": []
+        },
+        {
+          "name": "Death Kiss",
+          "oracle_id": "42410e81-f4a6-4501-82e4-6e745934976c",
+          "mechanic_bearing_face": "Death Kiss",
+          "colors": [
+            "R"
+          ]
+        },
+        {
+          "name": "Fleecemane Lion",
+          "oracle_id": "e3c8cdf7-a26a-45eb-9498-99b618cfba99",
+          "mechanic_bearing_face": "Fleecemane Lion",
+          "colors": [
+            "W",
+            "G"
+          ]
+        },
+        {
+          "name": "Fleetfeather Cockatrice",
+          "oracle_id": "d5006683-f1c4-4a18-bf64-2d075372534c",
+          "mechanic_bearing_face": "Fleetfeather Cockatrice",
+          "colors": [
+            "U",
+            "G"
+          ]
+        },
+        {
+          "name": "Hundred-Handed One",
+          "oracle_id": "954aaaa7-c3c1-4696-9ace-bcb5359b1709",
+          "mechanic_bearing_face": "Hundred-Handed One",
+          "colors": [
+            "W"
+          ]
+        },
+        {
+          "name": "Hythonia the Cruel",
+          "oracle_id": "48e3d832-2fe9-4ffd-8258-75451100dcfc",
+          "mechanic_bearing_face": "Hythonia the Cruel",
+          "colors": [
+            "B"
+          ]
+        },
+        {
+          "name": "Polis Crusher",
+          "oracle_id": "ffd6f55f-2592-46a5-94da-cb9424783004",
+          "mechanic_bearing_face": "Polis Crusher",
+          "colors": [
+            "R",
+            "G"
+          ]
+        }
+      ]
+    },
+    {
+      "mechanic": "Morbid",
+      "selected": [
+        {
+          "name": "Brimstone Volley",
+          "oracle_id": "d12e374d-ed09-4d5e-bb7a-6c7d9ea80a1e",
+          "mechanic_bearing_face": "Brimstone Volley",
+          "colors": [
+            "R"
+          ]
+        },
+        {
+          "name": "Cackling Prowler",
+          "oracle_id": "898da62e-d29a-4ddc-be69-2ddec54614f5",
+          "mechanic_bearing_face": "Cackling Prowler",
+          "colors": [
+            "G"
+          ]
+        },
+        {
+          "name": "Deathreap Ritual",
+          "oracle_id": "b26e3596-5b28-4eb6-b3e2-03f63d8c6d49",
+          "mechanic_bearing_face": "Deathreap Ritual",
+          "colors": [
+            "B",
+            "G"
+          ]
+        },
+        {
+          "name": "Gruesome Discovery",
+          "oracle_id": "ecdae60b-c594-4e70-909b-83483104a42c",
+          "mechanic_bearing_face": "Gruesome Discovery",
+          "colors": [
+            "B"
+          ]
+        },
+        {
+          "name": "Muster the Departed",
+          "oracle_id": "f0ba9cca-b946-465c-acae-0b465d7e1622",
+          "mechanic_bearing_face": "Muster the Departed",
+          "colors": [
+            "W"
+          ]
+        },
+        {
+          "name": "Séance Board",
+          "oracle_id": "8331d2ff-3729-4014-8dcb-278644d2632a",
+          "mechanic_bearing_face": "Séance Board",
+          "colors": []
+        }
+      ]
+    },
+    {
+      "mechanic": "More Than Meets the Eye",
+      "selected": [
+        {
+          "name": "Arcee, Sharpshooter // Arcee, Acrobatic Coupe",
+          "oracle_id": "9fba3097-d53f-4ea4-b5d2-8adddaa09524",
+          "mechanic_bearing_face": "Arcee, Sharpshooter",
+          "colors": [
+            "W",
+            "R"
+          ]
+        },
+        {
+          "name": "Blaster, Combat DJ // Blaster, Morale Booster",
+          "oracle_id": "59c2af34-a2e5-4c67-af2d-a782e41a8e1e",
+          "mechanic_bearing_face": "Blaster, Combat DJ",
+          "colors": [
+            "R",
+            "G"
+          ]
+        },
+        {
+          "name": "Blitzwing, Cruel Tormentor // Blitzwing, Adaptive Assailant",
+          "oracle_id": "9a10668a-df42-40c2-88d1-ad3b2aba5b03",
+          "mechanic_bearing_face": "Blitzwing, Cruel Tormentor",
+          "colors": [
+            "B"
+          ]
+        },
+        {
+          "name": "Cyclonus, the Saboteur // Cyclonus, Cybertronian Fighter",
+          "oracle_id": "7ead01b9-def3-4f9d-a860-af64e94cb45e",
+          "mechanic_bearing_face": "Cyclonus, the Saboteur",
+          "colors": [
+            "U",
+            "B"
+          ]
+        },
+        {
+          "name": "Flamewar, Brash Veteran // Flamewar, Streetwise Operative",
+          "oracle_id": "cf812f1e-f48a-4375-8d2c-f6e3cb82e067",
+          "mechanic_bearing_face": "Flamewar, Brash Veteran",
+          "colors": [
+            "B",
+            "R"
+          ]
+        },
+        {
+          "name": "Goldbug, Humanity's Ally // Goldbug, Scrappy Scout",
+          "oracle_id": "d1960749-c11e-4ac4-97cb-f37d7875d479",
+          "mechanic_bearing_face": "Goldbug, Humanity's Ally",
+          "colors": [
+            "W",
+            "U"
+          ]
+        },
+        {
+          "name": "Jetfire, Ingenious Scientist // Jetfire, Air Guardian",
+          "oracle_id": "38de7183-81ef-4a79-b231-7195ba89a281",
+          "mechanic_bearing_face": "Jetfire, Ingenious Scientist",
+          "colors": [
+            "U"
+          ]
+        },
+        {
+          "name": "Megatron, Tyrant // Megatron, Destructive Force",
+          "oracle_id": "33e88072-3840-4090-8d0b-7fb38279e150",
+          "mechanic_bearing_face": "Megatron, Tyrant",
+          "colors": [
+            "W",
+            "B",
+            "R"
+          ]
+        },
+        {
+          "name": "Optimus Prime, Hero // Optimus Prime, Autobot Leader",
+          "oracle_id": "199c4a1a-2082-417c-a174-f479d7334d15",
+          "mechanic_bearing_face": "Optimus Prime, Hero",
+          "colors": [
+            "W",
+            "U",
+            "R"
+          ]
+        },
+        {
+          "name": "Prowl, Stoic Strategist // Prowl, Pursuit Vehicle",
+          "oracle_id": "8dfd9baf-c3cc-4d2f-a0b0-b323b6480562",
+          "mechanic_bearing_face": "Prowl, Stoic Strategist",
+          "colors": [
+            "W"
+          ]
+        },
+        {
+          "name": "Slicer, Hired Muscle // Slicer, High-Speed Antagonist",
+          "oracle_id": "fa716557-8e75-4617-8310-ab23a9ca1af1",
+          "mechanic_bearing_face": "Slicer, Hired Muscle",
+          "colors": [
+            "R"
+          ]
+        },
+        {
+          "name": "Soundwave, Sonic Spy // Soundwave, Superior Captain",
+          "oracle_id": "cc18e782-a965-404f-96f1-348f3ed799fd",
+          "mechanic_bearing_face": "Soundwave, Sonic Spy",
+          "colors": [
+            "W",
+            "U",
+            "B"
+          ]
+        },
+        {
+          "name": "Ultra Magnus, Tactician // Ultra Magnus, Armored Carrier",
+          "oracle_id": "48e913c0-efeb-47f5-9dcb-b795751e6b6d",
+          "mechanic_bearing_face": "Ultra Magnus, Tactician",
+          "colors": [
+            "W",
+            "R",
+            "G"
+          ]
+        }
+      ]
+    },
+    {
+      "mechanic": "Morph",
+      "selected": [
+        {
+          "name": "Abomination of Gudul",
+          "oracle_id": "3d98af5f-7a0b-4a5a-b3e4-f3c9d150c993",
+          "mechanic_bearing_face": "Abomination of Gudul",
+          "colors": [
+            "U",
+            "B",
+            "G"
+          ]
+        },
+        {
+          "name": "Abzan Guide",
+          "oracle_id": "85b2fb89-5ebe-4c13-bc12-38d1417e5880",
+          "mechanic_bearing_face": "Abzan Guide",
+          "colors": [
+            "W",
+            "B",
+            "G"
+          ]
+        },
+        {
+          "name": "Ainok Tracker",
+          "oracle_id": "bf84a598-12d3-406d-8eeb-40592e782b87",
+          "mechanic_bearing_face": "Ainok Tracker",
+          "colors": [
+            "R"
+          ]
+        },
+        {
+          "name": "Aphetto Alchemist",
+          "oracle_id": "867aa0b7-b814-4d33-a677-f6368c8e93c0",
+          "mechanic_bearing_face": "Aphetto Alchemist",
+          "colors": [
+            "U"
+          ]
+        },
+        {
+          "name": "Aphetto Exterminator",
+          "oracle_id": "a3bf5d18-77d5-4881-916c-cc125e621b6e",
+          "mechanic_bearing_face": "Aphetto Exterminator",
+          "colors": [
+            "B"
+          ]
+        },
+        {
+          "name": "Aven Liberator",
+          "oracle_id": "0f3fff7a-cc46-4c72-9edc-fdbddd3b51b5",
+          "mechanic_bearing_face": "Aven Liberator",
+          "colors": [
+            "W"
+          ]
+        },
+        {
+          "name": "Birchlore Rangers",
+          "oracle_id": "667c5676-7a18-4fa9-b965-b26797538e23",
+          "mechanic_bearing_face": "Birchlore Rangers",
+          "colors": [
+            "G"
+          ]
+        },
+        {
+          "name": "Efreet Weaponmaster",
+          "oracle_id": "882a9dc9-b1bb-4be8-850f-e28bad8f5840",
+          "mechanic_bearing_face": "Efreet Weaponmaster",
+          "colors": [
+            "W",
+            "U",
+            "R"
+          ]
+        },
+        {
+          "name": "Icefeather Aven",
+          "oracle_id": "9fb901db-1ff7-4a8d-8233-fe7e3dee7fd1",
+          "mechanic_bearing_face": "Icefeather Aven",
+          "colors": [
+            "U",
+            "G"
+          ]
+        },
+        {
+          "name": "Ponyback Brigade",
+          "oracle_id": "8cfb5181-8ab7-484b-8821-a62c561f762f",
+          "mechanic_bearing_face": "Ponyback Brigade",
+          "colors": [
+            "W",
+            "B",
+            "R"
+          ]
+        },
+        {
+          "name": "Proteus Machine",
+          "oracle_id": "c3acf94e-3adc-4397-a736-3f6072a5967d",
+          "mechanic_bearing_face": "Proteus Machine",
+          "colors": []
+        },
+        {
+          "name": "Snowhorn Rider",
+          "oracle_id": "3d5a753b-ed2d-4646-ade3-5daeba2a7270",
+          "mechanic_bearing_face": "Snowhorn Rider",
+          "colors": [
+            "U",
+            "R",
+            "G"
+          ]
+        }
+      ]
+    },
+    {
+      "mechanic": "Mountaincycling",
+      "selected": [
+        {
+          "name": "Bedhead Beastie",
+          "oracle_id": "7143d82a-931a-4918-bb14-37bc5b9a4d99",
+          "mechanic_bearing_face": "Bedhead Beastie",
+          "colors": [
+            "R"
+          ]
+        },
+        {
+          "name": "Igneous Pouncer",
+          "oracle_id": "ee6f1ddb-6749-4394-b2b0-4d293376f1af",
+          "mechanic_bearing_face": "Igneous Pouncer",
+          "colors": [
+            "B",
+            "R"
+          ]
+        },
+        {
+          "name": "Valley Rannet",
+          "oracle_id": "d0a3b261-3daf-4082-8bc5-e66326a6c382",
+          "mechanic_bearing_face": "Valley Rannet",
+          "colors": [
+            "R",
+            "G"
+          ]
+        }
+      ]
+    },
+    {
+      "mechanic": "Mountainwalk",
+      "selected": [
+        {
+          "name": "Canyon Wildcat",
+          "oracle_id": "dbf7b3ef-1ca4-4b0d-bec2-f5e60b150013",
+          "mechanic_bearing_face": "Canyon Wildcat",
+          "colors": [
+            "R"
+          ]
+        },
+        {
+          "name": "Cliff Threader",
+          "oracle_id": "27882623-b5ad-49f2-b5ab-f0bdb93268a1",
+          "mechanic_bearing_face": "Cliff Threader",
+          "colors": [
+            "W"
+          ]
+        },
+        {
+          "name": "Glissa's Courier",
+          "oracle_id": "25fb2a67-fd7f-4a06-bd59-118d82c86d6e",
+          "mechanic_bearing_face": "Glissa's Courier",
+          "colors": [
+            "G"
+          ]
+        },
+        {
+          "name": "River Merfolk",
+          "oracle_id": "2f503ee5-9180-438e-8af5-2af7f8f08a3a",
+          "mechanic_bearing_face": "River Merfolk",
+          "colors": [
+            "U"
+          ]
+        }
+      ]
+    },
+    {
+      "mechanic": "Multikicker",
+      "selected": [
+        {
+          "name": "Apex Hawks",
+          "oracle_id": "c025d558-aae8-4146-923b-a98035025a42",
+          "mechanic_bearing_face": "Apex Hawks",
+          "colors": [
+            "W"
+          ]
+        },
+        {
+          "name": "Batroc the Leaper",
+          "oracle_id": "ebbea7a7-c990-43fa-8f67-a5da17fbbb10",
+          "mechanic_bearing_face": "Batroc the Leaper",
+          "colors": [
+            "R"
+          ]
+        },
+        {
+          "name": "Bloodhusk Ritualist",
+          "oracle_id": "93e1d3a6-e12f-4a0a-be0f-fbf568d89f1a",
+          "mechanic_bearing_face": "Bloodhusk Ritualist",
+          "colors": [
+            "B"
+          ]
+        },
+        {
+          "name": "Enclave Elite",
+          "oracle_id": "27c84b2e-fc66-45a6-a5ad-d3ef204d5077",
+          "mechanic_bearing_face": "Enclave Elite",
+          "colors": [
+            "U"
+          ]
+        },
+        {
+          "name": "Everflowing Chalice",
+          "oracle_id": "0a79237e-0811-4a8a-bd4d-db3ca91bff22",
+          "mechanic_bearing_face": "Everflowing Chalice",
+          "colors": []
+        },
+        {
+          "name": "Gnarlid Pack",
+          "oracle_id": "be6e835c-822e-45ff-a992-249d4d9781dc",
+          "mechanic_bearing_face": "Gnarlid Pack",
+          "colors": [
+            "G"
+          ]
+        },
+        {
+          "name": "Zethi, Arcane Blademaster",
+          "oracle_id": "ac136d46-32b7-4222-a840-b8be011c1872",
+          "mechanic_bearing_face": "Zethi, Arcane Blademaster",
+          "colors": [
+            "W",
+            "U"
+          ]
+        }
+      ]
+    },
+    {
+      "mechanic": "Mutate",
+      "selected": [
+        {
+          "name": "Archipelagore",
+          "oracle_id": "ae1df2ad-f34c-4569-92f2-98be776c612d",
+          "mechanic_bearing_face": "Archipelagore",
+          "colors": [
+            "U"
+          ]
+        },
+        {
+          "name": "Auspicious Starrix",
+          "oracle_id": "8432df19-dbf4-457b-8c0b-1f4b3a0a37d2",
+          "mechanic_bearing_face": "Auspicious Starrix",
+          "colors": [
+            "G"
+          ]
+        },
+        {
+          "name": "Boneyard Lurker",
+          "oracle_id": "88aa5cd0-811a-4682-b2b0-2decbd13b332",
+          "mechanic_bearing_face": "Boneyard Lurker",
+          "colors": [
+            "B",
+            "G"
+          ]
+        },
+        {
+          "name": "Brokkos, Apex of Forever",
+          "oracle_id": "e9137b54-3464-4f57-95e3-f94bf2ac854e",
+          "mechanic_bearing_face": "Brokkos, Apex of Forever",
+          "colors": [
+            "U",
+            "B",
+            "G"
+          ]
+        },
+        {
+          "name": "Cavern Whisperer",
+          "oracle_id": "b42147e1-cf90-4c12-8abe-7f2931d0607c",
+          "mechanic_bearing_face": "Cavern Whisperer",
+          "colors": [
+            "B"
+          ]
+        },
+        {
+          "name": "Cloudpiercer",
+          "oracle_id": "ed7885bf-c557-4328-b1a4-54780b2315f4",
+          "mechanic_bearing_face": "Cloudpiercer",
+          "colors": [
+            "R"
+          ]
+        },
+        {
+          "name": "Cubwarden",
+          "oracle_id": "8c1b3f1b-40d8-4cd5-bedf-92c3c534be84",
+          "mechanic_bearing_face": "Cubwarden",
+          "colors": [
+            "W"
+          ]
+        },
+        {
+          "name": "Illuna, Apex of Wishes",
+          "oracle_id": "08daa30f-7ce0-4a72-b539-fbb0c585fd73",
+          "mechanic_bearing_face": "Illuna, Apex of Wishes",
+          "colors": [
+            "U",
+            "R",
+            "G"
+          ]
+        },
+        {
+          "name": "Lore Drakkis",
+          "oracle_id": "3ec271d8-8264-4574-8c4c-e57b35872b1e",
+          "mechanic_bearing_face": "Lore Drakkis",
+          "colors": [
+            "U",
+            "R"
+          ]
+        },
+        {
+          "name": "Necropanther",
+          "oracle_id": "7df82bf8-b232-48e1-858b-1571c48b6f46",
+          "mechanic_bearing_face": "Necropanther",
+          "colors": [
+            "W",
+            "B"
+          ]
+        },
+        {
+          "name": "Nethroi, Apex of Death",
+          "oracle_id": "66bef5a7-79b7-4a9c-98dc-8670f867f04c",
+          "mechanic_bearing_face": "Nethroi, Apex of Death",
+          "colors": [
+            "W",
+            "B",
+            "G"
+          ]
+        },
+        {
+          "name": "Parcelbeast",
+          "oracle_id": "de83b309-ac31-4a57-95e6-ccd3659e6c1f",
+          "mechanic_bearing_face": "Parcelbeast",
+          "colors": [
+            "U",
+            "G"
+          ]
+        },
+        {
+          "name": "Regal Leosaur",
+          "oracle_id": "fc445b1d-229d-4cf3-8203-8872d8957a15",
+          "mechanic_bearing_face": "Regal Leosaur",
+          "colors": [
+            "W",
+            "R"
+          ]
+        },
+        {
+          "name": "Snapdax, Apex of the Hunt",
+          "oracle_id": "b2b78623-5a10-4ef7-b983-3d82478269c3",
+          "mechanic_bearing_face": "Snapdax, Apex of the Hunt",
+          "colors": [
+            "W",
+            "B",
+            "R"
+          ]
+        },
+        {
+          "name": "Vadrok, Apex of Thunder",
+          "oracle_id": "775c41fa-2316-43c9-af34-ac9c9b0db7e2",
+          "mechanic_bearing_face": "Vadrok, Apex of Thunder",
+          "colors": [
+            "W",
+            "U",
+            "R"
+          ]
+        }
+      ]
+    },
+    {
+      "mechanic": "Myriad",
+      "selected": [
+        {
+          "name": "Banshee of the Dread Choir",
+          "oracle_id": "282b4dbf-ec00-48ba-8010-73bee489fa7a",
+          "mechanic_bearing_face": "Banshee of the Dread Choir",
+          "colors": [
+            "B"
+          ]
+        },
+        {
+          "name": "Battle Angels of Tyr",
+          "oracle_id": "c2bd0c24-3973-48bc-a591-3779e3640c5d",
+          "mechanic_bearing_face": "Battle Angels of Tyr",
+          "colors": [
+            "W"
+          ]
+        },
+        {
+          "name": "Broodbirth Viper",
+          "oracle_id": "a8455828-9c61-4ef9-a5f1-1f0cc6fbf446",
+          "mechanic_bearing_face": "Broodbirth Viper",
+          "colors": [
+            "U"
+          ]
+        },
+        {
+          "name": "Caller of the Pack",
+          "oracle_id": "3b6cbd2a-02ba-4afb-a081-0f25d830a8ee",
+          "mechanic_bearing_face": "Caller of the Pack",
+          "colors": [
+            "G"
+          ]
+        },
+        {
+          "name": "Chittering Dispatcher",
+          "oracle_id": "c1b276b7-f1b3-4f6f-b6a2-1315d805e0f2",
+          "mechanic_bearing_face": "Chittering Dispatcher",
+          "colors": []
+        },
+        {
+          "name": "Conclave Evangelist",
+          "oracle_id": "13c81fc5-dd35-481d-8e32-4d404fb0e4ac",
+          "mechanic_bearing_face": "Conclave Evangelist",
+          "colors": [
+            "W",
+            "G"
+          ]
+        },
+        {
+          "name": "Elturel Survivors",
+          "oracle_id": "373ccd23-5c98-4368-995a-e6503cd0dbd8",
+          "mechanic_bearing_face": "Elturel Survivors",
+          "colors": [
+            "R"
+          ]
+        },
+        {
+          "name": "The Master, Multiplied",
+          "oracle_id": "0741e5b5-35c8-4f4d-b49f-c53e960240b9",
+          "mechanic_bearing_face": "The Master, Multiplied",
+          "colors": [
+            "B",
+            "R"
+          ]
+        },
+        {
+          "name": "Duke Ulder Ravengard",
+          "oracle_id": "792b9752-2d46-48ca-abdd-408a787612da",
+          "mechanic_bearing_face": "Duke Ulder Ravengard",
+          "colors": [
+            "W",
+            "R"
+          ]
+        },
+        {
+          "name": "Corporeal Projection",
+          "oracle_id": "09038989-3c1f-4426-a150-e0a9374f34c3",
+          "mechanic_bearing_face": "Corporeal Projection",
+          "colors": [
+            "U",
+            "R"
+          ]
+        },
+        {
+          "name": "Mass of Mysteries",
+          "oracle_id": "3ceffadd-c32d-4508-b307-e03bf3c8e7b8",
+          "mechanic_bearing_face": "Mass of Mysteries",
+          "colors": [
+            "W",
+            "U",
+            "B",
+            "R",
+            "G"
+          ]
+        }
+      ]
+    }
+  ]
+}

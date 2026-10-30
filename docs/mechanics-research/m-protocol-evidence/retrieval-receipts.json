@@ -1,0 +1,371 @@
+{
+  "retrievals": [
+    {
+      "path": "docs/mechanics-research/m-protocol-evidence/selected-cards-1.json",
+      "url": "https://api.scryfall.com/cards/collection",
+      "finalUrl": "https://api.scryfall.com/cards/collection",
+      "requestStartedUtc": "2026-10-30T05:29:51.888Z",
+      "requestEndedUtc": "2026-10-30T05:29:52.591Z",
+      "status": 200,
+      "rawSha256": "16a7a70fdad242324be3826d65d618ce86336ff166f1ef0df07533183da9a8e8",
+      "method": "POST",
+      "requestBodyPath": null,
+      "requestBodyMetadata": "Original POST body was not preserved. Retained audit-only; current selected facts bind to selected-fresh captures."
+    },
+    {
+      "path": "docs/mechanics-research/m-protocol-evidence/selected-cards-2.json",
+      "url": "https://api.scryfall.com/cards/collection",
+      "finalUrl": "https://api.scryfall.com/cards/collection",
+      "requestStartedUtc": "2026-10-30T05:29:52.850Z",
+      "requestEndedUtc": "2026-10-30T05:29:53.163Z",
+      "status": 200,
+      "rawSha256": "5e7a3c8b3b23ab7a68b6032a36eef8fdfc4e2dc69037fd93d4be8f5721e5eb60",
+      "method": "POST",
+      "requestBodyPath": null,
+      "requestBodyMetadata": "Original POST body was not preserved. Retained audit-only; current selected facts bind to selected-fresh captures."
+    },
+    {
+      "path": "docs/mechanics-research/m-protocol-evidence/selected-cards-3.json",
+      "url": "https://api.scryfall.com/cards/collection",
+      "finalUrl": "https://api.scryfall.com/cards/collection",
+      "requestStartedUtc": "2026-10-30T05:29:53.426Z",
+      "requestEndedUtc": "2026-10-30T05:29:53.585Z",
+      "status": 200,
+      "rawSha256": "311488c98b32e113d8d9ae359aa4a3c23aa7afc6b8bc6abc10afb0ca136df428",
+      "method": "POST",
+      "requestBodyPath": null,
+      "requestBodyMetadata": "Original POST body was not preserved. Retained audit-only; current selected facts bind to selected-fresh captures."
+    },
+    {
+      "path": "docs/mechanics-research/m-protocol-evidence/grant-discovery-1.json",
+      "method": "GET",
+      "query": "fo:/(have|has|gain|gains).*(madness|magecraft|manifest|mayhem|megamorph|melee|mentor|metalcraft|miracle|mobilize|modular|monstrosity|morbid|morph|mountaincycling|mountainwalk|multikicker|mutate|myriad)/ game:paper -is:funny date<=2026-10-29",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%2F%28have%7Chas%7Cgain%7Cgains%29.%2A%28madness%7Cmagecraft%7Cmanifest%7Cmayhem%7Cmegamorph%7Cmelee%7Cmentor%7Cmetalcraft%7Cmiracle%7Cmobilize%7Cmodular%7Cmonstrosity%7Cmorbid%7Cmorph%7Cmountaincycling%7Cmountainwalk%7Cmultikicker%7Cmutate%7Cmyriad%29%2F+game%3Apaper+-is%3Afunny+date%3C%3D2026-10-29&unique=cards&order=name",
+      "finalUrl": "https://api.scryfall.com/cards/search?q=fo%3A%2F%28have%7Chas%7Cgain%7Cgains%29.%2A%28madness%7Cmagecraft%7Cmanifest%7Cmayhem%7Cmegamorph%7Cmelee%7Cmentor%7Cmetalcraft%7Cmiracle%7Cmobilize%7Cmodular%7Cmonstrosity%7Cmorbid%7Cmorph%7Cmountaincycling%7Cmountainwalk%7Cmultikicker%7Cmutate%7Cmyriad%29%2F+game%3Apaper+-is%3Afunny+date%3C%3D2026-10-29&unique=cards&order=name",
+      "requestStartedUtc": "2026-10-30T05:35:01.751862+00:00",
+      "requestEndedUtc": "2026-10-30T05:35:09.689456+00:00",
+      "status": 200,
+      "rawSha256": "c87b04453ab46ecb11d02a4fad3c80845f469452baa531fb48ad57f6af9cc925"
+    },
+    {
+      "path": "docs/mechanics-research/m-protocol-evidence/mentor-colorless-1.json",
+      "method": "GET",
+      "query": "fo:mentor c:c game:paper -is:funny date<=2026-10-29",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3Amentor+c%3Ac+game%3Apaper+-is%3Afunny+date%3C%3D2026-10-29&unique=cards&order=name",
+      "finalUrl": "https://api.scryfall.com/cards/search?q=fo%3Amentor+c%3Ac+game%3Apaper+-is%3Afunny+date%3C%3D2026-10-29&unique=cards&order=name",
+      "requestStartedUtc": "2026-10-30T05:35:09.992181+00:00",
+      "requestEndedUtc": "2026-10-30T05:35:10.703808+00:00",
+      "status": 200,
+      "rawSha256": "22a12cfb4ad3bfa8cc09810ed16bebcecb1430c38551bd6986b0127bd7a5c7ce"
+    },
+    {
+      "path": "docs/mechanics-research/m-protocol-evidence/mountainwalk-full-1.json",
+      "method": "GET",
+      "query": "fo:mountainwalk game:paper -is:funny date<=2026-10-29",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3Amountainwalk+game%3Apaper+-is%3Afunny+date%3C%3D2026-10-29&unique=cards&order=name",
+      "finalUrl": "https://api.scryfall.com/cards/search?q=fo%3Amountainwalk+game%3Apaper+-is%3Afunny+date%3C%3D2026-10-29&unique=cards&order=name",
+      "requestStartedUtc": "2026-10-30T05:35:11.005110+00:00",
+      "requestEndedUtc": "2026-10-30T05:35:11.464540+00:00",
+      "status": 200,
+      "rawSha256": "9113e31f3a517761f3895f06d3445a74c55b0afe98784e4379bb6d1811585608"
+    },
+    {
+      "path": "docs/mechanics-research/m-protocol-evidence/selected-fresh-1.json",
+      "method": "POST",
+      "requestBodyPath": "docs/mechanics-research/m-protocol-evidence/selected-fresh-1-request.json",
+      "requestBodySha256": "a03e0589c600c86dc74dfa6c7d6a3f1fcc6db7537ab43c78ffda4025462a3753",
+      "url": "https://api.scryfall.com/cards/collection",
+      "finalUrl": "https://api.scryfall.com/cards/collection",
+      "requestStartedUtc": "2026-10-30T05:36:52.352319+00:00",
+      "requestEndedUtc": "2026-10-30T05:36:52.976298+00:00",
+      "status": 200,
+      "rawSha256": "bc9d20ee6187b41472bb9c75615f8d623d0861e83c5aebc8cc7c35a4d2f8a675"
+    },
+    {
+      "path": "docs/mechanics-research/m-protocol-evidence/selected-fresh-2.json",
+      "method": "POST",
+      "requestBodyPath": "docs/mechanics-research/m-protocol-evidence/selected-fresh-2-request.json",
+      "requestBodySha256": "4e99e6b9e960f80a991ef3d6e951b85c55b3518c5117a6c0c69c97f451cf3242",
+      "url": "https://api.scryfall.com/cards/collection",
+      "finalUrl": "https://api.scryfall.com/cards/collection",
+      "requestStartedUtc": "2026-10-30T05:36:53.281414+00:00",
+      "requestEndedUtc": "2026-10-30T05:36:53.746783+00:00",
+      "status": 200,
+      "rawSha256": "de6ec53336f0c3f6de971206ead51570a4044bf48fb2a93778e4e36bd589c463"
+    },
+    {
+      "path": "docs/mechanics-research/m-protocol-evidence/selected-fresh-3.json",
+      "method": "POST",
+      "requestBodyPath": "docs/mechanics-research/m-protocol-evidence/selected-fresh-3-request.json",
+      "requestBodySha256": "54807d47cac328ed894ec6f3b4a2d2119209b5606c8d4a42746a121ccf7f0c10",
+      "url": "https://api.scryfall.com/cards/collection",
+      "finalUrl": "https://api.scryfall.com/cards/collection",
+      "requestStartedUtc": "2026-10-30T05:36:54.051156+00:00",
+      "requestEndedUtc": "2026-10-30T05:36:54.460386+00:00",
+      "status": 200,
+      "rawSha256": "a73308832f564f74b3a28bcdeeef4d02d3d1b41e8b76c030aa863a39fda5a640"
+    }
+  ],
+  "inheritedArtifacts": [
+    {
+      "path": "docs/mechanics-research/m-protocol-evidence/m-discovery.json",
+      "rawSha256": "2c5b26f215875ed48db00901622a16650851dfb54c372e291a4cecf2b8d296c1",
+      "classification": "derived_discovery_aggregate",
+      "url": null,
+      "requestStartedUtc": null,
+      "requestEndedUtc": null,
+      "status": null,
+      "metadataNote": "Retrieval authority is unknown. Not a selected-card fact source; do not infer an HTTP receipt from the embedded derived metadata."
+    },
+    {
+      "path": "docs/mechanics-research/m-protocol-evidence/madness-discovery-1.json",
+      "rawSha256": "0ea2480bf43c3d272f12324cde45dcaba716089b751da5e43369ee4c09dd49d1",
+      "classification": "inherited_discovery_body",
+      "url": null,
+      "requestStartedUtc": null,
+      "requestEndedUtc": null,
+      "status": null,
+      "metadataNote": "Retrieval authority is unknown. Not a selected-card fact source; do not infer an HTTP receipt from the embedded derived metadata."
+    },
+    {
+      "path": "docs/mechanics-research/m-protocol-evidence/magecraft-discovery-1.json",
+      "rawSha256": "d1fe96b49e3eb15c687dac3e2ee370355065b19d97222a898436004499b7188d",
+      "classification": "inherited_discovery_body",
+      "url": null,
+      "requestStartedUtc": null,
+      "requestEndedUtc": null,
+      "status": null,
+      "metadataNote": "Retrieval authority is unknown. Not a selected-card fact source; do not infer an HTTP receipt from the embedded derived metadata."
+    },
+    {
+      "path": "docs/mechanics-research/m-protocol-evidence/manifest-discovery-1.json",
+      "rawSha256": "482ad0dfa2b9b829c5b834e0457652f13098edf6a6488f3271487951a61c5cc0",
+      "classification": "inherited_discovery_body",
+      "url": null,
+      "requestStartedUtc": null,
+      "requestEndedUtc": null,
+      "status": null,
+      "metadataNote": "Retrieval authority is unknown. Not a selected-card fact source; do not infer an HTTP receipt from the embedded derived metadata."
+    },
+    {
+      "path": "docs/mechanics-research/m-protocol-evidence/manifest-dread-discovery-1.json",
+      "rawSha256": "904a35c899e6ec909adffa0624552d5ecff914b8cd4932cfbe752d5cbfb022a4",
+      "classification": "inherited_discovery_body",
+      "url": null,
+      "requestStartedUtc": null,
+      "requestEndedUtc": null,
+      "status": null,
+      "metadataNote": "Retrieval authority is unknown. Not a selected-card fact source; do not infer an HTTP receipt from the embedded derived metadata."
+    },
+    {
+      "path": "docs/mechanics-research/m-protocol-evidence/mark-of-chaos-ascendant-discovery-1.json",
+      "rawSha256": "524317e538e26d8f4ce43c2f87a20acde54983f8b6e91472ac8e41e418117cef",
+      "classification": "inherited_discovery_body",
+      "url": null,
+      "requestStartedUtc": null,
+      "requestEndedUtc": null,
+      "status": null,
+      "metadataNote": "Retrieval authority is unknown. Not a selected-card fact source; do not infer an HTTP receipt from the embedded derived metadata."
+    },
+    {
+      "path": "docs/mechanics-research/m-protocol-evidence/max-speed-discovery-1.json",
+      "rawSha256": "743715c1ab4ea8e17b489d54f163b33364e54297303a9d3fff3cf5d5f3b4b9ac",
+      "classification": "inherited_discovery_body",
+      "url": null,
+      "requestStartedUtc": null,
+      "requestEndedUtc": null,
+      "status": null,
+      "metadataNote": "Retrieval authority is unknown. Not a selected-card fact source; do not infer an HTTP receipt from the embedded derived metadata."
+    },
+    {
+      "path": "docs/mechanics-research/m-protocol-evidence/mayhem-discovery-1.json",
+      "rawSha256": "1264d136623ad95026b94a494e048deaf2928f64c3642ee5e1bb778346740ed5",
+      "classification": "inherited_discovery_body",
+      "url": null,
+      "requestStartedUtc": null,
+      "requestEndedUtc": null,
+      "status": null,
+      "metadataNote": "Retrieval authority is unknown. Not a selected-card fact source; do not infer an HTTP receipt from the embedded derived metadata."
+    },
+    {
+      "path": "docs/mechanics-research/m-protocol-evidence/megamorph-discovery-1.json",
+      "rawSha256": "3639354f212f010904df7907b6c2d81cee6097714ce1d04ec9d2d461c0a3655c",
+      "classification": "inherited_discovery_body",
+      "url": null,
+      "requestStartedUtc": null,
+      "requestEndedUtc": null,
+      "status": null,
+      "metadataNote": "Retrieval authority is unknown. Not a selected-card fact source; do not infer an HTTP receipt from the embedded derived metadata."
+    },
+    {
+      "path": "docs/mechanics-research/m-protocol-evidence/meld-discovery-1.json",
+      "rawSha256": "39fc0a2d33e85454e78bc6c760a653a3796cd5fa692d93ea1fbcf7086a12860a",
+      "classification": "inherited_discovery_body",
+      "url": null,
+      "requestStartedUtc": null,
+      "requestEndedUtc": null,
+      "status": null,
+      "metadataNote": "Retrieval authority is unknown. Not a selected-card fact source; do not infer an HTTP receipt from the embedded derived metadata."
+    },
+    {
+      "path": "docs/mechanics-research/m-protocol-evidence/melee-discovery-1.json",
+      "rawSha256": "83a7c8b995af0d4fa9549ebe2db2bfb43d68e1c6b000e39642088bd550263dba",
+      "classification": "inherited_discovery_body",
+      "url": null,
+      "requestStartedUtc": null,
+      "requestEndedUtc": null,
+      "status": null,
+      "metadataNote": "Retrieval authority is unknown. Not a selected-card fact source; do not infer an HTTP receipt from the embedded derived metadata."
+    },
+    {
+      "path": "docs/mechanics-research/m-protocol-evidence/mentor-discovery-1.json",
+      "rawSha256": "53145253acd6422277ccd4a4ef1234da6b4da414d99cc0b18a9ecc3ba8e23c57",
+      "classification": "inherited_discovery_body",
+      "url": null,
+      "requestStartedUtc": null,
+      "requestEndedUtc": null,
+      "status": null,
+      "metadataNote": "Retrieval authority is unknown. Not a selected-card fact source; do not infer an HTTP receipt from the embedded derived metadata."
+    },
+    {
+      "path": "docs/mechanics-research/m-protocol-evidence/metalcraft-discovery-1.json",
+      "rawSha256": "9fe2ec7ebaf43d8b30daab50bd651e9176fe7956cf11d5559f43a318549e18cc",
+      "classification": "inherited_discovery_body",
+      "url": null,
+      "requestStartedUtc": null,
+      "requestEndedUtc": null,
+      "status": null,
+      "metadataNote": "Retrieval authority is unknown. Not a selected-card fact source; do not infer an HTTP receipt from the embedded derived metadata."
+    },
+    {
+      "path": "docs/mechanics-research/m-protocol-evidence/miracle-discovery-1.json",
+      "rawSha256": "849a18288919b2112ed9ba667f4cfd630879735f55e5f23746acab3544ee0cf8",
+      "classification": "inherited_discovery_body",
+      "url": null,
+      "requestStartedUtc": null,
+      "requestEndedUtc": null,
+      "status": null,
+      "metadataNote": "Retrieval authority is unknown. Not a selected-card fact source; do not infer an HTTP receipt from the embedded derived metadata."
+    },
+    {
+      "path": "docs/mechanics-research/m-protocol-evidence/mobilize-discovery-1.json",
+      "rawSha256": "4a2bb9ac41cee6f12b40fc78bb9eb95046bfc0c04c0c5308b6e778f05c571592",
+      "classification": "inherited_discovery_body",
+      "url": null,
+      "requestStartedUtc": null,
+      "requestEndedUtc": null,
+      "status": null,
+      "metadataNote": "Retrieval authority is unknown. Not a selected-card fact source; do not infer an HTTP receipt from the embedded derived metadata."
+    },
+    {
+      "path": "docs/mechanics-research/m-protocol-evidence/modular-discovery-1.json",
+      "rawSha256": "7658b60ba624723f00b0b7554fc7df375934f06eb0621eb8c28bc5ec9181401b",
+      "classification": "inherited_discovery_body",
+      "url": null,
+      "requestStartedUtc": null,
+      "requestEndedUtc": null,
+      "status": null,
+      "metadataNote": "Retrieval authority is unknown. Not a selected-card fact source; do not infer an HTTP receipt from the embedded derived metadata."
+    },
+    {
+      "path": "docs/mechanics-research/m-protocol-evidence/mold-earth-discovery-1.json",
+      "rawSha256": "24a5523d2b99c5db62b5381a47c154d0f9c9aae632522fcd5c385af617747782",
+      "classification": "inherited_discovery_body",
+      "url": null,
+      "requestStartedUtc": null,
+      "requestEndedUtc": null,
+      "status": null,
+      "metadataNote": "Retrieval authority is unknown. Not a selected-card fact source; do not infer an HTTP receipt from the embedded derived metadata."
+    },
+    {
+      "path": "docs/mechanics-research/m-protocol-evidence/monstrosity-discovery-1.json",
+      "rawSha256": "d55d62ffe07f4e539a960c2c1eed6792ab6e622a24c1195be0c89ac0e259374c",
+      "classification": "inherited_discovery_body",
+      "url": null,
+      "requestStartedUtc": null,
+      "requestEndedUtc": null,
+      "status": null,
+      "metadataNote": "Retrieval authority is unknown. Not a selected-card fact source; do not infer an HTTP receipt from the embedded derived metadata."
+    },
+    {
+      "path": "docs/mechanics-research/m-protocol-evidence/morbid-discovery-1.json",
+      "rawSha256": "056ea3ddc4117710a0930c4e3264a327b705ad3be9c4dca5071f7ad55bee3212",
+      "classification": "inherited_discovery_body",
+      "url": null,
+      "requestStartedUtc": null,
+      "requestEndedUtc": null,
+      "status": null,
+      "metadataNote": "Retrieval authority is unknown. Not a selected-card fact source; do not infer an HTTP receipt from the embedded derived metadata."
+    },
+    {
+      "path": "docs/mechanics-research/m-protocol-evidence/more-than-meets-the-eye-discovery-1.json",
+      "rawSha256": "6c5be175ecb2e7222859a25df848fb025e638bbc9bdb4372bcb4ed879ab0f623",
+      "classification": "inherited_discovery_body",
+      "url": null,
+      "requestStartedUtc": null,
+      "requestEndedUtc": null,
+      "status": null,
+      "metadataNote": "Retrieval authority is unknown. Not a selected-card fact source; do not infer an HTTP receipt from the embedded derived metadata."
+    },
+    {
+      "path": "docs/mechanics-research/m-protocol-evidence/morph-discovery-1.json",
+      "rawSha256": "f5315cbdc04eb4d51e5e976bd0de686d34e9cf2d4859be2f33e3f61cf88b12d0",
+      "classification": "inherited_discovery_body",
+      "url": null,
+      "requestStartedUtc": null,
+      "requestEndedUtc": null,
+      "status": null,
+      "metadataNote": "Retrieval authority is unknown. Not a selected-card fact source; do not infer an HTTP receipt from the embedded derived metadata."
+    },
+    {
+      "path": "docs/mechanics-research/m-protocol-evidence/mountaincycling-discovery-1.json",
+      "rawSha256": "6f77d0532213e4d09d6505897ec2ceb4a9082607796608d5cb4a05bb5798c7ec",
+      "classification": "inherited_discovery_body",
+      "url": null,
+      "requestStartedUtc": null,
+      "requestEndedUtc": null,
+      "status": null,
+      "metadataNote": "Retrieval authority is unknown. Not a selected-card fact source; do not infer an HTTP receipt from the embedded derived metadata."
+    },
+    {
+      "path": "docs/mechanics-research/m-protocol-evidence/mountainwalk-discovery-1.json",
+      "rawSha256": "3d57e47dcb73f5037abb0a5ca0c5dc14070007ddd63a4b11aa82a9a0c0b4d01f",
+      "classification": "inherited_discovery_body",
+      "url": null,
+      "requestStartedUtc": null,
+      "requestEndedUtc": null,
+      "status": null,
+      "metadataNote": "Retrieval authority is unknown. Not a selected-card fact source; do not infer an HTTP receipt from the embedded derived metadata."
+    },
+    {
+      "path": "docs/mechanics-research/m-protocol-evidence/multikicker-discovery-1.json",
+      "rawSha256": "8911e991f109edccf6c322ae9733447041a2e53954304e3cdb62849d7a2212b2",
+      "classification": "inherited_discovery_body",
+      "url": null,
+      "requestStartedUtc": null,
+      "requestEndedUtc": null,
+      "status": null,
+      "metadataNote": "Retrieval authority is unknown. Not a selected-card fact source; do not infer an HTTP receipt from the embedded derived metadata."
+    },
+    {
+      "path": "docs/mechanics-research/m-protocol-evidence/mutate-discovery-1.json",
+      "rawSha256": "0882bdd565f871fb545f05dde846dee8ead7838b07aa24cf526cb5f0c82cf28e",
+      "classification": "inherited_discovery_body",
+      "url": null,
+      "requestStartedUtc": null,
+      "requestEndedUtc": null,
+      "status": null,
+      "metadataNote": "Retrieval authority is unknown. Not a selected-card fact source; do not infer an HTTP receipt from the embedded derived metadata."
+    },
+    {
+      "path": "docs/mechanics-research/m-protocol-evidence/myriad-discovery-1.json",
+      "rawSha256": "3032909a1b8d46b7e36f21cbb5ee7c506b80a5aed0dc5a8335f4291c9ad58920",
+      "classification": "inherited_discovery_body",
+      "url": null,
+      "requestStartedUtc": null,
+      "requestEndedUtc": null,
+      "status": null,
+      "metadataNote": "Retrieval authority is unknown. Not a selected-card fact source; do not infer an HTTP receipt from the embedded derived metadata."
+    }
+  ]
+}

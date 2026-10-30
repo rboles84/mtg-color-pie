@@ -1,3 +1,21 @@
+# M supplemental Color Access — RobDev envelope
+
+- Status: implementation in progress; this is not Owner acceptance, integration, or independent QA.
+- Admitted outcome: add the 25 unmapped M mechanics under Color Access protocol 2.0; Menace and Mill remain frozen mapped entries. Expected projection: 235 supplemental rows and 21 canonical bindings.
+- Allowed material: `HANDOFF.md`, `docs/mechanics-research/m-protocol.json`, `docs/mechanics-research/m-protocol-evidence/**`, `docs/mechanics-research/M-ACCESS-REVIEW.md`, `docs/mechanics-research/COLOR-ACCESS-PROTOCOL.md`, `tools/build_mechanics_assessments.py`, `tools/check_assessment_browser.mjs`, `vox-color/mechanical-explorer.html`, and regenerated `data/mechanics-assessments.v1.json`.
+- Protected: all A–L packet/projection material, frozen 2021 records and calculations, existing routes, glyph fallback behavior, and the known unrelated Friends forever harness debt.
+- Pre-edit contract: the M packet is the authored evidence owner; the producer is the only projection writer; the explorer and focused harness consume that projection. Card facts bind only to exact selected-card raw responses with their actual retrieval receipts. No rankings, count-strength claims, name-only evidence, or inferred monocolor access.
+
+
+## M implementation and acceptance criteria
+
+- RobDev implementation uses the existing checkout and `codex/a-mechanics-review`; baseline `04f84845d46433692eb61456a2d9155c827ca79a`. Bounded completion was assigned after the first worker’s incomplete scaffold. No push, merge or publication is authorized or performed.
+- Criteria: all 25 unmapped M entries have presence-based maps and one selected example per independent/colorless/combination bucket; selected facts bind to exact raw HTTP bodies with honest retrieval receipts; grants and face colors are explicit; summaries explain each mechanic once; all actual mana notation renders accessibly across assessment/rules/references; unsafe/malformed data remains isolated. A–L rows/bindings, frozen 2021 and Menace/Mill stay unchanged.
+- Implemented: 183 selected bucket witnesses / 182 full objects; corrected Manifest variant selection, Mentor Stickers exclusion, additional Miracle/Mayhem/Myriad/Mountainwalk grant buckets, actual DFC colors and native colorless cases. Authored notes include the actual effect restrictions and cost notation. M-only renderer extensions reuse existing compact examples, mixed-access strips, safe links and escaped symbols, adding snow and W/U hybrid only for M.
+- Proportionate selection: QA-4 because mechanics source, producer and projected access semantics changed. The existing full mechanics gate chain protects frozen data and source accounting; a dedicated actual `--m-only` covers changed DOM/source/symbol/interaction risks; protected `--l-only` covers the directly preceding renderer branch. Independent RobQA is required after a committed candidate. Known unrelated Friends forever broad-harness debt is outside scope; no broad-suite PASS is claimed.
+
+---
+
 # Owner Accepted — L supplemental Color Access
 
 - Owner decision: "L is done." Accepted the complete L batch, including the Landwalk monocolor example correction, at exact material `16925a9d457ffbec463d66e3cab16b8af52960b9`, reviewed with evidence HEAD `56e25e3ab4d0109773f63bcb3c0f885d2130afee`.
