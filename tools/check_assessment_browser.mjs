@@ -313,7 +313,7 @@ try{
       const row=page.locator(`#list .ent[data-k="${record.id}"]`), access=record.access, compactExamples=/^[CDEFGHIJK]/.test(record.name);
       assert.equal(await row.locator('.access-strip').count(),record.kind==='access'?1:0,record.name);
       if(record.kind==='access'){
-        const comboPresentation=['Fuse','Friends forever'].includes(record.name), mixedPresentation=['Hexproof from','Intimidate','Islandcycling','Islandwalk'].includes(record.name), independentSlots=[...('WUBRG')].filter(color=>access.colors[color].status==='documented').concat(access.colorless.status==='documented'?['C']:[]);
+        const comboPresentation=['Fuse','Friends forever'].includes(record.name), mixedPresentation=['Hexproof from','Intimidate','Islandcycling','Islandwalk','Kicker'].includes(record.name), independentSlots=[...('WUBRG')].filter(color=>access.colors[color].status==='documented').concat(access.colorless.status==='documented'?['C']:[]);
         if(comboPresentation || mixedPresentation){
           assert.deepEqual(await row.locator('.combo-mark').evaluateAll(marks=>marks.map(mark=>mark.dataset.combo)),access.combinations.map(item=>item.colors.join('')));
           assert.equal(await row.locator('.combo-mark').evaluateAll(marks=>marks.every(mark=>mark.getAttribute('role')==='img'&&mark.getAttribute('aria-label').includes('combination only'))),true);
@@ -323,13 +323,23 @@ try{
           assert.ok(await row.locator('.combo-mark .ms-cost').evaluateAll(glyphs=>glyphs.every(glyph=>{const style=getComputedStyle(glyph), size=parseFloat(style.fontSize);return Math.abs(parseFloat(style.lineHeight)-size*1.35)<=1;})),record.name+' keeps Mana-native pair metrics at the scoped glyph size');
           assert.ok(await row.locator('.combo-mark').evaluateAll(marks=>{const pair=marks.find(mark=>mark.querySelector('.ms-cost')), ci=marks.find(mark=>mark.querySelector('.ci3-svg,.ci5-svg'));if(!pair||!ci)return true;const a=pair.querySelector('.ms').getBoundingClientRect(),b=ci.querySelector('.ci3-svg,.ci5-svg').getBoundingClientRect();return Math.abs(a.width-b.width)<=.5&&Math.abs(a.height-b.height)<=.5;}),record.name+' normalizes pair and CI circle footprints');
           assert.ok(await row.locator('.combo-mark .ci3-svg').evaluateAll(glyphs=>glyphs.every(svg=>{const expected={WUG:['#3b6ba0','#3d684b','#fff'],UBR:['#c6553e','#3b6ba0','#383431'],WUR:['#c6553e','#fff','#3b6ba0'],BRG:['#3d684b','#383431','#c6553e'],WBG:['#383431','#3d684b','#fff'],WUB:['#383431','#fff','#3b6ba0']}[svg.closest('.combo-mark').dataset.combo], paths=[...svg.querySelectorAll('path')];return svg.getAttribute('viewBox')==='0 0 1024 1024'&&svg.querySelector('g')?.getAttribute('transform')==='translate(0 938.667) scale(1 -1)'&&paths.length===4&&paths[0].getAttribute('fill')==='#010101'&&paths.slice(1).map(path=>path.getAttribute('fill')).join('|')===expected.join('|');})),record.name+' renders the pinned Mana CI-3 outline and native interior colors in one shared vector frame');
-          assert.ok(await row.locator('.combo-mark').evaluateAll(marks=>marks.every(mark=>{const r=mark.getBoundingClientRect(), g=mark.querySelector('.ms,.ci3-svg,.ci5-svg').getBoundingClientRect();return Math.abs(r.width-14)<=.5&&Math.abs(r.height-14)<=.5&&Math.abs((r.left+r.width/2)-(g.left+g.width/2))<=.5&&Math.abs((r.top+r.height/2)-(g.top+g.height/2))<=.5;})),record.name+' compact markers have14px hosts and centered glyphs');
-          await checkAccessSizes(row,record.name+' list',14);
-          await checkCIVectors(row,record.name+' list',14);
+          const listSize=record.name==='Kicker'?18:14;
+          assert.ok(await row.locator('.combo-mark').evaluateAll((marks,size)=>marks.every(mark=>{const r=mark.getBoundingClientRect(), g=mark.querySelector('.ms,.ci3-svg,.ci5-svg').getBoundingClientRect();return Math.abs(r.width-size)<=.5&&Math.abs(r.height-size)<=.5&&Math.abs((r.left+r.width/2)-(g.left+g.width/2))<=.5&&Math.abs((r.top+r.height/2)-(g.top+g.height/2))<=.5;}),listSize),record.name+' combination markers have expected hosts and centered glyphs');
+          await checkAccessSizes(row,record.name+' list',record.name==='Kicker'?18:14);
+          await checkCIVectors(row,record.name+' list',record.name==='Kicker'?18:14);
           assert.deepEqual(await row.locator('.access-strip > .sc').evaluateAll(slots=>slots.map(s=>s.dataset.c)),comboPresentation?[]:independentSlots);
         } else assert.deepEqual(await row.locator('.access-strip > .sc').evaluateAll(slots=>slots.map(s=>s.dataset.c)),[...'WUBRG',...(access.colorless.status==='documented'?['C']:[])]);
         assert.equal(await row.locator('.access-strip .t-p,.access-strip .t-s,.access-strip .t-t,.access-strip .t-n').count(),0);
         for(const color of 'WUBRG') assert.equal(await row.locator(`.access-strip .sc[data-c="${color}"].a-d`).count(),access.colors[color].status==='documented'?1:0);
+        if(record.name==='Kicker'){
+          await page.locator('#q').fill(record.name); await page.locator('#q').focus();
+          const option=page.locator(`#res-list .opt[data-k="${record.id}"]`); await option.waitFor({state:'visible'});
+          assert.deepEqual(await option.locator('.access-strip > .sc').evaluateAll(items=>items.map(item=>item.dataset.c)),independentSlots,'Kicker search exposes only independent WUBRG/colorless slots');
+          assert.deepEqual(await option.locator('.combo-mark').evaluateAll(items=>items.map(item=>item.dataset.combo)),access.combinations.map(item=>item.colors.join('')),'Kicker search retains exact documented combinations');
+          assert.ok(await option.locator('.combo-mark').evaluateAll(items=>items.every(item=>item.getAttribute('aria-label').endsWith('combination only'))),'Kicker search labels combinations without implied independent access');
+          await checkAccessSizes(option,'Kicker search',18); await checkCIVectors(option,'Kicker search',18);
+          await page.locator('#q').fill('');
+        }
         for(const item of [...Object.values(access.colors),...access.combinations,access.colorless]){
           const names=item.cards.map(card=>`!"${card.name.replaceAll('"','')}"`).join(' or ');
           if(item.findUrl) assert.equal(new URL(item.findUrl).searchParams.get('q'),`(${names}) include:extras`,record.name+' exact reviewed-card discovery link');
@@ -344,7 +354,7 @@ try{
       assert.ok((await panel.innerText()).includes(/^[GHIJK]/.test(record.name)?'October 29, 2026':'October 28, 2026'),record.name+' displayed review date');
       assert.doesNotMatch(await panel.innerText(),/Our assessment|Confidence:|Primary:|Secondary:|Tertiary:|assessment - provisional/i);
       if(record.kind==='access'){
-        const comboPresentation=['Fuse','Friends forever'].includes(record.name), mixedPresentation=['Hexproof from','Intimidate','Islandcycling','Islandwalk'].includes(record.name), independentSlots=[...('WUBRG')].filter(color=>access.colors[color].status==='documented').concat(access.colorless.status==='documented'?['C']:[]);
+        const comboPresentation=['Fuse','Friends forever'].includes(record.name), mixedPresentation=['Hexproof from','Intimidate','Islandcycling','Islandwalk','Kicker'].includes(record.name), independentSlots=[...('WUBRG')].filter(color=>access.colors[color].status==='documented').concat(access.colorless.status==='documented'?['C']:[]);
         assert.equal(await panel.locator('.own-row').count(),comboPresentation?access.combinations.length:mixedPresentation?independentSlots.length+access.combinations.length:5+(access.colorless.status==='documented'?1:0));
         if(comboPresentation){
           assert.equal(await panel.locator('.own-row[data-c]').count(),0,record.name+' has no implied monocolor rows');
@@ -475,6 +485,19 @@ try{
       const option=noFont.locator(`#res-list .opt[data-k="${record.id}"]`);await option.waitFor({state:'visible'});
       await checkAccessSizes(option,record.name+' no-font search',14,true);
       await noFont.locator('#q').fill('');
+    }
+    if(kOnly){
+      const kicker=kRecords.find(record=>record.name==='Kicker');
+      await noFont.evaluate(()=>VMX.setView('az')); await noFont.evaluate(id=>VMX.open(id),kicker.id);
+      const expected=kicker.access.combinations.map(item=>item.colors.join(''));
+      assert.deepEqual(await noFont.locator(`#list .ent[data-k="${kicker.id}"] .combo-mark`).evaluateAll(marks=>marks.map(mark=>mark.dataset.combo)),expected,'Kicker no-font list retains exact combinations');
+      assert.ok(await noFont.locator(`#list .ent[data-k="${kicker.id}"] .combo-mark`).evaluateAll(marks=>marks.every(mark=>getComputedStyle(mark.querySelector('.ci3-svg,.ci5-svg,.ms')).display==='none'&&getComputedStyle(mark.querySelector('.combo-text')).display!=='none')),'Kicker no-font list retains readable combination letters');
+      assert.ok(await noFont.locator('#detail .combo-mark').evaluateAll(marks=>marks.every(mark=>getComputedStyle(mark.querySelector('.ci3-svg,.ci5-svg,.ms')).display==='none'&&getComputedStyle(mark.querySelector('.combo-text')).display!=='none')),'Kicker no-font detail retains readable combination letters');
+      await checkAccessSizes(noFont.locator(`#list .ent[data-k="${kicker.id}"]`),'Kicker no-font list',18,true);
+      await checkAccessSizes(noFont.locator('#detail .supp-assessment'),'Kicker no-font detail',18,true);
+      await noFont.locator('#q').fill('Kicker'); await noFont.locator('#q').focus();
+      const option=noFont.locator(`#res-list .opt[data-k="${kicker.id}"]`); await option.waitFor({state:'visible'});
+      await checkAccessSizes(option,'Kicker no-font search',18,true); await noFont.locator('#q').fill('');
     }
     await noFont.close();
     const escaped=await browser.newPage(), injected=structuredClone(payload);
