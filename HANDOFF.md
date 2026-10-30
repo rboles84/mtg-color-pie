@@ -1,6 +1,6 @@
 # M supplemental Color Access — RobDev envelope
 
-- Status: implementation in progress; this is not Owner acceptance, integration, or independent QA.
+- Status: `ready-for-qa`; this is not Owner acceptance, integration, or independent QA.
 - Admitted outcome: add the 25 unmapped M mechanics under Color Access protocol 2.0; Menace and Mill remain frozen mapped entries. Expected projection: 235 supplemental rows and 21 canonical bindings.
 - Allowed material: `HANDOFF.md`, `docs/mechanics-research/m-protocol.json`, `docs/mechanics-research/m-protocol-evidence/**`, `docs/mechanics-research/M-ACCESS-REVIEW.md`, `docs/mechanics-research/COLOR-ACCESS-PROTOCOL.md`, `tools/build_mechanics_assessments.py`, `tools/check_assessment_browser.mjs`, `vox-color/mechanical-explorer.html`, and regenerated `data/mechanics-assessments.v1.json`.
 - Protected: all A–L packet/projection material, frozen 2021 records and calculations, existing routes, glyph fallback behavior, and the known unrelated Friends forever harness debt.
@@ -13,6 +13,98 @@
 - Criteria: all 25 unmapped M entries have presence-based maps and one selected example per independent/colorless/combination bucket; selected facts bind to exact raw HTTP bodies with honest retrieval receipts; grants and face colors are explicit; summaries explain each mechanic once; all actual mana notation renders accessibly across assessment/rules/references; unsafe/malformed data remains isolated. A–L rows/bindings, frozen 2021 and Menace/Mill stay unchanged.
 - Implemented: 183 selected bucket witnesses / 182 full objects; corrected Manifest variant selection, Mentor Stickers exclusion, additional Miracle/Mayhem/Myriad/Mountainwalk grant buckets, actual DFC colors and native colorless cases. Authored notes include the actual effect restrictions and cost notation. M-only renderer extensions reuse existing compact examples, mixed-access strips, safe links and escaped symbols, adding snow and W/U hybrid only for M.
 - Proportionate selection: QA-4 because mechanics source, producer and projected access semantics changed. The existing full mechanics gate chain protects frozen data and source accounting; a dedicated actual `--m-only` covers changed DOM/source/symbol/interaction risks; protected `--l-only` covers the directly preceding renderer branch. Independent RobQA is required after a committed candidate. Known unrelated Friends forever broad-harness debt is outside scope; no broad-suite PASS is claimed.
+
+## RobDev handoff — M ready for independent QA
+
+- Status: `ready-for-qa`. Material candidate: `5dcf24babdd2c1e4dc7d6989cc7b0b962bb19b47`. Baseline: `04f84845d46433692eb61456a2d9155c827ca79a`. Developer evidence is candidate-bound; independent RobQA and Owner acceptance remain outstanding. Product edits stop pending a QA finding.
+- Role: bounded implementation completion by the assigned developer after the earlier incomplete draft. Local branch: `codex/a-mechanics-review`. No new dependency, product file outside the envelope, push, merge or publication.
+- Git material accounting: 48 changed paths, 148960 insertions and 29 deletions from baseline to candidate. The table below is Git-derived. This follow-up evidence changes HANDOFF only; it does not add a product path. Final branch/package accounting belongs to the coordinator.
+
+### Acceptance evidence
+
+- All 25 M records are present with 183 selected bucket examples, 235 total rows and 21 bindings. Every independent color/colorless bucket and exact combination has one selected example; multicolor-only statuses point to combinations. The research review records scope decisions and specific exclusions; no strength ranks or card-volume judgments enter player copy.
+- All selected full-card objects equal the exact fresh raw bodies, use actual relevant face colors, pass ordinary-paper screening and bind to accurate receipts. Three fresh collection requests preserve all 182 printing identifiers and request-body hashes; all 35 retained evidence body hashes and JSON parse checks passed. Inherited discovery metadata and missing old POST bodies remain explicitly qualified, never promoted to selected-card authority.
+- All 210 prior A–L rows and 20 prior bindings equal the baseline exactly. Menace and Mill are absent from supplemental assessment additions. Frozen 2021 files and calculations are untouched. Renderer changes are M-gated; protected L rendering passed.
+- M summaries explain each mechanic once. Per-card cost and effect notes preserve important restrictions. Cloudform’s Aura/manifest order, Aminatou’s granted miracle cost, Wulfgar’s extra trigger and Battle Angels’ damaged-player reference were checked against saved Oracle facts before the final focused run.
+
+### Checks actually run
+
+| Command/action | Observed result |
+|---|---|
+| `python tools/build_mechanics_assessments.py --check` | PASS: `235 protocol v2.0 A/B/C/D/E/F/G/H/I/J/K/L/M documented-access records; deterministic payload and source bindings`; final authored-note regeneration was checked again. |
+| `python tools/check_invariants.py` | All invariants hold: 217 source identities, 216 projection mechanics, one structural-only row, five adjudicated conflicts, zero unadjudicated conflicts or unruled identities. |
+| `python tools/check_taxonomy.py` | Source gate PASS, no miscellaneous assignments; clean second index with no source change. |
+| `python tools/check_recon.py` | `All 53 recon assertions hold, including agreement with the golden fixtures.` |
+| `python tools/gate.py` | Source gate PASS; taxonomy gate PASS. |
+| `node --check tools/check_assessment_browser.mjs` and extracted explorer inline scripts | Exit 0. |
+| `node tools/check_assessment_browser.mjs --root . --m-only --playwright C:/Users/obake/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright` | Final actual Edge run returned JSON `result: PASS`: all 25 entries / 183 exact whole-detail links; raw/request integrity and face/scope checks; list/search/detail maps and native symbols; actual + fixture tokens across assessment/rules/references; escaped markup/safe links; accessible labels and blocked-font fallback; five malformed scenarios; keyboard search; 360px containment; frozen 84-check baseline and A–L parity hashes. |
+| Same browser command with `--l-only` | JSON `result: PASS`: all eleven L records / 83 links, actual and fixture symbols, fallback, exact maps, malformed isolation, keyboard, narrow containment, frozen 84 checks. |
+| Targeted saved-body/source/parity audit | PASS: all 35 body hashes/JSON, preserved fresh POST request hashes, all selected exact full objects, correct UTF-8 notes without replacement characters, and 210 prior rows / 20 bindings exactly equal baseline. |
+| `git diff --check` and `git diff --cached --check` | Exit 0. Final producer/renderer/harness diffs inspected; all 48 staged paths are in the envelope. Raw request/response files and authored JSON were parsed/inspected at their owning layer; no broad all-suite claim. |
+
+- Validation iterations corrected M’s missed runtime count gate and legacy aggregate-example suppression, plus a test-only `Plane` substring that incorrectly matched `Planeswalker`. The final M run passed after all corrections. The final source/copy edits required only deterministic regeneration and focused M recheck; unchanged frozen/source gate results and the protected L result are retained.
+- Expected independent route: separate RobQA, QA-4. Re-read source and visible criteria at this material SHA, especially the new grant buckets, Manifest/Dread split, Mentor excluded object and exact face/color attribution. Developer evidence does not issue the independent verdict.
+- Known limitation/debt: inherited discovery is derived or lacks trustworthy exact receipts; old POST request bodies are absent and audit-only. Current selected facts use complete fresh request/response authority. Known unrelated Friends forever 14px-vs-18px broad-harness debt was neither rerun nor repaired. No other blocker is known in the completed developer scope.
+
+### Draft Owner checklist
+
+1. At the coordinator’s refreshed local Mechanical Color Pie preview, open Miracle and expand Reviewed card examples: assess the independent colors, colorless example and WUB/WR/WB combinations for reading flow and visual balance.
+2. Open Manifest and Manifest Dread: assess whether their explanations and selected notes make the two actions easy to distinguish.
+3. Open Myriad and Monstrosity: assess long combination rows and mana/snow notation for readability. Engineering already checks links, symbols, narrow containment and fallback; Owner judgment is visual and editorial.
+
+### Material paths and line counts
+
+| Path | Added | Removed |
+|---|---:|---:|
+| `HANDOFF.md` | 18 | 0 |
+| `data/mechanics-assessments.v1.json` | 3755 | 0 |
+| `docs/mechanics-research/COLOR-ACCESS-PROTOCOL.md` | 8 | 0 |
+| `docs/mechanics-research/M-ACCESS-REVIEW.md` | 62 | 0 |
+| `docs/mechanics-research/m-protocol-evidence/grant-discovery-1.json` | 1 | 0 |
+| `docs/mechanics-research/m-protocol-evidence/m-discovery.json` | 109432 | 0 |
+| `docs/mechanics-research/m-protocol-evidence/madness-discovery-1.json` | 1 | 0 |
+| `docs/mechanics-research/m-protocol-evidence/magecraft-discovery-1.json` | 1 | 0 |
+| `docs/mechanics-research/m-protocol-evidence/manifest-discovery-1.json` | 1 | 0 |
+| `docs/mechanics-research/m-protocol-evidence/manifest-dread-discovery-1.json` | 1 | 0 |
+| `docs/mechanics-research/m-protocol-evidence/mark-of-chaos-ascendant-discovery-1.json` | 1 | 0 |
+| `docs/mechanics-research/m-protocol-evidence/max-speed-discovery-1.json` | 1 | 0 |
+| `docs/mechanics-research/m-protocol-evidence/mayhem-discovery-1.json` | 1 | 0 |
+| `docs/mechanics-research/m-protocol-evidence/megamorph-discovery-1.json` | 1 | 0 |
+| `docs/mechanics-research/m-protocol-evidence/meld-discovery-1.json` | 1 | 0 |
+| `docs/mechanics-research/m-protocol-evidence/melee-discovery-1.json` | 1 | 0 |
+| `docs/mechanics-research/m-protocol-evidence/mentor-colorless-1.json` | 1 | 0 |
+| `docs/mechanics-research/m-protocol-evidence/mentor-discovery-1.json` | 1 | 0 |
+| `docs/mechanics-research/m-protocol-evidence/metalcraft-discovery-1.json` | 1 | 0 |
+| `docs/mechanics-research/m-protocol-evidence/miracle-discovery-1.json` | 1 | 0 |
+| `docs/mechanics-research/m-protocol-evidence/mobilize-discovery-1.json` | 1 | 0 |
+| `docs/mechanics-research/m-protocol-evidence/modular-discovery-1.json` | 1 | 0 |
+| `docs/mechanics-research/m-protocol-evidence/mold-earth-discovery-1.json` | 1 | 0 |
+| `docs/mechanics-research/m-protocol-evidence/monstrosity-discovery-1.json` | 1 | 0 |
+| `docs/mechanics-research/m-protocol-evidence/morbid-discovery-1.json` | 1 | 0 |
+| `docs/mechanics-research/m-protocol-evidence/more-than-meets-the-eye-discovery-1.json` | 1 | 0 |
+| `docs/mechanics-research/m-protocol-evidence/morph-discovery-1.json` | 1 | 0 |
+| `docs/mechanics-research/m-protocol-evidence/mountaincycling-discovery-1.json` | 1 | 0 |
+| `docs/mechanics-research/m-protocol-evidence/mountainwalk-discovery-1.json` | 1 | 0 |
+| `docs/mechanics-research/m-protocol-evidence/mountainwalk-full-1.json` | 1 | 0 |
+| `docs/mechanics-research/m-protocol-evidence/multikicker-discovery-1.json` | 1 | 0 |
+| `docs/mechanics-research/m-protocol-evidence/mutate-discovery-1.json` | 1 | 0 |
+| `docs/mechanics-research/m-protocol-evidence/myriad-discovery-1.json` | 1 | 0 |
+| `docs/mechanics-research/m-protocol-evidence/retrieval-receipts.json` | 371 | 0 |
+| `docs/mechanics-research/m-protocol-evidence/selected-cards-1.json` | 1 | 0 |
+| `docs/mechanics-research/m-protocol-evidence/selected-cards-2.json` | 1 | 0 |
+| `docs/mechanics-research/m-protocol-evidence/selected-cards-3.json` | 1 | 0 |
+| `docs/mechanics-research/m-protocol-evidence/selected-fresh-1-request.json` | 1 | 0 |
+| `docs/mechanics-research/m-protocol-evidence/selected-fresh-1.json` | 1 | 0 |
+| `docs/mechanics-research/m-protocol-evidence/selected-fresh-2-request.json` | 1 | 0 |
+| `docs/mechanics-research/m-protocol-evidence/selected-fresh-2.json` | 1 | 0 |
+| `docs/mechanics-research/m-protocol-evidence/selected-fresh-3-request.json` | 1 | 0 |
+| `docs/mechanics-research/m-protocol-evidence/selected-fresh-3.json` | 1 | 0 |
+| `docs/mechanics-research/m-protocol-evidence/selection-plan.json` | 1658 | 0 |
+| `docs/mechanics-research/m-protocol.json` | 33480 | 0 |
+| `tools/build_mechanics_assessments.py` | 9 | 9 |
+| `tools/check_assessment_browser.mjs` | 114 | 6 |
+| `vox-color/mechanical-explorer.html` | 16 | 14 |
+
 
 ---
 
