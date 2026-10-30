@@ -10,6 +10,13 @@
 
 
 
+
+## P corrected exact candidate — independent review pending
+
+- New material candidate: `2d61cf43285947b68fff8a05313ef85607430d3a`; correction base `88b367a55e2874998d658c71650b0dcac15f8637`. Delta: two admitted paths, 11 additions / 2 deletions; the executable delta is only the default harness’s missing P path and twenty-four label. Original P material remains `abf9e8463708958aabf85cdbdbff6fee3b2c5145` over task baseline `6eee08fef23729597085775df1e9d39b79ce768d`.
+- Status: `ready-for-qa`, engineering verdict PENDING for the new candidate. This following evidence commit changes only `HANDOFF.md`; no further material edits remain. The exact static 24-path comparison, syntax and whitespace passed as recorded below. Independent QA owns review of this narrow delta and reuse of unchanged source/browser evidence.
+
+
 ## P narrow coordinator correction — default harness binding admission
 
 - Status: `ready-for-qa`; review of this new candidate is PENDING. After the original P engineering PASS, the coordinator identified a directly caused omission: the general harness expected only 23 source bindings ending at O, while the P payload correctly has 24. This is a same-task correction, not historical harness debt. Prior PASS remains bound to its earlier exact candidate and does not automatically certify this delta.
