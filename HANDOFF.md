@@ -1,3 +1,42 @@
+# Owner Review — 14px compact combination symbols
+
+- Status: `qa-passed` / Owner Review at material `82a6d1a378ae1dc70fa6434fa8d6a13efcf94ca0`; baseline `f0e8ca25b52810e864f278be2996d81cc24a09a5`, branch `codex/a-mechanics-review`. Compact list and supplemental search access circles now match at 14px; independent and combination detail circles remain 18px. Native pair and CI3/CI5 symbols scale proportionally, including their original outlines and interiors. Frozen 2021 search notation stays 12px.
+- QA-1, SEPARATE coordinator review by `/root`, who made no product/harness edits. Configured RobDev Terra medium began implementation; announced bounded escalation to existing Sol high `/root/i_completion` completed the diagnosis and verification after two incomplete handoffs. These are configured/requested routes, not backend telemetry. The exact diff contains only the three allowed paths: 80 insertions, 8 deletions. Product CSS has 4 insertions/2 deletions; source data, glyph paths, inline product logic, routes and dependencies remain unchanged.
+- Independent evidence: `git diff --check f0e8ca25b52810e864f278be2996d81cc24a09a5..82a6d1a378ae1dc70fa6434fa8d6a13efcf94ca0` and `node --check tools/check_assessment_browser.mjs` exited 0. `node tools/check_assessment_browser.mjs --root . --combinations-only --playwright C:/Users/obake/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright` actually completed with observed Node exit 0 and JSON `result: PASS`. This covered real search/list/detail sizes for all six combination presentations, proportional pair/vector geometry, exact native vector paths/colors, independent slots, one-example links, accessible labels, centered readable font fallback, frozen 2021 search12 and 84-check baseline, escaping and narrow containment. Captures: `C:/Users/obake/.codex/visualizations/2026/10/29/01a18965-8451-71b0-a50a-1fb5ffadaaf5/compact-size-qa.stdout.txt` and sibling `.stderr.txt` (empty). No broader source or engine suite was needed for unchanged inputs.
+- Earlier diagnostic disposition: the worker's baseline/current 360px comparison found scrollWidth360 in both versions immediately and after two animation frames, with no overflowing elements; no layout repair was made for the earlier unconfirmed failure. The new centering check was corrected to account for the existing intentional optical translation. Developer diagnostics and failed-run evidence remain recorded below; independent final PASS is separate.
+- Package PASS: after verifying `_site` is an ordinary direct child of this checkout, ran `python .github/pages/package.py --rev 82a6d1a378ae1dc70fa6434fa8d6a13efcf94ca0 --out <absolute _site> --verify`, exit 0. All 23 files match expected bytes, 4 inline scripts parse, 23 expected URLs return200 and 24 excluded URLs return404. Existing localhost8020 server reused.
+- Live preview refreshed and iframe revision verified as `82a6d1a378ae1dc70fa6434fa8d6a13efcf94ca0`. Islandcycling actual search marks U/UB/WU measured14x14; detail marks measured18x18; Islandcycling/Islandwalk A–Z list marks measured14px. Search screenshot: `C:/Users/obake/.codex/visualizations/2026/10/29/01a18965-8451-71b0-a50a-1fb5ffadaaf5/compact-symbols-search.jpg`; sibling `compact-symbols-detail.jpg`. Final tab retains Islandcycling with reviewed examples expanded, cleared search and A–Z active. The detail overlay prevented order-button changes until closed; closing it allowed the intended A–Z selection, then the detail was reopened normally.
+- Owner check: judge the matching compact circle sizes in list/search and retained detail readability. Engineering findings: none unresolved. No push, merge or publication. Final clean status, branch containment and report validation are checked after committing this evidence-only ledger update.
+
+## Material candidate
+
+- Baseline: `f0e8ca25b52810e864f278be2996d81cc24a09a5`
+- Candidate: `82a6d1a378ae1dc70fa6434fa8d6a13efcf94ca0`
+- Changed paths: `3`
+
+## Files changed
+
+- `HANDOFF.md`
+- `tools/check_assessment_browser.mjs`
+- `vox-color/mechanical-explorer.html`
+
+## Evidence delta
+
+- Material candidate: `82a6d1a378ae1dc70fa6434fa8d6a13efcf94ca0`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `1`
+- Developer handoff and coordinator QA/preview/accounting updates to HANDOFF only; this is not the full task diff.
+
+## Evidence-only paths
+
+- `HANDOFF.md`
+
+## Final branch delta
+
+- Task baseline to evidence HEAD: 3 Git-derived changed paths. Evidence-only updates introduce no path outside the material set; earlier I/J changes are already in this task baseline.
+
+---
+
 # RobDev ready for QA — 14px compact access and combination marks
 
 - Status: ready-for-qa. Baseline `f0e8ca25b52810e864f278be2996d81cc24a09a5` on `codex/a-mechanics-review`. Exact material candidate: `82a6d1a378ae1dc70fa6434fa8d6a13efcf94ca0`; subsequent ledger update is evidence only. Three-path envelope: `HANDOFF.md`, `vox-color/mechanical-explorer.html`, `tools/check_assessment_browser.mjs`. Product edits are frozen for independent review.
