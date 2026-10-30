@@ -293,11 +293,12 @@ async function checkMutatePips(page,browser,baseline){
     const example=page.locator('#detail .assessment-example').filter({hasText:name});
     const run=example.locator('.supp-cost-run');await run.waitFor();
     assert.deepEqual(await run.locator('.supp-symbol-text').allTextContents(),tokens,name+' retains every saved cost token in one run');
-    const geometry=await run.evaluate(el=>{const box=el.getBoundingClientRect(),symbols=[...el.querySelectorAll('.supp-symbol')].map(symbol=>{const box=symbol.getBoundingClientRect(),glyph=symbol.querySelector('.ms');return {x:box.x,y:box.y,w:box.width,h:box.height,before:getComputedStyle(glyph,'::before').content,after:getComputedStyle(glyph,'::after').content};});return {box,symbols};});
+    const geometry=await run.evaluate(el=>{const box=el.getBoundingClientRect(),symbols=[...el.querySelectorAll('.supp-symbol')].map(symbol=>{const box=symbol.getBoundingClientRect(),glyph=symbol.querySelector('.ms'),style=getComputedStyle(glyph);return {x:box.x,y:box.y,w:box.width,h:box.height,lineHeight:style.lineHeight,fontSize:style.fontSize,before:getComputedStyle(glyph,'::before').content,after:getComputedStyle(glyph,'::after').content};});return {box,symbols};});
     assert.ok(geometry.box.width>0&&geometry.symbols.length===tokens.length,name+' has one visible contiguous cost run');
     assert.ok(geometry.symbols.every(symbol=>Math.abs(symbol.y-geometry.symbols[0].y)<=.1&&Math.abs(symbol.h-geometry.symbols[0].h)<=.1),name+' centers hybrid and single pips in one line box');
     assert.ok(geometry.symbols.slice(1).every((symbol,index)=>symbol.x>=geometry.symbols[index].x+geometry.symbols[index].w+.5),name+' pips have visible non-overlapping spacing');
     assert.ok(geometry.symbols.every((symbol,index)=>tokens[index].includes('/')?symbol.after&&!['none','normal','""'].includes(symbol.after):!symbol.after||symbol.after==='none'),name+' only hybrid pips paint a second native half');
+    assert.ok(geometry.symbols.every(symbol=>symbol.lineHeight==='normal'||symbol.lineHeight!==symbol.fontSize),name+' retains the native Mana line-height rather than forcing 1');
   }
   await page.evaluate(()=>VMX.open('deck:vocabulary:landfall'));await page.locator('.assessment-notes > summary').click();
   assert.equal(await page.locator('#detail .supp-cost-run').count(),0,'legacy L formatter preserves its established ungrouped markup');
