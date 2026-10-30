@@ -1,3 +1,22 @@
+# RobDev rework — L player-facing research language
+
+- Status: `ready-for-qa`, narrow coordinator-reported live-review defect corrected in material `a477d7df9df75956b6ab565d37eac2bc36e70aa4` over clean baseline `e1776e9`. The earlier independent PASS applies to its named material; this correction awaits separate narrow re-review. Allowed correction: canonical L summaries/limitations, regenerated assessment projection, the existing focused L copy assertion and this handoff. Facts, selected cards, evidence, renderer and other batches remain protected.
+- Acceptance: remove ordinary L discovery/review audit language and Landfall/Lieutenant selection audits from player limitations; replace Landship's “narrow witness” wording with plain playtest-example language. Preserve its general-definition limit and all Landship/Legacy playtest/legality restrictions. Research audit truth stays in `L-ACCESS-REVIEW.md` and retained evidence.
+- Proportionate checks: deterministic producer, exact correction-diff preservation audit and existing actual `--l-only` browser path. No broader suite or source recapture is justified by this copy-only change.
+
+- Implemented: all nine ordinary L player limitation lists are now empty, removing the generic discovery/review disclaimer plus Landfall's excluded-card/MBC selection audit and Lieutenant's name-match list. Landship's summary/scope now says “This is a playtest-card example; no general Landship definition has been verified.” Landship/Legacy legality, playtest and definition limitations remain exactly unchanged. The existing L rendered-copy assertion now rejects the reported audit terms.
+- Preservation evidence: a structural baseline comparison PASS proves only those nine limitation lists and Landship summary/scope changed in the canonical packet; all cards, facts, source evidence, exact access maps and special limits are identical. Projection comparison PASS proves only matching L prose and the canonical L hash changed; all A–K records and all 83 selected card links remain unchanged. Renderer/source captures/research-review document are untouched.
+- Developer checks: `python tools/build_mechanics_assessments.py --check` PASS / deterministic210 records; `node --check tools/check_assessment_browser.mjs` exit0; `git diff --check` and staged whitespace exit0. Existing actual `node tools/check_assessment_browser.mjs --root . --l-only --playwright C:/Users/obake/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright` completed exit0 / JSON PASS, including the new copy rejection and every L panel. No broader suite, source recapture or renderer strengthening was run.
+- Narrow re-review: confirm the ordinary L details omit research-process limitations, Landship uses plain playtest-example wording, and special-material restrictions stay intact. Coordinator owns independent re-review and repackaging; no new QA/Owner/package verdict is claimed here. Product edits stop pending findings.
+
+| Correction material path | Added | Removed |
+|---|---:|---:|
+| `data/mechanics-assessments.v1.json` | 12 | 32 |
+| `docs/mechanics-research/l-protocol.json` | 11 | 31 |
+| `tools/check_assessment_browser.mjs` | 1 | 1 |
+
+---
+
 # RobDev ready for QA — L supplemental Color Access
 
 - Status: `ready-for-qa` after local material commit `970e36e5666dec5e3fc38b4ab90a94f1f27891f9`, over clean Owner-accepted K baseline `d00b6c90e9a952f5b4d61d06cebb2db7a4c850d7`, branch `codex/a-mechanics-review`. This is a developer handoff, not independent QA, Owner acceptance, integration or publication. Product/source/harness edits stop here pending separate RobQA.
