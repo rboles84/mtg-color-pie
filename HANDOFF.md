@@ -1,3 +1,11 @@
+# Owner Accepted — N supplemental Color Access
+
+- Owner response: "looks good" (October 30, 2026), accepting exact material `23082d9bb09e334dfe371703168f8a4095296fdc` as delivered at evidence HEAD `35cbe0776434655ff7803ea237fa0abc2d738406`.
+- Status: `complete` (`qa-passed -> complete`) for the bounded local N batch. This supersedes the pending Owner judgment in the historical delivery record below.
+- This acceptance record changes only `HANDOFF.md`; product files and the verified local preview remain unchanged. No push, merge or publication is authorized or performed.
+
+---
+
 # N supplemental Color Access — local completion and Owner Review
 
 - All three supplemental N entries are complete: Ninjutsu, Nightbound and Nonbasic landwalk. Twelve selected examples establish presence across independent colors, colorless access and exact combinations. Ninjutsu includes red Yuffie, Materia Hunter; Nightbound uses its actual back-face colors; Trailblazer's Boots establishes colorless access as the granting source.
