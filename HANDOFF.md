@@ -1,16 +1,16 @@
 # Mutate mana-pip rendering — RobDev envelope
 
-- Status: implementation in progress; no QA or Owner acceptance claim.
+- Status: ready for independent QA; no QA or Owner acceptance claim.
 - Admitted correction: repair the rendered Mutate costs for Nethroi, Snapdax and Vadrok after inspecting actual browser geometry. The narrow envelope is `HANDOFF.md`, `vox-color/mechanical-explorer.html`, and `tools/check_assessment_browser.mjs`.
 - Protected: all source data/evidence, generated projection, A–M behavior, frozen 2021 behavior, accessible symbol labels, escaped text, pinned Mana glyph/color tokens, and no-font fallback. No package, push, merge, or publication.
 
 ## Developer handoff
 
-- Status: ready for independent QA after the material commit below. This is not an Owner acceptance or integration claim.
+- Material candidate: `56595148d2c5e95f3affb3e8a38f3b0fe1db0e26`. This is not an Owner acceptance or integration claim.
 - Diagnosis: browser inspection confirmed saved Mutate costs are correct; hybrid glyphs deliberately use two native pseudo-elements, while every pip was its own inline box. The visible defect was uneven hybrid line boxes and costs wrapping between pips.
-- Change: contiguous brace-token costs now render as one non-wrapping, flex-aligned `.supp-cost-run`. Each retained accessible symbol keeps its native Mana glyph, label, escaping behavior, and blocked-font text fallback. No source or generated data changed.
+- Change: contiguous brace-token costs now render as one non-wrapping, flex-aligned `.supp-cost-run` only when the M formatter is selected. A–L retain the exact established formatter markup. Each retained accessible symbol keeps its native Mana glyph, label, escaping behavior, and blocked-font text fallback. No source or generated data changed.
 - Developer checks: `node --check tools/check_assessment_browser.mjs` PASS; `node tools/check_assessment_browser.mjs --root . --mutate-pips-only --playwright C:/Users/obake/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright` PASS; `git diff --check` PASS.
-- Independent QA focus: at 466px inspect Nethroi `{4}{G/W}{B}{B}`, Snapdax `{2}{B/R}{W}{W}`, Vadrok `{1}{W/U}{R}{R}`, and structurally distinct Necropanther/Regal Leosaur. Confirm one whole cost run, centered non-overlapping boxes, hybrid second halves only, and readable no-font fallback. Confirm the diff remains limited to this envelope.
+- Independent QA focus: at 466px inspect Nethroi `{4}{G/W}{B}{B}`, Snapdax `{2}{B/R}{W}{W}`, Vadrok `{1}{W/U}{R}{R}`, and structurally distinct Necropanther/Regal Leosaur. Confirm one whole cost run, centered non-overlapping boxes, hybrid second halves only, and readable no-font fallback. The focused fixture executes `{R}{G}` in that source order and verifies aligned, separated mono pips; Landfall confirms legacy L markup has no cost-run wrapper. Confirm the diff remains limited to this envelope.
 
 ---
 
