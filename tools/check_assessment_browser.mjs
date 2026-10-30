@@ -278,7 +278,7 @@ try{
       const notes=panel.locator('.assessment-notes');
       assert.match(await panel.innerText(),/Color Access/);
       assert.match(await panel.innerText(),/Outside the 2021 color calculations/);
-      assert.ok((await panel.innerText()).includes(/^[GHI]/.test(record.name)?'October 29, 2026':'October 28, 2026'),record.name+' displayed review date');
+      assert.ok((await panel.innerText()).includes(/^[GHIJ]/.test(record.name)?'October 29, 2026':'October 28, 2026'),record.name+' displayed review date');
       assert.doesNotMatch(await panel.innerText(),/Our assessment|Confidence:|Primary:|Secondary:|Tertiary:|assessment - provisional/i);
       if(record.kind==='access'){
         const comboPresentation=['Fuse','Friends forever'].includes(record.name), mixedPresentation=record.name==='Hexproof from';
