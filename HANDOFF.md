@@ -1,3 +1,42 @@
+# Landwalk selected examples — local delivery
+
+- User-requested surgical correction: White Righteous Avengers / plainswalk; Blue Benthic Behemoth / islandwalk; Black Anurid Murkdiver / swampwalk; Red Dwarven Grunt / mountainwalk; Green Cat Warriors / forestwalk. Exact user-supplied printings are linked. Cat Warriors has the verified {1}{G}{G} cost. The old white/red/green selections were replaced; no new color-access claim was introduced.
+- Existing `docs/mechanics-research/l-protocol-evidence/landwalk-fresh-*.json` captures supplied all five full card objects. Separate RobQA verified exact objects, hashes, colors, paper scope, Oracle text and links, all 16 Landwalk selected IDs/URLs unique, all combinations/colorless unchanged, and all other 209 projected records equal baseline. Source packet and projection retain the current producer contract; renderer, rules, all prior evidence and frozen2021 behavior are untouched.
+- Roles: configured RobDev Terra medium implementation; separate configured RobQA Sol medium review. QA PASS binds to material `16925a9d457ffbec463d66e3cab16b8af52960b9`, with independent evidence commit `12c5b70a9ad262795d2047a16bd6381f6e5c4040`. No unresolved findings. Owner judgment remains separate.
+- Checks passed: producer regeneration and `python tools/build_mechanics_assessments.py --check` (210 records/20 bindings), whitespace, independent five-card raw/hash/fact and 209-record parity assertions, focused real Edge Landwalk detail (16 examples, five requested links once, exact five notes, old W/R/G absent, zero page errors). Unchanged broader source/glyph/frozen/K certification was reused; no broad suites were rerun.
+- Package: ordinary direct-child `_site` path was verified before replacement. `python .github/pages/package.py --rev 16925a9d457ffbec463d66e3cab16b8af52960b9 --out <absolute _site> --verify` passed: 23 byte-matching files, 4 inline scripts, 23 allowed HTTP200 / 24 excluded HTTP404.
+- Live preview at `http://127.0.0.1:8020/#mechanical-color-pie` was refreshed and iframe revision verified as the material SHA. Landwalk is open, Reviewed card examples expanded, search empty, A–Z active and all five color filters false. All five requested monocolor examples were visibly confirmed. Screenshot: `C:/Users/obake/.codex/visualizations/2026/10/30/01a18af9-b71f-7432-9ea3-69d9153ca3bb/landwalk-selected-examples.jpg`.
+- No push, merge or publication performed. Final Git status and report validation are checked after this evidence-only commit.
+
+## Material candidate
+
+- Baseline: `30006d9b79ca66425291887964f46a58c3a1dd97`
+- Candidate: `16925a9d457ffbec463d66e3cab16b8af52960b9`
+- Changed paths: `3`
+
+## Files changed
+
+- `HANDOFF.md`
+- `data/mechanics-assessments.v1.json`
+- `docs/mechanics-research/l-protocol.json`
+
+## Evidence delta
+
+- Material candidate: `16925a9d457ffbec463d66e3cab16b8af52960b9`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `1`
+- Subsequent developer, independent QA and delivery records change HANDOFF only; this is not the full task diff.
+
+## Evidence-only paths
+
+- `HANDOFF.md`
+
+## Final branch delta
+
+- Baseline to final HEAD: 3 Git-derived paths, including the HANDOFF-only evidence delta. The existing change-report validator must pass before this accounting is authoritative.
+
+---
+
 # L supplemental Color Access — engineering PASS and local preview
 
 - All 11 supplemental L entries are complete with 83 selected examples, one link per independent color, colorless bucket or combination. Coverage is 210 A–L records / 20 source bindings. Lifelink and the frozen 2021 source, names, explanations, placements, calculations and behavior remain unchanged; all 199 previous A–K records and 19 prior bindings match the baseline.
