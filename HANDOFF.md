@@ -4,6 +4,13 @@
 - Outcome/envelope: add only `favicon.ico`, allowlist it in `.github/pages/package.py`, add `tools/check_favicon_browser.mjs`, and record this ledger. No application HTML/JS, product/data/source/math/routing/font/theme changes.
 - Criteria/protection: browser default icon request resolves for root and direct-instrument paths; package verification contains the icon without widening other publication; cold browser diagnostics retain page behavior and report no favicon 404. Preserve published history, source data, shell/wheel and all recovery/release boundaries. Expected independent review: QA-2/QA-3 proportional asset/package/browser check.
 
+## Favicon 404 repair — RobDev handoff
+
+- Status: `ready-for-qa`; material candidate `1c0291a7d5becec01dc94f115d03ef6621cdc8a1` over clean released baseline `7667fcbf1490397866dae41b0691e04d21850d07`. No push, merge, workflow dispatch or publication occurred.
+- Changed: one standard `favicon.ico` (32px WUBRG five-section icon using the existing explorer glyph color order), the existing Pages `FILES` allowlist only, and focused CDP browser regression; its own internal harness remains excluded, raising protected exclusions to 25. No app document/script changed.
+- Red/green: coordinator's sealed live CDP evidence at `console-404-20261031-2123/live-cdp.json` established the real baseline request `https://colorpie.voxmana.io/favicon.ico` -> 404, with zero other failures. Candidate `node tools/check_favicon_browser.mjs --root . --playwright C:\Users\obake\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\node_modules\playwright` PASS: cold root and direct explorer loads requested `/favicon.ico` and both responses were 200. `node --check` and `git diff --check` pass. Existing packager verification built externally as `_site-favicon-dev-7667`: 24 assets, four inline scripts, 25 exclusions 404.
+- Risks/judgment: independent RobQA should bind a fresh exact package, verify ICO decode/default request and no unexpected console/network failure on root/direct routes. Owner has no visual/product decision beyond ordinary icon acceptance; release authority remains absent.
+
 # Unified collection — released and production verified
 
 - Status: `complete` (`qa-passed -> complete`) under the Owner's explicit APPROVE RELEASE for material `1ec6a6bc380ac629cce08b9286d823636c201ed2`. The normal non-force fast-forward integrated all original development ancestry. Actual production source/release is `fca97218185732d265b26b8e40d247a073f1652e` (approved product plus HANDOFF-only approval evidence); public REV is `fca972181857`. This closeout changes HANDOFF only, using `[skip ci]` to retain that verified production revision.
