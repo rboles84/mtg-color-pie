@@ -960,6 +960,10 @@ async function checkV(page,browser,baseline){
   assert.match(records.find(r=>r.name==='Vanishing').summary,/without a number/i);
   assert.ok(!records.find(r=>r.name==='Vote').access.combinations.some(b=>b.colors.join('')==='UBR'),'vote modifiers alone do not establish direct-action access');
   assert.ok(packet.records.every(r=>r.card_review.every(c=>c.name!=='Kimahri, Valiant Guardian')),'name-only valiant results cannot establish access');
+  const voteSource=packet.records.find(r=>r.mechanic.name==='Vote');
+  assert.match(voteSource.access_review.scope,/released paper/i);assert.notEqual(voteSource.access_review.scope,voteSource.access_review.summary);
+  // A modifier can mention "each player votes" without initiating a vote.
+  for(const file of voteSource.discovery_screen.paths){const body=JSON.parse(fs.readFileSync(path.join(root,file),'utf8'));for(const card of body.data){if(/choose how each player votes/i.test(card.oracle_text||'')){assert.ok(!Object.hasOwn(voteSource.discovery_screen.qualifying_oracle_signatures,card.oracle_id),'vote-casting modifiers cannot enter the direct-action discovery map');assert.ok(Object.keys(voteSource.discovery_screen.exclusions).some(key=>key.startsWith(card.name+' [')));}}}
   const actualTokens=new Map();let links=0;
   for(const record of records){
     const source=packet.records.find(r=>r.mechanic.name===record.name),independent=[...'WUBRG'].filter(c=>record.access.colors[c].status==='documented').concat(record.access.colorless.status==='documented'?['C']:[]),combos=record.access.combinations.map(b=>b.colors.join(''));

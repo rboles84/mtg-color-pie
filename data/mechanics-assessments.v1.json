@@ -119,7 +119,7 @@
     },
     {
       "path": "docs/mechanics-research/v-protocol.json",
-      "sha256": "16565f6425641404028a6de07b636f20214d0a29138a14c14f0a9a5c955bf11b"
+      "sha256": "6994104a507c5140d3d470cb44ba1881782e5d8d1b15a93fc2f645441a37d351"
     }
   ],
   "records": [
@@ -64096,7 +64096,7 @@
       "kind": "access",
       "researchDate": "2026-10-31",
       "scopeLabel": "Released paper cards",
-      "scope": "Voting has players choose among the options specified by a spell or ability. Ordinary votes proceed in the stated turn order; secret council votes are chosen secretly, then revealed.",
+      "scope": "Ordinary released paper cards through 2026-10-31; digital, playtest, acorn, token and special objects are excluded unless explicitly scoped.",
       "summary": "Voting has players choose among the options specified by a spell or ability. Ordinary votes proceed in the stated turn order; secret council votes are chosen secretly, then revealed.",
       "access": {
         "colors": {
