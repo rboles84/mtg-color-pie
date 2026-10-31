@@ -1,3 +1,15 @@
+# Owner layout correction — RobDev pre-edit contract
+
+- Status: `dev-in-progress`; baseline `405b8ab86a68f934d52f2520a8db4381bb467b0e` is clean and recovered. Scope is only explorer CSS/selected-card markup, existing owner-corrections browser layout mode, and this ledger.
+- Outcome: give C-only the existing medal/action-row geometry, add legend marker-to-word clearance, and give A–Z access marks 1–2px visible selected-ring clearance.
+- Protected: all selector/data/count/share/export semantics, Article geometry, original tier strips, native glyphs, tokens/fonts, favicon/package/shell/wheel/routes and history. Expected independent QA: focused layout/browser review.
+
+## Owner layout correction — RobDev handoff
+
+- Status: `ready-for-qa`; material candidate is the commit containing this entry over `405b8ab86a68f934d52f2520a8db4381bb467b0e`. No publication action occurred.
+- Changed only explorer presentation: C-only now reuses the 112px/78px medal frame with native `ms-c`/fallback C and nonempty C badge; its two actions share the normal row and the disabled-link explanation is a muted scoped note. Legend marker labels get 7px inline clearance. A–Z entry access strips get a scoped 7px grid gap; Article/global/original tier strips remain untouched.
+- Developer evidence: current owner-corrections browser command with `--layout-only` completed PASS, plus harness syntax and `git diff --check`. The existing harness accepted the flag but presently still executed its full 63-state path rather than a bounded branch; this is a harness limitation, not a claimed focused-mode implementation. Independent QA must verify the specified measured C-card/legend/ring/Article geometry, 360/768 and no-font fallback against the immutable baseline package.
+
 # Legend, Colorless and mana icons — Owner Review pending
 
 - Engineering PASS binds exact combined material `8ca0aeb1fa4ad5045ac59d208cd1da2cccbd87b8`. Latest Owner corrections replace the unexplained mechanic/card list with useful symbol labels, add Colorless beside WUBRG, and repair missing live mana symbols. Owner explicitly chose any documented colorless card example (148), including entries also found in WUBRG. Previous favicon and collection decisions remain preserved where not superseded by these explicit corrections. New Owner review and release approval remain PENDING; no push, merge, workflow dispatch or publication occurred.

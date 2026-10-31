@@ -269,7 +269,7 @@ button{font:inherit;color:inherit}
 .defs-note{grid-column:1 / -1;margin:0;font:italic 400 12px/1.45 var(--f-read);color:var(--ink-dim)}
 .access-key{padding-left:22px;border-left:1px solid var(--rule);font:400 12.5px/1.5 var(--f-ui);color:var(--ink-dim)}
 .access-key h3{margin:0 0 9px;font:600 13px/1.2 var(--f-brand);letter-spacing:.08em;color:var(--bone)}
-.access-key p{margin:0 0 9px}.access-key .access-strip{vertical-align:middle}.placement-details{margin-top:12px;color:var(--ink-dim)}.placement-details summary{cursor:pointer;color:var(--brass-l);font:600 12px/1.2 var(--f-brand);letter-spacing:.06em}
+.access-key p{margin:0 0 9px}.access-key .access-strip,.access-key .combo-mark{vertical-align:middle;margin-right:7px}.placement-details{margin-top:12px;color:var(--ink-dim)}.placement-details summary{cursor:pointer;color:var(--brass-l);font:600 12px/1.2 var(--f-brand);letter-spacing:.06em}
 .steps{grid-column:1 / -1;display:flex;flex-wrap:wrap;gap:8px 30px;margin:2px 0 0;padding:12px 0 0;border-top:1px solid var(--rule);list-style:none;font:400 12.5px/1.4 var(--f-ui);color:var(--ink)}
 .steps li{display:flex;align-items:baseline;gap:9px;max-width:44ch}
 .steps b{font:500 10px/1 var(--f-mono);color:var(--brass-l)}
@@ -330,7 +330,7 @@ button{font:inherit;color:inherit}
 .id-src{margin-top:6px;max-width:58ch;font:italic 400 12.5px/1.45 var(--f-read);color:var(--ink-dim)}
 .id-src:empty{display:none}
 .id-next{margin-top:10px;font:600 13px/1.2 var(--f-brand);letter-spacing:.06em;color:var(--brass)}
-.id-share{display:flex;flex-wrap:wrap;gap:4px 16px;margin:8px 0 0}
+.id-share{display:flex;flex-wrap:wrap;gap:4px 16px;margin:8px 0 0}.id-share-note{margin:5px 0 0;font:400 12px/1.45 var(--f-ui);color:var(--ink-dim)}
 .id-share .go{margin-left:0}
 .id-url{display:block;width:100%;margin-top:6px;padding:5px 7px;background:var(--ground);border:1px solid var(--rule-s);font:400 11.5px/1.3 var(--f-mono);color:var(--bone)}
 .id-url[hidden]{display:none}
@@ -420,6 +420,7 @@ button{font:inherit;color:inherit}
 /* Supplemental documented-access marks are intentionally a separate notation
    from the 2021 Primary/Secondary/Tertiary tier strip. */
 .strip.access-strip{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:var(--sz,14px)}
+.grp[data-scope] .ent > .access-strip{gap:7px}
 .access-strip .sc{border:1px solid rgba(237,230,211,.22)}
 .access-strip .sc > .ms{display:none;color:#15120c}
 .access-strip .sc.a-d{background:var(--cc);border-color:var(--cc)}
@@ -1745,18 +1746,18 @@ function renderIdent(key){
   const name = COMBO_NAME[key], words = key ? comboWords(key) : 'Colorless';
   const b = cached('bk:' + key, () => buckets(S.sel)), placed = KEYS.length - b.none.length;
   el.hidden = false;
-  el.innerHTML = `${key ? medalHTML(key) : `<span class="strip access-strip" aria-hidden="true">${accessMarkHTML('C','documented')}</span>`}
+  el.innerHTML = `${medalHTML(key || 'C')}
     <div class="id-head">
       <p class="id-kick">Selected ${!key ? 'access' : key.length === 1 ? 'color' : 'colors'}</p>
-      <h3 class="id-name" id="id-name">${name ? `${esc(name)}<span class="sr-only">, ${esc(words)}, ${key}</span>` : `${esc(words)}<span class="sr-only">${key ? ', ' + key : ''}</span>`}${S.colorless && key ? ' · ◇ Colorless' : ''}</h3>
-      <p class="id-words" aria-hidden="true">${name ? `<span>${esc(words)}</span>` : ''}<span class="id-code">${key}</span></p>
+      <h3 class="id-name" id="id-name">${name ? `${esc(name)}<span class="sr-only">, ${esc(words)}, ${key}</span>` : `${esc(words)}<span class="sr-only">${key ? ', ' + key : ', C'}</span>`}${S.colorless && key ? ' · ◇ Colorless' : ''}</h3>
+      <p class="id-words" aria-hidden="true">${name ? `<span>${esc(words)}</span>` : ''}<span class="id-code">${key || 'C'}</span></p>
     </div>
     <div class="id-body">
       ${S.view === 'az' ? (() => { const u=collectionCounts(S.sel); return u ? `<p class="id-count"><b>${u.keys.length}</b> of ${REC.size} entries match ${esc(selectionWords())}</p>` : `<p class="id-count">Full collection matches ${ASSESSMENTS.status === 'unavailable' || SUPPLEMENT.status === 'unavailable' ? 'unavailable' : 'loading'}</p>`; })() : `<p class="id-count"><b>${placed}</b> of ${KEYS.length} entries have a placement in ${esc(listWords(cnames(S.sel)))} <span class="calc">computed</span></p>`}
       <p class="id-src">${name ? `“${esc(name)}” is Wizards’ name for ${esc(words)} (${esc(NAME_SOURCE)}): a label, not a claim about mechanics.`
         : key.length > 3 ? 'This page gives no combination name for four or five colors.' : ''}</p>
       ${key ? `<p class="id-next">One-color steps from ${key} follow below.</p>` : ''}
-      <p class="id-share"><button class="go" type="button" data-act="copy-link" data-fid="copy-link"${S.colorless ? ' disabled aria-disabled="true"' : ''}>Copy colors link</button>${S.colorless ? '<span>Colorless selection is not included in shared color links.</span>' : ''}<button class="go" type="button" data-act="save-png" data-fid="save-png"${S.view === 'az' && ASSESSMENTS.status !== 'ready' ? ' disabled aria-disabled="true"' : ''}>Save image</button></p>
+      <p class="id-share"><button class="go" type="button" data-act="copy-link" data-fid="copy-link"${S.colorless ? ' disabled aria-disabled="true"' : ''}>Copy colors link</button><button class="go" type="button" data-act="save-png" data-fid="save-png"${S.view === 'az' && ASSESSMENTS.status !== 'ready' ? ' disabled aria-disabled="true"' : ''}>Save image</button></p>${S.colorless ? '<p class="id-share-note">Colorless selection is not included in shared color links.</p>' : ''}
       <input class="id-url" id="id-url" type="text" readonly hidden aria-label="Link to ${esc(words)}, ${key}">
     </div>`;
 }
