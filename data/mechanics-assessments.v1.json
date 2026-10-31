@@ -116,6 +116,10 @@
     {
       "path": "docs/mechanics-research/u-protocol.json",
       "sha256": "75d49965115a04d50e68e1e221e10b581e31e48adec60888cf62295ad0fe4306"
+    },
+    {
+      "path": "docs/mechanics-research/v-protocol.json",
+      "sha256": "16565f6425641404028a6de07b636f20214d0a29138a14c14f0a9a5c955bf11b"
     }
   ],
   "records": [
@@ -63421,6 +63425,851 @@
         "limitations": []
       },
       "citationCards": [],
+      "sources": [
+        {
+          "title": "Magic: The Gathering Comprehensive Rules",
+          "url": "https://magic.wizards.com/en/rules"
+        }
+      ],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:valiant",
+      "name": "Valiant",
+      "kind": "access",
+      "researchDate": "2026-10-31",
+      "scopeLabel": "Released paper cards",
+      "scope": "Ordinary released paper cards through 2026-10-31; digital, playtest, acorn, token and special objects are excluded unless explicitly scoped.",
+      "summary": "Valiant highlights abilities that trigger the first time that creature becomes the target of a spell or ability you control each turn.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Flowerfoot Swordmaster gives Mice you control +1/+0 until end of turn when its valiant ability triggers.",
+            "cards": [
+              {
+                "name": "Flowerfoot Swordmaster",
+                "url": "https://scryfall.com/card/blb/14/flowerfoot-swordmaster?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Flowerfoot%20Swordmaster%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "not_found",
+            "note": "No example found in the reviewed released-paper evidence.",
+            "cards": [],
+            "findUrl": null
+          },
+          "B": {
+            "status": "not_found",
+            "note": "No example found in the reviewed released-paper evidence.",
+            "cards": [],
+            "findUrl": null
+          },
+          "R": {
+            "status": "documented",
+            "note": "Heartfire Hero puts a +1/+1 counter on itself when its valiant ability triggers.",
+            "cards": [
+              {
+                "name": "Heartfire Hero",
+                "url": "https://scryfall.com/card/blb/138/heartfire-hero?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Heartfire%20Hero%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "not_found",
+            "note": "No example found in the reviewed released-paper evidence.",
+            "cards": [],
+            "findUrl": null
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "W",
+              "R"
+            ],
+            "note": "Seedglaive Mentor puts a +1/+1 counter on itself when its valiant ability triggers.",
+            "cards": [
+              {
+                "name": "Seedglaive Mentor",
+                "url": "https://scryfall.com/card/blb/231/seedglaive-mentor?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Seedglaive%20Mentor%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "not_found",
+          "note": "No example found in the reviewed released-paper evidence.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Seedglaive Mentor",
+          "url": "https://scryfall.com/card/blb/231/seedglaive-mentor?utm_source=api"
+        },
+        {
+          "name": "Heartfire Hero",
+          "url": "https://scryfall.com/card/blb/138/heartfire-hero?utm_source=api"
+        },
+        {
+          "name": "Flowerfoot Swordmaster",
+          "url": "https://scryfall.com/card/blb/14/flowerfoot-swordmaster?utm_source=api"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Valiant mechanics",
+          "url": "https://magic.wizards.com/en/news/feature/bloomburrow-mechanics"
+        }
+      ],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:vanishing",
+      "name": "Vanishing",
+      "kind": "access",
+      "researchDate": "2026-10-31",
+      "scopeLabel": "Released paper cards",
+      "scope": "Ordinary released paper cards through 2026-10-31; digital, playtest, acorn, token and special objects are excluded unless explicitly scoped.",
+      "summary": "Vanishing N means this permanent enters with N time counters, removes one at the beginning of its controller's upkeep, and sacrifices it when the last is removed. Vanishing without a number has only the upkeep removal and sacrifice abilities.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Aven Riftwatcher has vanishing 3.",
+            "cards": [
+              {
+                "name": "Aven Riftwatcher",
+                "url": "https://scryfall.com/card/tsr/6/aven-riftwatcher?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Aven%20Riftwatcher%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Chronozoa has vanishing 3.",
+            "cards": [
+              {
+                "name": "Chronozoa",
+                "url": "https://scryfall.com/card/plc/37/chronozoa?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Chronozoa%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Deadly Grub has vanishing 3.",
+            "cards": [
+              {
+                "name": "Deadly Grub",
+                "url": "https://scryfall.com/card/tsr/108/deadly-grub?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Deadly%20Grub%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Keldon Marauders has vanishing 2.",
+            "cards": [
+              {
+                "name": "Keldon Marauders",
+                "url": "https://scryfall.com/card/ema/136/keldon-marauders?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Keldon%20Marauders%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Deadwood Treefolk has vanishing 3.",
+            "cards": [
+              {
+                "name": "Deadwood Treefolk",
+                "url": "https://scryfall.com/card/dmr/155/deadwood-treefolk?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Deadwood%20Treefolk%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "W",
+              "U"
+            ],
+            "note": "Regenerations Restored has vanishing 12.",
+            "cards": [
+              {
+                "name": "Regenerations Restored",
+                "url": "https://scryfall.com/card/who/151/regenerations-restored?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Regenerations%20Restored%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "U",
+              "R"
+            ],
+            "note": "Idris, Soul of the TARDIS has vanishing 3.",
+            "cards": [
+              {
+                "name": "Idris, Soul of the TARDIS",
+                "url": "https://scryfall.com/card/who/135/idris-soul-of-the-tardis?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Idris%2C%20Soul%20of%20the%20TARDIS%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "documented",
+          "note": "Soultether Golem has vanishing 1; whenever another creature you control enters, put a time counter on the Golem.",
+          "cards": [
+            {
+              "name": "Soultether Golem",
+              "url": "https://scryfall.com/card/fut/164/soultether-golem?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22Soultether%20Golem%22%29%20include%3Aextras"
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Keldon Marauders",
+          "url": "https://scryfall.com/card/ema/136/keldon-marauders?utm_source=api"
+        },
+        {
+          "name": "Deadly Grub",
+          "url": "https://scryfall.com/card/tsr/108/deadly-grub?utm_source=api"
+        },
+        {
+          "name": "Soultether Golem",
+          "url": "https://scryfall.com/card/fut/164/soultether-golem?utm_source=api"
+        },
+        {
+          "name": "Chronozoa",
+          "url": "https://scryfall.com/card/plc/37/chronozoa?utm_source=api"
+        },
+        {
+          "name": "Aven Riftwatcher",
+          "url": "https://scryfall.com/card/tsr/6/aven-riftwatcher?utm_source=api"
+        },
+        {
+          "name": "Regenerations Restored",
+          "url": "https://scryfall.com/card/who/151/regenerations-restored?utm_source=api"
+        },
+        {
+          "name": "Deadwood Treefolk",
+          "url": "https://scryfall.com/card/dmr/155/deadwood-treefolk?utm_source=api"
+        },
+        {
+          "name": "Idris, Soul of the TARDIS",
+          "url": "https://scryfall.com/card/who/135/idris-soul-of-the-tardis?utm_source=api"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Magic: The Gathering Comprehensive Rules",
+          "url": "https://magic.wizards.com/en/rules"
+        }
+      ],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:venture into the dungeon",
+      "name": "Venture into the Dungeon",
+      "kind": "access",
+      "researchDate": "2026-10-31",
+      "scopeLabel": "Released paper cards",
+      "scope": "Ordinary released paper cards through 2026-10-31; digital, playtest, acorn, token and special objects are excluded unless explicitly scoped.",
+      "summary": "To venture into the dungeon, enter a dungeon top room or advance from your current room; venture into Undercity is the rules-defined variant.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Cloister Gargoyle ventures into the dungeon when it enters.",
+            "cards": [
+              {
+                "name": "Cloister Gargoyle",
+                "url": "https://scryfall.com/card/afr/7/cloister-gargoyle?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Cloister%20Gargoyle%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Bar the Gate counters a target creature or planeswalker spell, then ventures into the dungeon.",
+            "cards": [
+              {
+                "name": "Bar the Gate",
+                "url": "https://scryfall.com/card/afr/47/bar-the-gate?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Bar%20the%20Gate%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Acererak the Archlich returns to its owner's hand and ventures when it enters if you have not completed Tomb of Annihilation.",
+            "cards": [
+              {
+                "name": "Acererak the Archlich",
+                "url": "https://scryfall.com/card/afr/87/acererak-the-archlich?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Acererak%20the%20Archlich%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Kick in the Door puts a +1/+1 counter on a target creature, gives it haste and prevents Walls from blocking it this turn, then ventures.",
+            "cards": [
+              {
+                "name": "Kick in the Door",
+                "url": "https://scryfall.com/card/afr/153/kick-in-the-door?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Kick%20in%20the%20Door%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Find the Path ventures into the dungeon when the Aura enters.",
+            "cards": [
+              {
+                "name": "Find the Path",
+                "url": "https://scryfall.com/card/afr/183/find-the-path?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Find%20the%20Path%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "W",
+              "U",
+              "B"
+            ],
+            "note": "Sefris of the Hidden Ways ventures whenever one or more creature cards enter your graveyard from anywhere, only once each turn.",
+            "cards": [
+              {
+                "name": "Sefris of the Hidden Ways",
+                "url": "https://scryfall.com/card/afc/3/sefris-of-the-hidden-ways?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Sefris%20of%20the%20Hidden%20Ways%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "B"
+            ],
+            "note": "Barrowin of Clan Undurr ventures into the dungeon when it enters.",
+            "cards": [
+              {
+                "name": "Barrowin of Clan Undurr",
+                "url": "https://scryfall.com/card/afr/218/barrowin-of-clan-undurr?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Barrowin%20of%20Clan%20Undurr%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "U"
+            ],
+            "note": "Midnight Pathlighter ventures whenever one or more creatures you control deal combat damage to a player.",
+            "cards": [
+              {
+                "name": "Midnight Pathlighter",
+                "url": "https://scryfall.com/card/afc/52/midnight-pathlighter?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Midnight%20Pathlighter%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "documented",
+          "note": "Dungeon Map has {3}, {T}: Venture into the dungeon. Activate only as a sorcery.",
+          "cards": [
+            {
+              "name": "Dungeon Map",
+              "url": "https://scryfall.com/card/afr/242/dungeon-map?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22Dungeon%20Map%22%29%20include%3Aextras"
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Cloister Gargoyle",
+          "url": "https://scryfall.com/card/afr/7/cloister-gargoyle?utm_source=api"
+        },
+        {
+          "name": "Sefris of the Hidden Ways",
+          "url": "https://scryfall.com/card/afc/3/sefris-of-the-hidden-ways?utm_source=api"
+        },
+        {
+          "name": "Acererak the Archlich",
+          "url": "https://scryfall.com/card/afr/87/acererak-the-archlich?utm_source=api"
+        },
+        {
+          "name": "Kick in the Door",
+          "url": "https://scryfall.com/card/afr/153/kick-in-the-door?utm_source=api"
+        },
+        {
+          "name": "Barrowin of Clan Undurr",
+          "url": "https://scryfall.com/card/afr/218/barrowin-of-clan-undurr?utm_source=api"
+        },
+        {
+          "name": "Find the Path",
+          "url": "https://scryfall.com/card/afr/183/find-the-path?utm_source=api"
+        },
+        {
+          "name": "Bar the Gate",
+          "url": "https://scryfall.com/card/afr/47/bar-the-gate?utm_source=api"
+        },
+        {
+          "name": "Midnight Pathlighter",
+          "url": "https://scryfall.com/card/afc/52/midnight-pathlighter?utm_source=api"
+        },
+        {
+          "name": "Dungeon Map",
+          "url": "https://scryfall.com/card/afr/242/dungeon-map?utm_source=api"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Magic: The Gathering Comprehensive Rules",
+          "url": "https://magic.wizards.com/en/rules"
+        }
+      ],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:vivid",
+      "name": "Vivid",
+      "kind": "access",
+      "researchDate": "2026-10-31",
+      "scopeLabel": "Released paper cards",
+      "scope": "Ordinary released paper cards through 2026-10-31; digital, playtest, acorn, token and special objects are excluded unless explicitly scoped.",
+      "summary": "Vivid highlights abilities that care about the number of colors among permanents you control.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Kithkeeper creates a 1/1 green and white Kithkin token for each color among permanents you control when it enters.",
+            "cards": [
+              {
+                "name": "Kithkeeper",
+                "url": "https://scryfall.com/card/ecl/23/kithkeeper?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Kithkeeper%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Rime Chill costs {1} less to cast for each color among permanents you control.",
+            "cards": [
+              {
+                "name": "Rime Chill",
+                "url": "https://scryfall.com/card/ecl/64/rime-chill?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Rime%20Chill%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Shimmercreep makes each opponent lose X life and you gain X life when it enters, where X is the number of colors among permanents you control.",
+            "cards": [
+              {
+                "name": "Shimmercreep",
+                "url": "https://scryfall.com/card/ecl/120/shimmercreep?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Shimmercreep%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Explosive Prodigy deals X damage to a target creature an opponent controls when it enters, where X is the number of colors among permanents you control.",
+            "cards": [
+              {
+                "name": "Explosive Prodigy",
+                "url": "https://scryfall.com/card/ecl/136/explosive-prodigy?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Explosive%20Prodigy%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Bloom Tender has {T}: For each color among permanents you control, add one mana of that color.",
+            "cards": [
+              {
+                "name": "Bloom Tender",
+                "url": "https://scryfall.com/card/ecl/166/bloom-tender?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Bloom%20Tender%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "U",
+              "G"
+            ],
+            "note": "Glister Bairn gives another target creature you control +X/+X until end of turn at the beginning of combat on your turn, where X is the number of colors among permanents you control.",
+            "cards": [
+              {
+                "name": "Glister Bairn",
+                "url": "https://scryfall.com/card/ecl/227/glister-bairn?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Glister%20Bairn%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "U",
+              "R"
+            ],
+            "note": "Sanar, Innovative First-Year reveals cards at the beginning of your first main phase until you reveal X nonland cards, where X counts colors among permanents you control. For each color, you may exile a revealed card of that color; then shuffle. You may cast those exiled cards this turn.",
+            "cards": [
+              {
+                "name": "Sanar, Innovative First-Year",
+                "url": "https://scryfall.com/card/ecl/241/sanar-innovative-first-year?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Sanar%2C%20Innovative%20First-Year%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "not_found",
+          "note": "No example found in the reviewed released-paper evidence.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Explosive Prodigy",
+          "url": "https://scryfall.com/card/ecl/136/explosive-prodigy?utm_source=api"
+        },
+        {
+          "name": "Shimmercreep",
+          "url": "https://scryfall.com/card/ecl/120/shimmercreep?utm_source=api"
+        },
+        {
+          "name": "Glister Bairn",
+          "url": "https://scryfall.com/card/ecl/227/glister-bairn?utm_source=api"
+        },
+        {
+          "name": "Rime Chill",
+          "url": "https://scryfall.com/card/ecl/64/rime-chill?utm_source=api"
+        },
+        {
+          "name": "Sanar, Innovative First-Year",
+          "url": "https://scryfall.com/card/ecl/241/sanar-innovative-first-year?utm_source=api"
+        },
+        {
+          "name": "Kithkeeper",
+          "url": "https://scryfall.com/card/ecl/23/kithkeeper?utm_source=api"
+        },
+        {
+          "name": "Bloom Tender",
+          "url": "https://scryfall.com/card/ecl/166/bloom-tender?utm_source=api"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Vivid mechanics",
+          "url": "https://magic.wizards.com/en/news/feature/lorwyn-eclipsed-mechanics"
+        }
+      ],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:void",
+      "name": "Void",
+      "kind": "access",
+      "researchDate": "2026-10-31",
+      "scopeLabel": "Released paper cards",
+      "scope": "Ordinary released paper cards through 2026-10-31; digital, playtest, acorn, token and special objects are excluded unless explicitly scoped.",
+      "summary": "Void highlights effects that check whether a nonland permanent left the battlefield this turn or a spell was warped this turn.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "not_found",
+            "note": "No example found in the reviewed released-paper evidence.",
+            "cards": [],
+            "findUrl": null
+          },
+          "U": {
+            "status": "not_found",
+            "note": "No example found in the reviewed released-paper evidence.",
+            "cards": [],
+            "findUrl": null
+          },
+          "B": {
+            "status": "documented",
+            "note": "At the beginning of your end step, Voidforged Titan makes you draw a card and lose 1 life if a nonland permanent left the battlefield or a spell was warped that turn.",
+            "cards": [
+              {
+                "name": "Voidforged Titan",
+                "url": "https://scryfall.com/card/eoe/125/voidforged-titan?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Voidforged%20Titan%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Plasma Bolt deals 3 damage to any target instead of 2 if a nonland permanent left the battlefield or a spell was warped this turn.",
+            "cards": [
+              {
+                "name": "Plasma Bolt",
+                "url": "https://scryfall.com/card/eoe/152/plasma-bolt?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Plasma%20Bolt%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "not_found",
+            "note": "No example found in the reviewed released-paper evidence.",
+            "cards": [],
+            "findUrl": null
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "B",
+              "R"
+            ],
+            "note": "Interceptor Mechan gets a +1/+1 counter at the beginning of your end step if a nonland permanent left the battlefield or a spell was warped that turn.",
+            "cards": [
+              {
+                "name": "Interceptor Mechan",
+                "url": "https://scryfall.com/card/eoe/220/interceptor-mechan?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Interceptor%20Mechan%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "not_found",
+          "note": "No example found in the reviewed released-paper evidence.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Interceptor Mechan",
+          "url": "https://scryfall.com/card/eoe/220/interceptor-mechan?utm_source=api"
+        },
+        {
+          "name": "Voidforged Titan",
+          "url": "https://scryfall.com/card/eoe/125/voidforged-titan?utm_source=api"
+        },
+        {
+          "name": "Plasma Bolt",
+          "url": "https://scryfall.com/card/eoe/152/plasma-bolt?utm_source=api"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Void mechanics",
+          "url": "https://magic.wizards.com/en/news/feature/edge-of-eternities-mechanics"
+        }
+      ],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:catalog-gaps:vote",
+      "name": "Vote",
+      "kind": "access",
+      "researchDate": "2026-10-31",
+      "scopeLabel": "Released paper cards",
+      "scope": "Voting has players choose among the options specified by a spell or ability. Ordinary votes proceed in the stated turn order; secret council votes are chosen secretly, then revealed.",
+      "summary": "Voting has players choose among the options specified by a spell or ability. Ordinary votes proceed in the stated turn order; secret council votes are chosen secretly, then revealed.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Council's Judgment has each player, starting with you, vote for a nonland permanent you do not control; exile every permanent with the most votes, including ties.",
+            "cards": [
+              {
+                "name": "Council's Judgment",
+                "url": "https://scryfall.com/card/otc/79/councils-judgment?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Council%27s%20Judgment%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Plea for Power has each player, starting with you, vote for time or knowledge. More time votes gives you an extra turn; otherwise, including a tie, draw three cards.",
+            "cards": [
+              {
+                "name": "Plea for Power",
+                "url": "https://scryfall.com/card/cns/24/plea-for-power?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Plea%20for%20Power%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Bite of the Black Rose has each player, starting with you, vote for sickness or psychosis. More sickness votes gives opposing creatures -2/-2 until end of turn; otherwise each opponent discards two cards.",
+            "cards": [
+              {
+                "name": "Bite of the Black Rose",
+                "url": "https://scryfall.com/card/cns/26/bite-of-the-black-rose?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Bite%20of%20the%20Black%20Rose%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Mob Verdict has each player secretly vote for another player, then reveals the votes. Each vote an opponent receives deals 2 damage to that player and each creature they control; draw a card for each vote you receive.",
+            "cards": [
+              {
+                "name": "Mob Verdict",
+                "url": "https://scryfall.com/card/mkc/33/mob-verdict?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Mob%20Verdict%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Orchard Elemental has each player, starting with you, vote when it enters: put two +1/+1 counters on it per sprout vote and gain 3 life per harvest vote.",
+            "cards": [
+              {
+                "name": "Orchard Elemental",
+                "url": "https://scryfall.com/card/cn2/68/orchard-elemental?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Orchard%20Elemental%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "U",
+              "G"
+            ],
+            "note": "Círdan the Shipwright has each player secretly vote for a player when it enters or attacks, then reveals the votes. Each player draws a card per vote received; a player with no votes may put a permanent card from their hand onto the battlefield.",
+            "cards": [
+              {
+                "name": "Círdan the Shipwright",
+                "url": "https://scryfall.com/card/ltc/50/c%C3%ADrdan-the-shipwright?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22C%C3%ADrdan%20the%20Shipwright%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "U",
+              "R"
+            ],
+            "note": "Truth or Consequences has each player secretly vote for truth or consequences, then reveals the votes. Draw a card per truth vote; a random opponent takes 3 damage per consequences vote.",
+            "cards": [
+              {
+                "name": "Truth or Consequences",
+                "url": "https://scryfall.com/card/who/163/truth-or-consequences?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Truth%20or%20Consequences%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "B"
+            ],
+            "note": "Magister of Worth has each player, starting with you, vote when it enters. More grace votes returns all creature cards from each graveyard to the battlefield; otherwise destroy all other creatures.",
+            "cards": [
+              {
+                "name": "Magister of Worth",
+                "url": "https://scryfall.com/card/c21/223/magister-of-worth?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Magister%20of%20Worth%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "U",
+              "B"
+            ],
+            "note": "Tivit, Seller of Secrets has each player, starting with you, vote when it enters or deals combat damage to a player: investigate per evidence vote and create a Treasure per bribery vote. You may vote an additional time.",
+            "cards": [
+              {
+                "name": "Tivit, Seller of Secrets",
+                "url": "https://scryfall.com/card/ncc/10/tivit-seller-of-secrets?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Tivit%2C%20Seller%20of%20Secrets%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "documented",
+          "note": "Coercive Portal has each player, starting with you, vote at the beginning of your upkeep. More carnage votes sacrifices the Portal and destroys all nonland permanents; otherwise draw a card.",
+          "cards": [
+            {
+              "name": "Coercive Portal",
+              "url": "https://scryfall.com/card/cns/56/coercive-portal?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22Coercive%20Portal%22%29%20include%3Aextras"
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Círdan the Shipwright",
+          "url": "https://scryfall.com/card/ltc/50/c%C3%ADrdan-the-shipwright?utm_source=api"
+        },
+        {
+          "name": "Bite of the Black Rose",
+          "url": "https://scryfall.com/card/cns/26/bite-of-the-black-rose?utm_source=api"
+        },
+        {
+          "name": "Mob Verdict",
+          "url": "https://scryfall.com/card/mkc/33/mob-verdict?utm_source=api"
+        },
+        {
+          "name": "Coercive Portal",
+          "url": "https://scryfall.com/card/cns/56/coercive-portal?utm_source=api"
+        },
+        {
+          "name": "Orchard Elemental",
+          "url": "https://scryfall.com/card/cn2/68/orchard-elemental?utm_source=api"
+        },
+        {
+          "name": "Truth or Consequences",
+          "url": "https://scryfall.com/card/who/163/truth-or-consequences?utm_source=api"
+        },
+        {
+          "name": "Plea for Power",
+          "url": "https://scryfall.com/card/cns/24/plea-for-power?utm_source=api"
+        },
+        {
+          "name": "Magister of Worth",
+          "url": "https://scryfall.com/card/c21/223/magister-of-worth?utm_source=api"
+        },
+        {
+          "name": "Tivit, Seller of Secrets",
+          "url": "https://scryfall.com/card/ncc/10/tivit-seller-of-secrets?utm_source=api"
+        },
+        {
+          "name": "Council's Judgment",
+          "url": "https://scryfall.com/card/otc/79/councils-judgment?utm_source=api"
+        }
+      ],
       "sources": [
         {
           "title": "Magic: The Gathering Comprehensive Rules",

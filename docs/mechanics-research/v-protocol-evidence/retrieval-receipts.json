@@ -1,0 +1,182 @@
+{
+  "retrievals": [
+    {
+      "path": "docs/mechanics-research/v-protocol-evidence/void-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=game%3Apaper%20date%3C%3D2026-10-31%20fo%3A%22Void%20%E2%80%94%22&unique=cards&order=name",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T15:05:35.3441331Z",
+      "requestEndedUtc": "2026-10-31T15:05:35.7338176Z",
+      "status": 200,
+      "rawSha256": "64c2b25d40ba72148a704f83904998dc641ea12f7ef23c6c5efa05359be4142b",
+      "bindingStatus": "usable_discovery",
+      "kind": "discovery"
+    },
+    {
+      "path": "docs/mechanics-research/v-protocol-evidence/vivid-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=game%3Apaper%20date%3C%3D2026-10-31%20fo%3A%22Vivid%20%E2%80%94%22&unique=cards&order=name",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T15:05:35.7450553Z",
+      "requestEndedUtc": "2026-10-31T15:05:36.0547976Z",
+      "status": 200,
+      "rawSha256": "95dd19bf47cf515774e231ba83823d8f4c54ec4452f8812c4eb0ecf19612e270",
+      "bindingStatus": "usable_discovery",
+      "kind": "discovery"
+    },
+    {
+      "path": "docs/mechanics-research/v-protocol-evidence/vote-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=game%3Apaper%20date%3C%3D2026-10-31%20fo%3A%22vote%22&unique=cards&order=name",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T15:05:36.0574616Z",
+      "requestEndedUtc": "2026-10-31T15:05:36.5670703Z",
+      "status": 200,
+      "rawSha256": "b19aa788a7183c00a266e3d8e09cb7b0062685ac0d2ccd8318ffa7c45fba8bc0",
+      "bindingStatus": "usable_discovery",
+      "kind": "discovery"
+    },
+    {
+      "path": "docs/mechanics-research/v-protocol-evidence/valiant-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=game%3Apaper%20date%3C%3D2026-10-31%20kw%3A%22Valiant%22&unique=cards&order=name",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T15:05:36.567941Z",
+      "requestEndedUtc": "2026-10-31T15:05:36.768663Z",
+      "status": 200,
+      "rawSha256": "261e4b8dd827b3235ecf434bf573f2e69ecdf30ee756c23ae6988cba7d52df32",
+      "bindingStatus": "usable_discovery",
+      "kind": "discovery"
+    },
+    {
+      "path": "docs/mechanics-research/v-protocol-evidence/vanishing-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=game%3Apaper%20date%3C%3D2026-10-31%20kw%3A%22Vanishing%22&unique=cards&order=name",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T15:05:36.7693727Z",
+      "requestEndedUtc": "2026-10-31T15:05:36.9791035Z",
+      "status": 200,
+      "rawSha256": "e3aa12305cab3c5be7addb1e0e1b6acc44db7460a98395ec3e0e49d75674e322",
+      "bindingStatus": "usable_discovery",
+      "kind": "discovery"
+    },
+    {
+      "path": "docs/mechanics-research/v-protocol-evidence/venture-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=game%3Apaper%20date%3C%3D2026-10-31%20%28fo%3A%22venture%20into%20the%20dungeon%22%20OR%20fo%3A%22venture%20into%20Undercity%22%29&unique=cards&order=name",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T15:05:36.9798905Z",
+      "requestEndedUtc": "2026-10-31T15:05:37.0573985Z",
+      "status": 200,
+      "rawSha256": "a9364d65e0c91efa6ea0293a8e8e1561982d4ffa0026cfd84df6756ed26518f5",
+      "bindingStatus": "usable_discovery",
+      "kind": "discovery"
+    },
+    {
+      "path": "docs/mechanics-research/v-protocol-evidence/selected-cards.json",
+      "url": "https://api.scryfall.com/cards/collection",
+      "method": "POST",
+      "requestStartedUtc": "2026-10-31T15:05:37.0849748Z",
+      "requestEndedUtc": "2026-10-31T15:05:37.8043751Z",
+      "status": 200,
+      "rawSha256": "8cd4b1cc900c8bbe26a6d3b56f03fb1691bc0fc1f47dc83eaa5581d5261f62d6",
+      "requestBodyPath": "docs/mechanics-research/v-protocol-evidence/selected-cards-request.json",
+      "requestBodySha256": "78b7034d65416287bfb683d592f2cd970a469e191af3fa9438896792d5ff2d57",
+      "bindingStatus": "selected_card_authority",
+      "kind": "selected_full_cards"
+    },
+    {
+      "path": "docs/mechanics-research/v-protocol-evidence/valiant-official.html",
+      "url": "https://magic.wizards.com/en/news/feature/bloomburrow-mechanics",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T15:07:19.4617768Z",
+      "requestEndedUtc": "2026-10-31T15:07:20.1075669Z",
+      "status": 200,
+      "rawSha256": "cff877338c1da73f924c717ccfa59b6a41b1305573c4bc8ca128512d4c3da356",
+      "bindingStatus": "official_definition",
+      "kind": "official_source"
+    },
+    {
+      "path": "docs/mechanics-research/v-protocol-evidence/vivid-official.html",
+      "url": "https://magic.wizards.com/en/news/feature/lorwyn-eclipsed-mechanics",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T15:07:20.1188524Z",
+      "requestEndedUtc": "2026-10-31T15:07:20.6635192Z",
+      "status": 200,
+      "rawSha256": "159bc3a958200463321519bbb50e2703287e72396dd0346b20c4cb9dceaa8ea2",
+      "bindingStatus": "official_definition",
+      "kind": "official_source"
+    },
+    {
+      "path": "docs/mechanics-research/v-protocol-evidence/void-official.html",
+      "url": "https://magic.wizards.com/en/news/feature/edge-of-eternities-mechanics",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T15:07:20.665847Z",
+      "requestEndedUtc": "2026-10-31T15:07:21.202322Z",
+      "status": 200,
+      "rawSha256": "bb3fe589811f4fa16ac66dfd47d9e26ce7a78041ff9e259b9fcc71a44c7f3f2c",
+      "bindingStatus": "official_definition",
+      "kind": "official_source"
+    },
+    {
+      "path": "docs/mechanics-research/v-protocol-evidence/valiant-full-oracle-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22valiant%22%20include%3Aextras&unique=cards&order=name",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T15:09:03.0231422Z",
+      "requestEndedUtc": "2026-10-31T15:09:03.4685344Z",
+      "status": 200,
+      "rawSha256": "6ef3750fbbc9813f18d7e154c98b63eb0ad5e041a62afe71e126171140b77e2a",
+      "bindingStatus": "usable_full_oracle_discovery",
+      "kind": "discovery"
+    },
+    {
+      "path": "docs/mechanics-research/v-protocol-evidence/vanishing-full-oracle-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22vanishing%22%20include%3Aextras&unique=cards&order=name",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T15:09:03.4800745Z",
+      "requestEndedUtc": "2026-10-31T15:09:03.7864859Z",
+      "status": 200,
+      "rawSha256": "fb85fd0278764eeaafa2aa8c3049e8e4b3fd21138f7510efad4368e1fdf9a0fd",
+      "bindingStatus": "usable_full_oracle_discovery",
+      "kind": "discovery"
+    },
+    {
+      "path": "docs/mechanics-research/v-protocol-evidence/venture-complete-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=%28kw%3A%22venture+into+the+dungeon%22+or+fo%3A%22venture+into+the+dungeon%22+or+fo%3A%22venture+into+Undercity%22%29+include%3Aextras&unique=cards&order=name",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T15:11:37.498211+00:00",
+      "requestEndedUtc": "2026-10-31T15:11:38.526208+00:00",
+      "status": 200,
+      "rawSha256": "a9364d65e0c91efa6ea0293a8e8e1561982d4ffa0026cfd84df6756ed26518f5",
+      "bindingStatus": "usable_discovery",
+      "kind": "fresh_complete_scope_discovery"
+    },
+    {
+      "path": "docs/mechanics-research/v-protocol-evidence/vivid-complete-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=%28kw%3Avivid+or+fo%3A%22Vivid+%E2%80%94%22%29+include%3Aextras&unique=cards&order=name",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T15:11:38.679912+00:00",
+      "requestEndedUtc": "2026-10-31T15:11:39.020177+00:00",
+      "status": 200,
+      "rawSha256": "4f98ee184d4f18f2afef371a7c9b5dce5a23fcee1bb5ae807a02de5e95799672",
+      "bindingStatus": "usable_discovery",
+      "kind": "fresh_complete_scope_discovery"
+    },
+    {
+      "path": "docs/mechanics-research/v-protocol-evidence/void-complete-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=%28kw%3Avoid+or+fo%3A%22Void+%E2%80%94%22%29+include%3Aextras&unique=cards&order=name",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T15:11:39.171813+00:00",
+      "requestEndedUtc": "2026-10-31T15:11:39.601071+00:00",
+      "status": 200,
+      "rawSha256": "761e327cfdd1ff03b2410a5347036da4be17709175dea288ef3502ef5795f24e",
+      "bindingStatus": "usable_discovery",
+      "kind": "fresh_complete_scope_discovery"
+    },
+    {
+      "path": "docs/mechanics-research/v-protocol-evidence/vote-complete-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%2F%5Cbvotes%3F%5Cb%2F+include%3Aextras&unique=cards&order=name",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T15:11:39.753123+00:00",
+      "requestEndedUtc": "2026-10-31T15:11:40.180467+00:00",
+      "status": 200,
+      "rawSha256": "d0136f7c7efcb301306e562a146141cc239654510e29b024519aef717790c51b",
+      "bindingStatus": "usable_discovery",
+      "kind": "fresh_complete_scope_discovery"
+    }
+  ]
+}
