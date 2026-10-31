@@ -1,3 +1,80 @@
+# V supplemental Color Access — delivered for Owner Review
+
+- Status: `qa-passed`. Separate non-implementing RobQA PASS binds exact material `5c3802efbaa58b892f22df997132241f14ff0029` over baseline `8f20f1ba8d9ee64c51ae2265ecaf68bf158f3a95`; no remaining findings. All six unmapped V entries / forty selected examples are implemented, independently verified and served locally. Owner acceptance remains PENDING. Mapped Vigilance, all frozen 2021 and prior accepted rows/bindings/evidence/grouping stay unchanged. No remaining source or engineering blocker.
+- Local research: `docs/mechanics-research/v-protocol.json`, `V-ACCESS-REVIEW.md`, `v-protocol-evidence/`. Sixteen actual response receipts retain raw bytes, URLs, UTC intervals/statuses/hashes, the selected POST request and exact full-object/printing bindings. Digital/playtest/post-date/token/plane/minigame and support/name-only matches remain separate from ordinary paper access. All forty notes and six meanings were read against actual sources; independent raw discovery reconstruction covers every observed qualifying signature.
+- Checks actually run: developer and separate QA receipt/object/face/scope/signature/fact/copy audits; producer freshness (360 rows / 29 bindings); source invariants, taxonomy, source/fixture gates and all 53 reconciliation assertions; syntax/whitespace; focused `--v-only` real-browser PASS across all six entries/forty links, list/search/detail agreement, actual glyphs/ARIA/whole-detail tokens and blocked-font fallback, safe links/escaping, malformed atomic isolation, keyboard, 360px containment, fixed 354-row/28-binding prior parity, Scavenge and frozen math. The original candidate's two research-record findings were corrected and re-reviewed. No broad default/Friends-forever historical harness or all-suite PASS is claimed.
+- Package/live proof: unchanged `.github/pages/package.py --rev 5c3802efbaa58b892f22df997132241f14ff0029 --out <verified ordinary direct-child _site> --verify` -> PASS: 23 byte-matching files, four clean inline scripts, 23 expected HTTP 200 paths and 24 excluded HTTP 404 paths. Output absolute path/parent/reparse points were verified before replacement. Existing identity-checked Python PID 5596 continues serving the same `_site` at localhost-only 127.0.0.1:8020; no new server was needed. All 23 live paths match expected candidate bytes, and visible iframe revision is the same exact material SHA.
+- Preview: http://127.0.0.1:8020/#mechanical-color-pie . Retained in-app browser deliverable opens Vanishing from actual search, search empty, all White/Blue/Black/Red/Green buttons observed `aria-pressed=false`, Reviewed card examples expanded. Live DOM shows eight exact selected links, W/U/B/R/G/colorless and exact WU/UR combinations, and zero legacy example/image nodes. Requested screenshot saved and inspected at `C:/Users/obake/.codex/visualizations/2026/10/31/01a1927a-cc27-7111-bbc0-7c1d8a848d20/v-color-access-preview.jpg`.
+- Short Owner check: inspect the already-open Vanishing examples; judge wording, usefulness, reading flow and optics. Deterministic facts are already covered. No acceptance is inferred. No push, merge, integration or publication was performed; Git has no upstream and no local remote-tracking ref contains the candidate (no fetch performed). Evidence-only delivery records do not change reviewed product bytes.
+- Roles: configured RobDev Terra medium supplied initial research; coordinator completed source and implementation after concrete defects. Configured separate RobQA Sol medium reviewed the exact corrected candidate. Host accepted role configurations; remote backend identity/token savings remain unverified.
+- Delivery recorded UTC: 2026-10-31T15:27:53.775023+00:00.
+
+## Material candidate
+
+- Baseline: `8f20f1ba8d9ee64c51ae2265ecaf68bf158f3a95`
+- Candidate: `5c3802efbaa58b892f22df997132241f14ff0029`
+- Changed paths: `27`
+
+## Files changed
+
+- `HANDOFF.md`
+- `data/mechanics-assessments.v1.json`
+- `docs/mechanics-research/COLOR-ACCESS-PROTOCOL.md`
+- `docs/mechanics-research/V-ACCESS-REVIEW.md`
+- `docs/mechanics-research/v-protocol-evidence/retrieval-receipts.json`
+- `docs/mechanics-research/v-protocol-evidence/selected-cards-request.json`
+- `docs/mechanics-research/v-protocol-evidence/selected-cards.json`
+- `docs/mechanics-research/v-protocol-evidence/selected-note-audit.txt`
+- `docs/mechanics-research/v-protocol-evidence/valiant-discovery.json`
+- `docs/mechanics-research/v-protocol-evidence/valiant-full-oracle-discovery.json`
+- `docs/mechanics-research/v-protocol-evidence/valiant-official.html`
+- `docs/mechanics-research/v-protocol-evidence/vanishing-discovery.json`
+- `docs/mechanics-research/v-protocol-evidence/vanishing-full-oracle-discovery.json`
+- `docs/mechanics-research/v-protocol-evidence/venture-complete-1.json`
+- `docs/mechanics-research/v-protocol-evidence/venture-discovery.json`
+- `docs/mechanics-research/v-protocol-evidence/vivid-complete-1.json`
+- `docs/mechanics-research/v-protocol-evidence/vivid-discovery.json`
+- `docs/mechanics-research/v-protocol-evidence/vivid-official.html`
+- `docs/mechanics-research/v-protocol-evidence/void-complete-1.json`
+- `docs/mechanics-research/v-protocol-evidence/void-discovery.json`
+- `docs/mechanics-research/v-protocol-evidence/void-official.html`
+- `docs/mechanics-research/v-protocol-evidence/vote-complete-1.json`
+- `docs/mechanics-research/v-protocol-evidence/vote-discovery.json`
+- `docs/mechanics-research/v-protocol.json`
+- `tools/build_mechanics_assessments.py`
+- `tools/check_assessment_browser.mjs`
+- `vox-color/mechanical-explorer.html`
+
+## Evidence delta
+
+- Material candidate: `5c3802efbaa58b892f22df997132241f14ff0029`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `1`
+
+This evidence-only delta records independent QA, package/live-preview/screenshot proof and Git accounting; it is not the full task diff. `HEAD` denotes the evidence commit containing this record; the final chat reports the resolved evidence SHA.
+
+## Evidence-only paths
+
+- `HANDOFF.md`
+
+## Final branch accounting
+
+The baseline-to-evidence-head delta retains the same 27 material paths; only HANDOFF.md changes after the material candidate and it is already in that set. Final worktree cleanliness and the existing change-report validator are checked after this evidence-only commit. Branch remains `codex/a-mechanics-review`; no push or merge.
+
+# Independent RobQA — V supplemental Color Access, 2026-10-31
+
+- Mode/class/verdict: **SEPARATE** non-implementing reviewer `/root/v_independent_qa`, configured RobQA Sol medium; **QA-4, `qa-passed`** (`ready-for-qa -> qa-passed`). Exact corrected material candidate `5c3802efbaa58b892f22df997132241f14ff0029` over baseline `8f20f1ba8d9ee64c51ae2265ecaf68bf158f3a95`. RobQAPass engineering **PASS** for Owner Review. Owner acceptance, package/live-preview state, screenshot judgment, integration, publication, push and merge remain PENDING and are not inferred.
+- Exact scope/diff: `git diff --stat`, `--name-status`, full relevant diff and `--check 8f20f1b..5c3802e` confirm exactly the admitted 27 paths, 10,143 additions / 26 deletions, and no whitespace error. Examined the ledger/contract, protocol appendix, canonical V packet and review, all 16 receipt/raw/POST/official evidence files, selected-note audit, generated 360-record payload, producer, focused browser harness and explorer admission/renderer changes. Mapped Vigilance, frozen 2021 inputs and older source/evidence packets are untouched.
+- Independent source/provenance audit: all 16 response SHA-256 values and the selected-card POST-body SHA-256 recompute; every receipt is status 200 with ordered UTC start/end timestamps and matching URL/method. Every saved receipt body equals its exact `5c3802e` Git blob byte-for-byte. The 40 selected full objects bind exactly to the named response objects and actual printing URLs, are distinct, and reconcile one-for-one with the 40 access buckets: Valiant 3, Vanishing 8, Venture into the Dungeon 9, Vivid 7, Void 3, Vote 10.
+- Independent qualification/fact audit: reconstructed qualifying Oracle IDs and mechanic-bearing source/face signatures directly from all twelve discovery/complete responses, rather than accepting packet metadata. Final maps reconcile exactly: Valiant `R/W/WR`; Vanishing `W/U/B/R/G/C/WU/UR`; Venture `W/U/B/R/G/C/WU/WB/WUB`; Vivid `W/U/B/R/G/UG/UR`; Void `B/R/BR`; Vote `W/U/B/R/G/C/WB/UG/UR/WUB`. Omenpath to Naya remains excluded by `promo_types: playtest`; Venture includes literal Undercity instructions but not generic initiative; name-only Kimahri and support/payoff-only Ballot Broker, Brago's Representative, The Valeyard, Erestor, Grudge Keeper and Model of Unity remain excluded; separately saved paper Coercive Portal/Plea for Power objects supply their selected links.
+- Definitions/notes: read all six definitions and every one of the 40 authored notes against actual saved full Oracle text. Valiant, Vivid and Void match the saved Wizards mechanics sections; Vanishing matches CR 702.63 including the no-number form; Venture matches CR 701.49 including the qualified Undercity variant; Vote matches CR 701.38 and actual direct/secret voting text. Costs, triggers, optionality, targets, restrictions, source colors and result summaries agree; authored copy has no U+FFFD.
+- Original QA findings and correction: rejected candidate `8ee5f088a57e776b30baf06b4dda25cc4028535b` incorrectly placed modifier-only Illusion of Choice (exact saved Oracle ID `e3ad9287-ef13-4b66-9df8-b17e15bb4b0f`) in Vote's qualifying map while its review said the card was excluded, and duplicated Vote's definition into its scope field. Candidate `5c3802e` removes that ID, adds an explicit modifier-only exclusion, restores the bounded ordinary released-paper scope, regenerates the source binding/payload, and adds raw-text/scope invariants. No selected witness, access signature, card note or printing link changed. Bounded re-QA derives 33 actual direct-vote Oracle designs and finds exact equality with the corrected map.
+- Deterministic QA-4 chain on the exact corrected candidate: `python tools/check_invariants.py` -> exit 0, 217 source / 216 projected identities and zero unresolved; `python tools/check_taxonomy.py` -> exit 0, source gate PASS; `python tools/check_recon.py` -> exit 0, taxonomy/fixture gates and all 53 assertions PASS; `python tools/gate.py` -> exit 0, source/taxonomy PASS; `python tools/build_mechanics_assessments.py --check` -> exit 0, 360 deterministic records / 29 bindings; `node --check tools/check_assessment_browser.mjs` and an independent UTF-8 `vm.Script` parse of the explorer's single inline script -> exit 0. Git whitespace check passed.
+- Focused browser evidence: `node tools/check_assessment_browser.mjs --root . --v-only --playwright C:/Users/obake/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright` -> exit 0 / JSON PASS on exact `5c3802e`. It observed all six V entries and 40 exact whole-detail links; 354 prior-row / 28 prior-binding parity; list/search/detail independent and combination marks after hydration; keyboard Enter; native glyphs, cost tokens and ARIA labels; blocked-font text fallback; safe links/escaping; five malformed atomic-isolation cases; 360 px containment; Scavenge's three-link/no-legacy control; color perturb/clear and Article/A-Z restoration; and frozen math. An earlier sandboxed launch on the rejected candidate closed Edge before test execution; one bounded outside-sandbox retry passed, and the corrected exact-candidate run also passed outside that launch constraint. No product failure is attributed to the launch infrastructure.
+- Proportionality/state: CPU-heavy validation **NOT REQUIRED**. The independent raw/card/receipt audit, deterministic producer/gates and focused real-browser path protect the changed source -> projection -> hydrated-render boundary. Browser use is justified by objective hydration, exact rendered links, glyph/fallback, keyboard, escaping/fail-closed and narrow-containment risks unavailable at the static layer. No new persistent navigation/history/session owner exists; broader state permutations are not applicable. Intentionally skipped the unrelated broad default/Friends-forever historical symbol-size harness, exhaustive engine certification, screenshot/pixel/viewport matrix, network recapture, package/live preview, publication, deployment, push and merge; no all-suite claim is made.
+- Findings: no remaining blocker, major, acceptance-violating minor, note finding or evidence gap on `5c3802e`.
+- Owner checklist: (1) open Vanishing and judge whether the no-number explanation plus W/U/B/R/G, WU/UR and colorless examples read naturally; (2) open Venture into the Dungeon and judge whether literal Undercity scope is clear without implying generic initiative access; (3) open Vote and judge whether its ten direct-vote examples and combination rows are useful and comfortable at the intended preview width. Wording comfort, usefulness and optical presentation remain Owner judgment; the coordinator owns exact packaging, served-revision proof and the requested screenshot.
+
 # V supplemental Color Access — corrected candidate for independent re-QA
 
 - Status: `ready-for-qa` after `ready-for-qa -> qa-failed -> dev-in-progress -> ready-for-qa`. Original material `8ee5f088a57e776b30baf06b4dda25cc4028535b` did not receive engineering PASS: separate reviewer `/root/v_independent_qa` found two canonical-research defects, now corrected. New material is the commit containing this correction packet; baseline remains `8f20f1ba8d9ee64c51ae2265ecaf68bf158f3a95`. RobQA and Owner remain PENDING.
