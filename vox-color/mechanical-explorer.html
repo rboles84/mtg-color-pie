@@ -383,6 +383,8 @@ button{font:inherit;color:inherit}
 .ent.is-out:hover,.ent.is-out:focus-visible{opacity:.85}
 .ent.access-match{box-shadow:inset 3px 0 0 rgba(184,147,79,.78)}
 .ent .access-active{outline:2px solid var(--brass-l);outline-offset:1px}
+.own-row.access-active{box-shadow:inset 3px 0 0 var(--brass-l)}
+.opt.access-match{box-shadow:inset 3px 0 0 var(--brass-l)}
 /* search: matches carry a gilt rule; the rest step back, still readable */
 .ent.is-hit{background:rgba(220,187,115,.07);box-shadow:inset 2px 0 0 var(--brass);color:var(--bone);opacity:1}
 .ent.is-miss{opacity:.3}
@@ -695,7 +697,7 @@ html.sheet-open .bar{position:relative}
         <span class="lg"><i class="sc t-t" style="--sz:14px;--cc:var(--ink)"></i>Tertiary</span>
         <span class="lg"><i class="sc t-n" style="--sz:14px"></i>No placement</span>
       </div>
-      <p class="key-note"><b>2021 placements</b> show the article’s color categories. <b>Color access</b> shows colors found on reviewed cards, without assigning a tier.</p>
+      <p class="key-note"><b>2021 placements</b> use five WUBRG slots; their underlines mark the best selected tier. <b>Reviewed access</b> uses the brass marker for selected independent colors or fully contained combinations, never a tier. Colorless-only evidence and rules actions stay outside this selector; no reviewed example found is scoped evidence, not impossibility.</p>
       <div class="key-body" id="key-body">
         <div class="spec" id="spec" aria-hidden="true"></div>
         <div>
@@ -1284,10 +1286,12 @@ function assessmentStripHTML(a){
    unmapped sidecar records participate; mapped records remain 2021 entries. */
 function accessState(k, cols){
   const a = ASSESSMENTS.byKey.get(k);
-  if (!a) return isAssessmentTarget(k) ? (ASSESSMENTS.status === 'ready' ? 'outside' : ASSESSMENTS.status) : 'outside';
+  if (!a) return isAssessmentTarget(k) ? (ASSESSMENTS.status === 'ready' ? 'outside' : 'unknown') : 'outside';
   if (a.kind !== 'access') return 'outside';
   const independent = ORDER.filter(c => a.access.colors[c].status === 'documented' && cols.has(c));
   const combinations = a.access.combinations.filter(x => x.colors.every(c => cols.has(c)));
+  const colorlessOnly = a.access.colorless.status === 'documented' && !ORDER.some(c => a.access.colors[c].status === 'documented') && !a.access.combinations.length;
+  if (colorlessOnly) return 'outside';
   return independent.length || combinations.length ? 'match' : 'miss';
 }
 function accessKeys(cols){
@@ -1659,6 +1663,7 @@ function renderIdent(key){
     </div>
     <div class="id-body">
       <p class="id-count"><b>${placed}</b> of ${KEYS.length} entries have a placement in ${esc(listWords(cnames(S.sel)))} <span class="calc">computed</span></p>
+      ${S.view === 'az' ? ASSESSMENTS.status === 'ready' ? `<p class="id-count access-count"><b>${accessCounts(S.sel).keys.length}</b> reviewed-access matches <small>${accessCounts(S.sel).main.length} A–Z · ${accessCounts(S.sel).special.length} Special</small></p>` : `<p class="id-count access-count">Reviewed access ${ASSESSMENTS.status === 'unavailable' ? 'unavailable' : 'loading'}</p>` : ''}
       <p class="id-src">${name ? `“${esc(name)}” is Wizards’ name for ${esc(words)} (${esc(NAME_SOURCE)}): a label, not a claim about mechanics.`
         : key.length > 3 ? 'This page gives no combination name for four or five colors.' : ''}</p>
       <p class="id-next">One-color steps from ${key} follow below.</p>
@@ -1750,7 +1755,7 @@ function renderSpot(){
     bar.hidden = false;
     const accessSpot = S.spot.id === 'access';
     bar.innerHTML = `<span>Showing <b>${S.spot.keys.size}</b> ${accessSpot ? 'reviewed-access' : '2021'} ${plural(S.spot.keys.size, 'entry', 'entries')}: ${esc(S.spot.label)}.${S.spot.dep ? ' Depends on conflicting 2021 claims.' : ''}${!accessSpot && S.view === 'az' && SUPPLEMENT.status === 'ready' ? ' Supplemental entries remain visible outside this 2021 calculation.' : ''}</span>
-      <span class="calc">computed</span><button class="go" type="button" data-act="unspot" data-fid="unspot">Show all entries</button>`;
+      <span class="calc">${accessSpot ? 'documented access' : 'computed'}</span><button class="go" type="button" data-act="unspot" data-fid="unspot">Show all entries</button>`;
   });
   const cap = $('#list-cap');
   cap.innerHTML = S.view === 'article'
@@ -1828,9 +1833,9 @@ function renderResults(){
       if (lensOn && !r.supplemental){ const pb = proj.best(h.k, P.colours), code = esc([...setKey(P.colours)].join(''));
         lp = `<span class="lensp">${code}: ${pb.sameTier ? (pb.catalog.best ? TIER[pb.catalog.best] : 'no placement')
           : `${TIER[pb.list.best]} ${READING_BY.list} · ${TIER[pb.catalog.best]} ${READING_BY.catalog}`}</span>`; }
-      if (r.supplemental) lp = `<span class="lensp">${esc(derived ? assessmentSummary(h.k, true) : isAssessmentTarget(h.k) ? assessmentSummary(h.k, true) : 'No sourced Primary/Secondary/Tertiary assignment is recorded')}</span>`;
+      if (r.supplemental) lp = `<span class="lensp">${esc(derived ? assessmentSummary(h.k, true) : isAssessmentTarget(h.k) ? assessmentSummary(h.k, true) : 'No sourced Primary/Secondary/Tertiary assignment is recorded')}${lensOn ? accessState(h.k,P.colours) === 'match' ? ' · matches selected reviewed access' : accessState(h.k,P.colours) === 'miss' ? ' · no matching reviewed access' : ' · outside selector' : ''}</span>`;
       const tag = st.related ? ` <span class="pterm-tag rel">related · not what the term names</span>` : st.player ? ' <span class="pterm-tag">navigation aid</span>' : '';
-      return `<div class="opt${st.related ? ' is-rel' : ''}" role="option" id="opt-${offset + i}" data-k="${esc(h.k)}" aria-selected="false"${derived ? ` aria-label="${esc(r.head + '. ' + assessmentSummary(h.k, true) + '. Outside the 2021 color calculations.')}"` : ''}>
+      return `<div class="opt${st.related ? ' is-rel' : ''}${derived && lensOn && accessState(h.k,P.colours) === 'match' ? ' access-match' : ''}" role="option" id="opt-${offset + i}" data-k="${esc(h.k)}" aria-selected="false"${derived ? ` aria-label="${esc(r.head + '. ' + assessmentSummary(h.k, true) + '. Outside the 2021 color calculations.')}"` : ''}>
         <span class="opt-l">${labelHTML(r)}</span>${derived ? assessmentStripHTML(a) : r.supplemental ? `<span class="calc scope-badge">${esc(scopeGroupLabel(r.scope))}</span>` : stripHTML(r.e.colors)}
         <span class="opt-w"><span class="why${st.player ? ' p' : ''}">${esc(st.why)}</span>${note}${tag}${lp}</span></div>`;
     }).join('');
@@ -2160,8 +2165,8 @@ function assessmentHTML(k){
   const independentOnly = (['Hexproof from','Intimidate','Islandcycling','Islandwalk','Kicker'].includes(a.name) || (a.name.startsWith('L') || a.name.startsWith('M') || a.name.startsWith('N') || a.name.startsWith('O') || a.name.startsWith('P') || a.name.startsWith('R') || a.name.startsWith('S') || a.name.startsWith('T') || (a.name.startsWith('U') || a.name.startsWith('V') || a.name.startsWith('W'))) && a.access.combinations.length > 0);
   const hasIndependentColor=ORDER.some(c=>a.access.colors[c].status === 'documented');
   const combinationLabel=hasIndependentColor ? 'Combination' : 'Combination only';
-  const combinationRow = item => `<li class="own-row combo-row" data-combo="${item.colors.join('')}">${comboMarkHTML(item,combinationLabel)}<span class="own-c">${esc(item.colors.map(c=>CNAME[c]).join(' / '))}</span><span class="own-lead" aria-hidden="true"></span><span class="own-t">${combinationLabel}</span></li>`;
-  const accessRows = a.kind === 'access' ? (comboOnly ? a.access.combinations.map(combinationRow).join('') : displayColors.filter(c => !independentOnly || c === 'C' || a.access.colors[c].status === 'documented').map(c => { const item=c === 'C' ? a.access.colorless : a.access.colors[c]; return `<li class="own-row${item.status === 'documented' ? '' : ' none'}" data-c="${c}">${accessMarkHTML(c,item.status)}<span class="own-c">${c === 'C' ? 'Colorless' : CNAME[c]}</span><span class="own-lead" aria-hidden="true"></span><span class="own-t">${esc(item.status === 'documented' ? 'Access' : item.status === 'multicolor_only' && hasIndependentColor ? 'No example found' : item.status === 'multicolor_only' ? 'Combination only' : item.status === 'not_applicable' ? 'Not applicable' : item.status === 'insufficient_evidence' ? 'Insufficient evidence' : 'No example found')}</span></li>`; }).join('') + (independentOnly ? a.access.combinations.map(combinationRow).join('') : '')) : '';
+  const combinationRow = item => `<li class="own-row combo-row${S.sel.size && item.colors.every(c=>S.sel.has(c)) ? ' access-active' : ''}" data-combo="${item.colors.join('')}">${comboMarkHTML(item,combinationLabel)}<span class="own-c">${esc(item.colors.map(c=>CNAME[c]).join(' / '))}</span><span class="own-lead" aria-hidden="true"></span><span class="own-t">${combinationLabel}</span></li>`;
+  const accessRows = a.kind === 'access' ? (comboOnly ? a.access.combinations.map(combinationRow).join('') : displayColors.filter(c => !independentOnly || c === 'C' || a.access.colors[c].status === 'documented').map(c => { const item=c === 'C' ? a.access.colorless : a.access.colors[c], active=c !== 'C' && S.sel.has(c) && item.status === 'documented'; return `<li class="own-row${item.status === 'documented' ? '' : ' none'}${active ? ' access-active' : ''}" data-c="${c}">${accessMarkHTML(c,item.status)}<span class="own-c">${c === 'C' ? 'Colorless' : CNAME[c]}</span><span class="own-lead" aria-hidden="true"></span><span class="own-t">${esc(item.status === 'documented' ? 'Access' : item.status === 'multicolor_only' && hasIndependentColor ? 'No example found' : item.status === 'multicolor_only' ? 'Combination only' : item.status === 'not_applicable' ? 'Not applicable' : item.status === 'insufficient_evidence' ? 'Insufficient evidence' : 'No example found')}</span></li>`; }).join('') + (independentOnly ? a.access.combinations.map(combinationRow).join('') : '')) : '';
   // One qualifying example establishes access. Retain the full reviewed set
   // for discovery, without making its size a player-facing requirement.
   const reviewedCards = (item, label) => {
@@ -2183,7 +2188,7 @@ function assessmentHTML(k){
   const nonCardSources = a.sources.filter(s => { const u=new URL(s.url); return !(u.hostname === 'scryfall.com' && /^\/(?:card(?:s)?(?:\/|$)|search(?:\/|$))/.test(u.pathname)); });
   const colorlessEvidence = a.kind === 'access' && (!compactExamples || a.access.colorless.status === 'documented') ? `<h4>Colorless evidence</h4><p${compactExamples ? ' class="assessment-example"' : ''}>${exampleNote(a.access.colorless)}</p>${reviewedCards(a.access.colorless,'Colorless')}` : '';
   return `<section class="dx-sec supp-assessment" aria-label="Color access">
-    <h3 class="dx-h">Color Access</h3>${a.kind === 'rules' ? '<p class="dx-note">This is a general rules action; it has no color access map.</p>' : ''}
+    <h3 class="dx-h">Color Access</h3>${S.sel.size ? `<p class="dx-note">${accessState(k,S.sel) === 'match' ? 'Matches the selected reviewed access.' : accessState(k,S.sel) === 'miss' ? 'No matching reviewed access in the selected colors.' : 'Outside the WUBRG selector.'}</p>` : ''}${a.kind === 'rules' ? '<p class="dx-note">This is a general rules action; it has no color access map.</p>' : ''}
     ${a.kind === 'access' ? `<ul class="own access-strip" aria-label="Color access">${accessRows}</ul>` : '<p class="dx-ex is-supplemental"><b>Rules action · Color access not applicable</b></p>'}<p class="dx-note"><b>${esc(a.scopeLabel)}.</b>${compactExamples ? '' : ' ' + text(a.scope)}</p>
     <p class="dx-note">Based on reviewed evidence ${esc(supplementalDate(a.researchDate))}. Outside the 2021 color calculations.</p>
     <details class="assessment-notes"><summary>${compactExamples && a.kind === 'access' ? 'Reviewed card examples' : 'Evidence and scope'}</summary><p>${text(a.summary)}</p>${colorNotes}${combos}${colorlessEvidence}
@@ -2233,6 +2238,7 @@ async function loadAssessments(data, status){
     notice.textContent += ' Color access could not be loaded. You can still read mechanic explanations and sources. Reload to try again.';
     console.warn('[mechanical-explorer] assessments unavailable:', err.message);
   }
+  if (S.q) runSearch();
   if (S.view === 'az') layoutList();
   resEl._sig = null; detailEl._sig = null; render();
 }
@@ -2543,7 +2549,7 @@ function setQuery(v){
 }
 function setView(v){
   if (S.view === v) return;
-  S.view = v; layoutList(); render();
+  S.view = v; if (S.spot?.id === 'access') S.spot = null; layoutList(); render();
   announce(v === 'article' ? 'Article order.' : 'A to Z.');
 }
 function jumpSpecial(){

@@ -137,6 +137,11 @@ async function checkAccessLabels(page){
 }
 async function checkSelection(page,browser,baseline){
   await page.evaluate(()=>VMX.setView('az'));
+  const classifier=await page.evaluate(records=>{
+    const selections=[];for(let mask=1;mask<32;mask++)selections.push('WUBRG'.split('').filter((_,i)=>mask&(1<<i)).join(''));
+    const expected=(record,code)=>{if(record.kind!=='access')return 'outside';const mono='WUBRG'.split('').some(c=>record.access.colors[c].status==='documented');const combo=record.access.combinations.some(x=>x.colors.every(c=>code.includes(c)));const independent='WUBRG'.split('').some(c=>code.includes(c)&&record.access.colors[c].status==='documented');const colorlessOnly=record.access.colorless.status==='documented'&&!mono&&!record.access.combinations.length;return colorlessOnly?'outside':independent||combo?'match':'miss';};
+    const bad=[];for(const code of selections)for(const record of records){const got=VMX.access(new Set(code)).state(record.id,new Set(code)),want=expected(record,code);if(got!==want)bad.push([code,record.name,got,want]);}return bad;
+  },payload.records);assert.deepEqual(classifier,[],'all 371 assessments across all 31 selector sets use the independent classifier');
   for(const [code,total,main,special,old] of [['G',245,229,16,83],['BG',298,274,24,136],['WUG',317,292,25,173]]){
     await page.evaluate(code=>VMX.chooseCombo(code),code);
     const got=await page.evaluate(()=>{const a=VMX.access(VMX.state.sel).counts;return {total:a.keys.length,main:a.main.length,special:a.special.length,old:VMX.buckets(VMX.state.sel).none.length};});
@@ -146,6 +151,9 @@ async function checkSelection(page,browser,baseline){
   await page.evaluate(()=>VMX.chooseCombo('BG'));
   const combos=await page.evaluate(()=>['Companion','Fuse'].map(name=>{const r=VMX.assessments().records.find(x=>x.name===name);return [name,VMX.access(new Set('BG')).state(r.id,new Set('BG')),VMX.access(new Set('B')).state(r.id,new Set('B'))];}));
   assert.deepEqual(combos,[['Companion','match','miss'],['Fuse','match','miss']]);
+  await page.evaluate(()=>VMX.chooseCombo('G'));const neutral=page.locator('#list .ent[data-k="deck:vocabulary:devoid"]');assert.equal(await neutral.evaluate(e=>e.classList.contains('is-out')),false,'colorless-only Devoid remains neutral');assert.match(await neutral.getAttribute('aria-label'),/Outside selected reviewed access/);await neutral.click();assert.equal(await page.locator('#detail .access-active').count(),0,'colorless-only detail has no WUBRG selected mark');await page.locator('#detail [data-act="close"]').click();
+  const adapt=page.locator('#list .ent[data-k="adapt"]');await adapt.click();assert.ok(await page.locator('#detail .access-active').count()>0,'matching detail exposes selected access marks');await page.locator('#detail [data-act="close"]').click();
+  assert.match(await page.locator('#ident').innerText(),/245 reviewed-access matches/);assert.match(await page.locator('#key').innerText(),/fully contained combinations/);
   await page.evaluate(()=>VMX.setQuery('blue cycling'));await page.evaluate(()=>VMX.chooseCombo('G'));
   assert.deepEqual(await page.evaluate(()=>({sel:[...VMX.state.sel].join(''),parsed:[...VMX.state.parsed.colours].join('')})),{sel:'G',parsed:'G'},'manual selection overrides query colors');
   await page.evaluate(()=>VMX.clearColors());assert.deepEqual(await page.evaluate(()=>({sel:[...VMX.state.sel],parsed:[...VMX.state.parsed.colours]})),{sel:[],parsed:[]},'clear suppresses existing query colors');
