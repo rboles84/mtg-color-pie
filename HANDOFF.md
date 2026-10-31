@@ -1,3 +1,85 @@
+# W supplemental Color Access — delivered for Owner Review
+
+- Status: `qa-passed`. Separate non-implementing RobQA engineering PASS binds material `831ae295f01054aef321f95bee436799d910a304` over baseline `9fa99306e85672110bdad6f781ed7af1d77840c5` with no findings. All eleven W entries / 67 selected examples are implemented, independently verified, packaged and served locally. Owner acceptance remains PENDING. This supersedes pending engineering statements in earlier W development/source records; it does not invent Owner acceptance.
+- Entries completed: Ward, Warp, Waterbend, Web-slinging, Will of the council, Will of the Planeswalkers, Wither, Warp Vortex, Web Support, Wild Card and Wizardcycling. Existing Special grouping and card-specific/variant boundaries remain intact. No remaining source or engineering blockers. Prior 360 records / 29 bindings, frozen 2021 and all earlier evidence/rendering remain protected.
+- Evidence: `docs/mechanics-research/w-protocol.json`, `W-ACCESS-REVIEW.md`, `w-protocol-evidence/`. Twenty-one actual HTTP-200 raw response receipts bind all 67 full card objects/printing links. Historical failures/unreceipted/advisory material remains distinctly unbound. Face-specific C waterbend, WUG web-slinging grant, nonmana ward and all exact combinations were independently screened.
+- Checks actually run: developer and independent source/object/face/scope/copy/receipt audits; producer freshness (371 rows / 30 bindings); source invariants, taxonomy, source/fixture gate and all 53 reconciliation assertions; syntax/whitespace; focused `--w-only` real-browser PASS for every entry/67 links, list/search/detail agreement, accessible native cost tokens including {20}, font fallback, safe escaping/links, keyboard, five malformed atomic cases, hydration suppression, 360px containment, Scavenge control and frozen math. Committed raw-blob hashes match all 21 actual receipts. Broad/default historical Friends-forever symbol-size harness NOT RUN or repaired; no all-suite pass.
+- Package/live proof: unchanged `.github/pages/package.py --rev 831ae295f01054aef321f95bee436799d910a304 --out <verified ordinary direct-child _site> --verify` PASS: 23 byte-matching files, four clean inline scripts, 23 expected HTTP 200 paths and 24 excluded HTTP 404 paths. Existing Python PID 5596 remains bound to `127.0.0.1:8020` and the same verified `_site`; no unnecessary service replacement. All 23 live files and the root shell match exact reviewed bytes. Visible iframe revision is `831ae295f01054aef321f95bee436799d910a304`.
+- Preview: http://127.0.0.1:8020/#mechanical-color-pie . In-app browser retained as deliverable, Warp Vortex open with Reviewed card examples expanded and its exact linked Mutalith Vortex Beast example visible. Search was cleared and all five color controls were observed `aria-pressed=false` after the existing Clear action. Inspected native UR indicator and “Combination only” label. Waterbend was also opened/expanded with its seven selected examples, including source-face C and exact WU/UB. Final screenshot: `C:/Users/obake/.codex/visualizations/2026/10/31/01a19298-c051-75b3-8e62-8aca133a468e/w-color-access-preview.jpg`.
+- Owner check: inspect the already-open expanded Warp Vortex for wording/readability and appearance; use search for Waterbend or Web-slinging if interested in the face-specific examples. No routine confirmation or manual re-proof of deterministic facts is requested. Owner acceptance is PENDING.
+- Git/delivery boundaries: existing branch `codex/a-mechanics-review`; no upstream; no current remote-tracking ref contains the material candidate and no fetch was performed. No push, merge, integration or publication. This final evidence-only commit changes HANDOFF alone, retaining the independently passed material and served revision. Git-derived accounting follows; the validator runs after the evidence commit. Current branch delta is 41 paths because HANDOFF is already in the material set.
+- Roles: configured/requested source RobDev Terra medium supplied bounded captures/advisory selection, coordinator corrected and owns final source/implementation, separate configured RobQA Sol medium performed exact-candidate independent review and wrote its individual packet below. Host accepted the configured routes; backend identity/token savings remain unverified. No dependency, design, source-scope or product decision remains open.
+- Delivery recorded UTC: 2026-10-31T16:04:21.116658+00:00.
+
+## Material candidate
+
+- Baseline: `9fa99306e85672110bdad6f781ed7af1d77840c5`
+- Candidate: `831ae295f01054aef321f95bee436799d910a304`
+- Changed paths: `41`
+
+## Files changed
+
+- `HANDOFF.md`
+- `data/mechanics-assessments.v1.json`
+- `docs/mechanics-research/COLOR-ACCESS-PROTOCOL.md`
+- `docs/mechanics-research/W-ACCESS-REVIEW.md`
+- `docs/mechanics-research/w-protocol-evidence/coordinator-retrieval-receipts.json`
+- `docs/mechanics-research/w-protocol-evidence/full-oracle-retrievals.json`
+- `docs/mechanics-research/w-protocol-evidence/retrieval-receipts.json`
+- `docs/mechanics-research/w-protocol-evidence/ward-discovery-2.json`
+- `docs/mechanics-research/w-protocol-evidence/ward-discovery.json`
+- `docs/mechanics-research/w-protocol-evidence/ward-full-oracle-receipt-1.json`
+- `docs/mechanics-research/w-protocol-evidence/ward-full-oracle-receipt-2.json`
+- `docs/mechanics-research/w-protocol-evidence/ward-full-oracle-receipt-3.json`
+- `docs/mechanics-research/w-protocol-evidence/ward-full-oracle-reviewed-1.json`
+- `docs/mechanics-research/w-protocol-evidence/ward-full-oracle-reviewed-2.json`
+- `docs/mechanics-research/w-protocol-evidence/ward-full-oracle-reviewed-3.json`
+- `docs/mechanics-research/w-protocol-evidence/ward-selection.json`
+- `docs/mechanics-research/w-protocol-evidence/warp-discovery.json`
+- `docs/mechanics-research/w-protocol-evidence/warp-full-oracle-discovery.json`
+- `docs/mechanics-research/w-protocol-evidence/warp-full-oracle-reviewed-1.json`
+- `docs/mechanics-research/w-protocol-evidence/warp-vortex-discovery.json`
+- `docs/mechanics-research/w-protocol-evidence/waterbend-discovery.json`
+- `docs/mechanics-research/w-protocol-evidence/waterbend-full-oracle-discovery.json`
+- `docs/mechanics-research/w-protocol-evidence/waterbend-full-oracle-reviewed-1.json`
+- `docs/mechanics-research/w-protocol-evidence/web-slinging-discovery.json`
+- `docs/mechanics-research/w-protocol-evidence/web-slinging-full-oracle-discovery.json`
+- `docs/mechanics-research/w-protocol-evidence/web-slinging-full-oracle-reviewed-1.json`
+- `docs/mechanics-research/w-protocol-evidence/web-support-discovery.json`
+- `docs/mechanics-research/w-protocol-evidence/wild-card-discovery.json`
+- `docs/mechanics-research/w-protocol-evidence/will-of-the-council-discovery.json`
+- `docs/mechanics-research/w-protocol-evidence/will-of-the-council-official.html`
+- `docs/mechanics-research/w-protocol-evidence/will-of-the-planeswalkers-discovery.json`
+- `docs/mechanics-research/w-protocol-evidence/will-of-the-planeswalkers-official.html`
+- `docs/mechanics-research/w-protocol-evidence/will-official-retrievals.json`
+- `docs/mechanics-research/w-protocol-evidence/wither-discovery.json`
+- `docs/mechanics-research/w-protocol-evidence/wither-full-oracle-discovery.json`
+- `docs/mechanics-research/w-protocol-evidence/wither-full-oracle-reviewed-1.json`
+- `docs/mechanics-research/w-protocol-evidence/wizardcycling-discovery.json`
+- `docs/mechanics-research/w-protocol.json`
+- `tools/build_mechanics_assessments.py`
+- `tools/check_assessment_browser.mjs`
+- `vox-color/mechanical-explorer.html`
+
+## Evidence delta
+
+- Material candidate: `831ae295f01054aef321f95bee436799d910a304`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `1`
+
+`HEAD` denotes the local commit containing this delivery and independent QA ledger. This evidence-only delta is not the full task diff.
+
+## Evidence-only paths
+
+- `HANDOFF.md`
+
+## Final branch delta
+
+- Baseline: `9fa99306e85672110bdad6f781ed7af1d77840c5`
+- Head: `HEAD`
+- Total changed paths: `41`
+- Paths are the same Git-derived material list above; the evidence delta adds no new path.
+
 # W supplemental Color Access — ready for independent QA
 
 - Status: `ready-for-qa` (`dev-in-progress -> ready-for-qa`). Baseline `9fa99306e85672110bdad6f781ed7af1d77840c5`; the material candidate is the commit containing this packet on existing `codex/a-mechanics-review`. Independent RobQA and Owner acceptance remain PENDING. Local-only boundary remains.
@@ -9,6 +91,17 @@
 - RobDev -> RobQA risk packet: QA-4, SEPARATE non-implementing configured RobQA Sol medium required for source qualification and shared rendering. Objective browser justification is actual DOM/hydration/glyph/ARIA/keyboard/containment risk plus explicit screenshot request. CPU-heavy placement certification NOT REQUIRED; broad/default Friends-forever historical symbol-size harness NOT RUN and not repaired. Use the focused W path and independent raw source-map/copy audit; do not widen to an all-suite bundle.
 - Stateful seams/disposition: capture -> full object/face -> packet -> generated binding -> hydrated detail continuity is relevant and checked. Missing/malformed replacement discards the entire assessment map; rules stay usable. All W entries cover list/search/detail round-trip and same selected meaning. Color perturb/clear and Article/A-Z round-trip preserve frozen math; Scavenge is the structurally different prior control. No new session/persistence owner; source reselection/history execution and Owner QA-escape sensitivity are NOT APPLICABLE to this additive batch. No Owner QA escape claimed.
 - Roles / next action: source specialist configured/requested RobDev Terra medium was host-accepted; coordinator owns final source and implementation. Backend identity/savings unverified. Separate RobQA Sol medium must inspect the exact committed diff/facts and write HANDOFF only. After engineering PASS, coordinator packages with unchanged package.py, verifies all served bytes/revision, clears filters, opens an expanded representative entry and saves the requested screenshot. Owner judgment remains wording comfort/usefulness and appearance. No push, merge or publication.
+
+# Independent RobQA — W supplemental Color Access, 2026-10-31
+
+- Mode/class/candidate/verdict: separate non-implementing RobQA reviewer; **QA-4, `qa-passed`** (`ready-for-qa -> qa-passed`). Exact material candidate `831ae295f01054aef321f95bee436799d910a304` over baseline `9fa99306e85672110bdad6f781ed7af1d77840c5`. RobQAPass engineering **PASS** for Owner Review. No blocker, major, acceptance-violating minor or note finding. This does not assert Owner acceptance, package/preview state, screenshot completion, integration, publication, push or merge.
+- Exact scope/diff: `git diff --stat`, `--name-status`, full relevant diff and `--check 9fa9930..831ae29` show exactly 41 admitted paths, 29,247 additions / 26 deletions and no whitespace error. `git status --short --branch` showed only `## codex/a-mechanics-review`; `git diff --exit-code 831ae29 -- .` was empty. Product/source bytes are therefore the exact candidate reviewed. No dependency, canonical supplement, frozen-2021 source/calculation, older packet or artwork path changed.
+- Independent source/object audit: an independent parsed audit recomputed all 21 fresh response SHA-256 values, required status 200 and ordered UTC intervals, and matched every packet query/binding to its receipt. All 67 selected Oracle IDs are distinct; every full object is semantically identical to the object in its bound raw response, and every exact printing URL matches that object. All are released paper through 2026-10-31, non-digital and ordinary card objects; no token, plane, playtest, acorn or silver-border object entered the selected set, while ordinary non-acorn Unfinity remains allowed. Ward's two keyword pages and three full-Oracle pages form complete terminal chains. The four earlier full-Oracle files retain null event metadata as historical/unbound; the fresh reviewed files own the bindings. `ward-selection.json` is not a query, source binding or canonical selection authority.
+- Independent qualification/copy review: all 67 notes and eleven definitions were read against the actual saved Oracle text and named bearing face/source. The exact maps reconcile to 23 Ward signatures and the other ten packet maps. Colored disguise-only faces are not credited; no omitted-colors Adventure face is treated as colorless. Avatar Kuruk is the colorless back with exhaust—waterbend `{20}`; Aang's waterbend is on the WU front; Amazing Spider-Man's WUG back grants web-slinging only to legendary spells that are one or more colors. Tower Above's intervening keywords do not hide its explicit wither grant. Timeline Culler retains `{B}`, 2 life and the graveyard exception; Tannuk retains its hand/type restriction; Pinnacle Emissary retains `{U/R}`. Will cards preserve each vote/tie result, with the two fresh official contexts, and the inherited rules file recomputes to `8d860e451f20f38865b725b42d82feb714c725373dd8f3b32b8652b3eeb070ca`. Warp Vortex, Web Support and Wild Card remain card-specific labels; Wizardcycling searches for a Wizard card. Player copy is concise, has no replacement character or internal ranking/audit claim, and defines each entry once before its card notes.
+- Deterministic exact-candidate checks: `python tools/build_mechanics_assessments.py --check` -> exit 0, 371 deterministic records / 30 bindings; `python tools/check_invariants.py` -> exit 0, 217 identities / 216 peers / zero unresolved; `python tools/check_taxonomy.py` -> exit 0, source gate PASS / 30 assignments / 19 families; `python tools/check_recon.py` -> exit 0, source/taxonomy/fixture gates and all 53 assertions PASS; `python tools/gate.py` -> exit 0, source and taxonomy gates PASS; `node --check tools/check_assessment_browser.mjs` -> exit 0. A separate baseline comparison found exact equality for all prior 360 records and first 29 bindings; totals are 371/30.
+- Focused real-browser evidence: `node tools/check_assessment_browser.mjs --root . --w-only --playwright C:/Users/obake/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright` -> exit 0, JSON `PASS`. The real path clicked/searched/Enter-opened all 11 W entries and observed all 67 exact unique whole-detail links, list/search/detail independent and combination marks, complete native cost tokens including `{20}`, accessible names, blocked-font fallback, safe escaping/links, five atomic malformed-payload cases, hydration suppression, keyboard activation, 360px containment, the existing resize sheet-state wait, unchanged Scavenge control and frozen math. Browser execution was justified by objective rendered hydration/link/glyph/ARIA/keyboard/containment risk and the Owner's explicit browser request; it was not used to certify aesthetics.
+- Stateful/proportional disposition: capture -> full object/face -> canonical packet -> generated binding -> rendered whole-detail continuity passed. List/search/detail and Article/A-Z round-trips retain the same selected meaning; color perturb/clear restores frozen math; malformed replacement clears the assessment map while rules remain usable. Source reselection, current-versus-executed request and persistence/history ownership are not applicable because this additive batch introduces none. Scavenge is the structurally different prior control. CPU-heavy validation **NOT REQUIRED**: the source gates, independent full-object audit, exact prior parity and focused W browser path protect the changed qualification/projection/rendering seams. The unrelated broad/default Friends-forever symbol-size harness, full viewport matrix, mutation/placement suite, network recapture, package/preview and screenshot were intentionally not run as QA; the coordinator owns the requested unchanged package, refreshed preview and screenshot after this PASS.
+- Short Owner check: in the coordinator's refreshed preview, open **Waterbend** and confirm Kuruk's colorless `{20}` note and WU/UB examples read naturally; open **Web-slinging** and confirm Amazing Spider-Man's restricted WUG grant is clear; open **Ward** at phone width and scan the independent/combination strip plus a nonmana-cost note. PASS if the wording is useful and the compact symbols/notes feel readable without crowding; FAIL if a face attribution is confusing, a note feels misleading, or the presentation is optically uncomfortable. Deterministic links, facts, keyboard behavior and containment need not be manually re-proved.
 
 # W supplemental Color Access — implementation contract
 
