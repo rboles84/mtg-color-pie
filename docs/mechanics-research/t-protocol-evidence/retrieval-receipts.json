@@ -1,0 +1,541 @@
+{
+  "retrievals": [
+    {
+      "url": "https://api.scryfall.com/cards/search?q=fo%3Ateamwork+game%3Apaper+date%3C%3D2026-10-30&unique=cards&include_extras=true",
+      "request_method": "GET",
+      "request_started_utc": "2026-10-31T04:14:48.096834+00:00",
+      "retrieved_utc": "2026-10-31T04:14:48.535582+00:00",
+      "status": 200,
+      "sha256": "df5c8b56af583346353c309c13a2db0a77d9b025a3b75a40e3567caf0b17d0a2",
+      "body_path": "teamwork-full-1.json"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22tempting+offer%22+game%3Apaper+date%3C%3D2026-10-30&unique=cards&include_extras=true",
+      "request_method": "GET",
+      "request_started_utc": "2026-10-31T04:14:48.938002+00:00",
+      "retrieved_utc": "2026-10-31T04:14:49.196515+00:00",
+      "status": 200,
+      "sha256": "5a8d37acb88c3863bcd456d72a1030959f9c02747adb6f20b2ca89129e3339fe",
+      "body_path": "tempting-offer-full-1.json"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?q=%28fo%3Athreshold+or+keyword%3Athreshold%29+game%3Apaper+date%3C%3D2026-10-30&unique=cards&include_extras=true",
+      "request_method": "GET",
+      "request_started_utc": "2026-10-31T04:14:49.598348+00:00",
+      "retrieved_utc": "2026-10-31T04:14:50.139674+00:00",
+      "status": 200,
+      "sha256": "4f3f88d90761f2faae0e16b59fed77671a6db0d579c0197ff4b50c87cc463a9f",
+      "body_path": "threshold-full-1.json"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?q=fo%3Atiered+game%3Apaper+date%3C%3D2026-10-30&unique=cards&include_extras=true",
+      "request_method": "GET",
+      "request_started_utc": "2026-10-31T04:14:50.545922+00:00",
+      "retrieved_utc": "2026-10-31T04:14:50.988267+00:00",
+      "status": 200,
+      "sha256": "64fc3b9a5e955477a97420eca04cbdaeef86819f2102126e9af920f8cad1985b",
+      "body_path": "tiered-full-1.json"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22time+travel%22+game%3Apaper+date%3C%3D2026-10-30&unique=cards&include_extras=true",
+      "request_method": "GET",
+      "request_started_utc": "2026-10-31T04:14:51.391216+00:00",
+      "retrieved_utc": "2026-10-31T04:14:51.739790+00:00",
+      "status": 200,
+      "sha256": "66431d1d54f9129a38f8c9543287193f2d93363b16b1afcd9717906af86ab7f7",
+      "body_path": "time-travel-full-1.json"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?q=%28fo%3Atoxic+or+keyword%3Atoxic%29+game%3Apaper+date%3C%3D2026-10-30&unique=cards&include_extras=true",
+      "request_method": "GET",
+      "request_started_utc": "2026-10-31T04:14:52.142262+00:00",
+      "retrieved_utc": "2026-10-31T04:14:53.247153+00:00",
+      "status": 200,
+      "sha256": "b0c44a3af3dbb210f16625aa428492c5e38df339244dcdc2d398f08ee857648a",
+      "body_path": "toxic-full-1.json"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?q=%28fo%3Atraining+or+keyword%3Atraining%29+game%3Apaper+date%3C%3D2026-10-30&unique=cards&include_extras=true",
+      "request_method": "GET",
+      "request_started_utc": "2026-10-31T04:14:53.651368+00:00",
+      "retrieved_utc": "2026-10-31T04:14:54.077983+00:00",
+      "status": 200,
+      "sha256": "31fa80d8d0ede009bdaf0642be94d45eac07add64b01fb882600e4b60f5663ae",
+      "body_path": "training-full-1.json"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?q=%28fo%3Atransfigure+or+keyword%3Atransfigure%29+game%3Apaper+date%3C%3D2026-10-30&unique=cards&include_extras=true",
+      "request_method": "GET",
+      "request_started_utc": "2026-10-31T04:14:54.480868+00:00",
+      "retrieved_utc": "2026-10-31T04:14:54.758146+00:00",
+      "status": 200,
+      "sha256": "b5bb9c2914a7429a24ac210f54096e774cc2b417b685636ba57df6ae7a5c356d",
+      "body_path": "transfigure-full-1.json"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?q=fo%3Atransform+game%3Apaper+date%3C%3D2026-10-30&unique=cards&include_extras=true",
+      "request_method": "GET",
+      "request_started_utc": "2026-10-31T04:14:55.159993+00:00",
+      "retrieved_utc": "2026-10-31T04:14:56.402218+00:00",
+      "status": 200,
+      "sha256": "d12d34f9e32eb4d5b223cc34d37445b329ee864b2cb7921eee8d00a53b7b6be9",
+      "body_path": "transform-full-1.json"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?format=json&include_extras=true&include_multilingual=false&include_variations=false&order=name&page=2&q=fo%3Atransform+game%3Apaper+date%3C%3D2026-10-30&unique=cards",
+      "request_method": "GET",
+      "request_started_utc": "2026-10-31T04:14:56.812108+00:00",
+      "retrieved_utc": "2026-10-31T04:14:58.525804+00:00",
+      "status": 200,
+      "sha256": "73db68ddc3ffa097b7ac7d4dd4f003d3ac3f20f0222c0380b582ebc023c5ed35",
+      "body_path": "transform-full-2.json"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?format=json&include_extras=true&include_multilingual=false&include_variations=false&order=name&page=3&q=fo%3Atransform+game%3Apaper+date%3C%3D2026-10-30&unique=cards",
+      "request_method": "GET",
+      "request_started_utc": "2026-10-31T04:14:58.940589+00:00",
+      "retrieved_utc": "2026-10-31T04:14:59.550262+00:00",
+      "status": 200,
+      "sha256": "fe8a33514cc933c3521443950a4e9dd34bee9576ad584d9a209574a4db1a07a9",
+      "body_path": "transform-full-3.json"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?q=%28fo%3Atransmute+or+keyword%3Atransmute%29+game%3Apaper+date%3C%3D2026-10-30&unique=cards&include_extras=true",
+      "request_method": "GET",
+      "request_started_utc": "2026-10-31T04:14:59.955684+00:00",
+      "retrieved_utc": "2026-10-31T04:15:00.265626+00:00",
+      "status": 200,
+      "sha256": "be63f1006ec5b015716dd45cfb50133461a0ed0f4705a20c465330f61d62762a",
+      "body_path": "transmute-full-1.json"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?q=%28fo%3Atribute+or+keyword%3Atribute%29+game%3Apaper+date%3C%3D2026-10-30&unique=cards&include_extras=true",
+      "request_method": "GET",
+      "request_started_utc": "2026-10-31T04:15:00.668393+00:00",
+      "retrieved_utc": "2026-10-31T04:15:01.102862+00:00",
+      "status": 200,
+      "sha256": "086c7cb1a20903905e176d3ed77445a836de50c72f52e538c0b7cbdc70442297",
+      "body_path": "tribute-full-1.json"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?q=fo%3Acycling+game%3Apaper+date%3C%3D2026-10-30&unique=cards&include_extras=true",
+      "request_method": "GET",
+      "request_started_utc": "2026-10-31T04:15:01.507532+00:00",
+      "retrieved_utc": "2026-10-31T04:15:02.097159+00:00",
+      "status": 200,
+      "sha256": "3392276524ef39d48ffdbd772cbdbfbbc17cbec000f805017a53b7d6ef5626a1",
+      "body_path": "typecycling-full-1.json"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?format=json&include_extras=true&include_multilingual=false&include_variations=false&order=name&page=2&q=fo%3Acycling+game%3Apaper+date%3C%3D2026-10-30&unique=cards",
+      "request_method": "GET",
+      "request_started_utc": "2026-10-31T04:15:02.505595+00:00",
+      "retrieved_utc": "2026-10-31T04:15:03.216221+00:00",
+      "status": 200,
+      "sha256": "e9e9e5ff7241a884ce8ca7c51251869771cd276247aa93ec34b241418a579829",
+      "body_path": "typecycling-full-2.json"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?format=json&include_extras=true&include_multilingual=false&include_variations=false&order=name&page=3&q=fo%3Acycling+game%3Apaper+date%3C%3D2026-10-30&unique=cards",
+      "request_method": "GET",
+      "request_started_utc": "2026-10-31T04:15:03.624799+00:00",
+      "retrieved_utc": "2026-10-31T04:15:04.061811+00:00",
+      "status": 200,
+      "sha256": "2ab667d6594ce09d1ace46f852f52796ad1f06541e3b4283fc01e0c750d28ef1",
+      "body_path": "typecycling-full-3.json"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?q=fo%3Atreasure+game%3Apaper+date%3C%3D2026-10-30&unique=cards&include_extras=true",
+      "request_method": "GET",
+      "request_started_utc": "2026-10-31T04:15:04.468040+00:00",
+      "retrieved_utc": "2026-10-31T04:15:06.981983+00:00",
+      "status": 200,
+      "sha256": "6ea4547fa677a2bf0746c0a48b49eca465ce23fb0e658544c8669fef89c9188a",
+      "body_path": "treasure-full-1.json"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?format=json&include_extras=true&include_multilingual=false&include_variations=false&order=name&page=2&q=fo%3Atreasure+game%3Apaper+date%3C%3D2026-10-30&unique=cards",
+      "request_method": "GET",
+      "request_started_utc": "2026-10-31T04:15:07.389446+00:00",
+      "retrieved_utc": "2026-10-31T04:15:09.397887+00:00",
+      "status": 200,
+      "sha256": "5b30a1221d468f03268ea72c3834f804d4bbc5e55006361267a4eb19e638e138",
+      "body_path": "treasure-full-2.json"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?format=json&include_extras=true&include_multilingual=false&include_variations=false&order=name&page=3&q=fo%3Atreasure+game%3Apaper+date%3C%3D2026-10-30&unique=cards",
+      "request_method": "GET",
+      "request_started_utc": "2026-10-31T04:15:09.806367+00:00",
+      "retrieved_utc": "2026-10-31T04:15:10.830917+00:00",
+      "status": 200,
+      "sha256": "98dfe0d88e304f606fa55efa59d4836f7a79a714f8adf5ea72347a5bd8608d85",
+      "body_path": "treasure-full-3.json"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22two-headed+coin%22+game%3Apaper+date%3C%3D2026-10-30&unique=cards&include_extras=true",
+      "request_method": "GET",
+      "request_started_utc": "2026-10-31T04:15:11.236220+00:00",
+      "retrieved_utc": "2026-10-31T04:15:11.476222+00:00",
+      "status": 200,
+      "sha256": "c3966d45aab11028bbae7c60796bca4216d081e670563f32631c6f7b4f65bc4f",
+      "body_path": "two-headed-coin-full-1.json"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22the+betrayer%22+game%3Apaper+date%3C%3D2026-10-30&unique=cards&include_extras=true",
+      "request_method": "GET",
+      "request_started_utc": "2026-10-31T04:15:11.878131+00:00",
+      "retrieved_utc": "2026-10-31T04:15:12.109402+00:00",
+      "status": 200,
+      "sha256": "31a20ed6e2698cbb81f649c1f39daf7224717e0c8d5679d4a58d0e357b693d2b",
+      "body_path": "the-betrayer-full-1.json"
+    },
+    {
+      "url": "https://magic.wizards.com/en/news/feature/warhammer-40000-commander-release-notes-2022-09-19",
+      "request_method": "GET",
+      "request_started_utc": "2026-10-31T04:16:14.858203+00:00",
+      "retrieved_utc": "2026-10-31T04:16:15.613904+00:00",
+      "status": 200,
+      "sha256": "e25dcb1c0d29b71505d7fd8c3a1158a51d80a41e64f7386293eeaad0d7cdad52",
+      "body_path": "the-betrayer-official-release-notes.html"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?q=%28keyword%3Atransform+or+keyword%3Adaybound+or+keyword%3Anightbound+or+keyword%3Aincubate+or+keyword%3Adisturb+or+keyword%3Acraft+or+t%3Abattle%29+-fo%3Atransform+game%3Apaper+date%3C%3D2026-10-30&unique=cards&include_extras=true",
+      "request_method": "GET",
+      "request_started_utc": "2026-10-31T04:17:11.527365+00:00",
+      "retrieved_utc": "2026-10-31T04:17:12.113820+00:00",
+      "status": 200,
+      "sha256": "8077baa7ac1290e56879d7b4f49f8861bc8e200d7e8b9dfe2b78097a98955e22",
+      "body_path": "transform-keyword-remainder-1.json"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?q=t%3Atreasure+-fo%3Atreasure+game%3Apaper+date%3C%3D2026-10-30&unique=cards&include_extras=true",
+      "request_method": "GET",
+      "request_started_utc": "2026-10-31T04:17:12.517143+00:00",
+      "retrieved_utc": "2026-10-31T04:17:12.908413+00:00",
+      "status": 200,
+      "sha256": "6562be95ab48356d6804f9524cbeb96a82b43b3d524afcd6b2419ec1769ab834",
+      "body_path": "treasure-subtype-remainder-1.json"
+    }
+  ],
+  "historical_unbound_retrievals": [
+    {
+      "url": "https://api.scryfall.com/cards/search?q=oracle%3A%22Teamwork%22&unique=cards&include_extras=true",
+      "request_method": "GET",
+      "request_started_utc": "2026-10-31T04:08:35.219471+00:00",
+      "retrieved_utc": "2026-10-31T04:08:35.528096+00:00",
+      "status": 200,
+      "sha256": "df5c8b56af583346353c309c13a2db0a77d9b025a3b75a40e3567caf0b17d0a2",
+      "body_path": "teamwork-1.json"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?q=oracle%3A%22Tempting+offer%22&unique=cards&include_extras=true",
+      "request_method": "GET",
+      "request_started_utc": "2026-10-31T04:08:35.530794+00:00",
+      "retrieved_utc": "2026-10-31T04:08:35.556367+00:00",
+      "status": 200,
+      "sha256": "5a8d37acb88c3863bcd456d72a1030959f9c02747adb6f20b2ca89129e3339fe",
+      "body_path": "tempting-offer-1.json"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?q=keyword%3Athreshold&unique=cards&include_extras=true",
+      "request_method": "GET",
+      "request_started_utc": "2026-10-31T04:08:35.557613+00:00",
+      "retrieved_utc": "2026-10-31T04:08:35.803223+00:00",
+      "status": 200,
+      "sha256": "14825ab563e903d2d8e85cc91e0fdbd125080c1e99433c68d26d9a3af1aec910",
+      "body_path": "threshold-1.json"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?q=oracle%3A%22Tiered%22&unique=cards&include_extras=true",
+      "request_method": "GET",
+      "request_started_utc": "2026-10-31T04:08:35.811764+00:00",
+      "retrieved_utc": "2026-10-31T04:08:35.841762+00:00",
+      "status": 200,
+      "sha256": "64fc3b9a5e955477a97420eca04cbdaeef86819f2102126e9af920f8cad1985b",
+      "body_path": "tiered-1.json"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?q=oracle%3A%22Time+Travel%22&unique=cards&include_extras=true",
+      "request_method": "GET",
+      "request_started_utc": "2026-10-31T04:08:35.842967+00:00",
+      "retrieved_utc": "2026-10-31T04:08:35.871069+00:00",
+      "status": 200,
+      "sha256": "66431d1d54f9129a38f8c9543287193f2d93363b16b1afcd9717906af86ab7f7",
+      "body_path": "time-travel-1.json"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?q=keyword%3Atoxic&unique=cards&include_extras=true",
+      "request_method": "GET",
+      "request_started_utc": "2026-10-31T04:08:35.872308+00:00",
+      "retrieved_utc": "2026-10-31T04:08:35.908761+00:00",
+      "status": 200,
+      "sha256": "16cfc73f92ee3907569227dc05180135b87c3c25e5e294d37f83ed6bcde42f35",
+      "body_path": "toxic-1.json"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?q=oracle%3A%22Training%22&unique=cards&include_extras=true",
+      "request_method": "GET",
+      "request_started_utc": "2026-10-31T04:08:35.912415+00:00",
+      "retrieved_utc": "2026-10-31T04:08:35.956463+00:00",
+      "status": 200,
+      "sha256": "ff1f9f3e19e67c90d2cf7e78c9a1f320fd9d0e9ecbb22f69b24d5e2eaa224a28",
+      "body_path": "training-1.json"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?q=oracle%3A%22Transfigure%22&unique=cards&include_extras=true",
+      "request_method": "GET",
+      "request_started_utc": "2026-10-31T04:08:35.958494+00:00",
+      "retrieved_utc": "2026-10-31T04:08:35.980273+00:00",
+      "status": 200,
+      "sha256": "b5bb9c2914a7429a24ac210f54096e774cc2b417b685636ba57df6ae7a5c356d",
+      "body_path": "transfigure-1.json"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?q=keyword%3Atransform&unique=cards&include_extras=true",
+      "request_method": "GET",
+      "request_started_utc": "2026-10-31T04:08:35.980934+00:00",
+      "retrieved_utc": "2026-10-31T04:08:36.026830+00:00",
+      "status": 200,
+      "sha256": "caa28f60381012fbf15229c4dc1bbb8bb8b417b35205965b4e1137cf5b72b6f9",
+      "body_path": "transform-1.json"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?format=json&include_extras=true&include_multilingual=false&include_variations=false&order=name&page=2&q=keyword%3Atransform&unique=cards",
+      "request_method": "GET",
+      "request_started_utc": "2026-10-31T04:08:36.144085+00:00",
+      "retrieved_utc": "2026-10-31T04:08:36.190829+00:00",
+      "status": 200,
+      "sha256": "406e934989612232287128c5942c11d064318141fd3a4b9e14a75b224323872b",
+      "body_path": "transform-2.json"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?format=json&include_extras=true&include_multilingual=false&include_variations=false&order=name&page=3&q=keyword%3Atransform&unique=cards",
+      "request_method": "GET",
+      "request_started_utc": "2026-10-31T04:08:36.310065+00:00",
+      "retrieved_utc": "2026-10-31T04:08:36.344838+00:00",
+      "status": 200,
+      "sha256": "7d9b2b9eaea94cbeb83bcf30bfddcd4430ac9df6e69034efb1a53bcf3d4ebcf9",
+      "body_path": "transform-3.json"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?q=keyword%3Atransmute&unique=cards&include_extras=true",
+      "request_method": "GET",
+      "request_started_utc": "2026-10-31T04:08:36.374006+00:00",
+      "retrieved_utc": "2026-10-31T04:08:36.491021+00:00",
+      "status": 200,
+      "sha256": "be63f1006ec5b015716dd45cfb50133461a0ed0f4705a20c465330f61d62762a",
+      "body_path": "transmute-1.json"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?q=keyword%3Atribute&unique=cards&include_extras=true",
+      "request_method": "GET",
+      "request_started_utc": "2026-10-31T04:08:36.494998+00:00",
+      "retrieved_utc": "2026-10-31T04:08:36.611974+00:00",
+      "status": 200,
+      "sha256": "0db10267733aaf6c76694231fe27b52a6ee498f63fa0c905361986a65abe93a0",
+      "body_path": "tribute-1.json"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?q=oracle%3A%2Fcycling%2F&unique=cards&include_extras=true",
+      "request_method": "GET",
+      "request_started_utc": "2026-10-31T04:08:36.613664+00:00",
+      "retrieved_utc": "2026-10-31T04:08:36.644184+00:00",
+      "status": 200,
+      "sha256": "7e297c2405cc4c5048b1583986cfa10b3ed7537b28dd4ee91f51e835b6b0a42b",
+      "body_path": "typecycling-1.json"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?format=json&include_extras=true&include_multilingual=false&include_variations=false&order=name&page=2&q=oracle%3A%2Fcycling%2F&unique=cards",
+      "request_method": "GET",
+      "request_started_utc": "2026-10-31T04:08:36.760338+00:00",
+      "retrieved_utc": "2026-10-31T04:08:36.804334+00:00",
+      "status": 200,
+      "sha256": "a4438fccd836adbdc117408a9ab8ca0de5580fec294752915a85b712ead01d27",
+      "body_path": "typecycling-2.json"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?format=json&include_extras=true&include_multilingual=false&include_variations=false&order=name&page=3&q=oracle%3A%2Fcycling%2F&unique=cards",
+      "request_method": "GET",
+      "request_started_utc": "2026-10-31T04:08:36.920141+00:00",
+      "retrieved_utc": "2026-10-31T04:08:36.957513+00:00",
+      "status": 200,
+      "sha256": "65e441a8c67b1afc55f915fd1bd770b7d4d9f361c645fea81dacab3ed103bfbe",
+      "body_path": "typecycling-3.json"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?q=oracle%3A%22Treasure+token%22&unique=cards&include_extras=true",
+      "request_method": "GET",
+      "request_started_utc": "2026-10-31T04:08:36.979533+00:00",
+      "retrieved_utc": "2026-10-31T04:08:37.025142+00:00",
+      "status": 200,
+      "sha256": "4772d7137b915607884a37541b8d6e1959e28e117f29f9446495dbb427236dcc",
+      "body_path": "treasure-1.json"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?format=json&include_extras=true&include_multilingual=false&include_variations=false&order=name&page=2&q=oracle%3A%22treasure+token%22&unique=cards",
+      "request_method": "GET",
+      "request_started_utc": "2026-10-31T04:08:37.142096+00:00",
+      "retrieved_utc": "2026-10-31T04:08:39.006881+00:00",
+      "status": 200,
+      "sha256": "cdb462458fd92d9a44ea0f5783a73de87c335af5cd318fc54abc42d164debc74",
+      "body_path": "treasure-2.json"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?format=json&include_extras=true&include_multilingual=false&include_variations=false&order=name&page=3&q=oracle%3A%22treasure+token%22&unique=cards",
+      "request_method": "GET",
+      "request_started_utc": "2026-10-31T04:08:39.129794+00:00",
+      "retrieved_utc": "2026-10-31T04:08:39.832062+00:00",
+      "status": 200,
+      "sha256": "1da69bb27d51971c33e0c8ef4830532964c1bfc1f8368cb4c38d12872d03bc9b",
+      "body_path": "treasure-3.json"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?q=oracle%3A%22Two-Headed+Coin%22&unique=cards&include_extras=true",
+      "request_method": "GET",
+      "request_started_utc": "2026-10-31T04:08:39.855928+00:00",
+      "retrieved_utc": "2026-10-31T04:08:39.885795+00:00",
+      "status": 200,
+      "sha256": "c3966d45aab11028bbae7c60796bca4216d081e670563f32631c6f7b4f65bc4f",
+      "body_path": "two-headed-coin-1.json"
+    },
+    {
+      "url": "https://api.scryfall.com/cards/search?q=oracle%3A%22The+Betrayer%22&unique=cards&include_extras=true",
+      "request_method": "GET",
+      "request_started_utc": "2026-10-31T04:08:39.888764+00:00",
+      "retrieved_utc": "2026-10-31T04:08:39.905346+00:00",
+      "status": 429,
+      "sha256": "e3ce34d4d4b4bf20fe9ecd4412e7e38dc0b6930deeaaa821edd6a39b53ead76e",
+      "body_path": "the-betrayer-1.json"
+    }
+  ],
+  "historical_integrity_note": "The 21 original receipt claims are preserved verbatim. Their SHA-256 values do not bind the currently saved provisional bodies (20 reserialized lists and one newline-different HTTP 429 body). Original raw bytes are unavailable. The claimed event times/statuses are retained as historical claims, not verified raw-body receipts or current absence evidence. Current saved-file hashes below were independently observed during this repair; no event time or response status is assigned to those derived files.",
+  "historical_body_inventory": [
+    {
+      "body_path": "teamwork-1.json",
+      "currently_saved_sha256": "2e94614980b9534b09cc856e4cc742af348bebc84fb8b031411dc56f2568af62",
+      "original_claimed_sha256": "df5c8b56af583346353c309c13a2db0a77d9b025a3b75a40e3567caf0b17d0a2",
+      "integrity": "does_not_match_original_raw_receipt"
+    },
+    {
+      "body_path": "tempting-offer-1.json",
+      "currently_saved_sha256": "f0dc6f8fa98947ee8166bb7258c4c2786afc7337a52a966a93a6a24dfa55f2e1",
+      "original_claimed_sha256": "5a8d37acb88c3863bcd456d72a1030959f9c02747adb6f20b2ca89129e3339fe",
+      "integrity": "does_not_match_original_raw_receipt"
+    },
+    {
+      "body_path": "threshold-1.json",
+      "currently_saved_sha256": "b99e1e8a3369211cbcacaf1a8558f734a141572335eabde4cc1dba226a1b72ec",
+      "original_claimed_sha256": "14825ab563e903d2d8e85cc91e0fdbd125080c1e99433c68d26d9a3af1aec910",
+      "integrity": "does_not_match_original_raw_receipt"
+    },
+    {
+      "body_path": "tiered-1.json",
+      "currently_saved_sha256": "c089bd13101c85a06d8cc38edf49f688b6838b435940cea017c9e343af1d8047",
+      "original_claimed_sha256": "64fc3b9a5e955477a97420eca04cbdaeef86819f2102126e9af920f8cad1985b",
+      "integrity": "does_not_match_original_raw_receipt"
+    },
+    {
+      "body_path": "time-travel-1.json",
+      "currently_saved_sha256": "fb6f33c698c8ae88d3fd3c77cc9468da5aed95569ab335cab0852fe3d88afdb4",
+      "original_claimed_sha256": "66431d1d54f9129a38f8c9543287193f2d93363b16b1afcd9717906af86ab7f7",
+      "integrity": "does_not_match_original_raw_receipt"
+    },
+    {
+      "body_path": "toxic-1.json",
+      "currently_saved_sha256": "45473c321faacb7624b3fbba7ec4c354a1610811819078508110043a5f5339b6",
+      "original_claimed_sha256": "16cfc73f92ee3907569227dc05180135b87c3c25e5e294d37f83ed6bcde42f35",
+      "integrity": "does_not_match_original_raw_receipt"
+    },
+    {
+      "body_path": "training-1.json",
+      "currently_saved_sha256": "d08bd72479a95fbb3c825824111d214f99e512f7ebc686842598b86eb0c5fc91",
+      "original_claimed_sha256": "ff1f9f3e19e67c90d2cf7e78c9a1f320fd9d0e9ecbb22f69b24d5e2eaa224a28",
+      "integrity": "does_not_match_original_raw_receipt"
+    },
+    {
+      "body_path": "transfigure-1.json",
+      "currently_saved_sha256": "25b6b183398525774fbddd2bbf37d9b5836f3571e9042a5ac9adbc3d11ef3246",
+      "original_claimed_sha256": "b5bb9c2914a7429a24ac210f54096e774cc2b417b685636ba57df6ae7a5c356d",
+      "integrity": "does_not_match_original_raw_receipt"
+    },
+    {
+      "body_path": "transform-1.json",
+      "currently_saved_sha256": "0c815e0f10d3bdd0d92c3793e5d77da464b5e45eaedc73da25207f99b509711c",
+      "original_claimed_sha256": "caa28f60381012fbf15229c4dc1bbb8bb8b417b35205965b4e1137cf5b72b6f9",
+      "integrity": "does_not_match_original_raw_receipt"
+    },
+    {
+      "body_path": "transform-2.json",
+      "currently_saved_sha256": "1f87572917a71da8f4f1fb4df01bff1460f67c55095a7fd5f7e98b25300e2379",
+      "original_claimed_sha256": "406e934989612232287128c5942c11d064318141fd3a4b9e14a75b224323872b",
+      "integrity": "does_not_match_original_raw_receipt"
+    },
+    {
+      "body_path": "transform-3.json",
+      "currently_saved_sha256": "75de8321ebf08c78cb52c4cd2ab24ad192add8681ef6bbbe278d8bfb6bf561f4",
+      "original_claimed_sha256": "7d9b2b9eaea94cbeb83bcf30bfddcd4430ac9df6e69034efb1a53bcf3d4ebcf9",
+      "integrity": "does_not_match_original_raw_receipt"
+    },
+    {
+      "body_path": "transmute-1.json",
+      "currently_saved_sha256": "ee485f2989e320858d17f5b6a36519781edcccf2338692e0142c139fd6b25c39",
+      "original_claimed_sha256": "be63f1006ec5b015716dd45cfb50133461a0ed0f4705a20c465330f61d62762a",
+      "integrity": "does_not_match_original_raw_receipt"
+    },
+    {
+      "body_path": "tribute-1.json",
+      "currently_saved_sha256": "d82bbd69437088a426245915e2c32a5e71f897f2d49a7c5bf470927430e7c91e",
+      "original_claimed_sha256": "0db10267733aaf6c76694231fe27b52a6ee498f63fa0c905361986a65abe93a0",
+      "integrity": "does_not_match_original_raw_receipt"
+    },
+    {
+      "body_path": "typecycling-1.json",
+      "currently_saved_sha256": "4ef88696d4969fb5091e5531fdb34e2dd6d8e24c7d4afc8a2ed110a441495947",
+      "original_claimed_sha256": "7e297c2405cc4c5048b1583986cfa10b3ed7537b28dd4ee91f51e835b6b0a42b",
+      "integrity": "does_not_match_original_raw_receipt"
+    },
+    {
+      "body_path": "typecycling-2.json",
+      "currently_saved_sha256": "4d2c5e1e0adc1c45495cc9c508a675a3158d96b3fceed0b9e40d8141ea7715c9",
+      "original_claimed_sha256": "a4438fccd836adbdc117408a9ab8ca0de5580fec294752915a85b712ead01d27",
+      "integrity": "does_not_match_original_raw_receipt"
+    },
+    {
+      "body_path": "typecycling-3.json",
+      "currently_saved_sha256": "ef80180c7d6e752a53539dcd39329ac7a09c137fe87a74f7a1721fa37e1c8e8e",
+      "original_claimed_sha256": "65e441a8c67b1afc55f915fd1bd770b7d4d9f361c645fea81dacab3ed103bfbe",
+      "integrity": "does_not_match_original_raw_receipt"
+    },
+    {
+      "body_path": "treasure-1.json",
+      "currently_saved_sha256": "7ec594238f7b51efc9ed2934337c9b00be207e907e7af19c9307d19b1a501b96",
+      "original_claimed_sha256": "4772d7137b915607884a37541b8d6e1959e28e117f29f9446495dbb427236dcc",
+      "integrity": "does_not_match_original_raw_receipt"
+    },
+    {
+      "body_path": "treasure-2.json",
+      "currently_saved_sha256": "d39ad523f7c4dc6ff611a171bc5792a51e79c2da08032ed895c3d59014993442",
+      "original_claimed_sha256": "cdb462458fd92d9a44ea0f5783a73de87c335af5cd318fc54abc42d164debc74",
+      "integrity": "does_not_match_original_raw_receipt"
+    },
+    {
+      "body_path": "treasure-3.json",
+      "currently_saved_sha256": "84a23f16f3b6bac84f12ad9e3dbe225e1f595fb3a8e4a041197f264b886ac8e1",
+      "original_claimed_sha256": "1da69bb27d51971c33e0c8ef4830532964c1bfc1f8368cb4c38d12872d03bc9b",
+      "integrity": "does_not_match_original_raw_receipt"
+    },
+    {
+      "body_path": "two-headed-coin-1.json",
+      "currently_saved_sha256": "f2325a698e1d97f241fec551144df025acae9fd79727d4d1d59c3471d1b0e326",
+      "original_claimed_sha256": "c3966d45aab11028bbae7c60796bca4216d081e670563f32631c6f7b4f65bc4f",
+      "integrity": "does_not_match_original_raw_receipt"
+    },
+    {
+      "body_path": "the-betrayer-1.json",
+      "currently_saved_sha256": "f6484051bfb45b5e8ad4b926819203782f5c7c486d9810a5c5f52a30b39e7932",
+      "original_claimed_sha256": "e3ce34d4d4b4bf20fe9ecd4412e7e38dc0b6930deeaaa821edd6a39b53ead76e",
+      "integrity": "does_not_match_original_raw_receipt"
+    }
+  ],
+  "historical_inventory_observed_utc": "2026-10-31T04:22:18.889866+00:00"
+}

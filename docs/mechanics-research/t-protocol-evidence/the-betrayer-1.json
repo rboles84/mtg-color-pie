@@ -1,0 +1,6 @@
+{
+  "object": "error",
+  "code": "rate_limited",
+  "status": 429,
+  "details": "You are being rate-limited, try again after 60 seconds. DO NOT IGNORE THIS WARNING, FAILURE TO ACT WILL RESULT IN A NETWORK BLOCK. Scryfall requires you to constrain API usage, please see the documentation at https://scryfall.com/docs/api/rate-limits"
+}
