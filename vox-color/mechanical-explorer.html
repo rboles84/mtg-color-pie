@@ -1858,7 +1858,7 @@ function hydrateDetail(k){
   });
   const supplemental = SUP_EXAMPLES.byKey.get(k);
   // Ready F/G/H/I/J/K/L/M/N/O/P/R/S assessments already supply one reviewed example per access bucket.
-  const assessedSupplement = REC.get(k)?.supplemental && /^[FGHIJKLMNOPRST]/.test(REC.get(k).head) && ASSESSMENTS.byKey.has(k);
+  const assessedSupplement = REC.get(k)?.supplemental && /^[FGHIJKLMNOPRSTU]/.test(REC.get(k).head) && ASSESSMENTS.byKey.has(k);
   if (supplemental && S.pick === k && !assessedSupplement) addCite(supplemental, true, true);
 }
 /* The rest of the entries carry a stored printing (mechanical-examples.json),
@@ -1974,6 +1974,8 @@ const R_MANA = {...P_MANA};
 // S keeps its reviewed vocabulary separate from all earlier formatting paths.
 const S_MANA = {...R_MANA};
 const T_MANA = {...S_MANA};
+// U adds its reviewed energy cost without changing earlier formatter vocabularies.
+const U_MANA = {...T_MANA, E:['energy','One energy counter']};
 function supplementalTextHTML(value, symbols = SUP_MANA){
   // A–L retain the exact established formatter markup. Cost runs are an M
   // presentation repair only; earlier packets remain byte-for-byte shaped.
@@ -2043,7 +2045,7 @@ function supplementalClassificationHTML(scope, mapped){
     </${mapped ? 'section' : 'div'}>`;
 }
 function supplementalRecordHTML(a, mapped = false){
-  const text = value => supplementalTextHTML(value, !mapped && a.name.startsWith('T') ? T_MANA : !mapped && a.name.startsWith('S') ? S_MANA : !mapped && a.name.startsWith('R') ? R_MANA : !mapped && a.name.startsWith('P') ? P_MANA : !mapped && a.name.startsWith('O') ? O_MANA : !mapped && a.name.startsWith('N') ? N_MANA : !mapped && a.name.startsWith('M') ? M_MANA : !mapped && (a.name.startsWith('I') || a.name.startsWith('J') || a.name.startsWith('K') || a.name.startsWith('L')) ? I_MANA : !mapped && a.name.startsWith('H') ? H_MANA : !mapped && a.name.startsWith('G') ? G_MANA : !mapped && a.name.startsWith('F') ? F_MANA : !mapped && a.name.startsWith('E') ? E_MANA : SUP_MANA);
+  const text = value => supplementalTextHTML(value, !mapped && a.name.startsWith('U') ? U_MANA : !mapped && a.name.startsWith('T') ? T_MANA : !mapped && a.name.startsWith('S') ? S_MANA : !mapped && a.name.startsWith('R') ? R_MANA : !mapped && a.name.startsWith('P') ? P_MANA : !mapped && a.name.startsWith('O') ? O_MANA : !mapped && a.name.startsWith('N') ? N_MANA : !mapped && a.name.startsWith('M') ? M_MANA : !mapped && (a.name.startsWith('I') || a.name.startsWith('J') || a.name.startsWith('K') || a.name.startsWith('L')) ? I_MANA : !mapped && a.name.startsWith('H') ? H_MANA : !mapped && a.name.startsWith('G') ? G_MANA : !mapped && a.name.startsWith('F') ? F_MANA : !mapped && a.name.startsWith('E') ? E_MANA : SUP_MANA);
   const ref = a.reference, review = a.qualifications.acceptedSourceReview, locator = review && review.locator || {};
   const classification = SUP_SCOPE.get(a.id), upfront = new Set([classification.scopeNote, ...classification.qualifications]);
   const kind = ref && ref.referenceKind;
@@ -2083,7 +2085,7 @@ function supplementalDetailHTML(k){
 }
 function isAssessmentTarget(k){
   const r = REC.get(k);
-  return !!r && r.supplemental && /^[ABCDEFGHIJKLMNOPRST]/.test(r.head);
+  return !!r && r.supplemental && /^[ABCDEFGHIJKLMNOPRSTU]/.test(r.head);
 }
 function assessmentSummary(k, full = false){
   const a = ASSESSMENTS.byKey.get(k);
@@ -2099,8 +2101,8 @@ function assessmentHTML(k){
   const a = ASSESSMENTS.byKey.get(k);
   if (!a) return `<section class="dx-sec supp-assessment" aria-label="Color access status"><p class="dx-note">${esc(assessmentSummary(k))}. ${ASSESSMENTS.status === 'unavailable' ? 'The color access record could not be loaded. Reload to try again; rules and other evidence remain available.' : 'Rules and other evidence remain available while the record loads.'}</p></section>`;
   const link = (name, url) => url ? `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(name)}</a>` : esc(name);
-  const text = a.name.startsWith('T') ? value => supplementalTextHTML(value, T_MANA) : a.name.startsWith('S') ? value => supplementalTextHTML(value, S_MANA) : a.name.startsWith('R') ? value => supplementalTextHTML(value, R_MANA) : a.name.startsWith('P') ? value => supplementalTextHTML(value, P_MANA) : a.name.startsWith('O') ? value => supplementalTextHTML(value, O_MANA) : a.name.startsWith('N') ? value => supplementalTextHTML(value, N_MANA) : a.name.startsWith('M') ? value => supplementalTextHTML(value, M_MANA) : a.name.startsWith('I') || a.name.startsWith('J') || a.name.startsWith('K') || a.name.startsWith('L') ? value => supplementalTextHTML(value, I_MANA) : a.name.startsWith('H') ? value => supplementalTextHTML(value, H_MANA) : a.name.startsWith('G') ? value => supplementalTextHTML(value, G_MANA) : a.name.startsWith('F') ? value => supplementalTextHTML(value, F_MANA) : a.name.startsWith('E') ? value => supplementalTextHTML(value, E_MANA) : esc;
-  const compactExamples = /^[CDEFGHIJKLMNOPRST]/.test(a.name);
+  const text = a.name.startsWith('U') ? value => supplementalTextHTML(value, U_MANA) : a.name.startsWith('T') ? value => supplementalTextHTML(value, T_MANA) : a.name.startsWith('S') ? value => supplementalTextHTML(value, S_MANA) : a.name.startsWith('R') ? value => supplementalTextHTML(value, R_MANA) : a.name.startsWith('P') ? value => supplementalTextHTML(value, P_MANA) : a.name.startsWith('O') ? value => supplementalTextHTML(value, O_MANA) : a.name.startsWith('N') ? value => supplementalTextHTML(value, N_MANA) : a.name.startsWith('M') ? value => supplementalTextHTML(value, M_MANA) : a.name.startsWith('I') || a.name.startsWith('J') || a.name.startsWith('K') || a.name.startsWith('L') ? value => supplementalTextHTML(value, I_MANA) : a.name.startsWith('H') ? value => supplementalTextHTML(value, H_MANA) : a.name.startsWith('G') ? value => supplementalTextHTML(value, G_MANA) : a.name.startsWith('F') ? value => supplementalTextHTML(value, F_MANA) : a.name.startsWith('E') ? value => supplementalTextHTML(value, E_MANA) : esc;
+  const compactExamples = /^[CDEFGHIJKLMNOPRSTU]/.test(a.name);
   const displayColors = [...ORDER, ...(a.access.colorless.status === 'documented' ? ['C'] : [])];
   const comboOnly = a.name === 'Fuse' || a.name === 'Friends forever';
   const independentOnly = (['Hexproof from','Intimidate','Islandcycling','Islandwalk','Kicker'].includes(a.name) || (a.name.startsWith('L') || a.name.startsWith('M') || a.name.startsWith('N') || a.name.startsWith('O') || a.name.startsWith('P') || a.name.startsWith('R') || a.name.startsWith('S') || a.name.startsWith('T') || a.name.startsWith('U')) && a.access.combinations.length > 0);
@@ -2149,8 +2151,8 @@ async function loadAssessments(data, status){
     const object = v => v !== null && typeof v === 'object' && !Array.isArray(v);
     const map = (v, check) => object(v) && Object.keys(v).length === 5 && ORDER.every(c => Object.hasOwn(v, c) && check(v[c]));
     const safeLink = v => !!supplementalURL(v) && ['scryfall.com','magic.wizards.com'].includes(new URL(v).hostname);
-    const names = ['a-assessments-source.json','absorb-assessment-source.json','a-classification-addendum.json','a-protocol-core.json','a-protocol-extended.json','a-protocol-special.json','b-protocol-core.json','b-protocol-extended.json','c-protocol-core.json','c-protocol-extended.json','c-protocol-special.json','d-protocol.json','e-protocol.json','f-protocol.json','g-protocol.json','h-protocol.json','i-protocol.json','j-protocol.json','k-protocol.json','l-protocol.json','m-protocol.json','n-protocol.json','o-protocol.json','p-protocol.json','r-protocol.json','s-protocol.json','t-protocol.json'];
-    const expected = new Map(data.records.filter(r => /^[ABCDEFGHIJKLMNOPRST]/.test(r.name) && r.target2021 === null).map(r => [r.id,r]));
+    const names = ['a-assessments-source.json','absorb-assessment-source.json','a-classification-addendum.json','a-protocol-core.json','a-protocol-extended.json','a-protocol-special.json','b-protocol-core.json','b-protocol-extended.json','c-protocol-core.json','c-protocol-extended.json','c-protocol-special.json','d-protocol.json','e-protocol.json','f-protocol.json','g-protocol.json','h-protocol.json','i-protocol.json','j-protocol.json','k-protocol.json','l-protocol.json','m-protocol.json','n-protocol.json','o-protocol.json','p-protocol.json','r-protocol.json','s-protocol.json','t-protocol.json','u-protocol.json'];
+    const expected = new Map(data.records.filter(r => /^[ABCDEFGHIJKLMNOPRSTU]/.test(r.name) && r.target2021 === null).map(r => [r.id,r]));
     const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(JSON.stringify(data)));
     const hash = [...new Uint8Array(digest)].map(n => n.toString(16).padStart(2,'0')).join('');
  if (!payload || payload.schemaVersion !== 3 || payload.protocolVersion !== '2.0' || payload.researchDate !== '2026-10-29' || payload.supplementCanonicalSha256 !== hash || payload.sourceBindingFormat !== 'canonical-json-utf8' ||
@@ -2174,7 +2176,7 @@ async function loadAssessments(data, status){
     status.textContent += ' 354 A/B/C/D/E/F/G/H/I/J/K/L/M/N/O/P/R/S/T/U color-access records are available; 2021 tiers remain separate.';
   } catch (err){
     ASSESSMENTS.byKey = new Map(); ASSESSMENTS.status = 'unavailable';
-    status.textContent += ' A/B/C/D/E/F/G/H/I/J/K/L/M/N/O/P/R/S/T color access is unavailable; rules and other evidence remain available.';
+    status.textContent += ' A/B/C/D/E/F/G/H/I/J/K/L/M/N/O/P/R/S/T/U color access is unavailable; rules and other evidence remain available.';
     console.warn('[mechanical-explorer] assessments unavailable:', err.message);
   }
   if (S.view === 'az') layoutList();
