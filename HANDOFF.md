@@ -42,7 +42,7 @@
 ## Owner half-pixel A–Z ring refinement
 
 - Status: `ready-for-qa`; Owner supersedes the prior 1px preference with 0.5px selected-ring clearance. Only A–Z access `column-gap` changed from 7px to 6.5px and the existing scoped assertion now accepts 0.5px ±0.05px. Article, row gap, legend, card, selector and all other surfaces are unchanged.
-- Developer checks: `node --check tools/check_owner_corrections_browser.mjs` and `git diff --check` PASS. The existing `--layout-only` flag remains non-bounded (it runs the full harness), so it was not rerun contrary to this surgical task’s no-full-suite instruction. Independent QA should run the requested sealed-baseline geometry comparison.
+- Developer checks: `node --check tools/check_owner_corrections_browser.mjs` and `git diff --check` PASS. The current early `--layout-only` branch against sealed 8ca baseline PASSed without the 63/371 suite: Article geometry equal, legend gaps 6.59375/9.390625px, selected ring minimum exactly 0.5px across 3,955 checks, 360/768 and no-font fallback pass. Independent QA remains required.
 
 ## Owner layout correction — RobDev handoff
 
