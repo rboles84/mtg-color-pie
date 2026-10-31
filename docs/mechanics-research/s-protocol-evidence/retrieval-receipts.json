@@ -1,0 +1,785 @@
+{
+  "receiptSchemaVersion": 1,
+  "receipts": [
+    {
+      "kind": "fresh_default-oracle_discovery",
+      "path": "docs/mechanics-research/s-protocol-evidence/split-second-default-oracle-retry-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Split%20Second%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:19:06.662Z",
+      "requestEndedUtc": "2026-10-31T02:19:06.940Z",
+      "status": 200,
+      "rawSha256": "4726cb4c02950afb0c546068177812caff499f36ed39e393f0f233a896ab0a33"
+    },
+    {
+      "kind": "fresh_full-oracle_discovery",
+      "path": "docs/mechanics-research/s-protocol-evidence/split-second-full-oracle.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22Split%20Second%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:19:07.243Z",
+      "requestEndedUtc": "2026-10-31T02:19:07.465Z",
+      "status": 200,
+      "rawSha256": "4726cb4c02950afb0c546068177812caff499f36ed39e393f0f233a896ab0a33"
+    },
+    {
+      "kind": "fresh_default-oracle_discovery",
+      "path": "docs/mechanics-research/s-protocol-evidence/spree-default-oracle.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Spree%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:19:41.652Z",
+      "requestEndedUtc": "2026-10-31T02:19:42.222Z",
+      "status": 200,
+      "rawSha256": "a129437ca56dd4f8c69c9ee6b7bf7111a022f10a6a3fa7e3ae60f25973fa4669"
+    },
+    {
+      "kind": "fresh_full-oracle_discovery",
+      "path": "docs/mechanics-research/s-protocol-evidence/spree-full-oracle.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22Spree%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:19:42.525Z",
+      "requestEndedUtc": "2026-10-31T02:19:43.045Z",
+      "status": 200,
+      "rawSha256": "a129437ca56dd4f8c69c9ee6b7bf7111a022f10a6a3fa7e3ae60f25973fa4669"
+    },
+    {
+      "kind": "fresh_default-oracle_discovery",
+      "path": "docs/mechanics-research/s-protocol-evidence/squad-default-oracle.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Squad%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:19:43.418Z",
+      "requestEndedUtc": "2026-10-31T02:19:43.962Z",
+      "status": 200,
+      "rawSha256": "a6fa66367e0953e58073a4c9f55862ae08492cd2169f7a97581223cdfc90f5f8"
+    },
+    {
+      "kind": "fresh_full-oracle_discovery",
+      "path": "docs/mechanics-research/s-protocol-evidence/squad-full-oracle.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22Squad%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:19:44.266Z",
+      "requestEndedUtc": "2026-10-31T02:19:44.719Z",
+      "status": 200,
+      "rawSha256": "a6fa66367e0953e58073a4c9f55862ae08492cd2169f7a97581223cdfc90f5f8"
+    },
+    {
+      "kind": "fresh_default-oracle_discovery",
+      "path": "docs/mechanics-research/s-protocol-evidence/start-your-engines-default-oracle.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Start%20Your%20Engines!%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:19:45.091Z",
+      "requestEndedUtc": "2026-10-31T02:19:45.693Z",
+      "status": 200,
+      "rawSha256": "1723ee4b582e5c0c07fbd9bb0a731a007bc3e9546cdda481827f82e5852fe651"
+    },
+    {
+      "kind": "fresh_full-oracle_discovery",
+      "path": "docs/mechanics-research/s-protocol-evidence/start-your-engines-full-oracle.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22Start%20Your%20Engines!%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:19:45.997Z",
+      "requestEndedUtc": "2026-10-31T02:19:46.635Z",
+      "status": 200,
+      "rawSha256": "1723ee4b582e5c0c07fbd9bb0a731a007bc3e9546cdda481827f82e5852fe651"
+    },
+    {
+      "kind": "fresh_default-oracle_discovery",
+      "path": "docs/mechanics-research/s-protocol-evidence/station-default-oracle.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Station%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:19:47.002Z",
+      "requestEndedUtc": "2026-10-31T02:19:47.373Z",
+      "status": 200,
+      "rawSha256": "563f800f63fceeb767a8e4a1c34b2895aa223e1690e10b6ab07390ccddf6663e"
+    },
+    {
+      "kind": "fresh_full-oracle_discovery",
+      "path": "docs/mechanics-research/s-protocol-evidence/station-full-oracle.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22Station%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:19:47.677Z",
+      "requestEndedUtc": "2026-10-31T02:19:48.119Z",
+      "status": 200,
+      "rawSha256": "563f800f63fceeb767a8e4a1c34b2895aa223e1690e10b6ab07390ccddf6663e"
+    },
+    {
+      "kind": "fresh_default-oracle_discovery",
+      "path": "docs/mechanics-research/s-protocol-evidence/storied-default-oracle.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Storied%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:19:48.487Z",
+      "requestEndedUtc": "2026-10-31T02:19:48.771Z",
+      "status": 200,
+      "rawSha256": "154112548aa97a2e67a0e59e309c5f6e256675ea2ec06bda7592871dfc968aaf"
+    },
+    {
+      "kind": "fresh_full-oracle_discovery",
+      "path": "docs/mechanics-research/s-protocol-evidence/storied-full-oracle.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22Storied%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:19:49.073Z",
+      "requestEndedUtc": "2026-10-31T02:19:49.335Z",
+      "status": 200,
+      "rawSha256": "154112548aa97a2e67a0e59e309c5f6e256675ea2ec06bda7592871dfc968aaf"
+    },
+    {
+      "kind": "fresh_default-oracle_discovery",
+      "path": "docs/mechanics-research/s-protocol-evidence/storm-default-oracle.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Storm%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:19:49.698Z",
+      "requestEndedUtc": "2026-10-31T02:19:50.169Z",
+      "status": 200,
+      "rawSha256": "3f0ca6b01bf3bf2202f051042fb655375f97b471d5a727f9fb589d57e3785ea3"
+    },
+    {
+      "kind": "fresh_full-oracle_discovery",
+      "path": "docs/mechanics-research/s-protocol-evidence/storm-full-oracle.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22Storm%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:19:50.473Z",
+      "requestEndedUtc": "2026-10-31T02:19:50.820Z",
+      "status": 200,
+      "rawSha256": "3f0ca6b01bf3bf2202f051042fb655375f97b471d5a727f9fb589d57e3785ea3"
+    },
+    {
+      "kind": "fresh_default-oracle_discovery",
+      "path": "docs/mechanics-research/s-protocol-evidence/strive-default-oracle.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Strive%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:19:51.194Z",
+      "requestEndedUtc": "2026-10-31T02:19:51.693Z",
+      "status": 200,
+      "rawSha256": "5228409d6079e57f5eb280f0f8f883b2becea049f1b8669d482512c0ca996ae2"
+    },
+    {
+      "kind": "fresh_full-oracle_discovery",
+      "path": "docs/mechanics-research/s-protocol-evidence/strive-full-oracle.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22Strive%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:19:51.996Z",
+      "requestEndedUtc": "2026-10-31T02:19:52.478Z",
+      "status": 200,
+      "rawSha256": "5228409d6079e57f5eb280f0f8f883b2becea049f1b8669d482512c0ca996ae2"
+    },
+    {
+      "kind": "fresh_default-oracle_discovery",
+      "path": "docs/mechanics-research/s-protocol-evidence/sunburst-default-oracle.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Sunburst%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:19:52.845Z",
+      "requestEndedUtc": "2026-10-31T02:19:53.291Z",
+      "status": 200,
+      "rawSha256": "e997656a254b895a86aca8a2a0c10d72c650a4054628679104ea1cb08c5011d1"
+    },
+    {
+      "kind": "fresh_full-oracle_discovery",
+      "path": "docs/mechanics-research/s-protocol-evidence/sunburst-full-oracle.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22Sunburst%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:19:53.594Z",
+      "requestEndedUtc": "2026-10-31T02:19:53.995Z",
+      "status": 200,
+      "rawSha256": "e997656a254b895a86aca8a2a0c10d72c650a4054628679104ea1cb08c5011d1"
+    },
+    {
+      "kind": "fresh_default-oracle_discovery",
+      "path": "docs/mechanics-research/s-protocol-evidence/support-default-oracle.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Support%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:19:58.049Z",
+      "requestEndedUtc": "2026-10-31T02:19:58.569Z",
+      "status": 200,
+      "rawSha256": "51a9c0d1600dcc5c10f972699840ff3b3b058a06566e3183a84d6988d598028e"
+    },
+    {
+      "kind": "fresh_full-oracle_discovery",
+      "path": "docs/mechanics-research/s-protocol-evidence/support-full-oracle.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22Support%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:19:58.872Z",
+      "requestEndedUtc": "2026-10-31T02:19:59.313Z",
+      "status": 200,
+      "rawSha256": "51a9c0d1600dcc5c10f972699840ff3b3b058a06566e3183a84d6988d598028e"
+    },
+    {
+      "kind": "fresh_default-oracle_discovery",
+      "path": "docs/mechanics-research/s-protocol-evidence/surge-default-oracle.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Surge%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:19:59.680Z",
+      "requestEndedUtc": "2026-10-31T02:20:00.166Z",
+      "status": 200,
+      "rawSha256": "2bc3c3e0d7d87c2eb6d99cd24f1d876f9bdb1c966866202455a7ce1adef49f99"
+    },
+    {
+      "kind": "fresh_full-oracle_discovery",
+      "path": "docs/mechanics-research/s-protocol-evidence/surge-full-oracle.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22Surge%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:20:00.470Z",
+      "requestEndedUtc": "2026-10-31T02:20:01.031Z",
+      "status": 200,
+      "rawSha256": "2bc3c3e0d7d87c2eb6d99cd24f1d876f9bdb1c966866202455a7ce1adef49f99"
+    },
+    {
+      "kind": "fresh_default-oracle_discovery",
+      "path": "docs/mechanics-research/s-protocol-evidence/surveil-default-oracle.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Surveil%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:20:01.396Z",
+      "requestEndedUtc": "2026-10-31T02:20:02.039Z",
+      "status": 200,
+      "rawSha256": "5c3989c4b403c2f77cc8104612e623030b3b79866f3f7bd32e67f460804df555"
+    },
+    {
+      "kind": "fresh_default-oracle_discovery",
+      "path": "docs/mechanics-research/s-protocol-evidence/surveil-default-oracle-1.json",
+      "url": "https://api.scryfall.com/cards/search?format=json&include_extras=false&include_multilingual=false&include_variations=false&order=name&page=2&q=o%3A%22surveil%22&unique=cards",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:20:02.344Z",
+      "requestEndedUtc": "2026-10-31T02:20:02.809Z",
+      "status": 200,
+      "rawSha256": "b92e0a516285b1de982a230bd44ef928d9558f667c8dfe70ed2ed47dc9c29824"
+    },
+    {
+      "kind": "fresh_full-oracle_discovery",
+      "path": "docs/mechanics-research/s-protocol-evidence/surveil-full-oracle.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22Surveil%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:20:03.112Z",
+      "requestEndedUtc": "2026-10-31T02:20:04.622Z",
+      "status": 200,
+      "rawSha256": "b26f18acd38c9e5c79d22fb044209738d13bdb5fdcc28be9ef4f664614a73b61"
+    },
+    {
+      "kind": "fresh_full-oracle_discovery",
+      "path": "docs/mechanics-research/s-protocol-evidence/surveil-full-oracle-1.json",
+      "url": "https://api.scryfall.com/cards/search?format=json&include_extras=false&include_multilingual=false&include_variations=false&order=name&page=2&q=fo%3A%22surveil%22&unique=cards",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:20:04.925Z",
+      "requestEndedUtc": "2026-10-31T02:20:05.606Z",
+      "status": 200,
+      "rawSha256": "7e471ea74d90a9bd513f0fa788d90a94eb51e84149b634e780f7fbbd49b2c1be"
+    },
+    {
+      "kind": "fresh_default-oracle_discovery",
+      "path": "docs/mechanics-research/s-protocol-evidence/survival-default-oracle.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Survival%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:20:05.979Z",
+      "requestEndedUtc": "2026-10-31T02:20:06.278Z",
+      "status": 200,
+      "rawSha256": "a857f82aee6ea54e8aed6bbbe00e157b299e18c7f683aab86c32bf1588d6c89c"
+    },
+    {
+      "kind": "fresh_full-oracle_discovery",
+      "path": "docs/mechanics-research/s-protocol-evidence/survival-full-oracle.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22Survival%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:20:06.581Z",
+      "requestEndedUtc": "2026-10-31T02:20:06.817Z",
+      "status": 200,
+      "rawSha256": "a857f82aee6ea54e8aed6bbbe00e157b299e18c7f683aab86c32bf1588d6c89c"
+    },
+    {
+      "kind": "fresh_default-oracle_discovery",
+      "path": "docs/mechanics-research/s-protocol-evidence/suspect-default-oracle.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Suspect%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:20:07.183Z",
+      "requestEndedUtc": "2026-10-31T02:20:07.632Z",
+      "status": 200,
+      "rawSha256": "7d6a38233e343215bd9509a678a9d45139d4d0dbb7249e72bf04fff6e9d4c0a0"
+    },
+    {
+      "kind": "fresh_full-oracle_discovery",
+      "path": "docs/mechanics-research/s-protocol-evidence/suspect-full-oracle.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22Suspect%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:20:07.934Z",
+      "requestEndedUtc": "2026-10-31T02:20:08.337Z",
+      "status": 200,
+      "rawSha256": "7d6a38233e343215bd9509a678a9d45139d4d0dbb7249e72bf04fff6e9d4c0a0"
+    },
+    {
+      "kind": "fresh_default-oracle_discovery",
+      "path": "docs/mechanics-research/s-protocol-evidence/suspend-default-oracle.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Suspend%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:20:08.702Z",
+      "requestEndedUtc": "2026-10-31T02:20:09.082Z",
+      "status": 200,
+      "rawSha256": "6ee46226fb2b74f860b35b4df594f74846fd9dc1f2d4da6471b469fa1bb1f665"
+    },
+    {
+      "kind": "fresh_full-oracle_discovery",
+      "path": "docs/mechanics-research/s-protocol-evidence/suspend-full-oracle.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22Suspend%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:20:09.387Z",
+      "requestEndedUtc": "2026-10-31T02:20:10.016Z",
+      "status": 200,
+      "rawSha256": "2fa91570595fada9c51a9b528ccbff1c7d48f4a0e413c16b951310158af3cb44"
+    },
+    {
+      "kind": "fresh_default-oracle_discovery",
+      "path": "docs/mechanics-research/s-protocol-evidence/sweep-default-oracle.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Sweep%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:20:10.381Z",
+      "requestEndedUtc": "2026-10-31T02:20:10.845Z",
+      "status": 200,
+      "rawSha256": "a4c2b7869f61b3dad7f4a0ca36642dbec4e07f26da393da00afc24721192535b"
+    },
+    {
+      "kind": "fresh_full-oracle_discovery",
+      "path": "docs/mechanics-research/s-protocol-evidence/sweep-full-oracle.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22Sweep%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:20:11.147Z",
+      "requestEndedUtc": "2026-10-31T02:20:11.574Z",
+      "status": 200,
+      "rawSha256": "a4c2b7869f61b3dad7f4a0ca36642dbec4e07f26da393da00afc24721192535b"
+    },
+    {
+      "kind": "fresh_default-oracle_discovery",
+      "path": "docs/mechanics-research/s-protocol-evidence/sell-contraband-default-oracle.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Sell%20Contraband%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:20:11.938Z",
+      "requestEndedUtc": "2026-10-31T02:20:12.280Z",
+      "status": 200,
+      "rawSha256": "179e83cd44abdc563bff0b9120d95b0af4e5958b94c55354a08cfef5cdb80a84"
+    },
+    {
+      "kind": "fresh_full-oracle_discovery",
+      "path": "docs/mechanics-research/s-protocol-evidence/sell-contraband-full-oracle.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22Sell%20Contraband%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:20:12.583Z",
+      "requestEndedUtc": "2026-10-31T02:20:12.875Z",
+      "status": 200,
+      "rawSha256": "179e83cd44abdc563bff0b9120d95b0af4e5958b94c55354a08cfef5cdb80a84"
+    },
+    {
+      "kind": "fresh_default-oracle_discovery",
+      "path": "docs/mechanics-research/s-protocol-evidence/scions-secretary-default-oracle.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Scions'%20Secretary%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:20:17.367Z",
+      "requestEndedUtc": "2026-10-31T02:20:17.672Z",
+      "status": 200,
+      "rawSha256": "2746533d1d9653ba3af924e34b32f20bbeeda6267744e01c91acd5bcb8e43558"
+    },
+    {
+      "kind": "fresh_full-oracle_discovery",
+      "path": "docs/mechanics-research/s-protocol-evidence/scions-secretary-full-oracle.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22Scions'%20Secretary%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:20:17.973Z",
+      "requestEndedUtc": "2026-10-31T02:20:18.195Z",
+      "status": 200,
+      "rawSha256": "2746533d1d9653ba3af924e34b32f20bbeeda6267744e01c91acd5bcb8e43558"
+    },
+    {
+      "kind": "fresh_default-oracle_discovery",
+      "path": "docs/mechanics-research/s-protocol-evidence/sigil-of-corruption-default-oracle.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Sigil%20of%20Corruption%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:20:18.564Z",
+      "requestEndedUtc": "2026-10-31T02:20:18.886Z",
+      "status": 200,
+      "rawSha256": "31a20ed6e2698cbb81f649c1f39daf7224717e0c8d5679d4a58d0e357b693d2b"
+    },
+    {
+      "kind": "fresh_full-oracle_discovery",
+      "path": "docs/mechanics-research/s-protocol-evidence/sigil-of-corruption-full-oracle.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22Sigil%20of%20Corruption%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:20:19.188Z",
+      "requestEndedUtc": "2026-10-31T02:20:19.448Z",
+      "status": 200,
+      "rawSha256": "31a20ed6e2698cbb81f649c1f39daf7224717e0c8d5679d4a58d0e357b693d2b"
+    },
+    {
+      "kind": "fresh_default-oracle_discovery",
+      "path": "docs/mechanics-research/s-protocol-evidence/swampcycling-default-oracle.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Swampcycling%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:20:19.818Z",
+      "requestEndedUtc": "2026-10-31T02:20:20.209Z",
+      "status": 200,
+      "rawSha256": "04bb61dea0499161fe92cc51ecd2c1c0fd46df57b9207d818d2507907b31659e"
+    },
+    {
+      "kind": "fresh_full-oracle_discovery",
+      "path": "docs/mechanics-research/s-protocol-evidence/swampcycling-full-oracle.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22Swampcycling%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:20:20.512Z",
+      "requestEndedUtc": "2026-10-31T02:20:20.859Z",
+      "status": 200,
+      "rawSha256": "04bb61dea0499161fe92cc51ecd2c1c0fd46df57b9207d818d2507907b31659e"
+    },
+    {
+      "kind": "fresh_default-oracle_discovery",
+      "path": "docs/mechanics-research/s-protocol-evidence/slivercycling-default-oracle.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Slivercycling%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:20:21.226Z",
+      "requestEndedUtc": "2026-10-31T02:20:21.546Z",
+      "status": 200,
+      "rawSha256": "ada8ee7e76c39592e6bd635d719d179b99c6ea3ae6e73958693d79fab4bcc6bd"
+    },
+    {
+      "kind": "fresh_full-oracle_discovery",
+      "path": "docs/mechanics-research/s-protocol-evidence/slivercycling-full-oracle.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22Slivercycling%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:20:21.850Z",
+      "requestEndedUtc": "2026-10-31T02:20:22.182Z",
+      "status": 200,
+      "rawSha256": "ada8ee7e76c39592e6bd635d719d179b99c6ea3ae6e73958693d79fab4bcc6bd"
+    },
+    {
+      "kind": "fresh_default-oracle_discovery",
+      "path": "docs/mechanics-research/s-protocol-evidence/swampwalk-default-oracle.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Swampwalk%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:20:22.548Z",
+      "requestEndedUtc": "2026-10-31T02:20:22.865Z",
+      "status": 200,
+      "rawSha256": "346f74d5e05131f3bdccb0ce72d8e1557a1a001335ac4c10b04f9c4ed66526ad"
+    },
+    {
+      "kind": "fresh_full-oracle_discovery",
+      "path": "docs/mechanics-research/s-protocol-evidence/swampwalk-full-oracle.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22Swampwalk%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:20:23.169Z",
+      "requestEndedUtc": "2026-10-31T02:20:23.334Z",
+      "status": 200,
+      "rawSha256": "2416529162e7131189e114d8e8c39729b8f0d474224a1ef5ccec83da466adfef"
+    },
+    {
+      "kind": "fresh_default-oracle_discovery",
+      "path": "docs/mechanics-research/s-protocol-evidence/specialize-default-oracle.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Specialize%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:20:23.703Z",
+      "requestEndedUtc": "2026-10-31T02:20:24.201Z",
+      "status": 200,
+      "rawSha256": "7618151f3fb159d51bfb8bddb58cbec950e2cc8b8e8324e0af49036703f97002"
+    },
+    {
+      "kind": "fresh_full-oracle_discovery",
+      "path": "docs/mechanics-research/s-protocol-evidence/specialize-full-oracle.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22Specialize%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:20:24.505Z",
+      "requestEndedUtc": "2026-10-31T02:20:24.926Z",
+      "status": 200,
+      "rawSha256": "7618151f3fb159d51bfb8bddb58cbec950e2cc8b8e8324e0af49036703f97002"
+    },
+    {
+      "kind": "fresh_default-oracle_discovery",
+      "path": "docs/mechanics-research/s-protocol-evidence/seek-default-oracle.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Seek%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:20:25.292Z",
+      "requestEndedUtc": "2026-10-31T02:20:25.919Z",
+      "status": 200,
+      "rawSha256": "b3b03c06cd8ad97115803cb2375f90f059d65fb079d2a988e8a18ff45bbf7d1e"
+    },
+    {
+      "kind": "fresh_full-oracle_discovery",
+      "path": "docs/mechanics-research/s-protocol-evidence/seek-full-oracle.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22Seek%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:20:26.223Z",
+      "requestEndedUtc": "2026-10-31T02:20:26.752Z",
+      "status": 200,
+      "rawSha256": "b3b03c06cd8ad97115803cb2375f90f059d65fb079d2a988e8a18ff45bbf7d1e"
+    },
+    {
+      "kind": "fresh_default_oracle_reacquisition",
+      "path": "docs/mechanics-research/s-protocol-evidence/saddle-default-oracle-reacquired-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Saddle%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:28:23.455Z",
+      "requestEndedUtc": "2026-10-31T02:28:23.613Z",
+      "status": 200,
+      "rawSha256": "da8e1591225c63efdab9316ed0d6d0ed2d3cdc6bb505518ca8caea7b2e4535a6"
+    },
+    {
+      "kind": "fresh_full_oracle_reacquisition",
+      "path": "docs/mechanics-research/s-protocol-evidence/saddle-full-oracle-reacquired-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22Saddle%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:28:23.967Z",
+      "requestEndedUtc": "2026-10-31T02:28:24.007Z",
+      "status": 200,
+      "rawSha256": "da8e1591225c63efdab9316ed0d6d0ed2d3cdc6bb505518ca8caea7b2e4535a6"
+    },
+    {
+      "kind": "fresh_default_oracle_reacquisition",
+      "path": "docs/mechanics-research/s-protocol-evidence/scavenge-default-oracle-reacquired-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Scavenge%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:28:24.361Z",
+      "requestEndedUtc": "2026-10-31T02:28:24.394Z",
+      "status": 200,
+      "rawSha256": "9d2fcf6887592d40c91b1921e27ffa80b8a9a552126cfc20650be73b33ab5e38"
+    },
+    {
+      "kind": "fresh_full_oracle_reacquisition",
+      "path": "docs/mechanics-research/s-protocol-evidence/scavenge-full-oracle-reacquired-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22Scavenge%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:28:24.747Z",
+      "requestEndedUtc": "2026-10-31T02:28:24.775Z",
+      "status": 200,
+      "rawSha256": "9d2fcf6887592d40c91b1921e27ffa80b8a9a552126cfc20650be73b33ab5e38"
+    },
+    {
+      "kind": "fresh_default_oracle_reacquisition",
+      "path": "docs/mechanics-research/s-protocol-evidence/secret-council-default-oracle-reacquired-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Secret%20council%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:28:25.130Z",
+      "requestEndedUtc": "2026-10-31T02:28:25.164Z",
+      "status": 200,
+      "rawSha256": "0fb0697920a54b1ac0526f38047e28cb50bbb4c5602c357b57c603c1d497a28c"
+    },
+    {
+      "kind": "fresh_full_oracle_reacquisition",
+      "path": "docs/mechanics-research/s-protocol-evidence/secret-council-full-oracle-reacquired-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22Secret%20council%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:28:25.517Z",
+      "requestEndedUtc": "2026-10-31T02:28:25.545Z",
+      "status": 200,
+      "rawSha256": "0fb0697920a54b1ac0526f38047e28cb50bbb4c5602c357b57c603c1d497a28c"
+    },
+    {
+      "kind": "fresh_default_oracle_reacquisition",
+      "path": "docs/mechanics-research/s-protocol-evidence/shadow-default-oracle-reacquired-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Shadow%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:28:25.900Z",
+      "requestEndedUtc": "2026-10-31T02:28:25.930Z",
+      "status": 200,
+      "rawSha256": "6349a6fdb056816d57053119e733c2fbd52aab477863aa0465436b28cd7161a4"
+    },
+    {
+      "kind": "fresh_full_oracle_reacquisition",
+      "path": "docs/mechanics-research/s-protocol-evidence/shadow-full-oracle-reacquired-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22Shadow%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:28:26.284Z",
+      "requestEndedUtc": "2026-10-31T02:28:26.331Z",
+      "status": 200,
+      "rawSha256": "b32f59a5dabf314873eb458e2cfb7587b554ff0fbe624b48440a4009d7545723"
+    },
+    {
+      "kind": "fresh_default_oracle_reacquisition",
+      "path": "docs/mechanics-research/s-protocol-evidence/shroud-default-oracle-reacquired-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Shroud%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:28:26.688Z",
+      "requestEndedUtc": "2026-10-31T02:28:26.733Z",
+      "status": 200,
+      "rawSha256": "f23ca75876900ecab3b8dc85cab6af0b3b3d25511ce82b3213099f51d26f8621"
+    },
+    {
+      "kind": "fresh_full_oracle_reacquisition",
+      "path": "docs/mechanics-research/s-protocol-evidence/shroud-full-oracle-reacquired-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22Shroud%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:28:27.089Z",
+      "requestEndedUtc": "2026-10-31T02:28:27.125Z",
+      "status": 200,
+      "rawSha256": "f23ca75876900ecab3b8dc85cab6af0b3b3d25511ce82b3213099f51d26f8621"
+    },
+    {
+      "kind": "fresh_default_oracle_reacquisition",
+      "path": "docs/mechanics-research/s-protocol-evidence/skulk-default-oracle-reacquired-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Skulk%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:28:27.478Z",
+      "requestEndedUtc": "2026-10-31T02:28:27.509Z",
+      "status": 200,
+      "rawSha256": "944ced78c6682ff1f00d7e164b51ad8270bdd239e374dae91ff76ddd325fa32d"
+    },
+    {
+      "kind": "fresh_full_oracle_reacquisition",
+      "path": "docs/mechanics-research/s-protocol-evidence/skulk-full-oracle-reacquired-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22Skulk%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:28:27.863Z",
+      "requestEndedUtc": "2026-10-31T02:28:27.909Z",
+      "status": 200,
+      "rawSha256": "944ced78c6682ff1f00d7e164b51ad8270bdd239e374dae91ff76ddd325fa32d"
+    },
+    {
+      "kind": "fresh_default_oracle_reacquisition",
+      "path": "docs/mechanics-research/s-protocol-evidence/sneak-default-oracle-reacquired-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Sneak%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:28:28.264Z",
+      "requestEndedUtc": "2026-10-31T02:28:28.296Z",
+      "status": 200,
+      "rawSha256": "449038fbc594f1359abddfdb52c470d00f69b19288bdab6d305cb0e801f21633"
+    },
+    {
+      "kind": "fresh_full_oracle_reacquisition",
+      "path": "docs/mechanics-research/s-protocol-evidence/sneak-full-oracle-reacquired-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22Sneak%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:28:28.650Z",
+      "requestEndedUtc": "2026-10-31T02:28:28.678Z",
+      "status": 200,
+      "rawSha256": "449038fbc594f1359abddfdb52c470d00f69b19288bdab6d305cb0e801f21633"
+    },
+    {
+      "kind": "fresh_default_oracle_reacquisition",
+      "path": "docs/mechanics-research/s-protocol-evidence/solved-default-oracle-reacquired-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Solved%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:28:29.031Z",
+      "requestEndedUtc": "2026-10-31T02:28:29.066Z",
+      "status": 200,
+      "rawSha256": "edbae1119ca333504923d73a2b725443eab30483782acff1eeb912fe9e5cfb64"
+    },
+    {
+      "kind": "fresh_full_oracle_reacquisition",
+      "path": "docs/mechanics-research/s-protocol-evidence/solved-full-oracle-reacquired-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22Solved%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:28:29.418Z",
+      "requestEndedUtc": "2026-10-31T02:28:29.453Z",
+      "status": 200,
+      "rawSha256": "edbae1119ca333504923d73a2b725443eab30483782acff1eeb912fe9e5cfb64"
+    },
+    {
+      "kind": "fresh_default_oracle_reacquisition",
+      "path": "docs/mechanics-research/s-protocol-evidence/soulbond-default-oracle-reacquired-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Soulbond%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:28:29.808Z",
+      "requestEndedUtc": "2026-10-31T02:28:29.844Z",
+      "status": 200,
+      "rawSha256": "e7b2e552cebcc11cae2ce971436eae5fe58458adbbb809897f4fd3e8c978d502"
+    },
+    {
+      "kind": "fresh_full_oracle_reacquisition",
+      "path": "docs/mechanics-research/s-protocol-evidence/soulbond-full-oracle-reacquired-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22Soulbond%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:28:30.197Z",
+      "requestEndedUtc": "2026-10-31T02:28:30.228Z",
+      "status": 200,
+      "rawSha256": "e7b2e552cebcc11cae2ce971436eae5fe58458adbbb809897f4fd3e8c978d502"
+    },
+    {
+      "kind": "fresh_default_oracle_reacquisition",
+      "path": "docs/mechanics-research/s-protocol-evidence/soulshift-default-oracle-reacquired-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Soulshift%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:28:30.580Z",
+      "requestEndedUtc": "2026-10-31T02:28:30.615Z",
+      "status": 200,
+      "rawSha256": "919fd4400dc84366a7eeb45ae442e9495216cbf781751bcc3ed0bd7f59c87233"
+    },
+    {
+      "kind": "fresh_full_oracle_reacquisition",
+      "path": "docs/mechanics-research/s-protocol-evidence/soulshift-full-oracle-reacquired-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22Soulshift%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:28:30.968Z",
+      "requestEndedUtc": "2026-10-31T02:28:30.998Z",
+      "status": 200,
+      "rawSha256": "919fd4400dc84366a7eeb45ae442e9495216cbf781751bcc3ed0bd7f59c87233"
+    },
+    {
+      "kind": "fresh_default_oracle_reacquisition",
+      "path": "docs/mechanics-research/s-protocol-evidence/spectacle-default-oracle-reacquired-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Spectacle%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:28:31.349Z",
+      "requestEndedUtc": "2026-10-31T02:28:31.380Z",
+      "status": 200,
+      "rawSha256": "7f2b175acbf7963d929978d1aa1e685249bd85bc642f5b01a2fe0be3812c8dd9"
+    },
+    {
+      "kind": "fresh_full_oracle_reacquisition",
+      "path": "docs/mechanics-research/s-protocol-evidence/spectacle-full-oracle-reacquired-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22Spectacle%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:28:31.733Z",
+      "requestEndedUtc": "2026-10-31T02:28:31.763Z",
+      "status": 200,
+      "rawSha256": "7f2b175acbf7963d929978d1aa1e685249bd85bc642f5b01a2fe0be3812c8dd9"
+    },
+    {
+      "kind": "fresh_default_oracle_reacquisition",
+      "path": "docs/mechanics-research/s-protocol-evidence/spell-mastery-default-oracle-reacquired-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Spell%20mastery%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:28:32.116Z",
+      "requestEndedUtc": "2026-10-31T02:28:32.144Z",
+      "status": 200,
+      "rawSha256": "7a9ab6de240f46048d456b026d5688594f887ad7f95d444d6a82bd8b104e74ec"
+    },
+    {
+      "kind": "fresh_full_oracle_reacquisition",
+      "path": "docs/mechanics-research/s-protocol-evidence/spell-mastery-full-oracle-reacquired-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22Spell%20mastery%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:28:32.497Z",
+      "requestEndedUtc": "2026-10-31T02:28:32.524Z",
+      "status": 200,
+      "rawSha256": "7a9ab6de240f46048d456b026d5688594f887ad7f95d444d6a82bd8b104e74ec"
+    },
+    {
+      "kind": "fresh_default_oracle_reacquisition",
+      "path": "docs/mechanics-research/s-protocol-evidence/splice-default-oracle-reacquired-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Splice%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:28:32.879Z",
+      "requestEndedUtc": "2026-10-31T02:28:32.903Z",
+      "status": 429,
+      "rawSha256": "e3ce34d4d4b4bf20fe9ecd4412e7e38dc0b6930deeaaa821edd6a39b53ead76e"
+    },
+    {
+      "kind": "fresh_default_oracle_reacquisition",
+      "path": "docs/mechanics-research/s-protocol-evidence/splice-default-oracle-reacquired-2.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Splice%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:30:59.807Z",
+      "requestEndedUtc": "2026-10-31T02:30:59.939Z",
+      "status": 200,
+      "rawSha256": "1066a8cf72b4e05e8a2933b9c1608c46c51698abe061408a3cdc42ddc270ef3b"
+    },
+    {
+      "kind": "fresh_full_oracle_reacquisition",
+      "path": "docs/mechanics-research/s-protocol-evidence/splice-full-oracle-reacquired-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22Splice%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:31:00.294Z",
+      "requestEndedUtc": "2026-10-31T02:31:00.329Z",
+      "status": 200,
+      "rawSha256": "1066a8cf72b4e05e8a2933b9c1608c46c51698abe061408a3cdc42ddc270ef3b"
+    },
+    {
+      "kind": "fresh_default_oracle_reacquisition",
+      "path": "docs/mechanics-research/s-protocol-evidence/split-second-default-oracle-reacquired-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=o%3A%22Split%20Second%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T02:31:00.682Z",
+      "requestEndedUtc": "2026-10-31T02:31:00.716Z",
+      "status": 200,
+      "rawSha256": "4726cb4c02950afb0c546068177812caff499f36ed39e393f0f233a896ab0a33"
+    }
+  ]
+}

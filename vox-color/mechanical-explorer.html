@@ -1260,7 +1260,7 @@ function accessMarkHTML(c, status){
 function assessmentStripHTML(a){
   const combinationLabel=ORDER.some(c=>a.access.colors[c].status === 'documented') ? 'Combination' : 'Combination only';
   if (a.name === 'Fuse' || a.name === 'Friends forever') return '<span class="strip access-strip combo-access" aria-label="Documented color combinations">' + a.access.combinations.map(item=>comboMarkHTML(item,combinationLabel)).join('') + '</span>';
-  if ((['Hexproof from','Intimidate','Islandcycling','Islandwalk','Kicker'].includes(a.name) || (a.name.startsWith('L') || a.name.startsWith('M') || a.name.startsWith('N') || a.name.startsWith('O') || a.name.startsWith('P') || a.name.startsWith('R')) && a.access.combinations.length > 0)) return '<span class="strip access-strip mixed-access" aria-label="Independent color access and documented color combinations">' + ORDER.filter(c => a.access.colors[c].status === 'documented').map(c => accessMarkHTML(c,'documented')).join('') + (a.access.colorless.status === 'documented' ? accessMarkHTML('C','documented') : '') + a.access.combinations.map(item=>comboMarkHTML(item,combinationLabel)).join('') + '</span>';
+  if ((['Hexproof from','Intimidate','Islandcycling','Islandwalk','Kicker'].includes(a.name) || (a.name.startsWith('L') || a.name.startsWith('M') || a.name.startsWith('N') || a.name.startsWith('O') || a.name.startsWith('P') || a.name.startsWith('R') || a.name.startsWith('S')) && a.access.combinations.length > 0)) return '<span class="strip access-strip mixed-access" aria-label="Independent color access and documented color combinations">' + ORDER.filter(c => a.access.colors[c].status === 'documented').map(c => accessMarkHTML(c,'documented')).join('') + (a.access.colorless.status === 'documented' ? accessMarkHTML('C','documented') : '') + a.access.combinations.map(item=>comboMarkHTML(item,combinationLabel)).join('') + '</span>';
   return '<span class="strip access-strip" aria-hidden="true">' + ORDER.map(c => accessMarkHTML(c,a.access.colors[c].status)).join('') + (a.access.colorless.status === 'documented' ? accessMarkHTML('C','documented') : '') + '</span>';
 }
 const CI3_OUTLINE='M512 938.667c282.77 0 512-229.23 512-512s-229.23-512-512-512c-282.77 0-512 229.23-512 512s229.23 512 512 512v0z';
@@ -1971,6 +1971,8 @@ const O_MANA = {...N_MANA};
 const P_MANA = {...O_MANA};
 // R reuses the pinned glyph vocabulary without changing any earlier formatter.
 const R_MANA = {...P_MANA};
+// S keeps its reviewed vocabulary separate from all earlier formatting paths.
+const S_MANA = {...R_MANA};
 function supplementalTextHTML(value, symbols = SUP_MANA){
   // A–L retain the exact established formatter markup. Cost runs are an M
   // presentation repair only; earlier packets remain byte-for-byte shaped.
@@ -2040,7 +2042,7 @@ function supplementalClassificationHTML(scope, mapped){
     </${mapped ? 'section' : 'div'}>`;
 }
 function supplementalRecordHTML(a, mapped = false){
-  const text = value => supplementalTextHTML(value, !mapped && a.name.startsWith('R') ? R_MANA : !mapped && a.name.startsWith('P') ? P_MANA : !mapped && a.name.startsWith('O') ? O_MANA : !mapped && a.name.startsWith('N') ? N_MANA : !mapped && a.name.startsWith('M') ? M_MANA : !mapped && (a.name.startsWith('I') || a.name.startsWith('J') || a.name.startsWith('K') || a.name.startsWith('L')) ? I_MANA : !mapped && a.name.startsWith('H') ? H_MANA : !mapped && a.name.startsWith('G') ? G_MANA : !mapped && a.name.startsWith('F') ? F_MANA : !mapped && a.name.startsWith('E') ? E_MANA : SUP_MANA);
+  const text = value => supplementalTextHTML(value, !mapped && a.name.startsWith('S') ? S_MANA : !mapped && a.name.startsWith('R') ? R_MANA : !mapped && a.name.startsWith('P') ? P_MANA : !mapped && a.name.startsWith('O') ? O_MANA : !mapped && a.name.startsWith('N') ? N_MANA : !mapped && a.name.startsWith('M') ? M_MANA : !mapped && (a.name.startsWith('I') || a.name.startsWith('J') || a.name.startsWith('K') || a.name.startsWith('L')) ? I_MANA : !mapped && a.name.startsWith('H') ? H_MANA : !mapped && a.name.startsWith('G') ? G_MANA : !mapped && a.name.startsWith('F') ? F_MANA : !mapped && a.name.startsWith('E') ? E_MANA : SUP_MANA);
   const ref = a.reference, review = a.qualifications.acceptedSourceReview, locator = review && review.locator || {};
   const classification = SUP_SCOPE.get(a.id), upfront = new Set([classification.scopeNote, ...classification.qualifications]);
   const kind = ref && ref.referenceKind;
@@ -2080,7 +2082,7 @@ function supplementalDetailHTML(k){
 }
 function isAssessmentTarget(k){
   const r = REC.get(k);
-  return !!r && r.supplemental && /^[ABCDEFGHIJKLMNOPR]/.test(r.head);
+  return !!r && r.supplemental && /^[ABCDEFGHIJKLMNOPRS]/.test(r.head);
 }
 function assessmentSummary(k, full = false){
   const a = ASSESSMENTS.byKey.get(k);
@@ -2096,11 +2098,11 @@ function assessmentHTML(k){
   const a = ASSESSMENTS.byKey.get(k);
   if (!a) return `<section class="dx-sec supp-assessment" aria-label="Color access status"><p class="dx-note">${esc(assessmentSummary(k))}. ${ASSESSMENTS.status === 'unavailable' ? 'The color access record could not be loaded. Reload to try again; rules and other evidence remain available.' : 'Rules and other evidence remain available while the record loads.'}</p></section>`;
   const link = (name, url) => url ? `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(name)}</a>` : esc(name);
-  const text = a.name.startsWith('R') ? value => supplementalTextHTML(value, R_MANA) : a.name.startsWith('P') ? value => supplementalTextHTML(value, P_MANA) : a.name.startsWith('O') ? value => supplementalTextHTML(value, O_MANA) : a.name.startsWith('N') ? value => supplementalTextHTML(value, N_MANA) : a.name.startsWith('M') ? value => supplementalTextHTML(value, M_MANA) : a.name.startsWith('I') || a.name.startsWith('J') || a.name.startsWith('K') || a.name.startsWith('L') ? value => supplementalTextHTML(value, I_MANA) : a.name.startsWith('H') ? value => supplementalTextHTML(value, H_MANA) : a.name.startsWith('G') ? value => supplementalTextHTML(value, G_MANA) : a.name.startsWith('F') ? value => supplementalTextHTML(value, F_MANA) : a.name.startsWith('E') ? value => supplementalTextHTML(value, E_MANA) : esc;
-  const compactExamples = /^[CDEFGHIJKLMNOPR]/.test(a.name);
+  const text = a.name.startsWith('S') ? value => supplementalTextHTML(value, S_MANA) : a.name.startsWith('R') ? value => supplementalTextHTML(value, R_MANA) : a.name.startsWith('P') ? value => supplementalTextHTML(value, P_MANA) : a.name.startsWith('O') ? value => supplementalTextHTML(value, O_MANA) : a.name.startsWith('N') ? value => supplementalTextHTML(value, N_MANA) : a.name.startsWith('M') ? value => supplementalTextHTML(value, M_MANA) : a.name.startsWith('I') || a.name.startsWith('J') || a.name.startsWith('K') || a.name.startsWith('L') ? value => supplementalTextHTML(value, I_MANA) : a.name.startsWith('H') ? value => supplementalTextHTML(value, H_MANA) : a.name.startsWith('G') ? value => supplementalTextHTML(value, G_MANA) : a.name.startsWith('F') ? value => supplementalTextHTML(value, F_MANA) : a.name.startsWith('E') ? value => supplementalTextHTML(value, E_MANA) : esc;
+  const compactExamples = /^[CDEFGHIJKLMNOPRS]/.test(a.name);
   const displayColors = [...ORDER, ...(a.access.colorless.status === 'documented' ? ['C'] : [])];
   const comboOnly = a.name === 'Fuse' || a.name === 'Friends forever';
-  const independentOnly = (['Hexproof from','Intimidate','Islandcycling','Islandwalk','Kicker'].includes(a.name) || (a.name.startsWith('L') || a.name.startsWith('M') || a.name.startsWith('N') || a.name.startsWith('O') || a.name.startsWith('P') || a.name.startsWith('R')) && a.access.combinations.length > 0);
+  const independentOnly = (['Hexproof from','Intimidate','Islandcycling','Islandwalk','Kicker'].includes(a.name) || (a.name.startsWith('L') || a.name.startsWith('M') || a.name.startsWith('N') || a.name.startsWith('O') || a.name.startsWith('P') || a.name.startsWith('R') || a.name.startsWith('S')) && a.access.combinations.length > 0);
   const hasIndependentColor=ORDER.some(c=>a.access.colors[c].status === 'documented');
   const combinationLabel=hasIndependentColor ? 'Combination' : 'Combination only';
   const combinationRow = item => `<li class="own-row combo-row" data-combo="${item.colors.join('')}">${comboMarkHTML(item,combinationLabel)}<span class="own-c">${esc(item.colors.map(c=>CNAME[c]).join(' / '))}</span><span class="own-lead" aria-hidden="true"></span><span class="own-t">${combinationLabel}</span></li>`;
@@ -2146,20 +2148,20 @@ async function loadAssessments(data, status){
     const object = v => v !== null && typeof v === 'object' && !Array.isArray(v);
     const map = (v, check) => object(v) && Object.keys(v).length === 5 && ORDER.every(c => Object.hasOwn(v, c) && check(v[c]));
     const safeLink = v => !!supplementalURL(v) && ['scryfall.com','magic.wizards.com'].includes(new URL(v).hostname);
-    const names = ['a-assessments-source.json','absorb-assessment-source.json','a-classification-addendum.json','a-protocol-core.json','a-protocol-extended.json','a-protocol-special.json','b-protocol-core.json','b-protocol-extended.json','c-protocol-core.json','c-protocol-extended.json','c-protocol-special.json','d-protocol.json','e-protocol.json','f-protocol.json','g-protocol.json','h-protocol.json','i-protocol.json','j-protocol.json','k-protocol.json','l-protocol.json','m-protocol.json','n-protocol.json','o-protocol.json','p-protocol.json','r-protocol.json'];
-    const expected = new Map(data.records.filter(r => /^[ABCDEFGHIJKLMNOPR]/.test(r.name) && r.target2021 === null).map(r => [r.id,r]));
+    const names = ['a-assessments-source.json','absorb-assessment-source.json','a-classification-addendum.json','a-protocol-core.json','a-protocol-extended.json','a-protocol-special.json','b-protocol-core.json','b-protocol-extended.json','c-protocol-core.json','c-protocol-extended.json','c-protocol-special.json','d-protocol.json','e-protocol.json','f-protocol.json','g-protocol.json','h-protocol.json','i-protocol.json','j-protocol.json','k-protocol.json','l-protocol.json','m-protocol.json','n-protocol.json','o-protocol.json','p-protocol.json','r-protocol.json','s-protocol.json'];
+    const expected = new Map(data.records.filter(r => /^[ABCDEFGHIJKLMNOPRS]/.test(r.name) && r.target2021 === null).map(r => [r.id,r]));
     const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(JSON.stringify(data)));
     const hash = [...new Uint8Array(digest)].map(n => n.toString(16).padStart(2,'0')).join('');
  if (!payload || payload.schemaVersion !== 3 || payload.protocolVersion !== '2.0' || payload.researchDate !== '2026-10-29' || payload.supplementCanonicalSha256 !== hash || payload.sourceBindingFormat !== 'canonical-json-utf8' ||
         !Array.isArray(payload.sourceBindings) || payload.sourceBindings.length !== names.length || !names.every((name,i) => payload.sourceBindings[i]?.path === 'docs/mechanics-research/' + name && /^[a-f0-9]{64}$/.test(payload.sourceBindings[i].sha256)) ||
-        !Array.isArray(payload.records) || payload.records.length !== 289 || expected.size !== 289) throw new Error('Unsupported assessment schema or binding');
+        !Array.isArray(payload.records) || payload.records.length !== 329 || expected.size !== 329) throw new Error('Unsupported assessment schema or binding');
     const staged = new Map();
     for (const a of payload.records){
       const source = expected.get(a?.id);
       const access = a?.access, statuses=['documented','multicolor_only','not_found','not_applicable','insufficient_evidence'];
       const card = c => c && text(c.name) && (c.url === null || safeLink(c.url) && new URL(c.url).hostname === 'scryfall.com');
       const entry = (value, colorless=false) => value && statuses.includes(value.status) && (!colorless || value.status !== 'multicolor_only') && text(value.note) && Array.isArray(value.cards) && value.cards.every(card) && (value.cards.length > 0) === ['documented','multicolor_only'].includes(value.status) && (value.findUrl === null || safeLink(value.findUrl) && new URL(value.findUrl).hostname === 'scryfall.com');
-    if (!source || staged.has(a.id) || a.name !== source.name || a.researchDate !== ((a.name.startsWith('N') || a.name.startsWith('O') || a.name.startsWith('P') || a.name.startsWith('R')) ? '2026-10-30' : a.name.startsWith('G') || a.name.startsWith('H') || a.name.startsWith('I') || a.name.startsWith('J') || a.name.startsWith('K') || a.name.startsWith('L') || a.name.startsWith('M') ? '2026-10-29' : '2026-10-28') || !['access','rules'].includes(a.kind) || !['scopeLabel','scope','summary'].every(k => text(a[k])) ||
+    if (!source || staged.has(a.id) || a.name !== source.name || a.researchDate !== ((a.name.startsWith('N') || a.name.startsWith('O') || a.name.startsWith('P') || a.name.startsWith('R') || a.name.startsWith('S')) ? '2026-10-30' : a.name.startsWith('G') || a.name.startsWith('H') || a.name.startsWith('I') || a.name.startsWith('J') || a.name.startsWith('K') || a.name.startsWith('L') || a.name.startsWith('M') ? '2026-10-29' : '2026-10-28') || !['access','rules'].includes(a.kind) || !['scopeLabel','scope','summary'].every(k => text(a[k])) ||
           !object(access) || !map(access.colors, value => entry(value)) || !entry(access.colorless,true) || !Array.isArray(access.combinations) || !access.combinations.every(x => x && Array.isArray(x.colors) && x.colors.length >= 2 && x.colors.every(c => ORDER.includes(c)) && x.colors.join('') === ORDER.filter(c=>x.colors.includes(c)).join('') && text(x.note) && Array.isArray(x.cards) && x.cards.length && x.cards.every(card) && safeLink(x.findUrl)) || !Array.isArray(access.limitations) || !access.limitations.every(text) ||
           !Array.isArray(a.citationCards) || !a.citationCards.every(card) ||
           !Array.isArray(a.sources) || !a.sources.every(s => s && text(s.title) && safeLink(s.url)) ||
@@ -2168,10 +2170,10 @@ async function loadAssessments(data, status){
       staged.set(a.id, deepFreeze(a));
     }
     ASSESSMENTS.byKey = staged; ASSESSMENTS.status = 'ready';
-    status.textContent += ' 289 A/B/C/D/E/F/G/H/I/J/K/L/M/N/O/P/R color-access records are available; 2021 tiers remain separate.';
+    status.textContent += ' 329 A/B/C/D/E/F/G/H/I/J/K/L/M/N/O/P/R/S color-access records are available; 2021 tiers remain separate.';
   } catch (err){
     ASSESSMENTS.byKey = new Map(); ASSESSMENTS.status = 'unavailable';
-    status.textContent += ' A/B/C/D/E/F/G/H/I/J/K/L/M/N/O/P/R color access is unavailable; rules and other evidence remain available.';
+    status.textContent += ' A/B/C/D/E/F/G/H/I/J/K/L/M/N/O/P/R/S color access is unavailable; rules and other evidence remain available.';
     console.warn('[mechanical-explorer] assessments unavailable:', err.message);
   }
   if (S.view === 'az') layoutList();
