@@ -1,3 +1,10 @@
+# Unified collection — Owner APPROVE RELEASE recorded
+
+- Owner explicitly approved exact independently passed material `1ec6a6bc380ac629cce08b9286d823636c201ed2` in the current chat: APPROVE RELEASE for candidate 1ec6a6bc380ac629cce08b9286d823636c201ed2. Preserve all history and recovery safeguards, then verify the actual live deployment. This supersedes the pending approval statements below for this exact material only.
+- Release scope: normal non-force integration/publication and actual production verification. Runtime, source, data, tests, package producer, wheel, shell, routes and dependencies remain byte-identical to the approved material. This commit records approval in HANDOFF only and preserves the exact-candidate RobQA binding.
+- Pre-release verification: clean existing development worktree; remote master unchanged at `9a063b3a98cfcb7672783f83a102e8f968242490`, reported unprotected; original history and recovery bundle/tag verified; canonical main checkout retains untracked `_site-supplement/`. Previous successful public revision `5c8399d4d476` matches Pages run40447324942. New release evidence is under `C:/dev/backups/mtg-color-pie/2026-10-31-pre-selection-6606f294/release-approved-1ec6-20261031/`.
+- Proposed integration is an expected-head-guarded, non-forced fast-forward of master to this evidence head after publishing the development branch. It retains every ancestor and all approved product bytes; no PR or alternative credential path is needed. Integration and live verification remain PENDING until actual observations are recorded. Existing worktrees and all old recovery artifacts stay intact; no cleanup authorized.
+
 # Unified collection — Owner Review pending
 
 - Engineering PASS binds exact material candidate `1ec6a6bc380ac629cce08b9286d823636c201ed2`; the separate independent RobQA packet and immutable external machine evidence below control that verdict. Owner visual/product acceptance and fresh `APPROVE RELEASE` remain absent. Stop here: no merge, production push, publication or workflow dispatch is authorized.
