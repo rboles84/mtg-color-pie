@@ -420,7 +420,7 @@ button{font:inherit;color:inherit}
 /* Supplemental documented-access marks are intentionally a separate notation
    from the 2021 Primary/Secondary/Tertiary tier strip. */
 .strip.access-strip{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:var(--sz,14px)}
-.grp[data-scope] .ent > .access-strip{gap:7px}
+.grp[data-scope] .ent > .access-strip{column-gap:7px}
 .access-strip .sc{border:1px solid rgba(237,230,211,.22)}
 .access-strip .sc > .ms{display:none;color:#15120c}
 .access-strip .sc.a-d{background:var(--cc);border-color:var(--cc)}
@@ -1731,7 +1731,7 @@ function renderCompass(){
    and the same computed count as the colors line. No ability summary. */
 function medalHTML(s){
   const cs = [...s], n = cs.length, st = n === 2 ? 225 : -180 / n;   // a pair splits on the diagonal, like hybrid mana
-  const seg = n === 1 ? `var(--${cs[0].toLowerCase()})`
+  const seg = n === 1 ? (s === 'C' ? 'var(--ink-dim)' : `var(--${cs[0].toLowerCase()})`)
     : `conic-gradient(from ${st}deg, ${cs.map((c, i) => `var(--${c.toLowerCase()}) ${(i * 100 / n).toFixed(3)}% ${((i + 1) * 100 / n).toFixed(3)}%`).join(', ')})`;
   const R = { 1:0, 2:24, 3:27, 4:29, 5:31 }[n], gs = { 1:.46, 2:.3, 3:.25, 4:.21, 5:.19 }[n];
   const marks = cs.map((c, i) => {
@@ -1757,7 +1757,7 @@ function renderIdent(key){
       <p class="id-src">${name ? `“${esc(name)}” is Wizards’ name for ${esc(words)} (${esc(NAME_SOURCE)}): a label, not a claim about mechanics.`
         : key.length > 3 ? 'This page gives no combination name for four or five colors.' : ''}</p>
       ${key ? `<p class="id-next">One-color steps from ${key} follow below.</p>` : ''}
-      <p class="id-share"><button class="go" type="button" data-act="copy-link" data-fid="copy-link"${S.colorless ? ' disabled aria-disabled="true"' : ''}>Copy colors link</button><button class="go" type="button" data-act="save-png" data-fid="save-png"${S.view === 'az' && ASSESSMENTS.status !== 'ready' ? ' disabled aria-disabled="true"' : ''}>Save image</button></p>${S.colorless ? '<p class="id-share-note">Colorless selection is not included in shared color links.</p>' : ''}
+      <p class="id-share"><button class="go" type="button" data-act="copy-link" data-fid="copy-link"${S.colorless ? ' disabled aria-disabled="true" aria-describedby="colorless-link-note"' : ''}>Copy colors link</button><button class="go" type="button" data-act="save-png" data-fid="save-png"${S.view === 'az' && ASSESSMENTS.status !== 'ready' ? ' disabled aria-disabled="true"' : ''}>Save image</button></p>${S.colorless ? '<p class="id-share-note" id="colorless-link-note">Colorless selection is not included in shared color links.</p>' : ''}
       <input class="id-url" id="id-url" type="text" readonly hidden aria-label="Link to ${esc(words)}, ${key}">
     </div>`;
 }
