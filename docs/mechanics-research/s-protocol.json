@@ -132,12 +132,7 @@
           ],
           "note": "Guidelight Matrix: For {2} and tap, it directly saddles a target Mount you control until end of turn, only as a sorcery."
         },
-        "limitations": [
-          "Cards that merely benefit when saddled, or change how a creature saddles without granting saddle or directly saddling a Mount, are excluded.",
-          "Two original saved discovery response bodies lack trustworthy event-time request receipts. Fresh separately named reacquisitions are authoritative for selected objects; no original timestamp is inferred.",
-          "The original saddle-default-oracle.json body is a saved API rate_limited error with no trustworthy HTTP status or request time; a later, separately receipted successful response supplies the selected-card evidence.",
-          "Archmage’s Newt both rewards being saddled and has native saddle 3; its blue source therefore establishes blue access."
-        ]
+        "limitations": []
       },
       "card_review": [
         {
@@ -1830,6 +1825,12 @@
           "WG",
           "BG",
           "WRG"
+        ],
+        "review_notes": [
+          "Cards that merely benefit when saddled, or change how a creature saddles without granting saddle or directly saddling a Mount, are excluded.",
+          "Two original saved discovery response bodies lack trustworthy event-time request receipts. Fresh separately named reacquisitions are authoritative for selected objects; no original timestamp is inferred.",
+          "The original saddle-default-oracle.json body is a saved API rate_limited error with no trustworthy HTTP status or request time; a later, separately receipted successful response supplies the selected-card evidence.",
+          "Archmage’s Newt both rewards being saddled and has native saddle 3; its blue source therefore establishes blue access."
         ]
       },
       "reference_authority": {
@@ -1937,9 +1938,7 @@
           "card_ids": [],
           "note": "No colorless example found in the reviewed released-paper scope."
         },
-        "limitations": [
-          "Two original saved discovery response bodies lack trustworthy event-time request receipts. Fresh separately named reacquisitions are authoritative for selected objects; no original timestamp is inferred."
-        ]
+        "limitations": []
       },
       "card_review": [
         {
@@ -2441,6 +2440,9 @@
           "B",
           "G",
           "BG"
+        ],
+        "review_notes": [
+          "Two original saved discovery response bodies lack trustworthy event-time request receipts. Fresh separately named reacquisitions are authoritative for selected objects; no original timestamp is inferred."
         ]
       },
       "reference_authority": {
@@ -2560,9 +2562,7 @@
           "card_ids": [],
           "note": "No colorless example found in the reviewed released-paper scope."
         },
-        "limitations": [
-          "Two original saved discovery response bodies lack trustworthy event-time request receipts. Fresh separately named reacquisitions are authoritative for selected objects; no original timestamp is inferred."
-        ]
+        "limitations": []
       },
       "card_review": [
         {
@@ -3217,6 +3217,9 @@
           "R",
           "UG",
           "UR"
+        ],
+        "review_notes": [
+          "Two original saved discovery response bodies lack trustworthy event-time request receipts. Fresh separately named reacquisitions are authoritative for selected objects; no original timestamp is inferred."
         ]
       },
       "reference_authority": {
@@ -3353,10 +3356,7 @@
           ],
           "note": "Minas Morgul, Dark Fortress: This colorless land uses {3}{B} and tap to give a target creature a shadow counter."
         },
-        "limitations": [
-          "Blocking creatures with shadow as though they lacked it, names containing Shadow, and removal of shadow do not establish Shadow access.",
-          "Two original saved discovery response bodies lack trustworthy event-time request receipts. Fresh separately named reacquisitions are authoritative for selected objects; no original timestamp is inferred."
-        ]
+        "limitations": []
       },
       "card_review": [
         {
@@ -4335,6 +4335,10 @@
           "C",
           "WUB",
           "UB"
+        ],
+        "review_notes": [
+          "Blocking creatures with shadow as though they lacked it, names containing Shadow, and removal of shadow do not establish Shadow access.",
+          "Two original saved discovery response bodies lack trustworthy event-time request receipts. Fresh separately named reacquisitions are authoritative for selected objects; no original timestamp is inferred."
         ]
       },
       "reference_authority": {
@@ -4514,9 +4518,7 @@
           ],
           "note": "Cloak and Dagger: The equipped creature gains shroud and +2/+0; a Rogue entering may attach the Equipment."
         },
-        "limitations": [
-          "Two original saved discovery response bodies lack trustworthy event-time request receipts. Fresh separately named reacquisitions are authoritative for selected objects; no original timestamp is inferred."
-        ]
+        "limitations": []
       },
       "card_review": [
         {
@@ -6510,6 +6512,9 @@
           "WRG",
           "UG",
           "WG"
+        ],
+        "review_notes": [
+          "Two original saved discovery response bodies lack trustworthy event-time request receipts. Fresh separately named reacquisitions are authoritative for selected objects; no original timestamp is inferred."
         ]
       },
       "reference_authority": {
@@ -6641,9 +6646,7 @@
           ],
           "note": "Skeleton Key: The equipped creature gains skulk and may loot after combat damage to a player."
         },
-        "limitations": [
-          "Two original saved discovery response bodies lack trustworthy event-time request receipts. Fresh separately named reacquisitions are authoritative for selected objects; no original timestamp is inferred."
-        ]
+        "limitations": []
       },
       "card_review": [
         {
@@ -7781,6 +7784,9 @@
           "WU",
           "WB",
           "UB"
+        ],
+        "review_notes": [
+          "Two original saved discovery response bodies lack trustworthy event-time request receipts. Fresh separately named reacquisitions are authoritative for selected objects; no original timestamp is inferred."
         ]
       },
       "reference_authority": {
@@ -7894,9 +7900,7 @@
           "card_ids": [],
           "note": "No colorless example found in the reviewed released-paper scope."
         },
-        "limitations": [
-          "Two original saved discovery response bodies lack trustworthy event-time request receipts. Fresh separately named reacquisitions are authoritative for selected objects; no original timestamp is inferred."
-        ]
+        "limitations": []
       },
       "card_review": [
         {
@@ -8935,6 +8939,9 @@
           "R",
           "G",
           "WB"
+        ],
+        "review_notes": [
+          "Two original saved discovery response bodies lack trustworthy event-time request receipts. Fresh separately named reacquisitions are authoritative for selected objects; no original timestamp is inferred."
         ]
       },
       "reference_authority": {
@@ -9039,9 +9046,7 @@
           ],
           "note": "Case of the Shattered Pact: It solves when your permanents span five colors; solved, it can give a creature flying, double strike and vigilance."
         },
-        "limitations": [
-          "Two original saved discovery response bodies lack trustworthy event-time request receipts. Fresh separately named reacquisitions are authoritative for selected objects; no original timestamp is inferred."
-        ]
+        "limitations": []
       },
       "card_review": [
         {
@@ -10040,6 +10045,9 @@
           "R",
           "G",
           "C"
+        ],
+        "review_notes": [
+          "Two original saved discovery response bodies lack trustworthy event-time request receipts. Fresh separately named reacquisitions are authoritative for selected objects; no original timestamp is inferred."
         ]
       },
       "reference_authority": {
@@ -10142,9 +10150,7 @@
           "card_ids": [],
           "note": "No colorless example found in the reviewed released-paper scope."
         },
-        "limitations": [
-          "Two original saved discovery response bodies lack trustworthy event-time request receipts. Fresh separately named reacquisitions are authoritative for selected objects; no original timestamp is inferred."
-        ]
+        "limitations": []
       },
       "card_review": [
         {
@@ -10975,6 +10981,9 @@
           "B",
           "R",
           "G"
+        ],
+        "review_notes": [
+          "Two original saved discovery response bodies lack trustworthy event-time request receipts. Fresh separately named reacquisitions are authoritative for selected objects; no original timestamp is inferred."
         ]
       },
       "reference_authority": {
@@ -11073,9 +11082,7 @@
           "card_ids": [],
           "note": "No colorless example found in the reviewed released-paper scope."
         },
-        "limitations": [
-          "Two original saved discovery response bodies lack trustworthy event-time request receipts. Fresh separately named reacquisitions are authoritative for selected objects; no original timestamp is inferred."
-        ]
+        "limitations": []
       },
       "card_review": [
         {
@@ -11566,6 +11573,9 @@
           "W",
           "B",
           "G"
+        ],
+        "review_notes": [
+          "Two original saved discovery response bodies lack trustworthy event-time request receipts. Fresh separately named reacquisitions are authoritative for selected objects; no original timestamp is inferred."
         ]
       },
       "reference_authority": {
@@ -11673,9 +11683,7 @@
           "card_ids": [],
           "note": "No colorless example found in the reviewed released-paper scope."
         },
-        "limitations": [
-          "Two original saved discovery response bodies lack trustworthy event-time request receipts. Fresh separately named reacquisitions are authoritative for selected objects; no original timestamp is inferred."
-        ]
+        "limitations": []
       },
       "card_review": [
         {
@@ -12172,6 +12180,9 @@
           "B",
           "R",
           "BR"
+        ],
+        "review_notes": [
+          "Two original saved discovery response bodies lack trustworthy event-time request receipts. Fresh separately named reacquisitions are authoritative for selected objects; no original timestamp is inferred."
         ]
       },
       "reference_authority": {
@@ -12285,9 +12296,7 @@
           "card_ids": [],
           "note": "No colorless example found in the reviewed released-paper scope."
         },
-        "limitations": [
-          "Two original saved discovery response bodies lack trustworthy event-time request receipts. Fresh separately named reacquisitions are authoritative for selected objects; no original timestamp is inferred."
-        ]
+        "limitations": []
       },
       "card_review": [
         {
@@ -13272,6 +13281,9 @@
           "R",
           "G",
           "WR"
+        ],
+        "review_notes": [
+          "Two original saved discovery response bodies lack trustworthy event-time request receipts. Fresh separately named reacquisitions are authoritative for selected objects; no original timestamp is inferred."
         ]
       },
       "reference_authority": {
@@ -13409,9 +13421,7 @@
           "card_ids": [],
           "note": "No colorless example found in the reviewed released-paper scope."
         },
-        "limitations": [
-          "Two original saved discovery response bodies lack trustworthy event-time request receipts. Fresh separately named reacquisitions are authoritative for selected objects; no original timestamp is inferred."
-        ]
+        "limitations": []
       },
       "card_review": [
         {
@@ -14379,6 +14389,9 @@
           "R",
           "G",
           "UR"
+        ],
+        "review_notes": [
+          "Two original saved discovery response bodies lack trustworthy event-time request receipts. Fresh separately named reacquisitions are authoritative for selected objects; no original timestamp is inferred."
         ]
       },
       "reference_authority": {
@@ -14512,12 +14525,7 @@
           "card_ids": [],
           "note": "No colorless example found in the reviewed released-paper scope."
         },
-        "limitations": [
-          "Molten Disaster has split second only if kicked; Shadow the Hedgehog grants it only to spells cast with artifact mana.",
-          "One original saved discovery response body lacks trustworthy event-time request receipts. Fresh separately named reacquisitions are authoritative for selected objects; no original timestamp is inferred.",
-          "The first generic-user-agent error response was overwritten before preservation; its original status, bytes and retrieval time are unknown. The later retained error/retry captures are distinct.",
-          "The original split-second-default-oracle.json body is a saved API rate_limited error with no trustworthy HTTP status or request time; a later, separately receipted successful response supplies the selected-card evidence."
-        ]
+        "limitations": []
       },
       "card_review": [
         {
@@ -15659,6 +15667,12 @@
           "G",
           "WR",
           "BR"
+        ],
+        "review_notes": [
+          "Molten Disaster has split second only if kicked; Shadow the Hedgehog grants it only to spells cast with artifact mana.",
+          "One original saved discovery response body lacks trustworthy event-time request receipts. Fresh separately named reacquisitions are authoritative for selected objects; no original timestamp is inferred.",
+          "The first generic-user-agent error response was overwritten before preservation; its original status, bytes and retrieval time are unknown. The later retained error/retry captures are distinct.",
+          "The original split-second-default-oracle.json body is a saved API rate_limited error with no trustworthy HTTP status or request time; a later, separately receipted successful response supplies the selected-card evidence."
         ]
       },
       "reference_authority": {
@@ -34443,6 +34457,9 @@
         "unreceipted_historical_captures": [],
         "observed_selected_signatures": [
           "B"
+        ],
+        "review_notes": [
+          "Sell Contraband is this card’s exact ability label, not a general keyword definition."
         ]
       },
       "reference_authority": {
@@ -34748,6 +34765,9 @@
         "unreceipted_historical_captures": [],
         "observed_selected_signatures": [
           "W"
+        ],
+        "review_notes": [
+          "Scions' Secretary is this card’s exact ability label, not a general keyword definition."
         ]
       },
       "reference_authority": {
@@ -35038,6 +35058,9 @@
         "unreceipted_historical_captures": [],
         "observed_selected_signatures": [
           "R"
+        ],
+        "review_notes": [
+          "Sigil of Corruption is this card’s exact ability label, not a general keyword definition."
         ]
       },
       "reference_authority": {
@@ -37373,9 +37396,7 @@
           "card_ids": [],
           "note": "No colorless example found in the reviewed digital scope."
         },
-        "limitations": [
-          "Digital / Alchemy material is kept separate from released-paper access; paper Seek out is a different card-specific ability label."
-        ]
+        "limitations": []
       },
       "card_review": [
         {
@@ -38379,6 +38400,9 @@
           "B",
           "R",
           "G"
+        ],
+        "review_notes": [
+          "Digital / Alchemy material is kept separate from released-paper access; paper Seek out is a different card-specific ability label."
         ]
       },
       "reference_authority": {
@@ -38653,7 +38677,7 @@
           "note": "Faceless Agent: This colorless changeling seeks a creature of the most common creature type in your library on entry."
         },
         "limitations": [
-          "Digital / Alchemy material is kept separate from released-paper access; paper Seek out is a different card-specific ability label."
+          "Seek is a digital mechanic; paper abilities labeled “Seek out” are separate card-specific effects."
         ]
       },
       "card_review": [
@@ -41830,6 +41854,9 @@
           "WBG",
           "WU",
           "UBG"
+        ],
+        "review_notes": [
+          "Digital / Alchemy material is kept separate from released-paper access; paper Seek out is a different card-specific ability label."
         ]
       },
       "reference_authority": {
@@ -41911,15 +41938,16 @@
           "card_ids": [],
           "note": "Rules action; no source-card color access is assigned."
         },
-        "limitations": [
-          "This rules action has no source-card access bucket; incidental Oracle text is not a mechanic placement."
-        ]
+        "limitations": []
       },
       "card_review": [],
       "discovery_screen": {
         "method": "Rules-only entry; card discovery is not used to assign Color Access.",
         "captures": [],
-        "observed_selected_signatures": []
+        "observed_selected_signatures": [],
+        "review_notes": [
+          "This rules action has no source-card access bucket; incidental Oracle text is not a mechanic placement."
+        ]
       },
       "reference_authority": {
         "kind": "inherited_canonical_supplement",
@@ -41993,15 +42021,16 @@
           "card_ids": [],
           "note": "Rules action; no source-card color access is assigned."
         },
-        "limitations": [
-          "This rules action has no source-card access bucket; incidental Oracle text is not a mechanic placement."
-        ]
+        "limitations": []
       },
       "card_review": [],
       "discovery_screen": {
         "method": "Rules-only entry; card discovery is not used to assign Color Access.",
         "captures": [],
-        "observed_selected_signatures": []
+        "observed_selected_signatures": [],
+        "review_notes": [
+          "This rules action has no source-card access bucket; incidental Oracle text is not a mechanic placement."
+        ]
       },
       "reference_authority": {
         "kind": "inherited_canonical_supplement",
@@ -42081,15 +42110,16 @@
           "card_ids": [],
           "note": "Rules action; no source-card color access is assigned."
         },
-        "limitations": [
-          "This rules action has no source-card access bucket; incidental Oracle text is not a mechanic placement."
-        ]
+        "limitations": []
       },
       "card_review": [],
       "discovery_screen": {
         "method": "Rules-only entry; card discovery is not used to assign Color Access.",
         "captures": [],
-        "observed_selected_signatures": []
+        "observed_selected_signatures": [],
+        "review_notes": [
+          "This rules action has no source-card access bucket; incidental Oracle text is not a mechanic placement."
+        ]
       },
       "reference_authority": {
         "kind": "inherited_canonical_supplement",

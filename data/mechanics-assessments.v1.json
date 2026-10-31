@@ -107,7 +107,7 @@
     },
     {
       "path": "docs/mechanics-research/s-protocol.json",
-      "sha256": "d0158b751e4a82f7b4f5fbdee12c8da41fec90f6efcb4beb080b5d51040db594"
+      "sha256": "b2f417d3961793ad3d21ce6ca6245f6a67fcf30e6ed3e842319420cabb00458a"
     }
   ],
   "records": [
@@ -54921,9 +54921,7 @@
           "cards": [],
           "findUrl": null
         },
-        "limitations": [
-          "This rules action has no source-card access bucket; incidental Oracle text is not a mechanic placement."
-        ]
+        "limitations": []
       },
       "citationCards": [],
       "sources": [
@@ -55070,12 +55068,7 @@
           ],
           "findUrl": "https://scryfall.com/search?q=%28%21%22Guidelight%20Matrix%22%29%20include%3Aextras"
         },
-        "limitations": [
-          "Cards that merely benefit when saddled, or change how a creature saddles without granting saddle or directly saddling a Mount, are excluded.",
-          "Two original saved discovery response bodies lack trustworthy event-time request receipts. Fresh separately named reacquisitions are authoritative for selected objects; no original timestamp is inferred.",
-          "The original saddle-default-oracle.json body is a saved API rate_limited error with no trustworthy HTTP status or request time; a later, separately receipted successful response supplies the selected-card evidence.",
-          "Archmage’s Newt both rewards being saddled and has native saddle 3; its blue source therefore establishes blue access."
-        ]
+        "limitations": []
       },
       "citationCards": [
         {
@@ -55200,9 +55193,7 @@
           "cards": [],
           "findUrl": null
         },
-        "limitations": [
-          "Two original saved discovery response bodies lack trustworthy event-time request receipts. Fresh separately named reacquisitions are authoritative for selected objects; no original timestamp is inferred."
-        ]
+        "limitations": []
       },
       "citationCards": [
         {
@@ -55389,9 +55380,7 @@
           "cards": [],
           "findUrl": null
         },
-        "limitations": [
-          "Two original saved discovery response bodies lack trustworthy event-time request receipts. Fresh separately named reacquisitions are authoritative for selected objects; no original timestamp is inferred."
-        ]
+        "limitations": []
       },
       "citationCards": [
         {
@@ -55714,7 +55703,7 @@
           "findUrl": "https://scryfall.com/search?q=%28%21%22Faceless%20Agent%22%29%20include%3Aextras"
         },
         "limitations": [
-          "Digital / Alchemy material is kept separate from released-paper access; paper Seek out is a different card-specific ability label."
+          "Seek is a digital mechanic; paper abilities labeled “Seek out” are separate card-specific effects."
         ]
       },
       "citationCards": [
@@ -55925,9 +55914,7 @@
           "cards": [],
           "findUrl": null
         },
-        "limitations": [
-          "This rules action has no source-card access bucket; incidental Oracle text is not a mechanic placement."
-        ]
+        "limitations": []
       },
       "citationCards": [],
       "sources": [
@@ -56036,10 +56023,7 @@
           ],
           "findUrl": "https://scryfall.com/search?q=%28%21%22Minas%20Morgul%2C%20Dark%20Fortress%22%29%20include%3Aextras"
         },
-        "limitations": [
-          "Blocking creatures with shadow as though they lacked it, names containing Shadow, and removal of shadow do not establish Shadow access.",
-          "Two original saved discovery response bodies lack trustworthy event-time request receipts. Fresh separately named reacquisitions are authoritative for selected objects; no original timestamp is inferred."
-        ]
+        "limitations": []
       },
       "citationCards": [
         {
@@ -56262,9 +56246,7 @@
           ],
           "findUrl": "https://scryfall.com/search?q=%28%21%22Cloak%20and%20Dagger%22%29%20include%3Aextras"
         },
-        "limitations": [
-          "Two original saved discovery response bodies lack trustworthy event-time request receipts. Fresh separately named reacquisitions are authoritative for selected objects; no original timestamp is inferred."
-        ]
+        "limitations": []
       },
       "citationCards": [
         {
@@ -56372,9 +56354,7 @@
           "cards": [],
           "findUrl": null
         },
-        "limitations": [
-          "This rules action has no source-card access bucket; incidental Oracle text is not a mechanic placement."
-        ]
+        "limitations": []
       },
       "citationCards": [],
       "sources": [
@@ -56567,9 +56547,7 @@
           ],
           "findUrl": "https://scryfall.com/search?q=%28%21%22Skeleton%20Key%22%29%20include%3Aextras"
         },
-        "limitations": [
-          "Two original saved discovery response bodies lack trustworthy event-time request receipts. Fresh separately named reacquisitions are authoritative for selected objects; no original timestamp is inferred."
-        ]
+        "limitations": []
       },
       "citationCards": [
         {
@@ -56766,9 +56744,7 @@
           "cards": [],
           "findUrl": null
         },
-        "limitations": [
-          "Two original saved discovery response bodies lack trustworthy event-time request receipts. Fresh separately named reacquisitions are authoritative for selected objects; no original timestamp is inferred."
-        ]
+        "limitations": []
       },
       "citationCards": [
         {
@@ -56882,9 +56858,7 @@
           ],
           "findUrl": "https://scryfall.com/search?q=%28%21%22Case%20of%20the%20Shattered%20Pact%22%29%20include%3Aextras"
         },
-        "limitations": [
-          "Two original saved discovery response bodies lack trustworthy event-time request receipts. Fresh separately named reacquisitions are authoritative for selected objects; no original timestamp is inferred."
-        ]
+        "limitations": []
       },
       "citationCards": [
         {
@@ -56993,9 +56967,7 @@
           "cards": [],
           "findUrl": null
         },
-        "limitations": [
-          "Two original saved discovery response bodies lack trustworthy event-time request receipts. Fresh separately named reacquisitions are authoritative for selected objects; no original timestamp is inferred."
-        ]
+        "limitations": []
       },
       "citationCards": [
         {
@@ -57090,9 +57062,7 @@
           "cards": [],
           "findUrl": null
         },
-        "limitations": [
-          "Two original saved discovery response bodies lack trustworthy event-time request receipts. Fresh separately named reacquisitions are authoritative for selected objects; no original timestamp is inferred."
-        ]
+        "limitations": []
       },
       "citationCards": [
         {
@@ -57189,9 +57159,7 @@
           "cards": [],
           "findUrl": null
         },
-        "limitations": [
-          "Digital / Alchemy material is kept separate from released-paper access; paper Seek out is a different card-specific ability label."
-        ]
+        "limitations": []
       },
       "citationCards": [
         {
@@ -57296,9 +57264,7 @@
           "cards": [],
           "findUrl": null
         },
-        "limitations": [
-          "Two original saved discovery response bodies lack trustworthy event-time request receipts. Fresh separately named reacquisitions are authoritative for selected objects; no original timestamp is inferred."
-        ]
+        "limitations": []
       },
       "citationCards": [
         {
@@ -57410,9 +57376,7 @@
           "cards": [],
           "findUrl": null
         },
-        "limitations": [
-          "Two original saved discovery response bodies lack trustworthy event-time request receipts. Fresh separately named reacquisitions are authoritative for selected objects; no original timestamp is inferred."
-        ]
+        "limitations": []
       },
       "citationCards": [
         {
@@ -57536,9 +57500,7 @@
           "cards": [],
           "findUrl": null
         },
-        "limitations": [
-          "Two original saved discovery response bodies lack trustworthy event-time request receipts. Fresh separately named reacquisitions are authoritative for selected objects; no original timestamp is inferred."
-        ]
+        "limitations": []
       },
       "citationCards": [
         {
@@ -57676,12 +57638,7 @@
           "cards": [],
           "findUrl": null
         },
-        "limitations": [
-          "Molten Disaster has split second only if kicked; Shadow the Hedgehog grants it only to spells cast with artifact mana.",
-          "One original saved discovery response body lacks trustworthy event-time request receipts. Fresh separately named reacquisitions are authoritative for selected objects; no original timestamp is inferred.",
-          "The first generic-user-agent error response was overwritten before preservation; its original status, bytes and retrieval time are unknown. The later retained error/retry captures are distinct.",
-          "The original split-second-default-oracle.json body is a saved API rate_limited error with no trustworthy HTTP status or request time; a later, separately receipted successful response supplies the selected-card evidence."
-        ]
+        "limitations": []
       },
       "citationCards": [
         {

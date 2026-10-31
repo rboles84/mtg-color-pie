@@ -649,6 +649,8 @@ async function checkSExampleHydration(page){
     await page.evaluate(id=>VMX.open(id),record.id);
     const panel=page.locator('#detail .supp-assessment');await panel.locator('.assessment-notes > summary').click();
     assert.equal(await page.locator('#detail .dx-eg, #detail .cite').count(),0,record.name+' suppresses legacy example line/image after example data is ready');
+    const auditCopy=/receipts?|timestamps?|reacquisition|request time|retriev(?:al|ed)|saved discovery|source-card access bucket|incidental Oracle|authoritative for selected|original status, bytes/i;
+    assert.doesNotMatch(record.access.limitations.join(' '),auditCopy,record.name+' player limitations exclude research process');assert.doesNotMatch(await panel.locator('.assessment-notes').innerText(),auditCopy,record.name+' rendered expanded examples exclude research process');
     const buckets=[...Object.values(record.access.colors).filter(b=>b.status==='documented'),...record.access.combinations,...(record.access.colorless.status==='documented'?[record.access.colorless]:[])],expected=buckets.map(b=>b.cards[0].url).sort();
     assert.deepEqual(await page.locator('#detail a').evaluateAll(items=>items.filter(a=>a.hostname==='scryfall.com'&&a.pathname.startsWith('/card/')).map(a=>a.href).sort()),expected,record.name+' hydrated detail has only selected bucket links');links+=expected.length;
   }
