@@ -1,3 +1,67 @@
+# R supplemental Color Access — ready for independent QA
+
+- Status: `ready-for-qa` (developer report complete; no material edits after handoff).
+- Baseline: `ab053fb3e3228797466fad13a3aa65a1eee248ef`; exact material candidate: `c6aabbd3286f8dc5e903bf9130f328a83cd8a4a7`. Git-derived material delta: 51 paths, 28,633 additions / 39 deletions.
+- Focused P regression completed: `node tools/check_assessment_browser.mjs --root . --p-only --playwright C:/Users/obake/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright` -> exit0 PASS all22 P entries/157 selected links, source objects/receipts, access symbols, failure/fallback/keyboard/narrow states and frozen math. This verifies the historical cohort selector correction.
+- All41 retained raw response hashes also match the exact staged Git bytes; source receipt data is not changed by Git line-ending normalization. `git diff --cached --check` PASS. Material checkout was clean after commit.
+- Independent RobQA must bind its engineering verdict to this exact material. Subsequent ledger-only commits are evidence, not a new material candidate. Coordinator packaging and local preview refresh are authorized by the current user request after QA. No push, merge or publication.
+
+## R material Git numstat
+
+```text
+20	0	HANDOFF.md
+2966	0	data/mechanics-assessments.v1.json
+6	0	docs/mechanics-research/COLOR-ACCESS-PROTOCOL.md
+55	0	docs/mechanics-research/R-ACCESS-REVIEW.md
+1	0	docs/mechanics-research/r-protocol-evidence/chromium-paper-printings.json
+1	0	docs/mechanics-research/r-protocol-evidence/gabriel-angelfire-paper-printings.json
+1	0	docs/mechanics-research/r-protocol-evidence/hunding-gjornersen-paper-printings.json
+1	0	docs/mechanics-research/r-protocol-evidence/lord-of-tresserhorn-paper-printings.json
+1	0	docs/mechanics-research/r-protocol-evidence/marhault-elsdragon-paper-printings.json
+1	0	docs/mechanics-research/r-protocol-evidence/radiance-full-oracle-discovery.json
+1	0	docs/mechanics-research/r-protocol-evidence/ragnar-paper-printings.json
+1	0	docs/mechanics-research/r-protocol-evidence/raid-full-oracle-discovery.json
+1	0	docs/mechanics-research/r-protocol-evidence/rally-full-oracle-discovery.json
+1	0	docs/mechanics-research/r-protocol-evidence/rampage-full-oracle-discovery.json
+1	0	docs/mechanics-research/r-protocol-evidence/ravenous-full-oracle-discovery.json
+1	0	docs/mechanics-research/r-protocol-evidence/read-ahead-alternate-discovery.json
+6	0	docs/mechanics-research/r-protocol-evidence/read-ahead-original-query-fresh-error-attempt.json
+1	0	docs/mechanics-research/r-protocol-evidence/rebound-full-oracle-discovery.json
+1	0	docs/mechanics-research/r-protocol-evidence/reconfigure-full-oracle-discovery.json
+1	0	docs/mechanics-research/r-protocol-evidence/recover-full-oracle-discovery.json
+1	0	docs/mechanics-research/r-protocol-evidence/recruit-full-oracle-discovery.json
+1	0	docs/mechanics-research/r-protocol-evidence/regenerate-full-oracle-discovery-page-2.json
+1	0	docs/mechanics-research/r-protocol-evidence/regenerate-full-oracle-discovery.json
+1	0	docs/mechanics-research/r-protocol-evidence/reinforce-full-oracle-discovery.json
+1	0	docs/mechanics-research/r-protocol-evidence/renew-full-oracle-discovery.json
+1	0	docs/mechanics-research/r-protocol-evidence/renown-full-oracle-discovery.json
+1	0	docs/mechanics-research/r-protocol-evidence/repartee-full-oracle-discovery.json
+1	0	docs/mechanics-research/r-protocol-evidence/replicate-full-oracle-discovery.json
+1	0	docs/mechanics-research/r-protocol-evidence/retrace-full-oracle-discovery.json
+410	0	docs/mechanics-research/r-protocol-evidence/retrieval-receipts.json
+1	0	docs/mechanics-research/r-protocol-evidence/reveal-full-oracle-discovery-page-2.json
+1	0	docs/mechanics-research/r-protocol-evidence/reveal-full-oracle-discovery-page-3.json
+1	0	docs/mechanics-research/r-protocol-evidence/reveal-full-oracle-discovery-page-4.json
+1	0	docs/mechanics-research/r-protocol-evidence/reveal-full-oracle-discovery-page-5.json
+1	0	docs/mechanics-research/r-protocol-evidence/reveal-full-oracle-discovery-page-6.json
+1	0	docs/mechanics-research/r-protocol-evidence/reveal-full-oracle-discovery-page-7.json
+1	0	docs/mechanics-research/r-protocol-evidence/reveal-full-oracle-discovery-page-8.json
+1	0	docs/mechanics-research/r-protocol-evidence/reveal-full-oracle-discovery-page-9.json
+1	0	docs/mechanics-research/r-protocol-evidence/reveal-full-oracle-discovery.json
+1	0	docs/mechanics-research/r-protocol-evidence/revolt-full-oracle-discovery.json
+1	0	docs/mechanics-research/r-protocol-evidence/riot-full-oracle-discovery.json
+1	0	docs/mechanics-research/r-protocol-evidence/ripple-full-oracle-discovery.json
+1	0	docs/mechanics-research/r-protocol-evidence/role-token-alternate-discovery.json
+6	0	docs/mechanics-research/r-protocol-evidence/role-token-original-query-fresh-error-attempt.json
+1	0	docs/mechanics-research/r-protocol-evidence/roll-to-visit-your-attractions-alternate-discovery.json
+6	0	docs/mechanics-research/r-protocol-evidence/roll-to-visit-your-attractions-original-query-fresh-error-attempt.json
+567	0	docs/mechanics-research/r-protocol-evidence/selected-candidate-bindings.json
+24384	0	docs/mechanics-research/r-protocol.json
+9	9	tools/build_mechanics_assessments.py
+144	16	tools/check_assessment_browser.mjs
+16	14	vox-color/mechanical-explorer.html
+```
+
 # R supplemental Color Access — developer candidate
 
 - Status: `dev-in-progress`; all material source and runtime work is complete, with independent QA still PENDING. Baseline: `ab053fb3e3228797466fad13a3aa65a1eee248ef` on existing `codex/a-mechanics-review`. The material SHA is resolved by the next commit and bound in the following QA handoff. No Owner acceptance is inferred.
