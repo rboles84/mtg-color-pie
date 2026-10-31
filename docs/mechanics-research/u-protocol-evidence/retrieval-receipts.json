@@ -1,0 +1,207 @@
+{
+  "retrievals": [
+    {
+      "path": "docs/mechanics-research/u-protocol-evidence/undying-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22undying%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T14:18:06.7851095Z",
+      "requestEndedUtc": "2026-10-31T14:18:07.1330911Z",
+      "status": 200,
+      "rawSha256": "6d3f5dfc38f34fba1144d6a7c347105b5f5864bb57374dba39cd0e4f6c7d5ca5",
+      "bindingStatus": "usable_discovery"
+    },
+    {
+      "path": "docs/mechanics-research/u-protocol-evidence/unleash-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22unleash%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T14:18:07.2787729Z",
+      "requestEndedUtc": "2026-10-31T14:18:07.5996777Z",
+      "status": 200,
+      "rawSha256": "78851afe435b4c1817e502ce298a8a9a2852fafa1a0f51b20b2caeefe03f3cdf",
+      "bindingStatus": "usable_discovery"
+    },
+    {
+      "path": "docs/mechanics-research/u-protocol-evidence/umbra-armor-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22totem%20armor%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T14:18:07.7327314Z",
+      "requestEndedUtc": "2026-10-31T14:18:08.0005930Z",
+      "status": 200,
+      "rawSha256": "78851afe435b4c1817e502ce298a8a9a2852fafa1a0f51b20b2caeefe03f3cdf",
+      "bindingStatus": "unbound_query_mismatch"
+    },
+    {
+      "path": "docs/mechanics-research/u-protocol-evidence/undergrowth-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22undergrowth%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T14:18:08.1235889Z",
+      "requestEndedUtc": "2026-10-31T14:18:08.4165341Z",
+      "status": 200,
+      "rawSha256": "6f1eddbee31d7d4c075f32c7bd8ef9ffeec4a4e01bcc8c2877e598692be395de",
+      "bindingStatus": "usable_discovery"
+    },
+    {
+      "path": "docs/mechanics-research/u-protocol-evidence/unearth-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22unearth%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T14:18:08.5388168Z",
+      "requestEndedUtc": "2026-10-31T14:18:08.8949236Z",
+      "status": 200,
+      "rawSha256": "e09732c5d28a4b065309d9984914ce436822c1d2dbed5d3156216d39e9cf50b6",
+      "bindingStatus": "usable_discovery"
+    },
+    {
+      "path": "docs/mechanics-research/u-protocol-evidence/underdog-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22underdog%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T14:18:09.0275435Z",
+      "requestEndedUtc": "2026-10-31T14:18:09.2477269Z",
+      "status": 200,
+      "rawSha256": "e09732c5d28a4b065309d9984914ce436822c1d2dbed5d3156216d39e9cf50b6",
+      "bindingStatus": "unbound_query_mismatch"
+    },
+    {
+      "path": "docs/mechanics-research/u-protocol-evidence/undaunted-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22undaunted%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T14:18:09.3682141Z",
+      "requestEndedUtc": "2026-10-31T14:18:09.8985921Z",
+      "status": 200,
+      "rawSha256": "724a43e947c9fcf13af2fe01a149b29029236148b7b3a631f815c3064ee920e9",
+      "bindingStatus": "usable_discovery"
+    },
+    {
+      "path": "docs/mechanics-research/u-protocol-evidence/undying-keyword-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=kw%3A%22Undying%22&unique=cards",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T14:19:54.4797334Z",
+      "requestEndedUtc": "2026-10-31T14:19:54.7674878Z",
+      "status": 200,
+      "rawSha256": "5edde7c2085f06d85ea2825993fd4647992712e2d2b9b49cfcc810ccf3b2e10c",
+      "bindingStatus": "usable_discovery"
+    },
+    {
+      "path": "docs/mechanics-research/u-protocol-evidence/undaunted-keyword-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=kw%3A%22Undaunted%22&unique=cards",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T14:19:54.9191638Z",
+      "requestEndedUtc": "2026-10-31T14:19:55.0982868Z",
+      "status": 200,
+      "rawSha256": "0ee8f8516e71d6cb6e015e21cfa841ca026aea299908014a0004a846fb3abac5",
+      "bindingStatus": "usable_discovery"
+    },
+    {
+      "path": "docs/mechanics-research/u-protocol-evidence/umbra-armor-keyword-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=kw%3A%22Umbra%20Armor%22&unique=cards",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T14:19:55.2318855Z",
+      "requestEndedUtc": "2026-10-31T14:19:55.4223702Z",
+      "status": 200,
+      "rawSha256": "dfcd69d4e2e7df6a3a70c2b872779fa49905ad900884c7a55ab311cd00f256c6",
+      "bindingStatus": "usable_discovery"
+    },
+    {
+      "path": "docs/mechanics-research/u-protocol-evidence/unleash-keyword-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=kw%3A%22Unleash%22&unique=cards",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T14:19:55.5446664Z",
+      "requestEndedUtc": "2026-10-31T14:19:56.7230676Z",
+      "status": 200,
+      "rawSha256": "e8b6f609d2f269f6deb061c0581c303b4b5153b39d667192c42e22ff85ba184c",
+      "bindingStatus": "usable_discovery"
+    },
+    {
+      "path": "docs/mechanics-research/u-protocol-evidence/unearth-keyword-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?q=kw%3A%22Unearth%22&unique=cards",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T14:19:56.8447206Z",
+      "requestEndedUtc": "2026-10-31T14:19:57.1436586Z",
+      "status": 200,
+      "rawSha256": "4ef7ed6bc173c2654b0640a265cbeac3c3e55f9f21db8940348ebed6c15ac7d8",
+      "bindingStatus": "usable_discovery"
+    },
+    {
+      "path": "docs/mechanics-research/u-protocol-evidence/selected-cards.json",
+      "url": "https://api.scryfall.com/cards/collection",
+      "method": "POST",
+      "requestStartedUtc": "2026-10-31T14:20:23.6982667Z",
+      "requestEndedUtc": "2026-10-31T14:20:24.2561151Z",
+      "status": 200,
+      "rawSha256": "e37149e7887bc4901720e5b6077150a2526556e8351119e26dc6b69f1b11da09",
+      "requestBodyPath": "docs/mechanics-research/u-protocol-evidence/selected-cards-request.json",
+      "requestBodySha256": "4605d6988454fdf16d27196f8bdfc976a94c9d640950224d2a47f1e04d2b97cc",
+      "bindingStatus": "selected_card_authority"
+    },
+    {
+      "path": "docs/mechanics-research/u-protocol-evidence/ruff-underdog-champ.json",
+      "url": "https://api.scryfall.com/cards/named?exact=Ruff%2C%20Underdog%20Champ",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T14:22:46.5539661Z",
+      "requestEndedUtc": "2026-10-31T14:22:46.7769056Z",
+      "status": 200,
+      "rawSha256": "ade8f63543d23e78447082741107a5bf12f6ec458fd6d6a165fe9499cf861c17",
+      "bindingStatus": "selected_card_authority"
+    },
+    {
+      "path": "docs/mechanics-research/u-protocol-evidence/umbra-armor-full-oracle-reviewed-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=game%3Apaper+date%3C%3D2026-10-31+%28fo%3A%22umbra+armor%22+or+fo%3A%22totem+armor%22%29+include%3Aextras&unique=cards&order=name",
+      "responseUrl": "https://api.scryfall.com/cards/search?q=game%3Apaper+date%3C%3D2026-10-31+%28fo%3A%22umbra+armor%22+or+fo%3A%22totem+armor%22%29+include%3Aextras&unique=cards&order=name",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T14:26:49.183223+00:00",
+      "requestEndedUtc": "2026-10-31T14:26:49.781928+00:00",
+      "status": 200,
+      "rawSha256": "cddb851f4cd8c66f099b012f2fe3d916920cfa90eecfb6e523959c6d898e68c0"
+    },
+    {
+      "path": "docs/mechanics-research/u-protocol-evidence/underdog-full-oracle-reviewed-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22underdog%22+include%3Aextras&unique=cards&order=name",
+      "responseUrl": "https://api.scryfall.com/cards/search?q=fo%3A%22underdog%22+include%3Aextras&unique=cards&order=name",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T14:26:49.933722+00:00",
+      "requestEndedUtc": "2026-10-31T14:26:50.219054+00:00",
+      "status": 200,
+      "rawSha256": "1f58ae98f12e742a408d6785e945705b8d8e6e7370b6314056c243658b519755"
+    },
+    {
+      "path": "docs/mechanics-research/u-protocol-evidence/undergrowth-full-oracle-reviewed-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22undergrowth%22+include%3Aextras&unique=cards&order=name",
+      "responseUrl": "https://api.scryfall.com/cards/search?q=fo%3A%22undergrowth%22+include%3Aextras&unique=cards&order=name",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T14:26:50.369948+00:00",
+      "requestEndedUtc": "2026-10-31T14:26:50.722181+00:00",
+      "status": 200,
+      "rawSha256": "fe064a5524d603074f46c4b1bc236b0ca0b478c15adda3b5f395b0d7cd5c53ad"
+    },
+    {
+      "path": "docs/mechanics-research/u-protocol-evidence/mystery-booster-release-notes-reviewed.html",
+      "url": "https://magic.wizards.com/en/news/feature/mystery-booster-release-notes-2019-11-11",
+      "responseUrl": "https://magic.wizards.com/en/news/feature/mystery-booster-release-notes-2019-11-11",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T14:26:50.873342+00:00",
+      "requestEndedUtc": "2026-10-31T14:26:51.146203+00:00",
+      "status": 200,
+      "rawSha256": "a3fb246b79fae541515dd62f1f2cfbd19d7bee2fcc11b2d1d0104f0ae104ba5b"
+    },
+    {
+      "path": "docs/mechanics-research/u-protocol-evidence/guilds-ravnica-mechanics-reviewed.html",
+      "url": "https://magic.wizards.com/en/news/feature/guilds-ravnica-mechanics-2018-09-04",
+      "responseUrl": "https://magic.wizards.com/en/news/feature/guilds-ravnica-mechanics-2018-09-04",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T14:26:51.297859+00:00",
+      "requestEndedUtc": "2026-10-31T14:26:51.898935+00:00",
+      "status": 200,
+      "rawSha256": "235262a6dd41a67f165af9fc582e2b386a47e13f885d176dee96c54e7aefbc5a"
+    }
+  ],
+  "historical_unknowns": [
+    {
+      "path": "docs/mechanics-research/u-protocol-evidence/mystery-booster-release-notes.html",
+      "rawSha256": "a56d829a7b93b8427099661ef1d1dda6508a03493e7493afdd606a5781113fd4",
+      "statusClaim": 200,
+      "requestStartedUtc": null,
+      "requestEndedUtc": null,
+      "bindingStatus": "unbound_missing_retrieval_interval",
+      "note": "Original special receipt has no official request interval. Fresh separately named official capture supplies current authority; no original date is invented."
+    }
+  ]
+}

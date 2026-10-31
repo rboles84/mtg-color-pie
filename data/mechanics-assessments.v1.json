@@ -112,6 +112,10 @@
     {
       "path": "docs/mechanics-research/t-protocol.json",
       "sha256": "d3a54b1dfbdb8f49b1a9bb6ab754ce07257bc5a18a256d5d27fcd315a614abe0"
+    },
+    {
+      "path": "docs/mechanics-research/u-protocol.json",
+      "sha256": "75d49965115a04d50e68e1e221e10b581e31e48adec60888cf62295ad0fe4306"
     }
   ],
   "records": [
@@ -62575,6 +62579,854 @@
         }
       ],
       "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:umbra armor",
+      "name": "Umbra Armor",
+      "kind": "access",
+      "researchDate": "2026-10-31",
+      "scopeLabel": "Released paper cards",
+      "scope": "Umbra armor replaces destruction of the enchanted permanent with removing all damage marked on it and destroying the Aura. Older cards used the name totem armor.",
+      "summary": "Umbra armor replaces destruction of the enchanted permanent with removing all damage marked on it and destroying the Aura. Older cards used the name totem armor.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Eland Umbra gives the enchanted creature +0/+4.",
+            "cards": [
+              {
+                "name": "Eland Umbra",
+                "url": "https://scryfall.com/card/roe/19/eland-umbra?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Eland%20Umbra%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Crab Umbra can untap the enchanted creature for {2}{U}.",
+            "cards": [
+              {
+                "name": "Crab Umbra",
+                "url": "https://scryfall.com/card/roe/58/crab-umbra?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Crab%20Umbra%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "not_found",
+            "note": "No example found in the reviewed released-paper evidence.",
+            "cards": [],
+            "findUrl": null
+          },
+          "R": {
+            "status": "not_found",
+            "note": "No example found in the reviewed released-paper evidence.",
+            "cards": [],
+            "findUrl": null
+          },
+          "G": {
+            "status": "documented",
+            "note": "Lion Umbra enchants only a modified creature, giving it +3/+3, reach and vigilance.",
+            "cards": [
+              {
+                "name": "Lion Umbra",
+                "url": "https://scryfall.com/card/mh3/160/lion-umbra?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Lion%20Umbra%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "W",
+              "G"
+            ],
+            "note": "Indrik Umbra gives +4/+4 and first strike, and requires all creatures able to block the enchanted creature to do so.",
+            "cards": [
+              {
+                "name": "Indrik Umbra",
+                "url": "https://scryfall.com/card/pca/96/indrik-umbra?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Indrik%20Umbra%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "U",
+              "G"
+            ],
+            "note": "Estrid's -1 ability creates a white Mask Aura attached to another target permanent, with enchant permanent and umbra armor.",
+            "cards": [
+              {
+                "name": "Estrid, the Masked",
+                "url": "https://scryfall.com/card/c18/40/estrid-the-masked?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Estrid%2C%20the%20Masked%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "not_found",
+          "note": "No example found in the reviewed released-paper evidence.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Indrik Umbra",
+          "url": "https://scryfall.com/card/pca/96/indrik-umbra?utm_source=api"
+        },
+        {
+          "name": "Eland Umbra",
+          "url": "https://scryfall.com/card/roe/19/eland-umbra?utm_source=api"
+        },
+        {
+          "name": "Lion Umbra",
+          "url": "https://scryfall.com/card/mh3/160/lion-umbra?utm_source=api"
+        },
+        {
+          "name": "Crab Umbra",
+          "url": "https://scryfall.com/card/roe/58/crab-umbra?utm_source=api"
+        },
+        {
+          "name": "Estrid, the Masked",
+          "url": "https://scryfall.com/card/c18/40/estrid-the-masked?utm_source=api"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Magic: The Gathering Comprehensive Rules",
+          "url": "https://magic.wizards.com/en/rules"
+        }
+      ],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:undaunted",
+      "name": "Undaunted",
+      "kind": "access",
+      "researchDate": "2026-10-31",
+      "scopeLabel": "Released paper cards",
+      "scope": "Undaunted reduces a spell's cost by {1} for each opponent.",
+      "summary": "Undaunted reduces a spell's cost by {1} for each opponent.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Sublime Exhalation destroys all creatures.",
+            "cards": [
+              {
+                "name": "Sublime Exhalation",
+                "url": "https://scryfall.com/card/cmm/60/sublime-exhalation?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Sublime%20Exhalation%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Coastal Breach returns all nonland permanents to their owners' hands.",
+            "cards": [
+              {
+                "name": "Coastal Breach",
+                "url": "https://scryfall.com/card/c16/6/coastal-breach?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Coastal%20Breach%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Curtains' Call destroys two target creatures.",
+            "cards": [
+              {
+                "name": "Curtains' Call",
+                "url": "https://scryfall.com/card/otc/130/curtains-call?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Curtains%27%20Call%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Divergent Transformations exiles two target creatures; each is replaced by the next creature card its controller reveals, then the remaining revealed cards are shuffled back.",
+            "cards": [
+              {
+                "name": "Divergent Transformations",
+                "url": "https://scryfall.com/card/cmm/216/divergent-transformations?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Divergent%20Transformations%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Seeds of Renewal returns up to two target cards from your graveyard to your hand, then exiles itself.",
+            "cards": [
+              {
+                "name": "Seeds of Renewal",
+                "url": "https://scryfall.com/card/c16/24/seeds-of-renewal?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Seeds%20of%20Renewal%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "not_found",
+          "note": "No example found in the reviewed released-paper evidence.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Divergent Transformations",
+          "url": "https://scryfall.com/card/cmm/216/divergent-transformations?utm_source=api"
+        },
+        {
+          "name": "Curtains' Call",
+          "url": "https://scryfall.com/card/otc/130/curtains-call?utm_source=api"
+        },
+        {
+          "name": "Seeds of Renewal",
+          "url": "https://scryfall.com/card/c16/24/seeds-of-renewal?utm_source=api"
+        },
+        {
+          "name": "Sublime Exhalation",
+          "url": "https://scryfall.com/card/cmm/60/sublime-exhalation?utm_source=api"
+        },
+        {
+          "name": "Coastal Breach",
+          "url": "https://scryfall.com/card/c16/6/coastal-breach?utm_source=api"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Magic: The Gathering Comprehensive Rules",
+          "url": "https://magic.wizards.com/en/rules"
+        }
+      ],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:underdog",
+      "name": "Underdog",
+      "kind": "access",
+      "researchDate": "2026-10-31",
+      "scopeLabel": "Mystery Booster playtest card",
+      "scope": "On the playtest card Ruff, Underdog Champ, Underdog gives Ruff and other Dogs you control +1/+1 if you've lost a game this match.",
+      "summary": "On the playtest card Ruff, Underdog Champ, Underdog gives Ruff and other Dogs you control +1/+1 if you've lost a game this match.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Ruff also has first strike and lifelink.",
+            "cards": [
+              {
+                "name": "Ruff, Underdog Champ",
+                "url": "https://scryfall.com/card/cmb2/10/ruff-underdog-champ?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Ruff%2C%20Underdog%20Champ%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "not_found",
+            "note": "No example found in the searched playtest scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "B": {
+            "status": "not_found",
+            "note": "No example found in the searched playtest scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "R": {
+            "status": "not_found",
+            "note": "No example found in the searched playtest scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "G": {
+            "status": "not_found",
+            "note": "No example found in the searched playtest scope.",
+            "cards": [],
+            "findUrl": null
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "not_found",
+          "note": "No example found in the searched playtest scope.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": [
+          "Underdog is Ruff's card-specific playtest label."
+        ]
+      },
+      "citationCards": [
+        {
+          "name": "Ruff, Underdog Champ",
+          "url": "https://scryfall.com/card/cmb2/10/ruff-underdog-champ?utm_source=api"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Mystery Booster Release Notes",
+          "url": "https://magic.wizards.com/en/news/feature/mystery-booster-release-notes-2019-11-11"
+        }
+      ],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:undergrowth",
+      "name": "Undergrowth",
+      "kind": "access",
+      "researchDate": "2026-10-31",
+      "scopeLabel": "Released paper cards",
+      "scope": "Undergrowth is an ability word for effects that care about the number of creature cards in your graveyard.",
+      "summary": "Undergrowth is an ability word for effects that care about the number of creature cards in your graveyard.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "not_found",
+            "note": "No example found in the reviewed released-paper evidence.",
+            "cards": [],
+            "findUrl": null
+          },
+          "U": {
+            "status": "not_found",
+            "note": "No example found in the reviewed released-paper evidence.",
+            "cards": [],
+            "findUrl": null
+          },
+          "B": {
+            "status": "documented",
+            "note": "When Lotleth Giant enters, it deals 1 damage to target opponent for each creature card in your graveyard.",
+            "cards": [
+              {
+                "name": "Lotleth Giant",
+                "url": "https://scryfall.com/card/cmm/171/lotleth-giant?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Lotleth%20Giant%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "not_found",
+            "note": "No example found in the reviewed released-paper evidence.",
+            "cards": [],
+            "findUrl": null
+          },
+          "G": {
+            "status": "documented",
+            "note": "Golgari Raiders has haste and enters with a +1/+1 counter for each creature card in your graveyard.",
+            "cards": [
+              {
+                "name": "Golgari Raiders",
+                "url": "https://scryfall.com/card/grn/130/golgari-raiders?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Golgari%20Raiders%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "B",
+              "G"
+            ],
+            "note": "When Izoni enters, it creates a 1/1 black and green Insect creature token for each creature card in your graveyard.",
+            "cards": [
+              {
+                "name": "Izoni, Thousand-Eyed",
+                "url": "https://scryfall.com/card/grn/180/izoni-thousand-eyed?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Izoni%2C%20Thousand-Eyed%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "not_found",
+          "note": "No example found in the reviewed released-paper evidence.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Lotleth Giant",
+          "url": "https://scryfall.com/card/cmm/171/lotleth-giant?utm_source=api"
+        },
+        {
+          "name": "Izoni, Thousand-Eyed",
+          "url": "https://scryfall.com/card/grn/180/izoni-thousand-eyed?utm_source=api"
+        },
+        {
+          "name": "Golgari Raiders",
+          "url": "https://scryfall.com/card/grn/130/golgari-raiders?utm_source=api"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Guilds of Ravnica Mechanics",
+          "url": "https://magic.wizards.com/en/news/feature/guilds-ravnica-mechanics-2018-09-04"
+        }
+      ],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:undying",
+      "name": "Undying",
+      "kind": "access",
+      "researchDate": "2026-10-31",
+      "scopeLabel": "Released paper cards",
+      "scope": "If a permanent with undying goes from the battlefield to a graveyard without a +1/+1 counter, it returns under its owner's control with a +1/+1 counter.",
+      "summary": "If a permanent with undying goes from the battlefield to a graveyard without a +1/+1 counter, it returns under its owner's control with a +1/+1 counter.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "not_found",
+            "note": "No example found in the reviewed released-paper evidence.",
+            "cards": [],
+            "findUrl": null
+          },
+          "U": {
+            "status": "documented",
+            "note": "When Geralf's Mindcrusher enters, target player mills five cards.",
+            "cards": [
+              {
+                "name": "Geralf's Mindcrusher",
+                "url": "https://scryfall.com/card/dka/37/geralfs-mindcrusher?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Geralf%27s%20Mindcrusher%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Butcher Ghoul is a 1/1 with undying.",
+            "cards": [
+              {
+                "name": "Butcher Ghoul",
+                "url": "https://scryfall.com/card/inr/99/butcher-ghoul?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Butcher%20Ghoul%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Hound of Griselbrand is a 2/2 with double strike and undying.",
+            "cards": [
+              {
+                "name": "Hound of Griselbrand",
+                "url": "https://scryfall.com/card/avr/141/hound-of-griselbrand?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Hound%20of%20Griselbrand%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Creatures with less power than Howlgeist can't block it.",
+            "cards": [
+              {
+                "name": "Howlgeist",
+                "url": "https://scryfall.com/card/avr/182/howlgeist?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Howlgeist%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "B",
+              "R"
+            ],
+            "note": "Witch-king, Sky Scourge has flying and undying.",
+            "cards": [
+              {
+                "name": "Witch-king, Sky Scourge",
+                "url": "https://scryfall.com/card/ltc/511/witch-king-sky-scourge?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Witch-king%2C%20Sky%20Scourge%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "not_found",
+          "note": "No example found in the reviewed released-paper evidence.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Geralf's Mindcrusher",
+          "url": "https://scryfall.com/card/dka/37/geralfs-mindcrusher?utm_source=api"
+        },
+        {
+          "name": "Hound of Griselbrand",
+          "url": "https://scryfall.com/card/avr/141/hound-of-griselbrand?utm_source=api"
+        },
+        {
+          "name": "Howlgeist",
+          "url": "https://scryfall.com/card/avr/182/howlgeist?utm_source=api"
+        },
+        {
+          "name": "Witch-king, Sky Scourge",
+          "url": "https://scryfall.com/card/ltc/511/witch-king-sky-scourge?utm_source=api"
+        },
+        {
+          "name": "Butcher Ghoul",
+          "url": "https://scryfall.com/card/inr/99/butcher-ghoul?utm_source=api"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Magic: The Gathering Comprehensive Rules",
+          "url": "https://magic.wizards.com/en/rules"
+        }
+      ],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:unearth",
+      "name": "Unearth",
+      "kind": "access",
+      "researchDate": "2026-10-31",
+      "scopeLabel": "Released paper cards",
+      "scope": "Pay a card's unearth cost from your graveyard to return it with haste. Activate only as a sorcery; exile it at the beginning of the next end step, or instead of putting it anywhere else if it leaves the battlefield.",
+      "summary": "Pay a card's unearth cost from your graveyard to return it with haste. Activate only as a sorcery; exile it at the beginning of the next end step, or instead of putting it anywhere else if it leaves the battlefield.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Salvation Colossus's unearth cost is eight {E}.",
+            "cards": [
+              {
+                "name": "Salvation Colossus",
+                "url": "https://scryfall.com/card/m3c/43/salvation-colossus?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Salvation%20Colossus%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Brackwater Elemental has unearth {2}{U}.",
+            "cards": [
+              {
+                "name": "Brackwater Elemental",
+                "url": "https://scryfall.com/card/ddh/46/brackwater-elemental?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Brackwater%20Elemental%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Corpse Connoisseur has unearth {3}{B}.",
+            "cards": [
+              {
+                "name": "Corpse Connoisseur",
+                "url": "https://scryfall.com/card/mm3/61/corpse-connoisseur?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Corpse%20Connoisseur%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Hellspark Elemental has unearth {1}{R}.",
+            "cards": [
+              {
+                "name": "Hellspark Elemental",
+                "url": "https://scryfall.com/card/ddk/46/hellspark-elemental?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Hellspark%20Elemental%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "not_found",
+            "note": "No example found in the reviewed released-paper evidence.",
+            "cards": [],
+            "findUrl": null
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "U",
+              "B"
+            ],
+            "note": "Etherium Abomination has unearth {1}{U}{B}.",
+            "cards": [
+              {
+                "name": "Etherium Abomination",
+                "url": "https://scryfall.com/card/arb/20/etherium-abomination?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Etherium%20Abomination%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "B",
+              "R"
+            ],
+            "note": "Anathemancer has unearth {5}{B}{R}.",
+            "cards": [
+              {
+                "name": "Anathemancer",
+                "url": "https://scryfall.com/card/arb/33/anathemancer?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Anathemancer%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "B"
+            ],
+            "note": "Priest of Fell Rites has unearth {3}{W}{B}.",
+            "cards": [
+              {
+                "name": "Priest of Fell Rites",
+                "url": "https://scryfall.com/card/mh2/208/priest-of-fell-rites?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Priest%20of%20Fell%20Rites%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "U",
+              "B",
+              "R"
+            ],
+            "note": "Sedraxis Specter has unearth {1}{B}.",
+            "cards": [
+              {
+                "name": "Sedraxis Specter",
+                "url": "https://scryfall.com/card/2x2/273/sedraxis-specter?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Sedraxis%20Specter%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "documented",
+          "note": "Reconstructed Thopter has unearth {2}.",
+          "cards": [
+            {
+              "name": "Reconstructed Thopter",
+              "url": "https://scryfall.com/card/bro/242/reconstructed-thopter?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22Reconstructed%20Thopter%22%29%20include%3Aextras"
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Corpse Connoisseur",
+          "url": "https://scryfall.com/card/mm3/61/corpse-connoisseur?utm_source=api"
+        },
+        {
+          "name": "Etherium Abomination",
+          "url": "https://scryfall.com/card/arb/20/etherium-abomination?utm_source=api"
+        },
+        {
+          "name": "Sedraxis Specter",
+          "url": "https://scryfall.com/card/2x2/273/sedraxis-specter?utm_source=api"
+        },
+        {
+          "name": "Brackwater Elemental",
+          "url": "https://scryfall.com/card/ddh/46/brackwater-elemental?utm_source=api"
+        },
+        {
+          "name": "Salvation Colossus",
+          "url": "https://scryfall.com/card/m3c/43/salvation-colossus?utm_source=api"
+        },
+        {
+          "name": "Anathemancer",
+          "url": "https://scryfall.com/card/arb/33/anathemancer?utm_source=api"
+        },
+        {
+          "name": "Priest of Fell Rites",
+          "url": "https://scryfall.com/card/mh2/208/priest-of-fell-rites?utm_source=api"
+        },
+        {
+          "name": "Hellspark Elemental",
+          "url": "https://scryfall.com/card/ddk/46/hellspark-elemental?utm_source=api"
+        },
+        {
+          "name": "Reconstructed Thopter",
+          "url": "https://scryfall.com/card/bro/242/reconstructed-thopter?utm_source=api"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Magic: The Gathering Comprehensive Rules",
+          "url": "https://magic.wizards.com/en/rules"
+        }
+      ],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:unleash",
+      "name": "Unleash",
+      "kind": "access",
+      "researchDate": "2026-10-31",
+      "scopeLabel": "Released paper cards",
+      "scope": "You may have a permanent with unleash enter with an additional +1/+1 counter. It can't block while it has any +1/+1 counter.",
+      "summary": "You may have a permanent with unleash enter with an additional +1/+1 counter. It can't block while it has any +1/+1 counter.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "not_found",
+            "note": "No example found in the reviewed released-paper evidence.",
+            "cards": [],
+            "findUrl": null
+          },
+          "U": {
+            "status": "not_found",
+            "note": "No example found in the reviewed released-paper evidence.",
+            "cards": [],
+            "findUrl": null
+          },
+          "B": {
+            "status": "documented",
+            "note": "Dead Reveler is a 2/3 Zombie with unleash.",
+            "cards": [
+              {
+                "name": "Dead Reveler",
+                "url": "https://scryfall.com/card/ima/86/dead-reveler?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Dead%20Reveler%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Gore-House Chainwalker is a 2/1 Human Warrior with unleash.",
+            "cards": [
+              {
+                "name": "Gore-House Chainwalker",
+                "url": "https://scryfall.com/card/rtr/96/gore-house-chainwalker?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Gore-House%20Chainwalker%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "not_found",
+            "note": "No example found in the reviewed released-paper evidence.",
+            "cards": [],
+            "findUrl": null
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "B",
+              "R"
+            ],
+            "note": "Rakdos Cackler is a 1/1 Devil with unleash and a mana cost of {B/R}.",
+            "cards": [
+              {
+                "name": "Rakdos Cackler",
+                "url": "https://scryfall.com/card/rtr/220/rakdos-cackler?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Rakdos%20Cackler%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "not_found",
+          "note": "No example found in the reviewed released-paper evidence.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Rakdos Cackler",
+          "url": "https://scryfall.com/card/rtr/220/rakdos-cackler?utm_source=api"
+        },
+        {
+          "name": "Gore-House Chainwalker",
+          "url": "https://scryfall.com/card/rtr/96/gore-house-chainwalker?utm_source=api"
+        },
+        {
+          "name": "Dead Reveler",
+          "url": "https://scryfall.com/card/ima/86/dead-reveler?utm_source=api"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Magic: The Gathering Comprehensive Rules",
+          "url": "https://magic.wizards.com/en/rules"
+        }
+      ],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:catalog-gaps:untap",
+      "name": "Untap",
+      "kind": "rules",
+      "researchDate": "2026-10-31",
+      "scopeLabel": "Rules reference",
+      "scope": "Untap turns a tapped permanent upright; only tapped permanents can be untapped.",
+      "summary": "Untap turns a tapped permanent upright; only tapped permanents can be untapped.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "not_applicable",
+            "note": "Generic rules action; no color-access bucket.",
+            "cards": [],
+            "findUrl": null
+          },
+          "U": {
+            "status": "not_applicable",
+            "note": "Generic rules action; no color-access bucket.",
+            "cards": [],
+            "findUrl": null
+          },
+          "B": {
+            "status": "not_applicable",
+            "note": "Generic rules action; no color-access bucket.",
+            "cards": [],
+            "findUrl": null
+          },
+          "R": {
+            "status": "not_applicable",
+            "note": "Generic rules action; no color-access bucket.",
+            "cards": [],
+            "findUrl": null
+          },
+          "G": {
+            "status": "not_applicable",
+            "note": "Generic rules action; no color-access bucket.",
+            "cards": [],
+            "findUrl": null
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "not_applicable",
+          "note": "Generic rules action; no colorless access bucket.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": []
+      },
+      "citationCards": [],
+      "sources": [
+        {
+          "title": "Magic: The Gathering Comprehensive Rules",
+          "url": "https://magic.wizards.com/en/rules"
+        }
+      ],
       "relatedEffects": []
     }
   ]

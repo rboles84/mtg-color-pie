@@ -5,13 +5,13 @@ from urllib.parse import quote, urlsplit
 ROOT=Path(__file__).resolve().parents[1]
 REVIEW_NAMES=('a-protocol-core.json','a-protocol-extended.json','a-protocol-special.json',
               'b-protocol-core.json','b-protocol-extended.json',
-              'c-protocol-core.json','c-protocol-extended.json','c-protocol-special.json','d-protocol.json','e-protocol.json','f-protocol.json','g-protocol.json','h-protocol.json','i-protocol.json','j-protocol.json','k-protocol.json','l-protocol.json','m-protocol.json','n-protocol.json','o-protocol.json','p-protocol.json','r-protocol.json','s-protocol.json','t-protocol.json')
+              'c-protocol-core.json','c-protocol-extended.json','c-protocol-special.json','d-protocol.json','e-protocol.json','f-protocol.json','g-protocol.json','h-protocol.json','i-protocol.json','j-protocol.json','k-protocol.json','l-protocol.json','m-protocol.json','n-protocol.json','o-protocol.json','p-protocol.json','r-protocol.json','s-protocol.json','t-protocol.json','u-protocol.json')
 REVIEWS=[ROOT/'docs/mechanics-research'/n for n in REVIEW_NAMES]
 ADDENDUM=ROOT/'docs/mechanics-research/a-classification-addendum.json'; SUPPLEMENT=ROOT/'data/mechanics-supplement.v1.json'; OUTPUT=ROOT/'data/mechanics-assessments.v1.json'
 LEGACY_A=ROOT/'docs/mechanics-research/a-assessments-source.json'; LEGACY_ABSORB=ROOT/'docs/mechanics-research/absorb-assessment-source.json'
 SOURCE_INPUTS=[LEGACY_A,LEGACY_ABSORB,ADDENDUM,*REVIEWS]
 COLORS='WUBRG'; STATUSES={'documented','multicolor_only','not_found','not_applicable','insufficient_evidence'}
-TARGET_PREFIXES=('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','R','S','T'); RULES_ACTIONS={'Abandon','Activate','Attach','Cast','Counter','Create','Double','Destroy','Discard','Exchange','Exile','Face a dilemma','Play','Reveal','Sacrifice','Shuffle','Set in motion','Tap','Triple'}
+TARGET_PREFIXES=('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','R','S','T','U'); RULES_ACTIONS={'Abandon','Activate','Attach','Cast','Counter','Create','Double','Destroy','Discard','Exchange','Exile','Face a dilemma','Play','Reveal','Sacrifice','Shuffle','Set in motion','Tap','Triple','Untap'}
 # These two admitted A records predate the packet-level scope declaration.
 # Keep their frozen behavior while requiring every newly special-scoped packet
 # to declare its own scope in access_review.evidence_scope.
@@ -53,12 +53,12 @@ def legacy_cards():
  for card in absorb['observed_population']['cards']: out[card['oracle_id']]={'name':card['name'],'scryfall_url':card.get('scryfall_url')}
  return out
 def build():
- supplement=read(SUPPLEMENT); accepted={r['id']:r for r in supplement['records'] if r['name'].startswith(TARGET_PREFIXES) and r['target2021'] is None}; assert len(accepted)==346
- reviews=[r for p in REVIEWS for r in read(p)['records']];assert len(reviews)==len({r['mechanic']['name'] for r in reviews})==346
+ supplement=read(SUPPLEMENT); accepted={r['id']:r for r in supplement['records'] if r['name'].startswith(TARGET_PREFIXES) and r['target2021'] is None}; assert len(accepted)==354
+ reviews=[r for p in REVIEWS for r in read(p)['records']];assert len(reviews)==len({r['mechanic']['name'] for r in reviews})==354
  addendum=read(ADDENDUM); legacy=legacy_cards(); rows=[]
  for r in reviews:
   name,key=r['mechanic']['name'],r['mechanic']['accepted_id'];assert key in accepted and accepted[key]['name']==name
-  a=r['access_review'];assert a.get('version')=='2.0' and a.get('review_date')==('2026-10-30' if name.startswith(('N','O','P','R','S','T')) else '2026-10-29' if name.startswith(('G','H','I','J','K','L','M')) else '2026-10-28');assert all(isinstance(a.get(k),str) and a[k].strip() for k in ('scope_label','scope','summary'))
+  a=r['access_review'];assert a.get('version')=='2.0' and a.get('review_date')==('2026-10-31' if name.startswith('U') else '2026-10-30' if name.startswith(('N','O','P','R','S','T')) else '2026-10-29' if name.startswith(('G','H','I','J','K','L','M')) else '2026-10-28');assert all(isinstance(a.get(k),str) and a[k].strip() for k in ('scope_label','scope','summary'))
   rawcards={c['oracle_id']:c for c in r['card_review'] if c.get('included')}; cardmap=dict(rawcards); cardmap.update({key:value for key,value in legacy.items() if key in cardmap}); assert set(a.get('colors',{}))==set(COLORS)
   excluded=set(a.get('excluded_access_card_ids',[])); assert excluded <= set(rawcards)
   used=set()
@@ -103,10 +103,10 @@ def build():
    cs=combo.get('colors');assert isinstance(cs,list) and len(cs)>=2 and cs==sorted(cs,key=COLORS.index) and all(c in COLORS for c in cs);found=cards_for(combo.get('card_ids'),cardmap);assert found and isinstance(combo.get('note'),str) and combo['note'].strip();combos.append({'colors':cs,'note':combo['note'],'cards':found,'findUrl':find_url(found)})
   limitations=a.get('limitations');assert isinstance(limitations,list) and all(isinstance(x,str) and x.strip() for x in limitations)
   rows.append({'id':key,'name':name,'kind':'rules' if all(x['status']=='not_applicable' for x in colors.values()) else 'access','researchDate':a['review_date'],'scopeLabel':a['scope_label'],'scope':a['scope'],'summary':a['summary'],'access':{'colors':colors,'combinations':combos,'colorless':entry(a.get('colorless'),cardmap,True),'limitations':limitations},'citationCards':[{'name':c['name'],'url':card_url(c)} for c in cardmap.values()],'sources':sources(r),'relatedEffects':related(name,addendum)})
- assert len(rows)==len({r['id'] for r in rows})==346
+ assert len(rows)==len({r['id'] for r in rows})==354
  return {'schemaVersion':3,'protocolVersion':'2.0','researchDate':'2026-10-29','supplementCanonicalSha256':sha(canonical(supplement)),'sourceBindingFormat':'canonical-json-utf8','sourceBindings':[{'path':p.relative_to(ROOT).as_posix(),'sha256':sha(canonical(read(p)))} for p in SOURCE_INPUTS],'records':sorted(rows,key=lambda r:r['name'])}
 def main():
  p=argparse.ArgumentParser();p.add_argument('--check',action='store_true');args=p.parse_args();text=json.dumps(build(),indent=2,ensure_ascii=False)+'\n'
- if args.check: assert OUTPUT.read_text(encoding='utf-8')==text,'Generated assessment payload is stale';print('PASS: 346 protocol v2.0 A/B/C/D/E/F/G/H/I/J/K/L/M/N/O/P/R/S/T documented-access records; deterministic payload and source bindings')
- else:OUTPUT.write_text(text,encoding='utf-8');print('Wrote 346 A/B/C/D/E/F/G/H/I/J/K/L/M/N/O/P/R/S/T documented-access records')
+ if args.check: assert OUTPUT.read_text(encoding='utf-8')==text,'Generated assessment payload is stale';print('PASS: 354 protocol v2.0 A/B/C/D/E/F/G/H/I/J/K/L/M/N/O/P/R/S/T/U documented-access records; deterministic payload and source bindings')
+ else:OUTPUT.write_text(text,encoding='utf-8');print('Wrote 354 A/B/C/D/E/F/G/H/I/J/K/L/M/N/O/P/R/S/T/U documented-access records')
 if __name__=='__main__':main()

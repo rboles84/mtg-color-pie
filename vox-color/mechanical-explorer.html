@@ -1260,7 +1260,7 @@ function accessMarkHTML(c, status){
 function assessmentStripHTML(a){
   const combinationLabel=ORDER.some(c=>a.access.colors[c].status === 'documented') ? 'Combination' : 'Combination only';
   if (a.name === 'Fuse' || a.name === 'Friends forever') return '<span class="strip access-strip combo-access" aria-label="Documented color combinations">' + a.access.combinations.map(item=>comboMarkHTML(item,combinationLabel)).join('') + '</span>';
-  if ((['Hexproof from','Intimidate','Islandcycling','Islandwalk','Kicker'].includes(a.name) || (a.name.startsWith('L') || a.name.startsWith('M') || a.name.startsWith('N') || a.name.startsWith('O') || a.name.startsWith('P') || a.name.startsWith('R') || a.name.startsWith('S') || a.name.startsWith('T')) && a.access.combinations.length > 0)) return '<span class="strip access-strip mixed-access" aria-label="Independent color access and documented color combinations">' + ORDER.filter(c => a.access.colors[c].status === 'documented').map(c => accessMarkHTML(c,'documented')).join('') + (a.access.colorless.status === 'documented' ? accessMarkHTML('C','documented') : '') + a.access.combinations.map(item=>comboMarkHTML(item,combinationLabel)).join('') + '</span>';
+  if ((['Hexproof from','Intimidate','Islandcycling','Islandwalk','Kicker'].includes(a.name) || (a.name.startsWith('L') || a.name.startsWith('M') || a.name.startsWith('N') || a.name.startsWith('O') || a.name.startsWith('P') || a.name.startsWith('R') || a.name.startsWith('S') || a.name.startsWith('T') || a.name.startsWith('U')) && a.access.combinations.length > 0)) return '<span class="strip access-strip mixed-access" aria-label="Independent color access and documented color combinations">' + ORDER.filter(c => a.access.colors[c].status === 'documented').map(c => accessMarkHTML(c,'documented')).join('') + (a.access.colorless.status === 'documented' ? accessMarkHTML('C','documented') : '') + a.access.combinations.map(item=>comboMarkHTML(item,combinationLabel)).join('') + '</span>';
   return '<span class="strip access-strip" aria-hidden="true">' + ORDER.map(c => accessMarkHTML(c,a.access.colors[c].status)).join('') + (a.access.colorless.status === 'documented' ? accessMarkHTML('C','documented') : '') + '</span>';
 }
 const CI3_OUTLINE='M512 938.667c282.77 0 512-229.23 512-512s-229.23-512-512-512c-282.77 0-512 229.23-512 512s229.23 512 512 512v0z';
@@ -2103,7 +2103,7 @@ function assessmentHTML(k){
   const compactExamples = /^[CDEFGHIJKLMNOPRST]/.test(a.name);
   const displayColors = [...ORDER, ...(a.access.colorless.status === 'documented' ? ['C'] : [])];
   const comboOnly = a.name === 'Fuse' || a.name === 'Friends forever';
-  const independentOnly = (['Hexproof from','Intimidate','Islandcycling','Islandwalk','Kicker'].includes(a.name) || (a.name.startsWith('L') || a.name.startsWith('M') || a.name.startsWith('N') || a.name.startsWith('O') || a.name.startsWith('P') || a.name.startsWith('R') || a.name.startsWith('S') || a.name.startsWith('T')) && a.access.combinations.length > 0);
+  const independentOnly = (['Hexproof from','Intimidate','Islandcycling','Islandwalk','Kicker'].includes(a.name) || (a.name.startsWith('L') || a.name.startsWith('M') || a.name.startsWith('N') || a.name.startsWith('O') || a.name.startsWith('P') || a.name.startsWith('R') || a.name.startsWith('S') || a.name.startsWith('T') || a.name.startsWith('U')) && a.access.combinations.length > 0);
   const hasIndependentColor=ORDER.some(c=>a.access.colors[c].status === 'documented');
   const combinationLabel=hasIndependentColor ? 'Combination' : 'Combination only';
   const combinationRow = item => `<li class="own-row combo-row" data-combo="${item.colors.join('')}">${comboMarkHTML(item,combinationLabel)}<span class="own-c">${esc(item.colors.map(c=>CNAME[c]).join(' / '))}</span><span class="own-lead" aria-hidden="true"></span><span class="own-t">${combinationLabel}</span></li>`;
@@ -2155,14 +2155,14 @@ async function loadAssessments(data, status){
     const hash = [...new Uint8Array(digest)].map(n => n.toString(16).padStart(2,'0')).join('');
  if (!payload || payload.schemaVersion !== 3 || payload.protocolVersion !== '2.0' || payload.researchDate !== '2026-10-29' || payload.supplementCanonicalSha256 !== hash || payload.sourceBindingFormat !== 'canonical-json-utf8' ||
         !Array.isArray(payload.sourceBindings) || payload.sourceBindings.length !== names.length || !names.every((name,i) => payload.sourceBindings[i]?.path === 'docs/mechanics-research/' + name && /^[a-f0-9]{64}$/.test(payload.sourceBindings[i].sha256)) ||
-        !Array.isArray(payload.records) || payload.records.length !== 346 || expected.size !== 346) throw new Error('Unsupported assessment schema or binding');
+        !Array.isArray(payload.records) || payload.records.length !== 354 || expected.size !== 354) throw new Error('Unsupported assessment schema or binding');
     const staged = new Map();
     for (const a of payload.records){
       const source = expected.get(a?.id);
       const access = a?.access, statuses=['documented','multicolor_only','not_found','not_applicable','insufficient_evidence'];
       const card = c => c && text(c.name) && (c.url === null || safeLink(c.url) && new URL(c.url).hostname === 'scryfall.com');
       const entry = (value, colorless=false) => value && statuses.includes(value.status) && (!colorless || value.status !== 'multicolor_only') && text(value.note) && Array.isArray(value.cards) && value.cards.every(card) && (value.cards.length > 0) === ['documented','multicolor_only'].includes(value.status) && (value.findUrl === null || safeLink(value.findUrl) && new URL(value.findUrl).hostname === 'scryfall.com');
-    if (!source || staged.has(a.id) || a.name !== source.name || a.researchDate !== ((a.name.startsWith('N') || a.name.startsWith('O') || a.name.startsWith('P') || a.name.startsWith('R') || a.name.startsWith('S') || a.name.startsWith('T')) ? '2026-10-30' : a.name.startsWith('G') || a.name.startsWith('H') || a.name.startsWith('I') || a.name.startsWith('J') || a.name.startsWith('K') || a.name.startsWith('L') || a.name.startsWith('M') ? '2026-10-29' : '2026-10-28') || !['access','rules'].includes(a.kind) || !['scopeLabel','scope','summary'].every(k => text(a[k])) ||
+    if (!source || staged.has(a.id) || a.name !== source.name || a.researchDate !== (a.name.startsWith('U') ? '2026-10-31' : (a.name.startsWith('N') || a.name.startsWith('O') || a.name.startsWith('P') || a.name.startsWith('R') || a.name.startsWith('S') || a.name.startsWith('T')) ? '2026-10-30' : a.name.startsWith('G') || a.name.startsWith('H') || a.name.startsWith('I') || a.name.startsWith('J') || a.name.startsWith('K') || a.name.startsWith('L') || a.name.startsWith('M') ? '2026-10-29' : '2026-10-28') || !['access','rules'].includes(a.kind) || !['scopeLabel','scope','summary'].every(k => text(a[k])) ||
           !object(access) || !map(access.colors, value => entry(value)) || !entry(access.colorless,true) || !Array.isArray(access.combinations) || !access.combinations.every(x => x && Array.isArray(x.colors) && x.colors.length >= 2 && x.colors.every(c => ORDER.includes(c)) && x.colors.join('') === ORDER.filter(c=>x.colors.includes(c)).join('') && text(x.note) && Array.isArray(x.cards) && x.cards.length && x.cards.every(card) && safeLink(x.findUrl)) || !Array.isArray(access.limitations) || !access.limitations.every(text) ||
           !Array.isArray(a.citationCards) || !a.citationCards.every(card) ||
           !Array.isArray(a.sources) || !a.sources.every(s => s && text(s.title) && safeLink(s.url)) ||
@@ -2171,7 +2171,7 @@ async function loadAssessments(data, status){
       staged.set(a.id, deepFreeze(a));
     }
     ASSESSMENTS.byKey = staged; ASSESSMENTS.status = 'ready';
-    status.textContent += ' 346 A/B/C/D/E/F/G/H/I/J/K/L/M/N/O/P/R/S/T color-access records are available; 2021 tiers remain separate.';
+    status.textContent += ' 354 A/B/C/D/E/F/G/H/I/J/K/L/M/N/O/P/R/S/T/U color-access records are available; 2021 tiers remain separate.';
   } catch (err){
     ASSESSMENTS.byKey = new Map(); ASSESSMENTS.status = 'unavailable';
     status.textContent += ' A/B/C/D/E/F/G/H/I/J/K/L/M/N/O/P/R/S/T color access is unavailable; rules and other evidence remain available.';

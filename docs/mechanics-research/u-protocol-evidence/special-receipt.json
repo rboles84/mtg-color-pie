@@ -1,0 +1,9 @@
+{
+  "ruff_url": "https://api.scryfall.com/cards/named?exact=Ruff%2C%20Underdog%20Champ",
+  "ruff_started_utc": "2026-10-31T14:22:46.5539661Z",
+  "ruff_ended_utc": "2026-10-31T14:22:46.7769056Z",
+  "ruff_status": 200,
+  "official_url": "https://magic.wizards.com/en/news/feature/mystery-booster-release-notes-2019-11-11",
+  "official_status": 200,
+  "official_sha256": "a56d829a7b93b8427099661ef1d1dda6508a03493e7493afdd606a5781113fd4"
+}

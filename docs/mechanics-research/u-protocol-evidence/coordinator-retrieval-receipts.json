@@ -1,0 +1,54 @@
+{
+  "retrievals": [
+    {
+      "path": "docs/mechanics-research/u-protocol-evidence/umbra-armor-full-oracle-reviewed-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=game%3Apaper+date%3C%3D2026-10-31+%28fo%3A%22umbra+armor%22+or+fo%3A%22totem+armor%22%29+include%3Aextras&unique=cards&order=name",
+      "responseUrl": "https://api.scryfall.com/cards/search?q=game%3Apaper+date%3C%3D2026-10-31+%28fo%3A%22umbra+armor%22+or+fo%3A%22totem+armor%22%29+include%3Aextras&unique=cards&order=name",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T14:26:49.183223+00:00",
+      "requestEndedUtc": "2026-10-31T14:26:49.781928+00:00",
+      "status": 200,
+      "rawSha256": "cddb851f4cd8c66f099b012f2fe3d916920cfa90eecfb6e523959c6d898e68c0"
+    },
+    {
+      "path": "docs/mechanics-research/u-protocol-evidence/underdog-full-oracle-reviewed-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22underdog%22+include%3Aextras&unique=cards&order=name",
+      "responseUrl": "https://api.scryfall.com/cards/search?q=fo%3A%22underdog%22+include%3Aextras&unique=cards&order=name",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T14:26:49.933722+00:00",
+      "requestEndedUtc": "2026-10-31T14:26:50.219054+00:00",
+      "status": 200,
+      "rawSha256": "1f58ae98f12e742a408d6785e945705b8d8e6e7370b6314056c243658b519755"
+    },
+    {
+      "path": "docs/mechanics-research/u-protocol-evidence/undergrowth-full-oracle-reviewed-1.json",
+      "url": "https://api.scryfall.com/cards/search?q=fo%3A%22undergrowth%22+include%3Aextras&unique=cards&order=name",
+      "responseUrl": "https://api.scryfall.com/cards/search?q=fo%3A%22undergrowth%22+include%3Aextras&unique=cards&order=name",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T14:26:50.369948+00:00",
+      "requestEndedUtc": "2026-10-31T14:26:50.722181+00:00",
+      "status": 200,
+      "rawSha256": "fe064a5524d603074f46c4b1bc236b0ca0b478c15adda3b5f395b0d7cd5c53ad"
+    },
+    {
+      "path": "docs/mechanics-research/u-protocol-evidence/mystery-booster-release-notes-reviewed.html",
+      "url": "https://magic.wizards.com/en/news/feature/mystery-booster-release-notes-2019-11-11",
+      "responseUrl": "https://magic.wizards.com/en/news/feature/mystery-booster-release-notes-2019-11-11",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T14:26:50.873342+00:00",
+      "requestEndedUtc": "2026-10-31T14:26:51.146203+00:00",
+      "status": 200,
+      "rawSha256": "a3fb246b79fae541515dd62f1f2cfbd19d7bee2fcc11b2d1d0104f0ae104ba5b"
+    },
+    {
+      "path": "docs/mechanics-research/u-protocol-evidence/guilds-ravnica-mechanics-reviewed.html",
+      "url": "https://magic.wizards.com/en/news/feature/guilds-ravnica-mechanics-2018-09-04",
+      "responseUrl": "https://magic.wizards.com/en/news/feature/guilds-ravnica-mechanics-2018-09-04",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T14:26:51.297859+00:00",
+      "requestEndedUtc": "2026-10-31T14:26:51.898935+00:00",
+      "status": 200,
+      "rawSha256": "235262a6dd41a67f165af9fc582e2b386a47e13f885d176dee96c54e7aefbc5a"
+    }
+  ]
+}

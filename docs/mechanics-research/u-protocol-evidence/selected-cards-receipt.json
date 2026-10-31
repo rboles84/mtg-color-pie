@@ -1,0 +1,9 @@
+{
+  "url": "https://api.scryfall.com/cards/collection",
+  "method": "POST",
+  "requestStartedUtc": "2026-10-31T14:20:23.6982667Z",
+  "requestEndedUtc": "2026-10-31T14:20:24.2561151Z",
+  "status": 200,
+  "requestSha256": "4605d6988454fdf16d27196f8bdfc976a94c9d640950224d2a47f1e04d2b97cc",
+  "responseSha256": "e37149e7887bc4901720e5b6077150a2526556e8351119e26dc6b69f1b11da09"
+}
