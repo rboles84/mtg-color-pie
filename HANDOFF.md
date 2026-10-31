@@ -39,6 +39,11 @@
 - Outcome: give C-only the existing medal/action-row geometry, add legend marker-to-word clearance, and give A–Z access marks 1–2px visible selected-ring clearance.
 - Protected: all selector/data/count/share/export semantics, Article geometry, original tier strips, native glyphs, tokens/fonts, favicon/package/shell/wheel/routes and history. Expected independent QA: focused layout/browser review.
 
+## Owner half-pixel A–Z ring refinement
+
+- Status: `ready-for-qa`; Owner supersedes the prior 1px preference with 0.5px selected-ring clearance. Only A–Z access `column-gap` changed from 7px to 6.5px and the existing scoped assertion now accepts 0.5px ±0.05px. Article, row gap, legend, card, selector and all other surfaces are unchanged.
+- Developer checks: `node --check tools/check_owner_corrections_browser.mjs` and `git diff --check` PASS. The existing `--layout-only` flag remains non-bounded (it runs the full harness), so it was not rerun contrary to this surgical task’s no-full-suite instruction. Independent QA should run the requested sealed-baseline geometry comparison.
+
 ## Owner layout correction — RobDev handoff
 
 - Status: `ready-for-qa`; material candidate is the commit containing this entry over `405b8ab86a68f934d52f2520a8db4381bb467b0e`. No publication action occurred.
