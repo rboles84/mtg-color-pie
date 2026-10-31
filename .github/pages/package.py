@@ -63,7 +63,7 @@ EXCLUDED = ['docs/mechanics-transfer/manifest.json', 'docs/mechanics-transfer/so
             'docs/mechanics-research/a-assessments-source.json', 'docs/mechanics-research/absorb-assessment-source.json', 'docs/mechanics-research/a-classification-addendum.json',
             'vox-color/reference/current-weave-annotated.html',
             'vox-color/build/build_wheel.py', 'data/recon.md',
-            'tools/check_favicon_browser.mjs',
+            'tools/check_favicon_browser.mjs', 'tools/check_owner_corrections_browser.mjs',
             'data/mcp2021.reconciled.json', 'tools/gate.py',
             'docs/card-examples-map.xlsx', 'HANDOFF.md', 'CLAUDE.md',
             'AGENTS.md', '.claude/settings.json', '.github/pages/package.py']

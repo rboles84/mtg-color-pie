@@ -701,7 +701,7 @@ html.sheet-open .bar{position:relative}
         <span class="lg"><i class="sc t-t" style="--sz:14px;--cc:var(--ink)"></i>Tertiary</span>
         <span class="lg"><i class="sc t-n" style="--sz:14px"></i>No placement</span>
       </div>
-      <p class="key-note"><b>2021 placements</b> use five WUBRG slots; underlines mark every selected color with a placement, at any tier. <b>Reviewed access</b> uses the brass marker for selected independent colors or fully contained combinations, never a tier. Colorless-only evidence and rules actions stay outside this selector; no reviewed example found is scoped evidence, not impossibility.</p>
+      <p class="key-note"><b>2021 placements</b> use five WUBRG slots; underlines mark every selected color with a placement, at any tier. <b>Reviewed access</b> uses the brass marker for selected independent colors or fully contained combinations, never a tier. Colorless selects documented examples; rules actions stay outside the selector; no reviewed example found is scoped evidence, not impossibility.</p>
       <div class="key-body" id="key-body">
         <div class="spec" id="spec" aria-hidden="true"></div>
         <div>
@@ -718,7 +718,7 @@ html.sheet-open .bar{position:relative}
           <h3>Documented on cards</h3>
           <p><span class="strip access-strip" id="legend-selected" aria-hidden="true"></span> Filled symbols show a reviewed card example, not a placement rank. A gold ring marks selected documented access.</p>
           <p><span class="strip access-strip" id="legend-empty" aria-hidden="true"></span> An empty symbol means no independent example was found in the reviewed cards; it does not prove impossibility.</p>
-          <p><span class="strip access-strip" id="legend-colorless" aria-hidden="true"></span> Colorless and rules references sit outside the WUBRG selector. Combined symbols are whole observed combinations, not separate colors.</p>
+          <p><span class="strip access-strip" id="legend-colorless" aria-hidden="true"></span> Colorless is a separate documented-example selection; rules references remain outside the selector. Combined symbols are whole observed combinations, not separate colors.</p>
           <div id="access-legend-samples" aria-live="polite">Card combination examples loading.</div>
         </aside>
         <ol class="steps">
@@ -787,7 +787,7 @@ const MAX_RESULTS = 60;
 const COLOR_WORDS = { white:'W', blue:'U', black:'B', red:'R', green:'G' };
 /* "Colorless" typed in search: say what this explorer charts, and nothing
    about what the article does or does not discuss. */
-const COLORLESS_NOTE = 'This explorer charts the 2021 placement tiers for White, Blue, Black, Red and Green only, so it has no colorless selection and no colorless tier.';
+const COLORLESS_NOTE = 'Colorless matches documented card examples; 2021 placement tiers cover WUBRG only.';
 const COMBO_WORDS = {
   azorius:'WU', dimir:'UB', rakdos:'BR', gruul:'RG', selesnya:'WG', orzhov:'WB', izzet:'UR', golgari:'BG', boros:'WR', simic:'UG',
   bant:'WUG', esper:'WUB', grixis:'UBR', jund:'BRG', naya:'WRG', abzan:'WBG', jeskai:'WUR', sultai:'UBG', mardu:'WBR', temur:'URG'
@@ -951,6 +951,7 @@ let resultPage = 0, searchReturn = false;
    ====================================================================== */
 const S = {
   sel: new Set(),      // colour lens (shared with the compass)
+  colorless: false,     // independent reviewed-example filter, never a placement tier
   selFromQuery: false, // the lens was set by colour words in the search
   q: '', parsed: null, hits: [], hitSet: new Set(), queryColorsSuppressed:false,
   view: 'article',     // 'article' | 'az'
@@ -1184,14 +1185,14 @@ function parseQuery(raw){
     const bare = t.replace(/^mono-?/, '');
     if (COLOR_WORDS[bare]){ colours.add(COLOR_WORDS[bare]); colourWords.push(t); continue; }
     if (COMBO_WORDS[bare]){ [...COMBO_WORDS[bare]].forEach(c => colours.add(c)); colourWords.push(t); continue; }
-    if (bare === 'colorless' || bare === 'colourless'){ colorless = true; dropped.push(t); continue; }
+    if (bare === 'colorless' || bare === 'colourless'){ colorless = true; continue; }
     if (STOP.has(t)){ dropped.push(t); continue; }
     words.push(t);
   }
   /* `full` keeps the question words and the query's own punctuation, so an
      entry name or the article's wording typed in full ("Creature sacrifice,
      forced, repeatable"; "…with power 3/4 or greater") still matches it. */
-  const isColour = t => { const b = t.replace(/[?!,;:.]+$/, '').replace(/^mono-?/, ''); return !!(COLOR_WORDS[b] || COMBO_WORDS[b]); };
+  const isColour = t => { const b = t.replace(/[?!,;:.]+$/, '').replace(/^mono-?/, ''); return !!(COLOR_WORDS[b] || COMBO_WORDS[b] || b === 'colorless' || b === 'colourless'); };
   const full = normX(norm(raw).split(' ').filter(t => t && !isColour(t)).join(' '));
   return { raw, colours, colourWords, dropped, words, phrase: words.join(' '), full, colorless };
 }
@@ -1253,7 +1254,7 @@ function supplementMatch(k, P){
 function searchRank(input){
   const P = typeof input === 'string' ? parseQuery(input) : input;
   if (!P || !P.phrase) return [];
-  const lensOn = P.colours.size > 0;
+  const lensOn = P.colours.size > 0 || P.colorless;
   const out = [];
   for (const r of REC.values()){
     const old = r.supplemental ? null : matchRecord(r, P);
@@ -1263,7 +1264,7 @@ function searchRank(input){
     const m = exact && (!old || old.stage > STAGE.name) ? added : old || added;
     if (m) out.push({ k:r.k, stage:m.stage, note:m.note || null, relWhy:m.relWhy || null, exact,
       kind:r.supplemental ? 'supplemental' : '2021',
-      placed:r.supplemental ? (lensOn ? accessState(r.k, P.colours) === 'match' : true) : lensOn ? access(r.e, P.colours).best !== null : true });
+      placed:r.supplemental ? (lensOn ? accessState(r.k, P.colours, P.colorless) === 'match' : true) : P.colorless ? true : P.colours.size ? access(r.e, P.colours).best !== null : true });
   }
   /* Preserve the old relative order. Only accepted exact names/aliases need
      precedence over broad matches; unknown supplemental ranks are not absent. */
@@ -1298,8 +1299,8 @@ function renderAccessLegend(){
   el.innerHTML = samples.map(([name,key,card]) => {
     const a = [...ASSESSMENTS.byKey.values()].find(x => x.name === name);
     const combo = a?.access.combinations.find(x => x.colors.join('') === key && x.cards.some(c => c.name === card));
-    return combo ? `<p>${comboMarkHTML(combo, 'Documented combination')} ${esc(name)} — ${esc(card)}</p>` : '';
-  }).join('');
+    return combo ? `<p>${comboMarkHTML(combo, 'Documented combination')} ${['','', 'Two','Three','Four','Five'][combo.colors.length]}-color combination: ${esc(combo.colors.map(c=>CNAME[c]).join(' / '))}</p>` : '';
+  }).join('') + '<p>Every color in a combination must be selected for that combination to match.</p>';
 }
 function assessmentStripHTML(a){
   const combinationLabel=ORDER.some(c=>a.access.colors[c].status === 'documented') ? 'Combination' : 'Combination only';
@@ -1309,38 +1310,39 @@ function assessmentStripHTML(a){
 }
 /* Reviewed access is evidence, not a second placement tier. Only validated
    unmapped sidecar records participate; mapped records remain 2021 entries. */
-function accessState(k, cols){
+function accessState(k, cols, colorless = S.colorless){
   const a = ASSESSMENTS.byKey.get(k);
   if (!a) return isAssessmentTarget(k) ? (ASSESSMENTS.status === 'ready' ? 'outside' : 'unknown') : 'outside';
   if (a.kind !== 'access') return 'outside';
   const independent = ORDER.filter(c => a.access.colors[c].status === 'documented' && cols.has(c));
   const combinations = a.access.combinations.filter(x => x.colors.every(c => cols.has(c)));
   const colorlessOnly = a.access.colorless.status === 'documented' && !ORDER.some(c => a.access.colors[c].status === 'documented') && !a.access.combinations.length;
+  if (colorless && a.access.colorless.status === 'documented') return 'match';
   if (colorlessOnly) return 'outside';
   return independent.length || combinations.length ? 'match' : 'miss';
 }
-function accessKeys(cols){
+function accessKeys(cols, colorless = S.colorless){
   if (ASSESSMENTS.status !== 'ready') return [];
-  return [...ASSESSMENTS.byKey].filter(([k, a]) => a.kind === 'access' && accessState(k, cols) === 'match').map(([k]) => k);
+  return [...ASSESSMENTS.byKey].filter(([k, a]) => a.kind === 'access' && accessState(k, cols, colorless) === 'match').map(([k]) => k);
 }
-function accessCounts(cols){
-  const keys = accessKeys(cols), special = keys.filter(k => !['rules','ability-words'].includes(REC.get(k).scope.group));
+function accessCounts(cols, colorless = S.colorless){
+  const keys = accessKeys(cols, colorless), special = keys.filter(k => !['rules','ability-words'].includes(REC.get(k).scope.group));
   return { keys, special, main:keys.filter(k => !special.includes(k)) };
 }
 /* The A–Z collection joins two disjoint evidence domains: frozen 2021
    placements and validated unmapped card-access records.  Keep that union at
    the state owner, never as a sum of rendered counters. */
-function collectionCounts(cols){
+function collectionCounts(cols, colorless = S.colorless){
   if (ASSESSMENTS.status !== 'ready') return null;
   const keys = new Set(KEYS.filter(k => access(MECH[k], cols).best !== null));
-  accessKeys(cols).forEach(k => keys.add(k));
+  accessKeys(cols, colorless).forEach(k => keys.add(k));
   const all = [...keys], special = all.filter(k => REC.get(k).supplemental && !['rules','ability-words'].includes(REC.get(k).scope.group));
   return { keys:all, main:all.filter(k => !special.includes(k)), special };
 }
-function collectionDelta(cols, color, remove = false){
-  const before = collectionCounts(cols); if (!before) return null;
+function collectionDelta(cols, color, remove = false, colorless = S.colorless){
+  const before = collectionCounts(cols, colorless); if (!before) return null;
   const afterCols = new Set(cols); remove ? afterCols.delete(color) : afterCols.add(color);
-  const after = collectionCounts(afterCols); if (!after) return null;
+  const after = collectionCounts(afterCols, colorless); if (!after) return null;
   const old = new Set(before.keys), next = new Set(after.keys);
   return { keys: remove ? before.keys.filter(k => !next.has(k)) : after.keys.filter(k => !old.has(k)), to:afterCols };
 }
@@ -1470,7 +1472,7 @@ function setRoving(el){
 function buildPips(){
   $('#pips').innerHTML = ORDER.map(c =>
     `<button class="pip" type="button" data-act="pip" data-c="${c}" aria-pressed="false" aria-label="${CNAME[c]}" title="${CNAME[c]}" style="--cc:var(--${c.toLowerCase()})">
-       <i class="ms ms-${c.toLowerCase()} ms-cost" aria-hidden="true"></i><span class="pip-l" aria-hidden="true">${c}</span></button>`).join('');
+       <i class="ms ms-${c.toLowerCase()} ms-cost" aria-hidden="true"></i><span class="pip-l" aria-hidden="true">${c}</span></button>`).join('') + `<button class="pip" type="button" data-act="colorless" aria-pressed="false" aria-label="Colorless" title="Colorless" style="--cc:var(--c)"><i class="ms ms-c ms-cost" aria-hidden="true"></i><span class="pip-l" aria-hidden="true">◇</span></button>`;
 }
 
 /* The compass: rows by number of colours, each row in WUBRG order. One node
@@ -1503,9 +1505,9 @@ function buildCompass(){
    RENDER — derive, then toggle classes
    ====================================================================== */
 function render(){
-  const lensOn = S.sel.size > 0;
+  const lensOn = S.sel.size > 0 || S.colorless;
   const key = setKey(S.sel);
-  const bk = lensOn ? cached('best:' + key, () => new Map(KEYS.map(k => [k, access(MECH[k], S.sel).best || 'none']))) : null;
+  const bk = S.sel.size ? cached('best:' + key, () => new Map(KEYS.map(k => [k, access(MECH[k], S.sel).best || 'none']))) : null;
   const qOn = S.hitSet.size > 0;
   const spot = S.spot && S.spot.keys.size ? S.spot.keys : null;
   for (const k of KEYS){
@@ -1515,10 +1517,10 @@ function render(){
     el.classList.toggle('is-off', !!spot && !spot.has(k) && !sel);
     el.classList.toggle('is-hit', qOn && S.hitSet.has(k));
     el.classList.toggle('is-miss', qOn && !S.hitSet.has(k) && !sel);
-    el.classList.toggle('is-out', lensOn && b === 'none' && !sel);
+    el.classList.toggle('is-out', !S.colorless && S.sel.size > 0 && b === 'none' && !sel);
     el.classList.toggle('is-sel', sel);
     el.setAttribute('aria-pressed', sel ? 'true' : 'false');
-    const pb = lensOn ? proj.best(k, S.sel) : null;
+    const pb = S.sel.size ? proj.best(k, S.sel) : null;
     for (const sl of el._slots){
       const c = sl.dataset.c, present = lensOn && S.sel.has(c) && !!e.colors[c], L = present, C = present;
       sl.classList.toggle('bx', L || C); sl.classList.toggle('bx-l', L && !C); sl.classList.toggle('bx-r', C && !L);
@@ -1549,7 +1551,7 @@ function render(){
     el.setAttribute('aria-pressed', String(sel));
     const a = ASSESSMENTS.byKey.get(k);
     if (a && a.kind === 'access'){
-      for (const mark of el.querySelectorAll('[data-c]')) mark.classList.toggle('access-active', S.sel.has(mark.dataset.c) && a.access.colors[mark.dataset.c]?.status === 'documented');
+      for (const mark of el.querySelectorAll('[data-c]')) mark.classList.toggle('access-active', (mark.dataset.c === 'C' ? S.colorless && a.access.colorless.status === 'documented' : S.sel.has(mark.dataset.c) && a.access.colors[mark.dataset.c]?.status === 'documented'));
       for (const mark of el.querySelectorAll('[data-combo]')) mark.classList.toggle('access-active', a.access.combinations.some(x => x.colors.join('') === mark.dataset.combo && x.colors.every(c => S.sel.has(c))));
     }
     el.setAttribute('aria-label', `${r.head}. Supplemental. ${r.scope.evidenceLabel}. ${r.scope.scopeNote} ${assessmentSummary(k, true)}.${lensOn ? state === 'match' ? ' Matches selected reviewed access.' : state === 'miss' ? ' No matching reviewed access in selected colors.' : ' Outside selected reviewed access.' : ''} Outside the 2021 color calculations.`);
@@ -1580,8 +1582,9 @@ function render(){
   renderDetail();
 }
 
+const selectionWords = () => listWords([...cnames(S.sel), ...(S.colorless ? ['Colorless'] : [])]);
 function renderBar(lensOn, bk){
-  document.querySelectorAll('.pip').forEach(p => p.setAttribute('aria-pressed', S.sel.has(p.dataset.c) ? 'true' : 'false'));
+  document.querySelectorAll('.pip').forEach(p => p.setAttribute('aria-pressed', String(p.dataset.act === 'colorless' ? S.colorless : S.sel.has(p.dataset.c))));
   document.querySelectorAll('.view-b').forEach(v => v.setAttribute('aria-pressed', String(S.view === v.dataset.v)));
   $('.lens-clear').hidden = !lensOn;
   const ll = $('#lensline');
@@ -1597,10 +1600,10 @@ function renderBar(lensOn, bk){
         ll.innerHTML = `<span class="who"><span aria-hidden="true">${[...setKey(S.sel)].map(pip).join('')}</span><span>Full collection matches ${ASSESSMENTS.status === 'unavailable' || SUPPLEMENT.status === 'unavailable' ? 'are unavailable' : 'are loading'}; the 2021 article remains available.</span></span>`;
         return;
       }
-      ll.innerHTML = `<span class="who"><span aria-hidden="true">${[...setKey(S.sel)].map(pip).join('')}</span><span><b>${union.keys.length}</b> of ${REC.size} entries match ${esc(listWords(cnames(S.sel)))}</span></span>`+
+      ll.innerHTML = `<span class="who"><span aria-hidden="true">${[...setKey(S.sel)].map(pip).join('')}${S.colorless ? ' ◇' : ''}</span><span><b>${union.keys.length}</b> of ${REC.size} entries match ${esc(selectionWords())}</span></span>`+
         `<button class="fig" type="button" data-act="spot" data-id="collection" data-fid="collection" aria-label="Show ${union.keys.length} color matches">Show color matches</button>`+
         (S.selFromQuery ? `<span class="src">Set from your search</span>` : '')+
-        `<a class="bridge" data-fid="bridge" href="../index.html#color-wheel/${wheelRoute(setKey(S.sel))}" target="_top">Open these colors on the Color Wheel →</a>`;
+        (S.sel.size ? `<a class="bridge" data-fid="bridge" href="../index.html#color-wheel/${wheelRoute(setKey(S.sel))}" target="_top">Open WUBRG colors on the Color Wheel →</a>` : '');
       return;
     }
     ll.innerHTML = `<span class="who"><span aria-hidden="true">${[...setKey(S.sel)].map(pip).join('')}</span><span><b>${placed}</b> of ${KEYS.length} 2021 entries
@@ -1647,7 +1650,7 @@ function spotFor(id){
       const d = collectionDelta(S.sel, b, a === 'rem');
       return d ? { keys:d.keys, label:`${a === 'add' ? 'adding' : 'removing'} ${CNAME[b]} ${a === 'add' ? 'to' : 'from'} ${key}: ${d.keys.length} ${a === 'add' ? 'more' : 'fewer'} entries match`, dep:false } : { keys:[], label:'collection unavailable', dep:false };
     }
-    const all = collectionCounts(S.sel); return all ? { keys:all.keys, label:`color matches in ${listWords(cnames(S.sel))}`, dep:false } : { keys:[], label:'collection unavailable', dep:false };
+    const all = collectionCounts(S.sel); return all ? { keys:all.keys, label:`color matches in ${selectionWords()}`, dep:false } : { keys:[], label:'collection unavailable', dep:false };
   }
   if (kind === 'access') return { keys: accessKeys(S.sel), label:`reviewed access in ${listWords(cnames(S.sel))}`, dep:false };
   if (kind === 'add'){
@@ -1738,22 +1741,22 @@ function medalHTML(s){
 }
 function renderIdent(key){
   const el = $('#ident');
-  if (!key){ el.hidden = true; el.innerHTML = ''; return; }
-  const name = COMBO_NAME[key], words = comboWords(key);
+  if (!key && !S.colorless){ el.hidden = true; el.innerHTML = ''; return; }
+  const name = COMBO_NAME[key], words = key ? comboWords(key) : 'Colorless';
   const b = cached('bk:' + key, () => buckets(S.sel)), placed = KEYS.length - b.none.length;
   el.hidden = false;
-  el.innerHTML = `${medalHTML(key)}
+  el.innerHTML = `${key ? medalHTML(key) : `<span class="strip access-strip" aria-hidden="true">${accessMarkHTML('C','documented')}</span>`}
     <div class="id-head">
-      <p class="id-kick">Selected ${key.length === 1 ? 'color' : 'colors'}</p>
-      <h3 class="id-name" id="id-name">${name ? `${esc(name)}<span class="sr-only">, ${esc(words)}, ${key}</span>` : `${esc(words)}<span class="sr-only">, ${key}</span>`}</h3>
+      <p class="id-kick">Selected ${!key ? 'access' : key.length === 1 ? 'color' : 'colors'}</p>
+      <h3 class="id-name" id="id-name">${name ? `${esc(name)}<span class="sr-only">, ${esc(words)}, ${key}</span>` : `${esc(words)}<span class="sr-only">${key ? ', ' + key : ''}</span>`}${S.colorless && key ? ' · ◇ Colorless' : ''}</h3>
       <p class="id-words" aria-hidden="true">${name ? `<span>${esc(words)}</span>` : ''}<span class="id-code">${key}</span></p>
     </div>
     <div class="id-body">
-      ${S.view === 'az' ? (() => { const u=collectionCounts(S.sel); return u ? `<p class="id-count"><b>${u.keys.length}</b> of ${REC.size} entries match ${esc(listWords(cnames(S.sel)))}</p>` : `<p class="id-count">Full collection matches ${ASSESSMENTS.status === 'unavailable' || SUPPLEMENT.status === 'unavailable' ? 'unavailable' : 'loading'}</p>`; })() : `<p class="id-count"><b>${placed}</b> of ${KEYS.length} entries have a placement in ${esc(listWords(cnames(S.sel)))} <span class="calc">computed</span></p>`}
+      ${S.view === 'az' ? (() => { const u=collectionCounts(S.sel); return u ? `<p class="id-count"><b>${u.keys.length}</b> of ${REC.size} entries match ${esc(selectionWords())}</p>` : `<p class="id-count">Full collection matches ${ASSESSMENTS.status === 'unavailable' || SUPPLEMENT.status === 'unavailable' ? 'unavailable' : 'loading'}</p>`; })() : `<p class="id-count"><b>${placed}</b> of ${KEYS.length} entries have a placement in ${esc(listWords(cnames(S.sel)))} <span class="calc">computed</span></p>`}
       <p class="id-src">${name ? `“${esc(name)}” is Wizards’ name for ${esc(words)} (${esc(NAME_SOURCE)}): a label, not a claim about mechanics.`
         : key.length > 3 ? 'This page gives no combination name for four or five colors.' : ''}</p>
-      <p class="id-next">One-color steps from ${key} follow below.</p>
-      <p class="id-share"><button class="go" type="button" data-act="copy-link" data-fid="copy-link">Copy colors link</button><button class="go" type="button" data-act="save-png" data-fid="save-png"${S.view === 'az' && ASSESSMENTS.status !== 'ready' ? ' disabled aria-disabled="true"' : ''}>Save image</button></p>
+      ${key ? `<p class="id-next">One-color steps from ${key} follow below.</p>` : ''}
+      <p class="id-share"><button class="go" type="button" data-act="copy-link" data-fid="copy-link"${S.colorless ? ' disabled aria-disabled="true"' : ''}>Copy colors link</button>${S.colorless ? '<span>Colorless selection is not included in shared color links.</span>' : ''}<button class="go" type="button" data-act="save-png" data-fid="save-png"${S.view === 'az' && ASSESSMENTS.status !== 'ready' ? ' disabled aria-disabled="true"' : ''}>Save image</button></p>
       <input class="id-url" id="id-url" type="text" readonly hidden aria-label="Link to ${esc(words)}, ${key}">
     </div>`;
 }
@@ -1763,6 +1766,7 @@ function renderIdent(key){
    its own URL. Where the clipboard is refused the link is shown, selected. */
 const shareURL = k => new URL('../index.html#mechanical-color-pie/colors=' + k, location.href).href;
 function copyLink(){
+  if (S.colorless) return;
   const k = setKey(S.sel), url = shareURL(k), f = $('#id-url');
   const show = () => { f.value = url; f.hidden = false; f.focus(); f.select(); announce('Copy the selected link.'); };
   if (!navigator.clipboard || !navigator.clipboard.writeText) return show();
@@ -1772,13 +1776,13 @@ function copyLink(){
    in the identity panel; no mechanic detail. Glyphs come from Mana's own CSS,
    or letters when the font is missing. */
 async function saveCard(){
-  const k = setKey(S.sel); if (!k) return;
+  const k = setKey(S.sel); if (!k && !S.colorless) return;
   if (S.view === 'az' && ASSESSMENTS.status !== 'ready'){ announce('The full collection is not ready to export.'); return; }
   const fonts = ['700 64px "Cormorant SC"', '600 20px "Cormorant SC"', 'italic 400 26px Lora', '500 22px "IBM Plex Mono"', '400 24px Outfit', '40px Mana'];
   try { await Promise.all(fonts.map(f => document.fonts.load(f))); await document.fonts.ready; } catch (err){ /* draw with fallbacks */ }
   const W = 1200, H = 630, cv = document.createElement('canvas'); cv.width = W; cv.height = H;
   const x = cv.getContext('2d'), css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
-  const name = COMBO_NAME[k], words = comboWords(k), cs = [...k], n = cs.length;
+  const name = COMBO_NAME[k], words = k ? comboWords(k) : 'Colorless', cs = [...k], n = cs.length;
   const b = cached('bk:' + k, () => buckets(S.sel)), placed = KEYS.length - b.none.length;
   const unified = S.view === 'az' ? collectionCounts(S.sel) : null, total = unified ? REC.size : KEYS.length, count = unified ? unified.keys.length : placed;
   const BRASS = css('--brass-l'), BONE = css('--bone'), INK = css('--ink'), DIM = css('--ink-dim'), GROUND = '#18110a';
@@ -1788,6 +1792,8 @@ async function saveCard(){
   x.strokeStyle = 'rgba(184,147,79,.16)'; x.strokeRect(26, 26, W - 52, H - 52);
   /* medal: the panel's geometry at 300px */
   const cx = 250, cy = 275, D = 300, st = n === 2 ? 225 : -180 / n, rad = d => (d - 90) * Math.PI / 180;
+  const noMana = document.documentElement.classList.contains('no-mana');
+  if (n){
   [[D / 2 + 14, 'rgba(184,147,79,.5)'], [D / 2 + 12, GROUND], [D / 2 + 6, BRASS], [D / 2 + 4, GROUND]].forEach(([r, c]) => {
     x.beginPath(); x.arc(cx, cy, r, 0, 2 * Math.PI); x.fillStyle = c; x.fill(); });
   cs.forEach((c, i) => { x.beginPath(); x.moveTo(cx, cy);
@@ -1797,7 +1803,6 @@ async function saveCard(){
   x.beginPath(); x.arc(cx, cy, D / 2, 0, 2 * Math.PI); x.fillStyle = g; x.fill();
   x.fillStyle = 'rgba(20,12,4,.12)';   // the panel's engraving: a .7° line every 4.5°
   for (let a = 0; a < 360; a += 4.5){ x.beginPath(); x.moveTo(cx, cy); x.arc(cx, cy, D / 2, rad(a), rad(a + .7)); x.closePath(); x.fill(); }
-  const noMana = document.documentElement.classList.contains('no-mana');
   const R = { 1:0, 2:24, 3:27, 4:29, 5:31 }[n], gs = { 1:.46, 2:.3, 3:.25, 4:.21, 5:.19 }[n];
   x.fillStyle = '#15120c'; x.textAlign = 'center'; x.textBaseline = 'middle';
   cs.forEach((c, i) => {
@@ -1806,6 +1811,8 @@ async function saveCard(){
     if (noMana || !glyph || glyph === 'none'){ x.font = `500 ${Math.round(D * gs * .8)}px "IBM Plex Mono", monospace`; x.fillText(c, px, py); }
     else { x.font = `${Math.round(D * gs)}px Mana`; x.fillText(glyph, px, py); }
   });
+  }
+  if (S.colorless){ x.fillStyle = BONE; x.font = '500 36px Outfit, sans-serif'; x.textAlign = 'center'; x.fillText('◇ Colorless', cx, n ? cy + D / 2 + 55 : cy); }
   /* text column */
   const tx = 470, tw = W - tx - 70, wrap = (s, y, lh) => { let line = '';   // breaks at spaces and after en dashes
     for (const w of s.match(/[^ –]+[ –]?/g)){ const t = line + w;
@@ -1813,17 +1820,17 @@ async function saveCard(){
     x.fillText(line.trim(), tx, y); return y + lh; };
   x.textAlign = 'left'; x.textBaseline = 'alphabetic';
   x.fillStyle = BRASS; x.font = '600 20px "Cormorant SC", Georgia, serif';
-  x.letterSpacing = '5px'; x.fillText(`SELECTED ${n === 1 ? 'COLOR' : 'COLORS'}`, tx, 150); x.letterSpacing = '0px';
+  x.letterSpacing = '5px'; x.fillText(`SELECTED ${!n ? 'ACCESS' : n === 1 ? 'COLOR' : 'COLORS'}`, tx, 150); x.letterSpacing = '0px';
   x.fillStyle = BONE; x.font = '700 64px "Cormorant SC", Georgia, serif';
-  let y = wrap(name || words, 215, 66);
+  let y = wrap((name || words) + (S.colorless && k ? ' + Colorless' : ''), 215, 66);
   x.font = 'italic 400 26px Lora, Georgia, serif'; x.fillStyle = INK;
   if (name){ x.fillText(words, tx, y); }
   const kx = name ? tx + x.measureText(words).width + 20 : tx;
   x.font = '500 22px "IBM Plex Mono", monospace'; const kw = x.measureText(k).width + 22;
-  x.strokeStyle = 'rgba(237,230,211,.28)'; x.lineWidth = 1.5; x.strokeRect(kx, y - 26, kw, 36);
-  x.fillStyle = BONE; x.fillText(k, kx + 11, y);
+  if (k){ x.strokeStyle = 'rgba(237,230,211,.28)'; x.lineWidth = 1.5; x.strokeRect(kx, y - 26, kw, 36);
+    x.fillStyle = BONE; x.fillText(k, kx + 11, y); }
   y += 62; x.font = '400 24px Outfit, system-ui, sans-serif'; x.fillStyle = INK;
-  y = wrap(`${count} of ${total} entries ${unified ? 'match' : 'have a placement in'} ${listWords(cnames(S.sel))}`, y, 32);
+  y = wrap(`${count} of ${total} entries ${unified ? 'match' : 'have a placement in'} ${selectionWords()}`, y, 32);
   x.font = '500 14px "IBM Plex Mono", monospace'; x.fillStyle = BRASS; x.fillText(unified ? 'A–Z COLLECTION' : 'COMPUTED 2021 PLACEMENTS', tx, y - 4);
   /* footer (D3): source line and the short Fan Content line */
   x.textAlign = 'center'; x.font = 'italic 400 17px Lora, Georgia, serif'; x.fillStyle = DIM;
@@ -1831,7 +1838,7 @@ async function saveCard(){
   x.fillText('Unofficial Fan Content permitted under the Fan Content Policy. Not approved/endorsed by Wizards.', W / 2, H - 52);
   cv.toBlob(blob => {
     const a = document.createElement('a'), u = URL.createObjectURL(blob);
-    a.href = u; a.download = `vox-mana-${k}-${S.view === 'az' ? 'az' : 'article'}.png`; document.body.appendChild(a); a.click(); a.remove();
+    a.href = u; a.download = `vox-mana-${k ? k + (S.colorless ? '-colorless' : '') : 'colorless'}-${S.view === 'az' ? 'az' : 'article'}.png`; document.body.appendChild(a); a.click(); a.remove();
     setTimeout(() => URL.revokeObjectURL(u), 1000); announce('Image saved.');
   }, 'image/png');
 }
@@ -1901,15 +1908,15 @@ function renderResults(){
   resEl.hidden = !open;
   qEl.setAttribute('aria-expanded', open && S.hits.length ? 'true' : 'false');
   if (!open){ qEl.removeAttribute('aria-activedescendant'); return; }
-  const sig = q + '|' + setKey(S.sel) + '|' + resultPage + '|' + SUPPLEMENT.status;
+  const sig = q + '|' + setKey(S.sel) + '|' + S.colorless + '|' + resultPage + '|' + SUPPLEMENT.status;
   if (resEl._sig !== sig){
     $('#parse').innerHTML = parseLine(P, S.hits);
     const ab = $('#absent');
-    const lensOn = P.colours.size > 0;
+    const lensOn = P.colours.size > 0 || P.colorless;
     const articleHits = S.hits.filter(h => h.kind !== 'supplemental');
-    const unplaced = lensOn ? articleHits.filter(h => !h.placed).length : 0;
+    const unplaced = P.colours.size ? articleHits.filter(h => !h.placed).length : 0;
     const unknown = S.hits.length - articleHits.length;
-    ab.hidden = !(lensOn && P.phrase);
+    ab.hidden = !(P.colours.size && P.phrase);
     ab.textContent = `${unplaced} of ${articleHits.length} 2021 ${plural(articleHits.length, 'match', 'matches')} ${unplaced === 1 ? 'has' : 'have'} no 2021 placement in ${listWords(cnames(P.colours))}. That records Rosewater's design defaults on October 18, 2021; it is not evidence that no card of that color does this.` + (unknown ? ` ${unknown} supplemental ${plural(unknown, 'record is', 'records are')} outside these 2021 calculations; color access is labeled separately.` : '');
     resultPage = Math.min(resultPage, Math.max(0, Math.ceil(S.hits.length / MAX_RESULTS) - 1));
     const offset = resultPage * MAX_RESULTS;
@@ -1919,7 +1926,7 @@ function renderResults(){
       const a = ASSESSMENTS.byKey.get(h.k), derived = a && a.kind === 'access';
       const note = h.note ? ` <span>${st.player ? `<span class="pterm">“${esc(h.note)}”</span>` : '“' + esc(curly(h.note)) + '”'}</span>` : '';
       let lp = '';
-      if (lensOn && !r.supplemental){ const pb = proj.best(h.k, P.colours), code = esc([...setKey(P.colours)].join(''));
+      if (P.colours.size && !r.supplemental){ const pb = proj.best(h.k, P.colours), code = esc([...setKey(P.colours)].join(''));
         lp = `<span class="lensp">${code}: ${pb.sameTier ? (pb.catalog.best ? TIER[pb.catalog.best] : 'no placement')
           : `${TIER[pb.list.best]} ${READING_BY.list} · ${TIER[pb.catalog.best]} ${READING_BY.catalog}`}</span>`; }
       if (r.supplemental) lp = `<span class="lensp">${esc(derived ? assessmentSummary(h.k, true) : isAssessmentTarget(h.k) ? assessmentSummary(h.k, true) : 'No sourced Primary/Secondary/Tertiary assignment is recorded')}${lensOn ? accessState(h.k,P.colours) === 'match' ? ' · matches selected reviewed access' : accessState(h.k,P.colours) === 'miss' ? ' · no matching reviewed access' : ' · outside selector' : ''}</span>`;
@@ -1929,7 +1936,7 @@ function renderResults(){
         <span class="opt-w"><span class="why${st.player ? ' p' : ''}">${esc(st.why)}</span>${note}${tag}${lp}</span></div>`;
     }).join('');
     if (P.phrase && !S.hits.length){ resNote.hidden = false; resNote.textContent = `No entry matched “${P.phrase}”. The list is unchanged.`; }
-    else if (!P.phrase && lensOn){ resNote.hidden = false; resNote.textContent = `Colors set to ${listWords(cnames(P.colours))}. Add words to search the entries.`; }
+    else if (!P.phrase && lensOn){ resNote.hidden = false; resNote.textContent = `Colors set to ${listWords([...cnames(P.colours), ...(P.colorless ? ['Colorless'] : [])])}. Add words to search the entries.`; }
     else if (S.hits.length > MAX_RESULTS){ resNote.hidden = false; resNote.textContent = 'Use Previous and Next, Page Up and Page Down, or arrow keys to reach every match.'; }
     else resNote.hidden = true;
     $('#res-pages').hidden = S.hits.length <= MAX_RESULTS;
@@ -2122,10 +2129,9 @@ const T_MANA = {...S_MANA};
 const U_MANA = {...T_MANA, E:['energy','One energy counter']};
 // W includes Avatar Kuruk's actual colorless back-face waterbend cost.
 const W_MANA = {...U_MANA, '20':['20','20 generic mana']};
-function supplementalTextHTML(value, symbols = SUP_MANA){
-  // A–L retain the exact established formatter markup. Cost runs are an M
-  // presentation repair only; earlier packets remain byte-for-byte shaped.
-  if(symbols!==M_MANA){
+function supplementalTextHTML(value, symbols = SUP_MANA, costRuns = false){
+  // Keep M's established grouped cost runs; other text uses individual symbols.
+  if(!costRuns){
     let html = '', cursor = 0;
     for (const match of value.matchAll(/\{[^{}\r\n]+\}/g)){
       html += esc(value.slice(cursor, match.index));
@@ -2191,7 +2197,7 @@ function supplementalClassificationHTML(scope, mapped){
     </${mapped ? 'section' : 'div'}>`;
 }
 function supplementalRecordHTML(a, mapped = false){
-  const text = value => supplementalTextHTML(value, !mapped && a.name.startsWith('W') ? W_MANA : !mapped && (a.name.startsWith('U') || a.name.startsWith('V')) ? U_MANA : !mapped && a.name.startsWith('T') ? T_MANA : !mapped && a.name.startsWith('S') ? S_MANA : !mapped && a.name.startsWith('R') ? R_MANA : !mapped && a.name.startsWith('P') ? P_MANA : !mapped && a.name.startsWith('O') ? O_MANA : !mapped && a.name.startsWith('N') ? N_MANA : !mapped && a.name.startsWith('M') ? M_MANA : !mapped && (a.name.startsWith('I') || a.name.startsWith('J') || a.name.startsWith('K') || a.name.startsWith('L')) ? I_MANA : !mapped && a.name.startsWith('H') ? H_MANA : !mapped && a.name.startsWith('G') ? G_MANA : !mapped && a.name.startsWith('F') ? F_MANA : !mapped && a.name.startsWith('E') ? E_MANA : SUP_MANA);
+  const text = value => supplementalTextHTML(value, W_MANA, !mapped && a.name.startsWith('M'));
   const ref = a.reference, review = a.qualifications.acceptedSourceReview, locator = review && review.locator || {};
   const classification = SUP_SCOPE.get(a.id), upfront = new Set([classification.scopeNote, ...classification.qualifications]);
   const kind = ref && ref.referenceKind;
@@ -2247,7 +2253,7 @@ function assessmentHTML(k){
   const a = ASSESSMENTS.byKey.get(k);
   if (!a) return `<section class="dx-sec supp-assessment" aria-label="Color access status"><p class="dx-note">${esc(assessmentSummary(k))}. ${ASSESSMENTS.status === 'unavailable' ? 'The color access record could not be loaded. Reload to try again; rules and other evidence remain available.' : 'Rules and other evidence remain available while the record loads.'}</p></section>`;
   const link = (name, url) => url ? `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(name)}</a>` : esc(name);
-  const text = a.name.startsWith('W') ? value => supplementalTextHTML(value, W_MANA) : (a.name.startsWith('U') || a.name.startsWith('V')) ? value => supplementalTextHTML(value, U_MANA) : a.name.startsWith('T') ? value => supplementalTextHTML(value, T_MANA) : a.name.startsWith('S') ? value => supplementalTextHTML(value, S_MANA) : a.name.startsWith('R') ? value => supplementalTextHTML(value, R_MANA) : a.name.startsWith('P') ? value => supplementalTextHTML(value, P_MANA) : a.name.startsWith('O') ? value => supplementalTextHTML(value, O_MANA) : a.name.startsWith('N') ? value => supplementalTextHTML(value, N_MANA) : a.name.startsWith('M') ? value => supplementalTextHTML(value, M_MANA) : a.name.startsWith('I') || a.name.startsWith('J') || a.name.startsWith('K') || a.name.startsWith('L') ? value => supplementalTextHTML(value, I_MANA) : a.name.startsWith('H') ? value => supplementalTextHTML(value, H_MANA) : a.name.startsWith('G') ? value => supplementalTextHTML(value, G_MANA) : a.name.startsWith('F') ? value => supplementalTextHTML(value, F_MANA) : a.name.startsWith('E') ? value => supplementalTextHTML(value, E_MANA) : esc;
+  const text = value => supplementalTextHTML(value, W_MANA, a.name.startsWith('M'));
   const compactExamples = /^[CDEFGHIJKLMNOPRSTUVW]/.test(a.name);
   const displayColors = [...ORDER, ...(a.access.colorless.status === 'documented' ? ['C'] : [])];
   const comboOnly = a.name === 'Fuse' || a.name === 'Friends forever';
@@ -2255,7 +2261,7 @@ function assessmentHTML(k){
   const hasIndependentColor=ORDER.some(c=>a.access.colors[c].status === 'documented');
   const combinationLabel=hasIndependentColor ? 'Combination' : 'Combination only';
   const combinationRow = item => `<li class="own-row combo-row${S.sel.size && item.colors.every(c=>S.sel.has(c)) ? ' access-active' : ''}" data-combo="${item.colors.join('')}">${comboMarkHTML(item,combinationLabel)}<span class="own-c">${esc(item.colors.map(c=>CNAME[c]).join(' / '))}</span><span class="own-lead" aria-hidden="true"></span><span class="own-t">${combinationLabel}</span></li>`;
-  const accessRows = a.kind === 'access' ? (comboOnly ? a.access.combinations.map(combinationRow).join('') : displayColors.filter(c => !independentOnly || c === 'C' || a.access.colors[c].status === 'documented').map(c => { const item=c === 'C' ? a.access.colorless : a.access.colors[c], active=c !== 'C' && S.sel.has(c) && item.status === 'documented'; return `<li class="own-row${item.status === 'documented' ? '' : ' none'}${active ? ' access-active' : ''}" data-c="${c}">${accessMarkHTML(c,item.status)}<span class="own-c">${c === 'C' ? 'Colorless' : CNAME[c]}</span><span class="own-lead" aria-hidden="true"></span><span class="own-t">${esc(item.status === 'documented' ? 'Access' : item.status === 'multicolor_only' && hasIndependentColor ? 'No example found' : item.status === 'multicolor_only' ? 'Combination only' : item.status === 'not_applicable' ? 'Not applicable' : item.status === 'insufficient_evidence' ? 'Insufficient evidence' : 'No example found')}</span></li>`; }).join('') + (independentOnly ? a.access.combinations.map(combinationRow).join('') : '')) : '';
+  const accessRows = a.kind === 'access' ? (comboOnly ? a.access.combinations.map(combinationRow).join('') : displayColors.filter(c => !independentOnly || c === 'C' || a.access.colors[c].status === 'documented').map(c => { const item=c === 'C' ? a.access.colorless : a.access.colors[c], active=(c === 'C' ? S.colorless : S.sel.has(c)) && item.status === 'documented'; return `<li class="own-row${item.status === 'documented' ? '' : ' none'}${active ? ' access-active' : ''}" data-c="${c}">${accessMarkHTML(c,item.status)}<span class="own-c">${c === 'C' ? 'Colorless' : CNAME[c]}</span><span class="own-lead" aria-hidden="true"></span><span class="own-t">${esc(item.status === 'documented' ? 'Access' : item.status === 'multicolor_only' && hasIndependentColor ? 'No example found' : item.status === 'multicolor_only' ? 'Combination only' : item.status === 'not_applicable' ? 'Not applicable' : item.status === 'insufficient_evidence' ? 'Insufficient evidence' : 'No example found')}</span></li>`; }).join('') + (independentOnly ? a.access.combinations.map(combinationRow).join('') : '')) : '';
   // One qualifying example establishes access. Retain the full reviewed set
   // for discovery, without making its size a player-facing requirement.
   const reviewedCards = (item, label) => {
@@ -2277,7 +2283,7 @@ function assessmentHTML(k){
   const nonCardSources = a.sources.filter(s => { const u=new URL(s.url); return !(u.hostname === 'scryfall.com' && /^\/(?:card(?:s)?(?:\/|$)|search(?:\/|$))/.test(u.pathname)); });
   const colorlessEvidence = a.kind === 'access' && (!compactExamples || a.access.colorless.status === 'documented') ? `<h4>Colorless evidence</h4><p${compactExamples ? ' class="assessment-example"' : ''}>${exampleNote(a.access.colorless)}</p>${reviewedCards(a.access.colorless,'Colorless')}` : '';
   return `<section class="dx-sec supp-assessment" aria-label="Color access">
-    <h3 class="dx-h">Color Access</h3>${S.sel.size ? `<p class="dx-note">${accessState(k,S.sel) === 'match' ? 'Matches the selected reviewed access.' : accessState(k,S.sel) === 'miss' ? 'No matching reviewed access in the selected colors.' : 'Outside the WUBRG selector.'}</p>` : ''}${a.kind === 'rules' ? '<p class="dx-note">This is a general rules action; it has no color access map.</p>' : ''}
+    <h3 class="dx-h">Color Access</h3>${S.sel.size || S.colorless ? `<p class="dx-note">${accessState(k,S.sel) === 'match' ? 'Matches the selected reviewed access.' : accessState(k,S.sel) === 'miss' ? 'No matching reviewed access in the selected colors.' : 'Outside the WUBRG selector.'}</p>` : ''}${a.kind === 'rules' ? '<p class="dx-note">This is a general rules action; it has no color access map.</p>' : ''}
     ${a.kind === 'access' ? `<ul class="own access-strip" aria-label="Color access">${accessRows}</ul>` : '<p class="dx-ex is-supplemental"><b>Rules action · Color access not applicable</b></p>'}<p class="dx-note"><b>${esc(a.scopeLabel)}.</b>${compactExamples ? '' : ' ' + text(a.scope)}</p>
     <p class="dx-note">Based on reviewed evidence ${esc(supplementalDate(a.researchDate))}. Outside the 2021 color calculations.</p>
     <details class="assessment-notes"><summary>${compactExamples && a.kind === 'access' ? 'Reviewed card examples' : 'Evidence and scope'}</summary><p>${text(a.summary)}</p>${colorNotes}${combos}${colorlessEvidence}
@@ -2451,7 +2457,7 @@ function renderDetail(){
     stageEl.classList.toggle('docked', mode === 'dock');
     detailEl.classList.toggle('sheet', mode === 'sheet');
   }
-  const sig = S.pick + '|' + setKey(S.sel);
+  const sig = S.pick + '|' + setKey(S.sel) + '|' + S.colorless;
   if (detailEl._sig === sig && !detailEl.hidden) return;
   const newEntry = detailEl._sig && detailEl._sig.split('|')[0] !== S.pick;
   if (newEntry) srcOpen = false;
@@ -2552,7 +2558,8 @@ const announceEl = $('#announce');
 let announceT = 0;
 function announce(msg){ clearTimeout(announceT); announceT = setTimeout(() => { announceEl.textContent = ''; announceEl.textContent = msg; }, 60); }
 function lensSummary(){
-  if (!S.sel.size) return 'Colors cleared.';
+  if (!S.sel.size && !S.colorless) return 'Colors cleared.';
+  if (S.colorless) { const u=collectionCounts(S.sel); return u ? `${selectionWords()}: ${u.keys.length} of ${REC.size} entries match.` : 'Full collection matches are not available yet.'; }
   const b = cached('bk:' + setKey(S.sel), () => buckets(S.sel));
   return `${listWords(cnames(S.sel))}: ${KEYS.length - b.none.length} of ${KEYS.length} entries have a placement. Computed.`;
 }
@@ -2560,11 +2567,12 @@ function setSel(cols, fromQuery){
   S.sel = new Set(cols); S.selFromQuery = !!fromQuery && S.sel.size > 0; S.spot = null;
   if (S.q) runSearch();
 }
+function toggleColorless(){ S.colorless = !S.colorless; if (S.colorless && S.view !== 'az'){ S.view='az'; layoutList(); } setSel(S.sel, false); render(); announce(S.colorless ? 'Colorless selected. A to Z. ' + lensSummary() : lensSummary()); }
 function toggleColor(c){
   const n = new Set(S.sel); if (n.has(c)) n.delete(c); else n.add(c);
   setSel(n, false); render(); announce(lensSummary());
 }
-function clearColors(){ S.queryColorsSuppressed = true; setSel([], false); render(); announce(lensSummary()); }
+function clearColors(){ S.queryColorsSuppressed = true; S.colorless = false; setSel([], false); render(); announce(lensSummary()); }
 
 /* ARRIVAL (Gate E). #colors=<k>, with k a canonical W U B R G key of one to
    five colours, sets the lens on load or on hashchange. It replaces the lens
@@ -2578,8 +2586,8 @@ const colorsKey = h => { const m = /^#colors=([WUBRG]{1,5})$/.exec(h);
   return m && m[1] === setKey(new Set(m[1])) ? m[1] : null; };
 let arrival = colorsKey(location.hash), settled = null;
 function arrive(k){
-  if (setKey(S.sel) !== k) S.spot = null;
-  S.sel = new Set(k); S.selFromQuery = false; S.pick = null;
+  if (S.colorless || setKey(S.sel) !== k) S.spot = null;
+  S.sel = new Set(k); S.colorless = false; S.selFromQuery = false; S.pick = null;
   if (S.q) runSearch();
   render();
 }
@@ -2621,7 +2629,7 @@ function runSearch(preserveActive = false){
   /* The effective lens is singular: manual selection overrides parsed words,
      while Clear suppresses existing words until the next query edit. */
   const P = S.parsed;
-  if (!S.selFromQuery) P.colours = new Set(S.sel);
+  if (!S.selFromQuery) { P.colours = new Set(S.sel); P.colorless = S.colorless; }
   S.hits = searchRank(P);
   activeOpt = activeKey ? S.hits.findIndex(h => h.k === activeKey) : -1;
   resultPage = activeOpt >= 0 ? Math.floor(activeOpt / MAX_RESULTS) : 0;
@@ -2631,19 +2639,20 @@ function setQuery(v){
   S.q = v;
   S.queryColorsSuppressed = false;
   const P = parseQuery(v);
-  if (P.colourWords.length){ S.sel = new Set(P.colours); S.selFromQuery = true; }
-  else if (S.selFromQuery){ S.sel = new Set(); S.selFromQuery = false; }
+  if (P.colourWords.length || P.colorless){ S.sel = new Set(P.colours); S.colorless = P.colorless; S.selFromQuery = true; if (S.colorless && S.view !== 'az'){ S.view='az'; layoutList(); announce('Colorless selected. A to Z.'); } }
+  else if (S.selFromQuery){ S.sel = new Set(); S.colorless = false; S.selFromQuery = false; }
   runSearch();
   S.spot = null; activeOpt = -1;
   listOpen = document.activeElement === qEl && !!v.trim();
   render();
-  if (v.trim()) announce(S.hits.length ? `${S.hits.length} ${plural(S.hits.length, 'match', 'matches')}. First: ${REC.get(S.hits[0].k).disp}.`
-    : S.parsed.phrase ? 'No entry matched. The list is unchanged.' : '');
+  if (v.trim()) announce((P.colorless ? 'Colorless selected. A to Z. ' : '') + (S.hits.length ? `${S.hits.length} ${plural(S.hits.length, 'match', 'matches')}. First: ${REC.get(S.hits[0].k).disp}.`
+    : S.parsed.phrase ? 'No entry matched. The list is unchanged.' : ''));
 }
 function setView(v){
   if (S.view === v) return;
+  const clearedColorless = v === 'article' && S.colorless; if (clearedColorless){ S.colorless=false; S.selFromQuery=false; if (S.q) runSearch(true); }
   S.view = v; if (S.spot?.id === 'access' || S.spot?.id.startsWith('collection')) S.spot = null; layoutList(); render();
-  announce(v === 'article' ? 'Article order.' : 'A to Z.');
+  announce(v === 'article' ? (clearedColorless ? 'Article order. Colorless selection cleared.' : 'Article order.') : 'A to Z.');
 }
 function jumpSpecial(){
   const special = listEl.querySelector('.grp[data-scope="special-material"]'), heading = special?.querySelector(':scope > .grp-h'), first = special?.querySelector('.ent');
@@ -2707,6 +2716,7 @@ function bindEvents(){
     const b = ev.target.closest('[data-act]'); if (!b) return;
     const a = b.dataset.act;
     if (a === 'pip') toggleColor(b.dataset.c);
+    else if (a === 'colorless') toggleColorless();
     else if (a === 'clear') clearColors();
     else if (a === 'view') setView(b.dataset.v);
     else if (a === 'spot') setSpot(b.dataset.id);
@@ -2918,9 +2928,9 @@ function checkManaFont(){
 
 function api(){
   return { state:S, search:searchRank, parse:parseQuery, sections, buckets, deltaAdd, deltaRemove, wubrgSummary,
-    setQuery: v => { qEl.value = v; setQuery(v); }, toggleColor, clearColors, chooseCombo, setView, setSpot,
-    access: cols => ({ state:accessState, counts:accessCounts(new Set(cols)) }),
-    collection: cols => ({ counts:collectionCounts(new Set(cols)), delta:(color, remove=false)=>collectionDelta(new Set(cols), color, remove) }),
+    setQuery: v => { qEl.value = v; setQuery(v); }, toggleColor, toggleColorless, clearColors, chooseCombo, setView, setSpot,
+    access: (cols, colorless=false) => ({ state:(k,c)=>accessState(k,c,colorless), counts:accessCounts(new Set(cols),colorless) }),
+    collection: (cols, colorless=false) => ({ counts:collectionCounts(new Set(cols),colorless), delta:(color, remove=false)=>collectionDelta(new Set(cols), color, remove,colorless) }),
     open: k => openEntry(k, {}), close: () => closeEntry(false), article: () => ARTICLE.slice(), listOnly: () => LIST_ONLY.slice(),
     supplemental: () => ({ status:SUPPLEMENT.status, records:SUPPLEMENT.records, revision:SUPPLEMENT.revision }),
     assessments: () => ({ status:ASSESSMENTS.status, records:[...ASSESSMENTS.byKey.values()] }),
@@ -2943,9 +2953,9 @@ const shownEnts = () => [...listEl.querySelectorAll('.ent')].filter(visible);
 
 async function runSelfTest(){
   T.length = 0;
-  const saved = { sel: new Set(S.sel), selFromQuery: S.selFromQuery, q: S.q, view: S.view, pick: S.pick, spot: S.spot };
+  const saved = { sel: new Set(S.sel), colorless:S.colorless, selFromQuery: S.selFromQuery, q: S.q, view: S.view, pick: S.pick, spot: S.spot };
   const before = JSON.stringify(MCP.byMechanic);
-  S.spot = null; S.pick = null; qEl.value = ''; S.q = ''; runSearch(); S.sel = new Set(); S.selFromQuery = false;
+  S.spot = null; S.pick = null; S.colorless = false; qEl.value = ''; S.q = ''; runSearch(); S.sel = new Set(); S.selFromQuery = false;
   if (S.view !== 'article'){ S.view = 'article'; layoutList(); }
   render();
 
@@ -3220,7 +3230,7 @@ async function runSelfTest(){
   ok('truth: the runtime object is unchanged and frozen', JSON.stringify(MCP.byMechanic) === before && Object.isFrozen(MECH.flying.colors));
 
   /* restore */
-  S.sel = saved.sel; S.selFromQuery = saved.selFromQuery; S.view = saved.view; S.pick = saved.pick; S.spot = saved.spot;
+  S.sel = saved.sel; S.colorless = saved.colorless; S.selFromQuery = saved.selFromQuery; S.view = saved.view; S.pick = saved.pick; S.spot = saved.spot;
   qEl.value = saved.q; S.q = saved.q; runSearch();
   layoutList(); render();
   const pass = T.filter(t => t.ok).length, fail = T.filter(t => !t.ok);

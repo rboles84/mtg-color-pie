@@ -159,7 +159,7 @@ async function checkSelection(page,browser,baseline){
   await page.evaluate(()=>VMX.chooseCombo('G'));const neutral=page.locator('#list .ent[data-k="deck:vocabulary:devoid"]');assert.equal(await neutral.evaluate(e=>e.classList.contains('is-out')),false,'colorless-only Devoid remains neutral');assert.match(await neutral.getAttribute('aria-label'),/Outside selected reviewed access/);await neutral.click();assert.equal(await page.locator('#detail .access-active').count(),0,'colorless-only detail has no WUBRG selected mark');await page.locator('#detail [data-act="close"]').click();
   const adapt=page.locator('#list .ent[data-k="deck:vocabulary:adapt"]');await adapt.click();assert.ok(await page.locator('#detail .access-active').count()>0,'matching detail exposes selected access marks');await page.locator('#detail [data-act="close"]').click();
   assert.match(await page.locator('#ident').innerText(),/328 of 587 entries match/);assert.match(await page.locator('#key').innerText(),/fully contained combinations/);
-  assert.match(await page.locator('#key').innerText(),/Documented on cards/);assert.match(await page.locator('#key').innerText(),/Colorless and rules references/);
+  assert.match(await page.locator('#key').innerText(),/Documented on cards/);assert.match(await page.locator('#key').innerText(),/Colorless is a separate/);
   await page.evaluate(()=>VMX.setQuery('blue cycling'));await page.evaluate(()=>VMX.chooseCombo('G'));
   assert.deepEqual(await page.evaluate(()=>({sel:[...VMX.state.sel].join(''),parsed:[...VMX.state.parsed.colours].join('')})),{sel:'G',parsed:'G'},'manual selection overrides query colors');
   await page.evaluate(()=>VMX.clearColors());assert.deepEqual(await page.evaluate(()=>({sel:[...VMX.state.sel],parsed:[...VMX.state.parsed.colours]})),{sel:[],parsed:[]},'clear suppresses existing query colors');
@@ -171,7 +171,7 @@ async function checkSelection(page,browser,baseline){
     assert.ok(combo, name+' witness exists in validated input');
     const mark=page.locator('#access-legend-samples .combo-mark[data-combo="'+key+'"]');
     assert.equal(await mark.count(),1);assert.match(await mark.getAttribute('aria-label'),/documented combination/);
-    assert.match(await mark.locator('..').innerText(),new RegExp(name));assert.ok((await mark.locator('..').innerText()).includes(card));
+    assert.match(await mark.locator('..').innerText(),/color combination/);assert.ok(!(await mark.locator('..').innerText()).includes(card));
   }
   for(const width of [768,360]){await page.setViewportSize({width,height:900});const geometry=await page.locator('#key').evaluate(e=>({scroll:e.scrollWidth,client:e.clientWidth,right:e.getBoundingClientRect().right,width:innerWidth}));assert.ok(geometry.scroll<=geometry.client+1&&geometry.right<=geometry.width+1,'legend containment '+width);}
   await page.setViewportSize({width:1440,height:900});await page.locator('#key-fold').click();assert.equal(await page.locator('#key-fold').getAttribute('aria-expanded'),'false');await page.locator('#key-fold').click();
