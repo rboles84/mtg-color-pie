@@ -1,3 +1,86 @@
+# Owner Accepted — R supplemental Color Access
+
+- Owner response: "R is good", accepting the local R batch: exact material `c6aabbd3286f8dc5e903bf9130f328a83cd8a4a7`, delivered with independent-QA evidence at `0132179d7b0f9b67cd3d90eacb3cbebfaa8b4482`.
+- Status: `complete` (`qa-passed -> complete`) for this bounded local batch. This supersedes the pending Owner review in the historical QA record below. All 23 unmapped R entries / 129 selected examples are accepted; Reach, Reveal's rules-reference scope, Special grouping and earlier material remain as reviewed.
+- This acceptance update changes only `HANDOFF.md`. No product, source, generated payload, renderer, test, dependency or preview change is made by this record. No push, merge, integration or publication is authorized or performed.
+- Delivery evidence from the preceding turn: the official package verification passed (23 matching files, four clean inline scripts, 23 HTTP200 paths / 24 excluded404 paths). All23 paths served by the existing localhost8020 server matched packaged bytes, with material revision `c6aabbd3286f8dc5e903bf9130f328a83cd8a4a7`. The user stopped Computer Use with physical Escape during the visible-tab refresh attempt; final visible inspection and screenshot were not completed. No screenshot or visible-refresh success is claimed. This acceptance does not manufacture that missing evidence.
+
+## Material candidate
+
+- Baseline: `ab053fb3e3228797466fad13a3aa65a1eee248ef`
+- Candidate: `c6aabbd3286f8dc5e903bf9130f328a83cd8a4a7`
+- Changed paths: `51`
+
+## Files changed
+
+- `HANDOFF.md`
+- `data/mechanics-assessments.v1.json`
+- `docs/mechanics-research/COLOR-ACCESS-PROTOCOL.md`
+- `docs/mechanics-research/R-ACCESS-REVIEW.md`
+- `docs/mechanics-research/r-protocol-evidence/chromium-paper-printings.json`
+- `docs/mechanics-research/r-protocol-evidence/gabriel-angelfire-paper-printings.json`
+- `docs/mechanics-research/r-protocol-evidence/hunding-gjornersen-paper-printings.json`
+- `docs/mechanics-research/r-protocol-evidence/lord-of-tresserhorn-paper-printings.json`
+- `docs/mechanics-research/r-protocol-evidence/marhault-elsdragon-paper-printings.json`
+- `docs/mechanics-research/r-protocol-evidence/radiance-full-oracle-discovery.json`
+- `docs/mechanics-research/r-protocol-evidence/ragnar-paper-printings.json`
+- `docs/mechanics-research/r-protocol-evidence/raid-full-oracle-discovery.json`
+- `docs/mechanics-research/r-protocol-evidence/rally-full-oracle-discovery.json`
+- `docs/mechanics-research/r-protocol-evidence/rampage-full-oracle-discovery.json`
+- `docs/mechanics-research/r-protocol-evidence/ravenous-full-oracle-discovery.json`
+- `docs/mechanics-research/r-protocol-evidence/read-ahead-alternate-discovery.json`
+- `docs/mechanics-research/r-protocol-evidence/read-ahead-original-query-fresh-error-attempt.json`
+- `docs/mechanics-research/r-protocol-evidence/rebound-full-oracle-discovery.json`
+- `docs/mechanics-research/r-protocol-evidence/reconfigure-full-oracle-discovery.json`
+- `docs/mechanics-research/r-protocol-evidence/recover-full-oracle-discovery.json`
+- `docs/mechanics-research/r-protocol-evidence/recruit-full-oracle-discovery.json`
+- `docs/mechanics-research/r-protocol-evidence/regenerate-full-oracle-discovery-page-2.json`
+- `docs/mechanics-research/r-protocol-evidence/regenerate-full-oracle-discovery.json`
+- `docs/mechanics-research/r-protocol-evidence/reinforce-full-oracle-discovery.json`
+- `docs/mechanics-research/r-protocol-evidence/renew-full-oracle-discovery.json`
+- `docs/mechanics-research/r-protocol-evidence/renown-full-oracle-discovery.json`
+- `docs/mechanics-research/r-protocol-evidence/repartee-full-oracle-discovery.json`
+- `docs/mechanics-research/r-protocol-evidence/replicate-full-oracle-discovery.json`
+- `docs/mechanics-research/r-protocol-evidence/retrace-full-oracle-discovery.json`
+- `docs/mechanics-research/r-protocol-evidence/retrieval-receipts.json`
+- `docs/mechanics-research/r-protocol-evidence/reveal-full-oracle-discovery-page-2.json`
+- `docs/mechanics-research/r-protocol-evidence/reveal-full-oracle-discovery-page-3.json`
+- `docs/mechanics-research/r-protocol-evidence/reveal-full-oracle-discovery-page-4.json`
+- `docs/mechanics-research/r-protocol-evidence/reveal-full-oracle-discovery-page-5.json`
+- `docs/mechanics-research/r-protocol-evidence/reveal-full-oracle-discovery-page-6.json`
+- `docs/mechanics-research/r-protocol-evidence/reveal-full-oracle-discovery-page-7.json`
+- `docs/mechanics-research/r-protocol-evidence/reveal-full-oracle-discovery-page-8.json`
+- `docs/mechanics-research/r-protocol-evidence/reveal-full-oracle-discovery-page-9.json`
+- `docs/mechanics-research/r-protocol-evidence/reveal-full-oracle-discovery.json`
+- `docs/mechanics-research/r-protocol-evidence/revolt-full-oracle-discovery.json`
+- `docs/mechanics-research/r-protocol-evidence/riot-full-oracle-discovery.json`
+- `docs/mechanics-research/r-protocol-evidence/ripple-full-oracle-discovery.json`
+- `docs/mechanics-research/r-protocol-evidence/role-token-alternate-discovery.json`
+- `docs/mechanics-research/r-protocol-evidence/role-token-original-query-fresh-error-attempt.json`
+- `docs/mechanics-research/r-protocol-evidence/roll-to-visit-your-attractions-alternate-discovery.json`
+- `docs/mechanics-research/r-protocol-evidence/roll-to-visit-your-attractions-original-query-fresh-error-attempt.json`
+- `docs/mechanics-research/r-protocol-evidence/selected-candidate-bindings.json`
+- `docs/mechanics-research/r-protocol.json`
+- `tools/build_mechanics_assessments.py`
+- `tools/check_assessment_browser.mjs`
+- `vox-color/mechanical-explorer.html`
+
+## Evidence delta
+
+- Material candidate: `c6aabbd3286f8dc5e903bf9130f328a83cd8a4a7`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `1`
+- This is not the full task diff. Only developer, independent-QA, local-delivery and Owner-acceptance ledger evidence follows the material candidate.
+
+## Evidence-only paths
+
+- `HANDOFF.md`
+
+## Final branch delta
+
+- Baseline to final evidence HEAD: 51 Git-derived paths, matching the material inventory above. The acceptance action itself is a one-path ledger change from `0132179d7b0f9b67cd3d90eacb3cbebfaa8b4482`.
+- Branch: `codex/a-mechanics-review`. Local only; no push or merge. Final worktree state and change-report validation are checked after this evidence-only commit.
+
 # R supplemental Color Access — independent engineering QA PASS
 
 - Status: `qa-passed` for exact material candidate `c6aabbd3286f8dc5e903bf9130f328a83cd8a4a7` against baseline `ab053fb3e3228797466fad13a3aa65a1eee248ef`. This is RobQAPass engineering evidence, not Owner acceptance, integration, push or publication. Current pre-QA HEAD `c66facca04ede15b7821319079f4ee7bd95cf797` differed from the material candidate only by the developer `HANDOFF.md` evidence packet.
