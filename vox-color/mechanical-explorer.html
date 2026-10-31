@@ -707,7 +707,7 @@ html.sheet-open .bar{position:relative}
             <div class="def"><i class="sc t-t" aria-hidden="true"></i><dt>Tertiary</dt><dd>Occasional: not every set, often narrow.</dd></div>
             <div class="def"><i class="sc t-n" aria-hidden="true"></i><dt>No placement</dt><dd>The 2021 article places this ability in none of that color's tiers.</dd></div>
             <div class="def"><i class="sc dual" style="--cc:var(--w)" aria-hidden="true"><i class="sc-h l t-p"><i class="ms ms-w"></i></i><i class="sc-h r t-s"><i class="ms ms-w"></i></i></i><dt>Two placements</dt><dd>Left half: the article's color lists (“Mechanical Color Pie Lists”). Right half: its explanations (“All Abilities with Explanations”). This page shows both and does not choose.</dd></div>
-            <p class="defs-note">These are categories, not scores: this page never adds them up or turns them into a number. Five slots, always W U B R G.</p>
+            <p class="defs-note">These are categories, not scores: this page never adds them up or turns them into a number. The 2021 placement strip has five slots, always W U B R G.</p>
           </dl>
         </div>
         <ol class="steps">
@@ -1518,6 +1518,12 @@ function render(){
     while (n && !n.classList.contains('letter')){ if (!n.classList.contains('is-off')) any = true; n = n.nextElementSibling; }
     h.classList.toggle('is-empty', !!spot && !any); });
 
+  if (!visible(roving)){
+    if (roving) roving.tabIndex = -1;
+    roving = null;
+    setRoving([...listEl.querySelectorAll('.ent')].find(visible));
+  }
+
   renderBar(lensOn, bk);
   renderCompass();
   renderSpot();
@@ -1662,7 +1668,7 @@ function renderIdent(key){
       <p class="id-words" aria-hidden="true">${name ? `<span>${esc(words)}</span>` : ''}<span class="id-code">${key}</span></p>
     </div>
     <div class="id-body">
-      <p class="id-count"><b>${placed}</b> of ${KEYS.length} entries have a placement in ${esc(listWords(cnames(S.sel)))} <span class="calc">computed</span></p>
+      <p class="id-count"><b>${placed}</b> of ${KEYS.length} 2021 entries have a placement in ${esc(listWords(cnames(S.sel)))} <span class="calc">computed</span></p>
       ${S.view === 'az' ? ASSESSMENTS.status === 'ready' ? `<p class="id-count access-count"><b>${accessCounts(S.sel).keys.length}</b> reviewed-access matches <small>${accessCounts(S.sel).main.length} A–Z · ${accessCounts(S.sel).special.length} Special</small></p>` : `<p class="id-count access-count">Reviewed access ${ASSESSMENTS.status === 'unavailable' ? 'unavailable' : 'loading'}</p>` : ''}
       <p class="id-src">${name ? `“${esc(name)}” is Wizards’ name for ${esc(words)} (${esc(NAME_SOURCE)}): a label, not a claim about mechanics.`
         : key.length > 3 ? 'This page gives no combination name for four or five colors.' : ''}</p>
@@ -1754,7 +1760,7 @@ function renderSpot(){
     if (!S.spot){ bar.hidden = true; bar.innerHTML = ''; return; }
     bar.hidden = false;
     const accessSpot = S.spot.id === 'access';
-    bar.innerHTML = `<span>Showing <b>${S.spot.keys.size}</b> ${accessSpot ? 'reviewed-access' : '2021'} ${plural(S.spot.keys.size, 'entry', 'entries')}: ${esc(S.spot.label)}.${S.spot.dep ? ' Depends on conflicting 2021 claims.' : ''}${!accessSpot && S.view === 'az' && SUPPLEMENT.status === 'ready' ? ' Supplemental entries remain visible outside this 2021 calculation.' : ''}</span>
+    bar.innerHTML = `<span>Showing <b>${S.spot.keys.size}</b> ${accessSpot ? 'reviewed-access' : '2021'} ${plural(S.spot.keys.size, 'entry', 'entries')}: ${esc(S.spot.label)}.${S.spot.dep ? ' Depends on conflicting 2021 claims.' : ''}</span>
       <span class="calc">${accessSpot ? 'documented access' : 'computed'}</span><button class="go" type="button" data-act="unspot" data-fid="unspot">Show all entries</button>`;
   });
   const cap = $('#list-cap');
@@ -2238,7 +2244,7 @@ async function loadAssessments(data, status){
     notice.textContent += ' Color access could not be loaded. You can still read mechanic explanations and sources. Reload to try again.';
     console.warn('[mechanical-explorer] assessments unavailable:', err.message);
   }
-  if (S.q) runSearch();
+  if (S.q) runSearch(true);
   if (S.view === 'az') layoutList();
   resEl._sig = null; detailEl._sig = null; render();
 }
@@ -2524,14 +2530,16 @@ function chooseCombo(s){
   render(); announce(lensSummary());
 }
 
-function runSearch(){
+function runSearch(preserveActive = false){
+  const activeKey = preserveActive && activeOpt >= 0 ? S.hits[activeOpt]?.k : null;
   S.parsed = parseQuery(S.q);
   /* The effective lens is singular: manual selection overrides parsed words,
      while Clear suppresses existing words until the next query edit. */
   const P = S.parsed;
   if (!S.selFromQuery) P.colours = new Set(S.sel);
   S.hits = searchRank(P);
-  resultPage = 0; activeOpt = -1;
+  activeOpt = activeKey ? S.hits.findIndex(h => h.k === activeKey) : -1;
+  resultPage = activeOpt >= 0 ? Math.floor(activeOpt / MAX_RESULTS) : 0;
   S.hitSet = new Set(S.hits.map(h => h.k));
 }
 function setQuery(v){
