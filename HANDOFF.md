@@ -1,3 +1,10 @@
+# Owner Accepted — S supplemental Color Access
+
+- Owner response: “S is good.” This explicitly accepts the reviewed local S batch: exact material `9c02bf1d837926da7c4602413775a04054608423`, delivered with independent QA and preview evidence at `e70687f8c250bb9d41413e18f383e859044cea8b`.
+- Status: `complete` (`qa-passed -> complete`) for this bounded local batch. All40 unmapped S entries /221 selected examples are accepted. This supersedes the pending Owner-review statements in the historical delivery record below; Scry, frozen2021, prior batches, explicit digital/rules-only scopes and Special grouping remain as reviewed.
+- This acceptance changes only `HANDOFF.md`. No product, canonical source, generated payload, renderer, test, dependency, package or preview change is made. No push, merge, integration or publication is authorized or performed; the standing local-only boundary remains in force.
+- Validation: QA-0 ledger review and `git diff --check`; final Git change-report validation follows the evidence-only commit. Existing exact-candidate checks and served revision remain valid because material bytes are unchanged.
+
 # S supplemental Color Access — delivered for Owner Review
 
 - Status: `qa-passed`; independent RobQA PASS for exact material `9c02bf1d837926da7c4602413775a04054608423`. All40 unmapped S entries /221 selected bucket witnesses are implemented, verified and served locally. Scry/frozen2021 and all289 prior assessment rows/25 bindings are preserved. Owner acceptance is PENDING; no push, merge, integration or publication was performed.
