@@ -1857,8 +1857,8 @@ function hydrateDetail(k){
     if (card && S.pick === k) addCite(card, true);
   });
   const supplemental = SUP_EXAMPLES.byKey.get(k);
-  // Ready F/G/H/I/J/K/L/M/N/O/P/R assessments already supply one reviewed example per access bucket.
-  const assessedSupplement = REC.get(k)?.supplemental && /^[FGHIJKLMNOPR]/.test(REC.get(k).head) && ASSESSMENTS.byKey.has(k);
+  // Ready F/G/H/I/J/K/L/M/N/O/P/R/S assessments already supply one reviewed example per access bucket.
+  const assessedSupplement = REC.get(k)?.supplemental && /^[FGHIJKLMNOPRS]/.test(REC.get(k).head) && ASSESSMENTS.byKey.has(k);
   if (supplemental && S.pick === k && !assessedSupplement) addCite(supplemental, true, true);
 }
 /* The rest of the entries carry a stored printing (mechanical-examples.json),
