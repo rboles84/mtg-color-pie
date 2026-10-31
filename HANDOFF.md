@@ -1,3 +1,57 @@
+# U supplemental Color Access — delivered for Owner Review
+
+- Status: `qa-passed`. Separate non-implementing RobQA PASS is bound to exact material `3117561907359a83ef5fdd53de3ccb1e31a8e881`, over baseline `618a0a2aa74f4f0ebb1584b2e0e937817a29c9a8`; no findings. Owner acceptance is PENDING. All eight U entries / 31 selected examples are implemented, verified and served locally. Underdog remains card-specific playtest material; Untap remains a rules reference. No remaining source or engineering blocker.
+- Research: `docs/mechanics-research/u-protocol.json`, `U-ACCESS-REVIEW.md`, `u-protocol-evidence/`. Nineteen actual receipt records preserve statuses, UTC intervals, raw hashes and the selected-card POST body. All 31 selected full objects and exact printing links bind to successful captures. Two wrong-query bodies remain explicitly unbound; missing original official retrieval times stay unknown, with fresh separately captured official context supplying current authority.
+- Checks actually run: developer/coordinator and independent receipt/object/face/scope/signature/copy audits; deterministic producer (354 rows / 28 bindings); invariants, taxonomy, all 53 reconciliation assertions and source/fixture gate; syntax/whitespace; independent and developer `--u-only` real-browser PASS for all eight entries / 31 links, list/search/detail maps, whole-detail native tokens including energy/hybrid, accessibility/readable font fallback, five malformed isolation cases, escaping/safe links, keyboard and 360px containment; exact prior 346-row/27-binding parity, frozen 2021 and Scavenge control. The unrelated broad/default Friends-forever harness was not run or repaired; no all-suite PASS is claimed.
+- Package/live proof: unchanged `.github/pages/package.py --rev 3117561907359a83ef5fdd53de3ccb1e31a8e881 --out <verified ordinary direct-child _site> --verify` PASS: 23 byte-matching files, four clean inline scripts, 23 expected HTTP 200 paths and 24 excluded HTTP 404 paths. Identified old local-only Python PID 39956 was replaced with hidden Python PID 5596, bound to `127.0.0.1:8020`. All 23 live paths match reviewed material bytes; root shell stamp and visible Mechanical Color Pie iframe revision both equal the candidate. Package code is unchanged.
+- Preview: http://127.0.0.1:8020/#mechanical-color-pie . Retained in-app browser deliverable opens Umbra Armor, with search empty, all five color filters observed clear and Reviewed card examples expanded. Inspected screenshot shows W/U/G plus exact WG and WUG, all five selected links (Eland Umbra, Crab Umbra, Lion Umbra, Indrik Umbra, Estrid), actual native {2}{U} cost symbols, no redundant legacy example/image or aggregate card-source list. Screenshot saved to `C:/Users/obake/.codex/visualizations/2026/10/31/01a1924f-b0d3-79a3-9074-4870ec34fc74/u-color-access-preview.jpg`.
+- Owner case: inspect the already-open expanded Umbra Armor detail for wording and appearance. No deterministic card/color/link recheck or routine confirmation is needed. No Owner acceptance, push, merge, integration or publication is inferred. Git has no upstream and no current remote-tracking ref contains the candidate; no fetch was performed. Final evidence-only commit changes this ledger alone; shipped material remains the QA candidate.
+- Roles: configured RobDev Terra medium initial construction; coordinating session completed source and renderer/harness corrections after concrete gaps; separate configured RobQA Sol medium independently reviewed the final exact candidate and wrote its individual report below. Host accepted the configured role routes; backend identity and token savings are unverified. Individual source handoff is in U review. All previous cohorts, canonical supplement/grouping, mapped/frozen 2021, older formatting/artwork, dependencies and package code remain untouched.
+- Delivery recorded UTC: 2026-10-31T14:52:35.433361+00:00.
+
+## Material candidate
+
+- Baseline: `618a0a2aa74f4f0ebb1584b2e0e937817a29c9a8`
+- Candidate: `3117561907359a83ef5fdd53de3ccb1e31a8e881`
+- Changed paths: `34`
+
+## Files changed
+
+- `HANDOFF.md`
+- `data/mechanics-assessments.v1.json`
+- `docs/mechanics-research/COLOR-ACCESS-PROTOCOL.md`
+- `docs/mechanics-research/U-ACCESS-REVIEW.md`
+- `docs/mechanics-research/u-protocol-evidence/coordinator-retrieval-receipts.json`
+- `docs/mechanics-research/u-protocol-evidence/guilds-ravnica-mechanics-reviewed.html`
+- `docs/mechanics-research/u-protocol-evidence/mystery-booster-release-notes-reviewed.html`
+- `docs/mechanics-research/u-protocol-evidence/mystery-booster-release-notes.html`
+- `docs/mechanics-research/u-protocol-evidence/retrieval-log.ndjson`
+- `docs/mechanics-research/u-protocol-evidence/retrieval-receipts.json`
+- `docs/mechanics-research/u-protocol-evidence/ruff-underdog-champ.json`
+- `docs/mechanics-research/u-protocol-evidence/selected-cards-receipt.json`
+- `docs/mechanics-research/u-protocol-evidence/selected-cards-request.json`
+- `docs/mechanics-research/u-protocol-evidence/selected-cards.json`
+- `docs/mechanics-research/u-protocol-evidence/special-receipt.json`
+- `docs/mechanics-research/u-protocol-evidence/umbra-armor-discovery.json`
+- `docs/mechanics-research/u-protocol-evidence/umbra-armor-full-oracle-reviewed-1.json`
+- `docs/mechanics-research/u-protocol-evidence/umbra-armor-keyword-discovery.json`
+- `docs/mechanics-research/u-protocol-evidence/undaunted-discovery.json`
+- `docs/mechanics-research/u-protocol-evidence/undaunted-keyword-discovery.json`
+- `docs/mechanics-research/u-protocol-evidence/underdog-discovery.json`
+- `docs/mechanics-research/u-protocol-evidence/underdog-full-oracle-reviewed-1.json`
+- `docs/mechanics-research/u-protocol-evidence/undergrowth-discovery.json`
+- `docs/mechanics-research/u-protocol-evidence/undergrowth-full-oracle-reviewed-1.json`
+- `docs/mechanics-research/u-protocol-evidence/undying-discovery.json`
+- `docs/mechanics-research/u-protocol-evidence/undying-keyword-discovery.json`
+- `docs/mechanics-research/u-protocol-evidence/unearth-discovery.json`
+- `docs/mechanics-research/u-protocol-evidence/unearth-keyword-discovery.json`
+- `docs/mechanics-research/u-protocol-evidence/unleash-discovery.json`
+- `docs/mechanics-research/u-protocol-evidence/unleash-keyword-discovery.json`
+- `docs/mechanics-research/u-protocol.json`
+- `tools/build_mechanics_assessments.py`
+- `tools/check_assessment_browser.mjs`
+- `vox-color/mechanical-explorer.html`
+
 # U supplemental Color Access — ready for independent QA
 
 - Status: `ready-for-qa` (`complete -> idle -> dev-in-progress -> ready-for-qa`). Baseline `618a0a2aa74f4f0ebb1584b2e0e937817a29c9a8`; same `codex/a-mechanics-review` checkout. The exact current candidate is the commit containing this handoff; QA must resolve and bind its full SHA. Owner acceptance is PENDING. No preview refresh, push, merge, integration or publication is claimed yet.
@@ -9,6 +63,16 @@
 - Candidate history: Git observes initial U commit `85181ca` even though the worker reported no commit; Git is authoritative. That initial commit had no browser PASS. This correction completes the missing renderer/harness gates; the combined baseline-to-final candidate is the review scope.
 - Proportionality and states: expected QA-4 / SEPARATE non-implementing reviewer because source facts, qualification/projection and shared renderer admission are touched. CPU-heavy validation NOT REQUIRED; no placement engine or redesign change. Browser evidence is necessary for actual hydration, native glyph/fallback, keyboard and containment risks unavailable from static copy alone. Capture -> canonical object -> payload -> detail continuity, malformed replacement isolation, color perturb/clear and Article/A-Z restoration are covered. No new persistent state owner exists. Broad historical Friends-forever/default harness was not run or repaired; no all-suite PASS is claimed.
 - Roles/remaining work: configured RobDev Terra medium supplied initial source/renderer/harness; coordinator took source and final renderer/harness ownership after concrete defects. Requested/configured route was host-accepted; remote backend identity/token savings are unverified. Separate configured RobQA Sol medium must inspect the exact committed diff and issue its own evidence/verdict. After QA, coordinator packages with unchanged `.github/pages/package.py`, verifies live bytes/revision, clears filters, opens expanded Umbra Armor or Unearth, inspects and saves the requested screenshot. Owner judges wording/appearance; no acceptance is invented.
+
+# U supplemental Color Access — independent engineering QA PASS
+
+- Status/mode/class/candidate: **`qa-passed`** (`ready-for-qa -> qa-passed`), SEPARATE non-implementing RobQA reviewer `/root/u_independent_qa`, QA-4 source/projection/runtime review. RobQAPass engineering **PASS** is bound to exact material `3117561907359a83ef5fdd53de3ccb1e31a8e881` over baseline `618a0a2aa74f4f0ebb1584b2e0e937817a29c9a8`. Owner acceptance, package/preview/screenshot, integration, publication, push and merge remain PENDING/not performed.
+- Scope and source inspection: the complete 34-path, 7,879-addition / 25-deletion baseline-to-candidate diff stays inside the declared U packet/evidence/protocol/producer/payload/renderer/harness/ledger envelope. All eight definitions/scopes, 31 selected Oracle facts and notes, exclusions, exact printing links, discovery screens and current rendered fields were read. The corrected facts are present: Estrid is the WUG Mask creator; Crab Umbra is `{2}{U}` untap; Salvation Colossus pays eight `{E}`; Dead Reveler is a 2/3 without invented text; Witch-king is native BR. Historical Totem Armor, grants, Ruff's exact W playtest label, Untap rule 701.26b, source-color rather than identity/cost/recipient/token attribution, and bounded ordinary-paper exclusions agree with the protocol and saved primary facts.
+- Independent source/projection evidence: 19 actual receipt bodies match their SHA-256 values, HTTP 200 statuses and ordered request intervals; the 29-card POST body hash and 29-card response agree. All 31 distinct canonical selected objects equal their bound raw objects, exact printing URLs and mechanic-bearing face colors/scopes; all discovery pages are terminal and observed signatures equal the selected independent/colorless/combination maps. The two wrong-query bodies remain explicitly unbound, and the original official capture retains null event times while a separate fresh official capture supplies context. Exact prior parity is 346 records / 27 bindings; U adds eight records / 31 unique selected links for 354 / 28. Underdog's `playtest` group remains in Special; the other seven remain Main. Frozen 2021, supplement/scope, wheel/shell and earlier packets are absent from the material diff.
+- Commands and concrete results: `python tools/check_invariants.py` -> exit 0 (217 source identities / 216 projected mechanics, zero unadjudicated conflicts); `python tools/check_taxonomy.py` -> exit 0 (source gate PASS, 30 assignments / 19 families); `python tools/check_recon.py` -> exit 0 (source/taxonomy/fixture PASS, all 53 assertions); `python tools/gate.py` -> exit 0; `python tools/build_mechanics_assessments.py --check` -> exit 0 (`354` records / `28` bindings). `node --check tools/check_assessment_browser.mjs`, independent `vm.Script` parsing of the explorer inline script, and `git diff --check 618a0a2a..31175619` all exit 0. The material worktree was clean before this evidence-only ledger update.
+- Focused real-browser result: `node tools/check_assessment_browser.mjs --root . --u-only --playwright C:/Users/obake/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright` -> exit 0 / JSON `PASS`. It actually rendered all 8 U entries and 31 exact links across list/search/detail, waited through supplemental hydration, verified native independent/combination/colorless maps and no legacy example/image injection, all encountered raw tokens versus glyphs (including `{E}` and `{B/R}`) with accessible labels, blocked-font readable fallback, safe links/escaping, five malformed atomic failures, keyboard Enter, 360px containment, Scavenge's three-link control and unchanged frozen math. Browser evidence was proportionate because hydration, actual glyph/fallback/accessibility, keyboard and containment behavior cannot be established completely from static source; no screenshots or aesthetic claim were used.
+- Findings/proportionality/state: **no blocker, major, acceptance-violating minor or note.** CPU-heavy validation was NOT REQUIRED: placement/scoring, persistent ownership and frozen calculations did not change. Capture -> canonical object -> deterministic projection -> rendered detail continuity, malformed replacement isolation, color perturb/clear and Article/A-Z restoration passed; reverse/provenance history beyond those seams is not applicable because no persistent state owner was added. The broad historical Friends-forever/default harness, screenshot matrix, network recapture, package and all-suite run were intentionally omitted; the known broad symbol-size harness debt was not repaired or represented as green.
+- Remaining Owner judgment: wording comfort, usefulness and optical presentation only. Short review after the coordinator serves the exact material: clear incidental search/color filters, open Umbra Armor or Unearth, expand `Reviewed card examples`, and judge the reading flow and appearance. Deterministic source, link, glyph, keyboard and containment facts need not be manually re-proved.
 
 # Owner Accepted — T supplemental Color Access
 
