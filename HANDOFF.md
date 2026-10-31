@@ -1,3 +1,42 @@
+# R supplemental Color Access — independent engineering QA PASS
+
+- Status: `qa-passed` for exact material candidate `c6aabbd3286f8dc5e903bf9130f328a83cd8a4a7` against baseline `ab053fb3e3228797466fad13a3aa65a1eee248ef`. This is RobQAPass engineering evidence, not Owner acceptance, integration, push or publication. Current pre-QA HEAD `c66facca04ede15b7821319079f4ee7bd95cf797` differed from the material candidate only by the developer `HANDOFF.md` evidence packet.
+- QA execution: `SEPARATE`, non-implementing RobQA reviewer `/root/r_independent_qa`; QA-4 because the candidate adds canonical mechanic selection semantics, saved-source authority, projection and rendered consumption. The exact Git material delta is 51 admitted paths and 28,633 additions / 39 deletions. No path or behavior outside the R envelope was found.
+- Changed contract: 23 unmapped R entries / 129 selected bucket witnesses project as presence-only Color Access into 289 records / 25 source bindings. Reach and all prior records remain protected; Reveal is rules-only with six `not_applicable` access slots and no selected cards; Roll to Visit Your Attractions retains Special grouping.
+- Protected contract: all baseline 266 A–P projected records and 24 source bindings are structurally identical in the candidate payload; Reach is unchanged. The focused browser check additionally compared all prior rendered output, Q/later unassessed output and frozen calculations against the baseline.
+
+## Independent checks and observed evidence
+
+- `git status --short --branch`; `git rev-parse HEAD`; `git diff --stat|--name-status ab053fb3e3228797466fad13a3aa65a1eee248ef..c6aabbd3286f8dc5e903bf9130f328a83cd8a4a7`; `git diff c6aabbd3286f8dc5e903bf9130f328a83cd8a4a7..c66facca04ede15b7821319079f4ee7bd95cf797` — clean `codex/a-mechanics-review`; exact material delta 51 paths, 28,633 additions / 39 deletions; later delta was `HANDOFF.md` only.
+- Full material diff, R protocol/review, source receipts, producer, renderer and focused harness inspected independently. Every changed path is inside the admitted source/evidence/producer/generated/runtime/harness/ledger envelope; no dependency, route, theme or unrelated cohort edit was found.
+- Independent saved-source audit over `r-protocol.json` and all receipt-bound bodies — PASS: 44 GET receipts; 38 HTTP 200; six HTTP 404 comprising three explicit original unretained gaps and three separately timed/hashed retained reissues; all 41 retained bodies match SHA-256. All 129 unique selected bucket objects are byte-structurally identical to the exact objects in their bound successful raw responses and exact printing links.
+- Independent full-card review — PASS: read all 129 authored selected notes against saved full Oracle facts; verified mechanic-bearing face colors, indicators/CDA where applicable, trigger/timing/recipient/cost restrictions, native/grant/token-creator role, exact WUBRG or colorless bucket and exact Scryfall object/link. Rapid Fire, Gabriel Angelfire, Rustic Clachan, Rimebound Dead, Skeletonize, Threefold Signal, Ian Chesterton, Wrenn and Six, Taigam, Aragorn, Rhythm of the Wild and Michelangelo's exact `Raid (the Fridge)` wording preserve the required facts. No note, trigger, cost, color, bucket or link defect was found.
+- Independent exclusion review from saved discovery bodies — PASS: Aligned Heart is rally-counter incidental text; Rally the Ancestors and Freedom Fighter Recruit are name-only; `\"Lifetime\" Pass Holder` is payoff-only; Jund 'Em Out is playtest metadata; Vanguard Xantcha is excluded. Ordinary Command Performance and Line Cutter remain qualifying non-acorn sources. Selected ordinary-paper guards exclude actual Plane/Scheme/Vanguard layouts/types without excluding ordinary cards from those product families.
+- Independent baseline payload comparison using `git show ab053fb3e3228797466fad13a3aa65a1eee248ef:data/mechanics-assessments.v1.json` — PASS: 266/266 prior records and 24/24 prior bindings are structurally equal; candidate is 289/25; Reach is unchanged.
+- `git diff --check ab053fb3e3228797466fad13a3aa65a1eee248ef..c6aabbd3286f8dc5e903bf9130f328a83cd8a4a7` — exit 0, no whitespace errors.
+- `python tools/gate.py` — exit 0: `source gate : PASS`; `taxonomy gate : PASS`.
+- `python tools/build_mechanics_assessments.py --check` — exit 0: deterministic payload/source bindings PASS for 289 protocol-v2.0 A–P/R records.
+- `node --check tools/check_assessment_browser.mjs` — exit 0.
+- `node tools/check_assessment_browser.mjs --root . --r-only --playwright C:/Users/obake/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright` — exit 0 PASS: all 23 R records / 129 selected buckets rendered in list, actual search and expanded detail; exact objects/receipts/source colors, compact links, symbols, safe escaping, blocked-font fallback, malformed isolation, keyboard behavior, 360 px containment, prior rendered parity and frozen math passed. Browser execution was proportionate because these objective DOM/link/glyph/accessibility/failure/containment contracts cannot all be established from source inspection alone; no screenshot or aesthetic claim was made.
+- Reused unchanged developer evidence: exact-final focused `--p-only` PASS for all 22 P entries / 157 selected links. It directly covers the historical cohort-selector correction and remained bound to the same material; no cause required repeating it.
+
+## Findings, cost and coverage disposition
+
+- Findings: none (`blocker`: 0; `major`: 0; `minor`: 0; `note`: 0). No RobDev correction is requested.
+- CPU-heavy validation: `NOT REQUIRED`. No placement/scoring engine, dependency, route or persistent state owner changed. A broad all-suite run, exhaustive viewport matrix, screenshots and the known historical broad Friends forever 14/18 symbol-size harness debt were intentionally not run; the directly relevant source, producer and focused rendered checks are green, and the untouched P evidence remains valid.
+- Stateful adversarial QA: `NOT APPLICABLE` to ownership/history/persistence transitions. The candidate adds immutable source records and a deterministic projection; it does not add a current/editable/executed state seam, reverse transition, restore/reset owner or representation round-trip. The relevant capture → canonical record → generated projection → rendered link continuity, explicit malformed replacement/failure isolation and structurally different ordinary/grant/token-creator/colorless/rules-only representatives are covered by the source audit and focused browser run.
+- Manual findings converted to invariants: none; there was no Owner-confirmed escape in this candidate.
+
+## Bounded Owner review
+
+Purpose: judge player-facing wording comfort and compact presentation; deterministic facts are already machine-verified.
+
+1. Open the packaged Mechanical Color Pie preview, search `Raid`, expand it, and read the Michelangelo example. PASS if `Raid (the Fridge)` feels clearly card-specific and the explanation reads naturally without implying a general redefinition.
+2. Search `Regenerate`, expand it, and scan independent access, combinations and the colorless example. PASS if the dense 16-bucket evidence remains readable and the hierarchy feels useful rather than audit-heavy.
+3. Search `Roll to Visit Your Attractions` and `Reveal`. PASS if the Special entry and rules-only entry feel clearly distinguished and their empty/not-applicable presentation is understandable.
+
+Engineering verdict: **RobQAPass PASS / `qa-passed`** for material `c6aabbd3286f8dc5e903bf9130f328a83cd8a4a7`. Owner Review remains required; only the Owner may ACCEPT or REJECT the exact candidate.
+
 # R supplemental Color Access — ready for independent QA
 
 - Status: `ready-for-qa` (developer report complete; no material edits after handoff).
