@@ -1,3 +1,11 @@
+# Owner Accepted — U supplemental Color Access
+
+- Owner response: “U is good.” This explicitly accepts exact reviewed material `3117561907359a83ef5fdd53de3ccb1e31a8e881`, delivered with independent QA and local preview evidence at `1ee5a90c34acae904443466f3436cc58b8097e00`.
+- Status: `complete` (`qa-passed -> complete`) for this bounded local batch. All eight U entries / 31 selected examples are accepted. This supersedes the pending Owner-review statements in the historical delivery record below. Underdog's card-specific playtest scope, Untap's rules-reference scope, frozen 2021, prior batches and main/Special grouping remain as reviewed.
+- This acceptance changes only `HANDOFF.md`. Product/source/payload/renderer/test/package bytes and served revision remain unchanged; existing exact-candidate QA and preview evidence stays valid. No push, merge, integration or publication is authorized or performed; the standing local-only boundary remains in force.
+- Validation: QA-0 acceptance-ledger review and `git diff --check`; final Git change-report validation follows this evidence-only commit. No material checks require repetition for an acceptance-only record.
+- Acceptance recorded UTC: 2026-10-31T15:01:49.880162+00:00.
+
 # U supplemental Color Access — delivered for Owner Review
 
 - Status: `qa-passed`. Separate non-implementing RobQA PASS is bound to exact material `3117561907359a83ef5fdd53de3ccb1e31a8e881`, over baseline `618a0a2aa74f4f0ebb1584b2e0e937817a29c9a8`; no findings. Owner acceptance is PENDING. All eight U entries / 31 selected examples are implemented, verified and served locally. Underdog remains card-specific playtest material; Untap remains a rules reference. No remaining source or engineering blocker.
