@@ -1,0 +1,567 @@
+{
+  "artifact_kind": "derived_candidate_index",
+  "not_raw_response": true,
+  "derived_from": "Saved r-protocol-evidence discovery captures; authoritative selected full objects and exact bindings are in r-protocol.json.",
+  "entries": [
+    {
+      "name": "Ephemerate",
+      "oracle_id": "0fd57894-b917-41c8-a394-360d1d31b236",
+      "id": "2da5f3f8-5eef-498f-ba2c-2f3fbc3745aa",
+      "colors": "W",
+      "set": "mh1",
+      "released": "2019-06-14",
+      "games": "paper,mtgo",
+      "promo": ""
+    },
+    {
+      "name": "Cast Through Time",
+      "oracle_id": "0a911cb2-caae-4378-bf09-1c5b0751dd35",
+      "id": "c9850489-c056-4b17-8743-a5b514d8edf4",
+      "colors": "U",
+      "set": "roe",
+      "released": "2010-04-23",
+      "games": "paper,mtgo",
+      "promo": ""
+    },
+    {
+      "name": "Consuming Vapors",
+      "oracle_id": "a10ce333-48d7-499b-9355-f381f2395497",
+      "id": "7b6e74a3-f390-4ad2-93de-930af0e5585c",
+      "colors": "B",
+      "set": "afc",
+      "released": "2021-07-23",
+      "games": "paper",
+      "promo": ""
+    },
+    {
+      "name": "Staggershock",
+      "oracle_id": "056c3b7d-b603-40b8-8404-18c2eb7e7129",
+      "id": "56976d52-053d-49e9-94c0-f21dc13029ac",
+      "colors": "R",
+      "set": "2x2",
+      "released": "2022-07-08",
+      "games": "paper,mtgo",
+      "promo": ""
+    },
+    {
+      "name": "Prey's Vengeance",
+      "oracle_id": "67f6e949-14d9-4253-9d18-4004cac2f900",
+      "id": "66b7992e-494b-4b1b-bd5d-8f9bb19b275e",
+      "colors": "G",
+      "set": "ima",
+      "released": "2017-11-17",
+      "games": "paper,mtgo",
+      "promo": ""
+    },
+    {
+      "name": "Fevered Suspicion",
+      "oracle_id": "51545f6e-d0e3-4b4c-bc73-c731f85e26b0",
+      "id": "82c35cce-5b13-4870-8710-1b05af2c5c40",
+      "colors": "BR",
+      "set": "afc",
+      "released": "2021-07-23",
+      "games": "paper,mtgo",
+      "promo": ""
+    },
+    {
+      "name": "Taigam, Ojutai Master",
+      "oracle_id": "e4cf3710-8600-4f95-abb2-faefdc25693d",
+      "id": "b47e2781-544f-442c-98d0-43b9d91bab03",
+      "colors": "UW",
+      "set": "c17",
+      "released": "2017-08-25",
+      "games": "paper,mtgo",
+      "promo": ""
+    },
+    {
+      "name": "Ian Chesterton",
+      "oracle_id": "32c9ce8c-a19d-49e4-bc6d-c7182fa00b51",
+      "id": "8bce4bde-33af-4c91-903f-c46218664353",
+      "colors": "W",
+      "set": "who",
+      "released": "2023-10-13",
+      "games": "paper",
+      "promo": "universesbeyond"
+    },
+    {
+      "name": "Gigadrowse",
+      "oracle_id": "9cc64a91-82d2-4be1-812f-531863e99801",
+      "id": "bf9f85b3-eb8c-43de-aaac-8a887e9c58da",
+      "colors": "U",
+      "set": "gpt",
+      "released": "2006-02-03",
+      "games": "paper,mtgo",
+      "promo": ""
+    },
+    {
+      "name": "Exterminate!",
+      "oracle_id": "90b540ab-b05a-4d29-b896-7ff5da0b101d",
+      "id": "da54bbfd-48d8-4b1f-9336-e45be7e0b0e5",
+      "colors": "B",
+      "set": "who",
+      "released": "2023-10-13",
+      "games": "paper",
+      "promo": "universesbeyond"
+    },
+    {
+      "name": "Shattering Spree",
+      "oracle_id": "fe725b27-49ef-41bc-91f9-9cd9871ad863",
+      "id": "d6dcff21-5900-43c4-a38b-cdc19c704ce4",
+      "colors": "R",
+      "set": "gpt",
+      "released": "2006-02-03",
+      "games": "paper,mtgo",
+      "promo": ""
+    },
+    {
+      "name": "Hatchery Sliver",
+      "oracle_id": "6227fb65-d7ef-4bc6-a076-9aa10941632c",
+      "id": "15d2737c-d8ef-4b03-9316-be3f61288d3c",
+      "colors": "G",
+      "set": "cmm",
+      "released": "2023-08-04",
+      "games": "paper,mtgo",
+      "promo": ""
+    },
+    {
+      "name": "Djinn Illuminatus",
+      "oracle_id": "d7dcf1be-2779-419d-8c90-03800f9e7ea2",
+      "id": "7c784b00-dcef-4640-a305-5ff1baf2e6fd",
+      "colors": "RU",
+      "set": "c20",
+      "released": "2020-04-17",
+      "games": "paper,mtgo",
+      "promo": ""
+    },
+    {
+      "name": "Threefold Signal",
+      "oracle_id": "bc48da27-77e0-440f-b47b-4bdea3c3cc5e",
+      "id": "3296b4ef-1c4a-4048-b7ce-44424fb3ff7d",
+      "colors": "",
+      "set": "ncc",
+      "released": "2022-04-29",
+      "games": "paper,mtgo",
+      "promo": ""
+    },
+    {
+      "name": "Cenn's Enlistment",
+      "oracle_id": "49fe9f5a-5821-4586-b913-7d8aef1f8669",
+      "id": "37bcc0fd-1eea-4eb0-8099-e0e94ffe00b6",
+      "colors": "W",
+      "set": "mma",
+      "released": "2013-06-07",
+      "games": "paper,mtgo",
+      "promo": ""
+    },
+    {
+      "name": "Oona's Grace",
+      "oracle_id": "380e9992-b5d2-4fbe-a8c3-c37220846e0a",
+      "id": "e2128105-de04-4f51-81c7-37f30cf324d4",
+      "colors": "U",
+      "set": "c19",
+      "released": "2019-08-23",
+      "games": "paper,mtgo",
+      "promo": ""
+    },
+    {
+      "name": "Raven's Crime",
+      "oracle_id": "a21c85f3-482b-47e5-9321-0ca21e110bd8",
+      "id": "7271436b-897a-4b24-a5d2-d29dbea8c1bf",
+      "colors": "B",
+      "set": "mma",
+      "released": "2013-06-07",
+      "games": "paper,mtgo",
+      "promo": ""
+    },
+    {
+      "name": "Flame Jab",
+      "oracle_id": "05eccdee-84f8-42d5-b79c-36d081656915",
+      "id": "e227f18f-7260-4066-bae2-01db4fd1abdd",
+      "colors": "R",
+      "set": "ema",
+      "released": "2016-06-10",
+      "games": "paper,mtgo",
+      "promo": ""
+    },
+    {
+      "name": "Deeproot Historian",
+      "oracle_id": "4b8d82fe-571d-4fd6-8d0c-77b7e5ef3e23",
+      "id": "fffb73ed-5748-4c2a-afe5-e29bf954b578",
+      "colors": "G",
+      "set": "lcc",
+      "released": "2023-11-17",
+      "games": "paper,mtgo",
+      "promo": ""
+    },
+    {
+      "name": "Call the Skybreaker",
+      "oracle_id": "a7213bef-0e9c-44e1-97cb-d1da0ef370bf",
+      "id": "e52586f2-dcf2-4605-b354-3ab441a43638",
+      "colors": "RU",
+      "set": "ncc",
+      "released": "2022-04-29",
+      "games": "paper",
+      "promo": ""
+    },
+    {
+      "name": "Wrenn and Six",
+      "oracle_id": "108ae90a-50fa-4cfd-b751-d630e41425fe",
+      "id": "5bd498cc-a609-4457-9325-6888d59ca36f",
+      "colors": "GR",
+      "set": "2x2",
+      "released": "2022-07-08",
+      "games": "paper,mtgo",
+      "promo": ""
+    },
+    {
+      "name": "Airdrop Aeronauts",
+      "oracle_id": "009a399b-c78e-475b-8bc3-7db2afc9d676",
+      "id": "49827a57-cf10-4a44-a1fd-ac611da39dc9",
+      "colors": "W",
+      "set": "aer",
+      "released": "2017-01-20",
+      "games": "paper,mtgo",
+      "promo": ""
+    },
+    {
+      "name": "Fatal Push",
+      "oracle_id": "16437a83-be52-44cd-a768-a767c9347eb2",
+      "id": "6e9d8fe4-fd9b-4923-92bf-7dd6b8fa02e7",
+      "colors": "B",
+      "set": "2xm",
+      "released": "2020-08-07",
+      "games": "paper,mtgo",
+      "promo": ""
+    },
+    {
+      "name": "Aether Revolt",
+      "oracle_id": "b73661a6-d136-4c65-804c-461e83484f4b",
+      "id": "b8732e62-cdee-4d32-82a8-8a71a04be7a1",
+      "colors": "R",
+      "set": "mh3",
+      "released": "2024-06-14",
+      "games": "paper,mtgo,arena",
+      "promo": ""
+    },
+    {
+      "name": "Greenwheel Liberator",
+      "oracle_id": "121a8717-4c5b-45a8-875a-2b802c1fe6f8",
+      "id": "1ad9bf0f-4271-497f-8d67-3c7bf09342dc",
+      "colors": "G",
+      "set": "aer",
+      "released": "2017-01-20",
+      "games": "paper,mtgo",
+      "promo": ""
+    },
+    {
+      "name": "Hidden Stockpile",
+      "oracle_id": "f5ded323-75c8-471e-a516-238b9d6b06d3",
+      "id": "a9119c90-716b-4884-9b1e-471f262c2639",
+      "colors": "BW",
+      "set": "2xm",
+      "released": "2020-08-07",
+      "games": "paper,mtgo",
+      "promo": ""
+    },
+    {
+      "name": "Renegade Rallier",
+      "oracle_id": "6fa07b6c-f01a-4416-b0fc-986b0fc4e412",
+      "id": "90bad312-80e3-45b0-9556-60ce06808a47",
+      "colors": "GW",
+      "set": "aer",
+      "released": "2017-01-20",
+      "games": "paper,mtgo",
+      "promo": ""
+    },
+    {
+      "name": "Burning-Tree Vandal",
+      "oracle_id": "5bed3702-984d-436f-bb71-e16eaeffe902",
+      "id": "f61d0a8a-8c2b-4870-83d3-8286a63637b8",
+      "colors": "R",
+      "set": "rvr",
+      "released": "2024-01-12",
+      "games": "paper,mtgo",
+      "promo": ""
+    },
+    {
+      "name": "Gruul Beastmaster",
+      "oracle_id": "924771b2-8566-4bdf-b089-85c3257b9900",
+      "id": "2b0aaded-515f-4ac9-a72f-6948b4d4df51",
+      "colors": "G",
+      "set": "rna",
+      "released": "2019-01-25",
+      "games": "arena,paper,mtgo",
+      "promo": ""
+    },
+    {
+      "name": "Rhythm of the Wild",
+      "oracle_id": "acfa77fd-3610-4f12-9c3c-bd860ce91700",
+      "id": "c2a6453e-a373-44ec-807a-15c0c8b1af57",
+      "colors": "GR",
+      "set": "rvr",
+      "released": "2024-01-12",
+      "games": "paper,mtgo",
+      "promo": ""
+    },
+    {
+      "name": "Surging Sentinels",
+      "oracle_id": "0b98ae2a-56ac-485d-b064-a06e1e8d4055",
+      "id": "264d120a-d7e2-4b9e-ac85-c66e976c577b",
+      "colors": "W",
+      "set": "csp",
+      "released": "2006-07-21",
+      "games": "paper,mtgo",
+      "promo": ""
+    },
+    {
+      "name": "Surging Aether",
+      "oracle_id": "060b1a76-22a4-48a5-a353-4d0501367956",
+      "id": "bfba9fc2-8746-4693-bb75-01b5d78f7fee",
+      "colors": "U",
+      "set": "csp",
+      "released": "2006-07-21",
+      "games": "paper,mtgo",
+      "promo": ""
+    },
+    {
+      "name": "Surging Dementia",
+      "oracle_id": "dd7f46c2-98f7-46e6-92ce-51fa95d2f0c8",
+      "id": "1eb7cb72-24f7-433b-9858-26009189daaa",
+      "colors": "B",
+      "set": "csp",
+      "released": "2006-07-21",
+      "games": "paper,mtgo",
+      "promo": ""
+    },
+    {
+      "name": "Surging Flame",
+      "oracle_id": "3c51b991-f6fa-44d2-81a3-0894939f3c22",
+      "id": "9974a543-7429-458b-a24f-c84cbffbb54d",
+      "colors": "R",
+      "set": "csp",
+      "released": "2006-07-21",
+      "games": "paper,mtgo",
+      "promo": ""
+    },
+    {
+      "name": "Surging Might",
+      "oracle_id": "04647861-0023-432b-9b24-77264f11e470",
+      "id": "aa51adee-b343-4a03-8fa0-0d86244db5b7",
+      "colors": "G",
+      "set": "csp",
+      "released": "2006-07-21",
+      "games": "paper,mtgo",
+      "promo": ""
+    },
+    {
+      "name": "Thrumming Stone",
+      "oracle_id": "b2bd40a1-1857-4f4c-aed6-d4e224ac0ef7",
+      "id": "14adc0af-de61-4872-916c-3cf480dece46",
+      "colors": "",
+      "set": "2x2",
+      "released": "2022-07-08",
+      "games": "paper,mtgo",
+      "promo": ""
+    },
+    {
+      "name": "Charmed Clothier",
+      "oracle_id": "ad0e6b12-a6bd-4860-9eac-68b2492d9567",
+      "id": "994f4473-dfc9-45cd-8528-945db3aa6a9a",
+      "colors": "W",
+      "set": "woe",
+      "released": "2023-09-08",
+      "games": "paper,arena,mtgo",
+      "promo": ""
+    },
+    {
+      "name": "Asinine Antics",
+      "oracle_id": "0a0a051c-59ed-4286-b842-a34da7ef15d5",
+      "id": "50b96a97-0d7d-4e05-9e2f-0b99a039b655",
+      "colors": "U",
+      "set": "woe",
+      "released": "2023-09-08",
+      "games": "paper,arena,mtgo",
+      "promo": ""
+    },
+    {
+      "name": "Eriette's Whisper",
+      "oracle_id": "27ca3201-a374-4a9d-b0ba-93b391f36844",
+      "id": "dfed2acf-9ac8-447b-94f5-7db3a713c991",
+      "colors": "B",
+      "set": "woe",
+      "released": "2023-09-08",
+      "games": "paper,arena,mtgo",
+      "promo": ""
+    },
+    {
+      "name": "Cut In",
+      "oracle_id": "9b205900-ec39-455e-900b-615ece08a07f",
+      "id": "8ea4d40a-7657-4ff8-9fc2-915b99432275",
+      "colors": "R",
+      "set": "woe",
+      "released": "2023-09-08",
+      "games": "paper,arena,mtgo",
+      "promo": ""
+    },
+    {
+      "name": "Curse of the Werefox",
+      "oracle_id": "64b41b54-ca22-41df-8bd3-dc4f7832fbb7",
+      "id": "89148458-1fd6-48ef-a2d9-7b434c9723ec",
+      "colors": "G",
+      "set": "woe",
+      "released": "2023-09-08",
+      "games": "paper,arena,mtgo",
+      "promo": ""
+    },
+    {
+      "name": "Ellivere of the Wild Court",
+      "oracle_id": "97f9b82f-b3cf-44ff-9abc-2d92d7cbaa27",
+      "id": "45851394-b8f3-4713-8239-afcb387d47c5",
+      "colors": "GW",
+      "set": "woc",
+      "released": "2023-09-08",
+      "games": "paper,mtgo",
+      "promo": ""
+    },
+    {
+      "name": "Faunsbane Troll",
+      "oracle_id": "b707c131-de13-4d4d-839d-b9f47d62f090",
+      "id": "2d8bd585-c5ea-46f8-8e11-f33c067f2f8e",
+      "colors": "BG",
+      "set": "woe",
+      "released": "2023-09-08",
+      "games": "paper,arena,mtgo",
+      "promo": ""
+    },
+    {
+      "name": "Command Performance",
+      "oracle_id": "f6c079cd-69c2-4da4-ba41-91844a4d2f06",
+      "id": "082b93fc-3490-4598-95a3-302481e8679d",
+      "colors": "U",
+      "set": "unf",
+      "released": "2022-10-07",
+      "games": "paper",
+      "promo": ""
+    },
+    {
+      "name": "Line Cutter",
+      "oracle_id": "a43d9793-b2ee-427c-95ca-285611aa1a4d",
+      "id": "0d07ddf4-e86f-406e-a31b-47aede5a97c6",
+      "colors": "B",
+      "set": "unf",
+      "released": "2022-10-07",
+      "games": "paper",
+      "promo": ""
+    },
+    {
+      "name": "Esgaroth Garrison",
+      "oracle_id": "84597236-2cfc-4654-b126-a8ee252f4d14",
+      "id": "573f67b0-6ce8-4857-a703-4a5728640736",
+      "colors": "W",
+      "set": "hob",
+      "released": "2026-08-14",
+      "games": "paper,mtgo,arena",
+      "promo": "universesbeyond"
+    },
+    {
+      "name": "Great Gilded Boat",
+      "oracle_id": "d4607026-80b2-4fa6-99d5-694cd3b43868",
+      "id": "b2fb3995-5b43-4776-88b2-346d353edee0",
+      "colors": "U",
+      "set": "hob",
+      "released": "2026-08-14",
+      "games": "paper,mtgo,arena",
+      "promo": "universesbeyond"
+    },
+    {
+      "name": "Bard's Company",
+      "oracle_id": "5c5bfbb2-0e63-4e43-b441-c4878983288f",
+      "id": "d14aa2ff-7bbd-47a6-8e36-481e56302a62",
+      "colors": "UW",
+      "set": "hob",
+      "released": "2026-08-14",
+      "games": "paper,mtgo,arena",
+      "promo": "universesbeyond"
+    },
+    {
+      "name": "Rapid Fire",
+      "oracle_id": "63c7248e-a7a2-4e32-b4d2-55dbc63e51e5",
+      "id": "e26e7c9c-e6de-47f4-8394-7e853408f84c",
+      "colors": "W",
+      "set": "leg",
+      "released": "1994-06-01",
+      "games": "paper",
+      "promo": ""
+    },
+    {
+      "name": "Aerathi Berserker",
+      "oracle_id": "5cb495a2-c683-4066-b6ee-d0b7d8843cb9",
+      "id": "06673800-22a7-4ee3-92fa-7c7cd4865d30",
+      "colors": "R",
+      "set": "leg",
+      "released": "1994-06-01",
+      "games": "paper",
+      "promo": ""
+    },
+    {
+      "name": "Craw Giant",
+      "oracle_id": "152b621e-4c18-438c-9999-77e2685fda79",
+      "id": "81c5ee8f-a060-486c-a7f1-7bd600f6911a",
+      "colors": "G",
+      "set": "tsb",
+      "released": "2006-10-06",
+      "games": "paper,mtgo",
+      "promo": ""
+    },
+    {
+      "name": "Horrible Hordes",
+      "oracle_id": "79bfef02-3586-424a-aff9-a6ec0d4f1135",
+      "id": "cf04f2cd-d9f8-4e0c-adaf-6d38bc14dd7a",
+      "colors": "",
+      "set": "mir",
+      "released": "1996-10-08",
+      "games": "paper,mtgo",
+      "promo": ""
+    },
+    {
+      "name": "Hunding Gjornersen",
+      "oracle_id": "dd4f3a78-3167-42d0-8334-5ac36750a253",
+      "id": "4049abac-cb54-4af2-b2df-ffb8fdc22e84",
+      "colors": "UW",
+      "set": "me3",
+      "released": "2009-09-07",
+      "games": "mtgo",
+      "promo": ""
+    },
+    {
+      "name": "Gabriel Angelfire",
+      "oracle_id": "e8521fdf-0896-4747-8c66-ea3bb69eb876",
+      "id": "2e349074-1402-44cf-be19-33a661cff3b6",
+      "colors": "GW",
+      "set": "me3",
+      "released": "2009-09-07",
+      "games": "mtgo",
+      "promo": ""
+    },
+    {
+      "name": "Marhault Elsdragon",
+      "oracle_id": "c202f124-4283-48f6-aef1-470ad9ded22b",
+      "id": "2e805883-081b-478a-aa58-172b659571c2",
+      "colors": "GR",
+      "set": "me3",
+      "released": "2009-09-07",
+      "games": "mtgo",
+      "promo": ""
+    },
+    {
+      "name": "Chromium",
+      "oracle_id": "7c91ae5d-0320-46a7-98d2-df0918202478",
+      "id": "15ec5a20-4e8f-40b2-9abf-c0bf1cf816c3",
+      "colors": "BUW",
+      "set": "me3",
+      "released": "2009-09-07",
+      "games": "mtgo",
+      "promo": ""
+    }
+  ]
+}
