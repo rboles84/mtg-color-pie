@@ -1,3 +1,11 @@
+# Owner Accepted — W supplemental Color Access
+
+- Owner response: “w is good”. This explicitly accepts exact reviewed material `831ae295f01054aef321f95bee436799d910a304`, delivered with independent QA and local preview evidence at `2e1e59794d5fe05762c9d78b3659a609e09dad17`.
+- Status: `complete` (`qa-passed -> complete`) for this bounded local batch. All eleven W entries / 67 selected examples are accepted. This supersedes pending Owner-review statements in the historical delivery, source and QA records below. Frozen 2021, prior batches and established main/Special grouping remain as reviewed.
+- This acceptance changes only `HANDOFF.md`. Product/source/payload/renderer/test/package bytes and served material revision remain unchanged; exact-candidate QA and preview evidence remain valid. No push, merge, integration or publication is authorized or performed; the standing local-only boundary remains.
+- Validation: QA-0 acceptance-ledger review and `git diff --check`; the existing Git change-report validator runs after this evidence-only commit. Unchanged material checks need no repetition. The existing Git-derived material baseline/candidate and 41-path accounting remain applicable; the evidence delta also includes this Owner acceptance.
+- Acceptance recorded UTC: 2026-10-31T16:24:14.773319+00:00.
+
 # W supplemental Color Access — delivered for Owner Review
 
 - Status: `qa-passed`. Separate non-implementing RobQA engineering PASS binds material `831ae295f01054aef321f95bee436799d910a304` over baseline `9fa99306e85672110bdad6f781ed7af1d77840c5` with no findings. All eleven W entries / 67 selected examples are implemented, independently verified, packaged and served locally. Owner acceptance remains PENDING. This supersedes pending engineering statements in earlier W development/source records; it does not invent Owner acceptance.
