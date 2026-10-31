@@ -1,3 +1,11 @@
+# Owner Accepted — T supplemental Color Access
+
+- Owner response: “T is good.” This explicitly accepts exact reviewed material `b19cdb81994045dc0b0302920805bdf23b40c10c`, delivered with independent QA and local preview evidence at `88aadc98427289937d878bbd1c6c9a5de8ef0093`.
+- Status: `complete` (`qa-passed -> complete`) for this bounded local batch. All 17 unmapped T entries / 115 selected examples are accepted. This supersedes the pending Owner-review statements in the historical delivery record below. Tap/Triple rules-reference scope, mapped Trample, frozen 2021, prior batches and main/Special grouping remain as reviewed.
+- This acceptance changes only `HANDOFF.md`. Material bytes and preview revision remain unchanged; existing exact-candidate engineering and served-revision evidence stays valid. The standing local-only boundary remains: no push, merge, integration or publication is authorized or performed.
+- Validation: QA-0 ledger review and `git diff --check`; Git change-report validation follows this evidence-only commit. No material checks need repetition for an acceptance-only record.
+- Acceptance recorded UTC: 2026-10-31T14:14:49.919702+00:00.
+
 # T supplemental Color Access — delivered for Owner Review
 
 - Status: `qa-passed`. Separate non-implementing RobQA engineering PASS is bound to material `b19cdb81994045dc0b0302920805bdf23b40c10c`; no findings. Owner acceptance is PENDING. All 17 unmapped T entries / 115 selected examples are complete and served locally. Tap and Triple remain rules references; mapped Trample, frozen 2021, earlier cohorts and main/Special grouping remain unchanged.
