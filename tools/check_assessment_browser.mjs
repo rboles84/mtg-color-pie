@@ -164,6 +164,31 @@ async function checkSelection(page,browser,baseline){
   assert.deepEqual(await page.evaluate(()=>({sel:[...VMX.state.sel].join(''),parsed:[...VMX.state.parsed.colours].join('')})),{sel:'G',parsed:'G'},'manual selection overrides query colors');
   await page.evaluate(()=>VMX.clearColors());assert.deepEqual(await page.evaluate(()=>({sel:[...VMX.state.sel],parsed:[...VMX.state.parsed.colours]})),{sel:[],parsed:[]},'clear suppresses existing query colors');
   await page.evaluate(()=>VMX.setQuery('green cycling'));assert.deepEqual(await page.evaluate(()=>[...VMX.state.sel]),['G'],'later query edit restores parsed colors');
+  // The legend is bound to validated records, not invented sample combinations.
+  const samples=[['Adapt','UG','Aeromunculus'],['Affinity','WUB','Urza, Chief Artificer'],['Cascade','UBRG','Yidris, Maelstrom Wielder'],['Bestow','WUBRG','Chromanticore']];
+  for(const [name,key,card] of samples){
+    const record=payload.records.find(r=>r.name===name), combo=record.access.combinations.find(c=>c.colors.join('')===key && c.cards.some(x=>x.name===card));
+    assert.ok(combo, name+' witness exists in validated input');
+    const mark=page.locator('#access-legend-samples .combo-mark[data-combo="'+key+'"]');
+    assert.equal(await mark.count(),1);assert.match(await mark.getAttribute('aria-label'),/documented combination/);
+    assert.match(await mark.locator('..').innerText(),new RegExp(name));assert.ok((await mark.locator('..').innerText()).includes(card));
+  }
+  for(const width of [768,360]){await page.setViewportSize({width,height:900});const geometry=await page.locator('#key').evaluate(e=>({scroll:e.scrollWidth,client:e.clientWidth,right:e.getBoundingClientRect().right,width:innerWidth}));assert.ok(geometry.scroll<=geometry.client+1&&geometry.right<=geometry.width+1,'legend containment '+width);}
+  await page.setViewportSize({width:1440,height:900});await page.locator('#key-fold').click();assert.equal(await page.locator('#key-fold').getAttribute('aria-expanded'),'false');await page.locator('#key-fold').click();
+  await page.evaluate(()=>VMX.chooseCombo('G'));
+  assert.equal(await page.locator('.placement-details').count(),1,'one global placement disclosure');
+  const placement=page.locator('.placement-details');assert.equal(await placement.evaluate(e=>e.open),false);await placement.locator('summary').click();
+  assert.match(await placement.innerText(),/83 of 216/);for(const label of ['Primary','Secondary','Tertiary','Add White'])assert.ok((await placement.innerText()).includes(label),'placement details retain '+label);
+  assert.ok(await placement.locator('[data-id^="add:W:"]').count(),'original best-tier delta controls retained');
+  const delayedSupplement=await browser.newPage();let releaseSupplement;const heldSupplement=new Promise(resolve=>releaseSupplement=resolve);
+  await delayedSupplement.route('**/data/mechanics-supplement.v1.json*',async route=>{await heldSupplement;await route.continue();});
+  await delayedSupplement.goto(url);await delayedSupplement.waitForFunction(()=>window.VMX && VMX.supplemental().status==='loading');
+  await delayedSupplement.evaluate(()=>{VMX.setView('az');VMX.chooseCombo('G');});assert.match(await delayedSupplement.locator('#list-cap').innerText(),/loading/i);assert.doesNotMatch(await delayedSupplement.locator('#list-cap').innerText(),/216 entries/);
+  await delayedSupplement.locator('#q').fill('artifact destruction');await delayedSupplement.locator('#q').press('ArrowDown');
+  const activeBefore=await delayedSupplement.locator('#q').evaluate(q=>document.getElementById(q.getAttribute('aria-activedescendant'))?.dataset.k);
+  releaseSupplement();await delayedSupplement.waitForFunction(()=>VMX.supplemental().status==='ready');
+  assert.equal(await delayedSupplement.locator('#q').evaluate(q=>document.getElementById(q.getAttribute('aria-activedescendant'))?.dataset.k),activeBefore,'supplement hydration preserves active identity');await delayedSupplement.close();
+  const failedSupplement=await browser.newPage();await failedSupplement.route('**/data/mechanics-supplement.v1.json*',r=>r.fulfill({status:404,body:'Missing'}));await failedSupplement.goto(url);await failedSupplement.waitForFunction(()=>window.VMX?.supplemental().status==='unavailable');await failedSupplement.evaluate(()=>{VMX.setView('az');VMX.chooseCombo('G');});assert.match(await failedSupplement.locator('#list-cap').innerText(),/unavailable/i);assert.match(await failedSupplement.locator('#lensline').innerText(),/unavailable/i);assert.equal(await failedSupplement.locator('#lensline [data-id="collection"]').count(),0);await failedSupplement.close();
   // A real delayed response must rerank without losing the user's keyboard identity.
   const delayed=await browser.newPage();let releaseAssessment;const held=new Promise(resolve=>releaseAssessment=resolve);
   await delayed.route(assessmentRoute,async route=>{await held;await route.continue();});

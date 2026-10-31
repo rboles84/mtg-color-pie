@@ -385,7 +385,7 @@ button{font:inherit;color:inherit}
 .ent.is-out{opacity:.42}
 .ent.is-out:hover,.ent.is-out:focus-visible{opacity:.85}
 .ent.access-match{box-shadow:inset 3px 0 0 rgba(184,147,79,.78)}
-.ent .access-active{outline:2px solid var(--brass-l);outline-offset:1px}
+.ent .access-active,.access-key .access-active{outline:2px solid var(--brass-l);outline-offset:1px}
 .own-row.access-active{box-shadow:inset 3px 0 0 var(--brass-l)}
 .opt.access-match{box-shadow:inset 3px 0 0 var(--brass-l)}
 /* search: matches carry a gilt rule; the rest step back, still readable */
@@ -716,9 +716,10 @@ html.sheet-open .bar{position:relative}
         </div>
         <aside class="access-key" aria-label="Documented card access notation">
           <h3>Documented on cards</h3>
-          <p><span class="strip access-strip" aria-hidden="true"><i class="sc a-d" style="--cc:var(--g)"><i class="ms ms-g"></i></i></span> Filled symbols show a reviewed card example, not a placement rank. A gold ring marks selected documented access.</p>
-          <p><span class="strip access-strip" aria-hidden="true"><i class="sc a-none" style="--cc:var(--w)"><i class="ms ms-w"></i></i></span> An empty symbol means no independent example was found in the reviewed cards; it does not prove impossibility.</p>
-          <p><span class="strip access-strip" aria-hidden="true"><i class="sc a-d" style="--cc:var(--ink-dim)"><i class="ms ms-c"></i></i></span> Colorless and rules references sit outside the WUBRG selector. Combined symbols are whole observed combinations, not separate colors.</p>
+          <p><span class="strip access-strip" id="legend-selected" aria-hidden="true"></span> Filled symbols show a reviewed card example, not a placement rank. A gold ring marks selected documented access.</p>
+          <p><span class="strip access-strip" id="legend-empty" aria-hidden="true"></span> An empty symbol means no independent example was found in the reviewed cards; it does not prove impossibility.</p>
+          <p><span class="strip access-strip" id="legend-colorless" aria-hidden="true"></span> Colorless and rules references sit outside the WUBRG selector. Combined symbols are whole observed combinations, not separate colors.</p>
+          <div id="access-legend-samples" aria-live="polite">Card combination examples loading.</div>
         </aside>
         <ol class="steps">
           <li><b>01</b>Search in your own words; each result says why it matched.</li>
@@ -1286,6 +1287,20 @@ function accessMarkHTML(c, status){
   const cc = c === 'C' ? 'ink-dim' : c.toLowerCase();
   return `<i class="sc ${status === 'documented' ? 'a-d' : 'a-none'}" data-c="${c}" style="--cc:var(--${cc})" aria-hidden="true"><i class="ms ms-${c.toLowerCase()}"></i></i>`;
 }
+function renderAccessLegend(){
+  $('#legend-selected').innerHTML = accessMarkHTML('G','documented');
+  $('#legend-selected .sc').classList.add('access-active');
+  $('#legend-empty').innerHTML = accessMarkHTML('W','not_found');
+  $('#legend-colorless').innerHTML = accessMarkHTML('C','documented');
+  const el = $('#access-legend-samples');
+  if (ASSESSMENTS.status !== 'ready') { el.textContent = ASSESSMENTS.status === 'unavailable' || SUPPLEMENT.status === 'unavailable' ? 'Card combination examples unavailable.' : 'Card combination examples loading.'; return; }
+  const samples = [['Adapt','UG','Aeromunculus'], ['Affinity','WUB','Urza, Chief Artificer'], ['Cascade','UBRG','Yidris, Maelstrom Wielder'], ['Bestow','WUBRG','Chromanticore']];
+  el.innerHTML = samples.map(([name,key,card]) => {
+    const a = [...ASSESSMENTS.byKey.values()].find(x => x.name === name);
+    const combo = a?.access.combinations.find(x => x.colors.join('') === key && x.cards.some(c => c.name === card));
+    return combo ? `<p>${comboMarkHTML(combo, 'Documented combination')} ${esc(name)} — ${esc(card)}</p>` : '';
+  }).join('');
+}
 function assessmentStripHTML(a){
   const combinationLabel=ORDER.some(c=>a.access.colors[c].status === 'documented') ? 'Combination' : 'Combination only';
   if (a.name === 'Fuse' || a.name === 'Friends forever') return '<span class="strip access-strip combo-access" aria-label="Documented color combinations">' + a.access.combinations.map(item=>comboMarkHTML(item,combinationLabel)).join('') + '</span>';
@@ -1579,12 +1594,11 @@ function renderBar(lensOn, bk){
     if (S.view === 'az'){
       const union = collectionCounts(S.sel);
       if (!union){
-        ll.innerHTML = `<span class="who"><span aria-hidden="true">${[...setKey(S.sel)].map(pip).join('')}</span><span>Full collection matches ${ASSESSMENTS.status === 'unavailable' ? 'are unavailable' : 'are loading'}; the 2021 article remains available.</span></span>`;
+        ll.innerHTML = `<span class="who"><span aria-hidden="true">${[...setKey(S.sel)].map(pip).join('')}</span><span>Full collection matches ${ASSESSMENTS.status === 'unavailable' || SUPPLEMENT.status === 'unavailable' ? 'are unavailable' : 'are loading'}; the 2021 article remains available.</span></span>`;
         return;
       }
       ll.innerHTML = `<span class="who"><span aria-hidden="true">${[...setKey(S.sel)].map(pip).join('')}</span><span><b>${union.keys.length}</b> of ${REC.size} entries match ${esc(listWords(cnames(S.sel)))}</span></span>`+
         `<button class="fig" type="button" data-act="spot" data-id="collection" data-fid="collection" aria-label="Show ${union.keys.length} color matches">Show color matches</button>`+
-        `<details class="placement-details"><summary>Placement details</summary><span><b>${placed}</b> of ${KEYS.length} 2021 entries have a placement <span class="calc">computed</span></span></details>`+
         (S.selFromQuery ? `<span class="src">Set from your search</span>` : '')+
         `<a class="bridge" data-fid="bridge" href="../index.html#color-wheel/${wheelRoute(setKey(S.sel))}" target="_top">Open these colors on the Color Wheel →</a>`;
       return;
@@ -1664,15 +1678,6 @@ function renderCompass(){
   const sp = $('#steps-p');
   keepFocus(sp, () => {
     if (!S.sel.size){ sp.hidden = true; sp.innerHTML = ''; return; }
-    if (S.view === 'az'){
-      if (ASSESSMENTS.status !== 'ready'){ sp.hidden=false; sp.innerHTML='<p class="cmp-note">Whole-collection comparisons are loading or unavailable; 2021 placement details remain in Article order.</p>'; return; }
-      const row = (remove, c) => { const d=collectionDelta(S.sel,c,remove), to=setKey(d.to), verb=remove?'Remove':'Add', word=remove?'fewer':'more';
-        return `<div class="step"><span class="step-h">${remove?'−':'+'}${pip(c)}<b>${key} → ${to}</b></span><button class="fig" type="button" data-act="spot" data-id="collection:${remove?'rem':'add'}:${c}" aria-label="Show ${d.keys.length} ${word} matching entries"><b>${verb} ${CNAME[c]}</b> — ${d.keys.length} ${word} entries match</button><button class="go" type="button" data-act="go" data-s="${to}">Choose ${to}</button></div>`; };
-      const adds=ORDER.filter(c=>!S.sel.has(c)).map(c=>row(false,c)).join('');
-      const rems=S.sel.size>1?ORDER.filter(c=>S.sel.has(c)).map(c=>row(true,c)).join(''):'';
-      sp.hidden=false; sp.innerHTML=(adds?`<h3>Add one color</h3>${adds}`:'')+(rems?`<h3 style="margin-top:12px">Remove one color</h3>${rems}`:'')+`<details class="placement-details"><summary>Placement details</summary><p class="cmp-note">The published 2021 placement-tier comparisons remain available in Article order.</p></details>`;
-      return;
-    }
     /* One step's counts. A category the readings agree on is one count; one
        they disagree on shows both, and the step names the entries that move. */
     const stepFigs = (kind, c, LABEL) => {
@@ -1686,6 +1691,22 @@ function renderCompass(){
         return `${esc(REC.get(k).disp)} counts as “${esc(LABEL[cat.list] || cat.list)}” ${READING_BY.list} and “${esc(LABEL[cat.catalog] || cat.catalog)}” ${READING_BY.catalog}.`; }).join(' ');
       return figs + (why ? `<p class="step-dep">${why}<span class="calc">${CONFLICT_TAG}</span></p>` : '');
     };
+    if (S.view === 'az'){
+      const wasOpen = !!sp.querySelector('.placement-details[open]');
+      const pb = proj.buckets(S.sel), b = pb.catalog;
+      const buckets = ['primary','secondary','tertiary','none'].map(t => sameKeys(pb.list[t], pb.catalog[t]) ? figBtn('bucket:' + t, BUCKET_LABEL[t], b[t]) : figPair('bucket:' + t, BUCKET_LABEL[t], pb, t)).join('');
+      const placementRows = ORDER.filter(c => !S.sel.has(c)).map(c => `<div class="step"><b>Add ${CNAME[c]}</b> ${stepFigs('add', c, ADD_LABEL)}</div>`).join('') + (S.sel.size > 1 ? ORDER.filter(c => S.sel.has(c)).map(c => `<div class="step"><b>Remove ${CNAME[c]}</b> ${stepFigs('rem', c, REM_LABEL)}</div>`).join('') : '');
+      let comparisons = `<p class="cmp-note">Whole-collection comparisons ${SUPPLEMENT.status === 'unavailable' || ASSESSMENTS.status === 'unavailable' ? 'are unavailable' : 'are loading'}.</p>`;
+      if (ASSESSMENTS.status === 'ready'){
+        const row = (remove, c) => { const d=collectionDelta(S.sel,c,remove), to=setKey(d.to), verb=remove?'Remove':'Add', word=remove?'fewer':'more';
+          return `<div class="step"><span class="step-h">${remove?'−':'+'}${pip(c)}<b>${key} → ${to}</b></span><button class="fig" type="button" data-act="spot" data-id="collection:${remove?'rem':'add'}:${c}" aria-label="Show ${d.keys.length} ${word} matching entries"><b>${verb} ${CNAME[c]}</b> — ${d.keys.length} ${word} entries match</button><button class="go" type="button" data-act="go" data-s="${to}">Choose ${to}</button></div>`; };
+        const adds=ORDER.filter(c=>!S.sel.has(c)).map(c=>row(false,c)).join('');
+        const rems=S.sel.size>1?ORDER.filter(c=>S.sel.has(c)).map(c=>row(true,c)).join(''):'';
+        comparisons=(adds?`<h3>Add one color</h3>${adds}`:'')+(rems?`<h3 style="margin-top:12px">Remove one color</h3>${rems}`:'');
+      }
+      sp.hidden=false; sp.innerHTML = comparisons + `<details class="placement-details" ${wasOpen ? 'open' : ''}><summary>Placement details</summary><p>Published 2021 placements: ${KEYS.length - b.none.length} of ${KEYS.length} entries. Counts show both readings when they conflict.</p>${buckets}<p>Each step compares the best placement before and after; differing readings remain separate.</p>${placementRows}</details>`;
+      return;
+    }
     const adds = ORDER.filter(c => !S.sel.has(c)).map(c => {
       const to = setKey(new Set([...S.sel, c]));
       return `<div class="step"><span class="step-h">+${pip(c)}<span class="sr-only">Add ${CNAME[c]}</span><b>${key} → ${to}</b></span>${
@@ -1728,7 +1749,7 @@ function renderIdent(key){
       <p class="id-words" aria-hidden="true">${name ? `<span>${esc(words)}</span>` : ''}<span class="id-code">${key}</span></p>
     </div>
     <div class="id-body">
-      ${S.view === 'az' ? (() => { const u=collectionCounts(S.sel); return u ? `<p class="id-count"><b>${u.keys.length}</b> of ${REC.size} entries match ${esc(listWords(cnames(S.sel)))}</p>` : `<p class="id-count">Full collection matches ${ASSESSMENTS.status === 'unavailable' ? 'unavailable' : 'loading'}</p>`; })() : `<p class="id-count"><b>${placed}</b> of ${KEYS.length} entries have a placement in ${esc(listWords(cnames(S.sel)))} <span class="calc">computed</span></p>`}
+      ${S.view === 'az' ? (() => { const u=collectionCounts(S.sel); return u ? `<p class="id-count"><b>${u.keys.length}</b> of ${REC.size} entries match ${esc(listWords(cnames(S.sel)))}</p>` : `<p class="id-count">Full collection matches ${ASSESSMENTS.status === 'unavailable' || SUPPLEMENT.status === 'unavailable' ? 'unavailable' : 'loading'}</p>`; })() : `<p class="id-count"><b>${placed}</b> of ${KEYS.length} entries have a placement in ${esc(listWords(cnames(S.sel)))} <span class="calc">computed</span></p>`}
       <p class="id-src">${name ? `“${esc(name)}” is Wizards’ name for ${esc(words)} (${esc(NAME_SOURCE)}): a label, not a claim about mechanics.`
         : key.length > 3 ? 'This page gives no combination name for four or five colors.' : ''}</p>
       <p class="id-next">One-color steps from ${key} follow below.</p>
@@ -1828,7 +1849,7 @@ function renderSpot(){
   const cap = $('#list-cap');
   cap.innerHTML = S.view === 'article'
     ? `<span><b>${KEYS.length}</b> entries · Article order <small>${ARTICLE.length} under article sub-headings; ${LIST_ONLY.length} color-list-only</small></span><span>Select an entry for Rosewater's explanation</span>`
-    : `<span><b>${REC.size}</b> entries · A–Z</span><span>Select an entry for its explanation or attributed evidence</span>`;
+    : SUPPLEMENT.status === 'ready' ? `<span><b>${REC.size}</b> entries · A–Z</span><span>Select an entry for its explanation or attributed evidence</span>` : `<span>Full collection ${SUPPLEMENT.status === 'unavailable' ? 'unavailable' : 'loading'} · A–Z</span><span>The Article view remains available</span>`;
   const note = $('#empty-q');
   const q = S.q.trim();
   note.hidden = !(q && S.parsed && S.parsed.phrase && !S.hits.length);
@@ -2306,6 +2327,7 @@ async function loadAssessments(data, status){
     notice.textContent += ' Color access could not be loaded. You can still read mechanic explanations and sources. Reload to try again.';
     console.warn('[mechanical-explorer] assessments unavailable:', err.message);
   }
+  renderAccessLegend();
   if (S.q) runSearch(true);
   if (S.view === 'az') layoutList();
   resEl._sig = null; detailEl._sig = null; render();
@@ -2403,7 +2425,8 @@ async function loadSupplement(){
     notice.textContent = 'Additional mechanics could not be loaded. You can still explore the 2021 guide. Reload to try again.';
     console.warn('[mechanical-explorer] supplemental records unavailable:', err.message);
   }
-  if (S.q) runSearch();
+  renderAccessLegend();
+  if (S.q) runSearch(true);
   resEl._sig = null; detailEl._sig = null; render();
 }
 
