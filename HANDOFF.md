@@ -1,3 +1,11 @@
+# Owner Accepted — V supplemental Color Access
+
+- Owner response: “v is good”. This explicitly accepts exact reviewed material `5c3802efbaa58b892f22df997132241f14ff0029`, delivered with independent QA and local preview evidence at `f08cb7e842f65e27302c72738d30d3c085667517`.
+- Status: `complete` (`qa-passed -> complete`) for this bounded local batch. All six V entries / forty selected examples are accepted. This supersedes the pending Owner-review statements in the historical delivery and QA records below. Mapped Vigilance, frozen 2021, prior batches and main/Special grouping remain as reviewed.
+- This acceptance changes only `HANDOFF.md`. Product/source/payload/renderer/test/package bytes and served material revision remain unchanged; existing exact-candidate QA and preview evidence remains valid. No push, merge, integration or publication is authorized or performed; the standing local-only boundary remains.
+- Validation: QA-0 acceptance-ledger review and `git diff --check`; the existing Git change-report validator is run after this evidence-only commit. Material checks need no repetition for an acceptance-only record. The reported material baseline/candidate and 27-path accounting below remain applicable; the evidence delta now also includes this Owner acceptance.
+- Acceptance recorded UTC: 2026-10-31T15:34:16.060899+00:00.
+
 # V supplemental Color Access — delivered for Owner Review
 
 - Status: `qa-passed`. Separate non-implementing RobQA PASS binds exact material `5c3802efbaa58b892f22df997132241f14ff0029` over baseline `8f20f1ba8d9ee64c51ae2265ecaf68bf158f3a95`; no remaining findings. All six unmapped V entries / forty selected examples are implemented, independently verified and served locally. Owner acceptance remains PENDING. Mapped Vigilance, all frozen 2021 and prior accepted rows/bindings/evidence/grouping stay unchanged. No remaining source or engineering blocker.
