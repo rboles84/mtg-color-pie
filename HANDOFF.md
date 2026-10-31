@@ -1,7 +1,286 @@
+# S supplemental Color Access — delivered for Owner Review
+
+- Status: `qa-passed`; independent RobQA PASS for exact material `9c02bf1d837926da7c4602413775a04054608423`. All40 unmapped S entries /221 selected bucket witnesses are implemented, verified and served locally. Scry/frozen2021 and all289 prior assessment rows/25 bindings are preserved. Owner acceptance is PENDING; no push, merge, integration or publication was performed.
+- Final corrections: source definitions preserve +1/+1 counter kind/optionality and factual rules actions; S legacy example line/image suppression now waits on the actual hydrated example state in tests; internal exclusion/provenance repair notes stay in local `discovery_screen.review_notes`, with only four useful player scope limitations exposed. All prior audit facts and raw response bytes remain preserved.
+- Evidence: `docs/mechanics-research/s-protocol.json`, `S-ACCESS-REVIEW.md`, `s-protocol-evidence/`;78 actual hashed/timed GET receipts (77 HTTP200/one429),221 exact bound full objects/printing links. Historical unknowns are explicitly recorded, never filled from mtime or memory.
+- Engineering evidence: full source/taxonomy/recon/gate chain; deterministic producer; source hash/object/link/face/signature audits; frozen/prior parity; syntax/whitespace; independent full S40/221 and developer R23/129 browser PASS for unchanged paths; causal RED/GREEN corrections plus independent final hydration-ready `--s-copy-only` PASS for all40 expanded details/221 exact links, no legacy nodes, no audit text, four corrected definitions and frozen math. Broad default/Friends forever harness debt was not repaired or represented as an all-suite PASS.
+- Final package: `.github/pages/package.py --rev 9c02bf1d837926da7c4602413775a04054608423 --out <verified ordinary direct-child _site> --verify` PASS:23 byte-matching files,4 clean inline scripts,23 expectedHTTP200 and24 excludedHTTP404 paths. Known localhost-only server was identity-checked, stopped and restarted hidden with checkout cwd to avoid _site locks; final server PID10748 binds127.0.0.1:8020. All23 live paths matched packaged bytes and root shell/visible iframe revision both match `9c02bf1d837926da7c4602413775a04054608423`.
+- Live preview: http://127.0.0.1:8020/#mechanical-color-pie . In-app browser retained as deliverable; Scavenge opened by actual search, search cleared, reviewed examples expanded, all color filters clear. Visible inspection confirms native costs, B/G/BG access, three exact selected card links, no legacy example/image and no provenance-process block. Screenshot: `C:/Users/obake/.codex/visualizations/2026/10/31/01a18fbb-f1cd-77b0-bd1d-56706c551bbe/s-color-access-preview.jpg`. Native Edge app inspection earlier timed out at app approval; successful in-app inspection/screenshot supplies the requested evidence without claiming native-window refresh.
+- Owner check: inspect the open Scavenge detail and its three expanded examples; judge wording/appearance. Digital Seek/Specialize and exact flavor-label scope remain explicit. No remaining engineering blocker or open decision; no Owner acceptance is inferred.
+- Role record: configured Terra-medium source/harness construction; announced bounded Sol-high source/provenance completion; separate non-implementing RobQA Sol-medium. Routes are requested/configured, backend identity/token savings unverified. Coordinator performed live packaging, causal escape fixes, final preview/screenshot and Git accounting.
+- Delivery recorded UTC: 2026-10-31T03:35:47.085814+00:00.
+
+## Material candidate
+
+- Baseline: `a65d2b95e4dd252c6613a21fa469b6911940ddcc`
+- Candidate: `9c02bf1d837926da7c4602413775a04054608423`
+- Changed paths: `114`
+
+## Files changed
+
+- `HANDOFF.md`
+- `data/mechanics-assessments.v1.json`
+- `docs/mechanics-research/COLOR-ACCESS-PROTOCOL.md`
+- `docs/mechanics-research/S-ACCESS-REVIEW.md`
+- `docs/mechanics-research/s-protocol-evidence/retrieval-receipts.json`
+- `docs/mechanics-research/s-protocol-evidence/saddle-default-oracle-reacquired-1.json`
+- `docs/mechanics-research/s-protocol-evidence/saddle-default-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/saddle-full-oracle-reacquired-1.json`
+- `docs/mechanics-research/s-protocol-evidence/saddle-full-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/scavenge-default-oracle-reacquired-1.json`
+- `docs/mechanics-research/s-protocol-evidence/scavenge-default-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/scavenge-full-oracle-reacquired-1.json`
+- `docs/mechanics-research/s-protocol-evidence/scavenge-full-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/scions-secretary-default-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/scions-secretary-full-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/secret-council-default-oracle-reacquired-1.json`
+- `docs/mechanics-research/s-protocol-evidence/secret-council-default-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/secret-council-full-oracle-reacquired-1.json`
+- `docs/mechanics-research/s-protocol-evidence/secret-council-full-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/seek-default-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/seek-full-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/sell-contraband-default-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/sell-contraband-full-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/shadow-default-oracle-reacquired-1.json`
+- `docs/mechanics-research/s-protocol-evidence/shadow-default-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/shadow-full-oracle-reacquired-1.json`
+- `docs/mechanics-research/s-protocol-evidence/shadow-full-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/shroud-default-oracle-reacquired-1.json`
+- `docs/mechanics-research/s-protocol-evidence/shroud-default-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/shroud-full-oracle-reacquired-1.json`
+- `docs/mechanics-research/s-protocol-evidence/shroud-full-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/sigil-of-corruption-default-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/sigil-of-corruption-full-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/skulk-default-oracle-reacquired-1.json`
+- `docs/mechanics-research/s-protocol-evidence/skulk-default-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/skulk-full-oracle-reacquired-1.json`
+- `docs/mechanics-research/s-protocol-evidence/skulk-full-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/slivercycling-default-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/slivercycling-full-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/sneak-default-oracle-reacquired-1.json`
+- `docs/mechanics-research/s-protocol-evidence/sneak-default-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/sneak-full-oracle-reacquired-1.json`
+- `docs/mechanics-research/s-protocol-evidence/sneak-full-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/solved-default-oracle-reacquired-1.json`
+- `docs/mechanics-research/s-protocol-evidence/solved-default-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/solved-full-oracle-reacquired-1.json`
+- `docs/mechanics-research/s-protocol-evidence/solved-full-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/soulbond-default-oracle-reacquired-1.json`
+- `docs/mechanics-research/s-protocol-evidence/soulbond-default-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/soulbond-full-oracle-reacquired-1.json`
+- `docs/mechanics-research/s-protocol-evidence/soulbond-full-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/soulshift-default-oracle-reacquired-1.json`
+- `docs/mechanics-research/s-protocol-evidence/soulshift-default-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/soulshift-full-oracle-reacquired-1.json`
+- `docs/mechanics-research/s-protocol-evidence/soulshift-full-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/specialize-default-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/specialize-full-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/spectacle-default-oracle-reacquired-1.json`
+- `docs/mechanics-research/s-protocol-evidence/spectacle-default-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/spectacle-full-oracle-reacquired-1.json`
+- `docs/mechanics-research/s-protocol-evidence/spectacle-full-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/spell-mastery-default-oracle-reacquired-1.json`
+- `docs/mechanics-research/s-protocol-evidence/spell-mastery-default-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/spell-mastery-full-oracle-reacquired-1.json`
+- `docs/mechanics-research/s-protocol-evidence/spell-mastery-full-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/splice-default-oracle-reacquired-1.json`
+- `docs/mechanics-research/s-protocol-evidence/splice-default-oracle-reacquired-2.json`
+- `docs/mechanics-research/s-protocol-evidence/splice-default-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/splice-full-oracle-reacquired-1.json`
+- `docs/mechanics-research/s-protocol-evidence/splice-full-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/split-second-default-oracle-reacquired-1.json`
+- `docs/mechanics-research/s-protocol-evidence/split-second-default-oracle-retry-1.json`
+- `docs/mechanics-research/s-protocol-evidence/split-second-default-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/split-second-full-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/spree-default-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/spree-full-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/squad-default-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/squad-full-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/start-your-engines-default-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/start-your-engines-full-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/station-default-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/station-full-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/storied-default-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/storied-full-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/storm-default-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/storm-full-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/strive-default-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/strive-full-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/sunburst-default-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/sunburst-full-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/support-default-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/support-full-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/surge-default-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/surge-full-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/surveil-default-oracle-1.json`
+- `docs/mechanics-research/s-protocol-evidence/surveil-default-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/surveil-full-oracle-1.json`
+- `docs/mechanics-research/s-protocol-evidence/surveil-full-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/survival-default-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/survival-full-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/suspect-default-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/suspect-full-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/suspend-default-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/suspend-full-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/swampcycling-default-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/swampcycling-full-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/swampwalk-default-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/swampwalk-full-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/sweep-default-oracle.json`
+- `docs/mechanics-research/s-protocol-evidence/sweep-full-oracle.json`
+- `docs/mechanics-research/s-protocol.json`
+- `tools/build_mechanics_assessments.py`
+- `tools/check_assessment_browser.mjs`
+- `vox-color/mechanical-explorer.html`
+
+## Evidence delta
+
+- Material candidate: `9c02bf1d837926da7c4602413775a04054608423`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `1`
+- This is not the full task diff. Only QA/Owner-review readiness, delivery, screenshot reference and Git accounting in HANDOFF follow the material candidate.
+
+## Evidence-only paths
+
+- `HANDOFF.md`
+
+## Final branch delta
+
+- Baseline to final evidence HEAD: 114 Git-derived paths, matching the material inventory. Material numstat is 48,612 additions / 48 deletions; final evidence adds only ledger text. Branch: `codex/a-mechanics-review`. Final worktree cleanliness and change-report validation are checked after the evidence-only commit. Local only; no push/merge.
+
+## Material Git numstat
+
+```text
+111	0	HANDOFF.md
+5196	0	data/mechanics-assessments.v1.json
+8	0	docs/mechanics-research/COLOR-ACCESS-PROTOCOL.md
+80	0	docs/mechanics-research/S-ACCESS-REVIEW.md
+785	0	docs/mechanics-research/s-protocol-evidence/retrieval-receipts.json
+1	0	docs/mechanics-research/s-protocol-evidence/saddle-default-oracle-reacquired-1.json
+6	0	docs/mechanics-research/s-protocol-evidence/saddle-default-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/saddle-full-oracle-reacquired-1.json
+1	0	docs/mechanics-research/s-protocol-evidence/saddle-full-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/scavenge-default-oracle-reacquired-1.json
+1	0	docs/mechanics-research/s-protocol-evidence/scavenge-default-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/scavenge-full-oracle-reacquired-1.json
+1	0	docs/mechanics-research/s-protocol-evidence/scavenge-full-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/scions-secretary-default-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/scions-secretary-full-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/secret-council-default-oracle-reacquired-1.json
+1	0	docs/mechanics-research/s-protocol-evidence/secret-council-default-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/secret-council-full-oracle-reacquired-1.json
+1	0	docs/mechanics-research/s-protocol-evidence/secret-council-full-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/seek-default-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/seek-full-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/sell-contraband-default-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/sell-contraband-full-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/shadow-default-oracle-reacquired-1.json
+1	0	docs/mechanics-research/s-protocol-evidence/shadow-default-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/shadow-full-oracle-reacquired-1.json
+1	0	docs/mechanics-research/s-protocol-evidence/shadow-full-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/shroud-default-oracle-reacquired-1.json
+1	0	docs/mechanics-research/s-protocol-evidence/shroud-default-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/shroud-full-oracle-reacquired-1.json
+1	0	docs/mechanics-research/s-protocol-evidence/shroud-full-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/sigil-of-corruption-default-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/sigil-of-corruption-full-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/skulk-default-oracle-reacquired-1.json
+1	0	docs/mechanics-research/s-protocol-evidence/skulk-default-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/skulk-full-oracle-reacquired-1.json
+1	0	docs/mechanics-research/s-protocol-evidence/skulk-full-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/slivercycling-default-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/slivercycling-full-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/sneak-default-oracle-reacquired-1.json
+1	0	docs/mechanics-research/s-protocol-evidence/sneak-default-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/sneak-full-oracle-reacquired-1.json
+1	0	docs/mechanics-research/s-protocol-evidence/sneak-full-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/solved-default-oracle-reacquired-1.json
+1	0	docs/mechanics-research/s-protocol-evidence/solved-default-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/solved-full-oracle-reacquired-1.json
+1	0	docs/mechanics-research/s-protocol-evidence/solved-full-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/soulbond-default-oracle-reacquired-1.json
+1	0	docs/mechanics-research/s-protocol-evidence/soulbond-default-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/soulbond-full-oracle-reacquired-1.json
+1	0	docs/mechanics-research/s-protocol-evidence/soulbond-full-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/soulshift-default-oracle-reacquired-1.json
+1	0	docs/mechanics-research/s-protocol-evidence/soulshift-default-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/soulshift-full-oracle-reacquired-1.json
+1	0	docs/mechanics-research/s-protocol-evidence/soulshift-full-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/specialize-default-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/specialize-full-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/spectacle-default-oracle-reacquired-1.json
+1	0	docs/mechanics-research/s-protocol-evidence/spectacle-default-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/spectacle-full-oracle-reacquired-1.json
+1	0	docs/mechanics-research/s-protocol-evidence/spectacle-full-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/spell-mastery-default-oracle-reacquired-1.json
+1	0	docs/mechanics-research/s-protocol-evidence/spell-mastery-default-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/spell-mastery-full-oracle-reacquired-1.json
+1	0	docs/mechanics-research/s-protocol-evidence/spell-mastery-full-oracle.json
+6	0	docs/mechanics-research/s-protocol-evidence/splice-default-oracle-reacquired-1.json
+1	0	docs/mechanics-research/s-protocol-evidence/splice-default-oracle-reacquired-2.json
+1	0	docs/mechanics-research/s-protocol-evidence/splice-default-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/splice-full-oracle-reacquired-1.json
+1	0	docs/mechanics-research/s-protocol-evidence/splice-full-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/split-second-default-oracle-reacquired-1.json
+1	0	docs/mechanics-research/s-protocol-evidence/split-second-default-oracle-retry-1.json
+6	0	docs/mechanics-research/s-protocol-evidence/split-second-default-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/split-second-full-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/spree-default-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/spree-full-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/squad-default-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/squad-full-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/start-your-engines-default-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/start-your-engines-full-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/station-default-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/station-full-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/storied-default-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/storied-full-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/storm-default-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/storm-full-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/strive-default-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/strive-full-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/sunburst-default-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/sunburst-full-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/support-default-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/support-full-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/surge-default-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/surge-full-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/surveil-default-oracle-1.json
+1	0	docs/mechanics-research/s-protocol-evidence/surveil-default-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/surveil-full-oracle-1.json
+1	0	docs/mechanics-research/s-protocol-evidence/surveil-full-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/survival-default-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/survival-full-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/suspect-default-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/suspect-full-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/suspend-default-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/suspend-full-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/swampcycling-default-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/swampcycling-full-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/swampwalk-default-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/swampwalk-full-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/sweep-default-oracle.json
+1	0	docs/mechanics-research/s-protocol-evidence/sweep-full-oracle.json
+42147	0	docs/mechanics-research/s-protocol.json
+9	9	tools/build_mechanics_assessments.py
+140	25	tools/check_assessment_browser.mjs
+16	14	vox-color/mechanical-explorer.html
+```
+
 # S player-copy candidate — ready for independent QA rebind
 
 - Status: `ready-for-qa` (`dev-in-progress -> ready-for-qa`). All40 hydrated S details pass the audit-language boundary, zero legacy nodes and221 exact links; all four corrected definitions and frozen math pass. Producer, syntax and whitespace checks pass. Structural source comparison proves every original limitation is retained as a local research note and no other card/map/evidence field changed.
 - Separate RobQA must bind the final copy-boundary correction to the exact new material commit. All unchanged source/object/color/receipt/broad symbol/fallback/accessibility/containment evidence remains valid. Owner acceptance remains PENDING; current live b2419ca remains superseded until final PASS/package/inspection.
+
+# S player-copy candidate — independent engineering QA PASS
+
+- Status/mode/class/candidate: **`qa-passed`** (`ready-for-qa -> qa-passed`), SEPARATE non-implementing RobQA reviewer `/root/s_independent_qa`, QA-4 bounded copy-boundary rework. Exact material `9c02bf1d837926da7c4602413775a04054608423` over baseline `a65d2b95e4dd252c6613a21fa469b6911940ddcc`; 114 paths, 48,612 additions / 48 deletions. RobQAPass engineering **PASS** for Owner Review. Owner acceptance, final package/served revision, positive screenshot, integration, publication, push and merge remain PENDING/not performed.
+- Escape closure: **PASS, no remaining finding.** All 29 former player limitation strings are preserved verbatim under local non-projected `discovery_screen.review_notes`; none was discarded or rewritten as retrieval history. Exactly four appropriate player limitations remain: the card-specific scope for `Sell Contraband`, `Scions' Secretary`, and `Sigil of Corruption`, plus Seek's digital-mechanic versus paper `Seek out` label distinction. Specialize has no copied Seek-out limitation. The four remaining texts match their owning card/mechanic scope and contain no audit/provenance process.
+- Exact delta/source review: `git diff --stat`, `--name-status` and full diff `b2419ca..9c02bf1` show only `HANDOFF.md`, `S-ACCESS-REVIEW.md`, `s-protocol.json`, deterministic `mechanics-assessments.v1.json`, and the focused harness (148 additions / 128 deletions); the renderer, objects, maps, selected-card notes, receipts, statuses, dates, definitions, glyphs and earlier cohorts are unchanged. Independent structural comparison removed `access_review.limitations` and local `review_notes`, then proved every other source field identical. Baseline-to-candidate `git diff --check` exits 0.
+- Independent content audit: every S scope, summary, all 221 included-card notes, and all current player limitations were scanned for receipt/timestamp/retrieval/reacquisition/request/saved-response/source-binding/selected-object/access-bucket audit vocabulary; zero matches. The source review explicitly documents the local-research/player-copy boundary. `python tools/build_mechanics_assessments.py --check` -> exit 0, deterministic 329 records / 26 bindings; `node --check tools/check_assessment_browser.mjs` -> exit 0.
+- Focused browser evidence: `node tools/check_assessment_browser.mjs --root . --s-copy-only --playwright C:/Users/obake/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright` -> exit 0 / JSON PASS. After actual 358-example readiness it opened/expanded all 40 S details, observed zero legacy `.dx-eg/.cite`, zero rendered audit-process language, exactly 221 selected links, all four corrected visible definitions once, unchanged Scavenge examples/rules-only emptiness, and frozen math.
+- Reused evidence/proportionality: the independent full source/221-object/40-map/78-receipt/face-color/role/link audit and full S symbols/fallback/escaping/failure/keyboard/360px/prior-render/frozen evidence remain valid because those owners are unchanged. The retained R regression remains valid. CPU-heavy validation, full S/R reruns, broad harness/Friends forever debt, stress suites and screenshot/viewport matrices were not required or claimed; the focused all-40 rendered-copy path directly covers the changed projection boundary.
+- Stateful/adversarial disposition: the relevant seam is local research notes -> projected player limitations -> hydrated expanded detail. The rework preserves local provenance while preventing it from reclaiming the player-copy surface, and verifies the four authorized exceptions across source, projection and rendered output. No other history/reset/persistence owner changed. Remaining Owner work is wording comfort and optical presentation after the coordinator packages and serves `9c02bf1`; deterministic copy/link facts need not be manually re-proved.
 
 # S player-copy boundary correction — RobDev rework
 
