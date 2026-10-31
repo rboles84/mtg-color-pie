@@ -1,3 +1,92 @@
+# T supplemental Color Access — delivered for Owner Review
+
+- Status: `qa-passed`. Separate non-implementing RobQA engineering PASS is bound to material `b19cdb81994045dc0b0302920805bdf23b40c10c`; no findings. Owner acceptance is PENDING. All 17 unmapped T entries / 115 selected examples are complete and served locally. Tap and Triple remain rules references; mapped Trample, frozen 2021, earlier cohorts and main/Special grouping remain unchanged.
+- Research: `docs/mechanics-research/t-protocol.json`, `T-ACCESS-REVIEW.md`, and `t-protocol-evidence/`. All selected objects/printing links bind to 24 fresh authoritative captures. Original 21 mismatched receipt claims/bodies are honestly preserved as unbound history; they do not support current selections. No remaining source or engineering blocker.
+- Checks actually run: developer and independent receipt/object/face/signature/copy audits; deterministic producer (346 records / 27 bindings); required source/taxonomy/reconciliation/fixture gates (53 reconciliation assertions); syntax/whitespace; all-17/115 focused real-browser checks including glyph/fallback/escaping/malformed/hydration/keyboard/narrow output, fixed-baseline 329-row/26-binding parity, Scavenge regression and frozen math. Broad historical Friends-forever/default harness was not run, and no all-suite PASS is claimed. Individual developer/source/independent packets below preserve the execution evidence and role boundaries.
+- Package/served proof: existing `.github/pages/package.py --rev b19cdb81994045dc0b0302920805bdf23b40c10c --out <verified ordinary direct-child _site> --verify` -> PASS, 23 byte-matching files, four clean inline scripts, 23 expected HTTP 200 paths and 24 excluded HTTP 404 paths. The known localhost server was re-identified before replacement; refreshed hidden Python PID 39956 binds only `127.0.0.1:8020`. All 23 live paths match expected candidate bytes; shell stamp and visible iframe revision both equal the material candidate.
+- Preview: `http://127.0.0.1:8020/#mechanical-color-pie`. In-app browser is retained as a deliverable. Transmute was opened from actual search, search cleared and all color filters observed clear, Reviewed card examples expanded. Live DOM confirms Blue/Black/Colorless plus the exact UB combination, four exact selected links (Dizzy Spell, Brainspoil, Clutch of the Undercity, Tolaria West), visible native costs and zero legacy example/image nodes. The requested screenshot was inspected and saved to `C:/Users/obake/.codex/visualizations/2026/10/31/01a1901e-f4bf-7a00-8785-e879a851bdeb/t-color-access-preview.jpg`.
+- Owner check: inspect the already-open Transmute detail and its four expanded examples; judge wording, reading flow and appearance. No deterministic fact re-check or routine confirmation is required. Owner acceptance is not inferred; no push, merge, integration or publication was performed. Git reports no upstream and no local remote-tracking ref contains the candidate (no fetch was performed).
+- Delivery recorded UTC: 2026-10-31T04:46:07.481573+00:00.
+
+## Material candidate
+
+- Baseline: `290976ac0bad9e1cc47a44c96fa22ac8795b98a0`
+- Candidate: `b19cdb81994045dc0b0302920805bdf23b40c10c`
+- Changed paths: `54`
+
+## Files changed
+
+- `HANDOFF.md`
+- `data/mechanics-assessments.v1.json`
+- `docs/mechanics-research/COLOR-ACCESS-PROTOCOL.md`
+- `docs/mechanics-research/T-ACCESS-REVIEW.md`
+- `docs/mechanics-research/t-protocol-evidence/retrieval-receipts.json`
+- `docs/mechanics-research/t-protocol-evidence/teamwork-1.json`
+- `docs/mechanics-research/t-protocol-evidence/teamwork-full-1.json`
+- `docs/mechanics-research/t-protocol-evidence/tempting-offer-1.json`
+- `docs/mechanics-research/t-protocol-evidence/tempting-offer-full-1.json`
+- `docs/mechanics-research/t-protocol-evidence/the-betrayer-1.json`
+- `docs/mechanics-research/t-protocol-evidence/the-betrayer-full-1.json`
+- `docs/mechanics-research/t-protocol-evidence/the-betrayer-official-release-notes.html`
+- `docs/mechanics-research/t-protocol-evidence/threshold-1.json`
+- `docs/mechanics-research/t-protocol-evidence/threshold-full-1.json`
+- `docs/mechanics-research/t-protocol-evidence/tiered-1.json`
+- `docs/mechanics-research/t-protocol-evidence/tiered-full-1.json`
+- `docs/mechanics-research/t-protocol-evidence/time-travel-1.json`
+- `docs/mechanics-research/t-protocol-evidence/time-travel-full-1.json`
+- `docs/mechanics-research/t-protocol-evidence/toxic-1.json`
+- `docs/mechanics-research/t-protocol-evidence/toxic-full-1.json`
+- `docs/mechanics-research/t-protocol-evidence/training-1.json`
+- `docs/mechanics-research/t-protocol-evidence/training-full-1.json`
+- `docs/mechanics-research/t-protocol-evidence/transfigure-1.json`
+- `docs/mechanics-research/t-protocol-evidence/transfigure-full-1.json`
+- `docs/mechanics-research/t-protocol-evidence/transform-1.json`
+- `docs/mechanics-research/t-protocol-evidence/transform-2.json`
+- `docs/mechanics-research/t-protocol-evidence/transform-3.json`
+- `docs/mechanics-research/t-protocol-evidence/transform-full-1.json`
+- `docs/mechanics-research/t-protocol-evidence/transform-full-2.json`
+- `docs/mechanics-research/t-protocol-evidence/transform-full-3.json`
+- `docs/mechanics-research/t-protocol-evidence/transform-keyword-remainder-1.json`
+- `docs/mechanics-research/t-protocol-evidence/transmute-1.json`
+- `docs/mechanics-research/t-protocol-evidence/transmute-full-1.json`
+- `docs/mechanics-research/t-protocol-evidence/treasure-1.json`
+- `docs/mechanics-research/t-protocol-evidence/treasure-2.json`
+- `docs/mechanics-research/t-protocol-evidence/treasure-3.json`
+- `docs/mechanics-research/t-protocol-evidence/treasure-full-1.json`
+- `docs/mechanics-research/t-protocol-evidence/treasure-full-2.json`
+- `docs/mechanics-research/t-protocol-evidence/treasure-full-3.json`
+- `docs/mechanics-research/t-protocol-evidence/treasure-subtype-remainder-1.json`
+- `docs/mechanics-research/t-protocol-evidence/tribute-1.json`
+- `docs/mechanics-research/t-protocol-evidence/tribute-full-1.json`
+- `docs/mechanics-research/t-protocol-evidence/two-headed-coin-1.json`
+- `docs/mechanics-research/t-protocol-evidence/two-headed-coin-full-1.json`
+- `docs/mechanics-research/t-protocol-evidence/typecycling-1.json`
+- `docs/mechanics-research/t-protocol-evidence/typecycling-2.json`
+- `docs/mechanics-research/t-protocol-evidence/typecycling-3.json`
+- `docs/mechanics-research/t-protocol-evidence/typecycling-full-1.json`
+- `docs/mechanics-research/t-protocol-evidence/typecycling-full-2.json`
+- `docs/mechanics-research/t-protocol-evidence/typecycling-full-3.json`
+- `docs/mechanics-research/t-protocol.json`
+- `tools/build_mechanics_assessments.py`
+- `tools/check_assessment_browser.mjs`
+- `vox-color/mechanical-explorer.html`
+
+## Evidence delta
+
+- Material candidate: `b19cdb81994045dc0b0302920805bdf23b40c10c`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `1`
+
+This evidence-only delta records the independent verdict, local package/preview/screenshot observations and Git accounting; it is not the full task diff. `HEAD` denotes the evidence commit containing this delivery record; the final chat reports its Git-resolved SHA.
+
+## Evidence-only paths
+
+- `HANDOFF.md`
+
+## Final branch accounting
+
+The baseline-to-evidence-head branch delta has the same 54 material paths; the evidence commit changes only HANDOFF.md, already part of the material set. Local branch `codex/a-mechanics-review`; final clean-state and change-report validation are checked after the evidence commit. No material bytes changed after independent QA.
+
 # T supplemental Color Access — ready for independent QA
 
 - Status: `ready-for-qa` (`dev-in-progress -> ready-for-qa`). Baseline: `290976ac0bad9e1cc47a44c96fa22ac8795b98a0`; the material candidate is the commit containing this developer packet. RobQA and Owner decisions are PENDING. Local-only delivery; no push, merge or publication.
@@ -10,6 +99,16 @@
 - Stateful coverage: source packet -> producer -> validated sidecar -> list/search/detail; source and runtime identities/maps are checked. Search selection, clear/replace, color perturb/clear and Article/A–Z transitions preserve frozen math. Malformed payload fails atomically without replacing rules/reference availability; real example readiness precedes duplicate suppression. Structurally different access, multicolor, colorless, rules-only, token-source and DFC cases are included.
 - Remaining judgment / Owner route: after independent exact-candidate QA, refresh `http://127.0.0.1:8020/#mechanical-color-pie`, search Transmute, clear search/color filters, expand reviewed examples, then judge wording and appearance. Screenshot and served-revision proof remain coordinator delivery work; Owner acceptance is not inferred.
 - Role record: configured RobDev Terra medium produced initial scaffold and bounded renderer/test extensions; announced source-only escalation requested `gpt-6.1-sol` / high after demonstrated factual-screen failures, accepted with `fork_turns: none`; that source actor did not perform independent QA. Coordinator owns source review, narrow harness correction, gate evidence, commit and preview. Backend identity/token savings are unverified. Next agent: separate configured RobQA Sol medium on the exact committed candidate; write findings only to this ledger.
+
+## Independent RobQA — T supplemental Color Access, 2026-10-30
+
+- Mode/class/candidate/verdict: separate non-implementing Codex Sol-medium reviewer; **QA-4, `qa-passed`** (`ready-for-qa -> qa-passed`). Exact material candidate `b19cdb81994045dc0b0302920805bdf23b40c10c` over baseline `290976ac0bad9e1cc47a44c96fa22ac8795b98a0`. RobQAPass engineering **PASS** for Owner Review. No blocker, major, acceptance-violating minor, or note finding. Owner acceptance, preview/package state, integration, publication, push, and merge remain pending.
+- Scope/provenance: independent `git diff --stat`, `--name-status`, full relevant diff, and `--check` confirm exactly 54 admitted paths, 272,937 additions / 29 deletions, and no whitespace error. All 24 fresh receipts are HTTP 200 with ordered times, recomputed SHA-256 values, and exact working-file/committed-blob equality. All 21 historical current-body hashes recompute and remain distinct from the explicitly unbound original claims; the original Khârn body remains a 429, not negative evidence. All six continuation pages are receipted and all 17 discovery chains terminate.
+- Source/card audit: all 115 distinct selected full objects equal their objects in fresh successful captures; binding hashes and exact printing URLs match; paper/date eligibility and actual mechanic-bearing source/face colors independently re-derive to the claimed buckets. All 17 definitions and 115 notes were read against saved Oracle facts. Independent face-level discovery screening reproduces every selected signature; the only outside raw signatures are correctly excluded playtest/Heroes material. Transform remainder, all Typecycling variants/grants, all 24 Treasure signatures/native subtype cases, Toxic WB/RG creators, Transfigure permanent scope, Tifa durations, exact Edgar/Khârn labels, official Khârn timing, and Tap/Triple rules definitions match saved sources. Public copy has no audit/ranking leakage or replacement characters; Sources contains only the non-card official reference.
+- Projection/protected parity: 346 records / 27 bindings; all prior 329 rows and 26 bindings equal baseline exactly. Frozen 2021, mapped Trample, canonical supplement/scope/grouping, and earlier packets are unchanged. `python tools/build_mechanics_assessments.py --check`, `check_invariants.py`, `check_taxonomy.py`, `check_recon.py`, and `gate.py` -> exit 0 (217 identities / 216 peers; source/taxonomy/fixture PASS; all 53 reconciliation assertions). `node --check tools/check_assessment_browser.mjs` -> exit 0.
+- Focused browser: `node tools/check_assessment_browser.mjs --root . --t-only --playwright C:/Users/obake/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright` -> exit 0 / JSON PASS for all 17 T records / 115 witnesses, receipt/object/face/signature binding, list/search/detail and one-link hydrated output, independent/combination marks, glyph/no-font fallback and token coverage, escaping/safe links, malformed atomic isolation, keyboard activation, 360px containment, exact baseline parity, prior S regression, and frozen math. Browser use was required for objective hydrated-DOM/link/glyph/fallback/keyboard/containment contracts; no screenshot or subjective layout claim was made.
+- Proportionality/state: CPU-heavy validation **NOT REQUIRED**. Capture -> canonical object -> deterministic projection -> hydrated detail continuity passed, including malformed replacement isolation and structurally different independent, combination, colorless, rules-only, token-source and DFC cases. No new persistent navigation/history/reset owner exists. The unrelated broad Friends-forever harness, screenshots/pixel matrices, network recapture, package/live preview, deployment, push, and merge were intentionally skipped. No new manual finding; earlier scaffold defects are covered by complete signature equality, scope exclusions, exact binding, and all-record rendered checks.
+- Remaining Owner judgment: wording comfort, optical balance, and reading flow. After coordinator packaging, open Transmute, clear search/color filters, and expand Reviewed card examples; optionally sample Ninjutsu, Nightbound, and Nonbasic landwalk as the smallest varied wording/combination check. Deterministic facts need not be manually re-proved.
 
 # T supplemental Color Access — RobDev pre-edit contract (2026-10-30)
 
