@@ -1,6 +1,6 @@
-# Editorial opening — active task
+# Editorial opening — Owner Review
 
-- Status: `ready-for-qa` (previous completed W batch -> idle -> dev-in-progress -> ready-for-qa).
+- Status: `qa-passed` (ready-for-qa -> qa-passed); Owner product/visual acceptance PENDING.
 - Requested outcome: welcoming first-use opening; move proof/source details to the bottom; distinguish 2021 placement from reviewed-card color access.
 - Owner authority: current chat explicitly authorizes the editorial pass following the reviewed proposal. Reuse `codex/a-mechanics-review` and its existing preview; local-only boundary continues.
 - Baseline: `1f38e2f969c2cbec339342bbc1a2cd484e1f573a` (clean worktree observed before work).
@@ -16,7 +16,40 @@
 - Developer result: visitor-oriented masthead and entry instruction, concise attribution, full source/date/snapshot/inventory moved to footer with optional Collection details, always-visible placement/access note, accessible loading/failure notice near the opening. Existing runtime inventory ID and content remain in the footer to retain compatibility with historical focused checks.
 - Developer evidence: Python HTML/source review -> unique IDs; no source/inventory nodes in masthead; snap/author/limits/meta/supplement-status owned by footer; distinction outside foldable key body. `node --check -` -> PASS for inline script. `git diff --check` -> PASS (expected LF/CRLF warnings only). Read final copy and diff: no data, protocol, producer, math, shell, wheel or dependency changes.
 - RobDev READY packet: authored presentation is the only owning layer changed; existing IDs/renderers and native details reused. Protected source/tier/access/search/route behavior unchanged. Changed risk is availability notice composition during async loading and folding/containment of explanatory copy. Candidate to be frozen next; same-agent distinct QA follows. Appearance/readability remains Owner judgment.
-- Decisions needed: none.
+- RobQA engineering verdict: PASS for exact material `7c3bcbf215a1d70f71c75d40186edd6294a9f0cd` over `1f38e2f969c2cbec339342bbc1a2cd484e1f573a`. QA-1, same-agent distinct phase by coordinating Codex after commit; presentation-only scope permits self-review, not independent review. Acceptance criteria and frozen diff re-read before QA. No blocker/major findings.
+- Focused browser evidence: one-off Node/Playwright check against the committed source, using existing externally installed Playwright and headless Edge -> JSON PASS / exit 0. Observed initial loading then hidden success notice; masthead free of source inventories; all source IDs under footer; placement/access distinction visible with key folded and expanded; native Collection details opens/closes with keyboard Enter; Flash search opens its explanation; 360px page containment with footer expanded; all existing 84/84 explorer assertions pass; no page errors. No screenshots or aesthetic certification.
+- Failure/async evidence: separately blocked supplement, assessment and example responses -> truthful visible near-opening notices with recovery guidance, and unchanged 2021 comparison output. Concurrent assessment/example failure retained both messages. The successful other sidecar cannot clear a failure. Baseline and candidate WUBRG summary / WB sections / WB buckets match exactly.
+- Stateful coverage: relevant seam is async completion to the presentation notice. Covered success clearance, isolated failure and two differently timed parallel failures; no route, persisted intent, semantic/source ownership, replacement/reset or alternate representation changed, so those Section 13A cases are not applicable.
+- Unchanged delivery producer: verified resolved `_site` is an ordinary direct-child directory without a reparse point before replacement. `.github/pages/package.py --rev 7c3bcbf215a1d70f71c75d40186edd6294a9f0cd --out <verified _site> --verify` -> PASS, 23 matching files, four clean inline scripts, 23 HTTP 200 / 24 excluded 404. Existing local PID 5596 / 127.0.0.1:8020 retained; live shell, explorer and assessment bytes match package. Material revision served is the exact QA candidate.
+- Tests intentionally skipped: broad assessment/card-evidence, source/reconciliation/fixture and routing suites, screenshots and viewport matrices. Data, source relationships, calculations, glyphs, routing and shared behavior did not change. Known historical Friends-forever symbol-size harness debt was not run or repaired. CPU-heavy validation NOT REQUIRED.
+- Owner review: http://127.0.0.1:8020/#mechanical-color-pie . Refresh an already-open page. Read the opening and the always-visible key note, then use Sources and scope / Collection details at the bottom. Judge welcome, wording and hierarchy only; deterministic behavior already checked.
+- Git state: same existing `codex/a-mechanics-review` branch; material candidate committed locally. Following evidence commit changes HANDOFF only. No push, merge, integration or publication; no host operation or fetch needed. Worktree cleanliness is checked after the evidence commit.
+- Follow-ups / next suggested role: Owner product review. No unrelated cleanup or feature work proposed.
+- Decisions needed: Owner acceptance of the wording and hierarchy only; no missing engineering evidence.
+
+## Material candidate
+
+- Baseline: `1f38e2f969c2cbec339342bbc1a2cd484e1f573a`
+- Candidate: `7c3bcbf215a1d70f71c75d40186edd6294a9f0cd`
+- Changed paths: `2`
+
+## Files changed
+
+- `HANDOFF.md`
+- `vox-color/mechanical-explorer.html`
+
+## Evidence delta
+
+- Material candidate: `7c3bcbf215a1d70f71c75d40186edd6294a9f0cd`
+- Evidence head: `HEAD`
+- Additional evidence-only paths: `1`
+
+Evidence-only handoff update; not the full task diff. `HEAD` resolves to the final evidence commit when validated. Final baseline-to-HEAD branch delta remains the same two material paths.
+
+## Evidence-only paths
+
+- `HANDOFF.md`
+
 
 ---
 
