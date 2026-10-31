@@ -1,3 +1,25 @@
+# Editorial opening — active task
+
+- Status: `ready-for-qa` (previous completed W batch -> idle -> dev-in-progress -> ready-for-qa).
+- Requested outcome: welcoming first-use opening; move proof/source details to the bottom; distinguish 2021 placement from reviewed-card color access.
+- Owner authority: current chat explicitly authorizes the editorial pass following the reviewed proposal. Reuse `codex/a-mechanics-review` and its existing preview; local-only boundary continues.
+- Baseline: `1f38e2f969c2cbec339342bbc1a2cd484e1f573a` (clean worktree observed before work).
+- Allowed files: `vox-color/mechanical-explorer.html`, `HANDOFF.md`. Derived delivery surface: existing ignored `_site/`, through unchanged `.github/pages/package.py` only.
+- Allowed surfaces: masthead copy and hierarchy; key's always-visible explanation; footer attribution/scope/inventory; concise loading/failure notice near the opening. Existing search examples and source/detail links remain available.
+- Non-goals: no source/data/protocol/producer changes, tier or access changes, search/selection/routing changes, dependencies, type roles, color tokens, wheel or shell changes, publication, push or merge.
+- Acceptance criteria: (1) opening gives a clear exploratory purpose and next action, without inventory/proof text; (2) full article attribution, date, source qualifications and inventory are at the bottom; (3) placement versus access explanation remains visible with key expanded or collapsed; (4) initial loading and supplement/access/example failures remain visible near the opening; successful loading clears that notice without hiding failures from parallel loads; (5) existing mechanics, links, search, tiers/access and 2021 comparisons remain intact.
+- Owning layer: authored explorer HTML and its current status renderers; retain existing datasets and deterministic producers unchanged.
+- Risks: footer relocation could strand an ID or live-region update; folding could hide the distinction; asynchronous sidecars could erase another failure; longer explanatory text could overflow at narrow width.
+- Selected verification: QA-1, same-agent distinct QA phase after material commit; diff/HTML/source checks, inline syntax, one focused real-browser DOM case covering loading/success and three blocked-response notices, collapsed/expanded key and 360px containment; existing self-test/2021 comparison control. Browser needed for actual asynchronous notice visibility and folded CSS, not subjective appearance. No screenshots or broad mechanics harness.
+- Remaining Owner judgment: whether the opening feels welcoming and the footer hierarchy reads well.
+- Governing methods: local `.claude/skills/robdev/SKILL.md` and `.claude/skills/robqa/SKILL.md`; bounded RobDevPass/RobQAPass principles. No delegation; no independent-review claim.
+- Developer result: visitor-oriented masthead and entry instruction, concise attribution, full source/date/snapshot/inventory moved to footer with optional Collection details, always-visible placement/access note, accessible loading/failure notice near the opening. Existing runtime inventory ID and content remain in the footer to retain compatibility with historical focused checks.
+- Developer evidence: Python HTML/source review -> unique IDs; no source/inventory nodes in masthead; snap/author/limits/meta/supplement-status owned by footer; distinction outside foldable key body. `node --check -` -> PASS for inline script. `git diff --check` -> PASS (expected LF/CRLF warnings only). Read final copy and diff: no data, protocol, producer, math, shell, wheel or dependency changes.
+- RobDev READY packet: authored presentation is the only owning layer changed; existing IDs/renderers and native details reused. Protected source/tier/access/search/route behavior unchanged. Changed risk is availability notice composition during async loading and folding/containment of explanatory copy. Candidate to be frozen next; same-agent distinct QA follows. Appearance/readability remains Owner judgment.
+- Decisions needed: none.
+
+---
+
 # Owner Accepted — W supplemental Color Access
 
 - Owner response: “w is good”. This explicitly accepts exact reviewed material `831ae295f01054aef321f95bee436799d910a304`, delivered with independent QA and local preview evidence at `2e1e59794d5fe05762c9d78b3659a609e09dad17`.

@@ -108,6 +108,7 @@ button{font:inherit;color:inherit}
 .kicker span{color:var(--brass-q);padding:0 .35em}
 .mast h1{margin:0 0 14px;font:700 clamp(36px,5.2vw,70px)/1 var(--f-brand);letter-spacing:.012em;color:var(--bone)}
 .lede{margin:0 auto;max-width:60ch;font:italic 400 clamp(15px,1.25vw,17px)/1.6 var(--f-read);color:var(--ink)}
+.intro-help{margin:12px auto 0;max-width:65ch;font:400 13px/1.6 var(--f-ui);color:var(--ink-dim)}
 .mast-rule{height:11px;margin:22px auto 14px;background:var(--orn-rule) center/320px 11px no-repeat}
 .snap{margin:0;font:400 13px/1.5 var(--f-read);color:var(--ink)}
 .snap a{color:var(--bone);text-decoration:underline;text-decoration-color:var(--rule-s);text-underline-offset:3px}
@@ -248,6 +249,9 @@ button{font:inherit;color:inherit}
 .key.is-folded .key-mini{display:flex;margin-top:10px}
 .key-mini .lg{display:inline-flex;align-items:center;gap:6px}
 .key-body{display:contents}
+.key .key-note{grid-column:1 / -1;margin:0;font:400 12.5px/1.6 var(--f-ui);color:var(--ink-dim)}
+.key.is-folded .key-note{margin-top:10px}
+.key-note b{font-weight:500;color:var(--ink)}
 .spec{display:grid;gap:8px;padding-right:34px;border-right:1px solid var(--rule)}
 .spec-cap{font:600 12px/1.3 var(--f-brand);letter-spacing:.08em;color:var(--ink-dim)}
 .spec-name{font:400 15px/1.2 var(--f-ui);color:var(--bone)}
@@ -588,6 +592,9 @@ html.sheet-open .bar{position:relative}
    =================================================================== */
 .foot{max-width:var(--maxw);margin:0 auto;padding:14px var(--gut) 46px;border-top:3px double var(--rule-s);font:400 11.5px/1.65 var(--f-ui);color:var(--ink-dim)}
 .foot p{margin:6px 0;max-width:120ch}
+.source-details{margin:12px 0}
+.source-details summary{width:fit-content;max-width:100%;cursor:pointer;color:var(--ink)}
+.source-details summary:focus-visible{outline:2px solid var(--brass-l);outline-offset:3px}
 .foot .fcp{margin-top:12px;font:italic 400 12px/1.6 var(--f-read)}
 .foot .fcp a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--rule-s);text-underline-offset:3px}
 .foot .fcp a:focus-visible{outline:2px solid var(--brass-l);outline-offset:2px}
@@ -634,20 +641,19 @@ html.sheet-open .bar{position:relative}
 <a class="skip" href="#list">Skip to the entries</a>
 
 <header class="mast">
-  <p class="kicker">An interactive edition</p>
+  <p class="kicker">Explore Magic’s mechanics</p>
   <h1>Mechanical Color Pie 2021</h1>
-  <p class="lede">Mark Rosewater's article, made searchable. The 2021 catalog preserves his entry names, explanations and Primary / Secondary / Tertiary placements. Search also includes separately attributed supplemental mechanic records; their evidence does not assign 2021 placements.</p>
+  <p class="lede">Find a familiar ability or discover something new. Search for a mechanic, browse A–Z, or choose colors to explore their placements in the 2021 guide.</p>
+  <p class="intro-help">Open an entry for its explanation and, where available, card examples.</p>
   <div class="mast-rule" aria-hidden="true"></div>
-  <p class="snap"><a id="snap" href="https://magic.wizards.com/en/news/making-magic/mechanical-color-pie-2021" target="_blank" rel="noopener">Mechanical Color Pie 2021 · snapshot dated October 18, 2021</a><span id="author"> — Mark Rosewater (with the Council of Colors)</span></p>
-  <p class="limits" id="limits"></p>
-  <p class="meta" id="meta"></p>
-  <p class="limits" id="supplement-status" role="status" aria-live="polite">Supplemental mechanic records are loading. The 2021 catalog remains available.</p>
+  <p class="snap">Based on Mark Rosewater’s 2021 guide, with additional mechanics credited separately.</p>
+  <p class="limits" id="availability-status" role="status" aria-live="polite">Additional mechanics are loading. You can explore the 2021 guide now.</p>
 </header>
 
 <div class="bar" id="bar">
   <div class="bar-in">
     <div class="search" id="search" role="search">
-      <label class="bar-cap" for="q">Search<span class="sr-only"> the article and supplemental mechanic records</span></label>
+      <label class="bar-cap" for="q">Search<span class="sr-only"> for a mechanic or an effect</span></label>
       <div class="q-field">
         <svg class="q-ico" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
         <input class="q" id="q" type="text" inputmode="search" enterkeyhint="search" autocomplete="off" spellcheck="false"
@@ -687,6 +693,7 @@ html.sheet-open .bar{position:relative}
         <span class="lg"><i class="sc t-t" style="--sz:14px;--cc:var(--ink)"></i>Tertiary</span>
         <span class="lg"><i class="sc t-n" style="--sz:14px"></i>No placement</span>
       </div>
+      <p class="key-note"><b>2021 placements</b> show the article’s color categories. <b>Color access</b> shows colors found on reviewed cards, without assigning a tier.</p>
       <div class="key-body" id="key-body">
         <div class="spec" id="spec" aria-hidden="true"></div>
         <div>
@@ -727,9 +734,17 @@ html.sheet-open .bar{position:relative}
   <aside class="detail" id="detail" data-detail-owner aria-labelledby="dx-title" hidden></aside>
 </main>
 
-<footer class="foot">
+<footer class="foot" aria-labelledby="sources-heading">
+  <h2 class="sec-h" id="sources-heading">Sources and scope</h2>
+  <p class="snap"><a id="snap" href="https://magic.wizards.com/en/news/making-magic/mechanical-color-pie-2021" target="_blank" rel="noopener">Mechanical Color Pie 2021 · snapshot dated October 18, 2021</a><span id="author"> — Mark Rosewater (with the Council of Colors)</span></p>
+  <p class="limits" id="limits"></p>
   <p>In the 2021 catalog, placements, entry names, sub-headings and explanations are Rosewater's, from the October 18, 2021 snapshot. Supplemental rules and references are attributed separately to their cited sources. Counts, best placements under selected colors and compass differences are computed by this page from those placements. Tiers are compared only within one ability, across colors; nothing is summed, scored or ranked.</p>
-  <p>Player search terms are navigation aids drawn from player research. They lead to article entries and are never Rosewater's wording. An absent 2021 placement is not evidence that no card of that color exists.</p>
+  <p>Additional mechanics show reviewed card examples where available, with rules and references credited in each entry. Color access records the examples found, not a Primary, Secondary or Tertiary placement. No example found does not mean a color cannot have that mechanic.</p>
+  <p>Player search terms help you find article entries in your own words; they are not Rosewater’s wording.</p>
+  <details class="source-details"><summary>Collection details</summary>
+    <p class="meta" id="meta"></p>
+    <p id="supplement-status">Additional mechanics are loading. The 2021 guide remains available.</p>
+  </details>
   <p class="fcp">Vox Mana’s interactive edition of the Mechanical Color Pie 2021 is unofficial Fan Content permitted under the <a href="https://company.wizards.com/en/legal/fancontentpolicy" target="_blank" rel="noopener">Fan Content Policy</a>. Not approved/endorsed by Wizards. Portions of the materials used are property of Wizards of the Coast. ©Wizards of the Coast LLC.</p>
   <p class="selftest" id="selftest" aria-live="off" hidden></p>
 </footer>
@@ -2179,6 +2194,8 @@ async function loadAssessments(data, status){
   } catch (err){
     ASSESSMENTS.byKey = new Map(); ASSESSMENTS.status = 'unavailable';
     status.textContent += ' Supplemental color access is unavailable; rules and other evidence remain available.';
+    const notice = $('#availability-status'); notice.hidden = false;
+    notice.textContent += ' Color access could not be loaded. You can still read mechanic explanations and sources. Reload to try again.';
     console.warn('[mechanical-explorer] assessments unavailable:', err.message);
   }
   if (S.view === 'az') layoutList();
@@ -2205,6 +2222,8 @@ async function loadSupplementExamples(data, scopes, status){
   } catch (err){
     SUP_EXAMPLES.byKey = new Map(); SUP_EXAMPLES.status = 'unavailable';
     status.textContent += ' Supplemental card examples are unavailable; accepted evidence remains available.';
+    const notice = $('#availability-status'); notice.hidden = false;
+    notice.textContent += ' Some card examples could not be loaded. Mechanic explanations and sources remain available. Reload to try again.';
     console.warn('[mechanical-explorer] supplemental examples unavailable:', err.message);
   }
   detailEl._sig = null; render();
@@ -2266,10 +2285,13 @@ async function loadSupplement(){
     SUPPLEMENT.status = 'ready';
     const supplemental = SUPPLEMENT.records.filter(a => !a.target2021).length;
     status.textContent = `${data.records.length} accepted source records available in search and A–Z: ${supplemental} supplemental records and ${data.records.length - supplemental} mapped to existing 2021 entries. Supplemental records do not enter the 2021 color calculations.`;
+    const notice = $('#availability-status'); notice.textContent = ''; notice.hidden = true;
     loadSupplementExamples(data, scopes, status); loadAssessments(data, status);
   } catch (err){
     SUPPLEMENT.status = 'unavailable';
     status.textContent = 'Supplemental mechanic records and scope classifications are unavailable. The 2021 catalog and its search remain available. Reload the page to try again.';
+    const notice = $('#availability-status'); notice.hidden = false;
+    notice.textContent = 'Additional mechanics could not be loaded. You can still explore the 2021 guide. Reload to try again.';
     console.warn('[mechanical-explorer] supplemental records unavailable:', err.message);
   }
   if (S.q) runSearch();
