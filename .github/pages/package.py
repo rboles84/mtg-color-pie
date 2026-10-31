@@ -34,6 +34,7 @@ FIXTURES = ['01_W_single_colour', '02_WB_pair', '03_BG_complementary',
 
 FILES = [
     'index.html',
+    'favicon.ico',
     'vox-color/index.html',
     'vox-color/color-wheel.html',
     'vox-color/mechanical-explorer.html',
@@ -62,6 +63,7 @@ EXCLUDED = ['docs/mechanics-transfer/manifest.json', 'docs/mechanics-transfer/so
             'docs/mechanics-research/a-assessments-source.json', 'docs/mechanics-research/absorb-assessment-source.json', 'docs/mechanics-research/a-classification-addendum.json',
             'vox-color/reference/current-weave-annotated.html',
             'vox-color/build/build_wheel.py', 'data/recon.md',
+            'tools/check_favicon_browser.mjs',
             'data/mcp2021.reconciled.json', 'tools/gate.py',
             'docs/card-examples-map.xlsx', 'HANDOFF.md', 'CLAUDE.md',
             'AGENTS.md', '.claude/settings.json', '.github/pages/package.py']

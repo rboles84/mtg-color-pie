@@ -1,3 +1,9 @@
+# Favicon 404 repair — RobDev pre-edit contract
+
+- Status: `dev-in-progress` (`complete -> idle -> dev-in-progress`) after coordinator's verified live CDP evidence identifies the sole real console/network failure as `https://colorpie.voxmana.io/favicon.ico` HTTP 404.
+- Outcome/envelope: add only `favicon.ico`, allowlist it in `.github/pages/package.py`, add `tools/check_favicon_browser.mjs`, and record this ledger. No application HTML/JS, product/data/source/math/routing/font/theme changes.
+- Criteria/protection: browser default icon request resolves for root and direct-instrument paths; package verification contains the icon without widening other publication; cold browser diagnostics retain page behavior and report no favicon 404. Preserve published history, source data, shell/wheel and all recovery/release boundaries. Expected independent review: QA-2/QA-3 proportional asset/package/browser check.
+
 # Unified collection — released and production verified
 
 - Status: `complete` (`qa-passed -> complete`) under the Owner's explicit APPROVE RELEASE for material `1ec6a6bc380ac629cce08b9286d823636c201ed2`. The normal non-force fast-forward integrated all original development ancestry. Actual production source/release is `fca97218185732d265b26b8e40d247a073f1652e` (approved product plus HANDOFF-only approval evidence); public REV is `fca972181857`. This closeout changes HANDOFF only, using `[skip ci]` to retain that verified production revision.
