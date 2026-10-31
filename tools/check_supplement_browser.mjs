@@ -18,7 +18,7 @@ const examples=JSON.parse(fs.readFileSync(path.join(root,'vox-color/mechanical-s
 const sha256=text=>createHash('sha256').update(text).digest('hex');
 assert.equal(scope.schemaVersion,1);assert.equal(scope.records.length,390);
 assert.equal(scope.payloadCanonicalSha256,sha256(JSON.stringify(payload)));
-assert.equal(scope.payloadSha256,sha256(fs.readFileSync(path.join(root,'data/mechanics-supplement.v1.json'))));
+assert.equal(scope.payloadSha256,sha256(fs.readFileSync(path.join(root,'data/mechanics-supplement.v1.json'),'utf8').replace(/\r\n/g,'\n')));
 assert.equal(examples.schemaVersion,1);assert.equal(examples.records.length,358);
 const server=http.createServer((req,res)=>{
   const pathname=decodeURIComponent(new URL(req.url,'http://localhost').pathname);
@@ -126,12 +126,12 @@ try {
   assert.deepEqual(narrowJump,{focused:true,unobscured:true,overflow:true});await returnTop.focus();await returnTop.press('Enter');assert.equal(await page.evaluate(()=>document.activeElement?.id),'az-heading');assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);await page.setViewportSize({width:1440,height:900});
   await page.emulateMedia({reducedMotion:'reduce'});await page.evaluate(()=>{window.__jumpScroll=[];const scroll=Element.prototype.scrollIntoView;Element.prototype.scrollIntoView=function(options){window.__jumpScroll.push(options);return scroll.call(this,options);};});await jump.focus();await jump.press('Enter');assert.equal(await page.evaluate(()=>window.__jumpScroll.at(-1)?.behavior),'auto');await returnTop.focus();await returnTop.press('Enter');assert.equal(await page.evaluate(()=>window.__jumpScroll.at(-1)?.behavior),'auto');await page.emulateMedia({reducedMotion:'no-preference'});
   const specialTags=await page.evaluate(()=>[...document.querySelectorAll('#list > .grp[data-scope="special-material"] .ent')].map(entry=>({key:entry.dataset.k,tag:entry.querySelector('.e-tag')?.textContent,hidden:entry.querySelector('.e-tag')?.hidden})));
-  assert.equal(await page.locator('#list > .grp[data-scope="special-material"] > .lo-note').count(),1);assert.equal(await page.locator('#list > .grp[data-scope="special-material"] > .lo-note').innerText(),'Supplemental evidence and derived provisional assessments');
+  assert.equal(await page.locator('#list > .grp[data-scope="special-material"] > .lo-note').count(),1);assert.equal(await page.locator('#list > .grp[data-scope="special-material"] > .lo-note').innerText(),'Supplemental evidence and documented color access');
   const redundantSpecialTag=scopeRecord=>(scopeRecord.group==='card-specific'&&scopeRecord.evidenceLabel==='Card-specific flavor word')||(scopeRecord.group==='preview'&&scopeRecord.evidenceLabel==='Official mechanic reference')||(scopeRecord.group==='designer'&&scopeRecord.evidenceLabel==='Designer card example');
   const reviewedAssessments=await page.evaluate(()=>VMX.assessments().records);
   for(const entry of specialTags){
     const assessment=reviewedAssessments.find(a=>a.id===entry.key);
-    if(assessment?.kind==='derived'){
+    if(assessment?.kind==='access'){
       assert.equal(entry.tag,undefined,entry.key+' uses symbols instead of a subtitle');
     }else if(assessment){
       assert.equal(entry.hidden,false,entry.key+' classification stays visible');

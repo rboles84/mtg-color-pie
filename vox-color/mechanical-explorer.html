@@ -381,6 +381,8 @@ button{font:inherit;color:inherit}
    its complete strip stays readable. */
 .ent.is-out{opacity:.42}
 .ent.is-out:hover,.ent.is-out:focus-visible{opacity:.85}
+.ent.access-match{box-shadow:inset 3px 0 0 rgba(184,147,79,.78)}
+.ent .access-active{outline:2px solid var(--brass-l);outline-offset:1px}
 /* search: matches carry a gilt rule; the rest step back, still readable */
 .ent.is-hit{background:rgba(220,187,115,.07);box-shadow:inset 2px 0 0 var(--brass);color:var(--bone);opacity:1}
 .ent.is-miss{opacity:.3}
@@ -937,7 +939,7 @@ let resultPage = 0, searchReturn = false;
 const S = {
   sel: new Set(),      // colour lens (shared with the compass)
   selFromQuery: false, // the lens was set by colour words in the search
-  q: '', parsed: null, hits: [], hitSet: new Set(),
+  q: '', parsed: null, hits: [], hitSet: new Set(), queryColorsSuppressed:false,
   view: 'article',     // 'article' | 'az'
   pick: null,          // the one open entry
   spot: null           // {label, keys:Set} — an explicit "show these entries"
@@ -1248,7 +1250,7 @@ function searchRank(input){
     const m = exact && (!old || old.stage > STAGE.name) ? added : old || added;
     if (m) out.push({ k:r.k, stage:m.stage, note:m.note || null, relWhy:m.relWhy || null, exact,
       kind:r.supplemental ? 'supplemental' : '2021',
-      placed:r.supplemental ? null : lensOn ? access(r.e, P.colours).best !== null : true });
+      placed:r.supplemental ? (lensOn ? accessState(r.k, P.colours) === 'match' : true) : lensOn ? access(r.e, P.colours).best !== null : true });
   }
   /* Preserve the old relative order. Only accepted exact names/aliases need
      precedence over broad matches; unknown supplemental ranks are not absent. */
@@ -1277,6 +1279,24 @@ function assessmentStripHTML(a){
   if (a.name === 'Fuse' || a.name === 'Friends forever') return '<span class="strip access-strip combo-access" aria-label="Documented color combinations">' + a.access.combinations.map(item=>comboMarkHTML(item,combinationLabel)).join('') + '</span>';
   if ((['Hexproof from','Intimidate','Islandcycling','Islandwalk','Kicker'].includes(a.name) || (a.name.startsWith('L') || a.name.startsWith('M') || a.name.startsWith('N') || a.name.startsWith('O') || a.name.startsWith('P') || a.name.startsWith('R') || a.name.startsWith('S') || a.name.startsWith('T') || (a.name.startsWith('U') || a.name.startsWith('V') || a.name.startsWith('W'))) && a.access.combinations.length > 0)) return '<span class="strip access-strip mixed-access" aria-label="Independent color access and documented color combinations">' + ORDER.filter(c => a.access.colors[c].status === 'documented').map(c => accessMarkHTML(c,'documented')).join('') + (a.access.colorless.status === 'documented' ? accessMarkHTML('C','documented') : '') + a.access.combinations.map(item=>comboMarkHTML(item,combinationLabel)).join('') + '</span>';
   return '<span class="strip access-strip" aria-hidden="true">' + ORDER.map(c => accessMarkHTML(c,a.access.colors[c].status)).join('') + (a.access.colorless.status === 'documented' ? accessMarkHTML('C','documented') : '') + '</span>';
+}
+/* Reviewed access is evidence, not a second placement tier. Only validated
+   unmapped sidecar records participate; mapped records remain 2021 entries. */
+function accessState(k, cols){
+  const a = ASSESSMENTS.byKey.get(k);
+  if (!a) return isAssessmentTarget(k) ? (ASSESSMENTS.status === 'ready' ? 'outside' : ASSESSMENTS.status) : 'outside';
+  if (a.kind !== 'access') return 'outside';
+  const independent = ORDER.filter(c => a.access.colors[c].status === 'documented' && cols.has(c));
+  const combinations = a.access.combinations.filter(x => x.colors.every(c => cols.has(c)));
+  return independent.length || combinations.length ? 'match' : 'miss';
+}
+function accessKeys(cols){
+  if (ASSESSMENTS.status !== 'ready') return [];
+  return [...ASSESSMENTS.byKey].filter(([k, a]) => a.kind === 'access' && accessState(k, cols) === 'match').map(([k]) => k);
+}
+function accessCounts(cols){
+  const keys = accessKeys(cols), special = keys.filter(k => !['rules','ability-words'].includes(REC.get(k).scope.group));
+  return { keys, special, main:keys.filter(k => !special.includes(k)) };
 }
 const CI3_OUTLINE='M512 938.667c282.77 0 512-229.23 512-512s-229.23-512-512-512c-282.77 0-512 229.23-512 512s229.23 512 512 512v0z';
 const CI3_PARTS={left:'M115.88 637.341c-35.408-64.442-51.642-137.532-52.568-210.674 0.314-231.214 184.17-435.738 418.12-447.58v423.676l-365.552 234.578z',right:'M917.446 618.803l-374.878-216.436v-423.28c236.964 13.038 415.166 214.242 418.12 447.58-0.16 66.226-14.458 132.396-43.242 192.136z',top:'M512 875.355c-146.132-0.038-276.922-69.96-363.792-186.12l364.182-233.698 375.158 216.598c-84.128 127.838-223.14 201.29-375.548 203.22z'};
@@ -1472,11 +1492,21 @@ function render(){
   for (const [k, el] of entEl){
     const r = REC.get(k); if (!r.supplemental) continue;
     const sel = S.pick === k;
+    const state = lensOn ? accessState(k, S.sel) : 'outside';
+    el.classList.toggle('is-out', lensOn && state === 'miss' && !sel);
+    el.classList.toggle('access-match', state === 'match');
+    el.classList.toggle('access-outside', state === 'outside' || state === 'loading' || state === 'unavailable');
+    el.classList.toggle('is-off', !!spot && !spot.has(k) && !sel);
     el.classList.toggle('is-hit', qOn && S.hitSet.has(k));
     el.classList.toggle('is-miss', qOn && !S.hitSet.has(k) && !sel);
     el.classList.toggle('is-sel', sel);
     el.setAttribute('aria-pressed', String(sel));
-    el.setAttribute('aria-label', `${r.head}. Supplemental. ${r.scope.evidenceLabel}. ${r.scope.scopeNote} ${assessmentSummary(k, true)}. Outside the 2021 color calculations.`);
+    const a = ASSESSMENTS.byKey.get(k);
+    if (a && a.kind === 'access'){
+      for (const mark of el.querySelectorAll('[data-c]')) mark.classList.toggle('access-active', S.sel.has(mark.dataset.c) && a.access.colors[mark.dataset.c]?.status === 'documented');
+      for (const mark of el.querySelectorAll('[data-combo]')) mark.classList.toggle('access-active', a.access.combinations.some(x => x.colors.join('') === mark.dataset.combo && x.colors.every(c => S.sel.has(c))));
+    }
+    el.setAttribute('aria-label', `${r.head}. Supplemental. ${r.scope.evidenceLabel}. ${r.scope.scopeNote} ${assessmentSummary(k, true)}.${lensOn ? state === 'match' ? ' Matches selected reviewed access.' : state === 'miss' ? ' No matching reviewed access in selected colors.' : ' Outside selected reviewed access.' : ''} Outside the 2021 color calculations.`);
   }
   /* a group whose entries are all hidden by an explicit spotlight collapses */
   listEl.querySelectorAll('.grp,.lo').forEach(g => g.classList.toggle('is-empty', !!spot && ![...g.querySelectorAll('.ent')].some(x => !x.classList.contains('is-off'))));
@@ -1502,8 +1532,11 @@ function renderBar(lensOn, bk){
     const placed = KEYS.length - b.none.length;   /* placement existence: the same in both readings */
     let dep = false;
     ll.hidden = false;
+    const assessed = accessCounts(S.sel);
+    const accessFigs = ASSESSMENTS.status === 'ready' ? `<span class="access-count"><b>${assessed.keys.length}</b> reviewed-access matches <button class="fig" type="button" data-act="spot" data-id="access" aria-label="Show ${assessed.keys.length} reviewed-access entries">Show</button><small>${assessed.main.length} A–Z · ${assessed.special.length} Special</small></span>` : `<span class="access-count">Reviewed access ${ASSESSMENTS.status === 'unavailable' ? 'unavailable' : 'loading'}</span>`;
     ll.innerHTML = `<span class="who"><span aria-hidden="true">${[...setKey(S.sel)].map(pip).join('')}</span><span><b>${placed}</b> of ${KEYS.length} 2021 entries
         have a placement in ${esc(listWords(cnames(S.sel)))}</span><span class="calc">computed</span></span>` +
+      (S.view === 'az' ? accessFigs : '') +
       (S.selFromQuery ? `<span class="src">Set from your search</span>` : '') +
       ['primary','secondary','tertiary','none'].map(t => {
         const glyph = `<i class="c-acc b-${t[0]}" aria-hidden="true"></i>`;
@@ -1541,6 +1574,7 @@ function spotFor(id){
     const bk = proj.buckets(S.sel)[r];
     return { keys: bk[a] || [], label: tail(`${BUCKET_LABEL[a]} in ${listWords(cnames(S.sel))}`), dep };
   }
+  if (kind === 'access') return { keys: accessKeys(S.sel), label:`reviewed access in ${listWords(cnames(S.sel))}`, dep:false };
   if (kind === 'add'){
     const d = proj.delta('add', S.sel, a)[r];
     return { keys: d[b] || [], label: tail(`adding ${CNAME[a]} to ${key} → ${setKey(new Set([...S.sel, a]))}: ${ADD_LABEL[b]}`), dep };
@@ -1714,7 +1748,8 @@ function renderSpot(){
   keepFocus(bar, () => {
     if (!S.spot){ bar.hidden = true; bar.innerHTML = ''; return; }
     bar.hidden = false;
-    bar.innerHTML = `<span>Showing <b>${S.spot.keys.size}</b> 2021 ${plural(S.spot.keys.size, 'entry', 'entries')}: ${esc(S.spot.label)}.${S.spot.dep ? ' Depends on conflicting 2021 claims.' : ''}${S.view === 'az' && SUPPLEMENT.status === 'ready' ? ' Supplemental entries remain visible outside this 2021 calculation.' : ''}</span>
+    const accessSpot = S.spot.id === 'access';
+    bar.innerHTML = `<span>Showing <b>${S.spot.keys.size}</b> ${accessSpot ? 'reviewed-access' : '2021'} ${plural(S.spot.keys.size, 'entry', 'entries')}: ${esc(S.spot.label)}.${S.spot.dep ? ' Depends on conflicting 2021 claims.' : ''}${!accessSpot && S.view === 'az' && SUPPLEMENT.status === 'ready' ? ' Supplemental entries remain visible outside this 2021 calculation.' : ''}</span>
       <span class="calc">computed</span><button class="go" type="button" data-act="unspot" data-fid="unspot">Show all entries</button>`;
   });
   const cap = $('#list-cap');
@@ -2432,7 +2467,7 @@ function toggleColor(c){
   const n = new Set(S.sel); if (n.has(c)) n.delete(c); else n.add(c);
   setSel(n, false); render(); announce(lensSummary());
 }
-function clearColors(){ setSel([], false); render(); announce(lensSummary()); }
+function clearColors(){ S.queryColorsSuppressed = true; setSel([], false); render(); announce(lensSummary()); }
 
 /* ARRIVAL (Gate E). #colors=<k>, with k a canonical W U B R G key of one to
    five colours, sets the lens on load or on hashchange. It replaces the lens
@@ -2485,16 +2520,17 @@ function chooseCombo(s){
 
 function runSearch(){
   S.parsed = parseQuery(S.q);
-  /* search ranks entries placed in the lens colours first; the query's own
-     colour words take precedence while they are present */
+  /* The effective lens is singular: manual selection overrides parsed words,
+     while Clear suppresses existing words until the next query edit. */
   const P = S.parsed;
-  if (!P.colourWords.length && S.sel.size && !S.selFromQuery) P.colours = new Set(S.sel);
+  if (!S.selFromQuery) P.colours = new Set(S.sel);
   S.hits = searchRank(P);
   resultPage = 0; activeOpt = -1;
   S.hitSet = new Set(S.hits.map(h => h.k));
 }
 function setQuery(v){
   S.q = v;
+  S.queryColorsSuppressed = false;
   const P = parseQuery(v);
   if (P.colourWords.length){ S.sel = new Set(P.colours); S.selFromQuery = true; }
   else if (S.selFromQuery){ S.sel = new Set(); S.selFromQuery = false; }
@@ -2530,6 +2566,7 @@ function setSpot(id){
   if (S.spot && S.spot.id === id){ S.spot = null; render(); return; }
   const f = spotFor(id);
   S.spot = { id, label: f.label, keys: new Set(f.keys), dep: !!f.dep };
+  if (S.pick && !S.spot.keys.has(S.pick)) S.pick = null;
   render();
   announce(`Showing ${f.keys.length} ${plural(f.keys.length, 'entry', 'entries')}: ${f.label}.${f.dep ? ' Depends on conflicting 2021 claims.' : ''}`);
   $('#spotbar').scrollIntoView({ block:'nearest', behavior: behavior() });
@@ -2783,6 +2820,7 @@ function checkManaFont(){
 function api(){
   return { state:S, search:searchRank, parse:parseQuery, sections, buckets, deltaAdd, deltaRemove, wubrgSummary,
     setQuery: v => { qEl.value = v; setQuery(v); }, toggleColor, clearColors, chooseCombo, setView, setSpot,
+    access: cols => ({ state:accessState, counts:accessCounts(new Set(cols)) }),
     open: k => openEntry(k, {}), close: () => closeEntry(false), article: () => ARTICLE.slice(), listOnly: () => LIST_ONLY.slice(),
     supplemental: () => ({ status:SUPPLEMENT.status, records:SUPPLEMENT.records, revision:SUPPLEMENT.revision }),
     assessments: () => ({ status:ASSESSMENTS.status, records:[...ASSESSMENTS.byKey.values()] }),

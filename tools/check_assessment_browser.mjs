@@ -8,6 +8,7 @@ import {createHash} from 'node:crypto';
 import {execFileSync} from 'node:child_process';
 const args=process.argv.slice(2), opt=(n,d)=>args.includes(n)?args[args.indexOf(n)+1]:d;
 const root=path.resolve(opt('--root','.'));
+const siteRoot=path.resolve(opt('--site-root',root));
 const copyOnly=args.includes('--copy-only');
 const combinationsOnly=args.includes('--combinations-only');
 const kOnly=args.includes('--k-only');
@@ -24,13 +25,14 @@ const vOnly=args.includes('--v-only');
 const wOnly=args.includes('--w-only');
 const sCopyOnly=args.includes('--s-copy-only');
 const accessLabelsOnly=args.includes('--access-labels-only');
+const selectionOnly=args.includes('--selection-only');
 const {chromium}=createRequire(import.meta.url)(opt('--playwright','playwright'));
 const payload=JSON.parse(fs.readFileSync(path.join(root,'data/mechanics-assessments.v1.json'),'utf8'));
 const supplement=JSON.parse(fs.readFileSync(path.join(root,'data/mechanics-supplement.v1.json'),'utf8'));
 const server=http.createServer((req,res)=>{
   const pathname=decodeURIComponent(new URL(req.url,'http://localhost').pathname);
-  const file=path.resolve(root,'.'+pathname+(pathname.endsWith('/')?'index.html':''));
-  if(!file.startsWith(root+path.sep)){res.writeHead(403);res.end();return;}
+  const file=path.resolve(siteRoot,'.'+pathname+(pathname.endsWith('/')?'index.html':''));
+  if(!file.startsWith(siteRoot+path.sep)){res.writeHead(403);res.end();return;}
   try{res.setHeader('Content-Type',file.endsWith('.json')?'application/json':file.endsWith('.html')?'text/html':'text/plain');res.end(fs.readFileSync(file));}
   catch{res.writeHead(404);res.end();}
 });
@@ -132,6 +134,31 @@ async function checkAccessLabels(page){
   assert.deepEqual(await pack.locator('.own-row[data-c]').evaluateAll(rows=>rows.map(row=>[row.dataset.c,row.querySelector('.own-t').textContent])),[['R','Access'],['G','Access']],'Pack tactics preserves its independent color rows');
   assert.deepEqual(await pack.locator('.own-row[data-combo] .own-t').allTextContents(),['Combination'],'Pack tactics labels Red / Green as Combination');
   await page.locator('#q').fill('');
+}
+async function checkSelection(page,browser,baseline){
+  await page.evaluate(()=>VMX.setView('az'));
+  for(const [code,total,main,special,old] of [['G',245,229,16,83],['BG',298,274,24,136],['WUG',317,292,25,173]]){
+    await page.evaluate(code=>VMX.chooseCombo(code),code);
+    const got=await page.evaluate(()=>{const a=VMX.access(VMX.state.sel).counts;return {total:a.keys.length,main:a.main.length,special:a.special.length,old:VMX.buckets(VMX.state.sel).none.length};});
+    assert.deepEqual(got,{total,main,special,old:216-old},code+' exact reviewed-access and frozen counts');
+    assert.match(await page.locator('#lensline').innerText(),new RegExp(total+' reviewed-access matches'));
+  }
+  await page.evaluate(()=>VMX.chooseCombo('BG'));
+  const combos=await page.evaluate(()=>['Companion','Fuse'].map(name=>{const r=VMX.assessments().records.find(x=>x.name===name);return [name,VMX.access(new Set('BG')).state(r.id,new Set('BG')),VMX.access(new Set('B')).state(r.id,new Set('B'))];}));
+  assert.deepEqual(combos,[['Companion','match','miss'],['Fuse','match','miss']]);
+  await page.evaluate(()=>VMX.setQuery('blue cycling'));await page.evaluate(()=>VMX.chooseCombo('G'));
+  assert.deepEqual(await page.evaluate(()=>({sel:[...VMX.state.sel].join(''),parsed:[...VMX.state.parsed.colours].join('')})),{sel:'G',parsed:'G'},'manual selection overrides query colors');
+  await page.evaluate(()=>VMX.clearColors());assert.deepEqual(await page.evaluate(()=>({sel:[...VMX.state.sel],parsed:[...VMX.state.parsed.colours]})),{sel:[],parsed:[]},'clear suppresses existing query colors');
+  await page.evaluate(()=>VMX.setQuery('green cycling'));assert.deepEqual(await page.evaluate(()=>[...VMX.state.sel]),['G'],'later query edit restores parsed colors');
+  await page.evaluate(()=>{VMX.chooseCombo('G');VMX.open('flash');VMX.setSpot('bucket:none');});
+  assert.equal(await page.locator('#detail').isHidden(),true,'out-of-scope detail closes for exact count membership');
+  assert.equal(await page.locator('#list .ent:not(.is-off)').count(),133,'original 2021 count spot remains exact');
+  await page.evaluate(()=>VMX.setSpot('access'));assert.equal(await page.locator('#list .ent:not(.is-off)').count(),245,'reviewed access spot has exact membership');
+  await page.evaluate(()=>VMX.setSpot('access'));await page.evaluate(()=>VMX.setQuery('companion'));
+  assert.ok(await page.evaluate(()=>VMX.state.hits.some(h=>h.k==='deck:vocabulary:companion')),'supplemental name search remains available under the effective lens');
+  const unavailable=await browser.newPage();await unavailable.route(assessmentRoute,r=>r.fulfill({status:404,body:'Missing'}));await unavailable.goto(url);await unavailable.waitForFunction(()=>VMX.assessments().status==='unavailable');await unavailable.evaluate(()=>VMX.chooseCombo('G'));assert.doesNotMatch(await unavailable.locator('#lensline').innerText(),/reviewed-access matches/);await unavailable.close();
+  await page.evaluate(()=>{VMX.clearColors();VMX.setQuery('');VMX.setView('article');VMX.setView('az');});assert.equal(await page.evaluate(math),baseline,'selection path preserves frozen math');
+  results.push('Selection-only: G/BG/WUG reviewed-access counts and partitions, combination containment, manual/query/Clear precedence, exact original/additional spots, exact-name search, unavailable sidecar, view reset and frozen math.');
 }
 async function checkL(page,browser,baseline){
   const records=payload.records.filter(r=>r.name.startsWith('L'));
@@ -1117,7 +1144,7 @@ try{
   await page.waitForFunction(()=>window.VMX?.assessments().status==='ready');
   await page.waitForFunction(()=>document.querySelector('#selftest').textContent.includes('84 of 84 passed'));
   const baseline=await page.evaluate(math);
-  if(accessLabelsOnly){await checkAccessLabels(page);assert.deepEqual(errors,[]);results.push('All 173 mixed A–P access records emit Combination labels without changing their evidence; the seven no-independent-access records retain Combination only; Pack tactics search/detail confirms the player-facing rule.');}else if(args.includes('--mutate-pips-only')){await checkMutatePips(page,browser,baseline);assert.deepEqual(errors,[]);}else if(wOnly){await checkW(page,browser,baseline);assert.deepEqual(errors,[]);}else if(vOnly){await checkV(page,browser,baseline);assert.deepEqual(errors,[]);}else if(uOnly){await checkU(page,browser,baseline);assert.deepEqual(errors,[]);}else if(tOnly){await checkT(page,browser,baseline);assert.deepEqual(errors,[]);}else if(sCopyOnly){await checkSCopy(page,browser,baseline);assert.deepEqual(errors,[]);}else if(sOnly){await checkS(page,browser,baseline);assert.deepEqual(errors,[]);}else if(rOnly){await checkR(page,browser,baseline);assert.deepEqual(errors,[]);}else if(pOnly){await checkP(page,browser,baseline);assert.deepEqual(errors,[]);}else if(oOnly){await checkO(page,browser,baseline);assert.deepEqual(errors,[]);}else if(nOnly){await checkN(page,browser,baseline);assert.deepEqual(errors,[]);}else if(mOnly){await checkM(page,browser,baseline);assert.deepEqual(errors,[]);}else if(lOnly){await checkL(page,browser,baseline);assert.deepEqual(errors,[]);}else{
+  if(selectionOnly){await checkSelection(page,browser,baseline);assert.deepEqual(errors,[]);}else if(accessLabelsOnly){await checkAccessLabels(page);assert.deepEqual(errors,[]);results.push('All 173 mixed A–P access records emit Combination labels without changing their evidence; the seven no-independent-access records retain Combination only; Pack tactics search/detail confirms the player-facing rule.');}else if(args.includes('--mutate-pips-only')){await checkMutatePips(page,browser,baseline);assert.deepEqual(errors,[]);}else if(wOnly){await checkW(page,browser,baseline);assert.deepEqual(errors,[]);}else if(vOnly){await checkV(page,browser,baseline);assert.deepEqual(errors,[]);}else if(uOnly){await checkU(page,browser,baseline);assert.deepEqual(errors,[]);}else if(tOnly){await checkT(page,browser,baseline);assert.deepEqual(errors,[]);}else if(sCopyOnly){await checkSCopy(page,browser,baseline);assert.deepEqual(errors,[]);}else if(sOnly){await checkS(page,browser,baseline);assert.deepEqual(errors,[]);}else if(rOnly){await checkR(page,browser,baseline);assert.deepEqual(errors,[]);}else if(pOnly){await checkP(page,browser,baseline);assert.deepEqual(errors,[]);}else if(oOnly){await checkO(page,browser,baseline);assert.deepEqual(errors,[]);}else if(nOnly){await checkN(page,browser,baseline);assert.deepEqual(errors,[]);}else if(mOnly){await checkM(page,browser,baseline);assert.deepEqual(errors,[]);}else if(lOnly){await checkL(page,browser,baseline);assert.deepEqual(errors,[]);}else{
   assert.equal(await page.locator('#list .ent').count(),256);
   assert.equal(await page.evaluate(()=>VMX.assessments().records.length),371);
   const expectedAssessmentIds=supplement.records.filter(r=>/^[ABCDEFGHIJKLMNOPRSTUVW]/.test(r.name)&&r.target2021===null).map(r=>r.id).sort();
