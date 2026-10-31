@@ -1,3 +1,12 @@
+# Mechanical Color Pie unified collection — RobDev pre-edit contract
+
+- Status: `dev-in-progress`. Coordinator verified the sealed recovery material and unchanged clean starting worktree at `1a8bfacaa4c76ac5c3d1b963b986a9a5bf79aab3`; this superseding Owner-approved packet remains on `codex/a-mechanics-review`.
+- Outcome: replace split A–Z presentation with one authoritative original-plus-unmapped collection count, exact collection spots and neighbor deltas; teach placement versus documented card-access notation; keep Article original-only and make export view-aware.
+- Envelope: `vox-color/mechanical-explorer.html`, `tools/check_assessment_browser.mjs`, `tools/check_supplement_browser.mjs`, and `HANDOFF.md` only.
+- Protected: frozen 2021 source/tiers/math/fixtures, 371 validated assessments and their producer, WUBRG selection/search ownership, routes and color-only copied link, wheel/shell, dependencies/tokens/fonts, Special scope labels, packaging/recovery/release control, and all prior history.
+- Acceptance: U(S) uses original placement membership plus unmapped reviewed access without double counts; G/WG/UG/BG/RG/WUG/WUBG/WUBRG meet the Owner plan witnesses; selected original underlines show every selected placement tier; A–Z spots, headers, deltas and image export are exact to the current view; Article retains its 216-entry source scope; loading/unavailable states never promise partial unified results; key/ARIA/focus/repeat-use remain coherent.
+- Existing owners: explorer selection state, `accessState`, `searchRank`, `render`, `spotFor`, `renderCompass`, `renderIdent`, current export path and both focused browser harnesses. Expected independent review: QA-4. Non-goals: data/research/producer/wheel/shell/package/dependency/source changes, Owner acceptance, integration, publication, push and merge.
+
 # Safeguarded completion — release approval pending
 
 - Governing Owner mission: pasted completion/release instructions dated October 31, 2026. Local completion, verified backups, development/recovery publication and draft PR preparation are authorized. Production master merge/push requires the final explicit APPROVE RELEASE decision. No Owner release approval has yet occurred.

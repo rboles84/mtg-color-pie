@@ -142,18 +142,24 @@ async function checkSelection(page,browser,baseline){
     const expected=(record,code)=>{if(record.kind!=='access')return 'outside';const mono='WUBRG'.split('').some(c=>record.access.colors[c].status==='documented');const combo=record.access.combinations.some(x=>x.colors.every(c=>code.includes(c)));const independent='WUBRG'.split('').some(c=>code.includes(c)&&record.access.colors[c].status==='documented');const colorlessOnly=record.access.colorless.status==='documented'&&!mono&&!record.access.combinations.length;return colorlessOnly?'outside':independent||combo?'match':'miss';};
     const bad=[];for(const code of selections)for(const record of records){const got=VMX.access(new Set(code)).state(record.id,new Set(code)),want=expected(record,code);if(got!==want)bad.push([code,record.name,got,want]);}return bad;
   },payload.records);assert.deepEqual(classifier,[],'all 371 assessments across all 31 selector sets use the independent classifier');
-  for(const [code,total,main,special,old] of [['G',245,229,16,83],['BG',298,274,24,136],['WUG',317,292,25,173]]){
+  for(const [code,total,main,special,old,unified] of [['G',245,229,16,83,328],['WG',295,0,0,136,431],['UG',292,0,0,132,424],['BG',298,274,24,136,434],['RG',292,0,0,133,425],['WUG',317,292,25,173,490],['WUBG',332,0,0,205,537],['WUBRG',341,0,0,216,557]]){
     await page.evaluate(code=>VMX.chooseCombo(code),code);
     const got=await page.evaluate(()=>{const a=VMX.access(VMX.state.sel).counts;return {total:a.keys.length,main:a.main.length,special:a.special.length,old:VMX.buckets(VMX.state.sel).none.length};});
-    assert.deepEqual(got,{total,main,special,old:216-old},code+' exact reviewed-access and frozen counts');
-    assert.match(await page.locator('#lensline').innerText(),new RegExp(total+' reviewed-access matches'));
+    assert.equal(got.total,total,code+' exact reviewed-access count');assert.equal(got.old,216-old,code+' frozen count');
+    const union=await page.evaluate(()=>VMX.collection(VMX.state.sel).counts);assert.equal(union.keys.length,unified,code+' union count');
+    assert.match(await page.locator('#lensline').innerText(),new RegExp(unified+' of 587 entries match'));
   }
+  const deltas=await page.evaluate(()=>['W','U','B','R'].map(c=>[c,VMX.collection(new Set('G')).delta(c).keys.length]));
+  assert.deepEqual(deltas,[['W',103],['U',96],['B',106],['R',97]],'Green neighbor gains use exact collection-union memberships');
+  await page.evaluate(()=>VMX.chooseCombo('WUBG'));
+  assert.deepEqual(await page.locator('#list .ent[data-k="artifact destruction"] .strip > .sc').evaluateAll(slots=>slots.filter(s=>s.classList.contains('bx')).map(s=>s.dataset.c)),['W','G'],'selected placement underlines include every tier without marking unselected or absent colors');
   await page.evaluate(()=>VMX.chooseCombo('BG'));
   const combos=await page.evaluate(()=>['Companion','Fuse'].map(name=>{const r=VMX.assessments().records.find(x=>x.name===name);return [name,VMX.access(new Set('BG')).state(r.id,new Set('BG')),VMX.access(new Set('B')).state(r.id,new Set('B'))];}));
   assert.deepEqual(combos,[['Companion','match','miss'],['Fuse','match','miss']]);
   await page.evaluate(()=>VMX.chooseCombo('G'));const neutral=page.locator('#list .ent[data-k="deck:vocabulary:devoid"]');assert.equal(await neutral.evaluate(e=>e.classList.contains('is-out')),false,'colorless-only Devoid remains neutral');assert.match(await neutral.getAttribute('aria-label'),/Outside selected reviewed access/);await neutral.click();assert.equal(await page.locator('#detail .access-active').count(),0,'colorless-only detail has no WUBRG selected mark');await page.locator('#detail [data-act="close"]').click();
   const adapt=page.locator('#list .ent[data-k="deck:vocabulary:adapt"]');await adapt.click();assert.ok(await page.locator('#detail .access-active').count()>0,'matching detail exposes selected access marks');await page.locator('#detail [data-act="close"]').click();
-  assert.match(await page.locator('#ident').innerText(),/83 of 216 2021 entries/);assert.match(await page.locator('#ident').innerText(),/245 reviewed-access matches/);assert.match(await page.locator('#key').innerText(),/fully contained combinations/);
+  assert.match(await page.locator('#ident').innerText(),/328 of 587 entries match/);assert.match(await page.locator('#key').innerText(),/fully contained combinations/);
+  assert.match(await page.locator('#key').innerText(),/Documented on cards/);assert.match(await page.locator('#key').innerText(),/Colorless and rules references/);
   await page.evaluate(()=>VMX.setQuery('blue cycling'));await page.evaluate(()=>VMX.chooseCombo('G'));
   assert.deepEqual(await page.evaluate(()=>({sel:[...VMX.state.sel].join(''),parsed:[...VMX.state.parsed.colours].join('')})),{sel:'G',parsed:'G'},'manual selection overrides query colors');
   await page.evaluate(()=>VMX.clearColors());assert.deepEqual(await page.evaluate(()=>({sel:[...VMX.state.sel],parsed:[...VMX.state.parsed.colours]})),{sel:[],parsed:[]},'clear suppresses existing query colors');
@@ -171,19 +177,19 @@ async function checkSelection(page,browser,baseline){
   assert.ok(after.hits.some(([k,placed])=>k==='deck:shortlist:landcycling'&&placed),'hydration refreshes relevance');
   await page.evaluate(()=>VMX.setQuery('green cycling'));assert.deepEqual(after.hits,await page.evaluate(()=>VMX.state.hits.map(h=>[h.k,h.placed])),'delayed and ready histories produce identical ranked results');
   await delayed.locator('#q').press('Enter');assert.match(await delayed.locator('#dx-title').innerText(),/^Cycling$/);await delayed.close();
-  await page.evaluate(()=>{VMX.chooseCombo('G');VMX.open('flash');});
-  const count=page.locator('#lensline [data-id="bucket:none"]');await count.focus();await page.keyboard.press('Enter');
+  await page.evaluate(()=>{VMX.chooseCombo('G');const keys=new Set(VMX.collection(VMX.state.sel).counts.keys);VMX.open([...document.querySelectorAll('#list .ent')].map(e=>e.dataset.k).find(k=>!keys.has(k)));});
+  const count=page.locator('#lensline [data-id="collection"]');await count.focus();await page.keyboard.press('Enter');
   assert.equal(await count.evaluate(e=>document.activeElement===e),true,'count retains focus after spotlight render');
   assert.equal(await page.locator('#detail').isHidden(),true,'out-of-scope detail closes for exact count membership');
-  assert.equal(await page.locator('#list .ent:not(.is-off)').count(),133,'original 2021 count spot remains exact');
+  assert.equal(await page.locator('#list .ent:not(.is-off)').count(),328,'unified collection spot remains exact');
   assert.doesNotMatch(await page.locator('#spotbar').innerText(),/Supplemental entries remain visible/,'spot disclosure matches exact membership');
   const visibleRoving=page.locator('#list .ent:not(.is-off)[tabindex="0"]');assert.equal(await visibleRoving.count(),1,'a visible member owns the roving tab stop');
   await visibleRoving.focus();await page.keyboard.press('ArrowDown');assert.ok(await page.locator('#list .ent:not(.is-off):focus').count(),'keyboard navigation remains within visible membership');
   await page.keyboard.press('Escape');assert.equal(await page.locator('#list .ent:not(.is-off)').count(),587,'Escape restores all entries');
-  await page.evaluate(()=>VMX.setSpot('bucket:none'));await page.locator('#spotbar [data-act="unspot"]').click();assert.equal(await page.locator('#list .ent:not(.is-off)').count(),587,'Show all restores all entries');
+  await page.evaluate(()=>VMX.setSpot('collection'));await page.locator('#spotbar [data-act="unspot"]').click();assert.equal(await page.locator('#list .ent:not(.is-off)').count(),587,'Show all restores all entries');
 
-  await page.evaluate(()=>VMX.setSpot('access'));assert.equal(await page.locator('#list .ent:not(.is-off)').count(),245,'reviewed access spot has exact membership');assert.match(await page.locator('#spotbar').innerText(),/documented access/i);assert.doesNotMatch(await page.locator('#spotbar').innerText(),/computed/i);
-  await page.evaluate(()=>VMX.setView('article'));assert.equal(await page.locator('#spotbar').isHidden(),true,'Article clears incompatible access spot');assert.deepEqual(await page.evaluate(()=>[...VMX.state.sel]),['G'],'view transition retains selection');await page.evaluate(()=>VMX.setView('az'));assert.equal(await page.locator('#list .ent:not(.is-off)').count(),587,'return to A–Z restores collection');
+  await page.evaluate(()=>VMX.setSpot('collection'));assert.equal(await page.locator('#list .ent:not(.is-off)').count(),328,'collection spot has exact membership');assert.match(await page.locator('#spotbar').innerText(),/collection union/i);
+  await page.evaluate(()=>VMX.setView('article'));assert.equal(await page.locator('#spotbar').isHidden(),true,'Article clears incompatible collection spot');assert.deepEqual(await page.evaluate(()=>[...VMX.state.sel]),['G'],'view transition retains selection');assert.match(await page.locator('#list-cap').innerText(),/216.*Article/);await page.evaluate(()=>VMX.setView('az'));assert.equal(await page.locator('#list .ent:not(.is-off)').count(),587,'return to A–Z restores collection');
   await page.evaluate(()=>VMX.setQuery('companion'));
   assert.ok(await page.evaluate(()=>VMX.state.hits.some(h=>h.k==='deck:vocabulary:companion')),'supplemental name search remains available under the effective lens');
   const unavailable=await browser.newPage();await unavailable.route(assessmentRoute,r=>r.fulfill({status:404,body:'Missing'}));await unavailable.goto(url);await unavailable.waitForFunction(()=>VMX.assessments().status==='unavailable');await unavailable.evaluate(()=>VMX.chooseCombo('G'));assert.doesNotMatch(await unavailable.locator('#lensline').innerText(),/reviewed-access matches/);await unavailable.close();

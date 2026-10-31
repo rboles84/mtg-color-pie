@@ -148,7 +148,7 @@ try {
   await page.evaluate(()=>{window.__azFlying=document.querySelector('#list .ent[data-k="flying"]');window.__azFlying.focus();});
   await page.evaluate(()=>{VMX.setView('article');VMX.setView('az');});
   assert.equal(await page.evaluate(()=>document.querySelector('#list .ent[data-k="flying"]')===window.__azFlying&&document.activeElement===window.__azFlying),true);
-  assert.match(await page.locator('#list-cap').innerText(),/587.*216.*2021.*371.*supplemental/);
+  assert.match(await page.locator('#list-cap').innerText(),/587.*A–Z/);
   assert.match(await page.locator('#meta').innerText(),/216.*2021 entries.*2021 color placements/);
   assert.equal(await page.locator('#limits').innerText(),'The color pie evolves; this page preserves the 2021 snapshot. Per-set needs bend the default and some entries are experiments. An absent placement is not evidence that no card of that color exists.');
   const supplementalKeys=payload.records.filter(r=>!r.target2021).map(r=>r.id);
@@ -163,9 +163,9 @@ try {
     });},{keys:supplementalKeys,specialKeys:specialRecords.map(record=>record.id)});
     assert.deepEqual(failures,[],code);
   }
-  await page.evaluate(()=>{VMX.chooseCombo('W');VMX.setSpot('bucket:primary');});
-  assert.equal(await page.locator('#list .ent.is-off').evaluateAll(rows=>rows.some(e=>e.dataset.k.startsWith('deck:'))),false);
-  assert.match(await page.locator('#spotbar').innerText(),/Supplemental entries remain visible/);
+  await page.evaluate(()=>{VMX.chooseCombo('G');VMX.setSpot('collection');});
+  assert.equal(await page.locator('#list .ent:not(.is-off)').count(),328);
+  assert.match(await page.locator('#spotbar').innerText(),/collection union/);
   await page.evaluate(()=>{VMX.clearColors();VMX.setQuery('');});
   const opened=await page.evaluate(keys=>keys.filter(k=>{
     VMX.open(k);
@@ -183,7 +183,7 @@ try {
   await page.evaluate(()=>VMX.close());
   pass('all 358 optional supplemental examples render through the existing safe card plate with supplemental-only neutral caption',renderedExamples.length);
   assert.equal(await page.evaluate(mathSnapshot),beforeViews);
-  pass('A–Z main 543 alphabetical ordinary entries, then 44 scoped Special material entries; all 587 unique and outside every tested lens/spotlight; immutable maths',true);
+  pass('A–Z main 543 alphabetical ordinary entries, then 44 scoped Special material entries; all 587 unique; unified collection spots preserve immutable maths',true);
   const trainingRow=page.locator('#list .ent').filter({hasText:'Training'}).filter({hasText:'Rankings unassigned'});
   await trainingRow.click();assert.equal(await detail.locator('#dx-title').innerText(),'Training');
   await detail.locator('[data-act="close"]').click();assert.equal(await trainingRow.evaluate(e=>e===document.activeElement),true);

@@ -241,7 +241,7 @@ button{font:inherit;color:inherit}
 
 /* --- THE KEY: how to read one entry, taught with a real one ------------ */
 .key{margin:0 0 26px;padding:24px 28px;background:var(--corners),var(--plate);box-shadow:inset 0 0 0 1px var(--plate-edge);
-  display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px 34px;align-items:start}
+  display:grid;grid-template-columns:auto minmax(0,1fr) minmax(190px,.72fr);gap:14px 34px;align-items:start}
 .key .sec-h{grid-column:1 / -1;margin:0}
 .key.is-folded{display:block;padding-top:12px;padding-bottom:12px}
 .key.is-folded .key-body{display:none}
@@ -267,6 +267,9 @@ button{font:inherit;color:inherit}
 .def dt{margin:0;font:600 16px/1.2 var(--f-brand);letter-spacing:.02em;color:var(--bone)}
 .def dd{grid-column:2;margin:0;font:400 12.5px/1.45 var(--f-read);color:var(--ink-dim)}
 .defs-note{grid-column:1 / -1;margin:0;font:italic 400 12px/1.45 var(--f-read);color:var(--ink-dim)}
+.access-key{padding-left:22px;border-left:1px solid var(--rule);font:400 12.5px/1.5 var(--f-ui);color:var(--ink-dim)}
+.access-key h3{margin:0 0 9px;font:600 13px/1.2 var(--f-brand);letter-spacing:.08em;color:var(--bone)}
+.access-key p{margin:0 0 9px}.access-key .access-strip{vertical-align:middle}.placement-details{margin-top:12px;color:var(--ink-dim)}.placement-details summary{cursor:pointer;color:var(--brass-l);font:600 12px/1.2 var(--f-brand);letter-spacing:.06em}
 .steps{grid-column:1 / -1;display:flex;flex-wrap:wrap;gap:8px 30px;margin:2px 0 0;padding:12px 0 0;border-top:1px solid var(--rule);list-style:none;font:400 12.5px/1.4 var(--f-ui);color:var(--ink)}
 .steps li{display:flex;align-items:baseline;gap:9px;max-width:44ch}
 .steps b{font:500 10px/1 var(--f-mono);color:var(--brass-l)}
@@ -620,6 +623,7 @@ html.sheet-open .bar{position:relative}
   .bar{position:relative}
   .key,.compass{padding:18px 12px}
   .key{grid-template-columns:minmax(0,1fr)}
+  .access-key{padding-left:0;border-left:0;border-top:1px solid var(--rule);padding-top:14px}
   .spec{padding:0 0 16px;border-right:0;border-bottom:1px solid var(--rule)}
   .spec .strip,.spec-row{--sg:26px;gap:26px}
   .bar-in{gap:4px 14px;padding:8px var(--gut)}
@@ -697,7 +701,7 @@ html.sheet-open .bar{position:relative}
         <span class="lg"><i class="sc t-t" style="--sz:14px;--cc:var(--ink)"></i>Tertiary</span>
         <span class="lg"><i class="sc t-n" style="--sz:14px"></i>No placement</span>
       </div>
-      <p class="key-note"><b>2021 placements</b> use five WUBRG slots; their underlines mark the best selected tier. <b>Reviewed access</b> uses the brass marker for selected independent colors or fully contained combinations, never a tier. Colorless-only evidence and rules actions stay outside this selector; no reviewed example found is scoped evidence, not impossibility.</p>
+      <p class="key-note"><b>2021 placements</b> use five WUBRG slots; underlines mark every selected color with a placement, at any tier. <b>Reviewed access</b> uses the brass marker for selected independent colors or fully contained combinations, never a tier. Colorless-only evidence and rules actions stay outside this selector; no reviewed example found is scoped evidence, not impossibility.</p>
       <div class="key-body" id="key-body">
         <div class="spec" id="spec" aria-hidden="true"></div>
         <div>
@@ -710,6 +714,12 @@ html.sheet-open .bar{position:relative}
             <p class="defs-note">These are categories, not scores: this page never adds them up or turns them into a number. The 2021 placement strip has five slots, always W U B R G.</p>
           </dl>
         </div>
+        <aside class="access-key" aria-label="Documented card access notation">
+          <h3>Documented on cards</h3>
+          <p><span class="strip access-strip" aria-hidden="true"><i class="sc a-d" style="--cc:var(--g)"><i class="ms ms-g"></i></i></span> Filled symbols show a reviewed card example, not a placement rank. A gold ring marks selected documented access.</p>
+          <p><span class="strip access-strip" aria-hidden="true"><i class="sc a-none" style="--cc:var(--w)"><i class="ms ms-w"></i></i></span> An empty symbol means no independent example was found in the reviewed cards; it does not prove impossibility.</p>
+          <p><span class="strip access-strip" aria-hidden="true"><i class="sc a-d" style="--cc:var(--ink-dim)"><i class="ms ms-c"></i></i></span> Colorless and rules references sit outside the WUBRG selector. Combined symbols are whole observed combinations, not separate colors.</p>
+        </aside>
         <ol class="steps">
           <li><b>01</b>Search in your own words; each result says why it matched.</li>
           <li><b>02</b>Choose colors to mark the entries placed in them. Nothing is hidden.</li>
@@ -719,9 +729,9 @@ html.sheet-open .bar{position:relative}
     </section>
 
     <section class="compass" id="compass" aria-labelledby="cmp-h">
-      <p class="sec-h"><span id="cmp-h">Compare color combinations <span class="calc">computed</span></span><button class="fold" id="cmp-fold" type="button" aria-expanded="true" aria-controls="cmp-body">Hide</button></p>
+      <p class="sec-h"><span id="cmp-h">Compare color combinations</span><button class="fold" id="cmp-fold" type="button" aria-expanded="true" aria-controls="cmp-body">Hide</button></p>
       <div class="cmp-body" id="cmp-body">
-        <p class="cmp-note">All 31 combinations of the five colors, at one size. Choose one to use it as your colors. Its one-color neighbors are outlined, and each step lists the exact entries whose placement is added, removed, or changes tier. These are counts computed from the 2021 placements, not statements by Rosewater, and a count is not a measure of strength.</p>
+      <p class="cmp-note">All 31 combinations of the five colors, at one size. Choose one to use it as your colors. Its one-color neighbors are outlined; in A–Z, their counts compare the matching collection, not a power level.</p>
         <div class="cmp-main"><div class="cmp-rows" id="cmp-rows" role="group" aria-label="Color combinations"></div>
         <section class="ident" id="ident" aria-labelledby="id-name" hidden></section></div>
         <div class="steps-p" id="steps-p" hidden></div>
@@ -1302,6 +1312,23 @@ function accessCounts(cols){
   const keys = accessKeys(cols), special = keys.filter(k => !['rules','ability-words'].includes(REC.get(k).scope.group));
   return { keys, special, main:keys.filter(k => !special.includes(k)) };
 }
+/* The A–Z collection joins two disjoint evidence domains: frozen 2021
+   placements and validated unmapped card-access records.  Keep that union at
+   the state owner, never as a sum of rendered counters. */
+function collectionCounts(cols){
+  if (ASSESSMENTS.status !== 'ready') return null;
+  const keys = new Set(KEYS.filter(k => access(MECH[k], cols).best !== null));
+  accessKeys(cols).forEach(k => keys.add(k));
+  const all = [...keys], special = all.filter(k => REC.get(k).supplemental && !['rules','ability-words'].includes(REC.get(k).scope.group));
+  return { keys:all, main:all.filter(k => !special.includes(k)), special };
+}
+function collectionDelta(cols, color, remove = false){
+  const before = collectionCounts(cols); if (!before) return null;
+  const afterCols = new Set(cols); remove ? afterCols.delete(color) : afterCols.add(color);
+  const after = collectionCounts(afterCols); if (!after) return null;
+  const old = new Set(before.keys), next = new Set(after.keys);
+  return { keys: remove ? before.keys.filter(k => !next.has(k)) : after.keys.filter(k => !old.has(k)), to:afterCols };
+}
 const CI3_OUTLINE='M512 938.667c282.77 0 512-229.23 512-512s-229.23-512-512-512c-282.77 0-512 229.23-512 512s229.23 512 512 512v0z';
 const CI3_PARTS={left:'M115.88 637.341c-35.408-64.442-51.642-137.532-52.568-210.674 0.314-231.214 184.17-435.738 418.12-447.58v423.676l-365.552 234.578z',right:'M917.446 618.803l-374.878-216.436v-423.28c236.964 13.038 415.166 214.242 418.12 447.58-0.16 66.226-14.458 132.396-43.242 192.136z',top:'M512 875.355c-146.132-0.038-276.922-69.96-363.792-186.12l364.182-233.698 375.158 216.598c-84.128 127.838-223.14 201.29-375.548 203.22z'};
 const CI3_COLORS={WUG:['#3b6ba0','#3d684b','#fff'],UBR:['#c6553e','#3b6ba0','#383431'],WUR:['#c6553e','#fff','#3b6ba0'],BRG:['#3d684b','#383431','#c6553e'],WBG:['#383431','#3d684b','#fff'],WUB:['#383431','#fff','#3b6ba0'],UBG:['#3d684b','#3b6ba0','#383431'],URG:['#3b6ba0','#c6553e','#3d684b'],WRG:['#fff','#c6553e','#3d684b'],WBR:['#fff','#383431','#c6553e']};
@@ -1478,7 +1505,7 @@ function render(){
     el.setAttribute('aria-pressed', sel ? 'true' : 'false');
     const pb = lensOn ? proj.best(k, S.sel) : null;
     for (const sl of el._slots){
-      const c = sl.dataset.c, L = !!pb && pb.list.via.includes(c), C = !!pb && pb.catalog.via.includes(c);
+      const c = sl.dataset.c, present = lensOn && S.sel.has(c) && !!e.colors[c], L = present, C = present;
       sl.classList.toggle('bx', L || C); sl.classList.toggle('bx-l', L && !C); sl.classList.toggle('bx-r', C && !L);
     }
     const sig = key + '|' + (qOn && S.hitSet.has(k));
@@ -1517,6 +1544,13 @@ function render(){
   listEl.querySelectorAll('.letter').forEach(h => { let n = h.nextElementSibling, any = false;
     while (n && !n.classList.contains('letter')){ if (!n.classList.contains('is-off')) any = true; n = n.nextElementSibling; }
     h.classList.toggle('is-empty', !!spot && !any); });
+  if (S.view === 'az'){
+    for (const group of listEl.querySelectorAll('.grp[data-scope]')){
+      const small = group.querySelector(':scope > .grp-h small'); if (!small) continue;
+      const count = [...group.querySelectorAll(':scope > .grp-in > .ent, :scope > .grp-in > .grp .ent')].filter(visible).length;
+      if (spot) small.textContent = `${count} visible ${plural(count, 'entry', 'entries')}`;
+    }
+  }
 
   if (!visible(roving)){
     if (roving) roving.tabIndex = -1;
@@ -1542,11 +1576,21 @@ function renderBar(lensOn, bk){
     const placed = KEYS.length - b.none.length;   /* placement existence: the same in both readings */
     let dep = false;
     ll.hidden = false;
-    const assessed = accessCounts(S.sel);
-    const accessFigs = ASSESSMENTS.status === 'ready' ? `<span class="access-count"><b>${assessed.keys.length}</b> reviewed-access matches <button class="fig" type="button" data-act="spot" data-id="access" aria-label="Show ${assessed.keys.length} reviewed-access entries">Show</button><small>${assessed.main.length} A–Z · ${assessed.special.length} Special</small></span>` : `<span class="access-count">Reviewed access ${ASSESSMENTS.status === 'unavailable' ? 'unavailable' : 'loading'}</span>`;
+    if (S.view === 'az'){
+      const union = collectionCounts(S.sel);
+      if (!union){
+        ll.innerHTML = `<span class="who"><span aria-hidden="true">${[...setKey(S.sel)].map(pip).join('')}</span><span>Full collection matches ${ASSESSMENTS.status === 'unavailable' ? 'are unavailable' : 'are loading'}; the 2021 article remains available.</span></span>`;
+        return;
+      }
+      ll.innerHTML = `<span class="who"><span aria-hidden="true">${[...setKey(S.sel)].map(pip).join('')}</span><span><b>${union.keys.length}</b> of ${REC.size} entries match ${esc(listWords(cnames(S.sel)))}</span></span>`+
+        `<button class="fig" type="button" data-act="spot" data-id="collection" data-fid="collection" aria-label="Show ${union.keys.length} color matches">Show color matches</button>`+
+        `<details class="placement-details"><summary>Placement details</summary><span><b>${placed}</b> of ${KEYS.length} 2021 entries have a placement <span class="calc">computed</span></span></details>`+
+        (S.selFromQuery ? `<span class="src">Set from your search</span>` : '')+
+        `<a class="bridge" data-fid="bridge" href="../index.html#color-wheel/${wheelRoute(setKey(S.sel))}" target="_top">Open these colors on the Color Wheel →</a>`;
+      return;
+    }
     ll.innerHTML = `<span class="who"><span aria-hidden="true">${[...setKey(S.sel)].map(pip).join('')}</span><span><b>${placed}</b> of ${KEYS.length} 2021 entries
         have a placement in ${esc(listWords(cnames(S.sel)))}</span><span class="calc">computed</span></span>` +
-      (S.view === 'az' ? accessFigs : '') +
       (S.selFromQuery ? `<span class="src">Set from your search</span>` : '') +
       ['primary','secondary','tertiary','none'].map(t => {
         const glyph = `<i class="c-acc b-${t[0]}" aria-hidden="true"></i>`;
@@ -1584,6 +1628,13 @@ function spotFor(id){
     const bk = proj.buckets(S.sel)[r];
     return { keys: bk[a] || [], label: tail(`${BUCKET_LABEL[a]} in ${listWords(cnames(S.sel))}`), dep };
   }
+  if (kind === 'collection'){
+    if (a === 'add' || a === 'rem'){
+      const d = collectionDelta(S.sel, b, a === 'rem');
+      return d ? { keys:d.keys, label:`${a === 'add' ? 'adding' : 'removing'} ${CNAME[b]} ${a === 'add' ? 'to' : 'from'} ${key}: ${d.keys.length} ${a === 'add' ? 'more' : 'fewer'} entries match`, dep:false } : { keys:[], label:'collection unavailable', dep:false };
+    }
+    const all = collectionCounts(S.sel); return all ? { keys:all.keys, label:`color matches in ${listWords(cnames(S.sel))}`, dep:false } : { keys:[], label:'collection unavailable', dep:false };
+  }
   if (kind === 'access') return { keys: accessKeys(S.sel), label:`reviewed access in ${listWords(cnames(S.sel))}`, dep:false };
   if (kind === 'add'){
     const d = proj.delta('add', S.sel, a)[r];
@@ -1613,6 +1664,15 @@ function renderCompass(){
   const sp = $('#steps-p');
   keepFocus(sp, () => {
     if (!S.sel.size){ sp.hidden = true; sp.innerHTML = ''; return; }
+    if (S.view === 'az'){
+      if (ASSESSMENTS.status !== 'ready'){ sp.hidden=false; sp.innerHTML='<p class="cmp-note">Whole-collection comparisons are loading or unavailable; 2021 placement details remain in Article order.</p>'; return; }
+      const row = (remove, c) => { const d=collectionDelta(S.sel,c,remove), to=setKey(d.to), verb=remove?'Remove':'Add', word=remove?'fewer':'more';
+        return `<div class="step"><span class="step-h">${remove?'−':'+'}${pip(c)}<b>${key} → ${to}</b></span><button class="fig" type="button" data-act="spot" data-id="collection:${remove?'rem':'add'}:${c}" aria-label="Show ${d.keys.length} ${word} matching entries"><b>${verb} ${CNAME[c]}</b> — ${d.keys.length} ${word} entries match</button><button class="go" type="button" data-act="go" data-s="${to}">Choose ${to}</button></div>`; };
+      const adds=ORDER.filter(c=>!S.sel.has(c)).map(c=>row(false,c)).join('');
+      const rems=S.sel.size>1?ORDER.filter(c=>S.sel.has(c)).map(c=>row(true,c)).join(''):'';
+      sp.hidden=false; sp.innerHTML=(adds?`<h3>Add one color</h3>${adds}`:'')+(rems?`<h3 style="margin-top:12px">Remove one color</h3>${rems}`:'')+`<details class="placement-details"><summary>Placement details</summary><p class="cmp-note">The published 2021 placement-tier comparisons remain available in Article order.</p></details>`;
+      return;
+    }
     /* One step's counts. A category the readings agree on is one count; one
        they disagree on shows both, and the step names the entries that move. */
     const stepFigs = (kind, c, LABEL) => {
@@ -1668,12 +1728,11 @@ function renderIdent(key){
       <p class="id-words" aria-hidden="true">${name ? `<span>${esc(words)}</span>` : ''}<span class="id-code">${key}</span></p>
     </div>
     <div class="id-body">
-      <p class="id-count"><b>${placed}</b> of ${KEYS.length} 2021 entries have a placement in ${esc(listWords(cnames(S.sel)))} <span class="calc">computed</span></p>
-      ${S.view === 'az' ? ASSESSMENTS.status === 'ready' ? `<p class="id-count access-count"><b>${accessCounts(S.sel).keys.length}</b> reviewed-access matches <small>${accessCounts(S.sel).main.length} A–Z · ${accessCounts(S.sel).special.length} Special</small></p>` : `<p class="id-count access-count">Reviewed access ${ASSESSMENTS.status === 'unavailable' ? 'unavailable' : 'loading'}</p>` : ''}
+      ${S.view === 'az' ? (() => { const u=collectionCounts(S.sel); return u ? `<p class="id-count"><b>${u.keys.length}</b> of ${REC.size} entries match ${esc(listWords(cnames(S.sel)))}</p>` : `<p class="id-count">Full collection matches ${ASSESSMENTS.status === 'unavailable' ? 'unavailable' : 'loading'}</p>`; })() : `<p class="id-count"><b>${placed}</b> of ${KEYS.length} entries have a placement in ${esc(listWords(cnames(S.sel)))} <span class="calc">computed</span></p>`}
       <p class="id-src">${name ? `“${esc(name)}” is Wizards’ name for ${esc(words)} (${esc(NAME_SOURCE)}): a label, not a claim about mechanics.`
         : key.length > 3 ? 'This page gives no combination name for four or five colors.' : ''}</p>
       <p class="id-next">One-color steps from ${key} follow below.</p>
-      <p class="id-share"><button class="go" type="button" data-act="copy-link" data-fid="copy-link">Copy link</button><button class="go" type="button" data-act="save-png" data-fid="save-png">Save image</button></p>
+      <p class="id-share"><button class="go" type="button" data-act="copy-link" data-fid="copy-link">Copy colors link</button><button class="go" type="button" data-act="save-png" data-fid="save-png"${S.view === 'az' && ASSESSMENTS.status !== 'ready' ? ' disabled aria-disabled="true"' : ''}>Save image</button></p>
       <input class="id-url" id="id-url" type="text" readonly hidden aria-label="Link to ${esc(words)}, ${key}">
     </div>`;
 }
@@ -1693,12 +1752,14 @@ function copyLink(){
    or letters when the font is missing. */
 async function saveCard(){
   const k = setKey(S.sel); if (!k) return;
+  if (S.view === 'az' && ASSESSMENTS.status !== 'ready'){ announce('The full collection is not ready to export.'); return; }
   const fonts = ['700 64px "Cormorant SC"', '600 20px "Cormorant SC"', 'italic 400 26px Lora', '500 22px "IBM Plex Mono"', '400 24px Outfit', '40px Mana'];
   try { await Promise.all(fonts.map(f => document.fonts.load(f))); await document.fonts.ready; } catch (err){ /* draw with fallbacks */ }
   const W = 1200, H = 630, cv = document.createElement('canvas'); cv.width = W; cv.height = H;
   const x = cv.getContext('2d'), css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
   const name = COMBO_NAME[k], words = comboWords(k), cs = [...k], n = cs.length;
   const b = cached('bk:' + k, () => buckets(S.sel)), placed = KEYS.length - b.none.length;
+  const unified = S.view === 'az' ? collectionCounts(S.sel) : null, total = unified ? REC.size : KEYS.length, count = unified ? unified.keys.length : placed;
   const BRASS = css('--brass-l'), BONE = css('--bone'), INK = css('--ink'), DIM = css('--ink-dim'), GROUND = '#18110a';
   let g = x.createLinearGradient(0, 0, 0, H); g.addColorStop(0, '#20170d'); g.addColorStop(1, '#100c08');
   x.fillStyle = g; x.fillRect(0, 0, W, H);
@@ -1741,15 +1802,15 @@ async function saveCard(){
   x.strokeStyle = 'rgba(237,230,211,.28)'; x.lineWidth = 1.5; x.strokeRect(kx, y - 26, kw, 36);
   x.fillStyle = BONE; x.fillText(k, kx + 11, y);
   y += 62; x.font = '400 24px Outfit, system-ui, sans-serif'; x.fillStyle = INK;
-  y = wrap(`${placed} of ${KEYS.length} entries have a placement in ${listWords(cnames(S.sel))}`, y, 32);
-  x.font = '500 14px "IBM Plex Mono", monospace'; x.fillStyle = BRASS; x.fillText('COMPUTED', tx, y - 4);
+  y = wrap(`${count} of ${total} entries ${unified ? 'match' : 'have a placement in'} ${listWords(cnames(S.sel))}`, y, 32);
+  x.font = '500 14px "IBM Plex Mono", monospace'; x.fillStyle = BRASS; x.fillText(unified ? 'A–Z COLLECTION' : 'COMPUTED 2021 PLACEMENTS', tx, y - 4);
   /* footer (D3): source line and the short Fan Content line */
   x.textAlign = 'center'; x.font = 'italic 400 17px Lora, Georgia, serif'; x.fillStyle = DIM;
-  x.fillText('Mark Rosewater, Mechanical Color Pie 2021, October 18, 2021 · counts computed by Vox Mana', W / 2, H - 78);
+  x.fillText(unified ? 'Vox Mana Mechanical Color Pie · 2021 placements and reviewed card access' : 'Mark Rosewater, Mechanical Color Pie 2021, October 18, 2021 · counts computed by Vox Mana', W / 2, H - 78);
   x.fillText('Unofficial Fan Content permitted under the Fan Content Policy. Not approved/endorsed by Wizards.', W / 2, H - 52);
   cv.toBlob(blob => {
     const a = document.createElement('a'), u = URL.createObjectURL(blob);
-    a.href = u; a.download = `vox-mana-${k}.png`; document.body.appendChild(a); a.click(); a.remove();
+    a.href = u; a.download = `vox-mana-${k}-${S.view === 'az' ? 'az' : 'article'}.png`; document.body.appendChild(a); a.click(); a.remove();
     setTimeout(() => URL.revokeObjectURL(u), 1000); announce('Image saved.');
   }, 'image/png');
 }
@@ -1759,14 +1820,15 @@ function renderSpot(){
   keepFocus(bar, () => {
     if (!S.spot){ bar.hidden = true; bar.innerHTML = ''; return; }
     bar.hidden = false;
+    const collectionSpot = S.spot.id.startsWith('collection');
     const accessSpot = S.spot.id === 'access';
-    bar.innerHTML = `<span>Showing <b>${S.spot.keys.size}</b> ${accessSpot ? 'reviewed-access' : '2021'} ${plural(S.spot.keys.size, 'entry', 'entries')}: ${esc(S.spot.label)}.${S.spot.dep ? ' Depends on conflicting 2021 claims.' : ''}</span>
-      <span class="calc">${accessSpot ? 'documented access' : 'computed'}</span><button class="go" type="button" data-act="unspot" data-fid="unspot">Show all entries</button>`;
+    bar.innerHTML = `<span>Showing <b>${S.spot.keys.size}</b> ${collectionSpot ? 'color-matching' : accessSpot ? 'reviewed-access' : '2021'} ${plural(S.spot.keys.size, 'entry', 'entries')}: ${esc(S.spot.label)}.${S.spot.dep ? ' Depends on conflicting 2021 claims.' : ''}</span>
+      <span class="calc">${collectionSpot ? 'collection union' : accessSpot ? 'documented access' : 'computed'}</span><button class="go" type="button" data-act="unspot" data-fid="unspot">Show all entries</button>`;
   });
   const cap = $('#list-cap');
   cap.innerHTML = S.view === 'article'
-    ? `<span><b>${ARTICLE.length}</b> entries in the article's order, under its own sub-headings · then <b>${LIST_ONLY.length}</b> from its color lists only</span><span>Select an entry for Rosewater's explanation</span>`
-    : `<span><b>${REC.size}</b> entries, A–Z · <b>${KEYS.length}</b> from 2021 · <b>${REC.size - KEYS.length}</b> supplemental</span><span>Select an entry for its explanation or attributed evidence</span>`;
+    ? `<span><b>${KEYS.length}</b> entries · Article order <small>${ARTICLE.length} under article sub-headings; ${LIST_ONLY.length} color-list-only</small></span><span>Select an entry for Rosewater's explanation</span>`
+    : `<span><b>${REC.size}</b> entries · A–Z</span><span>Select an entry for its explanation or attributed evidence</span>`;
   const note = $('#empty-q');
   const q = S.q.trim();
   note.hidden = !(q && S.parsed && S.parsed.phrase && !S.hits.length);
@@ -2557,7 +2619,7 @@ function setQuery(v){
 }
 function setView(v){
   if (S.view === v) return;
-  S.view = v; if (S.spot?.id === 'access') S.spot = null; layoutList(); render();
+  S.view = v; if (S.spot?.id === 'access' || S.spot?.id.startsWith('collection')) S.spot = null; layoutList(); render();
   announce(v === 'article' ? 'Article order.' : 'A to Z.');
 }
 function jumpSpecial(){
@@ -2835,6 +2897,7 @@ function api(){
   return { state:S, search:searchRank, parse:parseQuery, sections, buckets, deltaAdd, deltaRemove, wubrgSummary,
     setQuery: v => { qEl.value = v; setQuery(v); }, toggleColor, clearColors, chooseCombo, setView, setSpot,
     access: cols => ({ state:accessState, counts:accessCounts(new Set(cols)) }),
+    collection: cols => ({ counts:collectionCounts(new Set(cols)), delta:(color, remove=false)=>collectionDelta(new Set(cols), color, remove) }),
     open: k => openEntry(k, {}), close: () => closeEntry(false), article: () => ARTICLE.slice(), listOnly: () => LIST_ONLY.slice(),
     supplemental: () => ({ status:SUPPLEMENT.status, records:SUPPLEMENT.records, revision:SUPPLEMENT.revision }),
     assessments: () => ({ status:ASSESSMENTS.status, records:[...ASSESSMENTS.byKey.values()] }),
