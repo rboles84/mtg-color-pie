@@ -1,3 +1,9 @@
+# S exact material candidate — ready for independent QA
+
+- Status: `ready-for-qa` (`dev-in-progress -> ready-for-qa`). Task baseline `a65d2b95e4dd252c6613a21fa469b6911940ddcc`; exact material candidate `a67ba19436b13ec4241f9338b7d2e0abc8b50ae4`; branch `codex/a-mechanics-review`. Git-derived material scope: 114 paths, 48,502 additions / 46 deletions. Current material worktree is clean before this evidence-only ledger update.
+- Independent non-implementing reviewer: `/root/s_independent_qa`, configured RobQA Sol-medium. Engineering verdict PENDING; Owner acceptance PENDING. The complete RobDev packet and envelope follow below. No product, source, payload, renderer, harness, dependency or scope change follows the material candidate.
+- R focused regression is running with retained execution session66553; its result will be recorded honestly. Coordinator owns packaging/served-revision verification and requested representative expanded preview screenshot after engineering PASS. Work stays local.
+
 # S supplemental Color Access — RobDev completion packet
 
 - Current stage: developer validation complete; separate exact-candidate RobQA pending. This packet supersedes the implementation-in-progress note below. Owner acceptance, push, merge, integration and publication remain PENDING/not performed.
