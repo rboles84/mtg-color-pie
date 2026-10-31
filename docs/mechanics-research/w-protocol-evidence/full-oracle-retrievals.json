@@ -1,0 +1,48 @@
+{
+  "retrievals": [
+    {
+      "path": "docs/mechanics-research/w-protocol-evidence/wither-full-oracle-reviewed-1.json",
+      "url": "https://api.scryfall.com/cards/search?format=json&unique=cards&order=name&q=game%3Apaper%20date%3C%3D2026-10-31%20fo%3AWither%20include%3Aextras",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T15:42:53.2750042Z",
+      "requestEndedUtc": "2026-10-31T15:42:53.4786933Z",
+      "status": 200,
+      "rawSha256": "f396a89a5cd31ddf7313873ae006e198ac0f803800eb26cb87e3d05199f4620c",
+      "bindingStatus": "usable_full_oracle_discovery",
+      "kind": "full_oracle_discovery"
+    },
+    {
+      "path": "docs/mechanics-research/w-protocol-evidence/warp-full-oracle-reviewed-1.json",
+      "url": "https://api.scryfall.com/cards/search?format=json&unique=cards&order=name&q=game%3Apaper%20date%3C%3D2026-10-31%20fo%3AWarp%20include%3Aextras",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T15:42:53.6173998Z",
+      "requestEndedUtc": "2026-10-31T15:42:53.7223441Z",
+      "status": 200,
+      "rawSha256": "16ee4593effeac0a0d517586ea63ed6865755e4261005e7d5eb7dd4346286a9f",
+      "bindingStatus": "usable_full_oracle_discovery",
+      "kind": "full_oracle_discovery"
+    },
+    {
+      "path": "docs/mechanics-research/w-protocol-evidence/waterbend-full-oracle-reviewed-1.json",
+      "url": "https://api.scryfall.com/cards/search?format=json&unique=cards&order=name&q=game%3Apaper%20date%3C%3D2026-10-31%20fo%3AWaterbend%20include%3Aextras",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T15:42:53.8491337Z",
+      "requestEndedUtc": "2026-10-31T15:42:53.9479063Z",
+      "status": 200,
+      "rawSha256": "a8b095976357ecaf587bf939f675d70aca4bbc307b639932e2a56c0fe14490a6",
+      "bindingStatus": "usable_full_oracle_discovery",
+      "kind": "full_oracle_discovery"
+    },
+    {
+      "path": "docs/mechanics-research/w-protocol-evidence/web-slinging-full-oracle-reviewed-1.json",
+      "url": "https://api.scryfall.com/cards/search?format=json&unique=cards&order=name&q=game%3Apaper%20date%3C%3D2026-10-31%20fo%3AWeb-slinging%20include%3Aextras",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T15:42:54.0748556Z",
+      "requestEndedUtc": "2026-10-31T15:42:54.1787696Z",
+      "status": 200,
+      "rawSha256": "7ce8a2a1bfd72a9bdfc522728eb1fc10e719942492cfc862982ee7f5c97f8a62",
+      "bindingStatus": "usable_full_oracle_discovery",
+      "kind": "full_oracle_discovery"
+    }
+  ]
+}

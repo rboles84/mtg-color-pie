@@ -1,0 +1,12 @@
+{
+  "path": "docs/mechanics-research/w-protocol-evidence/ward-full-oracle-reviewed-2.json",
+  "url": "https://api.scryfall.com/cards/search?format=json&include_extras=true&include_multilingual=false&include_variations=false&order=name&page=2&q=game%3Apaper+date%3C%3D2026-10-31+fo%3Award+include%3Aextras&unique=cards",
+  "method": "GET",
+  "requestStartedUtc": "2026-10-31T15:44:14.8608581Z",
+  "requestEndedUtc": "2026-10-31T15:44:15.7601644Z",
+  "status": 200,
+  "rawSha256": "06a4d83ca8654e70ac62d9b57f5ff4e6f80bd5ecdbe27d3d5281bfd3a397e502",
+  "bindingStatus": "usable_full_oracle_discovery",
+  "kind": "full_oracle_discovery_page",
+  "hasMore": true
+}

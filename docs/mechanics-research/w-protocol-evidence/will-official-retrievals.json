@@ -1,0 +1,26 @@
+{
+  "retrievals": [
+    {
+      "path": "docs/mechanics-research/w-protocol-evidence/will-of-the-council-official.html",
+      "url": "https://magic.wizards.com/en/news/feature/the-lord-of-the-rings-tales-of-middle-earth-release-notes",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T15:45:09.5198845Z",
+      "requestEndedUtc": "2026-10-31T15:45:10.3888259Z",
+      "status": 200,
+      "rawSha256": "27fa291ab18990f0a061c142137abd102a16d8bdae5205dcca54e2941a3f8d96",
+      "bindingStatus": "official_context",
+      "kind": "official_definition"
+    },
+    {
+      "path": "docs/mechanics-research/w-protocol-evidence/will-of-the-planeswalkers-official.html",
+      "url": "https://magic.wizards.com/en/news/feature/march-of-the-machine-release-notes",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T15:45:10.4040263Z",
+      "requestEndedUtc": "2026-10-31T15:45:11.1441964Z",
+      "status": 200,
+      "rawSha256": "691b27156524694b6be56e0c64c7c69c61095184b60f7c1d39c3b4d6c4ab8b84",
+      "bindingStatus": "official_context",
+      "kind": "official_definition"
+    }
+  ]
+}

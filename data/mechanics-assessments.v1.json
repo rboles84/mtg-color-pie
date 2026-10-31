@@ -120,6 +120,10 @@
     {
       "path": "docs/mechanics-research/v-protocol.json",
       "sha256": "6994104a507c5140d3d470cb44ba1881782e5d8d1b15a93fc2f645441a37d351"
+    },
+    {
+      "path": "docs/mechanics-research/w-protocol.json",
+      "sha256": "23297c9364411c648548a2f885ffce0eb8f454b02b3c04c98b7ae59604fe9b5a"
     }
   ],
   "records": [
@@ -64268,6 +64272,1578 @@
         {
           "name": "Council's Judgment",
           "url": "https://scryfall.com/card/otc/79/councils-judgment?utm_source=api"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Magic: The Gathering Comprehensive Rules",
+          "url": "https://magic.wizards.com/en/rules"
+        }
+      ],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:ward",
+      "name": "Ward",
+      "kind": "access",
+      "researchDate": "2026-10-31",
+      "scopeLabel": "Released paper cards",
+      "scope": "Released paper cards through October 31, 2026; the established named mechanic and rules-defined variants, using the actual mechanic-bearing face or grant source.",
+      "summary": "When a permanent becomes the target of a spell or ability an opponent controls, ward counters that spell or ability unless that opponent pays its ward cost.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Armored Armadillo has ward {1}.",
+            "cards": [
+              {
+                "name": "Armored Armadillo",
+                "url": "https://scryfall.com/card/otj/3/armored-armadillo?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Armored%20Armadillo%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Aboleth Spawn has ward {2}.",
+            "cards": [
+              {
+                "name": "Aboleth Spawn",
+                "url": "https://scryfall.com/card/clb/662/aboleth-spawn?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Aboleth%20Spawn%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Alpharael, Stonechosen has ward—discard a card at random.",
+            "cards": [
+              {
+                "name": "Alpharael, Stonechosen",
+                "url": "https://scryfall.com/card/eoe/87/alpharael-stonechosen?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Alpharael%2C%20Stonechosen%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Dwarven Forge-Chanter has ward—pay 2 life.",
+            "cards": [
+              {
+                "name": "Dwarven Forge-Chanter",
+                "url": "https://scryfall.com/card/bro/131/dwarven-forge-chanter?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Dwarven%20Forge-Chanter%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Ancient Adamantoise has ward {3}.",
+            "cards": [
+              {
+                "name": "Ancient Adamantoise",
+                "url": "https://scryfall.com/card/fin/172/ancient-adamantoise?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Ancient%20Adamantoise%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "W",
+              "U"
+            ],
+            "note": "Elder Owyn Lyons gives artifacts you control ward {1}.",
+            "cards": [
+              {
+                "name": "Elder Owyn Lyons",
+                "url": "https://scryfall.com/card/pip/103/elder-owyn-lyons?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Elder%20Owyn%20Lyons%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "B"
+            ],
+            "note": "Amalia Benavides Aguirre has ward—pay 3 life.",
+            "cards": [
+              {
+                "name": "Amalia Benavides Aguirre",
+                "url": "https://scryfall.com/card/lci/221/amalia-benavides-aguirre?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Amalia%20Benavides%20Aguirre%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "R"
+            ],
+            "note": "Thorin Oakenshield gives artifacts and creatures you control ward {1} while you have an enduring story.",
+            "cards": [
+              {
+                "name": "Thorin Oakenshield",
+                "url": "https://scryfall.com/card/hob/165/thorin-oakenshield?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Thorin%20Oakenshield%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "G"
+            ],
+            "note": "Bloomwielder Dryads, the back face of Invasion of Moag, has ward {2}.",
+            "cards": [
+              {
+                "name": "Invasion of Moag // Bloomwielder Dryads",
+                "url": "https://scryfall.com/card/mom/237/invasion-of-moag-bloomwielder-dryads?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Invasion%20of%20Moag%20//%20Bloomwielder%20Dryads%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "U",
+              "B"
+            ],
+            "note": "Nightkin Ambusher has ward {2}.",
+            "cards": [
+              {
+                "name": "Nightkin Ambusher",
+                "url": "https://scryfall.com/card/pip/112/nightkin-ambusher?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Nightkin%20Ambusher%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "U",
+              "R"
+            ],
+            "note": "Captain Howler, Sea Scourge has ward—{2}, pay 2 life.",
+            "cards": [
+              {
+                "name": "Captain Howler, Sea Scourge",
+                "url": "https://scryfall.com/card/dft/194/captain-howler-sea-scourge?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Captain%20Howler%2C%20Sea%20Scourge%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "U",
+              "G"
+            ],
+            "note": "Adrix and Nev, Twincasters have ward {2}.",
+            "cards": [
+              {
+                "name": "Adrix and Nev, Twincasters",
+                "url": "https://scryfall.com/card/mkc/198/adrix-and-nev-twincasters?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Adrix%20and%20Nev%2C%20Twincasters%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "B",
+              "R"
+            ],
+            "note": "Mishra, Tamer of Mak Fawa gives permanents you control ward—sacrifice a permanent.",
+            "cards": [
+              {
+                "name": "Mishra, Tamer of Mak Fawa",
+                "url": "https://scryfall.com/card/bro/217/mishra-tamer-of-mak-fawa?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Mishra%2C%20Tamer%20of%20Mak%20Fawa%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "B",
+              "G"
+            ],
+            "note": "Shelob, Child of Ungoliant has ward {2} and gives other Spiders you control ward {2}.",
+            "cards": [
+              {
+                "name": "Shelob, Child of Ungoliant",
+                "url": "https://scryfall.com/card/ltr/230/shelob-child-of-ungoliant?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Shelob%2C%20Child%20of%20Ungoliant%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "R",
+              "G"
+            ],
+            "note": "Cactusfolk Sureshot has ward {2}.",
+            "cards": [
+              {
+                "name": "Cactusfolk Sureshot",
+                "url": "https://scryfall.com/card/otj/199/cactusfolk-sureshot?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Cactusfolk%20Sureshot%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "U",
+              "B"
+            ],
+            "note": "Arna Kennerüd, Skycaptain has ward—discard a card.",
+            "cards": [
+              {
+                "name": "Arna Kennerüd, Skycaptain",
+                "url": "https://scryfall.com/card/mh3/178/arna-kenner%C3%BCd-skycaptain?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Arna%20Kenner%C3%BCd%2C%20Skycaptain%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "U",
+              "G"
+            ],
+            "note": "Storvald, Frost Giant Jarl has ward {3} and gives other creatures you control ward {3}.",
+            "cards": [
+              {
+                "name": "Storvald, Frost Giant Jarl",
+                "url": "https://scryfall.com/card/afc/55/storvald-frost-giant-jarl?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Storvald%2C%20Frost%20Giant%20Jarl%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "U",
+              "B",
+              "R"
+            ],
+            "note": "Sauron, the Dark Lord has ward—sacrifice a legendary artifact or legendary creature.",
+            "cards": [
+              {
+                "name": "Sauron, the Dark Lord",
+                "url": "https://scryfall.com/card/ltr/224/sauron-the-dark-lord?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Sauron%2C%20the%20Dark%20Lord%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "U",
+              "B",
+              "G"
+            ],
+            "note": "Nine-Fingers Keene has ward—pay 9 life.",
+            "cards": [
+              {
+                "name": "Nine-Fingers Keene",
+                "url": "https://scryfall.com/card/clb/289/nine-fingers-keene?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Nine-Fingers%20Keene%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "R",
+              "G"
+            ],
+            "note": "Rith, Liberated Primeval has ward {2} and gives other Dragons you control ward {2}.",
+            "cards": [
+              {
+                "name": "Rith, Liberated Primeval",
+                "url": "https://scryfall.com/card/dmu/214/rith-liberated-primeval?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Rith%2C%20Liberated%20Primeval%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "U",
+              "R",
+              "G"
+            ],
+            "note": "Miirym, Sentinel Wyrm has ward {2}.",
+            "cards": [
+              {
+                "name": "Miirym, Sentinel Wyrm",
+                "url": "https://scryfall.com/card/clb/284/miirym-sentinel-wyrm?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Miirym%2C%20Sentinel%20Wyrm%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "B",
+              "R",
+              "G"
+            ],
+            "note": "Winter, Misanthropic Guide has ward {2}.",
+            "cards": [
+              {
+                "name": "Winter, Misanthropic Guide",
+                "url": "https://scryfall.com/card/dsk/240/winter-misanthropic-guide?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Winter%2C%20Misanthropic%20Guide%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "documented",
+          "note": "Roaming Throne has ward {2}.",
+          "cards": [
+            {
+              "name": "Roaming Throne",
+              "url": "https://scryfall.com/card/lci/258/roaming-throne?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22Roaming%20Throne%22%29%20include%3Aextras"
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Armored Armadillo",
+          "url": "https://scryfall.com/card/otj/3/armored-armadillo?utm_source=api"
+        },
+        {
+          "name": "Aboleth Spawn",
+          "url": "https://scryfall.com/card/clb/662/aboleth-spawn?utm_source=api"
+        },
+        {
+          "name": "Alpharael, Stonechosen",
+          "url": "https://scryfall.com/card/eoe/87/alpharael-stonechosen?utm_source=api"
+        },
+        {
+          "name": "Dwarven Forge-Chanter",
+          "url": "https://scryfall.com/card/bro/131/dwarven-forge-chanter?utm_source=api"
+        },
+        {
+          "name": "Ancient Adamantoise",
+          "url": "https://scryfall.com/card/fin/172/ancient-adamantoise?utm_source=api"
+        },
+        {
+          "name": "Roaming Throne",
+          "url": "https://scryfall.com/card/lci/258/roaming-throne?utm_source=api"
+        },
+        {
+          "name": "Elder Owyn Lyons",
+          "url": "https://scryfall.com/card/pip/103/elder-owyn-lyons?utm_source=api"
+        },
+        {
+          "name": "Amalia Benavides Aguirre",
+          "url": "https://scryfall.com/card/lci/221/amalia-benavides-aguirre?utm_source=api"
+        },
+        {
+          "name": "Thorin Oakenshield",
+          "url": "https://scryfall.com/card/hob/165/thorin-oakenshield?utm_source=api"
+        },
+        {
+          "name": "Invasion of Moag // Bloomwielder Dryads",
+          "url": "https://scryfall.com/card/mom/237/invasion-of-moag-bloomwielder-dryads?utm_source=api"
+        },
+        {
+          "name": "Nightkin Ambusher",
+          "url": "https://scryfall.com/card/pip/112/nightkin-ambusher?utm_source=api"
+        },
+        {
+          "name": "Captain Howler, Sea Scourge",
+          "url": "https://scryfall.com/card/dft/194/captain-howler-sea-scourge?utm_source=api"
+        },
+        {
+          "name": "Adrix and Nev, Twincasters",
+          "url": "https://scryfall.com/card/mkc/198/adrix-and-nev-twincasters?utm_source=api"
+        },
+        {
+          "name": "Mishra, Tamer of Mak Fawa",
+          "url": "https://scryfall.com/card/bro/217/mishra-tamer-of-mak-fawa?utm_source=api"
+        },
+        {
+          "name": "Shelob, Child of Ungoliant",
+          "url": "https://scryfall.com/card/ltr/230/shelob-child-of-ungoliant?utm_source=api"
+        },
+        {
+          "name": "Cactusfolk Sureshot",
+          "url": "https://scryfall.com/card/otj/199/cactusfolk-sureshot?utm_source=api"
+        },
+        {
+          "name": "Arna Kennerüd, Skycaptain",
+          "url": "https://scryfall.com/card/mh3/178/arna-kenner%C3%BCd-skycaptain?utm_source=api"
+        },
+        {
+          "name": "Storvald, Frost Giant Jarl",
+          "url": "https://scryfall.com/card/afc/55/storvald-frost-giant-jarl?utm_source=api"
+        },
+        {
+          "name": "Sauron, the Dark Lord",
+          "url": "https://scryfall.com/card/ltr/224/sauron-the-dark-lord?utm_source=api"
+        },
+        {
+          "name": "Nine-Fingers Keene",
+          "url": "https://scryfall.com/card/clb/289/nine-fingers-keene?utm_source=api"
+        },
+        {
+          "name": "Rith, Liberated Primeval",
+          "url": "https://scryfall.com/card/dmu/214/rith-liberated-primeval?utm_source=api"
+        },
+        {
+          "name": "Miirym, Sentinel Wyrm",
+          "url": "https://scryfall.com/card/clb/284/miirym-sentinel-wyrm?utm_source=api"
+        },
+        {
+          "name": "Winter, Misanthropic Guide",
+          "url": "https://scryfall.com/card/dsk/240/winter-misanthropic-guide?utm_source=api"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Magic: The Gathering Comprehensive Rules",
+          "url": "https://magic.wizards.com/en/rules"
+        }
+      ],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:warp",
+      "name": "Warp",
+      "kind": "access",
+      "researchDate": "2026-10-31",
+      "scopeLabel": "Released paper cards",
+      "scope": "Released paper cards through October 31, 2026; the established named mechanic and rules-defined variants, using the actual mechanic-bearing face or grant source.",
+      "summary": "Warp lets you cast a card from your hand for an alternative cost. At the beginning of the next end step, exile the permanent it becomes; its owner may cast it from exile after that turn ends, for as long as it remains exiled.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "All-Fates Stalker has warp {1}{W}.",
+            "cards": [
+              {
+                "name": "All-Fates Stalker",
+                "url": "https://scryfall.com/card/eoe/3/all-fates-stalker?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22All-Fates%20Stalker%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Codecracker Hound has warp {2}{U}.",
+            "cards": [
+              {
+                "name": "Codecracker Hound",
+                "url": "https://scryfall.com/card/eoe/50/codecracker-hound?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Codecracker%20Hound%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Timeline Culler has warp—{B}, pay 2 life, and can also use its warp ability from your graveyard.",
+            "cards": [
+              {
+                "name": "Timeline Culler",
+                "url": "https://scryfall.com/card/eoe/121/timeline-culler?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Timeline%20Culler%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Tannuk, Steadfast Second gives artifact cards and red creature cards in your hand warp {2}{R}.",
+            "cards": [
+              {
+                "name": "Tannuk, Steadfast Second",
+                "url": "https://scryfall.com/card/eoe/162/tannuk-steadfast-second?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Tannuk%2C%20Steadfast%20Second%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Broodguard Elite has warp {X}{G}.",
+            "cards": [
+              {
+                "name": "Broodguard Elite",
+                "url": "https://scryfall.com/card/eoe/175/broodguard-elite?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Broodguard%20Elite%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "U",
+              "R"
+            ],
+            "note": "Pinnacle Emissary has warp {U/R}.",
+            "cards": [
+              {
+                "name": "Pinnacle Emissary",
+                "url": "https://scryfall.com/card/eoe/223/pinnacle-emissary?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Pinnacle%20Emissary%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "documented",
+          "note": "Anticausal Vestige is colorless and has warp {4}.",
+          "cards": [
+            {
+              "name": "Anticausal Vestige",
+              "url": "https://scryfall.com/card/eoe/1/anticausal-vestige?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22Anticausal%20Vestige%22%29%20include%3Aextras"
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "All-Fates Stalker",
+          "url": "https://scryfall.com/card/eoe/3/all-fates-stalker?utm_source=api"
+        },
+        {
+          "name": "Codecracker Hound",
+          "url": "https://scryfall.com/card/eoe/50/codecracker-hound?utm_source=api"
+        },
+        {
+          "name": "Timeline Culler",
+          "url": "https://scryfall.com/card/eoe/121/timeline-culler?utm_source=api"
+        },
+        {
+          "name": "Tannuk, Steadfast Second",
+          "url": "https://scryfall.com/card/eoe/162/tannuk-steadfast-second?utm_source=api"
+        },
+        {
+          "name": "Broodguard Elite",
+          "url": "https://scryfall.com/card/eoe/175/broodguard-elite?utm_source=api"
+        },
+        {
+          "name": "Anticausal Vestige",
+          "url": "https://scryfall.com/card/eoe/1/anticausal-vestige?utm_source=api"
+        },
+        {
+          "name": "Pinnacle Emissary",
+          "url": "https://scryfall.com/card/eoe/223/pinnacle-emissary?utm_source=api"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Magic: The Gathering Comprehensive Rules",
+          "url": "https://magic.wizards.com/en/rules"
+        }
+      ],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:shortlist:warp vortex",
+      "name": "Warp Vortex",
+      "kind": "access",
+      "researchDate": "2026-10-31",
+      "scopeLabel": "Card-specific · Released paper cards",
+      "scope": "Released paper cards through October 31, 2026; only the named card’s exact flavor label.",
+      "summary": "Warp Vortex is Mutalith Vortex Beast’s card-specific entry ability: flip a coin for each opponent, draw a card for each win, and deal 3 damage to that opponent for each loss.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "not_found",
+            "note": "No independent example found in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "U": {
+            "status": "multicolor_only",
+            "note": "See the exact combination examples.",
+            "cards": [
+              {
+                "name": "Mutalith Vortex Beast",
+                "url": "https://scryfall.com/card/40k/134/mutalith-vortex-beast?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Mutalith%20Vortex%20Beast%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "not_found",
+            "note": "No independent example found in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "R": {
+            "status": "multicolor_only",
+            "note": "See the exact combination examples.",
+            "cards": [
+              {
+                "name": "Mutalith Vortex Beast",
+                "url": "https://scryfall.com/card/40k/134/mutalith-vortex-beast?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Mutalith%20Vortex%20Beast%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "not_found",
+            "note": "No independent example found in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "U",
+              "R"
+            ],
+            "note": "Mutalith Vortex Beast also has trample.",
+            "cards": [
+              {
+                "name": "Mutalith Vortex Beast",
+                "url": "https://scryfall.com/card/40k/134/mutalith-vortex-beast?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Mutalith%20Vortex%20Beast%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "not_found",
+          "note": "No colorless example found in the reviewed scope.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Mutalith Vortex Beast",
+          "url": "https://scryfall.com/card/40k/134/mutalith-vortex-beast?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:waterbend",
+      "name": "Waterbend",
+      "kind": "access",
+      "researchDate": "2026-10-31",
+      "scopeLabel": "Released paper cards",
+      "scope": "Released paper cards through October 31, 2026; the established named mechanic and rules-defined variants, using the actual mechanic-bearing face or grant source.",
+      "summary": "To waterbend, pay the stated cost. For each generic mana in that cost, you may tap an untapped artifact or creature you control instead of paying that mana.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Aang's Iceberg lets you waterbend {3} and sacrifice it to scry 2.",
+            "cards": [
+              {
+                "name": "Aang's Iceberg",
+                "url": "https://scryfall.com/card/tla/5/aangs-iceberg?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Aang%27s%20Iceberg%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Waterbending Lesson draws three cards, then has you discard a card unless you waterbend {2}.",
+            "cards": [
+              {
+                "name": "Waterbending Lesson",
+                "url": "https://scryfall.com/card/tla/80/waterbending-lesson?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Waterbending%20Lesson%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Foggy Swamp Visions requires waterbend {X} as an additional casting cost.",
+            "cards": [
+              {
+                "name": "Foggy Swamp Visions",
+                "url": "https://scryfall.com/card/tla/102/foggy-swamp-visions?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Foggy%20Swamp%20Visions%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "not_found",
+            "note": "No independent example found in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "G": {
+            "status": "documented",
+            "note": "Foggy Swamp Vinebender lets you waterbend {5} to put a +1/+1 counter on it, only during your turn.",
+            "cards": [
+              {
+                "name": "Foggy Swamp Vinebender",
+                "url": "https://scryfall.com/card/tla/180/foggy-swamp-vinebender?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Foggy%20Swamp%20Vinebender%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "W",
+              "U"
+            ],
+            "note": "Aang, Swift Savior lets you waterbend {8} to transform him.",
+            "cards": [
+              {
+                "name": "Aang, Swift Savior // Aang and La, Ocean's Fury",
+                "url": "https://scryfall.com/card/tla/204/aang-swift-savior-aang-and-la-oceans-fury?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Aang%2C%20Swift%20Savior%20//%20Aang%20and%20La%2C%20Ocean%27s%20Fury%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "U",
+              "B"
+            ],
+            "note": "While you control Hama, the Bloodbender, you may cast the noncreature, nonland card exiled by its entry ability during your turn by waterbending {X} instead of paying its mana cost, where X is that card’s mana value.",
+            "cards": [
+              {
+                "name": "Hama, the Bloodbender",
+                "url": "https://scryfall.com/card/tla/224/hama-the-bloodbender?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Hama%2C%20the%20Bloodbender%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "documented",
+          "note": "Avatar Kuruk, the colorless back face of The Legend of Kuruk, has exhaust—waterbend {20}: take an extra turn after this one. Activate only once.",
+          "cards": [
+            {
+              "name": "The Legend of Kuruk // Avatar Kuruk",
+              "url": "https://scryfall.com/card/tla/61/the-legend-of-kuruk-avatar-kuruk?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22The%20Legend%20of%20Kuruk%20//%20Avatar%20Kuruk%22%29%20include%3Aextras"
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Aang's Iceberg",
+          "url": "https://scryfall.com/card/tla/5/aangs-iceberg?utm_source=api"
+        },
+        {
+          "name": "Waterbending Lesson",
+          "url": "https://scryfall.com/card/tla/80/waterbending-lesson?utm_source=api"
+        },
+        {
+          "name": "Foggy Swamp Visions",
+          "url": "https://scryfall.com/card/tla/102/foggy-swamp-visions?utm_source=api"
+        },
+        {
+          "name": "Foggy Swamp Vinebender",
+          "url": "https://scryfall.com/card/tla/180/foggy-swamp-vinebender?utm_source=api"
+        },
+        {
+          "name": "The Legend of Kuruk // Avatar Kuruk",
+          "url": "https://scryfall.com/card/tla/61/the-legend-of-kuruk-avatar-kuruk?utm_source=api"
+        },
+        {
+          "name": "Aang, Swift Savior // Aang and La, Ocean's Fury",
+          "url": "https://scryfall.com/card/tla/204/aang-swift-savior-aang-and-la-oceans-fury?utm_source=api"
+        },
+        {
+          "name": "Hama, the Bloodbender",
+          "url": "https://scryfall.com/card/tla/224/hama-the-bloodbender?utm_source=api"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Magic: The Gathering Comprehensive Rules",
+          "url": "https://magic.wizards.com/en/rules"
+        }
+      ],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:shortlist:web support",
+      "name": "Web Support",
+      "kind": "access",
+      "researchDate": "2026-10-31",
+      "scopeLabel": "Card-specific · Released paper cards",
+      "scope": "Released paper cards through October 31, 2026; only the named card’s exact flavor label.",
+      "summary": "Web Support is Guy in the Chair’s card-specific ability: pay {2}{G} and tap it to put a +1/+1 counter on target Spider. Activate only as a sorcery.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "not_found",
+            "note": "No independent example found in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "U": {
+            "status": "not_found",
+            "note": "No independent example found in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "B": {
+            "status": "not_found",
+            "note": "No independent example found in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "R": {
+            "status": "not_found",
+            "note": "No independent example found in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "G": {
+            "status": "documented",
+            "note": "Guy in the Chair can also tap to add one mana of any color.",
+            "cards": [
+              {
+                "name": "Guy in the Chair",
+                "url": "https://scryfall.com/card/spm/102/guy-in-the-chair?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Guy%20in%20the%20Chair%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "not_found",
+          "note": "No colorless example found in the reviewed scope.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Guy in the Chair",
+          "url": "https://scryfall.com/card/spm/102/guy-in-the-chair?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:web-slinging",
+      "name": "Web-slinging",
+      "kind": "access",
+      "researchDate": "2026-10-31",
+      "scopeLabel": "Released paper cards",
+      "scope": "Released paper cards through October 31, 2026; the established named mechanic and rules-defined variants, using the actual mechanic-bearing face or grant source.",
+      "summary": "Web-slinging lets you cast a spell for its web-slinging cost and return a tapped creature you control to its owner’s hand instead of paying the spell’s mana cost.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Arachne, Psionic Weaver has web-slinging {W}.",
+            "cards": [
+              {
+                "name": "Arachne, Psionic Weaver",
+                "url": "https://scryfall.com/card/spm/2/arachne-psionic-weaver?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Arachne%2C%20Psionic%20Weaver%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Spider-Sense has web-slinging {U} and counters a target instant spell, sorcery spell, or triggered ability.",
+            "cards": [
+              {
+                "name": "Spider-Sense",
+                "url": "https://scryfall.com/card/spm/46/spider-sense?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Spider-Sense%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "not_found",
+            "note": "No independent example found in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "R": {
+            "status": "multicolor_only",
+            "note": "See the exact combination examples.",
+            "cards": [
+              {
+                "name": "Scarlet Spider, Ben Reilly",
+                "url": "https://scryfall.com/card/spm/142/scarlet-spider-ben-reilly?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Scarlet%20Spider%2C%20Ben%20Reilly%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Spider-Man, Brooklyn Visionary has web-slinging {2}{G}.",
+            "cards": [
+              {
+                "name": "Spider-Man, Brooklyn Visionary",
+                "url": "https://scryfall.com/card/spm/115/spider-man-brooklyn-visionary?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Spider-Man%2C%20Brooklyn%20Visionary%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "W",
+              "G"
+            ],
+            "note": "Silk, Web Weaver has web-slinging {1}{G}{W}.",
+            "cards": [
+              {
+                "name": "Silk, Web Weaver",
+                "url": "https://scryfall.com/card/spm/145/silk-web-weaver?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Silk%2C%20Web%20Weaver%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "R",
+              "G"
+            ],
+            "note": "Scarlet Spider, Ben Reilly has web-slinging {R}{G}.",
+            "cards": [
+              {
+                "name": "Scarlet Spider, Ben Reilly",
+                "url": "https://scryfall.com/card/spm/142/scarlet-spider-ben-reilly?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Scarlet%20Spider%2C%20Ben%20Reilly%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "W",
+              "U",
+              "G"
+            ],
+            "note": "Amazing Spider-Man, the back face of Peter Parker, gives each legendary spell you cast that’s one or more colors web-slinging {G}{W}{U}.",
+            "cards": [
+              {
+                "name": "Peter Parker // Amazing Spider-Man",
+                "url": "https://scryfall.com/card/spm/10/peter-parker-amazing-spider-man?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Peter%20Parker%20//%20Amazing%20Spider-Man%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "not_found",
+          "note": "No colorless example found in the reviewed scope.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Arachne, Psionic Weaver",
+          "url": "https://scryfall.com/card/spm/2/arachne-psionic-weaver?utm_source=api"
+        },
+        {
+          "name": "Spider-Sense",
+          "url": "https://scryfall.com/card/spm/46/spider-sense?utm_source=api"
+        },
+        {
+          "name": "Spider-Man, Brooklyn Visionary",
+          "url": "https://scryfall.com/card/spm/115/spider-man-brooklyn-visionary?utm_source=api"
+        },
+        {
+          "name": "Silk, Web Weaver",
+          "url": "https://scryfall.com/card/spm/145/silk-web-weaver?utm_source=api"
+        },
+        {
+          "name": "Scarlet Spider, Ben Reilly",
+          "url": "https://scryfall.com/card/spm/142/scarlet-spider-ben-reilly?utm_source=api"
+        },
+        {
+          "name": "Peter Parker // Amazing Spider-Man",
+          "url": "https://scryfall.com/card/spm/10/peter-parker-amazing-spider-man?utm_source=api"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Magic: The Gathering Comprehensive Rules",
+          "url": "https://magic.wizards.com/en/rules"
+        }
+      ],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:shortlist:wild card",
+      "name": "Wild Card",
+      "kind": "access",
+      "researchDate": "2026-10-31",
+      "scopeLabel": "Card-specific · Released paper cards",
+      "scope": "Released paper cards through October 31, 2026; only the named card’s exact flavor label.",
+      "summary": "Wild Card is Yes Man, Personal Securitron’s card-specific ability: when Yes Man leaves the battlefield, its owner creates a tapped 1/1 white Soldier creature token for each quest counter on it.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "During your turn, you may tap Yes Man, Personal Securitron to give a target opponent control of it; when they gain control, you draw two cards and put a quest counter on it.",
+            "cards": [
+              {
+                "name": "Yes Man, Personal Securitron",
+                "url": "https://scryfall.com/card/pip/29/yes-man-personal-securitron?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Yes%20Man%2C%20Personal%20Securitron%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "not_found",
+            "note": "No independent example found in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "B": {
+            "status": "not_found",
+            "note": "No independent example found in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "R": {
+            "status": "not_found",
+            "note": "No independent example found in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "G": {
+            "status": "not_found",
+            "note": "No independent example found in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "not_found",
+          "note": "No colorless example found in the reviewed scope.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Yes Man, Personal Securitron",
+          "url": "https://scryfall.com/card/pip/29/yes-man-personal-securitron?utm_source=api"
+        }
+      ],
+      "sources": [],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:will of the planeswalkers",
+      "name": "Will of the Planeswalkers",
+      "kind": "access",
+      "researchDate": "2026-10-31",
+      "scopeLabel": "Released paper cards",
+      "scope": "Released paper cards through October 31, 2026; the established named mechanic and rules-defined variants, using the actual mechanic-bearing face or grant source.",
+      "summary": "Will of the Planeswalkers has players vote for planeswalk or chaos, starting with you. A planeswalk majority makes you planeswalk; a chaos majority or a tie makes chaos ensue. These actions apply in Planechase games.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Path of the Ghosthunter creates X 1/1 white Spirit creature tokens with flying before the vote.",
+            "cards": [
+              {
+                "name": "Path of the Ghosthunter",
+                "url": "https://scryfall.com/card/moc/18/path-of-the-ghosthunter?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Path%20of%20the%20Ghosthunter%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Path of the Enigma has target player draw four cards before the vote.",
+            "cards": [
+              {
+                "name": "Path of the Enigma",
+                "url": "https://scryfall.com/card/moc/23/path-of-the-enigma?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Path%20of%20the%20Enigma%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Path of the Schemer has each player mill two cards, then returns a creature card from a graveyard to the battlefield under your control as an artifact in addition to its other types, before the vote.",
+            "cards": [
+              {
+                "name": "Path of the Schemer",
+                "url": "https://scryfall.com/card/moc/28/path-of-the-schemer?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Path%20of%20the%20Schemer%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Path of the Pyromancer discards your hand, adds {R} for each card discarded, then draws that many cards plus one before the vote.",
+            "cards": [
+              {
+                "name": "Path of the Pyromancer",
+                "url": "https://scryfall.com/card/moc/34/path-of-the-pyromancer?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Path%20of%20the%20Pyromancer%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Path of the Animist searches your library for up to two basic lands, puts them onto the battlefield tapped, then shuffles before the vote.",
+            "cards": [
+              {
+                "name": "Path of the Animist",
+                "url": "https://scryfall.com/card/moc/38/path-of-the-animist?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Path%20of%20the%20Animist%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "not_found",
+          "note": "No colorless example found in the reviewed scope.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Path of the Ghosthunter",
+          "url": "https://scryfall.com/card/moc/18/path-of-the-ghosthunter?utm_source=api"
+        },
+        {
+          "name": "Path of the Enigma",
+          "url": "https://scryfall.com/card/moc/23/path-of-the-enigma?utm_source=api"
+        },
+        {
+          "name": "Path of the Schemer",
+          "url": "https://scryfall.com/card/moc/28/path-of-the-schemer?utm_source=api"
+        },
+        {
+          "name": "Path of the Pyromancer",
+          "url": "https://scryfall.com/card/moc/34/path-of-the-pyromancer?utm_source=api"
+        },
+        {
+          "name": "Path of the Animist",
+          "url": "https://scryfall.com/card/moc/38/path-of-the-animist?utm_source=api"
+        }
+      ],
+      "sources": [
+        {
+          "title": "March of the Machine Release Notes",
+          "url": "https://magic.wizards.com/en/news/feature/march-of-the-machine-release-notes"
+        }
+      ],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:will of the council",
+      "name": "Will of the council",
+      "kind": "access",
+      "researchDate": "2026-10-31",
+      "scopeLabel": "Released paper cards",
+      "scope": "Released paper cards through October 31, 2026; the established named mechanic and rules-defined variants, using the actual mechanic-bearing face or grant source.",
+      "summary": "Will of the council abilities have players vote, starting with you, and use the vote totals to determine their effects. Each card specifies its choices and how ties are handled.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "documented",
+            "note": "Council's Judgment exiles each voted-for nonland permanent you don’t control with the most votes or tied for the most votes.",
+            "cards": [
+              {
+                "name": "Council's Judgment",
+                "url": "https://scryfall.com/card/otc/79/councils-judgment?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Council%27s%20Judgment%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "documented",
+            "note": "Plea for Power gives you an extra turn if time gets more votes; knowledge winning or a tie draws you three cards instead.",
+            "cards": [
+              {
+                "name": "Plea for Power",
+                "url": "https://scryfall.com/card/cns/24/plea-for-power?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Plea%20for%20Power%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Tyrant's Choice has each opponent sacrifice a creature if death gets more votes; torture winning or a tie makes each opponent lose 4 life instead.",
+            "cards": [
+              {
+                "name": "Tyrant's Choice",
+                "url": "https://scryfall.com/card/cns/30/tyrants-choice?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Tyrant%27s%20Choice%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "not_found",
+            "note": "No independent example found in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "G": {
+            "status": "multicolor_only",
+            "note": "See the exact combination examples.",
+            "cards": [
+              {
+                "name": "Sail into the West",
+                "url": "https://scryfall.com/card/ltc/68/sail-into-the-west?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Sail%20into%20the%20West%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "W",
+              "B"
+            ],
+            "note": "When Magister of Worth enters, a grace majority returns every creature card from each player’s graveyard to the battlefield; condemnation winning or a tie destroys every other creature instead.",
+            "cards": [
+              {
+                "name": "Magister of Worth",
+                "url": "https://scryfall.com/card/c21/223/magister-of-worth?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Magister%20of%20Worth%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "U",
+              "G"
+            ],
+            "note": "Sail into the West returns up to two cards from each player’s graveyard to their hand and exiles itself if return gets more votes; embark winning or a tie lets each player discard their hand and draw seven cards instead.",
+            "cards": [
+              {
+                "name": "Sail into the West",
+                "url": "https://scryfall.com/card/ltc/68/sail-into-the-west?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Sail%20into%20the%20West%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "documented",
+          "note": "At the beginning of your upkeep, Coercive Portal sacrifices itself and destroys all nonland permanents if carnage gets more votes; homage winning or a tie draws you a card.",
+          "cards": [
+            {
+              "name": "Coercive Portal",
+              "url": "https://scryfall.com/card/cns/56/coercive-portal?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22Coercive%20Portal%22%29%20include%3Aextras"
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Council's Judgment",
+          "url": "https://scryfall.com/card/otc/79/councils-judgment?utm_source=api"
+        },
+        {
+          "name": "Plea for Power",
+          "url": "https://scryfall.com/card/cns/24/plea-for-power?utm_source=api"
+        },
+        {
+          "name": "Tyrant's Choice",
+          "url": "https://scryfall.com/card/cns/30/tyrants-choice?utm_source=api"
+        },
+        {
+          "name": "Coercive Portal",
+          "url": "https://scryfall.com/card/cns/56/coercive-portal?utm_source=api"
+        },
+        {
+          "name": "Magister of Worth",
+          "url": "https://scryfall.com/card/c21/223/magister-of-worth?utm_source=api"
+        },
+        {
+          "name": "Sail into the West",
+          "url": "https://scryfall.com/card/ltc/68/sail-into-the-west?utm_source=api"
+        }
+      ],
+      "sources": [
+        {
+          "title": "The Lord of the Rings: Tales of Middle-earth™ Release Notes",
+          "url": "https://magic.wizards.com/en/news/feature/the-lord-of-the-rings-tales-of-middle-earth-release-notes"
+        }
+      ],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:vocabulary:wither",
+      "name": "Wither",
+      "kind": "access",
+      "researchDate": "2026-10-31",
+      "scopeLabel": "Released paper cards",
+      "scope": "Released paper cards through October 31, 2026; the established named mechanic and rules-defined variants, using the actual mechanic-bearing face or grant source.",
+      "summary": "Damage a source with wither deals to a creature puts that many -1/-1 counters on it instead of marking damage. Wither does not change damage dealt to players or planeswalkers.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "multicolor_only",
+            "note": "See the exact combination examples.",
+            "cards": [
+              {
+                "name": "Harvest Gwyllion",
+                "url": "https://scryfall.com/card/eve/90/harvest-gwyllion?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Harvest%20Gwyllion%22%29%20include%3Aextras"
+          },
+          "U": {
+            "status": "multicolor_only",
+            "note": "See the exact combination examples.",
+            "cards": [
+              {
+                "name": "Oona's Gatewarden",
+                "url": "https://scryfall.com/card/shm/173/oonas-gatewarden?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Oona%27s%20Gatewarden%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "documented",
+            "note": "Corrosive Mentor gives black creatures you control wither.",
+            "cards": [
+              {
+                "name": "Corrosive Mentor",
+                "url": "https://scryfall.com/card/shm/61/corrosive-mentor?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Corrosive%20Mentor%22%29%20include%3Aextras"
+          },
+          "R": {
+            "status": "documented",
+            "note": "Puncture Blast has wither and deals 3 damage to any target.",
+            "cards": [
+              {
+                "name": "Puncture Blast",
+                "url": "https://scryfall.com/card/eve/60/puncture-blast?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Puncture%20Blast%22%29%20include%3Aextras"
+          },
+          "G": {
+            "status": "documented",
+            "note": "Tower Above gives target creature wither until end of turn.",
+            "cards": [
+              {
+                "name": "Tower Above",
+                "url": "https://scryfall.com/card/shm/131/tower-above?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Tower%20Above%22%29%20include%3Aextras"
+          }
+        },
+        "combinations": [
+          {
+            "colors": [
+              "W",
+              "B"
+            ],
+            "note": "Harvest Gwyllion has wither.",
+            "cards": [
+              {
+                "name": "Harvest Gwyllion",
+                "url": "https://scryfall.com/card/eve/90/harvest-gwyllion?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Harvest%20Gwyllion%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "U",
+              "B"
+            ],
+            "note": "Oona's Gatewarden has wither.",
+            "cards": [
+              {
+                "name": "Oona's Gatewarden",
+                "url": "https://scryfall.com/card/shm/173/oonas-gatewarden?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Oona%27s%20Gatewarden%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "B",
+              "R"
+            ],
+            "note": "Everlasting Torment makes all damage be dealt as though its source had wither.",
+            "cards": [
+              {
+                "name": "Everlasting Torment",
+                "url": "https://scryfall.com/card/ecc/121/everlasting-torment?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Everlasting%20Torment%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "B",
+              "G"
+            ],
+            "note": "Rendclaw Trow has wither and persist.",
+            "cards": [
+              {
+                "name": "Rendclaw Trow",
+                "url": "https://scryfall.com/card/eve/127/rendclaw-trow?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Rendclaw%20Trow%22%29%20include%3Aextras"
+          },
+          {
+            "colors": [
+              "R",
+              "G"
+            ],
+            "note": "Boggart Ram-Gang has wither and haste.",
+            "cards": [
+              {
+                "name": "Boggart Ram-Gang",
+                "url": "https://scryfall.com/card/shm/203/boggart-ram-gang?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Boggart%20Ram-Gang%22%29%20include%3Aextras"
+          }
+        ],
+        "colorless": {
+          "status": "documented",
+          "note": "Blight Sickle gives the equipped creature wither; its equip cost is {2}.",
+          "cards": [
+            {
+              "name": "Blight Sickle",
+              "url": "https://scryfall.com/card/shm/247/blight-sickle?utm_source=api"
+            }
+          ],
+          "findUrl": "https://scryfall.com/search?q=%28%21%22Blight%20Sickle%22%29%20include%3Aextras"
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Corrosive Mentor",
+          "url": "https://scryfall.com/card/shm/61/corrosive-mentor?utm_source=api"
+        },
+        {
+          "name": "Puncture Blast",
+          "url": "https://scryfall.com/card/eve/60/puncture-blast?utm_source=api"
+        },
+        {
+          "name": "Tower Above",
+          "url": "https://scryfall.com/card/shm/131/tower-above?utm_source=api"
+        },
+        {
+          "name": "Blight Sickle",
+          "url": "https://scryfall.com/card/shm/247/blight-sickle?utm_source=api"
+        },
+        {
+          "name": "Harvest Gwyllion",
+          "url": "https://scryfall.com/card/eve/90/harvest-gwyllion?utm_source=api"
+        },
+        {
+          "name": "Oona's Gatewarden",
+          "url": "https://scryfall.com/card/shm/173/oonas-gatewarden?utm_source=api"
+        },
+        {
+          "name": "Everlasting Torment",
+          "url": "https://scryfall.com/card/ecc/121/everlasting-torment?utm_source=api"
+        },
+        {
+          "name": "Rendclaw Trow",
+          "url": "https://scryfall.com/card/eve/127/rendclaw-trow?utm_source=api"
+        },
+        {
+          "name": "Boggart Ram-Gang",
+          "url": "https://scryfall.com/card/shm/203/boggart-ram-gang?utm_source=api"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Magic: The Gathering Comprehensive Rules",
+          "url": "https://magic.wizards.com/en/rules"
+        }
+      ],
+      "relatedEffects": []
+    },
+    {
+      "id": "deck:variants:wizardcycling",
+      "name": "Wizardcycling",
+      "kind": "access",
+      "researchDate": "2026-10-31",
+      "scopeLabel": "Released paper cards",
+      "scope": "Released paper cards through October 31, 2026; the established named mechanic and rules-defined variants, using the actual mechanic-bearing face or grant source.",
+      "summary": "Wizardcycling lets you pay its cost and discard the card to search your library for a Wizard card, reveal it, put it into your hand, then shuffle.",
+      "access": {
+        "colors": {
+          "W": {
+            "status": "not_found",
+            "note": "No independent example found in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "U": {
+            "status": "documented",
+            "note": "Step Through has wizardcycling {2}.",
+            "cards": [
+              {
+                "name": "Step Through",
+                "url": "https://scryfall.com/card/mh2/66/step-through?utm_source=api"
+              }
+            ],
+            "findUrl": "https://scryfall.com/search?q=%28%21%22Step%20Through%22%29%20include%3Aextras"
+          },
+          "B": {
+            "status": "not_found",
+            "note": "No independent example found in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "R": {
+            "status": "not_found",
+            "note": "No independent example found in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          },
+          "G": {
+            "status": "not_found",
+            "note": "No independent example found in the reviewed scope.",
+            "cards": [],
+            "findUrl": null
+          }
+        },
+        "combinations": [],
+        "colorless": {
+          "status": "not_found",
+          "note": "No colorless example found in the reviewed scope.",
+          "cards": [],
+          "findUrl": null
+        },
+        "limitations": []
+      },
+      "citationCards": [
+        {
+          "name": "Step Through",
+          "url": "https://scryfall.com/card/mh2/66/step-through?utm_source=api"
         }
       ],
       "sources": [

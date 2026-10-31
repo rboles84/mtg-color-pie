@@ -1,0 +1,146 @@
+{
+  "retrievals": [
+    {
+      "path": "docs/mechanics-research/w-protocol-evidence/ward-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?format=json&unique=cards&order=name&q=game%3Apaper%20date%3C%3D2026-10-31%20kw%3AWard",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T15:40:39.780575Z",
+      "requestEndedUtc": "2026-10-31T15:40:39.992146Z",
+      "status": 200,
+      "rawSha256": "32dbf6577a419ed45847b30e387103d3e6a77ba241e600e9b9cf8b6694c30dc2",
+      "bindingStatus": "usable_discovery",
+      "kind": "discovery"
+    },
+    {
+      "path": "docs/mechanics-research/w-protocol-evidence/warp-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?format=json&unique=cards&order=name&q=game%3Apaper%20date%3C%3D2026-10-31%20kw%3AWarp",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T15:40:39.992876Z",
+      "requestEndedUtc": "2026-10-31T15:40:40.264139Z",
+      "status": 200,
+      "rawSha256": "035ea2b648fdc1482644f98e632da2aa5534d69ad4b9c8f32b6b0e2f302d44d2",
+      "bindingStatus": "usable_discovery",
+      "kind": "discovery"
+    },
+    {
+      "path": "docs/mechanics-research/w-protocol-evidence/waterbend-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?format=json&unique=cards&order=name&q=game%3Apaper%20date%3C%3D2026-10-31%20kw%3AWaterbend",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T15:40:40.264249Z",
+      "requestEndedUtc": "2026-10-31T15:40:40.379721Z",
+      "status": 200,
+      "rawSha256": "29abdb75d1d17e1cc6e7f529a324a96f840cec3f8cfafc95486ff260fa9af5f3",
+      "bindingStatus": "usable_discovery",
+      "kind": "discovery"
+    },
+    {
+      "path": "docs/mechanics-research/w-protocol-evidence/web-slinging-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?format=json&unique=cards&order=name&q=game%3Apaper%20date%3C%3D2026-10-31%20kw%3AWeb-slinging",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T15:40:40.379906Z",
+      "requestEndedUtc": "2026-10-31T15:40:40.467253Z",
+      "status": 200,
+      "rawSha256": "0367de8b9619227c0eaa57740a05e0b83d36b48a43863c7658bcb62fc8aa470c",
+      "bindingStatus": "usable_discovery",
+      "kind": "discovery"
+    },
+    {
+      "path": "docs/mechanics-research/w-protocol-evidence/will-of-the-council-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?format=json&unique=cards&order=name&q=game%3Apaper%20date%3C%3D2026-10-31%20fo%3A%22Will%20of%20the%20council%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T15:40:40.467311Z",
+      "requestEndedUtc": "2026-10-31T15:40:40.563546Z",
+      "status": 200,
+      "rawSha256": "5d62571cb4755197e198015384710be63cd68375eb9b0b583c41be5bb3ba689a",
+      "bindingStatus": "usable_discovery",
+      "kind": "discovery"
+    },
+    {
+      "path": "docs/mechanics-research/w-protocol-evidence/will-of-the-planeswalkers-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?format=json&unique=cards&order=name&q=game%3Apaper%20date%3C%3D2026-10-31%20fo%3A%22Will%20of%20the%20Planeswalkers%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T15:40:40.563621Z",
+      "requestEndedUtc": "2026-10-31T15:40:40.670498Z",
+      "status": 200,
+      "rawSha256": "20291e6a9e6434ee744f82b69c8856a99710f8599d38bd5a1f6d64664c07be44",
+      "bindingStatus": "usable_discovery",
+      "kind": "discovery"
+    },
+    {
+      "path": "docs/mechanics-research/w-protocol-evidence/wither-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?format=json&unique=cards&order=name&q=game%3Apaper%20date%3C%3D2026-10-31%20kw%3AWither",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T15:40:40.670548Z",
+      "requestEndedUtc": "2026-10-31T15:40:40.784538Z",
+      "status": 200,
+      "rawSha256": "c44d7d8bd33d79f81a9af7ddf645301e3d3bcd05d7a22d65c110a053e4e6fb64",
+      "bindingStatus": "usable_discovery",
+      "kind": "discovery"
+    },
+    {
+      "path": "docs/mechanics-research/w-protocol-evidence/warp-vortex-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?format=json&unique=cards&order=name&q=game%3Apaper%20date%3C%3D2026-10-31%20fo%3A%22Warp%20Vortex%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T15:40:40.784649Z",
+      "requestEndedUtc": "2026-10-31T15:40:40.857762Z",
+      "status": 200,
+      "rawSha256": "24d5ae7bf0f5f846a4977345744aa2babe04844b2d1369dc68fd95cb400d8703",
+      "bindingStatus": "usable_discovery",
+      "kind": "discovery"
+    },
+    {
+      "path": "docs/mechanics-research/w-protocol-evidence/web-support-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?format=json&unique=cards&order=name&q=game%3Apaper%20date%3C%3D2026-10-31%20fo%3A%22Web%20Support%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T15:40:40.857799Z",
+      "requestEndedUtc": "2026-10-31T15:40:40.956090Z",
+      "status": 200,
+      "rawSha256": "6c42a9c623df61166089706097d26338e3078bd06345ffc23c72b0664fa2e988",
+      "bindingStatus": "usable_discovery",
+      "kind": "discovery"
+    },
+    {
+      "path": "docs/mechanics-research/w-protocol-evidence/wild-card-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?format=json&unique=cards&order=name&q=game%3Apaper%20date%3C%3D2026-10-31%20fo%3A%22Wild%20Card%22",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T15:40:40.956131Z",
+      "requestEndedUtc": "2026-10-31T15:40:41.025635Z",
+      "status": 200,
+      "rawSha256": "a13ca3f74efa1be8417c4f1e98276d68537907469a7a21989f21c81dd315a0b6",
+      "bindingStatus": "usable_discovery",
+      "kind": "discovery"
+    },
+    {
+      "path": "docs/mechanics-research/w-protocol-evidence/wizardcycling-discovery.json",
+      "url": "https://api.scryfall.com/cards/search?format=json&unique=cards&order=name&q=game%3Apaper%20date%3C%3D2026-10-31%20fo%3AWizardcycling",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T15:40:41.025678Z",
+      "requestEndedUtc": "2026-10-31T15:40:41.106653Z",
+      "status": 200,
+      "rawSha256": "c499b4fdbf6d2df2fcc47b0043e147e4c06f58584153809211e82218632fd899",
+      "bindingStatus": "usable_discovery",
+      "kind": "discovery"
+    },
+    {
+      "path": "docs/mechanics-research/w-protocol-evidence/ward-discovery-2.json",
+      "url": "https://api.scryfall.com/cards/search?format=json&include_extras=false&include_multilingual=false&include_variations=false&order=name&page=2&q=game%3Apaper+date%3C%3D2026-10-31+kw%3Award&unique=cards",
+      "method": "GET",
+      "requestStartedUtc": "2026-10-31T15:40:56.912237Z",
+      "requestEndedUtc": "2026-10-31T15:40:57.169845Z",
+      "status": 200,
+      "rawSha256": "b14410877d7f006dc961c8539af39dc021ec98502180cd40597fa24a41e919e3",
+      "bindingStatus": "usable_discovery",
+      "kind": "discovery_page"
+    }
+  ],
+  "historical_client_failures": [
+    {
+      "kind": "initial_client_attempts",
+      "status": null,
+      "responsePath": null,
+      "rawSha256": null,
+      "bindingStatus": "unbound_no_response_captured",
+      "note": "Earlier header-missing/invalid-header client attempts did not write a response body; original attempt timing is unavailable and none supports selection."
+    }
+  ]
+}
