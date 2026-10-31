@@ -1884,8 +1884,8 @@
         "version": "2.0",
         "review_date": "2026-10-30",
         "scope_label": "Released paper cards",
-        "scope": "Scavenge exiles a creature card from the graveyard for its cost to put counters equal to its power on a target creature, only as a sorcery.",
-        "summary": "Scavenge exiles a creature card from the graveyard for its cost to put counters equal to its power on a target creature, only as a sorcery.",
+        "scope": "Scavenge lets you pay its cost and exile the card from your graveyard to put +1/+1 counters equal to its power on target creature. Activate only as a sorcery.",
+        "summary": "Scavenge lets you pay its cost and exile the card from your graveyard to put +1/+1 counters equal to its power on target creature. Activate only as a sorcery.",
         "evidence_scope": [
           "released paper"
         ],
@@ -41877,7 +41877,7 @@
         "review_date": "2026-10-30",
         "scope_label": "Generic rules action",
         "scope": "Sacrifice is the rules action of moving a permanent you control to its owner’s graveyard.",
-        "summary": "Rules reference only; no colored or colorless access is inferred.",
+        "summary": "Sacrificing puts a permanent you control directly from the battlefield into its owner’s graveyard. It does not destroy the permanent.",
         "colors": {
           "W": {
             "status": "not_applicable",
@@ -41959,7 +41959,7 @@
         "review_date": "2026-10-30",
         "scope_label": "Generic rules action",
         "scope": "Shuffle is the rules action of randomizing a library or portion of one.",
-        "summary": "Rules reference only; no colored or colorless access is inferred.",
+        "summary": "Shuffling randomizes the cards in a library or face-down pile so their order is unknown to every player.",
         "colors": {
           "W": {
             "status": "not_applicable",
@@ -42047,7 +42047,7 @@
         "review_date": "2026-10-30",
         "scope_label": "Archenemy scheme action",
         "scope": "Set in motion is the Archenemy scheme action; schemes are not ordinary card color sources.",
-        "summary": "Rules reference only; no colored or colorless access is inferred.",
+        "summary": "In Archenemy, only the archenemy can set a scheme in motion: move it off the top of the scheme deck if it is there, and turn it face up if needed.",
         "colors": {
           "W": {
             "status": "not_applicable",

@@ -107,7 +107,7 @@
     },
     {
       "path": "docs/mechanics-research/s-protocol.json",
-      "sha256": "6c7be796b49a9da0621d4fa9d72237e06b2b530f262d09d0c153a30d76d75cbe"
+      "sha256": "d0158b751e4a82f7b4f5fbdee12c8da41fec90f6efcb4beb080b5d51040db594"
     }
   ],
   "records": [
@@ -54880,7 +54880,7 @@
       "researchDate": "2026-10-30",
       "scopeLabel": "Generic rules action",
       "scope": "Sacrifice is the rules action of moving a permanent you control to its owner’s graveyard.",
-      "summary": "Rules reference only; no colored or colorless access is inferred.",
+      "summary": "Sacrificing puts a permanent you control directly from the battlefield into its owner’s graveyard. It does not destroy the permanent.",
       "access": {
         "colors": {
           "W": {
@@ -55133,8 +55133,8 @@
       "kind": "access",
       "researchDate": "2026-10-30",
       "scopeLabel": "Released paper cards",
-      "scope": "Scavenge exiles a creature card from the graveyard for its cost to put counters equal to its power on a target creature, only as a sorcery.",
-      "summary": "Scavenge exiles a creature card from the graveyard for its cost to put counters equal to its power on a target creature, only as a sorcery.",
+      "scope": "Scavenge lets you pay its cost and exile the card from your graveyard to put +1/+1 counters equal to its power on target creature. Activate only as a sorcery.",
+      "summary": "Scavenge lets you pay its cost and exile the card from your graveyard to put +1/+1 counters equal to its power on target creature. Activate only as a sorcery.",
       "access": {
         "colors": {
           "W": {
@@ -55884,7 +55884,7 @@
       "researchDate": "2026-10-30",
       "scopeLabel": "Archenemy scheme action",
       "scope": "Set in motion is the Archenemy scheme action; schemes are not ordinary card color sources.",
-      "summary": "Rules reference only; no colored or colorless access is inferred.",
+      "summary": "In Archenemy, only the archenemy can set a scheme in motion: move it off the top of the scheme deck if it is there, and turn it face up if needed.",
       "access": {
         "colors": {
           "W": {
@@ -56331,7 +56331,7 @@
       "researchDate": "2026-10-30",
       "scopeLabel": "Generic rules action",
       "scope": "Shuffle is the rules action of randomizing a library or portion of one.",
-      "summary": "Rules reference only; no colored or colorless access is inferred.",
+      "summary": "Shuffling randomizes the cards in a library or face-down pile so their order is unknown to every player.",
       "access": {
         "colors": {
           "W": {
