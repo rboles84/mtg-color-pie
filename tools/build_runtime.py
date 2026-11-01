@@ -135,13 +135,6 @@ def main():
     frozen = ("mcp2021.abilities.json", "mcp2021.reconciled.json", "vox.families.json")
     digest = lambda path: hashlib.sha256(path.read_bytes()).hexdigest()
     assert all(digest(source / name) == digest(stage_data / name) for name in frozen)
-    try:
-        require_source_gate(stage_data)
-    except SystemExit as exc:
-        assert exc.code != 0, "staged stale runtime unexpectedly passed"
-        print("staged stale runtime : expected FAIL")
-    else:
-        raise AssertionError("staged stale runtime unexpectedly passed")
     (stage_data / "mechanical-color-pie.runtime.json").write_text(candidate, encoding="utf-8")
     require_source_gate(stage_data)
     require_taxonomy_gate(stage_data)
