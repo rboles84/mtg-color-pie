@@ -10385,8 +10385,8 @@
         "version": "2.0",
         "review_date": "2026-10-28",
         "scope_label": "Released paper cards",
-        "scope": "Discover N exiles cards until it finds a nonland card with mana value N or less. You may cast it for free if the resulting spell also fits that limit, or put it into your hand; the other cards go on the bottom in random order.",
-        "summary": "Discover N exiles cards until it finds a nonland card with mana value N or less. You may cast it for free if the resulting spell also fits that limit, or put it into your hand; the other cards go on the bottom in random order.",
+        "scope": "Discover N exiles cards from the top of your library until you exile a nonland card with mana value N or less. You may cast that card without paying its mana cost if the resulting spell’s mana value is N or less, or put it into your hand. Put the other exiled cards on the bottom of your library in random order.",
+        "summary": "Discover N exiles cards from the top of your library until you exile a nonland card with mana value N or less. You may cast that card without paying its mana cost if the resulting spell’s mana value is N or less, or put it into your hand. Put the other exiled cards on the bottom of your library in random order.",
         "colors": {
           "W": {
             "status": "multicolor_only",

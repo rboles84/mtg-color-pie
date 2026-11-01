@@ -40,8 +40,8 @@
         "version": "2.0",
         "review_date": "2026-10-30",
         "scope_label": "Released paper cards",
-        "scope": "Offering lets a spell be cast with flash by sacrificing the named permanent type and paying the mana-cost difference.",
-        "summary": "Offering lets you cast the spell as though it had flash by sacrificing the named permanent type and paying the difference in mana costs.",
+        "scope": "Offering lets you optionally sacrifice the named permanent type as an additional cost, reduce the spell's total cost by that permanent's mana cost, and cast it any time you could cast an instant.",
+        "summary": "Offering lets you optionally sacrifice the named permanent type as an additional cost, reduce the spell's total cost by that permanent's mana cost, and cast it any time you could cast an instant.",
         "evidence_scope": [
           "released paper"
         ],

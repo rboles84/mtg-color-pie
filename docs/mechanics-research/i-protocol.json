@@ -2904,8 +2904,8 @@
         "version": "2.0",
         "review_date": "2026-10-29",
         "scope_label": "Released paper cards",
-        "scope": "Improvise lets you tap untapped artifacts while casting a spell, after activating mana abilities. Each tapped artifact pays for {1} of the spell's generic cost.",
-        "summary": "Improvise lets you tap untapped artifacts while casting a spell, after activating mana abilities. Each tapped artifact pays for {1} of the spell's generic cost.",
+        "scope": "Improvise lets you tap untapped artifacts you control while casting a spell; each pays for {1} of its generic total cost.",
+        "summary": "Improvise lets you tap untapped artifacts you control while casting a spell; each pays for {1} of its generic total cost.",
         "colors": {
           "W": {
             "status": "documented",

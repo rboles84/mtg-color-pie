@@ -19,7 +19,7 @@
     },
     {
       "path": "docs/mechanics-research/a-protocol-core.json",
-      "sha256": "58a954c1c1afbe5974e6f96f24360017ae0f71cf3c68c089f1ec2855f57f3086"
+      "sha256": "1cd09cd82d5b1206bf23db13742b1cc88906a048fecab2efa46116eaa82a08b7"
     },
     {
       "path": "docs/mechanics-research/a-protocol-extended.json",
@@ -43,15 +43,15 @@
     },
     {
       "path": "docs/mechanics-research/c-protocol-extended.json",
-      "sha256": "f3f38d949e4a7d3b534dcaf94cf65083ee3e367496011bcd608e69e8f6d5290f"
+      "sha256": "e7db8190fc238a1fea05102c4dfa29ac1f99d23d5193b386752233946b61b142"
     },
     {
       "path": "docs/mechanics-research/c-protocol-special.json",
-      "sha256": "d7ee3520368f6f48e1afc26b192d518f6113368e228d590daa66ea9850eef17a"
+      "sha256": "25696ac96d833e412e3e76ba8a1ff5814026960aa5155ec2d062849b076ab555"
     },
     {
       "path": "docs/mechanics-research/d-protocol.json",
-      "sha256": "2af4d6671106d2ba4525dda9d5a7f7ae843dcdff0338f9ab45a25f8d072e4e0f"
+      "sha256": "03dbbbd462a2dac6ae9f2d4afc9461254f5f209a3b2af4addd80d0ed6e65a5bd"
     },
     {
       "path": "docs/mechanics-research/e-protocol.json",
@@ -59,7 +59,7 @@
     },
     {
       "path": "docs/mechanics-research/f-protocol.json",
-      "sha256": "48859b9ae92d2cbcb18f3955c3a532e99d39c7b3998c901da73fa3bdaa694729"
+      "sha256": "f64f117e9706b390c989fa54edd6003adf12b791c166495001c34dafaff8e417"
     },
     {
       "path": "docs/mechanics-research/g-protocol.json",
@@ -71,7 +71,7 @@
     },
     {
       "path": "docs/mechanics-research/i-protocol.json",
-      "sha256": "8e5827c19951a7021924951e92bdacec17d95a9ed2d0caa388c65ef2bb9badd1"
+      "sha256": "f8793754203554c1d17020817be32f64e16e67e10fb86b33c54aa1d979d03208"
     },
     {
       "path": "docs/mechanics-research/j-protocol.json",
@@ -83,7 +83,7 @@
     },
     {
       "path": "docs/mechanics-research/l-protocol.json",
-      "sha256": "a10947b6e47c5cb09e11e20cd2d5a9af2b3b50aed7de10e499beecedcdd66e53"
+      "sha256": "b24e375885c6f019d6572164f6eb00b0b379d2e1896190473ab1d4ee3c810f4a"
     },
     {
       "path": "docs/mechanics-research/m-protocol.json",
@@ -95,11 +95,11 @@
     },
     {
       "path": "docs/mechanics-research/o-protocol.json",
-      "sha256": "6d045f6de271c2bfc83d76936394dba4f6be94a8a6ea52eb63825192c20ca96b"
+      "sha256": "30bc232ac936a91605f47a0a9b3a523469284f5a3a4fdce66cc112e72254b3f0"
     },
     {
       "path": "docs/mechanics-research/p-protocol.json",
-      "sha256": "489324ed11b6dd30f9e6529174e345ea9bc466a53f70adccc16aa3c08dd06019"
+      "sha256": "3c0ca114dbdecdca5f9917d41d05ae6ab2e793d16bed4ecda80a2f079b341427"
     },
     {
       "path": "docs/mechanics-research/r-protocol.json",
@@ -107,7 +107,7 @@
     },
     {
       "path": "docs/mechanics-research/s-protocol.json",
-      "sha256": "b2f417d3961793ad3d21ce6ca6245f6a67fcf30e6ed3e842319420cabb00458a"
+      "sha256": "50906f0f8945b6ecb8be130c6931fcf16934b00aaebbbf492d1eab93f956e9fb"
     },
     {
       "path": "docs/mechanics-research/t-protocol.json",
@@ -2663,7 +2663,7 @@
       "kind": "access",
       "researchDate": "2026-10-28",
       "scopeLabel": "Released paper cards",
-      "scope": "Airbend exiles a nonland permanent or a spell; while it remains exiled, its owner may cast it for {2} rather than its mana cost.",
+      "scope": "Airbend exiles one or more permanents and/or spells; for each card exiled this way, its owner may cast it for {2} rather than its mana cost while it remains exiled.",
       "summary": "The reviewed cards show Airbend in white and blue, on a white-blue card, and on a colorless back face. The exiled card's owner may cast it for {2} while it remains exiled.",
       "access": {
         "colors": {
@@ -17465,7 +17465,7 @@
       "researchDate": "2026-10-28",
       "scopeLabel": "Released paper cards",
       "scope": "Released paper cards that use or explicitly grant Conspire.",
-      "summary": "The reviewed conspire spells can be copied by tapping two untapped creatures that share a color with the spell as an additional casting cost.",
+      "summary": "Conspire can copy the spell when you pay its additional cost by tapping two untapped creatures you control that each share a color with it.",
       "access": {
         "colors": {
           "W": {
@@ -18456,7 +18456,7 @@
               "R",
               "G"
             ],
-            "note": "Blaster, Combat DJ converts when one or more +1/+1 counters are put on it.",
+            "note": "Blaster, Combat DJ converts whenever you put one or more +1/+1 counters on it.",
             "cards": [
               {
                 "name": "Blaster, Combat DJ // Blaster, Morale Booster",
@@ -19696,7 +19696,7 @@
       "researchDate": "2026-10-28",
       "scopeLabel": "Released paper cards",
       "scope": "Released paper cards that use or explicitly grant Corrupted.",
-      "summary": "The reviewed Corrupted abilities check for three or more poison counters on an opponent to enable an ability or strengthen an effect.",
+      "summary": "Corrupted abilities care whether a specified player has three or more poison counters; many check an opponent, while some check the controller of a targeted object.",
       "access": {
         "colors": {
           "W": {
@@ -20809,7 +20809,7 @@
       "researchDate": "2026-10-28",
       "scopeLabel": "Released paper cards",
       "scope": "Crew on Vehicles and cards that explicitly give crew, including to a token they create.",
-      "summary": "Crew lets you tap creatures you control with at least the listed total power to make a Vehicle an artifact creature until end of turn.",
+      "summary": "Crew lets you tap any number of other untapped creatures you control with at least the listed total power to make the Vehicle an artifact creature until end of turn.",
       "access": {
         "colors": {
           "W": {
@@ -27596,8 +27596,8 @@
       "kind": "access",
       "researchDate": "2026-10-28",
       "scopeLabel": "Released paper cards",
-      "scope": "Discover N exiles cards until it finds a nonland card with mana value N or less. You may cast it for free if the resulting spell also fits that limit, or put it into your hand; the other cards go on the bottom in random order.",
-      "summary": "Discover N exiles cards until it finds a nonland card with mana value N or less. You may cast it for free if the resulting spell also fits that limit, or put it into your hand; the other cards go on the bottom in random order.",
+      "scope": "Discover N exiles cards from the top of your library until you exile a nonland card with mana value N or less. You may cast that card without paying its mana cost if the resulting spell’s mana value is N or less, or put it into your hand. Put the other exiled cards on the bottom of your library in random order.",
+      "summary": "Discover N exiles cards from the top of your library until you exile a nonland card with mana value N or less. You may cast that card without paying its mana cost if the resulting spell’s mana value is N or less, or put it into your hand. Put the other exiled cards on the bottom of your library in random order.",
       "access": {
         "colors": {
           "W": {
@@ -34964,7 +34964,7 @@
         "colors": {
           "W": {
             "status": "documented",
-            "note": "Apothecary White creates a Food for each player you attack.",
+            "note": "Apothecary White creates a Food for each player being attacked whenever you attack.",
             "cards": [
               {
                 "name": "Apothecary White",
@@ -39473,8 +39473,8 @@
       "kind": "access",
       "researchDate": "2026-10-29",
       "scopeLabel": "Released paper cards",
-      "scope": "Improvise lets you tap untapped artifacts while casting a spell, after activating mana abilities. Each tapped artifact pays for {1} of the spell's generic cost.",
-      "summary": "Improvise lets you tap untapped artifacts while casting a spell, after activating mana abilities. Each tapped artifact pays for {1} of the spell's generic cost.",
+      "scope": "Improvise lets you tap untapped artifacts you control while casting a spell; each pays for {1} of its generic total cost.",
+      "summary": "Improvise lets you tap untapped artifacts you control while casting a spell; each pays for {1} of its generic total cost.",
       "access": {
         "colors": {
           "W": {
@@ -43591,7 +43591,7 @@
               "W",
               "R"
             ],
-            "note": "Arcee, Acrobatic Coupe gets a +1/+1 counter for each creature or Vehicle targeted by a spell you cast, then converts.",
+            "note": "Arcee gets a +1/+1 counter for each creature or Vehicle you control targeted by a spell you cast, then converts.",
             "cards": [
               {
                 "name": "Arcee, Acrobatic Coupe",
@@ -47883,8 +47883,8 @@
       "kind": "access",
       "researchDate": "2026-10-30",
       "scopeLabel": "Released paper cards",
-      "scope": "Offering lets a spell be cast with flash by sacrificing the named permanent type and paying the mana-cost difference.",
-      "summary": "Offering lets you cast the spell as though it had flash by sacrificing the named permanent type and paying the difference in mana costs.",
+      "scope": "Offering lets you optionally sacrifice the named permanent type as an additional cost, reduce the spell's total cost by that permanent's mana cost, and cast it any time you could cast an instant.",
+      "summary": "Offering lets you optionally sacrifice the named permanent type as an additional cost, reduce the spell's total cost by that permanent's mana cost, and cast it any time you could cast an instant.",
       "access": {
         "colors": {
           "W": {
@@ -48874,8 +48874,8 @@
       "kind": "access",
       "researchDate": "2026-10-30",
       "scopeLabel": "Released paper cards",
-      "scope": "Paradox marks abilities that trigger whenever you cast a spell from somewhere other than your hand. The reward depends on the card.",
-      "summary": "Paradox marks abilities that trigger whenever you cast a spell from somewhere other than your hand. The reward depends on the card.",
+      "scope": "Paradox marks abilities and effects that care about spells cast from somewhere other than your hand; some trigger on a cast and others count such spells.",
+      "summary": "Paradox marks abilities and effects that care about spells cast from somewhere other than your hand; some trigger on a cast and others count such spells.",
       "access": {
         "colors": {
           "W": {
@@ -55366,7 +55366,7 @@
               "U",
               "G"
             ],
-            "note": "Círdan the Shipwright: On entry or attack it holds a secret vote for players, then grants draws or a permanent to players receiving no votes.",
+            "note": "Each player draws a card for each vote received; a player receiving no votes may put a permanent card from hand onto the battlefield.",
             "cards": [
               {
                 "name": "Círdan the Shipwright",
@@ -55653,7 +55653,7 @@
               "B",
               "G"
             ],
-            "note": "Gitrog, Horror of Zhava: An opponent may sacrifice a creature at combat; if so, it seeks a land onto the battlefield tapped.",
+            "note": "At the beginning of combat, if Gitrog is untapped, an opponent may sacrifice a nontoken creature; if they do, Gitrog taps and seeks a land onto the battlefield tapped.",
             "cards": [
               {
                 "name": "Gitrog, Horror of Zhava",
@@ -55682,7 +55682,7 @@
               "W",
               "U"
             ],
-            "note": "Innovative Metatect: Artifact-creature combat damage to a player seeks a nonland card costing 2 or less.",
+            "note": "When one or more artifact creatures you control deal combat damage to a player, Innovative Metatect seeks a nonland card with mana value 2 or less.",
             "cards": [
               {
                 "name": "Innovative Metatect",
@@ -56678,8 +56678,8 @@
       "kind": "access",
       "researchDate": "2026-10-30",
       "scopeLabel": "Released paper cards",
-      "scope": "Sneak lets you cast a spell for its sneak cost during the declare blockers step by also returning an unblocked attacker you control to your hand. A creature spell cast this way enters tapped and attacking.",
-      "summary": "Sneak lets you cast a spell for its sneak cost during the declare blockers step by also returning an unblocked attacker you control to your hand. A creature spell cast this way enters tapped and attacking.",
+      "scope": "During your declare blockers step, any time you could cast an instant, sneak lets you pay its cost and return an unblocked creature you control to its owner's hand. A creature spell cast this way enters tapped and attacking.",
+      "summary": "During your declare blockers step, any time you could cast an instant, sneak lets you pay its cost and return an unblocked creature you control to its owner's hand. A creature spell cast this way enters tapped and attacking.",
       "access": {
         "colors": {
           "W": {
@@ -56922,7 +56922,7 @@
         "colors": {
           "W": {
             "status": "documented",
-            "note": "Breathkeeper Seraph: While paired, both creatures can return after dying at the beginning of their owners’ next upkeep.",
+            "note": "While paired, each creature can return under its owner's control at the beginning of the death trigger controller's next upkeep.",
             "cards": [
               {
                 "name": "Breathkeeper Seraph",
@@ -57739,7 +57739,7 @@
           },
           "R": {
             "status": "documented",
-            "note": "Great Train Heist: Its modes can add a combat, boost first strike attackers, or make tapped Treasures from combat damage.",
+            "note": "Its modes can add a combat if it is your combat phase, give your creatures +1/+0 and first strike for the turn, or make tapped Treasures from combat damage to a chosen opponent.",
             "cards": [
               {
                 "name": "Great Train Heist",
@@ -57999,7 +57999,7 @@
               "B",
               "R"
             ],
-            "note": "Far Fortune, End Boss: Its attack deals 1 to each opponent; at max speed your damage sources deal one extra damage.",
+            "note": "At max speed, sources you control deal one additional damage to opponents and permanents opponents control.",
             "cards": [
               {
                 "name": "Far Fortune, End Boss",
@@ -59499,8 +59499,8 @@
       "kind": "access",
       "researchDate": "2026-10-30",
       "scopeLabel": "Released paper cards",
-      "scope": "Suspend exiles a card with time counters for its suspend cost; counters are removed at upkeep and the spell is cast when the last is removed.",
-      "summary": "Suspend exiles a card with time counters for its suspend cost; counters are removed at upkeep and the spell is cast when the last is removed.",
+      "scope": "Suspend exiles a card with time counters for its suspend cost. When the last time counter is removed, its controller may play the exiled card without paying its mana cost if able; otherwise it remains exiled.",
+      "summary": "Suspend exiles a card with time counters for its suspend cost. When the last time counter is removed, its controller may play the exiled card without paying its mana cost if able; otherwise it remains exiled.",
       "access": {
         "colors": {
           "W": {
@@ -59580,7 +59580,7 @@
               "U",
               "R"
             ],
-            "note": "Gandalf of the Secret Fire: It gives resolved instant or sorcery cards cast on an opponent’s turn suspend if they lack it, with three time counters.",
+            "note": "It exiles an instant or sorcery cast from your hand during an opponent's turn as it resolves, with three time counters, and grants suspend if needed.",
             "cards": [
               {
                 "name": "Gandalf of the Secret Fire",

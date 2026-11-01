@@ -2544,7 +2544,7 @@
             "card_ids": [
               "063e05b0-554f-4b55-9feb-e11f3927f3a6"
             ],
-            "note": "Círdan the Shipwright: On entry or attack it holds a secret vote for players, then grants draws or a permanent to players receiving no votes."
+            "note": "Each player draws a card for each vote received; a player receiving no votes may put a permanent card from hand onto the battlefield."
           },
           {
             "colors": [
@@ -7841,8 +7841,8 @@
         "version": "2.0",
         "review_date": "2026-10-30",
         "scope_label": "Released paper cards",
-        "scope": "Sneak lets you cast a spell for its sneak cost during the declare blockers step by also returning an unblocked attacker you control to your hand. A creature spell cast this way enters tapped and attacking.",
-        "summary": "Sneak lets you cast a spell for its sneak cost during the declare blockers step by also returning an unblocked attacker you control to your hand. A creature spell cast this way enters tapped and attacking.",
+        "scope": "During your declare blockers step, any time you could cast an instant, sneak lets you pay its cost and return an unblocked creature you control to its owner's hand. A creature spell cast this way enters tapped and attacking.",
+        "summary": "During your declare blockers step, any time you could cast an instant, sneak lets you pay its cost and return an unblocked creature you control to its owner's hand. A creature spell cast this way enters tapped and attacking.",
         "evidence_scope": [
           "released paper"
         ],
@@ -10113,7 +10113,7 @@
             "card_ids": [
               "a41e632f-9d36-44d2-b1dd-e17df0d2486e"
             ],
-            "note": "Breathkeeper Seraph: While paired, both creatures can return after dying at the beginning of their owners’ next upkeep."
+            "note": "While paired, each creature can return under its owner's control at the beginning of the death trigger controller's next upkeep."
           },
           "U": {
             "status": "documented",
@@ -15759,7 +15759,7 @@
             "card_ids": [
               "afe2f7a4-9440-4d93-801f-a18b627efb21"
             ],
-            "note": "Great Train Heist: Its modes can add a combat, boost first strike attackers, or make tapped Treasures from combat damage."
+            "note": "Its modes can add a combat if it is your combat phase, give your creatures +1/+0 and first strike for the turn, or make tapped Treasures from combat damage to a chosen opponent."
           },
           "G": {
             "status": "documented",
@@ -17942,7 +17942,7 @@
             "card_ids": [
               "8b9734c1-7185-40f6-8582-9f87109e3a09"
             ],
-            "note": "Far Fortune, End Boss: Its attack deals 1 to each opponent; at max speed your damage sources deal one extra damage."
+            "note": "At max speed, sources you control deal one additional damage to opponents and permanents opponents control."
           },
           {
             "colors": [
@@ -31578,8 +31578,8 @@
         "version": "2.0",
         "review_date": "2026-10-30",
         "scope_label": "Released paper cards",
-        "scope": "Suspend exiles a card with time counters for its suspend cost; counters are removed at upkeep and the spell is cast when the last is removed.",
-        "summary": "Suspend exiles a card with time counters for its suspend cost; counters are removed at upkeep and the spell is cast when the last is removed.",
+        "scope": "Suspend exiles a card with time counters for its suspend cost. When the last time counter is removed, its controller may play the exiled card without paying its mana cost if able; otherwise it remains exiled.",
+        "summary": "Suspend exiles a card with time counters for its suspend cost. When the last time counter is removed, its controller may play the exiled card without paying its mana cost if able; otherwise it remains exiled.",
         "evidence_scope": [
           "released paper"
         ],
@@ -31640,7 +31640,7 @@
             "card_ids": [
               "cbad35cd-9026-43ea-8333-94f3b34459e3"
             ],
-            "note": "Gandalf of the Secret Fire: It gives resolved instant or sorcery cards cast on an opponent’s turn suspend if they lack it, with three time counters."
+            "note": "It exiles an instant or sorcery cast from your hand during an opponent's turn as it resolves, with three time counters, and grants suspend if needed."
           },
           {
             "colors": [
@@ -38634,7 +38634,7 @@
             "card_ids": [
               "04ea8ccf-e565-4f4e-b842-56e7fac5679f"
             ],
-            "note": "Gitrog, Horror of Zhava: An opponent may sacrifice a creature at combat; if so, it seeks a land onto the battlefield tapped."
+            "note": "At the beginning of combat, if Gitrog is untapped, an opponent may sacrifice a nontoken creature; if they do, Gitrog taps and seeks a land onto the battlefield tapped."
           },
           {
             "colors": [
@@ -38655,7 +38655,7 @@
             "card_ids": [
               "cc6b95d1-2a08-44d4-850c-e748fed413e8"
             ],
-            "note": "Innovative Metatect: Artifact-creature combat damage to a player seeks a nonland card costing 2 or less."
+            "note": "When one or more artifact creatures you control deal combat damage to a player, Innovative Metatect seeks a nonland card with mana value 2 or less."
           },
           {
             "colors": [

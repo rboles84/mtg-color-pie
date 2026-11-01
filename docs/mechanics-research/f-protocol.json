@@ -24478,7 +24478,7 @@
             "card_ids": [
               "7bf8bb41-6f46-492c-b6cf-5cfb29f973a4"
             ],
-            "note": "Apothecary White creates a Food for each player you attack."
+            "note": "Apothecary White creates a Food for each player being attacked whenever you attack."
           },
           "U": {
             "status": "documented",

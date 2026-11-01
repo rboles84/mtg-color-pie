@@ -1743,8 +1743,8 @@
         "version": "2.0",
         "review_date": "2026-10-30",
         "scope_label": "Released paper cards",
-        "scope": "Paradox marks abilities that trigger whenever you cast a spell from somewhere other than your hand. The reward depends on the card.",
-        "summary": "Paradox marks abilities that trigger whenever you cast a spell from somewhere other than your hand. The reward depends on the card.",
+        "scope": "Paradox marks abilities and effects that care about spells cast from somewhere other than your hand; some trigger on a cast and others count such spells.",
+        "summary": "Paradox marks abilities and effects that care about spells cast from somewhere other than your hand; some trigger on a cast and others count such spells.",
         "evidence_scope": [
           "released paper"
         ],

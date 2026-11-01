@@ -18119,7 +18119,7 @@
         "review_date": "2026-10-28",
         "scope_label": "Released paper cards",
         "scope": "Released paper cards that use or explicitly grant Conspire.",
-        "summary": "The reviewed conspire spells can be copied by tapping two untapped creatures that share a color with the spell as an additional casting cost.",
+        "summary": "Conspire can copy the spell when you pay its additional cost by tapping two untapped creatures you control that each share a color with it.",
         "colors": {
           "W": {
             "status": "documented",
@@ -40298,7 +40298,7 @@
         "review_date": "2026-10-28",
         "scope_label": "Released paper cards",
         "scope": "Released paper cards that use or explicitly grant Corrupted.",
-        "summary": "The reviewed Corrupted abilities check for three or more poison counters on an opponent to enable an ability or strengthen an effect.",
+        "summary": "Corrupted abilities care whether a specified player has three or more poison counters; many check an opponent, while some check the controller of a targeted object.",
         "colors": {
           "W": {
             "status": "documented",

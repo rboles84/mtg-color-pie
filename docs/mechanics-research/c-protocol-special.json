@@ -2329,7 +2329,7 @@
             "card_ids": [
               "59c2af34-a2e5-4c67-af2d-a782e41a8e1e"
             ],
-            "note": "Blaster, Combat DJ converts when one or more +1/+1 counters are put on it."
+            "note": "Blaster, Combat DJ converts whenever you put one or more +1/+1 counters on it."
           },
           {
             "colors": [
@@ -18606,7 +18606,7 @@
         "review_date": "2026-10-28",
         "scope_label": "Released paper cards",
         "scope": "Crew on Vehicles and cards that explicitly give crew, including to a token they create.",
-        "summary": "Crew lets you tap creatures you control with at least the listed total power to make a Vehicle an artifact creature until end of turn.",
+        "summary": "Crew lets you tap any number of other untapped creatures you control with at least the listed total power to make the Vehicle an artifact creature until end of turn.",
         "colors": {
           "W": {
             "status": "documented",
