@@ -420,7 +420,8 @@ button{font:inherit;color:inherit}
 /* Supplemental documented-access marks are intentionally a separate notation
    from the 2021 Primary/Secondary/Tertiary tier strip. */
 .strip.access-strip{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:var(--sz,14px)}
-.grp[data-scope] .ent > .access-strip{column-gap:6.5px}
+.grp[data-scope] .ent > .access-strip{column-gap:3px}
+.grp[data-scope] .ent > .access-strip > .access-active{outline:none;box-shadow:inset 0 0 0 .75px var(--brass-l),0 0 0 1.25px var(--brass-l)}
 .access-strip .sc{border:1px solid rgba(237,230,211,.22)}
 .access-strip .sc > .ms{display:none;color:#15120c}
 .access-strip .sc.a-d{background:var(--cc);border-color:var(--cc)}
