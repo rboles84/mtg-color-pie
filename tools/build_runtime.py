@@ -21,8 +21,11 @@ are executable and golden-tested rather than described in prose.
 """
 
 import argparse
+import hashlib
 import json
 import pathlib
+import shutil
+import tempfile
 
 from gate import require_source_gate, require_taxonomy_gate
 
@@ -37,15 +40,15 @@ RESTRICTION_MARKERS = (
 )
 
 
+def source_identity(value):
+    return value.strip().lower().rstrip(".")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--data", type=pathlib.Path, default=pathlib.Path("data"))
     ap.add_argument("--out", default="mechanical-color-pie.runtime.json")
     args = ap.parse_args()
-
-    # source gate -> taxonomy gate -> runtime generation -> fixture gate
-    require_source_gate(args.data)
-    require_taxonomy_gate(args.data)
 
     rec = json.loads((args.data / "mcp2021.reconciled.json").read_text(encoding="utf-8"))
     abil = json.loads((args.data / "mcp2021.abilities.json").read_text(encoding="utf-8"))
@@ -53,7 +56,9 @@ def main():
 
     fam = {a["key"]: a for a in tax["assignments"]}
     expl = {}
+    grouped_expl = {}
     for a in abil["abilities"]:
+        grouped_expl.setdefault((source_identity(a.get("group") or ""), source_identity(a["label"])), []).append(a.get("explanation") or "")
         if a.get("explanation"):
             expl.setdefault(a["label"], a["explanation"])
 
@@ -65,7 +70,13 @@ def main():
         if v.get("structural_only"):
             continue                      # a heading is not a peer mechanic
         f = fam.get(k)
-        text = expl.get(v["label"], "")
+        if " :: " in k:
+            group, _ = k.split(" :: ", 1)
+            matches = grouped_expl.get((source_identity(group), source_identity(v["label"])), [])
+            assert len(matches) == 1, ("grouped explanation must resolve uniquely", k, len(matches))
+            text = matches[0]
+        else:
+            text = expl.get(v["label"], "")
         entry = {
             "label": v["label"],
             "colors": {},
@@ -115,9 +126,26 @@ def main():
         "byColor": by_color,
         "byFamily": {k: sorted(v) for k, v in sorted(by_family.items())},
     }
-    (args.data / args.out).write_text(
-        json.dumps(payload, indent=2, ensure_ascii=False, sort_keys=False) + "\n",
-        encoding="utf-8")
+    candidate = json.dumps(payload, indent=2, ensure_ascii=False, sort_keys=False) + "\n"
+    source = args.data.resolve()
+    stage_root = pathlib.Path(tempfile.mkdtemp(prefix="mtg-color-pie-runtime-stage-")).resolve()
+    stage_data = stage_root / "data"
+    assert stage_root != source and source not in stage_root.parents and stage_root not in source.parents
+    shutil.copytree(source, stage_data)
+    frozen = ("mcp2021.abilities.json", "mcp2021.reconciled.json", "vox.families.json")
+    digest = lambda path: hashlib.sha256(path.read_bytes()).hexdigest()
+    assert all(digest(source / name) == digest(stage_data / name) for name in frozen)
+    try:
+        require_source_gate(stage_data)
+    except SystemExit as exc:
+        assert exc.code != 0, "staged stale runtime unexpectedly passed"
+        print("staged stale runtime : expected FAIL")
+    else:
+        raise AssertionError("staged stale runtime unexpectedly passed")
+    (stage_data / "mechanical-color-pie.runtime.json").write_text(candidate, encoding="utf-8")
+    require_source_gate(stage_data)
+    require_taxonomy_gate(stage_data)
+    (source / args.out).write_text(candidate, encoding="utf-8")
 
     print("mechanics indexed   : %d" % len(by_mech))
     print("families indexed    : %d" % len(by_family))
@@ -132,7 +160,8 @@ def main():
         print("  %s  primary %3d  secondary %3d  tertiary %3d"
               % (c, len(by_color[c]["primary"]), len(by_color[c]["secondary"]),
                  len(by_color[c]["tertiary"])))
-    print("\nwrote %s" % (args.data / args.out))
+    print("\nstaged validation : %s" % stage_data)
+    print("wrote %s" % (source / args.out))
 
 
 if __name__ == "__main__":

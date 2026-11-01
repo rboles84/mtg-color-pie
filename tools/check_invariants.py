@@ -155,6 +155,21 @@ def main():
                          "or changed (%r)" % cs.get("explanation"))
         else:
             notes.append("%-24s explanation present" % "creature sacrifice")
+        parent_pairs = {
+            "creature pumping, their team, one-shot :: -n/-n to their team": "This is a common way for black to kill creatures. Sometimes this effect will affect all creatures and not just your opponents.",
+            "creature pumping, their team, ongoing :: -n/-n to their team": "Black occasionally lowers the opponent's creatures' power and toughness, usually by just -1/-1.",
+            "creature pumping, your team, one-shot :: +n/+0 to your team": "Team pump that only pumps power is most often done in red, usually affecting attacking creatures. White will sometimes pump its team's power without pumping toughness (although it more often pumps both).",
+            "creature pumping, your team, ongoing :: +n/+0 to your team": "When red does permanent pumps, it is usually just pumping the power. Often it pumps your creatures just on attack.",
+            "creature pumping, your team, one-shot :: +n/+n to your team": "White is the color most likely to pump its team, most often with +1/+1, but it will occasionally go up to +2/+2. Green's team pump starts at +3/+3 and often also adds trample.",
+            "creature pumping, your team, ongoing :: +n/+n to your team": "This category appears mostly on permanents, most often creatures or enchantments, and it grants a stat boost to your team. This ability is most often seen in white with just a +1/+1 boost. Green boosts are often a bit bigger. All the colors have access to this ability when making tribal lords (creatures that grant a certain creature type or types a +1/+1 bonus). This stat bonus often comes with the granting of another ability.",
+        }
+        for key, expected in parent_pairs.items():
+            if runtime["byMechanic"].get(key, {}).get("explanation") != expected:
+                fails.append("parent-aware explanation mismatch: %s" % key)
+        for entry in abil["abilities"]:
+            key = "%s :: %s" % ((entry.get("group") or "").lower(), entry["label"].lower())
+            if key in runtime["byMechanic"] and runtime["byMechanic"][key].get("explanation") != (entry.get("explanation") or ""):
+                fails.append("grouped explanation differs from frozen parent: %s" % key)
 
     for n in notes:
         print("ok    %s" % n)

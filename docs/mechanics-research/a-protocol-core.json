@@ -13552,8 +13552,8 @@
         "version": "2.0",
         "review_date": "2026-10-28",
         "scope_label": "Released paper cards",
-        "scope": "Airbend exiles one or more permanents and/or spells; for each card exiled this way, its owner may cast it for {2} rather than its mana cost while it remains exiled.",
-        "summary": "The reviewed cards show Airbend in white and blue, on a white-blue card, and on a colorless back face. The exiled card's owner may cast it for {2} while it remains exiled.",
+        "scope": "Airbend exiles one or more permanents and/or spells; for each card exiled this way, its owner may cast it for {2} rather than its mana cost while it remains exiled. This cast permission does not let an exiled land be played.",
+        "summary": "The reviewed cards show Airbend in white and blue, on a white-blue card, and on a colorless back face. The exiled card's owner may cast it for {2} while it remains exiled; this cast permission does not let an exiled land be played.",
         "colors": {
           "W": {
             "status": "documented",

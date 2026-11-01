@@ -19,7 +19,7 @@
     },
     {
       "path": "docs/mechanics-research/a-protocol-core.json",
-      "sha256": "1cd09cd82d5b1206bf23db13742b1cc88906a048fecab2efa46116eaa82a08b7"
+      "sha256": "fc8ce9833f7c3591ea7bb1932f811f2a59b98103376daf274c9f1e75c6e65a45"
     },
     {
       "path": "docs/mechanics-research/a-protocol-extended.json",
@@ -107,7 +107,7 @@
     },
     {
       "path": "docs/mechanics-research/s-protocol.json",
-      "sha256": "50906f0f8945b6ecb8be130c6931fcf16934b00aaebbbf492d1eab93f956e9fb"
+      "sha256": "8fa2d47e47741c9b12ec7440a1790f527444ad3243879ff0458c39d43b3c8ab5"
     },
     {
       "path": "docs/mechanics-research/t-protocol.json",
@@ -2663,8 +2663,8 @@
       "kind": "access",
       "researchDate": "2026-10-28",
       "scopeLabel": "Released paper cards",
-      "scope": "Airbend exiles one or more permanents and/or spells; for each card exiled this way, its owner may cast it for {2} rather than its mana cost while it remains exiled.",
-      "summary": "The reviewed cards show Airbend in white and blue, on a white-blue card, and on a colorless back face. The exiled card's owner may cast it for {2} while it remains exiled.",
+      "scope": "Airbend exiles one or more permanents and/or spells; for each card exiled this way, its owner may cast it for {2} rather than its mana cost while it remains exiled. This cast permission does not let an exiled land be played.",
+      "summary": "The reviewed cards show Airbend in white and blue, on a white-blue card, and on a colorless back face. The exiled card's owner may cast it for {2} while it remains exiled; this cast permission does not let an exiled land be played.",
       "access": {
         "colors": {
           "W": {
@@ -57739,7 +57739,7 @@
           },
           "R": {
             "status": "documented",
-            "note": "Its modes can add a combat if it is your combat phase, give your creatures +1/+0 and first strike for the turn, or make tapped Treasures from combat damage to a chosen opponent.",
+            "note": "Its modes can untap all creatures you control and, if it is your combat phase, add a combat; give your creatures +1/+0 and first strike for the turn; or make tapped Treasures from combat damage to a chosen opponent.",
             "cards": [
               {
                 "name": "Great Train Heist",

@@ -1033,8 +1033,8 @@
       "source_aliases": [
         "-N/-N to their team, ongoing"
       ],
-      "explanation": "This is a common way for black to kill creatures. Sometimes this effect will affect all creatures and not just your opponents.",
-      "has_restriction": false
+      "explanation": "Black occasionally lowers the opponent's creatures' power and toughness, usually by just -1/-1.",
+      "has_restriction": true
     },
     "creature pumping, your team, one-shot :: +n/+0 to your team": {
       "label": "+N/+0 to your team",
@@ -1109,7 +1109,7 @@
       "source_aliases": [
         "+N/+0 to your team, ongoing"
       ],
-      "explanation": "Team pump that only pumps power is most often done in red, usually affecting attacking creatures. White will sometimes pump its team's power without pumping toughness (although it more often pumps both).",
+      "explanation": "When red does permanent pumps, it is usually just pumping the power. Often it pumps your creatures just on attack.",
       "has_restriction": true
     },
     "creature pumping, your team, ongoing :: +n/+n to your team": {
@@ -1143,7 +1143,7 @@
       "source_aliases": [
         "+N/+N to your team, ongoing"
       ],
-      "explanation": "White is the color most likely to pump its team, most often with +1/+1, but it will occasionally go up to +2/+2. Green's team pump starts at +3/+3 and often also adds trample.",
+      "explanation": "This category appears mostly on permanents, most often creatures or enchantments, and it grants a stat boost to your team. This ability is most often seen in white with just a +1/+1 boost. Green boosts are often a bit bigger. All the colors have access to this ability when making tribal lords (creatures that grant a certain creature type or types a +1/+1 bonus). This stat bonus often comes with the granting of another ability.",
       "has_restriction": true
     },
     "creature sacrifice, forced, repeatable": {
