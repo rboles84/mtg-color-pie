@@ -1,3 +1,10 @@
+# Approved703c — release in progress, 2026-11-01
+
+- Owner explicitly approved release of exact material `703c709028d04871b5a75ca297e033f60b70b387`. The final combined18-path read-only review and seven-detail smoke passed; separate RobQA PASS binds that material with evidence HEAD `7223c1b5482285b9200e2bbbe5e0755e37bb3f20`. Approval accepts the bounded19-finding repair, three historical attribution fixes and targeted wording refinements, not a numerical accuracy claim or new research scope.
+- This release record changes HANDOFF only. Approved source/runtime/package bytes remain unchanged. Actual deployment source is the normal commit containing this approval record; its root revision stamp differs from the reviewed package while all other shipped bytes must match. No product code, source data, witness, placement, UI, dependency or workflow edit is authorized or made.
+- Preserve complete history by guarded normal non-force fast-forwards, existing worktrees, original183 commits, all50 main loose-file hashes and every prior candidate/package/archive/tag/bundle. Pre-publication recovery tag/bundle and exact package comparison are required; both remote branches currently equal `c1046984e72217c5426a5f19fdd124a5e69048ee`. No reset, rebase, amend, squash, force push or cleanup.
+- Publication uses the existing Pages workflow after protected development/recovery refs are confirmed. Actual HTTPS root, all allowlisted assets and the corrected details will be verified after deployment; CI success alone is insufficient. Release remains in progress until actual public checks pass. Evidence: `C:/dev/backups/mtg-color-pie/2026-10-31-pre-selection-6606f294/release-approved-703c-20261101`.
+
 # Owner wording and historical-parent correction — ready-for-qa
 
 - Authorized envelope: `HANDOFF.md`, `docs/mechanics-research/a-protocol-core.json`, `docs/mechanics-research/s-protocol.json`, generated `data/mechanics-assessments.v1.json`, `tools/build_runtime.py`, `tools/check_invariants.py`, and generated `data/mechanical-color-pie.runtime.json`.
